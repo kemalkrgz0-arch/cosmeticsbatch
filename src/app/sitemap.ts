@@ -2,42 +2,43 @@ import type { MetadataRoute } from "next";
 import { BRANDS } from "@/lib/brands";
 import { GUIDES } from "@/lib/guides";
 import { absoluteUrl } from "@/lib/site";
-import { LOCALES } from "@/i18n/locales";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { localizedPath, hreflangAlternates } from "@/lib/seo";
 
 /**
- * One sitemap entry per (path × locale). Each entry lists hreflang alternates
- * via `alternates.languages`, so search engines index the right language and
- * understand they are translations of one another.
+ * One entry per path (at the default-locale URL), each declaring all language
+ * versions via hreflang `alternates.languages`. Search engines discover and
+ * index the other locales through the alternates, so we don't repeat every path
+ * once per locale — keeping the sitemap ~8× smaller (one <loc> per page, not
+ * one per page × language).
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const entries = (
+  const entry = (
     path: string,
     lastModified: Date,
     changeFrequency: "weekly" | "monthly",
     priority: number,
-  ): MetadataRoute.Sitemap =>
-    LOCALES.map((l) => ({
-      url: absoluteUrl(localizedPath(l.code, path)),
-      lastModified,
-      changeFrequency,
-      priority,
-      alternates: { languages: hreflangAlternates(path) },
-    }));
+  ) => ({
+    url: absoluteUrl(localizedPath(DEFAULT_LOCALE, path)),
+    lastModified,
+    changeFrequency,
+    priority,
+    alternates: { languages: hreflangAlternates(path) },
+  });
 
-  const staticRoutes = ["/", "/brands", "/guides", "/about"].flatMap((path) =>
-    entries(path, now, "weekly", path === "/" ? 1 : 0.8),
+  const staticRoutes = ["/", "/brands", "/guides", "/about"].map((path) =>
+    entry(path, now, "weekly", path === "/" ? 1 : 0.8),
   );
-  const legalRoutes = ["/privacy", "/terms"].flatMap((path) =>
-    entries(path, now, "monthly", 0.3),
+  const legalRoutes = ["/privacy", "/terms"].map((path) =>
+    entry(path, now, "monthly", 0.3),
   );
-  const brandRoutes = BRANDS.flatMap((b) =>
-    entries(`/brands/${b.slug}`, now, "monthly", 0.7),
+  const brandRoutes = BRANDS.map((b) =>
+    entry(`/brands/${b.slug}`, now, "monthly", 0.7),
   );
-  const guideRoutes = GUIDES.flatMap((g) =>
-    entries(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6),
+  const guideRoutes = GUIDES.map((g) =>
+    entry(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6),
   );
 
   return [...staticRoutes, ...legalRoutes, ...brandRoutes, ...guideRoutes];
