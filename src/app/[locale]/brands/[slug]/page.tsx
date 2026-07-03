@@ -1,0 +1,270 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ArrowRight, CalendarClock, Info, MapPin, Timer } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { BRANDS, getBrand, POPULAR_BRANDS } from "@/lib/brands";
+import { DECODERS, checkBatchCode } from "@/lib/decoder";
+import { InlineResult } from "@/components/inline-result";
+import { buildBrandFaqs, decodeExplanation } from "@/lib/brand-faq";
+import { GUIDES } from "@/lib/guides";
+import {
+  articleSchema,
+  breadcrumbSchema,
+  faqSchema,
+  pageMeta,
+} from "@/lib/seo";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { CheckForm } from "@/components/check-form";
+import { Faq } from "@/components/faq";
+import { AdSlot } from "@/components/ui/ad-slot";
+import { BrandLogo } from "@/components/ui/brand-logo";
+import { JsonLd } from "@/components/json-ld";
+
+export function generateStaticParams() {
+  return BRANDS.map((b) => ({ slug: b.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const brand = getBrand(slug);
+  if (!brand) return {};
+  const t = await getTranslations({ locale, namespace: "brandPage" });
+  const meta = pageMeta({
+    title: t("metaTitle", { name: brand.name }),
+    description: t("metaDescription", { name: brand.name }),
+    path: `/brands/${brand.slug}`,
+    type: "article",
+    locale,
+  });
+  return {
+    ...meta,
+    keywords: [
+      `${brand.name} batch code`,
+      `${brand.name} batch code decoder`,
+      `${brand.name} batch code checker`,
+      `${brand.name} batch code calculator`,
+      `${brand.name} expiry date`,
+      `${brand.name} production date`,
+      `check ${brand.name} batch code`,
+      `${brand.name} manufacture date`,
+    ],
+  };
+}
+
+/** A representative example code per decoder family (for unique on-page content). */
+function exampleCode(brand: NonNullable<ReturnType<typeof getBrand>>): string {
+  switch (brand.decoderId) {
+    case "estee-lauder":
+      return "A26";
+    case "loreal":
+      return "22U401";
+    case "coty":
+    case "chanel":
+    case "dior":
+      return "4135";
+    default:
+      return "24045";
+  }
+}
+
+export default async function BrandPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const brand = getBrand(slug);
+  if (!brand) notFound();
+
+  const t = await getTranslations();
+  const tb = await getTranslations("brandPage");
+  const nav = await getTranslations("nav");
+  const path = `/brands/${brand.slug}`;
+
+  // Worked example — decoded at build time so every brand page has unique,
+  // concrete content (helps ranking + avoids thin/duplicate pages).
+  const exCode = exampleCode(brand);
+  const exResult = checkBatchCode({
+    brandName: brand.name,
+    code: exCode,
+    decoderId: brand.decoderId,
+    shelfLifeMonths: brand.shelfLifeMonths,
+    category: brand.category,
+  });
+  const exDate = exResult.manufactureDate?.toLocaleDateString(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const related = [
+    ...BRANDS.filter((b) => b.group === brand.group && b.slug !== brand.slug),
+    ...POPULAR_BRANDS.filter((b) => b.slug !== brand.slug),
+  ]
+    .filter((b, i, arr) => arr.findIndex((x) => x.slug === b.slug) === i)
+    .slice(0, 6);
+
+  const brandFaq = buildBrandFaqs(
+    brand,
+    { exampleCode: exCode, exampleDate: exDate },
+    t,
+  );
+
+  const category = t(`categoryNoun.${brand.category}`);
+  const months = (n: number) => tb("months", { n });
+
+  const facts = [
+    { icon: MapPin, label: tb("factManufacturer"), value: brand.group },
+    { icon: Timer, label: tb("factShelfLife"), value: months(brand.shelfLifeMonths) },
+    { icon: CalendarClock, label: tb("factPao"), value: months(brand.paoMonths) },
+    {
+      icon: Info,
+      label: tb("factDecoder"),
+      value:
+        brand.decoderId && DECODERS[brand.decoderId]
+          ? DECODERS[brand.decoderId].label
+          : tb("autoDecoder"),
+    },
+  ];
+
+  const crumbs = [
+    { name: nav("home"), path: "/" },
+    { name: nav("brands"), path: "/brands" },
+    { name: brand.name, path },
+  ];
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <JsonLd
+        data={[
+          breadcrumbSchema(crumbs),
+          faqSchema(brandFaq),
+          articleSchema({
+            title: tb("checkerTitle", { name: brand.name }),
+            description: tb("blurb", { name: brand.name, category }),
+            path,
+            updated: "2026-06-01",
+          }),
+        ]}
+      />
+      <Breadcrumbs items={crumbs} />
+
+      <header className="flex items-center gap-4">
+        <BrandLogo name={brand.name} slug={brand.slug} className="h-14 w-14 text-base" />
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            {tb("checkerTitle", { name: brand.name })}
+          </h1>
+          <p className="mt-1 text-sm text-fg-muted">
+            {tb("by", { group: brand.group })}
+          </p>
+        </div>
+      </header>
+
+      <p className="mt-5 text-pretty leading-relaxed text-fg-muted">
+        {tb("intro", { name: brand.name })}
+      </p>
+
+      <CheckForm initialBrand={brand} className="mt-6" autoFocusCode />
+
+      {/* Inline decode result (client-rendered from ?code= so the page stays SSG) */}
+      <Suspense fallback={null}>
+        <InlineResult brand={brand} />
+      </Suspense>
+
+      {/* Quick facts */}
+      <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {facts.map(({ icon: Icon, label, value }) => (
+          <div key={label} className="rounded-xl border border-border bg-card p-3.5">
+            <dt className="flex items-center gap-1.5 text-xs text-fg-muted">
+              <Icon className="h-3.5 w-3.5" />
+              {label}
+            </dt>
+            <dd className="mt-1 text-sm font-medium leading-tight">{value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      {/* Explanation */}
+      <section className="mt-10">
+        <h2 className="text-xl font-semibold">
+          {tb("howHeading", { name: brand.name })}
+        </h2>
+        <p className="mt-3 leading-relaxed text-fg-muted">
+          {decodeExplanation(brand, t)}
+        </p>
+        <p className="mt-3 leading-relaxed text-fg-muted">
+          {tb("freshnessPara", {
+            name: brand.name,
+            shelf: brand.shelfLifeMonths,
+            pao: brand.paoMonths,
+            category,
+          })}
+        </p>
+
+        {exDate && (
+          <div className="mt-5 rounded-xl border border-border bg-bg-subtle/50 p-4">
+            <p className="text-sm font-medium">{tb("workedExampleTitle")}</p>
+            <p className="mt-1 text-sm leading-relaxed text-fg-muted">
+              {tb("workedExample", {
+                name: brand.name,
+                code: exCode,
+                date: exDate,
+                shelf: brand.shelfLifeMonths,
+              })}
+            </p>
+          </div>
+        )}
+
+        <p className="mt-5 leading-relaxed text-fg-muted">
+          {tb("aliasesPara", { name: brand.name, category })}
+        </p>
+      </section>
+
+      <AdSlot placement="brand" className="my-12" height={250} />
+
+      <Faq items={brandFaq} title={tb("faqTitle", { name: brand.name })} />
+
+      {/* Related brands */}
+      <section className="mt-4">
+        <h2 className="mb-4 text-lg font-semibold">{tb("relatedBrands")}</h2>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {related.map((b) => (
+            <Link
+              key={b.slug}
+              href={`/brands/${b.slug}`}
+              className="flex items-center gap-2.5 rounded-xl border border-border bg-card p-3 transition-colors hover:border-border-strong"
+            >
+              <BrandLogo name={b.name} slug={b.slug} className="h-8 w-8 text-[11px]" />
+              <span className="truncate text-sm font-medium">{b.name}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Guide links */}
+      <section className="mt-10">
+        <h2 className="mb-4 text-lg font-semibold">{tb("helpfulGuides")}</h2>
+        <ul className="space-y-2">
+          {GUIDES.slice(0, 4).map((g) => (
+            <li key={g.slug}>
+              <Link
+                href={`/guides/${g.slug}`}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
+              >
+                {g.title} <ArrowRight className="h-4 w-4" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  );
+}
