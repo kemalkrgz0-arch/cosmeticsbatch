@@ -10,9 +10,12 @@ WORKDIR /app
 
 # ---- Dependencies (cached unless the lockfile changes) ---------------------
 FROM base AS deps
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
+# --ignore-scripts: this app needs no native postinstall builds (sharp is unused,
+# Next bundles its own SWC, @parcel/watcher is dev-only). Skipping them avoids
+# pnpm 10's ERR_PNPM_IGNORED_BUILDS approval gate that fails non-interactively.
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
-    pnpm install --frozen-lockfile
+    pnpm install --frozen-lockfile --ignore-scripts
 
 # ---- Build -----------------------------------------------------------------
 FROM base AS builder
