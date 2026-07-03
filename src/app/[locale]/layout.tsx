@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -106,11 +105,14 @@ export default async function RootLayout({
           <BottomNav />
         </Providers>
         {adsenseEnabled && (
-          <Script
-            id="adsbygoogle-init"
-            strategy="afterInteractive"
-            crossOrigin="anonymous"
+          // Plain async script — React 19 hoists it into the server-rendered
+          // <head> as a literal <script async src="adsbygoogle.js">, which is
+          // what the AdSense verification crawler looks for.
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          <script
+            async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense.client}`}
+            crossOrigin="anonymous"
           />
         )}
         </NextIntlClientProvider>
