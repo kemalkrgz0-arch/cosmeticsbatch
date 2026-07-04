@@ -132,10 +132,83 @@ export function getBrandDomain(slug: string): string | undefined {
   return DOMAINS[slug];
 }
 
-/** Ordered logo sources for a domain: real logo first, favicon fallback. */
+/**
+ * Curated brand tiles for the most-recognised brands: a short wordmark on the
+ * brand's colour, rendered as auto-scaling SVG text (crisp at any size, never a
+ * broken image). These are original text renderings, not copied logo files.
+ * Anything not listed falls back to a real favicon, then a neutral monogram.
+ */
+export interface BrandTile {
+  label: string;
+  bg: string;
+  fg?: string;
+}
+
+const BRAND_TILES: Record<string, BrandTile> = {
+  // Estée Lauder Companies
+  "estee-lauder": { label: "EL", bg: "#16233f" },
+  clinique: { label: "CLINIQUE", bg: "#3c7c78" },
+  "mac-cosmetics": { label: "MAC", bg: "#0a0a0a" },
+  "bobbi-brown": { label: "BOBBI", bg: "#0a0a0a" },
+  "la-mer": { label: "LA MER", bg: "#0b3d4f" },
+  "jo-malone-london": { label: "JO", bg: "#111111" },
+  "tom-ford-beauty": { label: "TF", bg: "#0a0a0a" },
+  // L'Oréal Group
+  loreal: { label: "L'ORÉAL", bg: "#0a0a0a" },
+  "loreal-paris": { label: "L'ORÉAL", bg: "#111827" },
+  maybelline: { label: "MAYBELLINE", bg: "#0a0a0a" },
+  garnier: { label: "GARNIER", bg: "#5aa832" },
+  "nyx-professional-makeup": { label: "NYX", bg: "#0a0a0a" },
+  lancome: { label: "LANCÔME", bg: "#0a0a0a" },
+  kiehls: { label: "KIEHL'S", bg: "#1c3b2e" },
+  "ysl-beauty": { label: "YSL", bg: "#0a0a0a" },
+  "giorgio-armani-beauty": { label: "ARMANI", bg: "#0a0a0a" },
+  "urban-decay": { label: "UD", bg: "#0a0a0a" },
+  vichy: { label: "VICHY", bg: "#c8102e" },
+  "la-roche-posay": { label: "LRP", bg: "#009fda" },
+  cerave: { label: "CERAVE", bg: "#12508f" },
+  biotherm: { label: "BIOTHERM", bg: "#009aa6" },
+  kerastase: { label: "KÉRASTASE", bg: "#0a0a0a" },
+  redken: { label: "REDKEN", bg: "#e2231a" },
+  "prada-beauty": { label: "PRADA", bg: "#0a0a0a" },
+  "valentino-beauty": { label: "VLTN", bg: "#0a0a0a" },
+  "viktor-rolf": { label: "V&R", bg: "#0a0a0a" },
+  azzaro: { label: "AZZARO", bg: "#0a2a5e" },
+  cacharel: { label: "CACHAREL", bg: "#d94f8a" },
+  aesop: { label: "Aesop", bg: "#2b2b26", fg: "#efe9dd" },
+  // LVMH
+  dior: { label: "Dior", bg: "#0a0a0a" },
+  guerlain: { label: "GUERLAIN", bg: "#0a0a0a", fg: "#caa76a" },
+  "benefit-cosmetics": { label: "benefit", bg: "#ffcf01", fg: "#1a1a1a" },
+  "fenty-beauty": { label: "FENTY", bg: "#0a0a0a" },
+  "make-up-for-ever": { label: "MUFE", bg: "#0a0a0a" },
+  // Chanel
+  chanel: { label: "CHANEL", bg: "#0a0a0a" },
+  "chanel-beauty": { label: "CHANEL", bg: "#0a0a0a" },
+  // Coty (fragrance)
+  coty: { label: "COTY", bg: "#111111" },
+  "calvin-klein": { label: "CK", bg: "#0a0a0a" },
+  "hugo-boss": { label: "BOSS", bg: "#0a0a0a" },
+  "gucci-beauty": { label: "GUCCI", bg: "#1e5631" },
+  "burberry-beauty": { label: "BURBERRY", bg: "#0a0a0a", fg: "#d3c4a8" },
+};
+
+export function getBrandTile(slug: string): BrandTile | undefined {
+  return BRAND_TILES[slug];
+}
+
+/**
+ * Ordered logo sources for a domain. DuckDuckGo's icon service returns the real
+ * site favicon and a proper 404 when it has none (so the <img> onError chain can
+ * fall through to the monogram). Google favicons are the secondary source.
+ *
+ * Clearbit's logo API was retired (DNS no longer resolves) and, before that,
+ * served generic placeholder images with a 200 — which loaded "successfully"
+ * and masked the real logo instead of failing over. It is intentionally gone.
+ */
 export function logoSources(domain: string): string[] {
   return [
-    `https://logo.clearbit.com/${domain}?size=128`,
+    `https://icons.duckduckgo.com/ip3/${domain}.ico`,
     `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
   ];
 }
