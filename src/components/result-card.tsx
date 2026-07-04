@@ -9,6 +9,7 @@ import {
   Timer,
 } from "lucide-react";
 import type { CheckResult, FreshnessStatus } from "@/lib/decoder";
+import { getDecoder } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { cn } from "@/lib/utils";
 
@@ -136,6 +137,44 @@ export function ResultCard({
   const meta = statusMeta[result.freshness];
   const StatusIcon = meta.icon;
 
+  // Decode failed — almost always a mistyped code. Show a clear, warning-styled
+  // "invalid code" state (no freshness ring / pseudo-result) plus a hint about
+  // what this brand's codes actually look like, so the user can fix their input.
+  if (!result.decoded) {
+    const decoder = getDecoder(brand.decoderId);
+    return (
+      <div className="overflow-hidden rounded-2xl border border-warning/40 bg-warning-bg shadow-card">
+        <div className="flex flex-col items-center gap-3 px-6 py-8 text-center sm:px-8">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-warning/15 text-warning">
+            <AlertTriangle className="h-6 w-6" />
+          </span>
+          <div>
+            <h2 className="text-lg font-semibold">
+              We couldn’t read this code
+            </h2>
+            <p className="mx-auto mt-1.5 max-w-md text-sm text-fg-muted">
+              <span className="font-mono font-medium text-fg">
+                “{result.code}”
+              </span>{" "}
+              doesn’t match {brand.name}’s batch-code format. Check that you
+              typed it exactly as printed on the packaging — letters and numbers
+              only, no spaces — and that it’s the batch code, not the barcode or
+              a price/marketing reference.
+            </p>
+          </div>
+        </div>
+        {decoder && (
+          <div className="border-t border-warning/25 bg-card/40 px-6 py-4 text-left text-xs leading-relaxed text-fg-muted sm:px-8">
+            <p className="mb-1 font-medium text-fg">
+              What {brand.name} codes look like
+            </p>
+            {decoder.explanation}
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
       {/* Header */}
@@ -158,65 +197,48 @@ export function ResultCard({
         <FreshnessRing percent={result.percentRemaining} color={meta.ring} />
       </div>
 
-      {result.decoded ? (
-        <div className="grid gap-x-8 p-6 sm:p-8 md:grid-cols-2">
-          <div className="divide-y divide-border">
-            <DataRow
-              icon={CalendarDays}
-              label="Manufacture date"
-              value={fmt(result.manufactureDate)}
-            />
-            <DataRow icon={Clock} label="Age" value={result.ageLabel ?? "—"} />
-            <DataRow
-              icon={Timer}
-              label="Shelf life"
-              value={`${result.shelfLifeMonths} months`}
-            />
-            <DataRow
-              icon={CalendarDays}
-              label="Expiration date"
-              value={fmt(result.expirationDate)}
-            />
-          </div>
-          <div className="divide-y divide-border">
-            <DataRow
-              icon={CheckCircle2}
-              label="Freshness"
-              value={`${meta.label}${
-                result.percentRemaining !== null
-                  ? ` · ${result.percentRemaining}% left`
-                  : ""
-              }`}
-            />
-            <DataRow
-              icon={Info}
-              label="Confidence"
-              value={confidenceLabel[result.confidence]}
-            />
-            <DataRow
-              icon={HelpCircle}
-              label="Read using"
-              value={result.method}
-            />
-            <DataRow
-              icon={Timer}
-              label="After opening (PAO)"
-              value={`${brand.paoMonths} months`}
-            />
-          </div>
+      <div className="grid gap-x-8 p-6 sm:p-8 md:grid-cols-2">
+        <div className="divide-y divide-border">
+          <DataRow
+            icon={CalendarDays}
+            label="Manufacture date"
+            value={fmt(result.manufactureDate)}
+          />
+          <DataRow icon={Clock} label="Age" value={result.ageLabel ?? "—"} />
+          <DataRow
+            icon={Timer}
+            label="Shelf life"
+            value={`${result.shelfLifeMonths} months`}
+          />
+          <DataRow
+            icon={CalendarDays}
+            label="Expiration date"
+            value={fmt(result.expirationDate)}
+          />
         </div>
-      ) : (
-        <div className="flex items-start gap-3 p-6 sm:p-8">
-          <ShieldQuestion className="mt-0.5 h-5 w-5 shrink-0 text-fg-muted" />
-          <div>
-            <p className="font-medium">We couldn’t decode this code.</p>
-            <p className="mt-1 text-sm text-fg-muted">
-              Make sure you entered the batch code exactly as stamped on the
-              packaging — not the barcode or a marketing reference.
-            </p>
-          </div>
+        <div className="divide-y divide-border">
+          <DataRow
+            icon={CheckCircle2}
+            label="Freshness"
+            value={`${meta.label}${
+              result.percentRemaining !== null
+                ? ` · ${result.percentRemaining}% left`
+                : ""
+            }`}
+          />
+          <DataRow
+            icon={Info}
+            label="Confidence"
+            value={confidenceLabel[result.confidence]}
+          />
+          <DataRow icon={HelpCircle} label="Read using" value={result.method} />
+          <DataRow
+            icon={Timer}
+            label="After opening (PAO)"
+            value={`${brand.paoMonths} months`}
+          />
         </div>
-      )}
+      </div>
 
       {/* Notes */}
       {result.notes.length > 0 && (
