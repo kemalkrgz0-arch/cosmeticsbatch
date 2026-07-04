@@ -219,6 +219,185 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "does-makeup-expire",
+    title: "Does Makeup Expire? Signs and Timelines",
+    description:
+      "Yes — makeup expires, and using it past its prime can irritate skin or cause infections. Here are the real timelines and the warning signs to watch for.",
+    readMinutes: 5,
+    updated: "2026-07-04",
+    sections: [
+      {
+        heading: "Yes, makeup expires",
+        body: [
+          "Every cosmetic has two clocks: the unopened shelf life from the manufacture date, and the period after opening (PAO) once you break the seal. Whichever runs out first is your real deadline.",
+          "Decode the batch code to find the manufacture date, then use the open-jar PAO symbol to know how long it lasts after first use.",
+        ],
+      },
+      {
+        heading: "Typical timelines after opening",
+        body: [
+          "- Mascara and liquid eyeliner: 3–6 months. The wand pumps bacteria back into the tube every use.",
+          "- Liquid foundation and concealer: 6–12 months.",
+          "- Cream products (blush, eyeshadow): 12 months.",
+          "- Powders (pressed, loose, bronzer): 18–24 months — dry formulas resist bacteria.",
+          "- Lipstick and lip gloss: 12–18 months.",
+          "- Pencil liners: up to 24 months, since sharpening exposes a fresh surface.",
+        ],
+      },
+      {
+        heading: "Warning signs it's gone off",
+        body: [
+          "Trust your senses before the calendar: a sour or 'off' smell, a change in colour, separation, a dried or clumpy texture, or a filmy layer all mean it's time to bin it.",
+          "Anything you use near the eyes or on broken skin deserves extra caution — a mascara that smells odd is not worth an eye infection.",
+        ],
+      },
+      {
+        heading: "What happens if you use expired makeup",
+        body: [
+          "Preservatives weaken over time, letting bacteria, mould and yeast grow. That can trigger breakouts, irritation, styes, conjunctivitis or cold-sore-like reactions.",
+          "Expired SPF and active skincare also lose potency, so the product may simply stop doing its job even if it looks fine.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I use makeup after the PAO date if it looks fine?",
+        a: "It's not recommended for eye and lip products, where infection risk is highest. Powders are the most forgiving. When in doubt, smell and inspect it — and replace anything used near the eyes.",
+      },
+      {
+        q: "Does unopened makeup expire?",
+        a: "Yes, but more slowly. Sealed products are typically good for 2–3 years from manufacture. Decode the batch code to check how old an unopened item already is.",
+      },
+    ],
+  },
+  {
+    slug: "pao-symbol-meaning",
+    title: "PAO Symbol: What 6M, 12M and 24M Mean",
+    description:
+      "The little open-jar icon with a number is the Period After Opening. Here's what 6M, 12M and 24M mean and how it differs from the batch code.",
+    readMinutes: 3,
+    updated: "2026-07-04",
+    sections: [
+      {
+        heading: "What the open-jar symbol means",
+        body: [
+          "The PAO (Period After Opening) symbol is a small open jar with a number followed by 'M'. It tells you how many months a product stays good after you first open it.",
+          "So '12M' means use within 12 months of opening; '24M' means 24 months. The clock starts the day you break the seal, not the day you bought it.",
+        ],
+      },
+      {
+        heading: "PAO vs the batch code",
+        body: [
+          "These are two different timers. The batch code encodes the manufacture date and tells you the unopened shelf life. The PAO takes over once the product is opened.",
+          "A brand-new foundation could be two years old on the shelf (from its batch code) and still have a 12M PAO — meaning you get 12 more months once you open it, provided the unopened shelf life hasn't already lapsed.",
+        ],
+      },
+      {
+        heading: "Common PAO values",
+        body: [
+          "- 6M: mascara, liquid liner, some active serums.",
+          "- 12M: foundation, concealer, cream products, most skincare.",
+          "- 24M: powders, lipsticks, many fragrances and pencils.",
+          "- 36M: some perfumes and long-life formulas.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does every product have a PAO symbol?",
+        a: "Most EU-sold cosmetics with a shelf life over 30 months must show one. Products that last under 30 months use a 'best before' date instead. Fragrances sometimes omit it.",
+      },
+      {
+        q: "Should I write the opening date on the product?",
+        a: "It helps. A dab of marker or a small sticker with the open date makes the PAO easy to track, especially for mascara and skincare.",
+      },
+    ],
+  },
+  {
+    slug: "does-sunscreen-expire",
+    title: "Does Sunscreen Expire? Why It Matters",
+    description:
+      "Expired sunscreen loses SPF protection and can burn you. Learn how long sunscreen lasts, how to read its date, and when to throw it out.",
+    readMinutes: 4,
+    updated: "2026-07-04",
+    sections: [
+      {
+        heading: "Sunscreen expires — and it matters more",
+        body: [
+          "Unlike most cosmetics, an expired sunscreen doesn't just underperform cosmetically — it fails at its one job. Degraded UV filters let through more radiation, so 'expired SPF 50' can behave like a much weaker product and lead to burns.",
+          "Regulators require sunscreen to stay at its stated SPF for up to three years, so most bottles carry an explicit expiry date or a batch code you can decode.",
+        ],
+      },
+      {
+        heading: "How long it lasts",
+        body: [
+          "- Unopened: up to 3 years from manufacture if stored cool and dark.",
+          "- Opened: 12 months is a safe rule, sooner if it lived in a hot car or beach bag.",
+          "Heat is the enemy. Repeated high temperatures break down the filters faster than time alone.",
+        ],
+      },
+      {
+        heading: "Signs your sunscreen is done",
+        body: [
+          "Toss it if the texture has separated, gone watery or grainy, changed colour, or smells off. Any of these means the emulsion has broken and the protection is unreliable.",
+          "If there's no printed expiry, decode the batch code for the manufacture date and count forward using the shelf life and PAO.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is it dangerous to use expired sunscreen?",
+        a: "It won't poison you, but it can leave you unprotected and lead to sunburn and long-term skin damage. For sun protection specifically, replace anything past its date.",
+      },
+      {
+        q: "How should I store sunscreen to make it last?",
+        a: "Keep it out of direct sun and heat. Don't leave it in a hot car or on the sand all day — store it in the shade or a cool bag.",
+      },
+    ],
+  },
+  {
+    slug: "when-does-mascara-expire",
+    title: "When Does Mascara Expire?",
+    description:
+      "Mascara has the shortest life of any makeup — 3 to 6 months after opening. Here's why, plus the signs it's time to replace it.",
+    readMinutes: 3,
+    updated: "2026-07-04",
+    sections: [
+      {
+        heading: "3–6 months after opening",
+        body: [
+          "Mascara is the fastest-expiring product in your bag. Every time you pump and reinsert the wand, you push air and bacteria into a warm, moist tube — perfect conditions for microbes.",
+          "Most dermatologists recommend replacing mascara three to six months after first use, regardless of how much is left.",
+        ],
+      },
+      {
+        heading: "Signs to replace it now",
+        body: [
+          "- A dry, clumpy formula that no longer coats evenly.",
+          "- A gasoline-like or sour smell.",
+          "- Flaking during the day or eye irritation and watering.",
+          "Never add water or saliva to revive dried mascara — that injects more bacteria straight to your lash line.",
+        ],
+      },
+      {
+        heading: "How old is your tube?",
+        body: [
+          "If you're not sure when you opened it, decode the batch code to find the manufacture date. A tube that's already old on the shelf gives you even less time once opened.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What happens if I use expired mascara?",
+        a: "The most common consequences are eye irritation, redness and styes or conjunctivitis from bacterial growth. Eyes are especially vulnerable, so mascara is the one product not to stretch.",
+      },
+      {
+        q: "Does unopened mascara last longer?",
+        a: "Yes — sealed, it's typically good for about two years from manufacture. The short 3–6 month clock only starts once you open it.",
+      },
+    ],
+  },
 ];
 
 const guideBySlug = new Map(GUIDES.map((g) => [g.slug, g]));
