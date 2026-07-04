@@ -63,7 +63,7 @@ export function BrandLogo({
     return (
       <span
         className={cn(
-          "flex shrink-0 items-center justify-center overflow-hidden rounded-xl px-[14%]",
+          "flex shrink-0 items-center justify-center overflow-hidden rounded-xl",
           className,
         )}
         style={{ backgroundColor: tile.bg }}
