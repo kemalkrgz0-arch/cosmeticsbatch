@@ -13,6 +13,13 @@ export interface Brand {
   /** Period-after-opening in months (the jar symbol), for guidance. */
   paoMonths: number;
   popular?: boolean;
+  /**
+   * Staged out of the public picker/search until we have a *verified* decode
+   * format for it (real code→date samples). Its page still resolves by URL so
+   * existing links don't 404. Un-hide by removing the slug from HIDDEN_SLUGS
+   * once a tested decoder covers it.
+   */
+  hidden?: boolean;
   blurb: string;
 }
 
@@ -201,23 +208,66 @@ function normalizeSearch(s: string) {
     .replace(/[^a-z0-9]+/g, "");
 }
 
-export const BRANDS: Brand[] = ROWS.map(
-  ([name, group, decoderId, category, shelfLifeMonths, paoMonths, popular]) => ({
-    slug: toSlug(name),
-    name,
-    group,
-    decoderId,
-    category,
-    shelfLifeMonths,
-    paoMonths,
-    popular,
-    blurb: `Decode ${name} batch codes to find the manufacture date, age and expiration date of your ${categoryBlurb[category]} products. Free, instant and private.`,
-  }),
+/**
+ * Brands staged out of the public list until we verify a real decode format
+ * (see [[Brand.hidden]]). These currently rely on an unverified fallback that
+ * would produce wrong dates, or use a proprietary cipher we haven't reversed
+ * yet — so we hide them rather than mislead. Remove a slug here the moment a
+ * tested decoder covers it.
+ */
+const HIDDEN_SLUGS = new Set<string>([
+  // Coty makeup/skin — the 4-digit YDDD fragrance format does NOT apply here.
+  "rimmel-london",
+  "bourjois",
+  "sally-hansen",
+  "max-factor",
+  "covergirl",
+  "manhattan",
+  "miss-sporty",
+  "kylie-cosmetics",
+  "kylie-skin",
+  "younique",
+  "lancaster",
+  // No verified decoder yet (undefined → unreliable fallback).
+  "nivea",
+  "eucerin",
+  "the-ordinary",
+  "niod",
+  "nars",
+  "shiseido",
+  "sk-ii",
+  "charlotte-tilbury",
+  "drunk-elephant",
+  "paulas-choice",
+  "clarins",
+  "sephora-collection",
+]);
+
+/** Every brand, including hidden ones — used for URL resolution. */
+export const ALL_BRANDS: Brand[] = ROWS.map(
+  ([name, group, decoderId, category, shelfLifeMonths, paoMonths, popular]) => {
+    const slug = toSlug(name);
+    return {
+      slug,
+      name,
+      group,
+      decoderId,
+      category,
+      shelfLifeMonths,
+      paoMonths,
+      popular,
+      hidden: HIDDEN_SLUGS.has(slug),
+      blurb: `Decode ${name} batch codes to find the manufacture date, age and expiration date of your ${categoryBlurb[category]} products. Free, instant and private.`,
+    };
+  },
 );
+
+/** Public, verified-decode brands shown in the picker, search and listings. */
+export const BRANDS: Brand[] = ALL_BRANDS.filter((b) => !b.hidden);
 
 export const POPULAR_BRANDS = BRANDS.filter((b) => b.popular);
 
-const bySlug = new Map(BRANDS.map((b) => [b.slug, b]));
+const bySlug = new Map(ALL_BRANDS.map((b) => [b.slug, b]));
 export function getBrand(slug: string): Brand | undefined {
   return bySlug.get(slug);
 }
