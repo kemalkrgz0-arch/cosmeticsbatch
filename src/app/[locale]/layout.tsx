@@ -47,9 +47,10 @@ export const metadata: Metadata = {
     description: site.description,
   },
   robots: { index: true, follow: true },
-  ...(adsenseEnabled && {
-    other: { "google-adsense-account": adsense.client },
-  }),
+  other: {
+    "yandex-verification": "00b71840cf95776d",
+    ...(adsenseEnabled && { "google-adsense-account": adsense.client }),
+  },
 };
 
 export const viewport: Viewport = {
