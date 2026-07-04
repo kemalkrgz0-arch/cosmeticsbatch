@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { JsonLd } from "@/components/json-ld";
+import { CookieConsent } from "@/components/cookie-consent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -91,6 +92,21 @@ export default async function RootLayout({
       className={`${inter.variable} h-full`}
     >
       <body className="flex min-h-full flex-col antialiased">
+        {(adsenseEnabled || gaEnabled) && (
+          // Google Consent Mode v2: default everything to denied *before* the
+          // gtag/AdSense loaders run, then immediately re-grant if the visitor
+          // already accepted in a previous session. The CookieConsent banner
+          // flips these on "Accept".
+          <script
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html:
+                "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}" +
+                "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});" +
+                "try{if(localStorage.getItem('cb:consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}}catch(e){}",
+            }}
+          />
+        )}
         <NextIntlClientProvider>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Providers>
@@ -106,6 +122,7 @@ export default async function RootLayout({
           </main>
           <SiteFooter />
           <BottomNav />
+          {(adsenseEnabled || gaEnabled) && <CookieConsent />}
         </Providers>
         {adsenseEnabled && (
           // Plain async script — React 19 hoists it into the server-rendered
@@ -129,7 +146,7 @@ export default async function RootLayout({
             <script
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga.id}');`,
+                __html: `gtag('js',new Date());gtag('config','${ga.id}');`,
               }}
             />
           </>
