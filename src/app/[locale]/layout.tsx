@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { isRtl, DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { adsense, adsenseEnabled } from "@/lib/ads";
+import { ga, gaEnabled } from "@/lib/analytics";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -116,6 +117,22 @@ export default async function RootLayout({
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense.client}`}
             crossOrigin="anonymous"
           />
+        )}
+        {gaEnabled && (
+          <>
+            {/* Google Analytics 4 — the loader script plus the gtag bootstrap. */}
+            {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${ga.id}`}
+            />
+            <script
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ga.id}');`,
+              }}
+            />
+          </>
         )}
         </NextIntlClientProvider>
       </body>

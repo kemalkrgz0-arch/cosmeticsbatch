@@ -42,6 +42,7 @@ git remote add origin <your-repo-url> && git push -u origin main
 | `NEXT_PUBLIC_ADSENSE_SLOT_RESULT` | `1234567890` | Optional. |
 | `NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE` | `1234567890` | Optional. |
 | `NEXT_PUBLIC_ADSENSE_SLOT_BRAND` | `1234567890` | Optional. |
+| `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` | Optional. Google Analytics 4 measurement ID. Blank = no analytics, no cookies. |
 
 > Changing any `NEXT_PUBLIC_*` requires a **rebuild** (they are baked into the
 > build), not just a restart.
