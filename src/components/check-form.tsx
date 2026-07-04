@@ -5,12 +5,7 @@ import { useLocale } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { Check, ChevronDown, ScanLine, Search, X } from "lucide-react";
-import {
-  BRANDS,
-  groupBrands,
-  searchBrands,
-  type Brand,
-} from "@/lib/brands";
+import { BRANDS, searchBrands, type Brand } from "@/lib/brands";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { cn } from "@/lib/utils";
 
@@ -67,18 +62,21 @@ export function CheckForm({
   // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate recents on mount
   useEffect(() => setRecent(loadRecent()), []);
 
-  // Sections rendered in the dropdown: an optional "Recent" section, then
-  // brands grouped by their parent (çatı marka). While searching, results are
-  // grouped too. `flat` is the keyboard-navigation order across all sections.
+  // Sections rendered in the dropdown: an optional "Recent" section, then a
+  // single flat, alphabetically-sorted list of every brand (no parent-company
+  // grouping). While searching, results are shown flat with no header.
+  // `flat` is the keyboard-navigation order across all sections.
+  const allSorted = useMemo(
+    () => [...BRANDS].sort((a, z) => a.name.localeCompare(z.name)),
+    [],
+  );
   const { sections, flat } = useMemo(() => {
     const raw: { label: string; brands: Brand[] }[] = [];
     if (query.trim()) {
-      for (const g of groupBrands(searchBrands(query, 80)))
-        raw.push({ label: g.group, brands: g.brands });
+      raw.push({ label: "", brands: searchBrands(query, 80) });
     } else {
       if (recent.length) raw.push({ label: "Recent", brands: recent });
-      for (const g of groupBrands(BRANDS))
-        raw.push({ label: g.group, brands: g.brands });
+      raw.push({ label: "", brands: allSorted });
     }
     let start = 0;
     const secs = raw.map((s) => {
@@ -87,7 +85,7 @@ export function CheckForm({
       return withStart;
     });
     return { sections: secs, flat: raw.flatMap((s) => s.brands) };
-  }, [query, recent]);
+  }, [query, recent, allSorted]);
 
   // Close on outside click.
   useEffect(() => {
@@ -224,15 +222,17 @@ export function CheckForm({
               </div>
               <ul role="listbox" className="max-h-80 overflow-y-auto p-1.5">
                 {sections.map((section) => (
-                  <li key={section.label} role="presentation">
-                    <div className="sticky top-0 z-10 bg-card/95 px-2.5 pb-1 pt-2 text-[11px] font-medium uppercase tracking-wider text-fg-muted/70 backdrop-blur-sm">
-                      {section.label}
-                      {section.label === "Recent" && (
-                        <span className="ml-1.5 lowercase tracking-normal text-fg-muted/50">
-                          · last used
-                        </span>
-                      )}
-                    </div>
+                  <li key={section.label || "all"} role="presentation">
+                    {section.label && (
+                      <div className="sticky top-0 z-10 bg-card/95 px-2.5 pb-1 pt-2 text-[11px] font-medium uppercase tracking-wider text-fg-muted/70 backdrop-blur-sm">
+                        {section.label}
+                        {section.label === "Recent" && (
+                          <span className="ml-1.5 lowercase tracking-normal text-fg-muted/50">
+                            · last used
+                          </span>
+                        )}
+                      </div>
+                    )}
                     <ul role="group">
                       {section.brands.map((b, bi) => {
                         const i = section.start + bi;

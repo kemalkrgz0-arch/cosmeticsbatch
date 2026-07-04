@@ -189,6 +189,18 @@ function toSlug(name: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+/**
+ * Fold a string to a punctuation/diacritic-free search key so "loreal"
+ * matches "L'Oréal" and "lancome" matches "Lancôme".
+ */
+function normalizeSearch(s: string) {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "");
+}
+
 export const BRANDS: Brand[] = ROWS.map(
   ([name, group, decoderId, category, shelfLifeMonths, paoMonths, popular]) => ({
     slug: toSlug(name),
@@ -232,14 +244,15 @@ export function groupBrands(
 }
 
 export function searchBrands(query: string, limit = 8): Brand[] {
-  const q = query.trim().toLowerCase();
+  const q = normalizeSearch(query);
   if (!q) return POPULAR_BRANDS.slice(0, limit);
   const starts: Brand[] = [];
   const contains: Brand[] = [];
   for (const b of BRANDS) {
-    const n = b.name.toLowerCase();
+    const n = normalizeSearch(b.name);
     if (n.startsWith(q)) starts.push(b);
-    else if (n.includes(q) || b.group.toLowerCase().includes(q)) contains.push(b);
+    else if (n.includes(q) || normalizeSearch(b.group).includes(q))
+      contains.push(b);
   }
   return [...starts, ...contains].slice(0, limit);
 }
