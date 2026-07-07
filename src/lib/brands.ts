@@ -167,7 +167,28 @@ const ROWS: Row[] = [
   ["Tommy Hilfiger", "Estée Lauder Companies", "estee-lauder", "perfume", 60, 36],
   ["Maison Margiela", "L'Oréal Group", "loreal", "perfume", 60, 36],
   ["Creed", "Creed", "creed", "perfume", 60, 36, true],
+  // Puig — fragrances print the production date in the code (year digit +
+  // Julian day), read by the generic embedded-date decoder.
   ["Zara", "Puig", "embedded", "perfume", 48, 36],
+  ["Jean Paul Gaultier", "Puig", "embedded", "perfume", 60, 36, true],
+  ["Paco Rabanne", "Puig", "embedded", "perfume", 60, 36, true],
+  ["Rabanne", "Puig", "embedded", "perfume", 60, 36],
+  ["Carolina Herrera", "Puig", "embedded", "perfume", 60, 36, true],
+  ["Nina Ricci", "Puig", "embedded", "perfume", 60, 36],
+  // Inter Parfums — 9-char codes (e.g. 08J38J169) with an undocumented
+  // letter-coded year/month; staged (hidden) until we verify the format.
+  ["Montblanc", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Jimmy Choo", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Coach", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Boucheron", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Van Cleef & Arpels", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Karl Lagerfeld", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Kate Spade", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Salvatore Ferragamo", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Moncler", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["GUESS", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Abercrombie & Fitch", "Inter Parfums", undefined, "perfume", 60, 36],
+  ["Dunhill", "Inter Parfums", undefined, "perfume", 60, 36],
   ["Nivea", "Beiersdorf", undefined, "skincare", 30, 12, true],
   ["Eucerin", "Beiersdorf", undefined, "skincare", 36, 12],
   ["The Ordinary", "Deciem", undefined, "skincare", 24, 12, true],
@@ -246,6 +267,19 @@ const HIDDEN_SLUGS = new Set<string>([
   "paulas-choice",
   "clarins",
   "sephora-collection",
+  // Inter Parfums — 9-char letter-coded format not yet verified.
+  "montblanc",
+  "jimmy-choo",
+  "coach",
+  "boucheron",
+  "van-cleef-arpels",
+  "karl-lagerfeld",
+  "kate-spade",
+  "salvatore-ferragamo",
+  "moncler",
+  "guess",
+  "abercrombie-fitch",
+  "dunhill",
 ]);
 
 /** Every brand, including hidden ones — used for URL resolution. */
