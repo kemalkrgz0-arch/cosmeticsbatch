@@ -393,6 +393,76 @@ const julian: Decoder = {
 };
 
 /* -------------------------------------------------------------------------- */
+/*  Creed                                                                     */
+/*  Modern Creed codes begin with a single letter encoding the production      */
+/*  year: A = 2010, B = 2011 … skipping I and O, so N = 2022, P = 2023,         */
+/*  Q = 2024, R = 2025. The month is not encoded, only the year.               */
+/* -------------------------------------------------------------------------- */
+
+// A=2010, incrementing, with I and O removed to avoid confusion with 1 / 0.
+const CREED_YEAR_LETTERS = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+
+function creedYear(letter: string): number | null {
+  const i = CREED_YEAR_LETTERS.indexOf(letter);
+  return i === -1 ? null : 2010 + i;
+}
+
+const creed: Decoder = {
+  id: "creed",
+  label: "Creed year letter",
+  explanation:
+    "Creed batch codes begin with a single letter that encodes the production year: A = 2010, B = 2011, and so on, skipping the letters I and O — so N = 2022, P = 2023, Q = 2024 and R = 2025. The remaining characters are the internal batch series. Creed does not encode the month, so only the manufacture year is certain.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/[A-Z]/); // year is the first letter in the code
+    if (!m) return null;
+    const year = creedYear(m[0]);
+    if (year === null) return null;
+    // Year only — estimate mid-year, clamping to January if that lands ahead.
+    let date = new Date(Date.UTC(year, 6, 1));
+    if (inFuture(date, ctx.now)) {
+      date = new Date(Date.UTC(year, 0, 1));
+      if (inFuture(date, ctx.now)) return null;
+    }
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "Creed encodes only the production year (the first letter); the month is not in the code, so the day is estimated as mid-year.",
+        "This is the manufacture year. Once opened, the PAO symbol (open-jar icon) governs how long the fragrance stays good.",
+      ],
+    };
+  },
+};
+
+/* -------------------------------------------------------------------------- */
+/*  Generic "production date in code" reader                                  */
+/*  For brands that print the date in the code (year digit + Julian day, or a  */
+/*  5/6-digit date) without a proprietary cipher — e.g. Zara (Puig).           */
+/* -------------------------------------------------------------------------- */
+
+const embedded: Decoder = {
+  id: "embedded",
+  label: "Production date in code",
+  explanation:
+    "This brand prints the production date inside the batch code — most often the last digit of the year followed by the day of the year (e.g. 4135 = the 135th day of 2024), sometimes as a 5- or 6-digit date. There is no separate cipher to memorise.",
+  decode(code, ctx): DecodeAttempt | null {
+    const r = readEmbeddedDate(code, ctx.now);
+    if (!r) return null;
+    return {
+      manufactureDate: r.date,
+      confidence: "medium",
+      method: `${this.label} — ${r.method}`,
+      notes: [
+        "The production date was read from the numeric part of the code.",
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the product stays good.",
+      ],
+    };
+  },
+};
+
+/* -------------------------------------------------------------------------- */
 /*  Registry                                                                   */
 /* -------------------------------------------------------------------------- */
 
@@ -402,6 +472,8 @@ export const DECODERS: Record<string, Decoder> = {
   [coty.id]: coty,
   [chanel.id]: chanel,
   [dior.id]: dior,
+  [creed.id]: creed,
+  [embedded.id]: embedded,
   [julian.id]: julian,
 };
 
@@ -412,7 +484,7 @@ export function getDecoder(id: string | undefined): Decoder | undefined {
   return id ? DECODERS[id] : undefined;
 }
 
-export { esteeLauder, loreal, coty, chanel, dior, julian };
+export { esteeLauder, loreal, coty, chanel, dior, creed, embedded, julian };
 
 /** Convenience for tests. */
 export function runDecoder(decoder: Decoder, code: string, ctx: DecodeContext) {

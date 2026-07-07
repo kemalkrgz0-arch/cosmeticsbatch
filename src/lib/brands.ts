@@ -136,7 +136,6 @@ const ROWS: Row[] = [
   ["IT Cosmetics", "L'Oréal Group", "loreal", "makeup", 36, 24],
   ["Shu Uemura", "L'Oréal Group", "loreal", "makeup", 36, 24],
   ["Aesop", "L'Oréal Group", "loreal", "skincare", 36, 12],
-  ["House of Creed", "L'Oréal Group", "loreal", "perfume", 60, 36],
   // Professional Products
   ["L'Oréal Professionnel", "L'Oréal Group", "loreal", "haircare", 36, 12],
   ["Kérastase", "L'Oréal Group", "loreal", "haircare", 36, 12],
@@ -163,6 +162,12 @@ const ROWS: Row[] = [
   // ---- Independent / other groups ----
   ["Chanel", "Chanel", "chanel", "perfume", 60, 36, true],
   ["Chanel Beauty", "Chanel", "chanel", "makeup", 36, 24],
+  // Fragrance houses on verified decoders
+  ["Michael Kors", "Estée Lauder Companies", "estee-lauder", "perfume", 60, 36],
+  ["Tommy Hilfiger", "Estée Lauder Companies", "estee-lauder", "perfume", 60, 36],
+  ["Maison Margiela", "L'Oréal Group", "loreal", "perfume", 60, 36],
+  ["Creed", "Creed", "creed", "perfume", 60, 36, true],
+  ["Zara", "Puig", "embedded", "perfume", 48, 36],
   ["Nivea", "Beiersdorf", undefined, "skincare", 30, 12, true],
   ["Eucerin", "Beiersdorf", undefined, "skincare", 36, 12],
   ["The Ordinary", "Deciem", undefined, "skincare", 24, 12, true],

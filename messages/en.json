@@ -83,6 +83,8 @@
     "generic": "beauty"
   },
   "decoderExplain": {
+    "creed": "Creed batch codes begin with a single letter that encodes the production year: A = 2010, B = 2011, and so on, skipping the letters I and O — so N = 2022, P = 2023, Q = 2024 and R = 2025. The remaining characters are the internal batch series; Creed does not encode the month, so only the manufacture year is certain.",
+    "embedded": "This brand prints the production date inside the batch code — most often the last digit of the year followed by the day of the year (e.g. 4135 = the 135th day of 2024), sometimes as a 5- or 6-digit date.",
     "estee-lauder": "Estée Lauder group codes are 3 characters: the first is the manufacturing plant, the second is the month (1–9 = January–September, A/B/C = October–December), and the third is the last digit of the year.",
     "loreal": "L'Oréal group codes are usually 6 characters (e.g. 22U401). The leading digits are the factory, the first letter is the production year (an annual letter cycle where 'V' is skipped, so U = 2021, W = 2022, X = 2023…), and the character right after it is the month (1–9 = January–September, O/N/D = October/November/December). The last three characters are the production batch and have no bearing on shelf life.",
     "coty": "Coty fragrances carry a 4-digit code (e.g. 4135) on the box base or the clear sticker under the bottle. The first digit is the last digit of the production year, and the remaining three are the day of that year — so 4135 is the 135th day of 2024, i.e. 14 May 2024.",
