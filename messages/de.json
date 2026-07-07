@@ -80,6 +80,7 @@
     "generic": "Beauty"
   },
   "decoderExplain": {
+    "interparfums": "Inter-Parfums-Düfte (Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron, Karl Lagerfeld u. a.) verwenden einen Code, dessen erster Buchstabe das Produktionsjahr angibt – ein jährlicher Zyklus, der I und O überspringt, also J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 und R = 2026 – und dessen letzte drei Ziffern der Tag dieses Jahres sind. Beispiel: 08J38J169 ist der 169. Tag des Jahres 2019 (18. Juni 2019).",
     "creed": "Creed-Chargencodes beginnen mit einem einzelnen Buchstaben, der das Produktionsjahr angibt: A = 2010, B = 2011 usw., wobei die Buchstaben I und O übersprungen werden – also N = 2022, P = 2023, Q = 2024 und R = 2025. Die übrigen Zeichen sind die interne Chargennummer; Creed codiert den Monat nicht, daher ist nur das Herstellungsjahr sicher.",
     "embedded": "Diese Marke druckt das Produktionsdatum direkt in den Chargencode – meist die letzte Ziffer des Jahres gefolgt vom Tag des Jahres (z. B. 4135 = der 135. Tag des Jahres 2024), manchmal als 5- oder 6-stelliges Datum.",
     "estee-lauder": "Estée Lauder group codes are 3 characters: the first is the manufacturing plant, the second is the month (1–9 = January–September, A/B/C = October–December), and the third is the last digit of the year.",

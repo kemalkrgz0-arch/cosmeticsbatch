@@ -80,6 +80,7 @@
     "generic": "美妆"
   },
   "decoderExplain": {
+    "interparfums": "Inter Parfums 香水（万宝龙、Jimmy Choo、Coach、梵克雅宝、宝诗龙、卡尔·拉格斐等）使用的批号中，第一个字母代表生产年份——按年循环并跳过 I 和 O，因此 J = 2019、K = 2020、L = 2021、M = 2022、N = 2023、P = 2024、Q = 2025、R = 2026——最后三位数字是当年的第几天。例如 08J38J169 是 2019 年第 169 天（2019 年 6 月 18 日）。",
     "creed": "Creed 的批号以一个字母开头，代表生产年份：A = 2010，B = 2011，依此类推，跳过字母 I 和 O，因此 N = 2022，P = 2023，Q = 2024，R = 2025。其余字符是内部批次序列；Creed 不编码月份，因此只有生产年份是确定的。",
     "embedded": "该品牌将生产日期直接印在批号中——通常是年份的最后一位数字后跟当年的第几天（例如 4135 = 2024 年第 135 天），有时是 5 位或 6 位的日期。",
     "estee-lauder": "Estée Lauder group codes are 3 characters: the first is the manufacturing plant, the second is the month (1–9 = January–September, A/B/C = October–December), and the third is the last digit of the year.",

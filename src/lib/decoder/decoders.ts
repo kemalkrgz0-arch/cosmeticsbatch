@@ -437,6 +437,61 @@ const creed: Decoder = {
 };
 
 /* -------------------------------------------------------------------------- */
+/*  Inter Parfums                                                             */
+/*  9-char codes (e.g. 08J38J169) for Montblanc, Jimmy Choo, Coach, Van Cleef  */
+/*  & Arpels, Boucheron, Karl Lagerfeld, Kate Spade, Ferragamo, Moncler,       */
+/*  Guess, Abercrombie, Dunhill. The first letter is the production year (an    */
+/*  annual cycle skipping I and O: J = 2019, K = 2020 … R = 2026); the last     */
+/*  three digits are the day of that year. Verified: 08J38J169 = day 169 of     */
+/*  2019 = 18 June 2019.                                                        */
+/* -------------------------------------------------------------------------- */
+
+// A = 2011 … J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024,
+// Q = 2025, R = 2026 — I and O removed to avoid confusion with 1 / 0.
+const INTERPARFUMS_YEAR_LETTERS = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+
+function interparfumsYear(letter: string, now: Date): number | null {
+  const i = INTERPARFUMS_YEAR_LETTERS.indexOf(letter);
+  if (i === -1) return null;
+  const cycle = INTERPARFUMS_YEAR_LETTERS.length; // 24-year letter cycle
+  const base = 2011 + i; // A = 2011 … J = 2019 … R = 2026
+  const currentYear = now.getFullYear();
+  let year = base + Math.floor((currentYear - base) / cycle) * cycle;
+  if (year > currentYear) year -= cycle;
+  return year;
+}
+
+const interparfums: Decoder = {
+  id: "interparfums",
+  label: "Inter Parfums year letter + Julian day",
+  explanation:
+    "Inter Parfums fragrances (Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron, Karl Lagerfeld and others) use a code whose first letter is the production year — an annual cycle that skips I and O, so J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 and R = 2026 — and whose last three digits are the day of that year. For example, 08J38J169 is the 169th day of 2019, i.e. 18 June 2019.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/[A-Z]/); // first letter is the production year
+    if (!m) return null;
+    const year = interparfumsYear(m[0], ctx.now);
+    if (year === null) return null;
+    const last3 = c.slice(-3);
+    if (!/^[0-9]{3}$/.test(last3)) return null;
+    const doy = Number(last3);
+    if (doy < 1 || doy > 366) return null;
+    const date = dateFromDayOfYear(year, doy);
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "The first letter gives the production year; the last three digits are read as the day of that year.",
+        "On some Inter Parfums codes the last three digits are a factory line rather than a day — if the date looks off for the bottle's era, treat it as approximate.",
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) governs how long the fragrance stays good.",
+      ],
+    };
+  },
+};
+
+/* -------------------------------------------------------------------------- */
 /*  Generic "production date in code" reader                                  */
 /*  For brands that print the date in the code (year digit + Julian day, or a  */
 /*  5/6-digit date) without a proprietary cipher — e.g. Zara (Puig).           */
@@ -473,6 +528,7 @@ export const DECODERS: Record<string, Decoder> = {
   [chanel.id]: chanel,
   [dior.id]: dior,
   [creed.id]: creed,
+  [interparfums.id]: interparfums,
   [embedded.id]: embedded,
   [julian.id]: julian,
 };
@@ -484,7 +540,7 @@ export function getDecoder(id: string | undefined): Decoder | undefined {
   return id ? DECODERS[id] : undefined;
 }
 
-export { esteeLauder, loreal, coty, chanel, dior, creed, embedded, julian };
+export { esteeLauder, loreal, coty, chanel, dior, creed, interparfums, embedded, julian };
 
 /** Convenience for tests. */
 export function runDecoder(decoder: Decoder, code: string, ctx: DecodeContext) {

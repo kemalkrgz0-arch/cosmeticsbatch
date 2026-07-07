@@ -80,6 +80,7 @@
     "generic": "beauté"
   },
   "decoderExplain": {
+    "interparfums": "Les parfums Inter Parfums (Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron, Karl Lagerfeld, etc.) utilisent un code dont la première lettre indique l'année de production — un cycle annuel qui saute I et O, donc J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 et R = 2026 — et dont les trois derniers chiffres sont le jour de cette année. Par exemple, 08J38J169 correspond au 169e jour de 2019 (18 juin 2019).",
     "creed": "Les codes de lot Creed commencent par une seule lettre qui indique l'année de production : A = 2010, B = 2011, et ainsi de suite, en sautant les lettres I et O — donc N = 2022, P = 2023, Q = 2024 et R = 2025. Les autres caractères sont la série de lot interne ; Creed n'encode pas le mois, seule l'année de fabrication est donc certaine.",
     "embedded": "Cette marque imprime la date de production directement dans le code de lot — le plus souvent le dernier chiffre de l'année suivi du jour de l'année (p. ex. 4135 = le 135e jour de 2024), parfois sous forme de date à 5 ou 6 chiffres.",
     "estee-lauder": "Estée Lauder group codes are 3 characters: the first is the manufacturing plant, the second is the month (1–9 = January–September, A/B/C = October–December), and the third is the last digit of the year.",
