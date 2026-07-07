@@ -398,6 +398,208 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "does-skincare-expire",
+    title: "Can You Use Expired Skincare?",
+    description:
+      "Expired serums, moisturisers and acids lose potency and can irritate skin. Here's how long skincare lasts and how to tell when it's turned.",
+    readMinutes: 5,
+    updated: "2026-07-07",
+    sections: [
+      {
+        heading: "What happens to old skincare",
+        body: [
+          "Skincare relies on preservatives to stay safe and on active ingredients to actually work. Both fade with time. An expired product may do nothing — or, worse, grow bacteria and irritate your skin.",
+          "Actives are the most fragile: vitamin C oxidises, retinol destabilises, and acids drift in strength. If a serum has turned brown or smells off, its actives are already spent.",
+        ],
+      },
+      {
+        heading: "Typical shelf life after opening",
+        body: [
+          "- Vitamin C serums: 3–6 months — they oxidise fast once air gets in.",
+          "- Retinol and prescription-style actives: 6–12 months.",
+          "- Water-based moisturisers and cleansers: 12 months.",
+          "- Oils and balms: 12–24 months, though oils can go rancid.",
+          "- Sunscreen: 12 months open, and never past its printed date.",
+        ],
+      },
+      {
+        heading: "Signs it's time to bin it",
+        body: [
+          "Toss any product that has separated, changed colour, thickened, thinned, or developed a sour, rancid or 'off' smell.",
+          "Jars are worse than pumps: fingers introduce bacteria every use, so tubs of cream spoil faster than airless bottles.",
+        ],
+      },
+      {
+        heading: "How old is it really?",
+        body: [
+          "Products bought online or from discounters can already be near the end of their shelf life. Decode the batch code to find the true manufacture date before you count forward with the PAO.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is expired skincare dangerous?",
+        a: "Usually it just stops working, but contaminated products — especially open jars and eye creams — can cause breakouts, rashes or infections. Replace anything that looks or smells wrong.",
+      },
+      {
+        q: "Does unopened skincare expire?",
+        a: "Yes. Sealed products typically last 2–3 years from manufacture, less for potent actives. Check the batch code to see how old an unopened item already is.",
+      },
+    ],
+  },
+  {
+    slug: "does-perfume-expire",
+    title: "Does Perfume Expire? How to Tell",
+    description:
+      "Perfume doesn't have a hard expiry, but it does turn. Learn how long fragrance lasts, the signs it's gone off, and how to date a bottle.",
+    readMinutes: 4,
+    updated: "2026-07-07",
+    sections: [
+      {
+        heading: "Perfume ages, slowly",
+        body: [
+          "Fragrance is one of the longest-lasting cosmetics — a sealed bottle can be good for years. But alcohol and aromatic oils do oxidise, so eventually the scent shifts and fades.",
+          "Most perfumes last 3–5 years, and some heavier, resinous scents improve for a while before declining. Light, citrus-forward fragrances turn the fastest.",
+        ],
+      },
+      {
+        heading: "Signs a fragrance has turned",
+        body: [
+          "- The top notes smell sour, sharp or vinegary on first spray.",
+          "- The colour has darkened noticeably.",
+          "- The scent is flat and barely projects.",
+          "A little darkening alone isn't fatal — judge mainly by the smell.",
+        ],
+      },
+      {
+        heading: "Make it last longer",
+        body: [
+          "Heat, light and air are what age a fragrance. Keep bottles in their box, away from windows and bathroom steam, and leave them sealed until you use them.",
+          "To date a bottle, decode its batch code for the manufacture date — useful when buying vintage or discounted fragrance.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is it bad to wear expired perfume?",
+        a: "It's rarely harmful, but an oxidised fragrance can smell unpleasant and, in a few cases, irritate sensitive skin. If it smells sour, don't wear it.",
+      },
+      {
+        q: "How long does unopened perfume last?",
+        a: "Sealed and stored well, typically 3–5 years or more. Decode the batch code to see how old a bottle is before you buy.",
+      },
+    ],
+  },
+  {
+    slug: "does-foundation-expire",
+    title: "When Does Foundation Expire?",
+    description:
+      "Liquid foundation lasts 6–12 months after opening. Here's how to spot separated, oxidised or spoiled foundation before it wrecks your skin.",
+    readMinutes: 3,
+    updated: "2026-07-07",
+    sections: [
+      {
+        heading: "6–12 months after opening",
+        body: [
+          "Liquid and cream foundations are water-based, so they're a friendly home for bacteria once opened. Most last 6–12 months; powder foundations stretch to 18–24.",
+          "Airless pump bottles last longer than open jars or wide-neck bottles, because less air and fewer fingers reach the formula.",
+        ],
+      },
+      {
+        heading: "Signs your foundation is off",
+        body: [
+          "- It separates into oil and pigment that won't remix.",
+          "- The colour has oxidised darker or turned patchy.",
+          "- It smells sour or chalky.",
+          "- The texture is gluey, dry or clumpy.",
+        ],
+      },
+      {
+        heading: "Check its age",
+        body: [
+          "If you can't remember when you opened it, decode the batch code to find the manufacture date, then count forward using the 6–12 month window.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can old foundation cause breakouts?",
+        a: "Yes. Bacteria and degraded oils in old foundation are a common cause of clogged pores and irritation, especially on acne-prone skin.",
+      },
+    ],
+  },
+  {
+    slug: "does-nail-polish-expire",
+    title: "Does Nail Polish Expire?",
+    description:
+      "Nail polish doesn't rot, but it thickens and separates over time. Here's how long it really lasts and how to tell when to toss it.",
+    readMinutes: 3,
+    updated: "2026-07-07",
+    sections: [
+      {
+        heading: "It doesn't spoil — it thickens",
+        body: [
+          "Nail polish has no water and few nutrients for bacteria, so it doesn't 'go bad' like makeup. Instead the solvents evaporate, the formula thickens, and the pigment separates.",
+          "Opened polish typically stays usable for 1–2 years; unopened, well-stored bottles can last much longer.",
+        ],
+      },
+      {
+        heading: "Signs it's past it",
+        body: [
+          "- It's stringy, gloopy or won't level out on the nail.",
+          "- The colour and pigment have separated and won't remix by rolling the bottle.",
+          "- It smells strongly of chemicals or dries oddly.",
+          "Thinner can revive a slightly thick polish, but not a fully separated one — never use acetone for this.",
+        ],
+      },
+      {
+        heading: "Store it right",
+        body: [
+          "Keep bottles upright, tightly capped, and away from heat and sunlight. Wipe the neck so the cap seals — a loose cap is what dries polish out early.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is expired nail polish harmful?",
+        a: "Not really — the worst case is a lumpy, streaky manicure. It's a quality issue, not a safety one.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-dispose-of-expired-makeup",
+    title: "How to Dispose of Expired Makeup",
+    description:
+      "Old cosmetics shouldn't just go in the bin. Here's how to empty, sort and recycle expired makeup and skincare responsibly.",
+    readMinutes: 3,
+    updated: "2026-07-07",
+    sections: [
+      {
+        heading: "Empty before you toss",
+        body: [
+          "Scrape or wash out leftover product first — most recyclers won't take containers with residue. Liquids can go down the drain in small amounts; solids go in general waste.",
+          "Never pour large amounts of oil-based product down the sink, as it can clog pipes.",
+        ],
+      },
+      {
+        heading: "Sort the packaging",
+        body: [
+          "- Glass bottles and jars: rinse and recycle with glass.",
+          "- Plastic tubes and pumps: check the resin code; pumps often aren't recyclable and go to general waste.",
+          "- Compacts and mirrors: usually mixed materials — separate the metal pan if you can.",
+          "- Aerosols (dry shampoo, setting spray): empty fully, then recycle with metals where accepted.",
+        ],
+      },
+      {
+        heading: "Take-back and recycling programs",
+        body: [
+          "Several beauty retailers and brands run in-store take-back schemes for hard-to-recycle cosmetic packaging. Dropping empties there is the cleanest option.",
+          "Going forward, decoding batch codes when you buy helps you use products up before they expire — less waste to dispose of in the first place.",
+        ],
+      },
+    ],
+  },
 ];
 
 const guideBySlug = new Map(GUIDES.map((g) => [g.slug, g]));
