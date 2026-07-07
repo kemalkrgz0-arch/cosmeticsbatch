@@ -134,5 +134,54 @@
     "a9": "Niektóre marki z biegiem czasu zmieniają swoje kodowanie, używają formatów specyficznych dla regionu lub nie kodują daty publicznie. Sprawdź dokładnie, czy wprowadziłeś wytłoczony kod partii (a nie kod kreskowy) lub spróbuj wybrać firmę-matkę zamiast marki podrzędnej.",
     "q9": "Dlaczego nie można zdekodować mojego kodu partii?",
     "a10": "Nie. Kody są dekodowane w Twojej przeglądarce i nie wymagamy posiadania konta. Nic, co wpiszesz, nie zostanie zapisane na serwerze, więc sprawdzenie kodu jest całkowicie prywatne."
+  },
+  "result": {
+    "statusFresh": "Świeży",
+    "statusGood": "Nadal dobrze",
+    "lifeLeft": "pozostało życie",
+    "manufactureDate": "Data produkcji",
+    "statusUseSoon": "Użyj wkrótce",
+    "statusUnknown": "Nieodszyfrowane",
+    "statusExpired": "Poprzedni okres przydatności do spożycia",
+    "age": "Wiek",
+    "confidence": "Zaufanie",
+    "freshness": "Świeżość",
+    "shelfLife": "Okres przydatności do spożycia",
+    "expirationDate": "Data ważności",
+    "pao": "Po otwarciu (PAO)",
+    "months": "{n}miesięcy",
+    "percentLeft": "Pozostało{n}%.",
+    "confMedium": "Średnia pewność",
+    "confHigh": "Wysoka pewność",
+    "invalidTitle": "Nie mogliśmy odczytać tego kodu",
+    "confLow": "Niska pewność siebie",
+    "confNone": "Nie udało się rozszyfrować",
+    "invalidBody": "„{code}” nie pasuje do formatu kodu wsadowego{brand}. Sprawdź, czy wpisałeś go dokładnie tak, jak wydrukowano na opakowaniu – tylko litery i cyfry, bez spacji – i czy jest to kod partii, a nie kod kreskowy lub cena/odniesienie marketingowe."
+  },
+  "howItWorks": {
+    "title": "Jak to działa",
+    "step1Title": "Wybierz markę",
+    "eyebrow": "Trzy proste kroki",
+    "subtitle": "Bez konta, bez czekania. Odkoduj dowolny obsługiwany kod wsadowy w mniej niż dziesięć sekund.",
+    "step1Body": "Wybierz swoją markę spośród ponad 50 wspieranych producentów kosmetyków i perfum.",
+    "step2Body": "Wpisz kod partii wybity lub wytłoczony na produkcie.",
+    "step3Title": "Uzyskaj wyniki",
+    "step2Title": "Wprowadź kod partii",
+    "step3Body": "Natychmiast sprawdź datę produkcji, wiek, świeżość i datę ważności."
+  },
+  "popularBrands": {
+    "viewAll": "Zobacz wszystkie marki",
+    "subtitle": "Przejdź bezpośrednio do dekodera kodu wsadowego marki.",
+    "title": "Popularne marki"
+  },
+  "features": {
+    "accurateTitle": "Dokładne i niezawodne",
+    "fastTitle": "Szybko i łatwo",
+    "privateTitle": "Prywatne i bezpieczne",
+    "freeTitle": "Zawsze za darmo",
+    "privateBody": "Kody są dekodowane prywatnie. Twoja prywatność jest na pierwszym miejscu.",
+    "freeBody": "Każda funkcja jest w 100% darmowa, na zawsze.",
+    "fastBody": "Uzyskaj wyniki w ciągu kilku sekund — bez rejestracji.",
+    "accurateBody": "Specyficzne dla producenta algorytmy zapewniające precyzyjne wyniki."
   }
 }

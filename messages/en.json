@@ -134,5 +134,54 @@
     "a9": "Some brands change their coding over time, use region-specific formats, or don't encode the date publicly. Double-check you entered the stamped batch code (not the barcode), or try selecting the parent company instead of the sub-brand.",
     "q10": "Do you store my batch codes or personal data?",
     "a10": "No. Codes are decoded in your browser and we don't require an account. Nothing you type is saved to a server, so checking a code is completely private."
+  },
+  "result": {
+    "statusFresh": "Fresh",
+    "statusGood": "Still Good",
+    "statusUseSoon": "Use Soon",
+    "statusExpired": "Past Shelf Life",
+    "statusUnknown": "Not Decoded",
+    "lifeLeft": "life left",
+    "manufactureDate": "Manufacture date",
+    "age": "Age",
+    "shelfLife": "Shelf life",
+    "expirationDate": "Expiration date",
+    "freshness": "Freshness",
+    "confidence": "Confidence",
+    "pao": "After opening (PAO)",
+    "months": "{n} months",
+    "percentLeft": "{n}% left",
+    "confHigh": "High confidence",
+    "confMedium": "Medium confidence",
+    "confLow": "Low confidence",
+    "confNone": "Could not decode",
+    "invalidTitle": "We couldn’t read this code",
+    "invalidBody": "“{code}” doesn’t match {brand}’s batch-code format. Check that you typed it exactly as printed on the packaging — letters and numbers only, no spaces — and that it’s the batch code, not the barcode or a price/marketing reference."
+  },
+  "howItWorks": {
+    "eyebrow": "Three simple steps",
+    "title": "How it works",
+    "subtitle": "No account, no waiting. Decode any supported batch code in under ten seconds.",
+    "step1Title": "Select Brand",
+    "step1Body": "Choose your brand from 50+ supported cosmetic and perfume makers.",
+    "step2Title": "Enter Batch Code",
+    "step2Body": "Type the batch code stamped or embossed on your product.",
+    "step3Title": "Get Results",
+    "step3Body": "See the manufacture date, age, freshness and expiration instantly."
+  },
+  "popularBrands": {
+    "title": "Popular Brands",
+    "subtitle": "Jump straight to a brand’s batch code decoder.",
+    "viewAll": "View all brands"
+  },
+  "features": {
+    "accurateTitle": "Accurate & Reliable",
+    "accurateBody": "Manufacturer-specific algorithms for precise results.",
+    "fastTitle": "Fast & Easy",
+    "fastBody": "Get results in just a few seconds — no sign-up.",
+    "privateTitle": "Private & Secure",
+    "privateBody": "Codes are decoded privately. Your privacy comes first.",
+    "freeTitle": "Always Free",
+    "freeBody": "Every feature is 100% free, forever."
   }
 }

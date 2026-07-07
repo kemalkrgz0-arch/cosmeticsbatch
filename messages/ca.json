@@ -134,5 +134,54 @@
     "q10": "Emmagatzemeu els meus codis de lot o dades personals?",
     "a9": "Algunes marques canvien la seva codificació amb el temps, utilitzen formats específics de la regió o no codifiquen la data públicament. Comproveu que heu introduït el codi de lot estampat (no el codi de barres) o proveu de seleccionar l'empresa matriu en lloc de la submarca.",
     "a10": "No. Els codis es descodifiquen al vostre navegador i no necessitem un compte. Res del que escriviu es desa en un servidor, de manera que comprovar un codi és completament privat."
+  },
+  "result": {
+    "statusFresh": "Fresc",
+    "statusExpired": "Vida útil passada",
+    "statusUseSoon": "Utilitzeu aviat",
+    "statusGood": "Encara bé",
+    "statusUnknown": "No descodificat",
+    "lifeLeft": "la vida queda",
+    "shelfLife": "Vida útil",
+    "confidence": "Confiança",
+    "pao": "Després de l'obertura (PAO)",
+    "months": "{n}mesos",
+    "manufactureDate": "Data de fabricació",
+    "freshness": "Frescor",
+    "age": "Edat",
+    "confHigh": "Alta confiança",
+    "percentLeft": "{n}% restant",
+    "confLow": "Baixa confiança",
+    "confNone": "No s'ha pogut descodificar",
+    "expirationDate": "Data de caducitat",
+    "confMedium": "Confiança mitjana",
+    "invalidTitle": "No hem pogut llegir aquest codi",
+    "invalidBody": "“{code}” no coincideix amb el format de codi de lot de{brand}. Comproveu que l'heu escrit exactament tal com està imprès a l'embalatge (només lletres i números, sense espais) i que sigui el codi del lot, no el codi de barres o una referència de preu/màrqueting."
+  },
+  "howItWorks": {
+    "title": "Com funciona",
+    "step1Title": "Seleccioneu Marca",
+    "step2Title": "Introduïu el codi de lot",
+    "eyebrow": "Tres passos senzills",
+    "subtitle": "Sense compte, sense espera. Descodifiqueu qualsevol codi de lot compatible en menys de deu segons.",
+    "step1Body": "Tria la teva marca entre més de 50 fabricants de cosmètics i perfums compatibles.",
+    "step2Body": "Escriviu el codi del lot estampat o en relleu al vostre producte.",
+    "step3Title": "Obteniu resultats",
+    "step3Body": "Consulta la data de fabricació, l'edat, la frescor i la caducitat a l'instant."
+  },
+  "popularBrands": {
+    "title": "Marques populars",
+    "viewAll": "Veure totes les marques",
+    "subtitle": "Ves directament al descodificador de codi per lots d'una marca."
+  },
+  "features": {
+    "fastTitle": "Ràpid i fàcil",
+    "accurateTitle": "Precís i fiable",
+    "privateTitle": "Privat i segur",
+    "accurateBody": "Algorismes específics del fabricant per obtenir resultats precisos.",
+    "fastBody": "Obteniu resultats en només uns segons, sense registrar-vos.",
+    "freeBody": "Cada funció és 100% gratuïta, per sempre.",
+    "privateBody": "Els codis es descodifiquen de manera privada. La teva privadesa és el primer.",
+    "freeTitle": "Sempre Gratis"
   }
 }

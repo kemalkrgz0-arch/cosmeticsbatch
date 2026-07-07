@@ -134,5 +134,54 @@
     "a9": "Egyes márkák idővel megváltoztatják a kódolást, régióspecifikus formátumokat használnak, vagy nem kódolják nyilvánosan a dátumot. Ellenőrizze még egyszer, hogy a bélyegzett kötegkódot adta-e meg (nem a vonalkódot), vagy próbálja meg az anyavállalatot kiválasztani az almárka helyett.",
     "a10": "Nem. A kódok dekódolása az Ön böngészőjében történik, és nincs szükségünk fiókra. Semmi, amit beír, nem mentődik a szerverre, így a kód ellenőrzése teljesen privát.",
     "q10": "Tárolja a kötegkódjaimat vagy személyes adataimat?"
+  },
+  "result": {
+    "statusFresh": "Friss",
+    "statusUseSoon": "Hamarosan használja",
+    "manufactureDate": "Gyártási dátum",
+    "statusExpired": "Múltbeli eltarthatósági idő",
+    "statusUnknown": "Nincs dekódolva",
+    "lifeLeft": "élet maradt",
+    "statusGood": "Még mindig jó",
+    "pao": "Felbontás után (PAO)",
+    "freshness": "Frissesség",
+    "confidence": "Bizalom",
+    "expirationDate": "Lejárati idő",
+    "age": "Kor",
+    "shelfLife": "Szavatossági idő",
+    "months": "{n}hónap",
+    "confMedium": "Közepes önbizalom",
+    "percentLeft": "{n}% maradt",
+    "confHigh": "Magas önbizalom",
+    "confLow": "Alacsony önbizalom",
+    "confNone": "Nem sikerült dekódolni",
+    "invalidTitle": "Nem tudtuk elolvasni ezt a kódot",
+    "invalidBody": "Az „{code}” nem egyezik az{brand}kötegkód formátumával. Ellenőrizze, hogy pontosan úgy írta-e be, ahogy a csomagoláson szerepel – csak betűk és számok, szóközök nélkül –, és hogy ez a kötegkód, nem pedig a vonalkód vagy az ár/marketing hivatkozás."
+  },
+  "howItWorks": {
+    "title": "Hogyan működik",
+    "eyebrow": "Három egyszerű lépés",
+    "step1Title": "Válassza a Márka lehetőséget",
+    "step2Body": "Írja be a termékre bélyegzett vagy dombornyomott kötegkódot.",
+    "step1Body": "Válassza ki márkáját több mint 50 támogatott kozmetikai és parfümgyártó közül.",
+    "step2Title": "Adja meg a kötegkódot",
+    "step3Title": "Eredmények",
+    "subtitle": "Nincs számla, nincs várakozás. Tíz másodpercen belül dekódolja a támogatott kötegkódokat.",
+    "step3Body": "Azonnal megtekintheti a gyártás dátumát, korát, frissességét és lejárati idejét."
+  },
+  "popularBrands": {
+    "title": "Népszerű márkák",
+    "viewAll": "Tekintse meg az összes márkát",
+    "subtitle": "Ugorjon közvetlenül a márka kötegkód-dekóderéhez."
+  },
+  "features": {
+    "fastTitle": "Gyors és egyszerű",
+    "accurateBody": "Gyártó-specifikus algoritmusok a pontos eredményekért.",
+    "privateTitle": "Privát és biztonságos",
+    "privateBody": "A kódok dekódolása privát módon történik. Az Ön magánélete az első.",
+    "fastBody": "Néhány másodperc alatt elérheti az eredményeket – regisztráció nélkül.",
+    "freeTitle": "Mindig ingyenes",
+    "accurateTitle": "Pontos és megbízható",
+    "freeBody": "Minden funkció 100%-ban ingyenes, örökre."
   }
 }

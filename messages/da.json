@@ -134,5 +134,54 @@
     "a9": "Nogle mærker ændrer deres kodning over tid, bruger regionsspecifikke formater eller koder ikke datoen offentligt. Dobbelttjek, at du har indtastet den stemplede batchkode (ikke stregkoden), eller prøv at vælge moderselskabet i stedet for undermærket.",
     "a10": "Nej. Koderne afkodes i din browser, og vi kræver ikke en konto. Intet du skriver gemmes på en server, så det er helt privat at tjekke en kode.",
     "q10": "Gemmer du mine batchkoder eller personlige data?"
+  },
+  "result": {
+    "statusFresh": "Frisk",
+    "manufactureDate": "Fremstillingsdato",
+    "statusGood": "Stadig god",
+    "statusUseSoon": "Brug snart",
+    "statusExpired": "Tidligere holdbarhed",
+    "lifeLeft": "livet tilbage",
+    "statusUnknown": "Ikke afkodet",
+    "age": "Alder",
+    "shelfLife": "Holdbarhed",
+    "confidence": "Tillid",
+    "pao": "Efter åbning (PAO)",
+    "months": "{n}måneder",
+    "confMedium": "Middel selvtillid",
+    "confLow": "Lav selvtillid",
+    "percentLeft": "{n}% tilbage",
+    "expirationDate": "Udløbsdato",
+    "confHigh": "Høj selvtillid",
+    "freshness": "Friskhed",
+    "confNone": "Kunne ikke afkode",
+    "invalidTitle": "Vi kunne ikke læse denne kode",
+    "invalidBody": "\"{code}\" matcher ikke{brand}'s batchkodeformat. Tjek, at du har skrevet det nøjagtigt, som det står på emballagen - kun bogstaver og tal, ingen mellemrum - og at det er batchkoden, ikke stregkoden eller en pris-/markedsføringsreference."
+  },
+  "howItWorks": {
+    "title": "Hvordan det virker",
+    "step1Title": "Vælg mærke",
+    "subtitle": "Ingen konto, ingen ventetid. Afkode enhver understøttet batchkode på under ti sekunder.",
+    "eyebrow": "Tre enkle trin",
+    "step3Title": "Få resultater",
+    "step2Title": "Indtast batchkode",
+    "step3Body": "Se produktionsdato, alder, friskhed og udløb med det samme.",
+    "step1Body": "Vælg dit mærke blandt 50+ understøttede kosmetik- og parfumeproducenter.",
+    "step2Body": "Indtast batchkoden stemplet eller præget på dit produkt."
+  },
+  "popularBrands": {
+    "title": "Populære mærker",
+    "subtitle": "Hop direkte til et mærkes batchkodedekoder.",
+    "viewAll": "Se alle mærker"
+  },
+  "features": {
+    "fastTitle": "Hurtigt og nemt",
+    "privateTitle": "Privat & Sikkert",
+    "privateBody": "Koder afkodes privat. Dit privatliv kommer først.",
+    "fastBody": "Få resultater på få sekunder – ingen tilmelding.",
+    "accurateBody": "Producentspecifikke algoritmer til præcise resultater.",
+    "freeTitle": "Altid gratis",
+    "accurateTitle": "Nøjagtig og pålidelig",
+    "freeBody": "Hver funktion er 100 % gratis, for evigt."
   }
 }

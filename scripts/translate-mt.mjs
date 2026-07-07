@@ -6,10 +6,13 @@
 //
 // Usage: node scripts/translate-mt.mjs            # all locales below
 //        node scripts/translate-mt.mjs it nl pl   # specific locales
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
-// app locale code -> Google translate target code
+// app locale code -> Google translate target code. Merge mode: only keys
+// missing from (or still equal to English in) an existing file get translated,
+// so prior translations are preserved.
 const LANGS = {
+  es: "es", fr: "fr", de: "de", pt: "pt", ru: "ru", ar: "ar", zh: "zh-CN",
   tr: "tr", it: "it", nl: "nl", pl: "pl", sv: "sv", uk: "uk", el: "el",
   cs: "cs", nb: "no", da: "da", fi: "fi", ro: "ro", hu: "hu", ca: "ca",
   sr: "sr", bg: "bg", sk: "sk",
@@ -75,17 +78,26 @@ async function pool(items, size, fn) {
 }
 
 const only = process.argv.slice(2);
+const force = only.includes("--force");
+const codes = only.filter((c) => !c.startsWith("--"));
+const getAt = (obj, path) => path.reduce((o, k) => (o == null ? o : o[k]), obj);
+
 for (const [code, tl] of Object.entries(LANGS)) {
-  if (only.length && !only.includes(code)) continue;
-  const out = {};
-  let kept = 0;
-  await pool(leaves, 6, async ([p, v]) => {
-    const t = await translate(v, tl);
-    if (t === v && /[a-zA-Z]{4}/.test(v)) kept++;
-    setPath(out, p, t);
+  if (codes.length && !codes.includes(code)) continue;
+  const path = `messages/${code}.json`;
+  const existing = existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
+  const out = structuredClone(existing);
+  // Only translate keys that are missing or still identical to English.
+  const todo = leaves.filter(([p, v]) => {
+    if (force) return true;
+    const e = getAt(existing, p);
+    return e === undefined || e === v;
+  });
+  await pool(todo, 6, async ([p, v]) => {
+    setPath(out, p, await translate(v, tl));
   });
   JSON.parse(JSON.stringify(out));
-  writeFileSync(`messages/${code}.json`, JSON.stringify(out, null, 2) + "\n");
-  console.log(`${code}: ${leaves.length} keys (${kept} kept English)`);
+  writeFileSync(path, JSON.stringify(out, null, 2) + "\n");
+  console.log(`${code}: translated ${todo.length}/${leaves.length}`);
 }
 console.log("done");

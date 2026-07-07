@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { Check, ChevronDown, ScanLine, Search, X } from "lucide-react";
@@ -48,6 +48,7 @@ export function CheckForm({
 }) {
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations();
   const [brand, setBrand] = useState<Brand | undefined>(initialBrand);
   const [code, setCode] = useState("");
   const [open, setOpen] = useState(false);
@@ -133,12 +134,12 @@ export function CheckForm({
   function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!brand) {
-      setError("Please select a brand first.");
+      setError(t("form.errorNoBrand"));
       setOpen(true);
       return;
     }
     if (!code.trim()) {
-      setError("Enter the batch code from your product.");
+      setError(t("form.errorNoCode"));
       codeRef.current?.focus();
       return;
     }
@@ -171,7 +172,7 @@ export function CheckForm({
         {/* Brand picker */}
         <div ref={rootRef} className="relative">
           <label className="mb-1.5 block px-1 text-xs font-medium text-fg-muted">
-            Select Brand
+            {t("form.selectBrand")}
           </label>
           <button
             type="button"
@@ -190,7 +191,9 @@ export function CheckForm({
                 <span className="truncate font-medium">{brand.name}</span>
               </>
             ) : (
-              <span className="text-fg-muted">Select brand</span>
+              <span className="text-fg-muted">
+                {t("form.selectBrandPlaceholder")}
+              </span>
             )}
             <ChevronDown className="ml-auto h-4 w-4 shrink-0 text-fg-muted" />
           </button>
@@ -207,7 +210,7 @@ export function CheckForm({
                     setActive(0);
                   }}
                   onKeyDown={onKeyDown}
-                  placeholder="Search brands…"
+                  placeholder={t("form.searchBrands")}
                   className="h-11 w-full bg-transparent text-sm outline-none placeholder:text-fg-muted"
                 />
                 {query && (
@@ -225,10 +228,12 @@ export function CheckForm({
                   <li key={section.label || "all"} role="presentation">
                     {section.label && (
                       <div className="sticky top-0 z-10 bg-card/95 px-2.5 pb-1 pt-2 text-[11px] font-medium uppercase tracking-wider text-fg-muted/70 backdrop-blur-sm">
-                        {section.label}
+                        {section.label === "Recent"
+                          ? t("form.recent")
+                          : section.label}
                         {section.label === "Recent" && (
                           <span className="ml-1.5 lowercase tracking-normal text-fg-muted/50">
-                            · last used
+                            · {t("form.lastUsed")}
                           </span>
                         )}
                       </div>
@@ -273,7 +278,7 @@ export function CheckForm({
                 ))}
                 {sections.length === 0 && (
                   <li className="px-3 py-6 text-center text-sm text-fg-muted">
-                    No brands match “{query}”.
+                    {t("form.noMatch", { query })}
                   </li>
                 )}
               </ul>
@@ -288,7 +293,7 @@ export function CheckForm({
             htmlFor="batch-code"
             className="mb-1.5 block px-1 text-xs font-medium text-fg-muted"
           >
-            Batch Code
+            {t("form.batchCode")}
           </label>
           <div className="relative">
             <input
@@ -304,7 +309,7 @@ export function CheckForm({
               autoCapitalize="characters"
               autoCorrect="off"
               spellCheck={false}
-              placeholder="Enter batch code"
+              placeholder={t("form.batchCodePlaceholder")}
               className="h-12 w-full rounded-xl border border-border bg-bg px-3 pr-10 font-medium tracking-wide outline-none transition-colors duration-200 hover:border-border-strong focus-visible:border-accent placeholder:font-normal placeholder:text-fg-muted"
             />
             <ScanLine className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-muted" />
@@ -318,7 +323,7 @@ export function CheckForm({
           onClick={navigateOnSelect ? () => setOpen(true) : undefined}
           className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-cta px-6 font-semibold text-cta-fg transition-[background-color,transform] duration-200 hover:bg-cta-hover active:scale-[0.98] sm:px-7"
         >
-          {navigateOnSelect ? "Choose Brand" : "Check Now"}
+          {navigateOnSelect ? t("form.chooseBrand") : t("nav.checkNow")}
         </button>
       </div>
 

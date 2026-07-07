@@ -7,13 +7,14 @@ import {
   ShieldQuestion,
   Timer,
 } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import type { CheckResult, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { cn } from "@/lib/utils";
 
-const fmt = (d: Date | null) =>
+const fmt = (d: Date | null, locale: string) =>
   d
-    ? d.toLocaleDateString("en-US", {
+    ? d.toLocaleDateString(locale, {
         year: "numeric",
         month: "long",
         day: "numeric",
@@ -22,46 +23,38 @@ const fmt = (d: Date | null) =>
 
 const statusMeta: Record<
   FreshnessStatus,
-  { label: string; tone: string; ring: string; icon: typeof CheckCircle2 }
+  { tone: string; ring: string; icon: typeof CheckCircle2 }
 > = {
-  fresh: {
-    label: "Fresh",
-    tone: "bg-success-bg text-success",
-    ring: "var(--success)",
-    icon: CheckCircle2,
-  },
-  good: {
-    label: "Still Good",
-    tone: "bg-success-bg text-success",
-    ring: "var(--success)",
-    icon: CheckCircle2,
-  },
-  "use-soon": {
-    label: "Use Soon",
-    tone: "bg-warning-bg text-warning",
-    ring: "var(--warning)",
-    icon: Timer,
-  },
-  expired: {
-    label: "Past Shelf Life",
-    tone: "bg-danger-bg text-danger",
-    ring: "var(--danger)",
-    icon: AlertTriangle,
-  },
-  unknown: {
-    label: "Not Decoded",
-    tone: "bg-bg-subtle text-fg-muted",
-    ring: "var(--border-strong)",
-    icon: ShieldQuestion,
-  },
+  fresh: { tone: "bg-success-bg text-success", ring: "var(--success)", icon: CheckCircle2 },
+  good: { tone: "bg-success-bg text-success", ring: "var(--success)", icon: CheckCircle2 },
+  "use-soon": { tone: "bg-warning-bg text-warning", ring: "var(--warning)", icon: Timer },
+  expired: { tone: "bg-danger-bg text-danger", ring: "var(--danger)", icon: AlertTriangle },
+  unknown: { tone: "bg-bg-subtle text-fg-muted", ring: "var(--border-strong)", icon: ShieldQuestion },
+};
+
+const STATUS_KEY: Record<FreshnessStatus, string> = {
+  fresh: "statusFresh",
+  good: "statusGood",
+  "use-soon": "statusUseSoon",
+  expired: "statusExpired",
+  unknown: "statusUnknown",
+};
+
+const CONF_KEY: Record<string, string> = {
+  high: "confHigh",
+  medium: "confMedium",
+  low: "confLow",
+  none: "confNone",
 };
 
 function FreshnessRing({
   percent,
   color,
+  lifeLeftLabel,
 }: {
   percent: number | null;
   color: string;
+  lifeLeftLabel: string;
 }) {
   const r = 52;
   const c = 2 * Math.PI * r;
@@ -70,14 +63,7 @@ function FreshnessRing({
   return (
     <div className="relative h-32 w-32 shrink-0">
       <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
-        <circle
-          cx="60"
-          cy="60"
-          r={r}
-          fill="none"
-          stroke="var(--border)"
-          strokeWidth="10"
-        />
+        <circle cx="60" cy="60" r={r} fill="none" stroke="var(--border)" strokeWidth="10" />
         <circle
           cx="60"
           cy="60"
@@ -94,7 +80,7 @@ function FreshnessRing({
           {percent ?? "—"}
           {percent !== null && <span className="text-base">%</span>}
         </span>
-        <span className="text-[11px] text-fg-muted">life left</span>
+        <span className="text-[11px] text-fg-muted">{lifeLeftLabel}</span>
       </div>
     </div>
   );
@@ -118,13 +104,6 @@ function DataRow({
   );
 }
 
-const confidenceLabel: Record<string, string> = {
-  high: "High confidence",
-  medium: "Medium confidence",
-  low: "Low confidence",
-  none: "Could not decode",
-};
-
 export function ResultCard({
   result,
   brand,
@@ -132,12 +111,15 @@ export function ResultCard({
   result: CheckResult;
   brand: Brand;
 }) {
+  const t = useTranslations("result");
+  const locale = useLocale();
   const meta = statusMeta[result.freshness];
   const StatusIcon = meta.icon;
+  const statusLabel = t(STATUS_KEY[result.freshness]);
+  const months = (n: number) => t("months", { n });
 
-  // Decode failed — almost always a mistyped code. Show a clear, warning-styled
-  // "invalid code" state (no freshness ring / pseudo-result). We deliberately do
-  // NOT reveal the brand's code format here, only how to re-check the input.
+  // Decode failed — almost always a mistyped code. We deliberately do NOT reveal
+  // the brand's code format here, only how to re-check the input.
   if (!result.decoded) {
     return (
       <div className="overflow-hidden rounded-2xl border border-warning/40 bg-warning-bg shadow-card">
@@ -146,17 +128,9 @@ export function ResultCard({
             <AlertTriangle className="h-6 w-6" />
           </span>
           <div>
-            <h2 className="text-lg font-semibold">
-              We couldn’t read this code
-            </h2>
+            <h2 className="text-lg font-semibold">{t("invalidTitle")}</h2>
             <p className="mx-auto mt-1.5 max-w-md text-sm text-fg-muted">
-              <span className="font-mono font-medium text-fg">
-                “{result.code}”
-              </span>{" "}
-              doesn’t match {brand.name}’s batch-code format. Check that you
-              typed it exactly as printed on the packaging — letters and numbers
-              only, no spaces — and that it’s the batch code, not the barcode or
-              a price/marketing reference.
+              {t("invalidBody", { code: result.code, brand: brand.name })}
             </p>
           </div>
         </div>
@@ -180,51 +154,51 @@ export function ResultCard({
             )}
           >
             <StatusIcon className="h-4 w-4" />
-            {meta.label}
+            {statusLabel}
           </span>
         </div>
-        <FreshnessRing percent={result.percentRemaining} color={meta.ring} />
+        <FreshnessRing
+          percent={result.percentRemaining}
+          color={meta.ring}
+          lifeLeftLabel={t("lifeLeft")}
+        />
       </div>
 
       <div className="grid gap-x-8 p-6 sm:p-8 md:grid-cols-2">
         <div className="divide-y divide-border">
           <DataRow
             icon={CalendarDays}
-            label="Manufacture date"
-            value={fmt(result.manufactureDate)}
+            label={t("manufactureDate")}
+            value={fmt(result.manufactureDate, locale)}
           />
-          <DataRow icon={Clock} label="Age" value={result.ageLabel ?? "—"} />
+          <DataRow icon={Clock} label={t("age")} value={result.ageLabel ?? "—"} />
           <DataRow
             icon={Timer}
-            label="Shelf life"
-            value={`${result.shelfLifeMonths} months`}
+            label={t("shelfLife")}
+            value={months(result.shelfLifeMonths)}
           />
           <DataRow
             icon={CalendarDays}
-            label="Expiration date"
-            value={fmt(result.expirationDate)}
+            label={t("expirationDate")}
+            value={fmt(result.expirationDate, locale)}
           />
         </div>
         <div className="divide-y divide-border">
           <DataRow
             icon={CheckCircle2}
-            label="Freshness"
-            value={`${meta.label}${
+            label={t("freshness")}
+            value={`${statusLabel}${
               result.percentRemaining !== null
-                ? ` · ${result.percentRemaining}% left`
+                ? ` · ${t("percentLeft", { n: result.percentRemaining })}`
                 : ""
             }`}
           />
           <DataRow
             icon={Info}
-            label="Confidence"
-            value={confidenceLabel[result.confidence]}
+            label={t("confidence")}
+            value={t(CONF_KEY[result.confidence])}
           />
-          <DataRow
-            icon={Timer}
-            label="After opening (PAO)"
-            value={`${brand.paoMonths} months`}
-          />
+          <DataRow icon={Timer} label={t("pao")} value={months(brand.paoMonths)} />
         </div>
       </div>
     </div>

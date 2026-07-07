@@ -1,13 +1,15 @@
 import { Link } from "@/i18n/navigation";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { POPULAR_BRANDS } from "@/lib/brands";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export function PopularBrands() {
+  const t = useTranslations("popularBrands");
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <SectionHeading title="Popular Brands" subtitle="Jump straight to a brand’s batch code decoder." />
+      <SectionHeading title={t("title")} subtitle={t("subtitle")} />
       <div className="mt-9 flex snap-x gap-3 overflow-x-auto pb-2 no-scrollbar sm:grid sm:grid-cols-4 sm:gap-4 sm:overflow-visible lg:grid-cols-8">
         {POPULAR_BRANDS.map((b) => (
           <Link
@@ -27,7 +29,7 @@ export function PopularBrands() {
           href="/brands"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
         >
-          View all brands <ArrowRight className="h-4 w-4" />
+          {t("viewAll")} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </section>

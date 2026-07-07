@@ -134,5 +134,54 @@
     "a7": "Useimmissa kosmetiikkatuotteissa ei ole viimeistä käyttöpäivää. Eräkoodi ilmoittaa valmistuspäivämäärän, ja arvioimme vanhenemisen lisäämällä tuotteen tyypillisen avaamattoman säilyvyyden – tavallisesti 24–36 kuukautta meikillä ja ihonhoidoilla ja 3–5 vuotta hajusteilla.",
     "a10": "Ei. Koodit puretaan selaimessasi, emmekä vaadi tiliä. Mitään kirjoittamaasi ei tallenneta palvelimelle, joten koodin tarkistaminen on täysin yksityistä.",
     "q10": "Tallennatko eräkoodini tai henkilötietoni?"
+  },
+  "result": {
+    "lifeLeft": "elämä jäljellä",
+    "statusFresh": "Tuore",
+    "statusExpired": "Mennyt säilyvyysaika",
+    "statusGood": "Edelleen Hyvä",
+    "statusUnknown": "Ei dekoodattu",
+    "statusUseSoon": "Käytä pian",
+    "age": "Ikä",
+    "shelfLife": "Säilyvyys",
+    "confidence": "Luottamus",
+    "pao": "Avaamisen jälkeen (PAO)",
+    "months": "{n}kuukautta",
+    "expirationDate": "Viimeinen voimassaolopäivä",
+    "manufactureDate": "Valmistuspäivämäärä",
+    "freshness": "Tuoreus",
+    "percentLeft": "{n}% jäljellä",
+    "confLow": "Alhainen luottamus",
+    "confHigh": "Korkea luottamus",
+    "confNone": "Ei voitu purkaa",
+    "confMedium": "Keskinkertainen luottamus",
+    "invalidBody": "\"{code}\" ei vastaa{brand}:n eräkoodimuotoa. Tarkista, että kirjoitit sen täsmälleen pakkaukseen painetun mukaisesti – vain kirjaimia ja numeroita, ei välilyöntejä – ja että se on eräkoodi, ei viivakoodi tai hinta/markkinointiviite.",
+    "invalidTitle": "Emme voineet lukea tätä koodia"
+  },
+  "howItWorks": {
+    "title": "Miten se toimii",
+    "step1Title": "Valitse Brändi",
+    "step1Body": "Valitse tuotemerkkisi yli 50 tuetun kosmetiikka- ja hajuvesivalmistajan joukosta.",
+    "step2Body": "Kirjoita tuotteeseen leimattu tai kohokuvioitu eräkoodi.",
+    "subtitle": "Ei tiliä, ei odottelua. Pura kaikki tuetut eräkoodit alle kymmenessä sekunnissa.",
+    "step2Title": "Anna eräkoodi",
+    "step3Title": "Hanki tuloksia",
+    "eyebrow": "Kolme yksinkertaista vaihetta",
+    "step3Body": "Katso valmistuspäivämäärä, ikä, tuoreus ja viimeinen käyttöpäivä välittömästi."
+  },
+  "popularBrands": {
+    "subtitle": "Siirry suoraan tuotemerkin eräkoodien dekooderiin.",
+    "title": "Suosittuja tuotemerkkejä",
+    "viewAll": "Katso kaikki merkit"
+  },
+  "features": {
+    "fastTitle": "Nopea & Helppo",
+    "fastBody": "Saat tuloksia muutamassa sekunnissa – ei rekisteröitymistä.",
+    "accurateBody": "Valmistajakohtaiset algoritmit tarkkoja tuloksia varten.",
+    "privateTitle": "Yksityinen ja suojattu",
+    "freeTitle": "Aina Ilmainen",
+    "accurateTitle": "Tarkka & Luotettava",
+    "freeBody": "Jokainen ominaisuus on 100% ilmainen, ikuisesti.",
+    "privateBody": "Koodit puretaan yksityisesti. Yksityisyytesi on etusijalla."
   }
 }

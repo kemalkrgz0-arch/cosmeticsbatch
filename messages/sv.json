@@ -134,5 +134,54 @@
     "q10": "Lagrar du mina batchkoder eller personuppgifter?",
     "a10": "Nej. Koder avkodas i din webbläsare och vi kräver inget konto. Inget du skriver sparas på en server, så att kontrollera en kod är helt privat.",
     "q9": "Varför kan min batchkod inte avkodas?"
+  },
+  "result": {
+    "statusFresh": "Färsk",
+    "statusUnknown": "Ej avkodad",
+    "statusGood": "Fortfarande bra",
+    "statusExpired": "Tidigare hållbarhetstid",
+    "manufactureDate": "Tillverkningsdatum",
+    "lifeLeft": "livet kvar",
+    "statusUseSoon": "Använd snart",
+    "freshness": "Friskhet",
+    "age": "Åldras",
+    "confidence": "Förtroende",
+    "pao": "Efter öppning (PAO)",
+    "months": "{n}månader",
+    "confLow": "Lågt självförtroende",
+    "shelfLife": "Hållbarhet",
+    "confMedium": "Medellång självförtroende",
+    "expirationDate": "Utgångsdatum",
+    "confHigh": "Högt självförtroende",
+    "percentLeft": "{n}% kvar",
+    "confNone": "Kunde inte avkoda",
+    "invalidTitle": "Vi kunde inte läsa den här koden",
+    "invalidBody": "\"{code}\" matchar inte{brand}:s batchkodformat. Kontrollera att du skrev det exakt som det står på förpackningen - endast bokstäver och siffror, inga mellanslag - och att det är batchkoden, inte streckkoden eller en pris-/marknadsföringsreferens."
+  },
+  "howItWorks": {
+    "step1Title": "Välj varumärke",
+    "title": "Hur det fungerar",
+    "step1Body": "Välj ditt varumärke bland över 50 kosmetika- och parfymtillverkare som stöds.",
+    "step2Body": "Ange batchkoden stämplad eller präglad på din produkt.",
+    "step2Title": "Ange batchkod",
+    "subtitle": "Inget konto, ingen väntan. Avkoda alla batchkoder som stöds på under tio sekunder.",
+    "eyebrow": "Tre enkla steg",
+    "step3Body": "Se tillverkningsdatum, ålder, färskhet och utgångsdatum direkt.",
+    "step3Title": "Få resultat"
+  },
+  "popularBrands": {
+    "subtitle": "Hoppa direkt till ett märkes batchkodavkodare.",
+    "title": "Populära märken",
+    "viewAll": "Se alla märken"
+  },
+  "features": {
+    "accurateTitle": "Noggrann och pålitlig",
+    "fastTitle": "Snabbt & enkelt",
+    "accurateBody": "Tillverkarspecifika algoritmer för exakta resultat.",
+    "privateTitle": "Privat & Säkert",
+    "freeTitle": "Alltid gratis",
+    "fastBody": "Få resultat på bara några sekunder – ingen registrering.",
+    "privateBody": "Koder avkodas privat. Din integritet kommer först.",
+    "freeBody": "Varje funktion är 100 % gratis, för alltid."
   }
 }

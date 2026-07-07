@@ -134,5 +134,54 @@
     "a9": "Niektoré značky časom menia svoje kódovanie, používajú formáty špecifické pre región alebo dátumy nekódujú verejne. Ešte raz skontrolujte, či ste zadali vyrazený kód šarže (nie čiarový kód), alebo skúste namiesto podznačky vybrať materskú spoločnosť.",
     "a10": "Nie. Kódy sú dekódované vo vašom prehliadači a nevyžadujeme účet. Nič, čo zadáte, sa neuloží na server, takže kontrola kódu je úplne súkromná.",
     "q9": "Prečo nie je možné dekódovať môj kód dávky?"
+  },
+  "result": {
+    "statusFresh": "Čerstvé",
+    "statusGood": "Stále dobré",
+    "statusUseSoon": "Využite čoskoro",
+    "statusUnknown": "Nie je dekódované",
+    "age": "Vek",
+    "manufactureDate": "Dátum výroby",
+    "lifeLeft": "život odišiel",
+    "statusExpired": "Minulá doba použiteľnosti",
+    "expirationDate": "Dátum vypršania platnosti",
+    "confidence": "Dôvera",
+    "months": "{n}mesiacov",
+    "pao": "Po otvorení (PAO)",
+    "shelfLife": "Čas použiteľnosti",
+    "confLow": "Nízka sebadôvera",
+    "confNone": "Nepodarilo sa dekódovať",
+    "confMedium": "Stredná dôvera",
+    "freshness": "Čerstvosť",
+    "confHigh": "Vysoká dôvera",
+    "percentLeft": "Zostáva{n}%.",
+    "invalidTitle": "Tento kód sa nám nepodarilo prečítať",
+    "invalidBody": "„{code}“ sa nezhoduje s formátom dávkového kódu{brand}. Skontrolujte, či ste ho napísali presne tak, ako je vytlačené na obale – iba písmená a čísla, žiadne medzery – a či ide o kód šarže, nie čiarový kód alebo cenovú/marketingovú referenciu."
+  },
+  "howItWorks": {
+    "title": "Ako to funguje",
+    "eyebrow": "Tri jednoduché kroky",
+    "step1Title": "Vyberte položku Značka",
+    "step1Body": "Vyberte si svoju značku z viac ako 50 podporovaných výrobcov kozmetiky a parfumov.",
+    "step2Body": "Zadajte kód šarže vyrazený alebo vyrazený na vašom produkte.",
+    "step3Body": "Okamžite uvidíte dátum výroby, vek, čerstvosť a expiráciu.",
+    "step3Title": "Získajte výsledky",
+    "subtitle": "Žiadny účet, žiadne čakanie. Dekódujte akýkoľvek podporovaný dávkový kód za menej ako desať sekúnd.",
+    "step2Title": "Zadajte kód šarže"
+  },
+  "popularBrands": {
+    "title": "Populárne značky",
+    "viewAll": "Pozrite si všetky značky",
+    "subtitle": "Prejdite priamo do dekodéra dávkového kódu značky."
+  },
+  "features": {
+    "fastTitle": "Rýchle a jednoduché",
+    "accurateTitle": "Presné & Spoľahlivé",
+    "privateTitle": "Súkromné ​​a bezpečné",
+    "freeTitle": "Vždy zadarmo",
+    "privateBody": "Kódy sa dekódujú súkromne. Vaše súkromie je na prvom mieste.",
+    "fastBody": "Získajte výsledky len za pár sekúnd – bez registrácie.",
+    "accurateBody": "Algoritmy špecifické pre výrobcu pre presné výsledky.",
+    "freeBody": "Každá funkcia je 100% bezplatná, navždy."
   }
 }

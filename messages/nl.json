@@ -134,5 +134,54 @@
     "a9": "Sommige merken veranderen hun codering in de loop van de tijd, gebruiken regiospecifieke formaten of coderen de datum niet openbaar. Controleer nogmaals of u de gestempelde batchcode (niet de streepjescode) heeft ingevoerd, of probeer het moederbedrijf te selecteren in plaats van het submerk.",
     "a10": "Nee. Codes worden gedecodeerd in uw browser en we hebben geen account nodig. Niets dat u typt, wordt op een server opgeslagen, dus het controleren van een code is volledig privé.",
     "q10": "Bewaart u mijn batchcodes of persoonlijke gegevens?"
+  },
+  "result": {
+    "statusFresh": "Vers",
+    "statusExpired": "Verleden houdbaarheid",
+    "age": "Leeftijd",
+    "shelfLife": "Houdbaarheid",
+    "expirationDate": "Vervaldatum",
+    "freshness": "Versheid",
+    "confidence": "Vertrouwen",
+    "pao": "Na opening (PAO)",
+    "months": "{n}maanden",
+    "manufactureDate": "Productiedatum",
+    "statusGood": "Nog steeds goed",
+    "statusUnknown": "Niet gedecodeerd",
+    "statusUseSoon": "Binnenkort gebruiken",
+    "lifeLeft": "leven over",
+    "invalidTitle": "We konden deze code niet lezen",
+    "confNone": "Kon niet decoderen",
+    "confLow": "Weinig vertrouwen",
+    "confMedium": "Gemiddeld vertrouwen",
+    "confHigh": "Hoog vertrouwen",
+    "percentLeft": "{n}% over",
+    "invalidBody": "“{code}” komt niet overeen met het batchcodeformaat van{brand}. Controleer of u het precies zo hebt getypt als op de verpakking staat afgedrukt (alleen letters en cijfers, geen spaties) en of het de batchcode is, en niet de streepjescode of een prijs-/marketingreferentie."
+  },
+  "howItWorks": {
+    "title": "Hoe het werkt",
+    "step1Title": "Selecteer Merk",
+    "subtitle": "Geen account, geen wachttijden. Decodeer elke ondersteunde batchcode in minder dan tien seconden.",
+    "step1Body": "Kies uw merk uit meer dan 50 ondersteunde cosmetica- en parfummakers.",
+    "step2Body": "Typ de batchcode die op uw product is gestempeld of in reliëf is aangebracht.",
+    "step3Body": "Bekijk direct de productiedatum, leeftijd, versheid en vervaldatum.",
+    "eyebrow": "Drie eenvoudige stappen",
+    "step3Title": "Resultaten verkrijgen",
+    "step2Title": "Voer batchcode in"
+  },
+  "popularBrands": {
+    "title": "Populaire merken",
+    "subtitle": "Ga rechtstreeks naar de batchcodedecoder van een merk.",
+    "viewAll": "Bekijk alle merken"
+  },
+  "features": {
+    "privateTitle": "Privé en veilig",
+    "fastBody": "Krijg resultaten in slechts een paar seconden - geen aanmelding.",
+    "accurateBody": "Fabrikantspecifieke algoritmen voor nauwkeurige resultaten.",
+    "fastTitle": "Snel en gemakkelijk",
+    "freeTitle": "Altijd gratis",
+    "accurateTitle": "Nauwkeurig en betrouwbaar",
+    "privateBody": "Codes worden privé gedecodeerd. Uw privacy staat voorop.",
+    "freeBody": "Elke functie is voor altijd 100% gratis."
   }
 }

@@ -134,5 +134,54 @@
     "a9": "Alcuni marchi modificano la codifica nel tempo, utilizzano formati specifici per regione o non codificano pubblicamente la data. Ricontrolla di aver inserito il codice lotto timbrato (non il codice a barre) oppure prova a selezionare la società madre anziché la sottomarca.",
     "q10": "Memorizzi i miei codici batch o i miei dati personali?",
     "a10": "No. I codici vengono decodificati nel tuo browser e non è necessario un account. Niente di ciò che digiti viene salvato su un server, quindi il controllo di un codice è completamente privato."
+  },
+  "result": {
+    "statusFresh": "Fresco",
+    "statusGood": "Ancora buono",
+    "lifeLeft": "la vita rimasta",
+    "statusExpired": "Durata di conservazione passata",
+    "manufactureDate": "Data di produzione",
+    "statusUnknown": "Non decodificato",
+    "statusUseSoon": "Utilizzare presto",
+    "age": "Età",
+    "expirationDate": "Data di scadenza",
+    "shelfLife": "Durata di conservazione",
+    "freshness": "Freschezza",
+    "confidence": "Fiducia",
+    "pao": "Dopo l'apertura (PAO)",
+    "months": "{n}mesi",
+    "confHigh": "Alta fiducia",
+    "confMedium": "Confidenza media",
+    "confNone": "Impossibile decodificare",
+    "percentLeft": "{n}% rimasto",
+    "confLow": "Bassa fiducia",
+    "invalidTitle": "Non siamo riusciti a leggere questo codice",
+    "invalidBody": "\"{code}\" non corrisponde al formato del codice batch di{brand}. Controlla di averlo digitato esattamente come stampato sulla confezione (solo lettere e numeri, senza spazi) e che si tratti del codice lotto, non del codice a barre o di un riferimento di prezzo/marketing."
+  },
+  "howItWorks": {
+    "eyebrow": "Tre semplici passaggi",
+    "title": "Come funziona",
+    "step1Title": "Seleziona Marca",
+    "step3Body": "Visualizza immediatamente la data di produzione, l'età, la freschezza e la scadenza.",
+    "step1Body": "Scegli il tuo marchio tra oltre 50 produttori di cosmetici e profumi supportati.",
+    "step2Body": "Digita il codice lotto stampato o in rilievo sul tuo prodotto.",
+    "step3Title": "Ottieni risultati",
+    "subtitle": "Nessun account, nessuna attesa. Decodifica qualsiasi codice batch supportato in meno di dieci secondi.",
+    "step2Title": "Inserisci il codice batch"
+  },
+  "popularBrands": {
+    "title": "Marche popolari",
+    "subtitle": "Passa direttamente al decodificatore del codice batch di un marchio.",
+    "viewAll": "Visualizza tutti i marchi"
+  },
+  "features": {
+    "accurateTitle": "Preciso e affidabile",
+    "privateTitle": "Privato e sicuro",
+    "accurateBody": "Algoritmi specifici del produttore per risultati precisi.",
+    "fastBody": "Ottieni risultati in pochi secondi, senza registrazione.",
+    "freeBody": "Ogni funzionalità è gratuita al 100%, per sempre.",
+    "privateBody": "I codici vengono decodificati privatamente. La tua privacy viene prima di tutto.",
+    "freeTitle": "Sempre gratuito",
+    "fastTitle": "Veloce e facile"
   }
 }

@@ -134,5 +134,54 @@
     "a9": "Unele mărci își schimbă codificarea în timp, folosesc formate specifice regiunii sau nu codifică public data. Verificați din nou dacă ați introdus codul de lot ștampilat (nu codul de bare) sau încercați să selectați compania-mamă în loc de submarca.",
     "q10": "Îmi stocați codurile de lot sau datele personale?",
     "a10": "Nu. Codurile sunt decodificate în browserul dvs. și nu avem nevoie de un cont. Nimic din ceea ce tastați nu este salvat pe un server, așa că verificarea unui cod este complet privată."
+  },
+  "result": {
+    "statusFresh": "Proaspăt",
+    "statusExpired": "Perioada de valabilitate trecută",
+    "lifeLeft": "viata ramasa",
+    "statusGood": "Încă bine",
+    "statusUseSoon": "Utilizați în curând",
+    "manufactureDate": "Data fabricatiei",
+    "statusUnknown": "Nu este decodat",
+    "age": "Vârstă",
+    "expirationDate": "Data expirării",
+    "shelfLife": "Perioada de valabilitate",
+    "freshness": "Prospeţime",
+    "confidence": "Încredere",
+    "pao": "După deschidere (PAO)",
+    "months": "{n}luni",
+    "invalidTitle": "Nu am putut citi acest cod",
+    "confLow": "Încredere scăzută",
+    "confMedium": "Încredere medie",
+    "percentLeft": "{n}% rămas",
+    "confHigh": "Încredere ridicată",
+    "confNone": "Nu s-a putut decoda",
+    "invalidBody": "„{code}” nu se potrivește cu formatul de cod de lot al lui{brand}. Verificați dacă ați tastat exact așa cum este tipărit pe ambalaj - numai litere și cifre, fără spații - și că este codul lotului, nu codul de bare sau referința de preț/marketing."
+  },
+  "howItWorks": {
+    "eyebrow": "Trei pași simpli",
+    "title": "Cum funcționează",
+    "step1Title": "Selectați Brand",
+    "step3Title": "Obțineți rezultate",
+    "step2Title": "Introduceți codul lotului",
+    "subtitle": "Fără cont, fără așteptare. Decodați orice cod de lot acceptat în mai puțin de zece secunde.",
+    "step1Body": "Alegeți-vă marca dintre cei peste 50 de producători de cosmetice și parfumuri acceptați.",
+    "step2Body": "Introduceți codul lotului ștampilat sau în relief pe produsul dvs.",
+    "step3Body": "Vezi instantaneu data fabricației, vârsta, prospețimea și expirarea."
+  },
+  "popularBrands": {
+    "title": "Mărci populare",
+    "subtitle": "Treceți direct la decodorul de cod de lot al unei mărci.",
+    "viewAll": "Vedeți toate mărcile"
+  },
+  "features": {
+    "fastTitle": "Rapid și ușor",
+    "privateTitle": "Privat și Securizat",
+    "accurateTitle": "Precis și de încredere",
+    "freeTitle": "Întotdeauna gratuit",
+    "freeBody": "Fiecare caracteristică este 100% gratuită, pentru totdeauna.",
+    "privateBody": "Codurile sunt decodate în mod privat. Intimitatea ta este pe primul loc.",
+    "fastBody": "Obțineți rezultate în doar câteva secunde - fără înregistrare.",
+    "accurateBody": "Algoritmi specifici producătorului pentru rezultate precise."
   }
 }

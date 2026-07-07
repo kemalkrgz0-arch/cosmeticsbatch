@@ -134,5 +134,54 @@
     "a9": "Bazı markalar zamanla kodlamalarını değiştirir, bölgeye özgü formatlar kullanır veya tarihi herkese açık olarak kodlamaz. Damgalı parti kodunu (barkodu değil) girdiğinizi bir kez daha kontrol edin veya alt marka yerine ana şirketi seçmeyi deneyin.",
     "q10": "Parti kodlarımı veya kişisel verilerimi saklıyor musunuz?",
     "a10": "Hayır. Kodların kodu tarayıcınızda çözülür ve bir hesaba ihtiyacımız yoktur. Yazdığınız hiçbir şey sunucuya kaydedilmez, dolayısıyla kodu kontrol etmek tamamen gizlidir."
+  },
+  "result": {
+    "statusFresh": "Taze",
+    "statusExpired": "Geçmiş Raf Ömrü",
+    "statusUseSoon": "Yakında Kullanın",
+    "statusGood": "Hala İyi",
+    "lifeLeft": "hayat kaldı",
+    "statusUnknown": "Kodu Çözülmedi",
+    "age": "Yaş",
+    "shelfLife": "Raf ömrü",
+    "freshness": "Tazelik",
+    "expirationDate": "Son kullanma tarihi",
+    "confidence": "Kendinden emin",
+    "pao": "Açıldıktan sonra (PAO)",
+    "confHigh": "Yüksek güven",
+    "months": "{n}ay",
+    "confLow": "Düşük güven",
+    "manufactureDate": "Üretim tarihi",
+    "invalidTitle": "Bu kodu okuyamadık",
+    "confMedium": "Orta güven",
+    "confNone": "Kodu çözülemedi",
+    "percentLeft": "{n}% kaldı",
+    "invalidBody": "\"{code}\",{brand}'in toplu kod formatıyla eşleşmiyor. Bunu tam olarak ambalajın üzerinde yazıldığı gibi (yalnızca harf ve rakamlarla, boşluk olmadan) yazdığınızdan ve bunun barkod veya fiyat/pazarlama referansı değil, parti kodu olduğundan emin olun."
+  },
+  "howItWorks": {
+    "title": "Nasıl çalışır?",
+    "eyebrow": "Üç basit adım",
+    "step1Title": "Marka Seçiniz",
+    "subtitle": "Hesap yok, beklemek yok. Desteklenen herhangi bir toplu kodun kodunu on saniyeden kısa sürede çözün.",
+    "step3Title": "Sonuçları Al",
+    "step2Title": "Parti Kodunu Girin",
+    "step1Body": "50'den fazla desteklenen kozmetik ve parfüm üreticisi arasından markanızı seçin.",
+    "step2Body": "Ürününüzün üzerine damgalanmış veya kabartmalı parti kodunu yazın.",
+    "step3Body": "Üretim tarihini, yaşını, tazeliğini ve son kullanma tarihini anında görün."
+  },
+  "popularBrands": {
+    "title": "Popüler Markalar",
+    "subtitle": "Doğrudan bir markanın toplu kod çözücüsüne geçin.",
+    "viewAll": "Tüm markaları görüntüle"
+  },
+  "features": {
+    "privateTitle": "Özel ve Güvenli",
+    "fastTitle": "Hızlı ve Kolay",
+    "accurateTitle": "Doğru ve Güvenilir",
+    "accurateBody": "Kesin sonuçlar için üreticiye özel algoritmalar.",
+    "fastBody": "Sonuçları yalnızca birkaç saniye içinde alın; kaydolmanıza gerek yok.",
+    "freeBody": "Her özellik sonsuza kadar %100 ücretsizdir.",
+    "privateBody": "Kodlar özel olarak çözülür. Gizliliğiniz önce gelir.",
+    "freeTitle": "Daima Ücretsiz"
   }
 }

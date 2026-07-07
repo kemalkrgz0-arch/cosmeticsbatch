@@ -1,31 +1,20 @@
 import { CircleCheck, ScanLine, Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-const steps = [
-  {
-    icon: Search,
-    title: "Select Brand",
-    body: "Choose your brand from 50+ supported cosmetic and perfume makers.",
-  },
-  {
-    icon: ScanLine,
-    title: "Enter Batch Code",
-    body: "Type the batch code stamped or embossed on your product.",
-  },
-  {
-    icon: CircleCheck,
-    title: "Get Results",
-    body: "See the manufacture date, age, freshness and expiration instantly.",
-  },
-];
-
 export function HowItWorks() {
+  const t = useTranslations("howItWorks");
+  const steps = [
+    { icon: Search, title: t("step1Title"), body: t("step1Body") },
+    { icon: ScanLine, title: t("step2Title"), body: t("step2Body") },
+    { icon: CircleCheck, title: t("step3Title"), body: t("step3Body") },
+  ];
   return (
     <section id="how-it-works" className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <SectionHeading
-        eyebrow="Three simple steps"
-        title="How it works"
-        subtitle="No account, no waiting. Decode any supported batch code in under ten seconds."
+        eyebrow={t("eyebrow")}
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
       <ol className="mx-auto mt-10 grid max-w-md gap-3 sm:mt-12 sm:max-w-none sm:grid-cols-3 sm:gap-8">
         {steps.map(({ icon: Icon, title, body }, i) => (
