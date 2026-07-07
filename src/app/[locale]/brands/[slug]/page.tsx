@@ -5,9 +5,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight, CalendarClock, Info, MapPin, Timer } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { BRANDS, getBrand, POPULAR_BRANDS } from "@/lib/brands";
-import { DECODERS, checkBatchCode } from "@/lib/decoder";
 import { InlineResult } from "@/components/inline-result";
-import { buildBrandFaqs, decodeExplanation } from "@/lib/brand-faq";
+import { buildBrandFaqs } from "@/lib/brand-faq";
 import { GUIDES } from "@/lib/guides";
 import {
   articleSchema,
@@ -58,21 +57,6 @@ export async function generateMetadata({
 }
 
 /** A representative example code per decoder family (for unique on-page content). */
-function exampleCode(brand: NonNullable<ReturnType<typeof getBrand>>): string {
-  switch (brand.decoderId) {
-    case "estee-lauder":
-      return "A26";
-    case "loreal":
-      return "22U401";
-    case "coty":
-    case "chanel":
-    case "dior":
-      return "4135";
-    default:
-      return "24045";
-  }
-}
-
 export default async function BrandPage({
   params,
 }: {
@@ -88,22 +72,6 @@ export default async function BrandPage({
   const nav = await getTranslations("nav");
   const path = `/brands/${brand.slug}`;
 
-  // Worked example — decoded at build time so every brand page has unique,
-  // concrete content (helps ranking + avoids thin/duplicate pages).
-  const exCode = exampleCode(brand);
-  const exResult = checkBatchCode({
-    brandName: brand.name,
-    code: exCode,
-    decoderId: brand.decoderId,
-    shelfLifeMonths: brand.shelfLifeMonths,
-    category: brand.category,
-  });
-  const exDate = exResult.manufactureDate?.toLocaleDateString(locale, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   const related = [
     ...BRANDS.filter((b) => b.group === brand.group && b.slug !== brand.slug),
     ...POPULAR_BRANDS.filter((b) => b.slug !== brand.slug),
@@ -111,11 +79,7 @@ export default async function BrandPage({
     .filter((b, i, arr) => arr.findIndex((x) => x.slug === b.slug) === i)
     .slice(0, 6);
 
-  const brandFaq = buildBrandFaqs(
-    brand,
-    { exampleCode: exCode, exampleDate: exDate },
-    t,
-  );
+  const brandFaq = buildBrandFaqs(brand, t);
 
   const category = t(`categoryNoun.${brand.category}`);
   const months = (n: number) => tb("months", { n });
@@ -127,10 +91,7 @@ export default async function BrandPage({
     {
       icon: Info,
       label: tb("factDecoder"),
-      value:
-        brand.decoderId && DECODERS[brand.decoderId]
-          ? DECODERS[brand.decoderId].label
-          : tb("autoDecoder"),
+      value: tb("autoDecoder"),
     },
   ];
 
@@ -198,9 +159,6 @@ export default async function BrandPage({
           {tb("howHeading", { name: brand.name })}
         </h2>
         <p className="mt-3 leading-relaxed text-fg-muted">
-          {decodeExplanation(brand, t)}
-        </p>
-        <p className="mt-3 leading-relaxed text-fg-muted">
           {tb("freshnessPara", {
             name: brand.name,
             shelf: brand.shelfLifeMonths,
@@ -208,20 +166,6 @@ export default async function BrandPage({
             category,
           })}
         </p>
-
-        {exDate && (
-          <div className="mt-5 rounded-xl border border-border bg-bg-subtle/50 p-4">
-            <p className="text-sm font-medium">{tb("workedExampleTitle")}</p>
-            <p className="mt-1 text-sm leading-relaxed text-fg-muted">
-              {tb("workedExample", {
-                name: brand.name,
-                code: exCode,
-                date: exDate,
-                shelf: brand.shelfLifeMonths,
-              })}
-            </p>
-          </div>
-        )}
 
         <p className="mt-5 leading-relaxed text-fg-muted">
           {tb("aliasesPara", { name: brand.name, category })}

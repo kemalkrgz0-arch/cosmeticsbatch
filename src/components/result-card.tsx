@@ -3,13 +3,11 @@ import {
   CalendarDays,
   CheckCircle2,
   Clock,
-  HelpCircle,
   Info,
   ShieldQuestion,
   Timer,
 } from "lucide-react";
 import type { CheckResult, FreshnessStatus } from "@/lib/decoder";
-import { getDecoder } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { cn } from "@/lib/utils";
 
@@ -138,10 +136,9 @@ export function ResultCard({
   const StatusIcon = meta.icon;
 
   // Decode failed — almost always a mistyped code. Show a clear, warning-styled
-  // "invalid code" state (no freshness ring / pseudo-result) plus a hint about
-  // what this brand's codes actually look like, so the user can fix their input.
+  // "invalid code" state (no freshness ring / pseudo-result). We deliberately do
+  // NOT reveal the brand's code format here, only how to re-check the input.
   if (!result.decoded) {
-    const decoder = getDecoder(brand.decoderId);
     return (
       <div className="overflow-hidden rounded-2xl border border-warning/40 bg-warning-bg shadow-card">
         <div className="flex flex-col items-center gap-3 px-6 py-8 text-center sm:px-8">
@@ -163,14 +160,6 @@ export function ResultCard({
             </p>
           </div>
         </div>
-        {decoder && (
-          <div className="border-t border-warning/25 bg-card/40 px-6 py-4 text-left text-xs leading-relaxed text-fg-muted sm:px-8">
-            <p className="mb-1 font-medium text-fg">
-              What {brand.name} codes look like
-            </p>
-            {decoder.explanation}
-          </div>
-        )}
       </div>
     );
   }
@@ -231,7 +220,6 @@ export function ResultCard({
             label="Confidence"
             value={confidenceLabel[result.confidence]}
           />
-          <DataRow icon={HelpCircle} label="Read using" value={result.method} />
           <DataRow
             icon={Timer}
             label="After opening (PAO)"
@@ -239,23 +227,6 @@ export function ResultCard({
           />
         </div>
       </div>
-
-      {/* Notes */}
-      {result.notes.length > 0 && (
-        <div className="border-t border-border bg-bg-subtle/50 p-6 sm:px-8">
-          <ul className="space-y-1.5">
-            {result.notes.map((n, i) => (
-              <li
-                key={i}
-                className="flex gap-2 text-xs leading-relaxed text-fg-muted"
-              >
-                <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                {n}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 }

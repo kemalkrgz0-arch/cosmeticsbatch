@@ -1,42 +1,62 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { checkBatchCode } from "@/lib/decoder";
+import type { CheckResult } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultCard } from "@/components/result-card";
 import { AdSlot } from "@/components/ui/ad-slot";
 
 /**
- * Renders the decode result from the `?code=` query param on the client.
- * Keeps the brand page statically generated (fast + indexable) while still
- * showing an inline result on the same ad-supported, SEO-relevant URL.
+ * Renders the decode result for the `?code=` query param. The decode itself
+ * happens server-side (`/api/decode`) so the batch-code ciphers never reach the
+ * browser bundle; this component only fetches and renders the resulting dates.
  */
 export function InlineResult({ brand }: { brand: Brand }) {
   const code = useSearchParams().get("code")?.trim();
   const ref = useRef<HTMLDivElement>(null);
+  const [result, setResult] = useState<CheckResult | null>(null);
 
   useEffect(() => {
-    if (code && ref.current) {
+    if (!code) {
+      setResult(null);
+      return;
+    }
+    let active = true;
+    fetch(
+      `/api/decode?slug=${encodeURIComponent(brand.slug)}&code=${encodeURIComponent(code)}`,
+    )
+      .then((r) => r.json())
+      .then((data) => {
+        if (!active || !data?.result) return;
+        const r = data.result;
+        setResult({
+          ...r,
+          manufactureDate: r.manufactureDate ? new Date(r.manufactureDate) : null,
+          expirationDate: r.expirationDate ? new Date(r.expirationDate) : null,
+        });
+      })
+      .catch(() => {
+        if (active) setResult(null);
+      });
+    return () => {
+      active = false;
+    };
+  }, [code, brand.slug]);
+
+  useEffect(() => {
+    if (result && ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [code]);
+  }, [result]);
 
   if (!code) return null;
-
-  const result = checkBatchCode({
-    brandName: brand.name,
-    code,
-    decoderId: brand.decoderId,
-    shelfLifeMonths: brand.shelfLifeMonths,
-    category: brand.category,
-  });
 
   return (
     <div id="result" ref={ref} className="mt-8 scroll-mt-24">
       {/* On search, show an ad first, then the decode result below it. */}
       <AdSlot placement="result" className="mb-6" height={250} />
-      <ResultCard result={result} brand={brand} />
+      {result && <ResultCard result={result} brand={brand} />}
     </div>
   );
 }
