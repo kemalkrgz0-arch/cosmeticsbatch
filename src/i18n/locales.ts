@@ -71,7 +71,12 @@ export const ALL_LOCALES: LocaleMeta[] = [
 ];
 
 /** Codes that currently have a translated message file and live routes. */
-const ACTIVE = ["en", "es", "fr", "de", "pt", "ru", "ar", "zh"] as const;
+const ACTIVE = [
+  "en", "es", "fr", "de", "pt", "ru", "ar", "zh",
+  // European languages
+  "tr", "it", "nl", "pl", "sv", "uk", "el", "cs", "nb", "da", "fi", "ro",
+  "hu", "ca", "sr", "bg", "sk",
+] as const;
 
 export const LOCALES: LocaleMeta[] = ALL_LOCALES.filter((l) =>
   (ACTIVE as readonly string[]).includes(l.code),
