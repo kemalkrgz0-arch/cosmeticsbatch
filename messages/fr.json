@@ -53,8 +53,6 @@
     "intro": "Saisissez votre code de lot {name} ci-dessous pour décoder instantanément la date de fabrication, l’âge et la date de péremption estimée — gratuit et privé.",
     "howHeading": "Comment fonctionnent les codes de lot {name}",
     "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
-    "workedExampleTitle": "Exemple concret",
-    "workedExample": "A {name} batch code of {code} decodes to a manufacture date of {date}, with an estimated expiration around {shelf} months later.",
     "aliasesPara": "You'll sometimes see this tool called a {name} batch code decoder, {name} batch code checker, or {name} batch code calculator — they all do the same thing: read the production code and tell you how fresh your {name} {category} is.",
     "factManufacturer": "Fabricant",
     "factShelfLife": "Durée de conservation typique",
@@ -79,18 +77,6 @@
     "suncare": "protection solaire",
     "generic": "beauté"
   },
-  "decoderExplain": {
-    "interparfums": "Les parfums Inter Parfums (Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron, Karl Lagerfeld, etc.) utilisent un code dont la première lettre indique l'année de production — un cycle annuel qui saute I et O, donc J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 et R = 2026 — et dont les trois derniers chiffres sont le jour de cette année. Par exemple, 08J38J169 correspond au 169e jour de 2019 (18 juin 2019).",
-    "creed": "Les codes de lot Creed commencent par une seule lettre qui indique l'année de production : A = 2010, B = 2011, et ainsi de suite, en sautant les lettres I et O — donc N = 2022, P = 2023, Q = 2024 et R = 2025. Les autres caractères sont la série de lot interne ; Creed n'encode pas le mois, seule l'année de fabrication est donc certaine.",
-    "embedded": "Cette marque imprime la date de production directement dans le code de lot — le plus souvent le dernier chiffre de l'année suivi du jour de l'année (p. ex. 4135 = le 135e jour de 2024), parfois sous forme de date à 5 ou 6 chiffres.",
-    "estee-lauder": "Estée Lauder group codes are 3 characters: the first is the manufacturing plant, the second is the month (1–9 = January–September, A/B/C = October–December), and the third is the last digit of the year.",
-    "loreal": "L'Oréal group codes are usually 6 characters (e.g. 22U401). The leading digits are the factory, the first letter is the production year (an annual letter cycle where 'V' is skipped, so U = 2021, W = 2022, X = 2023…), and the character right after it is the month (1–9 = January–September, O/N/D = October/November/December). The last three characters are the production batch and have no bearing on shelf life.",
-    "coty": "Coty fragrances carry a 4-digit code (e.g. 4135) on the box base or the clear sticker under the bottle. The first digit is the last digit of the production year, and the remaining three are the day of that year — so 4135 is the 135th day of 2024, i.e. 14 May 2024.",
-    "chanel": "Chanel does not publish a fixed batch-code cipher, but current Chanel fragrances, makeup and skincare print the production date in the code — typically the last digit of the year followed by the day of the year (e.g. 4135 = day 135 of 2024). Some older or region-specific codes cannot be decoded automatically.",
-    "dior": "Dior and its sister LVMH houses print the production date in the batch code — usually the last digit of the year followed by the day of the year (e.g. 4135 = the 135th day of 2024), sometimes as a 5- or 6-digit date. There is no separate month/plant cipher to memorise.",
-    "julian": "A large share of manufacturers print the date directly in the batch code — either as a Julian date (year + day-of-year, e.g. 24045 = the 45th day of 2024) or as a packed calendar date (YYMMDD / DDMMYY).",
-    "auto": "{name} is manufactured under {group}. Its batch codes usually embed the production date directly — either as a Julian date (year plus day-of-year) or a packed calendar date. Our checker auto-detects the format and estimates the manufacture date."
-  },
   "storageTip": {
     "skincare": "Keep it out of direct sunlight and away from heat, and close caps tightly. Bathrooms get humid, so a cool, dry drawer is better — especially for active ingredients like vitamin C, retinol or acids, which oxidise faster once exposed to air and light.",
     "makeup": "Store it away from heat and moisture and keep liquids and mascara tightly closed. Sharpen pencils, wash brushes and avoid adding water or saliva, which introduce bacteria and shorten how long the product stays safe to use.",
@@ -100,9 +86,6 @@
     "generic": "Store it somewhere cool and dry, out of direct sunlight, and keep the container tightly closed between uses."
   },
   "brandFaq": {
-    "q_read": "How do I read a {name} batch code?",
-    "q_example": "What does a {name} batch code like {code} mean?",
-    "a_example": "A {name} batch code of {code} decodes to a manufacture date of {date}. From there we add {name}'s typical {shelf}-month shelf life to estimate when the unopened product is best used by.",
     "q_where": "Where is the batch code on {name} products?",
     "a_where": "Look for a short stamped, embossed or ink-jet code — usually on the base of the bottle or jar, the crimp at the end of a tube, or the bottom or flap of the box. On {name} {noun} it is separate from the barcode and typically 3–8 characters of letters and numbers.",
     "q_barcode": "What's the difference between the {name} batch code and the barcode?",
