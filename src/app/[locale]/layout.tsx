@@ -8,7 +8,7 @@ import { routing } from "@/i18n/routing";
 import { isRtl, DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { adsense, adsenseEnabled } from "@/lib/ads";
-import { ga, gaEnabled } from "@/lib/analytics";
+import { ga, gaEnabled, ymEnabled } from "@/lib/analytics";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -16,6 +16,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { JsonLd } from "@/components/json-ld";
 import { CookieConsent } from "@/components/cookie-consent";
+import { YandexMetrica } from "@/components/yandex-metrica";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -123,7 +124,8 @@ export default async function RootLayout({
           </main>
           <SiteFooter />
           <BottomNav />
-          {(adsenseEnabled || gaEnabled) && <CookieConsent />}
+          {ymEnabled && <YandexMetrica />}
+          {(adsenseEnabled || gaEnabled || ymEnabled) && <CookieConsent />}
         </Providers>
         {adsenseEnabled && (
           // Plain async script — React 19 hoists it into the server-rendered

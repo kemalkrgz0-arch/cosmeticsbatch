@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { CONSENT_GRANTED_EVENT } from "@/lib/analytics";
 
 const KEY = "cb:consent";
 
@@ -43,6 +44,8 @@ export function CookieConsent() {
       ad_personalization: value,
       analytics_storage: value,
     });
+    // Let consent-gated trackers (e.g. Yandex Metrica) start without a reload.
+    if (granted) window.dispatchEvent(new Event(CONSENT_GRANTED_EVENT));
     setShow(false);
   }
 

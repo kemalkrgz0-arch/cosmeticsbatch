@@ -11,3 +11,19 @@ export const ga = {
 } as const;
 
 export const gaEnabled = Boolean(ga.id);
+
+/**
+ * Yandex Metrica (counter id). Loaded only after cookie consent is granted —
+ * it includes Webvisor session replay + clickmaps, so it must not run before
+ * the visitor opts in.
+ *
+ *   NEXT_PUBLIC_YM_ID   e.g. 110450605
+ */
+export const ym = {
+  id: process.env.NEXT_PUBLIC_YM_ID ?? "",
+} as const;
+
+export const ymEnabled = Boolean(ym.id);
+
+/** Fired by the consent banner on "Accept" so gated trackers can start. */
+export const CONSENT_GRANTED_EVENT = "cb-consent-granted";

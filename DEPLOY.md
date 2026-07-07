@@ -43,6 +43,7 @@ git remote add origin <your-repo-url> && git push -u origin main
 | `NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE` | `1234567890` | Optional. |
 | `NEXT_PUBLIC_ADSENSE_SLOT_BRAND` | `1234567890` | Optional. |
 | `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` | Optional. Google Analytics 4 measurement ID. Blank = no analytics, no cookies. |
+| `NEXT_PUBLIC_YM_ID` | `110450605` | Optional. Yandex Metrica counter id. Loads only after cookie consent. Blank = off. |
 
 > Changing any `NEXT_PUBLIC_*` requires a **rebuild** (they are baked into the
 > build), not just a restart.

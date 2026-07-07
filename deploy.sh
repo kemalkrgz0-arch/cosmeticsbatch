@@ -18,6 +18,7 @@ docker build -t cosmeticsbatch:latest \
   --build-arg NEXT_PUBLIC_SITE_URL=https://cosmeticsbatch.com \
   --build-arg NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-6300134697173168 \
   --build-arg NEXT_PUBLIC_GA_ID=G-LR51EM3ESQ \
+  --build-arg NEXT_PUBLIC_YM_ID=110450605 \
   .
 
 echo "→ Restarting container…"
