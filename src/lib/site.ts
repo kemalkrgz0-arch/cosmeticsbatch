@@ -7,6 +7,11 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cosmeticsbatch.com",
   locale: "en_US",
   twitter: "@cosmeticsbatch",
+  // Last meaningful change to core page content. Used for sitemap
+  // <lastmod> so we emit a stable, honest freshness signal instead of
+  // `new Date()` (which tells crawlers every page changed on every crawl).
+  // Bump this when brand/static page content actually changes.
+  contentUpdated: "2026-07-08",
   nav: [
     { label: "Home", href: "/" },
     { label: "Brands", href: "/brands" },

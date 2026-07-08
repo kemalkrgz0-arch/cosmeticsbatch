@@ -64,7 +64,9 @@ export function organizationSchema(): Json {
     "@type": "Organization",
     name: site.name,
     url: site.url,
+    logo: absoluteUrl("/icon.png"),
     description: site.description,
+    sameAs: [`https://x.com/${site.twitter.replace(/^@/, "")}`],
   };
 }
 

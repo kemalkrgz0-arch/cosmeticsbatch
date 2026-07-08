@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BRANDS } from "@/lib/brands";
 import { GUIDES } from "@/lib/guides";
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, site } from "@/lib/site";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { localizedPath, hreflangAlternates } from "@/lib/seo";
 
@@ -13,7 +13,9 @@ import { localizedPath, hreflangAlternates } from "@/lib/seo";
  * one per page × language).
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Stable content date, not `new Date()` — a real <lastmod> signal that only
+  // moves when page content actually changes (see site.contentUpdated).
+  const updated = new Date(site.contentUpdated);
 
   const entry = (
     path: string,
@@ -29,13 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   const staticRoutes = ["/", "/brands", "/guides", "/about"].map((path) =>
-    entry(path, now, "weekly", path === "/" ? 1 : 0.8),
+    entry(path, updated, "weekly", path === "/" ? 1 : 0.8),
   );
   const legalRoutes = ["/privacy", "/terms"].map((path) =>
-    entry(path, now, "monthly", 0.3),
+    entry(path, updated, "monthly", 0.3),
   );
   const brandRoutes = BRANDS.map((b) =>
-    entry(`/brands/${b.slug}`, now, "monthly", 0.7),
+    entry(`/brands/${b.slug}`, updated, "monthly", 0.7),
   );
   const guideRoutes = GUIDES.map((g) =>
     entry(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6),
