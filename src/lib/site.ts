@@ -1,8 +1,8 @@
 export const site = {
   name: "Cosmetics Batch",
-  tagline: "Check Cosmetic & Perfume Batch Codes",
+  tagline: "Cosmetic & Perfume Batch Code Checker",
   description:
-    "Decode cosmetic and perfume batch codes instantly. Find the manufacture date, age, and expiration date of your products. 100% free, no sign-up, private.",
+    "Free batch code checker for cosmetics, perfume and fragrance. Decode a batch code to find the manufacture date, expiry date and product age, and help check authenticity — instant, no sign-up, private.",
   // Set NEXT_PUBLIC_SITE_URL in production for correct canonical + OG URLs.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cosmeticsbatch.com",
   locale: "en_US",

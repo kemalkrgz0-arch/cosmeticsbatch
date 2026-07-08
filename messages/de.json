@@ -49,7 +49,7 @@
     "errorNoCode": "Geben Sie den Chargencode Ihres Produkts ein."
   },
   "brandPage": {
-    "checkerTitle": "{name} Chargencode-Prüfer",
+    "checkerTitle": "{name} Chargennummer prüfen",
     "by": "von {group}",
     "intro": "Gib unten deinen {name}-Chargencode ein, um Herstellungsdatum, Alter und geschätztes Haltbarkeitsdatum sofort zu entschlüsseln – kostenlos und privat.",
     "howHeading": "So funktionieren {name}-Chargencodes",
@@ -64,9 +64,9 @@
     "relatedBrands": "Verwandte Marken",
     "helpfulGuides": "Hilfreiche Ratgeber",
     "faqTitle": "{name} – FAQ",
-    "metaTitle": "{name} Batch Code Decoder & Checker – Herstellungs- und Ablaufdatum",
-    "blurb": "Dekodieren Sie {name}-Chargencodes, um das Herstellungsdatum, das Alter und das Verfallsdatum Ihrer {category}-Produkte zu ermitteln. Kostenlos, sofort und privat.",
-    "metaDescription": "Kostenloser {name}-Batchcode-Decoder. Überprüfen Sie in Sekundenschnelle das Herstellungsdatum, das Produktalter und das Ablaufdatum Ihrer {name}-Produkte – keine Anmeldung erforderlich.",
+    "metaTitle": "{name} Chargennummer & Batch Code prüfen – Herstellungsdatum & Ablaufdatum",
+    "blurb": "Dekodieren Sie den {name}-Chargencode (Chargennummer), um Herstellungsdatum, Alter und Ablaufdatum Ihrer {category}-Produkte zu ermitteln und die Echtheit zu prüfen. Kostenlos, sofort und privat.",
+    "metaDescription": "Kostenlos {name} Chargennummer / Batchcode prüfen: Herstellungsdatum, Produktalter und Ablaufdatum Ihrer {name}-Produkte in Sekunden ermitteln und die Echtheit checken – ohne Anmeldung.",
     "printsDateNote": "{name} druckt das Herstellungs- oder Ablaufdatum direkt auf die Verpackung, daher brauchst du meist keinen Chargencode."
   },
   "faqUi": {

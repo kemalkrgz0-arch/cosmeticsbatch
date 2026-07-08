@@ -20,7 +20,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   return pageMeta({
-    title: site.name,
+    // Homepage title targets the top head term ("batch code checker"), not just
+    // the brand name.
+    title: site.tagline,
     description: site.description,
     path: "/",
     locale,
