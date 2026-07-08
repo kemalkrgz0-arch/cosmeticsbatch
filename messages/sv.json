@@ -21,7 +21,8 @@
     "batchGuide": "Batchkodguide",
     "allBrands": "Alla märken",
     "allGuides": "Alla guider",
-    "rights": "© {year} {name}. Alla rättigheter reserverade. Uppskattningar är endast informativa och inte en garanti för produktsäkerhet."
+    "rights": "© {year} {name}. Alla rättigheter reserverade. Uppskattningar är endast informativa och inte en garanti för produktsäkerhet.",
+    "contact": "Kontakt"
   },
   "hero": {
     "badge": "Betrodd av skönhetsälskare över hela världen",

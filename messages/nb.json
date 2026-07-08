@@ -21,7 +21,8 @@
     "batchGuide": "Batchkodeveiledning",
     "allBrands": "Alle merker",
     "allGuides": "Alle guider",
-    "rights": "© {year} {name}. Alle rettigheter forbeholdt. Estimater er kun informative og ikke en garanti for produktsikkerhet."
+    "rights": "© {year} {name}. Alle rettigheter forbeholdt. Estimater er kun informative og ikke en garanti for produktsikkerhet.",
+    "contact": "Kontakt"
   },
   "hero": {
     "badge": "Stolt på av skjønnhetselskere over hele verden",

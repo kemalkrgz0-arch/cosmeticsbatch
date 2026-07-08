@@ -21,7 +21,8 @@
     "shelfGuide": "保质期指南",
     "allBrands": "所有品牌",
     "allGuides": "所有指南",
-    "rights": "© {year} {name}。保留所有权利。估算结果仅供参考，不构成对产品安全的保证。"
+    "rights": "© {year} {name}。保留所有权利。估算结果仅供参考，不构成对产品安全的保证。",
+    "contact": "联系我们"
   },
   "hero": {
     "badge": "全球美妆爱好者的信赖之选",

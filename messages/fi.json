@@ -21,7 +21,8 @@
     "allBrands": "Kaikki merkit",
     "terms": "Palveluehdot",
     "allGuides": "Kaikki oppaat",
-    "rights": "© {year} {name}. Kaikki oikeudet pidätetään. Arviot ovat vain informatiivisia, eivätkä ne takaa tuotteen turvallisuutta."
+    "rights": "© {year} {name}. Kaikki oikeudet pidätetään. Arviot ovat vain informatiivisia, eivätkä ne takaa tuotteen turvallisuutta.",
+    "contact": "Yhteystiedot"
   },
   "hero": {
     "badge": "Kauneuden ystävät maailmanlaajuisesti luottavat",

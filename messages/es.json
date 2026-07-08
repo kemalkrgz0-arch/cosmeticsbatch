@@ -21,7 +21,8 @@
     "shelfGuide": "Guía de caducidad",
     "allBrands": "Todas las marcas",
     "allGuides": "Todas las guías",
-    "rights": "© {year} {name}. Todos los derechos reservados. Las estimaciones son solo informativas y no garantizan la seguridad del producto."
+    "rights": "© {year} {name}. Todos los derechos reservados. Las estimaciones son solo informativas y no garantizan la seguridad del producto.",
+    "contact": "Contacto"
   },
   "hero": {
     "badge": "La confianza de amantes de la belleza en todo el mundo",

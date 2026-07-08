@@ -21,7 +21,8 @@
     "shelfGuide": "Holdbarhedsguide",
     "allBrands": "Alle mærker",
     "allGuides": "Alle guider",
-    "rights": "© {year} {name}. Alle rettigheder forbeholdes. Estimater er kun til orientering og er ikke en garanti for produktsikkerhed."
+    "rights": "© {year} {name}. Alle rettigheder forbeholdes. Estimater er kun til orientering og er ikke en garanti for produktsikkerhed.",
+    "contact": "Kontakt"
   },
   "hero": {
     "title": "Tjek batchkoder for kosmetik og parfume",

@@ -21,7 +21,8 @@
     "terms": "Szolgáltatási feltételek",
     "allBrands": "Minden márka",
     "allGuides": "Minden útmutató",
-    "rights": "© {year} {name}. Minden jog fenntartva. A becslések csak tájékoztató jellegűek, és nem garantálják a termék biztonságát."
+    "rights": "© {year} {name}. Minden jog fenntartva. A becslések csak tájékoztató jellegűek, és nem garantálják a termék biztonságát.",
+    "contact": "Kapcsolat"
   },
   "hero": {
     "badge": "A szépség szerelmesei világszerte megbíznak benne",

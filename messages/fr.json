@@ -21,7 +21,8 @@
     "shelfGuide": "Guide de conservation",
     "allBrands": "Toutes les marques",
     "allGuides": "Tous les guides",
-    "rights": "© {year} {name}. Tous droits réservés. Les estimations sont fournies à titre indicatif et ne garantissent pas la sécurité du produit."
+    "rights": "© {year} {name}. Tous droits réservés. Les estimations sont fournies à titre indicatif et ne garantissent pas la sécurité du produit.",
+    "contact": "Contact"
   },
   "hero": {
     "badge": "La référence des passionnés de beauté dans le monde entier",

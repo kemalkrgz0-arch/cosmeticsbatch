@@ -21,7 +21,8 @@
     "batchGuide": "Guia de codi de lot",
     "terms": "Condicions del servei",
     "allGuides": "Totes les guies",
-    "rights": "© {year} {name}. Tots els drets reservats. Les estimacions són només informatives i no garanteixen la seguretat del producte."
+    "rights": "© {year} {name}. Tots els drets reservats. Les estimacions són només informatives i no garanteixen la seguretat del producte.",
+    "contact": "Contacte"
   },
   "hero": {
     "badge": "Confiat pels amants de la bellesa de tot el món",

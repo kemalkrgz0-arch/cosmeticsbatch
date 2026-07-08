@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { BRANDS } from "@/lib/brands";
 import { pageMeta } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { BrandLogo } from "@/components/ui/brand-logo";
+import { BrandsDirectory } from "@/components/brands-directory";
 import { JsonLd } from "@/components/json-ld";
 
 export async function generateMetadata({
@@ -36,9 +35,12 @@ export default async function BrandsPage({
     list.push(b);
     groups.set(b.group, list);
   }
-  const sortedGroups = [...groups.entries()].sort((a, z) =>
-    a[0].localeCompare(z[0]),
-  );
+  const sortedGroups = [...groups.entries()]
+    .sort((a, z) => a[0].localeCompare(z[0]))
+    .map(([group, list]) => ({
+      group,
+      brands: list.map((b) => ({ name: b.name, slug: b.slug })),
+    }));
 
   const itemList = {
     "@context": "https://schema.org",
@@ -69,27 +71,7 @@ export default async function BrandsPage({
         className="!mx-0 text-left sm:!mx-auto sm:text-center"
       />
 
-      <div className="mt-12 space-y-12">
-        {sortedGroups.map(([group, list]) => (
-          <section key={group}>
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-fg-muted">
-              {group}
-            </h2>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-              {list.map((b) => (
-                <Link
-                  key={b.slug}
-                  href={`/brands/${b.slug}`}
-                  className="flex items-center gap-3 rounded-xl border border-border bg-card p-3.5 transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-border-strong"
-                >
-                  <BrandLogo name={b.name} slug={b.slug} className="h-9 w-9 text-xs" />
-                  <span className="truncate text-sm font-medium">{b.name}</span>
-                </Link>
-              ))}
-            </div>
-          </section>
-        ))}
-      </div>
+      <BrandsDirectory groups={sortedGroups} />
     </div>
   );
 }

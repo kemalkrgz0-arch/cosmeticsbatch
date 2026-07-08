@@ -66,6 +66,13 @@ export function organizationSchema(): Json {
     url: site.url,
     logo: absoluteUrl("/icon.png"),
     description: site.description,
+    email: site.email,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: site.email,
+      url: absoluteUrl("/contact"),
+    },
     sameAs: [`https://x.com/${site.twitter.replace(/^@/, "")}`],
   };
 }

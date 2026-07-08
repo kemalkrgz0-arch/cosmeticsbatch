@@ -21,7 +21,8 @@
     "allBrands": "Alle merken",
     "allGuides": "Alle gidsen",
     "terms": "Servicevoorwaarden",
-    "rights": "© {year} {name}. Alle rechten voorbehouden. Schattingen zijn uitsluitend informatief en vormen geen garantie voor de productveiligheid."
+    "rights": "© {year} {name}. Alle rechten voorbehouden. Schattingen zijn uitsluitend informatief en vormen geen garantie voor de productveiligheid.",
+    "contact": "Contact"
   },
   "hero": {
     "trustNoSignup": "Geen aanmelding vereist",

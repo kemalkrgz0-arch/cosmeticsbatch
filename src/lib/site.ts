@@ -7,6 +7,9 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://cosmeticsbatch.com",
   locale: "en_US",
   twitter: "@cosmeticsbatch",
+  // Public contact address (shown on /contact + used in ContactPoint schema).
+  // Make sure this mailbox actually receives mail.
+  email: "contact@cosmeticsbatch.com",
   // Last meaningful change to core page content. Used for sitemap
   // <lastmod> so we emit a stable, honest freshness signal instead of
   // `new Date()` (which tells crawlers every page changed on every crawl).

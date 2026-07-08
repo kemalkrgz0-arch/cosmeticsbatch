@@ -21,7 +21,8 @@
     "shelfGuide": "Shelf Life Guide",
     "allBrands": "All Brands",
     "allGuides": "All Guides",
-    "rights": "© {year} {name}. All rights reserved. Estimates are informational only and not a guarantee of product safety."
+    "rights": "© {year} {name}. All rights reserved. Estimates are informational only and not a guarantee of product safety.",
+    "contact": "Contact"
   },
   "hero": {
     "badge": "Trusted by beauty lovers worldwide",

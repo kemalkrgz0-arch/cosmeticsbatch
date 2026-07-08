@@ -10,6 +10,7 @@ export function SiteFooter() {
       title: t("company"),
       links: [
         { label: t("aboutUs"), href: "/about" },
+        { label: t("contact"), href: "/contact" },
         { label: t("howItWorks"), href: "/#how-it-works" },
         { label: t("privacy"), href: "/privacy" },
         { label: t("terms"), href: "/terms" },

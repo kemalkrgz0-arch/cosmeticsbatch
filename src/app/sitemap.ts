@@ -30,8 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: hreflangAlternates(path) },
   });
 
-  const staticRoutes = ["/", "/brands", "/guides", "/about"].map((path) =>
-    entry(path, updated, "weekly", path === "/" ? 1 : 0.8),
+  const staticRoutes = ["/", "/brands", "/guides", "/about", "/contact"].map(
+    (path) => entry(path, updated, "weekly", path === "/" ? 1 : 0.8),
   );
   const legalRoutes = ["/privacy", "/terms"].map((path) =>
     entry(path, updated, "monthly", 0.3),

@@ -21,7 +21,8 @@
     "terms": "Termeni și condiții",
     "allGuides": "Toate ghidurile",
     "batchGuide": "Ghid de cod de lot",
-    "rights": "© {year} {name}. Toate drepturile rezervate. Estimările au caracter informativ și nu sunt o garanție a siguranței produsului."
+    "rights": "© {year} {name}. Toate drepturile rezervate. Estimările au caracter informativ și nu sunt o garanție a siguranței produsului.",
+    "contact": "Contact"
   },
   "hero": {
     "trustNoSignup": "Nu este necesară înregistrarea",
