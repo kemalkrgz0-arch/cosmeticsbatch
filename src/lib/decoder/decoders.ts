@@ -521,6 +521,52 @@ const embedded: Decoder = {
 /*  Registry                                                                   */
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+/*  Beiersdorf (NIVEA, Eucerin, Labello)                                       */
+/*  Documented year + week code: an 8-digit batch (sometimes followed by two   */
+/*  letters, e.g. "63450108 CZ") where the first digit is the last digit of    */
+/*  the production year and the next two are the week of that year.            */
+/*  E.g. 8153554 -> week 15 of 2018.                                           */
+/* -------------------------------------------------------------------------- */
+
+const beiersdorf: Decoder = {
+  id: "beiersdorf",
+  label: "Beiersdorf year + week",
+  explanation:
+    "Beiersdorf brands (NIVEA, Eucerin, Labello) use an 8-digit batch code, sometimes followed by two letters (e.g. 63450108 CZ). The first digit is the last digit of the production year and the next two are the week of that year, so 8153554 is week 15 of 2018.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    // Real Beiersdorf codes are a contiguous 6–8 digit run (optionally with two
+    // trailing letters). Require ≥6 digits so we don't latch onto a short
+    // fragment of some other code shape.
+    const m = c.match(/\d{6,}/);
+    if (!m) return null;
+    const d = m[0];
+    const week = Number(d.slice(1, 3));
+    if (week < 1 || week > 53) return null;
+    // Single-digit year: take the most recent match, stepping back a decade if
+    // that puts the week in the future.
+    let year = resolveYearDigit(Number(d[0]), ctx.now);
+    const doy = (week - 1) * 7 + 1;
+    let date = dateFromDayOfYear(year, doy);
+    if (inFuture(date, ctx.now)) {
+      year -= 10;
+      date = dateFromDayOfYear(year, doy);
+    }
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "Beiersdorf codes encode the production week (year digit + week), so the date is accurate to within that week.",
+        `The year is a single digit, so it is read as the most recent match (${year}); an older-looking product may be from ${year - 10}.`,
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) determines how long the product stays good.",
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
   [loreal.id]: loreal,
@@ -529,6 +575,7 @@ export const DECODERS: Record<string, Decoder> = {
   [dior.id]: dior,
   [creed.id]: creed,
   [interparfums.id]: interparfums,
+  [beiersdorf.id]: beiersdorf,
   [embedded.id]: embedded,
   [julian.id]: julian,
 };
