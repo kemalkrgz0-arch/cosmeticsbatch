@@ -79,6 +79,8 @@ const ACTIVE = [
   // Asian + Indic + SE-Asian languages
   "ja", "ko", "hi", "id", "vi", "th", "ms", "tl", "bn", "ur",
   "ta", "te", "mr", "pa", "gu",
+  // Turkic + Cantonese
+  "yue", "uz", "az", "kk",
 ] as const;
 
 export const LOCALES: LocaleMeta[] = ALL_LOCALES.filter((l) =>
