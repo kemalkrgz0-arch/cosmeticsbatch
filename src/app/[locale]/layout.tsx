@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { Inter } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -128,30 +129,28 @@ export default async function RootLayout({
           {(adsenseEnabled || gaEnabled || ymEnabled) && <CookieConsent />}
         </Providers>
         {adsenseEnabled && (
-          // Plain async script — React 19 hoists it into the server-rendered
-          // <head> as a literal <script async src="adsbygoogle.js">, which is
-          // what the AdSense verification crawler looks for.
-          // eslint-disable-next-line @next/next/no-sync-scripts
-          <script
-            async
+          // Load at browser idle (after paint) so the ad script doesn't compete
+          // with the LCP content for bandwidth on mobile. The site is already
+          // AdSense-verified, and adsbygoogle.push() calls queue until it loads.
+          <Script
+            id="adsense"
+            strategy="lazyOnload"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense.client}`}
             crossOrigin="anonymous"
           />
         )}
         {gaEnabled && (
           <>
-            {/* Google Analytics 4 — the loader script plus the gtag bootstrap. */}
-            {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-            <script
-              async
+            {/* Google Analytics 4 — deferred to idle; analytics doesn't need to
+                run during the critical render path. */}
+            <Script
+              id="ga-loader"
+              strategy="lazyOnload"
               src={`https://www.googletagmanager.com/gtag/js?id=${ga.id}`}
             />
-            <script
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: `gtag('js',new Date());gtag('config','${ga.id}');`,
-              }}
-            />
+            <Script id="ga-config" strategy="lazyOnload">
+              {`gtag('js',new Date());gtag('config','${ga.id}');`}
+            </Script>
           </>
         )}
         </NextIntlClientProvider>
