@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { BRANDS, getBrand, POPULAR_BRANDS } from "@/lib/brands";
 import { InlineResult } from "@/components/inline-result";
 import { buildBrandFaqs, brandIntroSections } from "@/lib/brand-faq";
+import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import {
   articleSchema,
@@ -34,26 +35,15 @@ export async function generateMetadata({
   const brand = getBrand(slug);
   if (!brand) return {};
   const t = await getTranslations({ locale, namespace: "brandPage" });
-  const meta = pageMeta({
+  // No `keywords` meta: Google has ignored it since 2009 and it only leaks the
+  // exact terms we target to competitors.
+  return pageMeta({
     title: t("metaTitle", { name: brand.name }),
     description: t("metaDescription", { name: brand.name }),
     path: `/brands/${brand.slug}`,
     type: "article",
     locale,
   });
-  return {
-    ...meta,
-    keywords: [
-      `${brand.name} batch code`,
-      `${brand.name} batch code decoder`,
-      `${brand.name} batch code checker`,
-      `${brand.name} batch code calculator`,
-      `${brand.name} expiry date`,
-      `${brand.name} production date`,
-      `check ${brand.name} batch code`,
-      `${brand.name} manufacture date`,
-    ],
-  };
 }
 
 /** A representative example code per decoder family (for unique on-page content). */
@@ -85,6 +75,14 @@ export default async function BrandPage({
   const category = t(`categoryNoun.${brand.category}`);
   const months = (n: number) => tb("months", { n });
 
+  // Honest per-brand decoder label: a dedicated manufacturer scheme where we
+  // have one, generic auto-detection otherwise (was hardcoded to "auto" for
+  // every brand, which understated brands that do have a real decoder).
+  const hasRealDecoder = Boolean(brand.decoderId && DECODERS[brand.decoderId]);
+  const decoderValue = hasRealDecoder
+    ? t("brandFaq.decoderKnown")
+    : t("brandFaq.decoderAuto");
+
   const facts = [
     { icon: MapPin, label: tb("factManufacturer"), value: brand.group },
     { icon: Timer, label: tb("factShelfLife"), value: months(brand.shelfLifeMonths) },
@@ -92,7 +90,7 @@ export default async function BrandPage({
     {
       icon: Info,
       label: tb("factDecoder"),
-      value: tb("autoDecoder"),
+      value: decoderValue,
     },
   ];
 

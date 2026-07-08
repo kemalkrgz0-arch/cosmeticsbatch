@@ -61,8 +61,8 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  // Zoom stays enabled: users squint at tiny batch codes on packaging, and
+  // blocking it fails WCAG 1.4.4 (Resize Text).
   viewportFit: "cover",
 };
 

@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/site";
+import { BRANDS } from "@/lib/brands";
 
 export const alt = `${site.name} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
@@ -69,7 +70,7 @@ export default function OpengraphImage() {
           <span style={{ color: "#dcdcde" }}>•</span>
           <span>No sign-up</span>
           <span style={{ color: "#dcdcde" }}>•</span>
-          <span>50+ brands</span>
+          <span>{BRANDS.length}+ brands</span>
         </div>
       </div>
     ),

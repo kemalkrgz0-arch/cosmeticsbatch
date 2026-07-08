@@ -17,8 +17,7 @@ export async function generateMetadata({
   const { locale } = await params;
   return pageMeta({
     title: "All Supported Brands",
-    description:
-      "Browse every cosmetic and perfume brand supported by Cosmetics Batch. Decode batch codes for Chanel, Dior, Estée Lauder, L'Oréal, MAC and 50+ more.",
+    description: `Browse every cosmetic and perfume brand supported by Cosmetics Batch. Decode batch codes for Chanel, Dior, Estée Lauder, L'Oréal, MAC and ${BRANDS.length}+ more.`,
     path: "/brands",
     locale,
   });
