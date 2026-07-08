@@ -31,10 +31,10 @@ export function buildBrandFaqs(
   const base = { name, group, noun, shelf, pao, decoder };
   const f = (k: string) => t(`brandFaq.${k}`, base);
 
-  // "Where to find" (q_where) and "How to store" (q_store) are promoted to
-  // visible body sections on the brand page (see brandIntroSections), so they
-  // are intentionally omitted here to avoid duplicating the same text in both
-  // the body and the FAQ accordion / FAQPage schema.
+  // "Where to find" (q_where), "How to store" (q_store) and "Is it fake?"
+  // (q_fake) are promoted to visible body sections on the brand page (see
+  // brandIntroSections), so they are intentionally omitted here to avoid
+  // duplicating the same text in both the body and the FAQ / FAQPage schema.
   return [
     { q: f("q_barcode"), a: f("a_barcode") },
     { q: f("q_expired"), a: f("a_expired") },
@@ -42,7 +42,6 @@ export function buildBrandFaqs(
     { q: f("q_pao"), a: f("a_pao") },
     { q: f("q_paoSymbol"), a: f("a_paoSymbol") },
     { q: f("q_afterExpiry"), a: f("a_afterExpiry") },
-    { q: f("q_fake"), a: f("a_fake") },
     { q: f("q_accuracy"), a: f("a_accuracy") },
     { q: f("q_free"), a: f("a_free") },
   ];
@@ -58,7 +57,7 @@ export function brandIntroSections(
   brand: Brand,
   t: Translator,
 ): { heading: string; body: string }[] {
-  const { name, category } = brand;
+  const { name, group, category } = brand;
   const noun = t(`categoryNoun.${category}`);
   return [
     {
@@ -68,6 +67,12 @@ export function brandIntroSections(
     {
       heading: t("brandFaq.q_store", { name, noun }),
       body: t(`storageTip.${category}`),
+    },
+    // Authenticity is a top query across every market (podlinnost / Echtheit /
+    // "check fake"), so surface it visibly instead of burying it in the FAQ.
+    {
+      heading: t("brandFaq.q_fake", { name }),
+      body: t("brandFaq.a_fake", { name, group }),
     },
   ];
 }

@@ -49,9 +49,9 @@
     "errorNoCode": "Enter the batch code from your product."
   },
   "brandPage": {
-    "metaTitle": "{name} Batch Code Decoder & Checker — Manufacture & Expiry Date",
-    "metaDescription": "Free {name} batch code decoder. Check the manufacture date, product age and expiration date of your {name} products in seconds — no sign-up.",
-    "blurb": "Decode {name} batch codes to find the manufacture date, age and expiration date of your {category} products. Free, instant and private.",
+    "metaTitle": "{name} Batch Code Checker & Decoder — Expiry Date & Authenticity",
+    "metaDescription": "Free {name} batch code checker. Find the manufacture date, product age and expiry date of your {name} products in seconds — and help check authenticity. No sign-up.",
+    "blurb": "Decode {name} batch codes to find the manufacture date, age and expiry date of your {category} products — and check authenticity. Free, instant and private.",
     "checkerTitle": "{name} Batch Code Checker",
     "by": "by {group}",
     "intro": "Enter your {name} batch code below to instantly decode the manufacture date, product age, and estimated expiration date — free and private.",
