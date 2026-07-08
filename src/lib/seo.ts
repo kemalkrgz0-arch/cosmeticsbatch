@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { site, absoluteUrl } from "./site";
-import { LOCALES, DEFAULT_LOCALE } from "@/i18n/locales";
+import { LOCALES, DEFAULT_LOCALE, ogLocale } from "@/i18n/locales";
 
 /** Localized URL path. Default locale is prefix-free (/, /brands/…); others prefixed. */
 export function localizedPath(locale: string, path = "/"): string {
@@ -45,7 +45,7 @@ export function pageMeta({
       siteName: site.name,
       title: fullTitle,
       description,
-      locale,
+      locale: ogLocale(locale),
     },
     twitter: {
       card: "summary_large_image",

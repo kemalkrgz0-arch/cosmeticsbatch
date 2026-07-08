@@ -21,7 +21,7 @@
     "terms": "Szolgáltatási feltételek",
     "allBrands": "Minden márka",
     "allGuides": "Minden útmutató",
-    "rights": "©{year}{name}. Minden jog fenntartva. A becslések csak tájékoztató jellegűek, és nem garantálják a termék biztonságát."
+    "rights": "© {year} {name}. Minden jog fenntartva. A becslések csak tájékoztató jellegűek, és nem garantálják a termék biztonságát."
   },
   "hero": {
     "badge": "A szépség szerelmesei világszerte megbíznak benne",
@@ -48,29 +48,29 @@
     "noMatch": "Egyetlen márka sem felel meg az „{query}”-nak."
   },
   "brandPage": {
-    "checkerTitle": "{name}Batch Code Checker",
-    "metaDescription": "Ingyenes{name}kötegelt kód dekóder. Másodpercek alatt ellenőrizheti{name}termékei gyártási dátumát, korát és lejárati idejét – regisztráció nélkül.",
-    "metaTitle": "{name}Batch Code Dekóder és Ellenőrző — Gyártási és lejárati dátum",
-    "blurb": "Az{name}kötegkódok dekódolása az{category}termékek gyártási dátumának, korának és lejárati dátumának megállapításához. Ingyenes, azonnali és privát.",
+    "checkerTitle": "{name} Batch Code Checker",
+    "metaDescription": "Ingyenes {name} kötegelt kód dekóder. Másodpercek alatt ellenőrizheti {name} termékei gyártási dátumát, korát és lejárati idejét – regisztráció nélkül.",
+    "metaTitle": "{name} Batch Code Dekóder és Ellenőrző — Gyártási és lejárati dátum",
+    "blurb": "Az {name} kötegkódok dekódolása az {category} termékek gyártási dátumának, korának és lejárati dátumának megállapításához. Ingyenes, azonnali és privát.",
     "factManufacturer": "Gyártó",
     "factShelfLife": "Tipikus eltarthatósági idő",
     "factPao": "Felbontás után (PAO)",
     "factDecoder": "Dekóder",
     "autoDecoder": "Automatikus dátumérzékelés",
-    "howHeading": "Hogyan működnek az{name}kötegkódok",
+    "howHeading": "Hogyan működnek az {name} kötegkódok",
     "relatedBrands": "Kapcsolódó márkák",
     "helpfulGuides": "Hasznos útmutatók",
-    "freshnessPara": "Miután elolvastuk a gyártási dátumot, megbecsüljük a frissességet az{name}tipikus{shelf}hónapos eltarthatósága alapján az{category}termékekre. Ne feledje, hogy a termék használatának megkezdése után a nyitás utáni időszak (kb.{pao}hónap) lesz a korlát.",
-    "intro": "Adja meg alább{name}kötegkódját, hogy azonnal dekódolja a gyártás dátumát, a termék korát és a becsült lejárati dátumot – ingyenes és privát.",
-    "aliasesPara": "Néha látni fogja ezt az{name}kötegkód-dekódernek,{name}kötegkód-ellenőrzőnek vagy{name}kötegkód-kalkulátornak nevezett eszközt – mindegyik ugyanazt csinálja: elolvassa a gyártási kódot, és elmondja, mennyire friss az{name}{category}.",
+    "freshnessPara": "Miután elolvastuk a gyártási dátumot, megbecsüljük a frissességet az {name}tipikus {shelf}hónapos eltarthatósága alapján az {category} termékekre. Ne feledje, hogy a termék használatának megkezdése után a nyitás utáni időszak (kb.{pao} hónap) lesz a korlát.",
+    "intro": "Adja meg alább {name} kötegkódját, hogy azonnal dekódolja a gyártás dátumát, a termék korát és a becsült lejárati dátumot – ingyenes és privát.",
+    "aliasesPara": "Néha látni fogja ezt az {name} kötegkód-dekódernek,{name} kötegkód-ellenőrzőnek vagy {name} kötegkód-kalkulátornak nevezett eszközt – mindegyik ugyanazt csinálja: elolvassa a gyártási kódot, és elmondja, mennyire friss az {name} {category}.",
     "faqTitle": "{name}– GYIK",
-    "months": "{n}hónap",
-    "by": "{group}által"
+    "months": "{n} hónap",
+    "by": "{group} által"
   },
   "faqUi": {
     "title": "Gyakran Ismételt Kérdések",
     "showFewer": "Mutasson kevesebb kérdést",
-    "showMore": "Mutasson{n}további kérdéseket"
+    "showMore": "Mutasson {n} további kérdéseket"
   },
   "categoryNoun": {
     "makeup": "smink",
@@ -89,29 +89,29 @@
     "generic": "Tárolja hűvös és száraz helyen, közvetlen napfénytől védve, és a használatok között tartsa szorosan lezárva a tartályt."
   },
   "brandFaq": {
-    "q_expired": "Honnan tudhatom, hogy az{name}termékem lejárt?",
-    "q_where": "Hol található az{name}termékek kötegkódja?",
-    "q_barcode": "Mi a különbség az{name}kötegkód és a vonalkód között?",
-    "a_where": "Keressen egy rövid bélyegzett, dombornyomott vagy tintasugaras kódot – általában a palack vagy az edény alján, a cső végén lévő préselésen, vagy a doboz alján vagy fedelén. Az{name}{noun}rendszeren elkülönül a vonalkódtól, és általában 3–8 karakterből álló betűk és számok.",
-    "a_barcode": "A vonalkód a pénztárnál használt hosszú csíkos EAN/UPC szám, és a termék minden egységére ugyanaz. Az{name}kötegkód egy rövid gyártási kód, amely minden gyártási futtatással változik, és kódolja a cikk elkészítésének időpontját – ez az eszköz dekódolja.",
-    "a_unopened": "Bontatlan{name}{noun}általában a gyártástól számított{shelf}hónapig jó állapotban marad, ha megfelelően tárolják. Ez egy iparági becslés – az{name}nem nyomtat kemény lejárati dátumot a legtöbb cikkre, ezért számít a kötegkód.",
-    "q_pao": "Mennyi ideig tart az{name}a felbontás után (PAO)?",
-    "q_unopened": "Mennyi ideig használhatók a bontatlan{name}termékek?",
-    "q_paoSymbol": "Mit jelent az open-jar (PAO) szimbólum az{name}-en?",
-    "a_paoSymbol": "A kis nyitott üveg ikon egy számmal és egy \"M\" betűvel (hónapokig) a nyitás utáni időszakot jelenti. A legtöbb{name}{noun}esetében ez körülbelül{pao}M, ami nagyjából{pao}hónapos biztonságos használatot jelent az első kinyitás napjától számítva. A kötegkód megmondja, mennyire volt friss felnyitás előtt; a PAO megmondja, mennyi ideig tart ezután.",
-    "q_afterExpiry": "Használhatom az{name}-et a lejárati dátum után is?",
-    "a_afterExpiry": "Az{name}{noun}használata röviddel a becsült dátum után általában kozmetikai minőségi probléma, nem pedig biztonsági probléma – a hatóanyagok elveszítik a hatásukat, a textúrák szétválnak, az illatanyagok pedig kifakulnak. Hagyja abba a használatát, ha változást észlel a szagában, színében vagy állagában, és soha ne használjon régi szem- vagy ajaktermékeket, mert nagyobb a baktériumok kockázata.",
-    "a_expired": "Adja meg fent az{name}kötegkódot, hogy megkapja a gyártási dátumot, majd hasonlítsa össze a tipikus{shelf}hónapos bontatlan eltarthatósági idővel. Ha ennél több idő telt el – vagy több mint kb.{pao}hónap a felnyitás óta – a terméket lejártnak kell tekinteni, különösen, ha megváltozott az állaga, színe vagy illata.",
-    "a_pao": "Felbontás után az{name}{noun}-et általában körülbelül{pao}hónapon belül fel kell használni – ez a felnyitás utáni időszak, amely a nyitott tégely szimbólumaként (pl.{pao}M) látható a csomagoláson. Egy termék megnyitása után a PAO lesz a korlát, még akkor is, ha maga a tétel még friss.",
-    "q_store": "Hogyan tároljam az{name}{noun}-et, hogy friss legyen?",
-    "q_free": "Ingyenes az{name}kötegkód-ellenőrző?",
-    "q_fake": "Megmondhatja a kötegkód, hogy az{name}-em hamis?",
-    "q_accuracy": "Mennyire pontos ez az{name}kötegkód dekóder?",
+    "q_expired": "Honnan tudhatom, hogy az {name} termékem lejárt?",
+    "q_where": "Hol található az {name} termékek kötegkódja?",
+    "q_barcode": "Mi a különbség az {name} kötegkód és a vonalkód között?",
+    "a_where": "Keressen egy rövid bélyegzett, dombornyomott vagy tintasugaras kódot – általában a palack vagy az edény alján, a cső végén lévő préselésen, vagy a doboz alján vagy fedelén. Az {name} {noun} rendszeren elkülönül a vonalkódtól, és általában 3–8 karakterből álló betűk és számok.",
+    "a_barcode": "A vonalkód a pénztárnál használt hosszú csíkos EAN/UPC szám, és a termék minden egységére ugyanaz. Az {name} kötegkód egy rövid gyártási kód, amely minden gyártási futtatással változik, és kódolja a cikk elkészítésének időpontját – ez az eszköz dekódolja.",
+    "a_unopened": "Bontatlan {name} {noun} általában a gyártástól számított {shelf} hónapig jó állapotban marad, ha megfelelően tárolják. Ez egy iparági becslés – az {name} nem nyomtat kemény lejárati dátumot a legtöbb cikkre, ezért számít a kötegkód.",
+    "q_pao": "Mennyi ideig tart az {name} a felbontás után (PAO)?",
+    "q_unopened": "Mennyi ideig használhatók a bontatlan {name} termékek?",
+    "q_paoSymbol": "Mit jelent az open-jar (PAO) szimbólum az {name}-en?",
+    "a_paoSymbol": "A kis nyitott üveg ikon egy számmal és egy \"M\" betűvel (hónapokig) a nyitás utáni időszakot jelenti. A legtöbb {name} {noun} esetében ez körülbelül {pao}M, ami nagyjából {pao} hónapos biztonságos használatot jelent az első kinyitás napjától számítva. A kötegkód megmondja, mennyire volt friss felnyitás előtt; a PAO megmondja, mennyi ideig tart ezután.",
+    "q_afterExpiry": "Használhatom az {name}-et a lejárati dátum után is?",
+    "a_afterExpiry": "Az {name} {noun} használata röviddel a becsült dátum után általában kozmetikai minőségi probléma, nem pedig biztonsági probléma – a hatóanyagok elveszítik a hatásukat, a textúrák szétválnak, az illatanyagok pedig kifakulnak. Hagyja abba a használatát, ha változást észlel a szagában, színében vagy állagában, és soha ne használjon régi szem- vagy ajaktermékeket, mert nagyobb a baktériumok kockázata.",
+    "a_expired": "Adja meg fent az {name} kötegkódot, hogy megkapja a gyártási dátumot, majd hasonlítsa össze a tipikus {shelf}hónapos bontatlan eltarthatósági idővel. Ha ennél több idő telt el – vagy több mint kb.{pao} hónap a felnyitás óta – a terméket lejártnak kell tekinteni, különösen, ha megváltozott az állaga, színe vagy illata.",
+    "a_pao": "Felbontás után az {name} {noun}-et általában körülbelül {pao} hónapon belül fel kell használni – ez a felnyitás utáni időszak, amely a nyitott tégely szimbólumaként (pl.{pao}M) látható a csomagoláson. Egy termék megnyitása után a PAO lesz a korlát, még akkor is, ha maga a tétel még friss.",
+    "q_store": "Hogyan tároljam az {name} {noun}-et, hogy friss legyen?",
+    "q_free": "Ingyenes az {name} kötegkód-ellenőrző?",
+    "q_fake": "Megmondhatja a kötegkód, hogy az {name}-em hamis?",
+    "q_accuracy": "Mennyire pontos ez az {name} kötegkód dekóder?",
     "decoderKnown": "egy gyártó-specifikus kódséma",
     "decoderAuto": "automatikus dátumérzékelés",
-    "a_accuracy": "A gyártási dátumot az{decoder}segítségével olvastuk ki. Ha az{group}egy ismert kódsémát tesz közzé, az eredmény hónapra vagy napra pontos; ahol a márka nem erősíti meg a nyilvános sémát, az a legjobb becslés. A dátum a gyártás dátuma, nem garantált lejárati idő – az eltarthatósági adatok tipikus iparági átlagok.",
-    "a_fake": "A kötegkód-dekódoló beolvassa a gyártási dátumot – önmagában nem tudja bizonyítani a termék eredetiségét. De egy{name}kód, amely nem dekódol, vagy egy dátum, amely nem egyezik meg, amikor vagy hol vásárolta, piros zászló lehet. A hitelesség érdekében ellenőrizze a csomagolást, a pecséteket és a betűtípust is, és vásároljon hivatalos{group}kereskedőktől.",
-    "a_free": "Igen – az{name}kötegkódok dekódolása a Cosmetics Batch-en teljesen ingyenes, azonnal működik a böngészőjében, regisztráció nélkül, és a kódok soha nem kerülnek tárolásra vagy elküldésre a szerverre."
+    "a_accuracy": "A gyártási dátumot az {decoder}segítségével olvastuk ki. Ha az {group} egy ismert kódsémát tesz közzé, az eredmény hónapra vagy napra pontos; ahol a márka nem erősíti meg a nyilvános sémát, az a legjobb becslés. A dátum a gyártás dátuma, nem garantált lejárati idő – az eltarthatósági adatok tipikus iparági átlagok.",
+    "a_fake": "A kötegkód-dekódoló beolvassa a gyártási dátumot – önmagában nem tudja bizonyítani a termék eredetiségét. De egy {name} kód, amely nem dekódol, vagy egy dátum, amely nem egyezik meg, amikor vagy hol vásárolta, piros zászló lehet. A hitelesség érdekében ellenőrizze a csomagolást, a pecséteket és a betűtípust is, és vásároljon hivatalos {group} kereskedőktől.",
+    "a_free": "Igen – az {name} kötegkódok dekódolása a Cosmetics Batch-en teljesen ingyenes, azonnal működik a böngészőjében, regisztráció nélkül, és a kódok soha nem kerülnek tárolásra vagy elküldésre a szerverre."
   },
   "homeFaq": {
     "q1": "Mi az a kötegkód?",
@@ -149,14 +149,14 @@
     "expirationDate": "Lejárati idő",
     "age": "Kor",
     "shelfLife": "Szavatossági idő",
-    "months": "{n}hónap",
+    "months": "{n} hónap",
     "confMedium": "Közepes önbizalom",
     "percentLeft": "{n}% maradt",
     "confHigh": "Magas önbizalom",
     "confLow": "Alacsony önbizalom",
     "confNone": "Nem sikerült dekódolni",
     "invalidTitle": "Nem tudtuk elolvasni ezt a kódot",
-    "invalidBody": "Az „{code}” nem egyezik az{brand}kötegkód formátumával. Ellenőrizze, hogy pontosan úgy írta-e be, ahogy a csomagoláson szerepel – csak betűk és számok, szóközök nélkül –, és hogy ez a kötegkód, nem pedig a vonalkód vagy az ár/marketing hivatkozás."
+    "invalidBody": "Az „{code}” nem egyezik az {brand}kötegkód formátumával. Ellenőrizze, hogy pontosan úgy írta-e be, ahogy a csomagoláson szerepel – csak betűk és számok, szóközök nélkül –, és hogy ez a kötegkód, nem pedig a vonalkód vagy az ár/marketing hivatkozás."
   },
   "howItWorks": {
     "title": "Hogyan működik",

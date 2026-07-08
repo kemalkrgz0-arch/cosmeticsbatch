@@ -21,7 +21,7 @@
     "batchGuide": "Batchkodguide",
     "allBrands": "Alla märken",
     "allGuides": "Alla guider",
-    "rights": "©{year}{name}. Alla rättigheter reserverade. Uppskattningar är endast informativa och inte en garanti för produktsäkerhet."
+    "rights": "© {year} {name}. Alla rättigheter reserverade. Uppskattningar är endast informativa och inte en garanti för produktsäkerhet."
   },
   "hero": {
     "badge": "Betrodd av skönhetsälskare över hela världen",
@@ -48,29 +48,29 @@
     "noMatch": "Inga märken matchar \"{query}\"."
   },
   "brandPage": {
-    "blurb": "Avkoda{name}batchkoder för att hitta tillverkningsdatum, ålder och utgångsdatum för dina{category}-produkter. Gratis, omedelbar och privat.",
-    "metaTitle": "{name}Batch Code Decoder & Checker — Tillverkning och utgångsdatum",
-    "metaDescription": "Gratis{name}batchkodavkodare. Kontrollera tillverkningsdatum, produktålder och utgångsdatum för dina{name}-produkter på några sekunder – ingen registrering.",
-    "checkerTitle": "{name}Batch Code Checker",
+    "blurb": "Avkoda {name} batchkoder för att hitta tillverkningsdatum, ålder och utgångsdatum för dina {category}-produkter. Gratis, omedelbar och privat.",
+    "metaTitle": "{name} Batch Code Decoder & Checker — Tillverkning och utgångsdatum",
+    "metaDescription": "Gratis {name} batchkodavkodare. Kontrollera tillverkningsdatum, produktålder och utgångsdatum för dina {name}-produkter på några sekunder – ingen registrering.",
+    "checkerTitle": "{name} Batch Code Checker",
     "factManufacturer": "Tillverkare",
     "factShelfLife": "Typisk hållbarhet",
     "factPao": "Efter öppning (PAO)",
     "factDecoder": "Avkodare",
     "autoDecoder": "Automatisk datumdetektering",
-    "intro": "Ange din{name}batchkod nedan för att omedelbart avkoda tillverkningsdatum, produktens ålder och beräknat utgångsdatum – gratis och privat.",
-    "freshnessPara": "När vi har läst tillverkningsdatumet uppskattar vi färskhet med hjälp av{name}'s typiska{shelf}-månaders hållbarhetstid för{category}-produkter. Kom ihåg att perioden efter öppning (ca{pao}månader) blir gränsen när du börjar använda produkten.",
-    "howHeading": "Hur{name}batchkoder fungerar",
+    "intro": "Ange din {name} batchkod nedan för att omedelbart avkoda tillverkningsdatum, produktens ålder och beräknat utgångsdatum – gratis och privat.",
+    "freshnessPara": "När vi har läst tillverkningsdatumet uppskattar vi färskhet med hjälp av {name}'s typiska {shelf}-månaders hållbarhetstid för {category}-produkter. Kom ihåg att perioden efter öppning (ca {pao} månader) blir gränsen när du börjar använda produkten.",
+    "howHeading": "Hur {name} batchkoder fungerar",
     "relatedBrands": "Relaterade varumärken",
     "helpfulGuides": "Hjälpsamma guider",
-    "aliasesPara": "Du kommer ibland att se det här verktyget som kallas en{name}batchkodavkodare,{name}batchkodkontroller eller{name}batchkodkalkylator — de gör alla samma sak: läs produktionskoden och berättar hur fräsch din{name}{category}är.",
-    "months": "{n}månader",
+    "aliasesPara": "Du kommer ibland att se det här verktyget som kallas en {name} batchkodavkodare,{name} batchkodkontroller eller {name} batchkodkalkylator — de gör alla samma sak: läs produktionskoden och berättar hur fräsch din {name} {category} är.",
+    "months": "{n} månader",
     "faqTitle": "{name}— Vanliga frågor",
-    "by": "av{group}"
+    "by": "av {group}"
   },
   "faqUi": {
     "title": "Vanliga frågor",
     "showFewer": "Visa färre frågor",
-    "showMore": "Visa{n}fler frågor"
+    "showMore": "Visa {n} fler frågor"
   },
   "categoryNoun": {
     "skincare": "hudvård",
@@ -89,29 +89,29 @@
     "generic": "Förvara den på en sval och torr plats, borta från direkt solljus, och håll behållaren tätt stängd mellan användningarna."
   },
   "brandFaq": {
-    "q_where": "Var finns batchkoden på{name}-produkter?",
-    "q_expired": "Hur vet jag om min{name}-produkt har gått ut?",
-    "q_barcode": "Vad är skillnaden mellan{name}batch-koden och streckkoden?",
-    "a_where": "Leta efter en kort stämplad, präglad eller bläckstrålekod - vanligtvis på botten av flaskan eller burken, krympningen i änden av ett rör eller botten eller fliken på lådan. På{name}{noun}är den skild från streckkoden och vanligtvis 3–8 tecken med bokstäver och siffror.",
-    "a_unopened": "Oöppnad{name}{noun}förblir vanligtvis bra i cirka{shelf}månader från tillverkningsdatumet när den förvaras på rätt sätt. Detta är en branschuppskattning -{name}skriver inte ut ett fast utgångsdatum på de flesta artiklar, vilket är anledningen till att batchkoden spelar roll.",
-    "a_barcode": "Streckkoden är det långrandiga EAN/UPC-numret som används i kassan och är samma för varje enhet av en produkt.{name}batch-koden är en kort produktionskod som ändras med varje tillverkningskörning och kodar när artikeln tillverkades – det är den som detta verktyg avkodar.",
-    "a_expired": "Ange din{name}batchkod ovan för att få tillverkningsdatumet, och jämför det sedan med den typiska{shelf}-månaders oöppnade hållbarheten. Om det har gått längre tid än så – eller mer än cirka{pao}månader sedan du öppnade den – behandla produkten som utgången, särskilt om konsistensen, färgen eller lukten har ändrats.",
-    "a_pao": "När den öppnats ska{name}{noun}i allmänhet användas inom cirka{pao}månader – detta är perioden efter öppning, visad som symbolen för öppen burk (t.ex.{pao}M) på förpackningen. Efter att du har öppnat en produkt blir PAO gränsen även om själva partiet fortfarande är färskt.",
-    "q_pao": "Hur länge håller{name}efter öppning (PAO)?",
-    "q_unopened": "Hur länge håller oöppnade{name}-produkter?",
-    "q_store": "Hur ska jag förvara{name}{noun}för att hålla den fräsch?",
-    "a_paoSymbol": "Den lilla ikonen med öppen burk med ett nummer och ett \"M\" (för månader) är perioden efter öppning. För de flesta{name}{noun}är det runt{pao}M, vilket betyder ungefär{pao}månaders säker användning från den dag du öppnade den första gången. Batchkoden talar om hur färsk den var innan den öppnades; PAO berättar hur länge det varar efter.",
-    "q_afterExpiry": "Kan jag fortfarande använda{name}efter utgångsdatumet?",
-    "q_paoSymbol": "Vad betyder open-jar (PAO)-symbolen på{name}?",
-    "a_afterExpiry": "Att använda{name}{noun}kort efter det beräknade datumet är vanligtvis ett problem med kosmetisk kvalitet snarare än ett säkerhetsproblem – aktiva ämnen förlorar styrka, texturer separeras och dofter bleknar. Sluta använda det om du märker en förändring i lukt, färg eller konsistens, och använd aldrig ögon- eller läppprodukter som är gamla, eftersom risken för bakterier är högre.",
-    "a_fake": "En batchkodsavkodare läser produktionsdatumet – på egen hand kan den inte bevisa att en produkt är äkta. Men en{name}-kod som inte kommer att avkodas, eller ett datum som inte stämmer överens med när eller var du köpte den, kan vara en röd flagga. För äkthet, kontrollera även förpackningen, förseglingarna och typsnittet och köp från auktoriserade{group}-återförsäljare.",
+    "q_where": "Var finns batchkoden på {name}-produkter?",
+    "q_expired": "Hur vet jag om min {name}-produkt har gått ut?",
+    "q_barcode": "Vad är skillnaden mellan {name} batch-koden och streckkoden?",
+    "a_where": "Leta efter en kort stämplad, präglad eller bläckstrålekod - vanligtvis på botten av flaskan eller burken, krympningen i änden av ett rör eller botten eller fliken på lådan. På {name} {noun} är den skild från streckkoden och vanligtvis 3–8 tecken med bokstäver och siffror.",
+    "a_unopened": "Oöppnad {name} {noun} förblir vanligtvis bra i cirka {shelf} månader från tillverkningsdatumet när den förvaras på rätt sätt. Detta är en branschuppskattning -{name} skriver inte ut ett fast utgångsdatum på de flesta artiklar, vilket är anledningen till att batchkoden spelar roll.",
+    "a_barcode": "Streckkoden är det långrandiga EAN/UPC-numret som används i kassan och är samma för varje enhet av en produkt.{name} batch-koden är en kort produktionskod som ändras med varje tillverkningskörning och kodar när artikeln tillverkades – det är den som detta verktyg avkodar.",
+    "a_expired": "Ange din {name} batchkod ovan för att få tillverkningsdatumet, och jämför det sedan med den typiska {shelf}-månaders oöppnade hållbarheten. Om det har gått längre tid än så – eller mer än cirka {pao} månader sedan du öppnade den – behandla produkten som utgången, särskilt om konsistensen, färgen eller lukten har ändrats.",
+    "a_pao": "När den öppnats ska {name} {noun} i allmänhet användas inom cirka {pao} månader – detta är perioden efter öppning, visad som symbolen för öppen burk (t.ex.{pao}M) på förpackningen. Efter att du har öppnat en produkt blir PAO gränsen även om själva partiet fortfarande är färskt.",
+    "q_pao": "Hur länge håller {name} efter öppning (PAO)?",
+    "q_unopened": "Hur länge håller oöppnade {name}-produkter?",
+    "q_store": "Hur ska jag förvara {name} {noun} för att hålla den fräsch?",
+    "a_paoSymbol": "Den lilla ikonen med öppen burk med ett nummer och ett \"M\" (för månader) är perioden efter öppning. För de flesta {name} {noun} är det runt {pao}M, vilket betyder ungefär {pao} månaders säker användning från den dag du öppnade den första gången. Batchkoden talar om hur färsk den var innan den öppnades; PAO berättar hur länge det varar efter.",
+    "q_afterExpiry": "Kan jag fortfarande använda {name} efter utgångsdatumet?",
+    "q_paoSymbol": "Vad betyder open-jar (PAO)-symbolen på {name}?",
+    "a_afterExpiry": "Att använda {name} {noun} kort efter det beräknade datumet är vanligtvis ett problem med kosmetisk kvalitet snarare än ett säkerhetsproblem – aktiva ämnen förlorar styrka, texturer separeras och dofter bleknar. Sluta använda det om du märker en förändring i lukt, färg eller konsistens, och använd aldrig ögon- eller läppprodukter som är gamla, eftersom risken för bakterier är högre.",
+    "a_fake": "En batchkodsavkodare läser produktionsdatumet – på egen hand kan den inte bevisa att en produkt är äkta. Men en {name}-kod som inte kommer att avkodas, eller ett datum som inte stämmer överens med när eller var du köpte den, kan vara en röd flagga. För äkthet, kontrollera även förpackningen, förseglingarna och typsnittet och köp från auktoriserade {group}-återförsäljare.",
     "decoderKnown": "ett tillverkarspecifikt kodschema",
-    "q_accuracy": "Hur exakt är denna{name}batchkodavkodare?",
-    "q_free": "Är{name}batchkodkontroll gratis?",
-    "q_fake": "Kan en batchkod tala om för mig om min{name}är falsk?",
-    "a_accuracy": "Vi läser tillverkningsdatumet med{decoder}. När{group}publicerar ett känt kodschema är resultatet exakt för månaden eller dagen; där varumärket inte bekräftar ett offentligt system är det en bästa uppskattning. Datumet är tillverkningsdatumet, inte ett garanterat utgångsdatum - hållbarhetssiffror är typiska branschgenomsnitt.",
+    "q_accuracy": "Hur exakt är denna {name} batchkodavkodare?",
+    "q_free": "Är {name} batchkodkontroll gratis?",
+    "q_fake": "Kan en batchkod tala om för mig om min {name} är falsk?",
+    "a_accuracy": "Vi läser tillverkningsdatumet med {decoder}. När {group} publicerar ett känt kodschema är resultatet exakt för månaden eller dagen; där varumärket inte bekräftar ett offentligt system är det en bästa uppskattning. Datumet är tillverkningsdatumet, inte ett garanterat utgångsdatum - hållbarhetssiffror är typiska branschgenomsnitt.",
     "decoderAuto": "automatisk datumdetektering",
-    "a_free": "Ja — avkodning av{name}batchkoder på Cosmetics Batch är helt gratis, fungerar direkt i din webbläsare utan registrering, och dina koder lagras aldrig eller skickas till en server."
+    "a_free": "Ja — avkodning av {name} batchkoder på Cosmetics Batch är helt gratis, fungerar direkt i din webbläsare utan registrering, och dina koder lagras aldrig eller skickas till en server."
   },
   "homeFaq": {
     "a1": "En batchkod är en kort kod tryckt på kosmetika- och parfymförpackningar som identifierar produktionskörningen. Avkodning avslöjar när produkten tillverkades.",
@@ -147,7 +147,7 @@
     "age": "Åldras",
     "confidence": "Förtroende",
     "pao": "Efter öppning (PAO)",
-    "months": "{n}månader",
+    "months": "{n} månader",
     "confLow": "Lågt självförtroende",
     "shelfLife": "Hållbarhet",
     "confMedium": "Medellång självförtroende",
@@ -156,7 +156,7 @@
     "percentLeft": "{n}% kvar",
     "confNone": "Kunde inte avkoda",
     "invalidTitle": "Vi kunde inte läsa den här koden",
-    "invalidBody": "\"{code}\" matchar inte{brand}:s batchkodformat. Kontrollera att du skrev det exakt som det står på förpackningen - endast bokstäver och siffror, inga mellanslag - och att det är batchkoden, inte streckkoden eller en pris-/marknadsföringsreferens."
+    "invalidBody": "\"{code}\" matchar inte {brand}:s batchkodformat. Kontrollera att du skrev det exakt som det står på förpackningen - endast bokstäver och siffror, inga mellanslag - och att det är batchkoden, inte streckkoden eller en pris-/marknadsföringsreferens."
   },
   "howItWorks": {
     "step1Title": "Välj varumärke",

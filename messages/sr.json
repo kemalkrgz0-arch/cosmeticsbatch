@@ -21,7 +21,7 @@
     "terms": "Услови коришћења услуге",
     "allBrands": "Сви брендови",
     "allGuides": "Сви водичи",
-    "rights": "© {year} {name}. All rights reserved. Estimates are informational only and not a guarantee of product safety."
+    "rights": "© {year} {name}. Sva prava zadržana. Procene su samo informativne prirode i ne garantuju bezbednost proizvoda."
   },
   "hero": {
     "badge": "Верују љубитељи лепоте широм света",
@@ -42,17 +42,17 @@
     "lastUsed": "последњи пут коришћен",
     "errorNoBrand": "Прво изаберите бренд.",
     "errorNoCode": "Унесите серијски код вашег производа.",
-    "noMatch": "No brands match “{query}”."
+    "noMatch": "Nijedan brend ne odgovara upitu „{query}”."
   },
   "home": {
     "faqSubtitle": "Све што треба да знате о декодирању козметичких и парфемских серија."
   },
   "brandPage": {
-    "checkerTitle": "{name} Batch Code Checker",
-    "blurb": "Decode {name} batch codes to find the manufacture date, age and expiration date of your {category} products. Free, instant and private.",
-    "metaTitle": "{name} Batch Code Decoder & Checker — Manufacture & Expiry Date",
-    "metaDescription": "Free {name} batch code decoder. Check the manufacture date, product age and expiration date of your {name} products in seconds — no sign-up.",
-    "by": "by {group}",
+    "checkerTitle": "{name} provera batch koda",
+    "blurb": "Dekodirajte {name} batch kodove da biste saznali datum proizvodnje, starost i rok trajanja svojih {category} proizvoda. Besplatno, trenutno i privatno.",
+    "metaTitle": "{name} dekoder i provera batch koda — datum proizvodnje i rok trajanja",
+    "metaDescription": "Besplatan {name} dekoder batch koda. Proverite datum proizvodnje, starost i rok trajanja svojih {name} proizvoda za nekoliko sekundi — bez registracije.",
+    "by": "od {group}",
     "factManufacturer": "Произвођач",
     "factShelfLife": "Типичан рок трајања",
     "factPao": "Након отварања (ПАО)",
@@ -60,17 +60,17 @@
     "factDecoder": "Декодер",
     "relatedBrands": "Повезани брендови",
     "helpfulGuides": "Корисни водичи",
-    "howHeading": "How {name} batch codes work",
-    "months": "{n} months",
-    "faqTitle": "{name} — FAQ",
-    "intro": "Enter your {name} batch code below to instantly decode the manufacture date, product age, and estimated expiration date — free and private.",
-    "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
-    "aliasesPara": "You'll sometimes see this tool called a {name} batch code decoder, {name} batch code checker, or {name} batch code calculator — they all do the same thing: read the production code and tell you how fresh your {name} {category} is."
+    "howHeading": "Kako funkcionišu {name} batch kodovi",
+    "months": "{n} meseci",
+    "faqTitle": "{name} — Česta pitanja",
+    "intro": "Unesite svoj {name} batch kod ispod da biste odmah dekodirali datum proizvodnje, starost proizvoda i procenjeni rok trajanja — besplatno i privatno.",
+    "freshnessPara": "Kada pročitamo datum proizvodnje, procenjujemo svežinu koristeći tipičan {name} rok trajanja od {shelf} meseci za {category} proizvode. Zapamtite da period nakon otvaranja (oko {pao} meseci) postaje granica čim počnete da koristite proizvod.",
+    "aliasesPara": "Ponekad ćete videti da se ovaj alat naziva {name} dekoder batch koda, {name} provera batch koda ili {name} kalkulator batch koda — svi rade istu stvar: čitaju proizvodni kod i govore vam koliko je svež vaš {name} {category}."
   },
   "faqUi": {
     "title": "Често постављана питања",
     "showFewer": "Покажите мање питања",
-    "showMore": "Show {n} more questions"
+    "showMore": "Prikaži još {n} pitanja"
   },
   "categoryNoun": {
     "skincare": "негу коже",
@@ -89,29 +89,29 @@
     "generic": "Чувајте га на хладном и сувом месту, ван директне сунчеве светлости, и држите посуду добро затворену између употребе."
   },
   "brandFaq": {
-    "q_where": "Where is the batch code on {name} products?",
-    "a_barcode": "The barcode is the long striped EAN/UPC number used at checkout and is the same for every unit of a product. The {name} batch code is a short production code that changes with each manufacturing run and encodes when the item was made — that's the one this tool decodes.",
-    "q_expired": "How do I know if my {name} product is expired?",
-    "q_unopened": "How long do unopened {name} products last?",
-    "q_barcode": "What's the difference between the {name} batch code and the barcode?",
-    "a_expired": "Enter your {name} batch code above to get the manufacture date, then compare it to the typical {shelf}-month unopened shelf life. If more time has passed than that — or more than about {pao} months since you opened it — treat the product as expired, especially if the texture, colour or smell has changed.",
-    "a_where": "Look for a short stamped, embossed or ink-jet code — usually on the base of the bottle or jar, the crimp at the end of a tube, or the bottom or flap of the box. On {name} {noun} it is separate from the barcode and typically 3–8 characters of letters and numbers.",
-    "q_pao": "How long does {name} last after opening (PAO)?",
-    "a_unopened": "Unopened {name} {noun} typically stays good for about {shelf} months from the manufacture date when stored properly. This is an industry estimate — {name} does not print a hard expiry date on most items, which is why the batch code matters.",
-    "q_paoSymbol": "What does the open-jar (PAO) symbol on {name} mean?",
-    "q_afterExpiry": "Can I still use {name} after the expiration date?",
-    "a_paoSymbol": "The little open-jar icon with a number and an \"M\" (for months) is the Period After Opening. For most {name} {noun} it's around {pao}M, meaning roughly {pao} months of safe use from the day you first open it. The batch code tells you how fresh it was before opening; the PAO tells you how long it lasts after.",
-    "a_pao": "Once opened, {name} {noun} should generally be used within about {pao} months — this is the Period After Opening, shown as the open-jar symbol (e.g. {pao}M) on the packaging. After you open a product, the PAO becomes the limit even if the batch itself is still fresh.",
-    "a_fake": "A batch code decoder reads the production date — on its own it can't prove a product is genuine. But a {name} code that won't decode, or a date that doesn't match when or where you bought it, can be a red flag. For authenticity, also check the packaging, seals and font, and buy from authorised {group} retailers.",
-    "q_store": "How should I store {name} {noun} to keep it fresh?",
-    "a_afterExpiry": "Using {name} {noun} shortly past its estimated date is usually a cosmetic-quality issue rather than a safety one — actives lose potency, textures separate and fragrances fade. Stop using it if you notice a change in smell, colour or consistency, and never use eye or lip products that are old, as bacteria risk is higher.",
+    "q_where": "Gde se nalazi batch kod na {name} proizvodima?",
+    "a_barcode": "Barkod je dugačak prugasti EAN/UPC broj koji se koristi na kasi i isti je za svaku jedinicu proizvoda. {name} batch kod je kratak proizvodni kod koji se menja sa svakom proizvodnom serijom i kodira kada je artikal napravljen — to je onaj koji ovaj alat dekodira.",
+    "q_expired": "Kako da znam da li je moj {name} proizvod istekao?",
+    "q_unopened": "Koliko dugo traju neotvoreni {name} proizvodi?",
+    "q_barcode": "Koja je razlika između {name} batch koda i barkoda?",
+    "a_expired": "Unesite svoj {name} batch kod iznad da biste dobili datum proizvodnje, a zatim ga uporedite sa tipičnim neotvorenim rokom trajanja od {shelf} meseci. Ako je prošlo više vremena od toga — ili više od oko {pao} meseci otkako ste ga otvorili — tretirajte proizvod kao istekao, naročito ako su se tekstura, boja ili miris promenili.",
+    "a_where": "Potražite kratak utisnut, reljefan ili ink-jet kod — obično na dnu bočice ili tegle, na spoju na kraju tube ili na dnu ili preklopu kutije. Na {name} {noun} odvojen je od barkoda i obično sadrži 3–8 slova i brojeva.",
+    "q_pao": "Koliko dugo {name} traje nakon otvaranja (PAO)?",
+    "a_unopened": "Neotvoreni {name} {noun} obično ostaje dobar oko {shelf} meseci od datuma proizvodnje kada se pravilno čuva. Ovo je procena industrije — {name} ne štampa fiksni rok trajanja na većini artikala, zbog čega je batch kod važan.",
+    "q_paoSymbol": "Šta znači simbol otvorene tegle (PAO) na {name}?",
+    "q_afterExpiry": "Mogu li i dalje da koristim {name} nakon isteka roka?",
+    "a_paoSymbol": "Mala ikona otvorene tegle sa brojem i slovom „M” (za mesece) predstavlja period nakon otvaranja. Za većinu {name} {noun} to je oko {pao}M, što znači otprilike {pao} meseci bezbedne upotrebe od dana kada ga prvi put otvorite. Batch kod vam govori koliko je bio svež pre otvaranja; PAO vam govori koliko traje nakon.",
+    "a_pao": "Nakon otvaranja, {name} {noun} bi generalno trebalo iskoristiti u roku od oko {pao} meseci — to je period nakon otvaranja (PAO), prikazan simbolom otvorene tegle (npr. {pao}M) na ambalaži. Kada otvorite proizvod, PAO postaje granica čak i ako je sama serija još sveža.",
+    "a_fake": "Dekoder batch koda čita datum proizvodnje — sam po sebi ne može dokazati da je proizvod originalan. Ali {name} kod koji se ne dekodira, ili datum koji ne odgovara vremenu ili mestu kupovine, može biti znak upozorenja. Za autentičnost proverite i ambalažu, pečate i font, i kupujte kod ovlašćenih {group} prodavaca.",
+    "q_store": "Kako treba čuvati {name} {noun} da bi ostao svež?",
+    "a_afterExpiry": "Korišćenje {name} {noun} kratko nakon procenjenog datuma obično je pitanje kozmetičkog kvaliteta, a ne bezbednosti — aktivni sastojci gube snagu, teksture se razdvajaju, a mirisi blede. Prestanite da ga koristite ako primetite promenu mirisa, boje ili konzistencije, i nikada ne koristite stare proizvode za oči ili usne jer je rizik od bakterija veći.",
     "decoderKnown": "кодна шема специфична за произвођача",
-    "q_fake": "Can a batch code tell me if my {name} is fake?",
-    "q_accuracy": "How accurate is this {name} batch code decoder?",
-    "a_accuracy": "We read the manufacture date using {decoder}. Where {group} publishes a known code scheme the result is precise to the month or day; where the brand doesn't confirm a public scheme it's a best-estimate reading. The date is the manufacture date, not a guaranteed expiry — shelf-life figures are typical industry averages.",
+    "q_fake": "Može li mi batch kod reći da li je moj {name} falsifikat?",
+    "q_accuracy": "Koliko je tačan ovaj {name} dekoder batch koda?",
+    "a_accuracy": "Datum proizvodnje čitamo pomoću {decoder}. Tamo gde {group} objavljuje poznatu šemu koda, rezultat je precizan na mesec ili dan; tamo gde brend ne potvrđuje javnu šemu, reč je o najboljoj proceni. Datum je datum proizvodnje, a ne garantovani rok trajanja — vrednosti roka trajanja su tipični industrijski proseci.",
     "decoderAuto": "аутоматско откривање датума",
-    "a_free": "Yes — decoding {name} batch codes on Cosmetics Batch is completely free, works instantly in your browser with no sign-up, and your codes are never stored or sent to a server.",
-    "q_free": "Is the {name} batch code checker free?"
+    "a_free": "Da — dekodiranje {name} batch kodova na Cosmetics Batch je potpuno besplatno, radi trenutno u vašem pregledaču bez registracije, a vaši kodovi se nikada ne čuvaju niti šalju na server.",
+    "q_free": "Da li je {name} provera batch koda besplatna?"
   },
   "homeFaq": {
     "q1": "Шта је батцх код?",
@@ -146,8 +146,8 @@
     "expirationDate": "Датум истека",
     "age": "Старост",
     "pao": "Након отварања (ПАО)",
-    "months": "{n} months",
-    "percentLeft": "{n}% left",
+    "months": "{n} meseci",
+    "percentLeft": "preostalo {n}%",
     "confHigh": "Високо самопоуздање",
     "lifeLeft": "живот остао",
     "confidence": "Самопоуздање",
@@ -156,7 +156,7 @@
     "invalidTitle": "Нисмо могли да прочитамо овај код",
     "confLow": "Ниско самопоуздање",
     "confNone": "Није могуће декодирати",
-    "invalidBody": "“{code}” doesn’t match {brand}’s batch-code format. Check that you typed it exactly as printed on the packaging — letters and numbers only, no spaces — and that it’s the batch code, not the barcode or a price/marketing reference."
+    "invalidBody": "„{code}” ne odgovara formatu batch koda brenda {brand}. Proverite da ste ga uneli tačno kao što je odštampano na ambalaži — samo slova i brojevi, bez razmaka — i da je to batch kod, a ne barkod ili cenovna/marketinška referenca."
   },
   "howItWorks": {
     "eyebrow": "Три једноставна корака",
