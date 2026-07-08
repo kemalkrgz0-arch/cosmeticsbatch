@@ -4,6 +4,8 @@ import { setRequestLocale } from "next-intl/server";
 import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { GUIDES, getGuide } from "@/lib/guides";
+import { POPULAR_BRANDS } from "@/lib/brands";
+import { linkifyBrands, type TextToken } from "@/lib/internal-links";
 import {
   articleSchema,
   breadcrumbSchema,
@@ -36,8 +38,33 @@ export async function generateMetadata({
   });
 }
 
-/** Render a body paragraph, supporting simple "- " bullet lines grouped as a list. */
-function Body({ lines }: { lines: string[] }) {
+/** Render tokenized text, turning brand tokens into internal links. */
+function Tokens({ tokens }: { tokens: TextToken[] }) {
+  return (
+    <>
+      {tokens.map((t, i) =>
+        t.href ? (
+          <Link
+            key={i}
+            href={t.href}
+            className="font-medium text-accent hover:text-accent-hover"
+          >
+            {t.text}
+          </Link>
+        ) : (
+          <span key={i}>{t.text}</span>
+        ),
+      )}
+    </>
+  );
+}
+
+/**
+ * Render a body paragraph, supporting simple "- " bullet lines grouped as a
+ * list. Each line is run through `linkifyBrands` (sharing `used` across the
+ * whole guide) so the first mention of a brand becomes an internal link.
+ */
+function Body({ lines, used }: { lines: string[]; used: Set<string> }) {
   const blocks: React.ReactNode[] = [];
   let bullets: string[] = [];
   const flush = (key: string) => {
@@ -47,7 +74,9 @@ function Body({ lines }: { lines: string[] }) {
           {bullets.map((b, i) => (
             <li key={i} className="flex gap-2 text-fg-muted">
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-              <span className="leading-relaxed">{b.replace(/^- /, "")}</span>
+              <span className="leading-relaxed">
+                <Tokens tokens={linkifyBrands(b.replace(/^- /, ""), used)} />
+              </span>
             </li>
           ))}
         </ul>,
@@ -61,7 +90,7 @@ function Body({ lines }: { lines: string[] }) {
       flush(`ul-${i}`);
       blocks.push(
         <p key={i} className="leading-relaxed text-fg-muted">
-          {line}
+          <Tokens tokens={linkifyBrands(line, used)} />
         </p>,
       );
     }
@@ -82,6 +111,9 @@ export default async function GuidePage({
 
   const path = `/guides/${guide.slug}`;
   const others = GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 3);
+  // Shared across every section so each brand is linked at most once per guide.
+  const usedBrandLinks = new Set<string>();
+  const brandChecks = POPULAR_BRANDS.slice(0, 8);
 
   return (
     <article className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
@@ -128,7 +160,7 @@ export default async function GuidePage({
         {guide.sections.map((s, i) => (
           <section key={s.heading}>
             <h2 className="mb-3 text-xl font-semibold">{s.heading}</h2>
-            <Body lines={s.body} />
+            <Body lines={s.body} used={usedBrandLinks} />
             {i === 0 && (
               <AdSlot placement="article" className="mt-10" height={250} />
             )}
@@ -137,6 +169,22 @@ export default async function GuidePage({
       </div>
 
       {guide.faq && <Faq items={guide.faq} title="FAQ" />}
+
+      <section className="mt-14 border-t border-border pt-8">
+        <h2 className="mb-4 text-lg font-semibold">Check a brand&apos;s batch code</h2>
+        <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {brandChecks.map((b) => (
+            <li key={b.slug}>
+              <Link
+                href={`/brands/${b.slug}`}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
+              >
+                {b.name} <ArrowRight className="h-4 w-4 shrink-0" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <section className="mt-14 border-t border-border pt-8">
         <h2 className="mb-4 text-lg font-semibold">More guides</h2>
