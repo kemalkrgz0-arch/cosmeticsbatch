@@ -567,6 +567,46 @@ const beiersdorf: Decoder = {
   },
 };
 
+/* -------------------------------------------------------------------------- */
+/*  NAOS / Bioderma                                                            */
+/*  Day-first Julian code: the first three digits are the day of the year and  */
+/*  the fourth is the last digit of the production year (DDDY). This is the     */
+/*  reverse order of Coty's YDDD. E.g. 29682 -> day 296 of 2018 (23 Oct 2018). */
+/*  Bioderma also prints an expiry date directly on most products.             */
+/* -------------------------------------------------------------------------- */
+
+const naos: Decoder = {
+  id: "naos",
+  label: "Bioderma day-of-year + year (DDDY)",
+  explanation:
+    "Bioderma (NAOS) codes start with the day of the year and the last digit of the production year: the first three digits are the day (001–366) and the fourth is the year digit, so 29682 is the 296th day of 2018 (23 October 2018). Bioderma also prints an expiry date directly on most products.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/\d{4,}/);
+    if (!m) return null;
+    const d = m[0];
+    const doy = Number(d.slice(0, 3));
+    if (doy < 1 || doy > 366) return null;
+    let year = resolveYearDigit(Number(d[3]), ctx.now);
+    let date = dateFromDayOfYear(year, doy);
+    if (inFuture(date, ctx.now)) {
+      year -= 10;
+      date = dateFromDayOfYear(year, doy);
+    }
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "Bioderma codes give the day precisely (day-of-year + year digit), but the year is a single digit.",
+        `The year is read as the most recent match (${year}); an older-looking product may be from ${year - 10}.`,
+        "Most Bioderma products also print an expiry date directly — prefer that when present. This is the manufacture date; the PAO symbol governs use after opening.",
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
   [loreal.id]: loreal,
@@ -576,6 +616,7 @@ export const DECODERS: Record<string, Decoder> = {
   [creed.id]: creed,
   [interparfums.id]: interparfums,
   [beiersdorf.id]: beiersdorf,
+  [naos.id]: naos,
   [embedded.id]: embedded,
   [julian.id]: julian,
 };
