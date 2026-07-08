@@ -648,6 +648,46 @@ const deciem: Decoder = {
   },
 };
 
+/* -------------------------------------------------------------------------- */
+/*  Shiseido                                                                   */
+/*  Year-first Julian code (YDDD), like Coty: the first digit is the last      */
+/*  digit of the production year and the next three are the day of that year,  */
+/*  optionally followed by plant/line letters. E.g. 5029KG -> day 29 of 2025   */
+/*  (29 Jan 2025); 8233 -> 21 Aug 2018.                                        */
+/* -------------------------------------------------------------------------- */
+
+const shiseido: Decoder = {
+  id: "shiseido",
+  label: "Shiseido year digit + Julian day (YDDD)",
+  explanation:
+    "Shiseido and its houses print a code that begins with the last digit of the production year and the day of that year, then plant/line letters — so 5029KG is the 29th day of 2025 (29 January 2025) and 8233 is 21 August 2018.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/\d{4}/);
+    if (!m) return null;
+    const d = m[0];
+    const doy = Number(d.slice(1));
+    if (doy < 1 || doy > 366) return null;
+    let year = resolveYearDigit(Number(d[0]), ctx.now);
+    let date = dateFromDayOfYear(year, doy);
+    if (inFuture(date, ctx.now)) {
+      year -= 10;
+      date = dateFromDayOfYear(year, doy);
+    }
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "Shiseido codes give the day precisely (year digit + day-of-year), but the year is a single digit.",
+        `The year is read as the most recent match (${year}); an older-looking product may be from ${year - 10}.`,
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M) determines how long the product stays good.",
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
   [loreal.id]: loreal,
@@ -659,6 +699,7 @@ export const DECODERS: Record<string, Decoder> = {
   [beiersdorf.id]: beiersdorf,
   [naos.id]: naos,
   [deciem.id]: deciem,
+  [shiseido.id]: shiseido,
   [embedded.id]: embedded,
   [julian.id]: julian,
 };

@@ -204,6 +204,25 @@ export default async function BrandPage({
         </section>
       ))}
 
+      {/* Real product photos of where the batch code sits on the pack. */}
+      {brand.codeImages && brand.codeImages.length > 0 && (
+        <figure className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {brand.codeImages.map((img) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={img.src}
+              src={img.src}
+              alt={`Where to find the batch code on ${brand.name} packaging`}
+              width={img.width}
+              height={img.height}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full rounded-xl border border-border bg-card"
+            />
+          ))}
+        </figure>
+      )}
+
       <AdSlot placement="brand" className="my-12" height={250} />
 
       <Faq items={brandFaq} title={tb("faqTitle", { name: brand.name })} />

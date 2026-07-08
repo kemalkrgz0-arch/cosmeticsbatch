@@ -26,6 +26,12 @@ export interface Brand {
    * — a coded batch number. Their page shows a "read the printed date" note.
    */
   printsDate?: boolean;
+  /**
+   * Real product photos showing where the batch code is on this brand's
+   * packaging. Shown in the "where to find the code" section. Dimensions are
+   * intrinsic px (reserve space to avoid layout shift).
+   */
+  codeImages?: { src: string; width: number; height: number }[];
   blurb: string;
 }
 
@@ -199,8 +205,8 @@ const ROWS: Row[] = [
   ["Eucerin", "Beiersdorf", "beiersdorf", "skincare", 36, 12],
   ["The Ordinary", "Deciem", "deciem", "skincare", 36, 12, true],
   ["NIOD", "Deciem", "deciem", "skincare", 36, 12],
-  ["NARS", "Shiseido", undefined, "makeup", 36, 24],
-  ["Shiseido", "Shiseido", undefined, "skincare", 36, 12],
+  ["NARS", "Shiseido", "shiseido", "makeup", 36, 24],
+  ["Shiseido", "Shiseido", "shiseido", "skincare", 36, 12],
   ["SK-II", "P&G", undefined, "skincare", 36, 12],
   ["Charlotte Tilbury", "Charlotte Tilbury", undefined, "makeup", 36, 24],
   ["Drunk Elephant", "Shiseido", undefined, "skincare", 24, 12],
@@ -283,12 +289,12 @@ const ROWS: Row[] = [
   ["John Frieda", "Kao", undefined, "haircare", 36, 12],
   ["Molton Brown", "Kao", undefined, "generic", 36, 12],
   ["Guhl", "Kao", undefined, "haircare", 36, 12],
-  ["Clé de Peau Beauté", "Shiseido", undefined, "skincare", 36, 12],
-  ["Anessa", "Shiseido", undefined, "suncare", 30, 12],
-  ["Elixir", "Shiseido", undefined, "skincare", 30, 12],
+  ["Clé de Peau Beauté", "Shiseido", "shiseido", "skincare", 36, 12],
+  ["Anessa", "Shiseido", "shiseido", "suncare", 30, 12],
+  ["Elixir", "Shiseido", "shiseido", "skincare", 30, 12],
   ["bareMinerals", "Shiseido", undefined, "makeup", 36, 24],
   ["Laura Mercier", "Shiseido", undefined, "makeup", 36, 24],
-  ["Ipsa", "Shiseido", undefined, "skincare", 30, 12],
+  ["Ipsa", "Shiseido", "shiseido", "skincare", 30, 12],
   ["Sekkisei", "Kosé", undefined, "skincare", 30, 12],
   ["Cosme Decorte", "Kosé", undefined, "skincare", 30, 12],
   ["Jill Stuart", "Kosé", undefined, "makeup", 36, 24],
@@ -451,8 +457,6 @@ const HIDDEN_SLUGS = new Set<string>([
   "younique",
   "lancaster",
   // No verified decoder yet (undefined → unreliable fallback).
-  "nars",
-  "shiseido",
   "sk-ii",
   "charlotte-tilbury",
   "drunk-elephant",
@@ -534,12 +538,8 @@ const HIDDEN_SLUGS = new Set<string>([
   "john-frieda",
   "molton-brown",
   "guhl",
-  "cle-de-peau-beaute",
-  "anessa",
-  "elixir",
   "bareminerals",
   "laura-mercier",
-  "ipsa",
   "sekkisei",
   "cosme-decorte",
   "jill-stuart",
@@ -672,6 +672,14 @@ const PRINTS_DATE_SLUGS = new Set<string>([
   "uriage", "embryolisse", "institut-esthederm", "dr-hauschka",
 ]);
 
+/** Real product photos of where the batch code is, keyed by slug. */
+const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
+  shiseido: [
+    { src: "/brands/shiseido-batch-1.jpg", width: 707, height: 720 },
+    { src: "/brands/shiseido-batch-2.jpg", width: 720, height: 507 },
+  ],
+};
+
 /** Every brand, including hidden ones — used for URL resolution. */
 export const ALL_BRANDS: Brand[] = ROWS.map(
   ([name, group, decoderId, category, shelfLifeMonths, paoMonths, popular]) => {
@@ -687,6 +695,7 @@ export const ALL_BRANDS: Brand[] = ROWS.map(
       popular,
       hidden: HIDDEN_SLUGS.has(slug),
       printsDate: PRINTS_DATE_SLUGS.has(slug),
+      codeImages: CODE_IMAGES[slug],
       blurb: `Decode ${name} batch codes to find the manufacture date, age and expiration date of your ${categoryBlurb[category]} products. Free, instant and private.`,
     };
   },
