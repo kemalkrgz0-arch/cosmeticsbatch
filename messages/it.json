@@ -66,7 +66,8 @@
     "months": "{n} mesi",
     "faqTitle": "{name}: domande frequenti",
     "aliasesPara": "A volte vedrai questo strumento chiamato decodificatore di codice batch {name}, controllo di codice batch {name} o calcolatore di codice batch {name}: fanno tutti la stessa cosa: leggi il codice di produzione e ti dicono quanto è fresco il tuo {name} {category}.",
-    "howHeading": "Come funzionano i codici batch {name}"
+    "howHeading": "Come funzionano i codici batch {name}",
+    "printsDateNote": "{name} stampa la data di produzione o scadenza direttamente sulla confezione, quindi di solito non serve un codice lotto."
   },
   "faqUi": {
     "title": "Domande frequenti",

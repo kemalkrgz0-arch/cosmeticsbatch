@@ -66,7 +66,8 @@
     "months": "{n} oy",
     "relatedBrands": "Aloqador brendlar",
     "helpfulGuides": "Foydali qoʻllanmalar",
-    "faqTitle": "{name} — Savol-javob"
+    "faqTitle": "{name} — Savol-javob",
+    "printsDateNote": "{name} ishlab chiqarish yoki yaroqlilik muddatini to'g'ridan-to'g'ri qadoqqa bosadi, shuning uchun odatda partiya kodi kerak emas."
   },
   "faqUi": {
     "title": "Koʻp beriladigan savollar",

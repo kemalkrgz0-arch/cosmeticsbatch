@@ -66,7 +66,8 @@
     "faqTitle": "{name} — Česta pitanja",
     "intro": "Unesite svoj {name} batch kod ispod da biste odmah dekodirali datum proizvodnje, starost proizvoda i procenjeni rok trajanja — besplatno i privatno.",
     "freshnessPara": "Kada pročitamo datum proizvodnje, procenjujemo svežinu koristeći tipičan {name} rok trajanja od {shelf} meseci za {category} proizvode. Zapamtite da period nakon otvaranja (oko {pao} meseci) postaje granica čim počnete da koristite proizvod.",
-    "aliasesPara": "Ponekad ćete videti da se ovaj alat naziva {name} dekoder batch koda, {name} provera batch koda ili {name} kalkulator batch koda — svi rade istu stvar: čitaju proizvodni kod i govore vam koliko je svež vaš {name} {category}."
+    "aliasesPara": "Ponekad ćete videti da se ovaj alat naziva {name} dekoder batch koda, {name} provera batch koda ili {name} kalkulator batch koda — svi rade istu stvar: čitaju proizvodni kod i govore vam koliko je svež vaš {name} {category}.",
+    "printsDateNote": "{name} štampa datum proizvodnje ili isteka direktno na ambalaži, pa vam obično nije potreban kod serije."
   },
   "faqUi": {
     "title": "Често постављана питања",

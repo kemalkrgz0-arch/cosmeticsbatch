@@ -71,6 +71,9 @@ export default async function BrandPage({
 
   const brandFaq = buildBrandFaqs(brand, t);
   const introSections = brandIntroSections(brand, t);
+  const printGuide = brand.printsDate
+    ? GUIDES.find((g) => g.slug === "brands-that-print-the-date")
+    : undefined;
 
   const category = t(`categoryNoun.${brand.category}`);
   const months = (n: number) => tb("months", { n });
@@ -131,6 +134,27 @@ export default async function BrandPage({
       <p className="mt-5 text-pretty leading-relaxed text-fg-muted">
         {tb("intro", { name: brand.name })}
       </p>
+
+      {/* Brands that print the date directly (K-beauty, JP, FR pharmacy):
+          point the user at the printed date + guide instead of a coded decode. */}
+      {brand.printsDate && (
+        <div className="mt-5 rounded-xl border border-border bg-card p-4">
+          <p className="flex gap-2.5 text-sm leading-relaxed text-fg-muted">
+            <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+            <span>
+              {tb("printsDateNote", { name: brand.name })}{" "}
+              {printGuide && (
+                <Link
+                  href={`/guides/${printGuide.slug}`}
+                  className="font-medium text-accent hover:text-accent-hover"
+                >
+                  {printGuide.title} →
+                </Link>
+              )}
+            </span>
+          </p>
+        </div>
+      )}
 
       <CheckForm initialBrand={brand} className="mt-6" autoFocusCode />
 

@@ -66,7 +66,8 @@
     "freshnessPara": "Keď si prečítame dátum výroby, odhadneme čerstvosť pomocou {name}typickej {shelf}-mesačnej trvanlivosti produktov {category}. Pamätajte, že obdobie po otvorení (asi {pao} mesiacov) sa stane limitom, keď začnete produkt používať.",
     "by": "od {group}",
     "faqTitle": "{name}— často kladené otázky",
-    "aliasesPara": "Niekedy uvidíte tento nástroj nazývaný dekodér dávkového kódu {name}, kontrola dávkového kódu {name} alebo kalkulačka dávkového kódu {name}– všetky robia to isté: prečítajte si produkčný kód a povedia vám, aký čerstvý je váš {name} {category}."
+    "aliasesPara": "Niekedy uvidíte tento nástroj nazývaný dekodér dávkového kódu {name}, kontrola dávkového kódu {name} alebo kalkulačka dávkového kódu {name}– všetky robia to isté: prečítajte si produkčný kód a povedia vám, aký čerstvý je váš {name} {category}.",
+    "printsDateNote": "{name} tlačí dátum výroby alebo spotreby priamo na obal, takže zvyčajne nepotrebujete kód šarže."
   },
   "categoryNoun": {
     "skincare": "starostlivosť o pleť",

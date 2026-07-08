@@ -66,7 +66,8 @@
     "months": "{n} måneder",
     "by": "av {group}",
     "aliasesPara": "Noen ganger vil du se dette verktøyet kalt en {name} batchkodedekoder,{name} batchkodekontroller eller {name} batchkodekalkulator – de gjør alle det samme: les produksjonskoden og forteller deg hvor fersk {name} {category} er.",
-    "faqTitle": "{name}— Vanlige spørsmål"
+    "faqTitle": "{name}— Vanlige spørsmål",
+    "printsDateNote": "{name} trykker produksjons- eller utløpsdatoen direkte på emballasjen, så du trenger vanligvis ikke en batchkode."
   },
   "faqUi": {
     "title": "Ofte stilte spørsmål",

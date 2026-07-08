@@ -66,7 +66,8 @@
     "months": "{n} kuukautta",
     "freshnessPara": "Kun olemme lukeneet valmistuspäivän, arvioimme tuoreuden käyttämällä {name}:n tyypillistä {shelf}-kuukauden säilyvyyttä {category}-tuotteille. Muista, että avaamisen jälkeinen ajanjakso (noin {pao} kuukautta) tulee rajaksi, kun aloitat tuotteen käytön.",
     "aliasesPara": "Joskus näet tämän työkalun nimeltä {name} eräkoodin dekooderi,{name} eräkoodin tarkistus tai {name} eräkoodilaskin – ne kaikki tekevät saman asian: lukevat tuotantokoodin ja kertovat, kuinka tuore {name} {category} on.",
-    "faqTitle": "{name}- UKK"
+    "faqTitle": "{name}- UKK",
+    "printsDateNote": "{name} painaa valmistus- tai viimeisen käyttöpäivän suoraan pakkaukseen, joten eräkoodia ei yleensä tarvita."
   },
   "faqUi": {
     "title": "Usein kysytyt kysymykset",

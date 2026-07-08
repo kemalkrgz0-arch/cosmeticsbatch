@@ -66,7 +66,8 @@
     "faqTitle": "{name}— Perguntas frequentes",
     "metaTitle": "Decodificador e verificador de código em lote {name}- Data de fabricação e validade",
     "metaDescription": "Decodificador de código em lote {name} gratuito. Verifique a data de fabricação, a idade do produto e a data de validade de seus produtos {name} em segundos - sem inscrição.",
-    "blurb": "Decodifique os códigos de lote {name} para encontrar a data de fabricação, idade e data de validade de seus produtos {category}. Gratuito, instantâneo e privado."
+    "blurb": "Decodifique os códigos de lote {name} para encontrar a data de fabricação, idade e data de validade de seus produtos {category}. Gratuito, instantâneo e privado.",
+    "printsDateNote": "{name} imprime a data de fabricação ou validade diretamente na embalagem, então geralmente você não precisa de um código de lote."
   },
   "faqUi": {
     "title": "Perguntas frequentes",

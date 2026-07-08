@@ -600,6 +600,54 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "brands-that-print-the-date",
+    title: "Brands That Print the Date Directly (Korean & French Pharmacy)",
+    description:
+      "Many Korean, Japanese and French-pharmacy brands stamp the manufacture or expiry date on the pack in plain numbers — here's how to read it without a batch-code decoder.",
+    readMinutes: 4,
+    updated: "2026-07-08",
+    sections: [
+      {
+        heading: "Not every brand hides the date in a code",
+        body: [
+          "Western conglomerates (Estée Lauder, L'Oréal, Coty, LVMH and others) stamp a coded production date that needs decoding. But a large share of the market does the opposite: they print the manufacture or expiry date on the packaging as a plain calendar date.",
+          "This is especially common with Korean and Japanese skincare and with French-pharmacy brands. For these products you don't need a batch-code decoder at all — the date is right there once you know what to look for.",
+        ],
+      },
+      {
+        heading: "How to read the printed date",
+        body: [
+          "Look on the base of the bottle or jar, the crimp at the end of a tube, or the flap of the box. You'll usually see two short dates or labels.",
+          "- Manufacture date: marked MFG, MFD, MAN, MD, M, or 제조 (Korean), 生産日期 (Chinese), 製造 (Japanese).",
+          "- Expiry / best-before: marked EXP, E, BB, or 까지 (Korean), 保质期 / 消费期限.",
+          "Common formats are YYYY.MM.DD, YYYY-MM-DD or DD.MM.YYYY. If only one date is shown, Korean and Japanese products usually print the manufacture date, while EU products more often print the expiry (period-of-minimum-durability) date.",
+        ],
+      },
+      {
+        heading: "Which brands print the date directly",
+        body: [
+          "Korean skincare and makeup — for example Laneige, Innisfree, COSRX, Beauty of Joseon, Anua, Some By Mi, Torriden, Round Lab, Missha and most K-beauty labels.",
+          "Japanese brands such as Hada Labo, FANCL and DHC, and French-pharmacy lines such as Avène, Bioderma, Klorane, Ducray, A-Derma and Weleda, also print a readable date (some, like Bioderma, additionally encode it in the code).",
+          "Because these dates are printed in plain text, we don't run them through a decoder — reading the pack is faster and more reliable than any tool.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "My Korean skincare has no batch code I can decode — is that normal?",
+        a: "Yes. Most Korean and Japanese brands print the manufacture date (제造) and often the expiry date directly on the pack instead of hiding it in a coded batch number, so there's nothing to decode — just read the printed date.",
+      },
+      {
+        q: "If both a manufacture and an expiry date are printed, which do I trust?",
+        a: "The expiry (or best-before) date is the manufacturer's own guarantee, so prefer it. The manufacture date tells you how fresh the product was and, with the open-jar PAO symbol, how long you have after opening.",
+      },
+      {
+        q: "What does the Korean word 제조 mean on my product?",
+        a: "제조 means 'manufactured' — the date next to it is the production date. 까지 means 'until', marking the expiry date.",
+      },
+    ],
+  },
 ];
 
 const guideBySlug = new Map(GUIDES.map((g) => [g.slug, g]));

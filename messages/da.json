@@ -66,7 +66,8 @@
     "howHeading": "Sådan fungerer {name} batchkoder",
     "faqTitle": "{name}— ofte stillede spørgsmål",
     "months": "{n} måneder",
-    "aliasesPara": "Du vil nogle gange se dette værktøj kaldet en {name} batchkodedekoder,{name} batchkodekontrol eller {name} batchkodeberegner - de gør alle det samme: læs produktionskoden og fortæller dig, hvor frisk din {name} {category} er."
+    "aliasesPara": "Du vil nogle gange se dette værktøj kaldet en {name} batchkodedekoder,{name} batchkodekontrol eller {name} batchkodeberegner - de gør alle det samme: læs produktionskoden og fortæller dig, hvor frisk din {name} {category} er.",
+    "printsDateNote": "{name} trykker fremstillings- eller udløbsdatoen direkte på emballagen, så du behøver normalt ikke en batchkode."
   },
   "faqUi": {
     "title": "Ofte stillede spørgsmål",

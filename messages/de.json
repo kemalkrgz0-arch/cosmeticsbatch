@@ -66,7 +66,8 @@
     "faqTitle": "{name} – FAQ",
     "metaTitle": "{name} Batch Code Decoder & Checker – Herstellungs- und Ablaufdatum",
     "blurb": "Dekodieren Sie {name}-Chargencodes, um das Herstellungsdatum, das Alter und das Verfallsdatum Ihrer {category}-Produkte zu ermitteln. Kostenlos, sofort und privat.",
-    "metaDescription": "Kostenloser {name}-Batchcode-Decoder. Überprüfen Sie in Sekundenschnelle das Herstellungsdatum, das Produktalter und das Ablaufdatum Ihrer {name}-Produkte – keine Anmeldung erforderlich."
+    "metaDescription": "Kostenloser {name}-Batchcode-Decoder. Überprüfen Sie in Sekundenschnelle das Herstellungsdatum, das Produktalter und das Ablaufdatum Ihrer {name}-Produkte – keine Anmeldung erforderlich.",
+    "printsDateNote": "{name} druckt das Herstellungs- oder Ablaufdatum direkt auf die Verpackung, daher brauchst du meist keinen Chargencode."
   },
   "faqUi": {
     "title": "Häufige Fragen",

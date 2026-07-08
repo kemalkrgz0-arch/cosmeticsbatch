@@ -20,6 +20,12 @@ export interface Brand {
    * once a tested decoder covers it.
    */
   hidden?: boolean;
+  /**
+   * Brand prints the manufacture/expiry date on the pack in plain text (common
+   * for Korean, Japanese and French-pharmacy lines) instead of — or as well as
+   * — a coded batch number. Their page shows a "read the printed date" note.
+   */
+  printsDate?: boolean;
   blurb: string;
 }
 
@@ -645,6 +651,29 @@ const HIDDEN_SLUGS = new Set<string>([
   "ma-nyo",
 ]);
 
+/**
+ * Brands that print the manufacture/expiry date on the pack in plain text
+ * (Korean, Japanese and French-pharmacy lines). Their page shows a "read the
+ * printed date" note pointing at the brands-that-print-the-date guide instead
+ * of relying on a coded decode. Bioderma is deliberately absent — it both
+ * prints the date and has a verified code decoder.
+ */
+const PRINTS_DATE_SLUGS = new Set<string>([
+  // Korean skincare / makeup
+  "laneige", "innisfree", "sulwhasoo", "etude", "mamonde", "hera", "iope",
+  "primera", "espoir", "illiyoon", "cosrx", "beauty-of-joseon", "anua",
+  "some-by-mi", "torriden", "round-lab", "isntree", "purito", "klairs",
+  "mixsoon", "medicube", "numbuzin", "skin1004", "axis-y", "pyunkang-yul",
+  "missha", "tony-moly", "nature-republic", "holika-holika", "banila-co",
+  "rom-nd", "clio", "peripera", "abib", "goodal", "vt-cosmetics", "skinfood",
+  "dalba", "dr-ceuracle", "ma-nyo", "the-face-shop", "belif", "cnp-laboratory",
+  // Japanese
+  "hada-labo", "melano-cc", "fancl", "dhc", "curel", "bifesta",
+  // French pharmacy / natural
+  "avene", "klorane", "ducray", "a-derma", "rene-furterer", "weleda",
+  "uriage", "embryolisse", "institut-esthederm", "dr-hauschka",
+]);
+
 /** Every brand, including hidden ones — used for URL resolution. */
 export const ALL_BRANDS: Brand[] = ROWS.map(
   ([name, group, decoderId, category, shelfLifeMonths, paoMonths, popular]) => {
@@ -659,6 +688,7 @@ export const ALL_BRANDS: Brand[] = ROWS.map(
       paoMonths,
       popular,
       hidden: HIDDEN_SLUGS.has(slug),
+      printsDate: PRINTS_DATE_SLUGS.has(slug),
       blurb: `Decode ${name} batch codes to find the manufacture date, age and expiration date of your ${categoryBlurb[category]} products. Free, instant and private.`,
     };
   },

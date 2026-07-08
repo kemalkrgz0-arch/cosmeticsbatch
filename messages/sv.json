@@ -66,7 +66,8 @@
     "aliasesPara": "Du kommer ibland att se det här verktyget som kallas en {name} batchkodavkodare,{name} batchkodkontroller eller {name} batchkodkalkylator — de gör alla samma sak: läs produktionskoden och berättar hur fräsch din {name} {category} är.",
     "months": "{n} månader",
     "faqTitle": "{name}— Vanliga frågor",
-    "by": "av {group}"
+    "by": "av {group}",
+    "printsDateNote": "{name} trycker tillverknings- eller utgångsdatumet direkt på förpackningen, så du behöver oftast ingen batchkod."
   },
   "faqUi": {
     "title": "Vanliga frågor",

@@ -66,7 +66,8 @@
     "freshnessPara": "Jakmile načteme datum výroby, odhadneme čerstvost pomocí {name}typické {shelf}měsíční trvanlivosti produktů {category}. Pamatujte, že doba po otevření (asi {pao} měsíců) se stává limitem, jakmile produkt začnete používat.",
     "aliasesPara": "Někdy uvidíte tento nástroj zvaný dekodér dávkového kódu {name}, kontrola dávkového kódu {name} nebo kalkulačka dávkového kódu {name}– všechny dělají totéž: přečtou produkční kód a sdělí vám, jak čerstvý je váš {name} {category}.",
     "months": "{n} měsíců",
-    "faqTitle": "{name}— Nejčastější dotazy"
+    "faqTitle": "{name}— Nejčastější dotazy",
+    "printsDateNote": "{name} tiskne datum výroby nebo spotřeby přímo na obal, takže obvykle nepotřebujete kód šarže."
   },
   "faqUi": {
     "title": "Často kladené otázky",

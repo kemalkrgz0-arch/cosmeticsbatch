@@ -66,7 +66,8 @@
     "months": "{n}개월",
     "relatedBrands": "관련 브랜드",
     "helpfulGuides": "유용한 가이드",
-    "faqTitle": "{name} — 자주 묻는 질문"
+    "faqTitle": "{name} — 자주 묻는 질문",
+    "printsDateNote": "{name}은(는) 제조일 또는 유통기한을 포장에 직접 인쇄하므로 보통 배치 코드가 필요하지 않습니다."
   },
   "faqUi": {
     "title": "자주 묻는 질문",

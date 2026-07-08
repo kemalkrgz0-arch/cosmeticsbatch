@@ -66,7 +66,8 @@
     "months": "{n} bulan",
     "relatedBrands": "Merek terkait",
     "helpfulGuides": "Panduan bermanfaat",
-    "faqTitle": "{name} — Tanya Jawab"
+    "faqTitle": "{name} — Tanya Jawab",
+    "printsDateNote": "{name} mencetak tanggal produksi atau kedaluwarsa langsung pada kemasan, jadi biasanya Anda tidak memerlukan kode batch."
   },
   "faqUi": {
     "title": "Pertanyaan yang Sering Diajukan",

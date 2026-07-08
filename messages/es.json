@@ -66,7 +66,8 @@
     "faqTitle": "{name} — Preguntas frecuentes",
     "blurb": "Decodifica los códigos de lote de {name} para encontrar la fecha de fabricación, antigüedad y fecha de vencimiento de tus productos {category}. Gratis, instantáneo y privado.",
     "metaTitle": "Comprobador y decodificador de códigos de lote {name}: fecha de fabricación y caducidad",
-    "metaDescription": "Decodificador de código por lotes {name} gratuito. Verifique la fecha de fabricación, la antigüedad del producto y la fecha de vencimiento de sus productos {name} en segundos, sin necesidad de registrarse."
+    "metaDescription": "Decodificador de código por lotes {name} gratuito. Verifique la fecha de fabricación, la antigüedad del producto y la fecha de vencimiento de sus productos {name} en segundos, sin necesidad de registrarse.",
+    "printsDateNote": "{name} imprime la fecha de fabricación o caducidad directamente en el envase, por lo que normalmente no necesitas un código de lote."
   },
   "faqUi": {
     "title": "Preguntas frecuentes",

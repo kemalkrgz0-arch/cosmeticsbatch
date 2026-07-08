@@ -66,7 +66,8 @@
     "months": "{n} mesos",
     "faqTitle": "{name}— Preguntes freqüents",
     "aliasesPara": "De vegades veureu aquesta eina anomenada descodificador de codi de lot {name}, verificador de codi de lot {name} o calculadora de codi de lot {name}; tots fan el mateix: llegiu el codi de producció i us diuen com de fresc és el vostre {name} {category}.",
-    "freshnessPara": "Un cop llegim la data de fabricació, estimem la frescor utilitzant la vida útil típica de {shelf}-mes de {name}per als productes {category}. Recordeu que el període després de l'obertura (uns {pao} mesos) es converteix en el límit un cop comenceu a utilitzar el producte."
+    "freshnessPara": "Un cop llegim la data de fabricació, estimem la frescor utilitzant la vida útil típica de {shelf}-mes de {name}per als productes {category}. Recordeu que el període després de l'obertura (uns {pao} mesos) es converteix en el límit un cop comenceu a utilitzar el producte.",
+    "printsDateNote": "{name} imprimeix la data de fabricació o caducitat directament a l'envàs, així que normalment no necessites un codi de lot."
   },
   "faqUi": {
     "title": "Preguntes freqüents",

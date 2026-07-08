@@ -66,7 +66,8 @@
     "months": "{n} bulan",
     "relatedBrands": "Jenama berkaitan",
     "helpfulGuides": "Panduan berguna",
-    "faqTitle": "{name} — Soalan Lazim"
+    "faqTitle": "{name} — Soalan Lazim",
+    "printsDateNote": "{name} mencetak tarikh pembuatan atau luput terus pada pembungkusan, jadi anda biasanya tidak memerlukan kod kelompok."
   },
   "faqUi": {
     "title": "Soalan Lazim",

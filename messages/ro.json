@@ -66,7 +66,8 @@
     "helpfulGuides": "Ghiduri utile",
     "aliasesPara": "Veți vedea uneori acest instrument numit decodor de cod de lot {name}, verificator de cod de lot {name} sau calculator de cod de lot {name}- toate fac același lucru: citiți codul de producție și vă spun cât de proaspăt este {name} {category}.",
     "months": "{n} luni",
-    "faqTitle": "{name}— Întrebări frecvente"
+    "faqTitle": "{name}— Întrebări frecvente",
+    "printsDateNote": "{name} imprimă data de fabricație sau de expirare direct pe ambalaj, așa că de obicei nu ai nevoie de un cod de lot."
   },
   "faqUi": {
     "title": "Întrebări frecvente",

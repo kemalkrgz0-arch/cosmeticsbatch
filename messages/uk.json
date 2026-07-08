@@ -66,7 +66,8 @@
     "months": "{n} місяців",
     "faqTitle": "{name}— FAQ",
     "aliasesPara": "Інколи ви побачите цей інструмент під назвою «декодер пакетного коду {name}», засіб перевірки пакетного коду {name} або калькулятор пакетного коду {name}— усі вони виконують однакову функцію: читають робочий код і повідомляють, наскільки свіжим є ваш {name} {category}.",
-    "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product."
+    "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
+    "printsDateNote": "{name} друкує дату виготовлення або придатності прямо на упаковці, тож зазвичай код партії не потрібен."
   },
   "faqUi": {
     "title": "Часті запитання",

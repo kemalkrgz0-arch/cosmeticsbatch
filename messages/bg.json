@@ -66,7 +66,8 @@
     "helpfulGuides": "Полезни ръководства",
     "aliasesPara": "Понякога ще видите този инструмент, наречен декодер на партиден код {name}, инструмент за проверка на партиден код {name} или калкулатор на партиден код {name}— всички те правят едно и също нещо: четат производствения код и ви казват колко свеж е вашият {name} {category}.",
     "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
-    "faqTitle": "{name}— ЧЗВ"
+    "faqTitle": "{name}— ЧЗВ",
+    "printsDateNote": "{name} отпечатва датата на производство или срок на годност директно върху опаковката, така че обикновено не ви трябва партиден код."
   },
   "faqUi": {
     "title": "Често задавани въпроси",

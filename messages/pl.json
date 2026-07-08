@@ -66,7 +66,8 @@
     "faqTitle": "{name}— często zadawane pytania",
     "months": "{n} miesięcy",
     "aliasesPara": "Czasami zobaczysz to narzędzie zwane dekoderem kodu wsadowego {name}, modułem sprawdzania kodu wsadowego {name} lub kalkulatorem kodu wsadowego {name}— wszystkie robią to samo: czytają kod produkcyjny i informują, jak świeży jest twój {name} {category}.",
-    "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product."
+    "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
+    "printsDateNote": "{name} drukuje datę produkcji lub ważności bezpośrednio na opakowaniu, więc zwykle nie potrzebujesz kodu partii."
   },
   "faqUi": {
     "title": "Często zadawane pytania",

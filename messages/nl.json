@@ -66,7 +66,8 @@
     "howHeading": "Hoe {name}-batchcodes werken",
     "faqTitle": "{name}— Veelgestelde vragen",
     "months": "{n} maanden",
-    "aliasesPara": "Je ziet deze tool soms een {name} batchcodedecoder,{name} batchcodecontrole of {name} batchcodecalculator genoemd. Ze doen allemaal hetzelfde: lees de productiecode en vertel je hoe nieuw je {name} {category} is."
+    "aliasesPara": "Je ziet deze tool soms een {name} batchcodedecoder,{name} batchcodecontrole of {name} batchcodecalculator genoemd. Ze doen allemaal hetzelfde: lees de productiecode en vertel je hoe nieuw je {name} {category} is.",
+    "printsDateNote": "{name} drukt de productie- of vervaldatum rechtstreeks op de verpakking, dus je hebt meestal geen batchcode nodig."
   },
   "faqUi": {
     "title": "Veelgestelde vragen",
