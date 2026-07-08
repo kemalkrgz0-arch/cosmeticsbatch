@@ -6,7 +6,7 @@ import { ArrowRight, CalendarClock, Info, MapPin, Timer } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { BRANDS, getBrand, POPULAR_BRANDS } from "@/lib/brands";
 import { InlineResult } from "@/components/inline-result";
-import { buildBrandFaqs } from "@/lib/brand-faq";
+import { buildBrandFaqs, brandIntroSections } from "@/lib/brand-faq";
 import { GUIDES } from "@/lib/guides";
 import {
   articleSchema,
@@ -80,6 +80,7 @@ export default async function BrandPage({
     .slice(0, 6);
 
   const brandFaq = buildBrandFaqs(brand, t);
+  const introSections = brandIntroSections(brand, t);
 
   const category = t(`categoryNoun.${brand.category}`);
   const months = (n: number) => tb("months", { n });
@@ -171,6 +172,15 @@ export default async function BrandPage({
           {tb("aliasesPara", { name: brand.name, category })}
         </p>
       </section>
+
+      {/* Where-to-find + storage — visible, category-specific body content
+          (promoted from the FAQ) that reveals nothing about the cipher. */}
+      {introSections.map((s) => (
+        <section key={s.heading} className="mt-10">
+          <h2 className="text-xl font-semibold">{s.heading}</h2>
+          <p className="mt-3 leading-relaxed text-fg-muted">{s.body}</p>
+        </section>
+      ))}
 
       <AdSlot placement="brand" className="my-12" height={250} />
 

@@ -31,17 +31,43 @@ export function buildBrandFaqs(
   const base = { name, group, noun, shelf, pao, decoder };
   const f = (k: string) => t(`brandFaq.${k}`, base);
 
+  // "Where to find" (q_where) and "How to store" (q_store) are promoted to
+  // visible body sections on the brand page (see brandIntroSections), so they
+  // are intentionally omitted here to avoid duplicating the same text in both
+  // the body and the FAQ accordion / FAQPage schema.
   return [
-    { q: f("q_where"), a: f("a_where") },
     { q: f("q_barcode"), a: f("a_barcode") },
     { q: f("q_expired"), a: f("a_expired") },
     { q: f("q_unopened"), a: f("a_unopened") },
     { q: f("q_pao"), a: f("a_pao") },
     { q: f("q_paoSymbol"), a: f("a_paoSymbol") },
     { q: f("q_afterExpiry"), a: f("a_afterExpiry") },
-    { q: f("q_store"), a: t(`storageTip.${category}`) },
     { q: f("q_fake"), a: f("a_fake") },
     { q: f("q_accuracy"), a: f("a_accuracy") },
     { q: f("q_free"), a: f("a_free") },
+  ];
+}
+
+/**
+ * The two topics we surface as visible body sections instead of burying in the
+ * FAQ: where the code is physically located, and how to store the product.
+ * Both reuse already-localised keys (so all languages are covered) and reveal
+ * nothing about how the code is decoded.
+ */
+export function brandIntroSections(
+  brand: Brand,
+  t: Translator,
+): { heading: string; body: string }[] {
+  const { name, category } = brand;
+  const noun = t(`categoryNoun.${category}`);
+  return [
+    {
+      heading: t("brandFaq.q_where", { name }),
+      body: t("brandFaq.a_where", { name, noun }),
+    },
+    {
+      heading: t("brandFaq.q_store", { name, noun }),
+      body: t(`storageTip.${category}`),
+    },
   ];
 }
