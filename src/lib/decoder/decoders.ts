@@ -607,6 +607,47 @@ const naos: Decoder = {
   },
 };
 
+/* -------------------------------------------------------------------------- */
+/*  Deciem / The Ordinary                                                      */
+/*  Newer codes are [year digit][month letter A–L][trailing digits], e.g.      */
+/*  4A01 = January 2024. The month-letter scheme (A=Jan … L=Dec) is confirmed  */
+/*  against real ground-truth codes (…F… = June, …D… = April). The trailing    */
+/*  digits are ambiguous between day-of-month and a line/batch number across   */
+/*  sources, so we decode to month precision (1st of the month) rather than    */
+/*  guess a day. Older 4-character regional codes (TGD1, 1dg1 …) use an         */
+/*  internal system and are not decodable — those return null.                 */
+/* -------------------------------------------------------------------------- */
+
+const deciem: Decoder = {
+  id: "deciem",
+  label: "The Ordinary year + month letter",
+  explanation:
+    "The Ordinary / Deciem's newer batch codes start with a year digit, then a month letter (A = January … L = December), then a line number — for example 4A01 is January 2024. We read the year and month (accurate to the month); the day isn't reliably encoded. Older 4-character codes (like TGD1) use an internal system and don't decode — check the printed best-before date on those.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    // New format only: digit, month letter A–L, then a digit (line/day).
+    const m = c.match(/^(\d)([A-L])\d/);
+    if (!m) return null;
+    const year = resolveYearDigit(Number(m[1]), ctx.now);
+    const month = m[2].charCodeAt(0) - 64; // A=1 … L=12
+    let date = new Date(Date.UTC(year, month - 1, 1));
+    if (inFuture(date, ctx.now)) {
+      date = new Date(Date.UTC(year - 10, month - 1, 1));
+    }
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "The Ordinary codes encode the year and month; we read it to the month (the day isn't reliably encoded).",
+        `The year is a single digit, so it's read as the most recent match (${date.getUTCFullYear()}).`,
+        "Older 4-character regional codes (e.g. TGD1) don't decode — use the best-before date printed on the pack. Unopened shelf life is about 3 years.",
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
   [loreal.id]: loreal,
@@ -617,6 +658,7 @@ export const DECODERS: Record<string, Decoder> = {
   [interparfums.id]: interparfums,
   [beiersdorf.id]: beiersdorf,
   [naos.id]: naos,
+  [deciem.id]: deciem,
   [embedded.id]: embedded,
   [julian.id]: julian,
 };
