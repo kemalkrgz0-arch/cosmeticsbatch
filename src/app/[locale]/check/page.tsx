@@ -10,6 +10,7 @@ import { CheckForm } from "@/components/check-form";
 import { EanVsBatch } from "@/components/ean-vs-batch";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { logCheck, toCheckLog } from "@/lib/dataset";
+import { isHumanUA } from "@/lib/bot-filter";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { AdSlot } from "@/components/ui/ad-slot";
 
@@ -53,18 +54,22 @@ export default async function CheckPage({
     category: brand.category,
   });
 
-  // Record the check in our own dataset (no IP; country is coarse edge data).
-  await logCheck(
-    toCheckLog({
-      source: "check",
-      brandSlug: brand.slug,
-      code,
-      decoderId: brand.decoderId,
-      locale,
-      country: (await headers()).get("cf-ipcountry") ?? undefined,
-      result,
-    }),
-  );
+  // Record the check in our own dataset — real users only (skip crawlers by
+  // User-Agent). No IP stored; country is coarse edge data.
+  const hdrs = await headers();
+  if (isHumanUA(hdrs.get("user-agent"))) {
+    await logCheck(
+      toCheckLog({
+        source: "check",
+        brandSlug: brand.slug,
+        code,
+        decoderId: brand.decoderId,
+        locale,
+        country: hdrs.get("cf-ipcountry") ?? undefined,
+        result,
+      }),
+    );
+  }
 
   const related = POPULAR_BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 4);
 

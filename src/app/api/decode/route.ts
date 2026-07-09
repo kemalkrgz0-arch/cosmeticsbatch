@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
 import { checkBatchCode } from "@/lib/decoder";
 import { logCheck, toCheckLog } from "@/lib/dataset";
+import { isRealApiUser } from "@/lib/bot-filter";
 
 /** Best-effort locale from the referring page path (e.g. /de/brands/... → de). */
 function localeFromReferer(referer: string | null): string | undefined {
@@ -39,18 +40,30 @@ export async function GET(req: NextRequest) {
     category: brand.category,
   });
 
-  // Record the check in our own dataset (no IP; country is coarse edge data).
-  await logCheck(
-    toCheckLog({
-      source: "api",
-      brandSlug: brand.slug,
-      code,
-      decoderId: brand.decoderId,
-      locale: localeFromReferer(req.headers.get("referer")),
-      country: req.headers.get("cf-ipcountry") ?? undefined,
-      result,
-    }),
-  );
+  // Record the check in our own dataset — but only for real users (human UA +
+  // same-origin browser request). Bots/scrapers still get a decode; they just
+  // don't pollute the dataset. No IP stored; country is coarse edge data.
+  const referer = req.headers.get("referer");
+  if (
+    isRealApiUser({
+      ua: req.headers.get("user-agent"),
+      secFetchSite: req.headers.get("sec-fetch-site"),
+      referer,
+      host: req.headers.get("host"),
+    })
+  ) {
+    await logCheck(
+      toCheckLog({
+        source: "api",
+        brandSlug: brand.slug,
+        code,
+        decoderId: brand.decoderId,
+        locale: localeFromReferer(referer),
+        country: req.headers.get("cf-ipcountry") ?? undefined,
+        result,
+      }),
+    );
+  }
 
   // Never expose how the code was read.
   const { method: _method, notes: _notes, ...safe } = result;
