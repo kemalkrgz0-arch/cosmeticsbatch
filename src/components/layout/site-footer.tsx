@@ -2,6 +2,7 @@ import { Flower2, ShieldCheck, Sparkles, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
@@ -80,11 +81,16 @@ export function SiteFooter() {
         ))}
       </div>
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-fg-muted sm:flex-row sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-fg-muted sm:flex-row sm:px-6">
           <p>{t("rights", { year: new Date().getFullYear(), name: site.name })}</p>
-          <span className="font-medium tracking-tight">
-            {site.url.replace(/^https?:\/\//, "")}
-          </span>
+          <div className="flex items-center gap-4">
+            <span className="font-medium tracking-tight">
+              {site.url.replace(/^https?:\/\//, "")}
+            </span>
+            {/* Theme toggle moved here so it stays reachable on mobile, where
+                the header hides it to keep the brand name fully visible. */}
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </footer>

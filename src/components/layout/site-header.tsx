@@ -21,7 +21,7 @@ export function SiteHeader() {
           <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cta text-cta-fg">
             <Flower2 className="h-[18px] w-[18px]" />
           </span>
-          <span className="truncate text-[17px] tracking-tight">{site.name}</span>
+          <span className="whitespace-nowrap text-[17px] tracking-tight">{site.name}</span>
         </Link>
 
         <nav className="ml-4 hidden items-center gap-1 md:flex">
@@ -38,7 +38,11 @@ export function SiteHeader() {
 
         <div className="ml-auto flex items-center gap-1.5">
           <LanguageSwitcher />
-          <ThemeToggle />
+          {/* Theme toggle lives in the footer on mobile so the brand name
+              always fits in the header; keep it here on larger screens. */}
+          <span className="hidden sm:inline-flex">
+            <ThemeToggle />
+          </span>
           <Link
             href="/#check"
             className="inline-flex h-10 shrink-0 items-center whitespace-nowrap rounded-full bg-cta px-4 text-sm font-semibold text-cta-fg transition-colors duration-200 hover:bg-cta-hover"
