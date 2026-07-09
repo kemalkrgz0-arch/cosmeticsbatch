@@ -795,10 +795,50 @@ const kbeauty: Decoder = {
   },
 };
 
+/* -------------------------------------------------------------------------- */
+/*  Rohto (year digit + month letter)                                         */
+/*  Community-documented pattern (unconfirmed by Rohto): <year digit><month    */
+/*  letter A=Jan..L=Dec><production line>. e.g. 6C2 = March 2026, 5H1 = Aug     */
+/*  2025. Month precision only; shipped at low confidence with a caveat.        */
+/*  (Hada Labo, Melano CC, OXY, Sunplay)                                        */
+/* -------------------------------------------------------------------------- */
+const ROHTO_MONTHS = "ABCDEFGHIJKL"; // A=Jan … L=Dec (all 12, no skips)
+const rohto: Decoder = {
+  id: "rohto",
+  label: "Rohto year digit + month letter",
+  explanation:
+    "Rohto codes are read as a year digit, a month letter (A = January … L = December), then a production-line digit — so 6C2 is March 2026 and 5H1 is August 2025. This gives the month of manufacture, not the exact day, and is a community-observed pattern rather than an official Rohto scheme.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/^(\d)([A-L])/);
+    if (!m) return null;
+    const month = ROHTO_MONTHS.indexOf(m[2]) + 1; // 1-12
+    if (month < 1 || month > 12) return null;
+    let year = resolveYearDigit(Number(m[1]), ctx.now);
+    let date = new Date(Date.UTC(year, month - 1, 1));
+    if (inFuture(date, ctx.now)) {
+      year -= 10;
+      date = new Date(Date.UTC(year, month - 1, 1));
+    }
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "low",
+      method: this.label,
+      notes: [
+        "This is a community-observed format, not confirmed by Rohto — treat the date as approximate.",
+        "It gives the month of manufacture; the exact day is not encoded.",
+        `The year is a single digit, read as the most recent match (${year}); an older product could be from ${year - 10}.`,
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
   [pg.id]: pg,
   [kbeauty.id]: kbeauty,
+  [rohto.id]: rohto,
   [loreal.id]: loreal,
   [coty.id]: coty,
   [chanel.id]: chanel,
