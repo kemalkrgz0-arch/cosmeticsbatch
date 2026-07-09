@@ -172,7 +172,13 @@
     "shareMade": "made {date}",
     "shareLifeLeft": "{n}% life left",
     "addToCalendar": "Add expiry to calendar",
-    "calendarTitle": "{name} — replace by this date"
+    "calendarTitle": "{name} — replace by this date",
+    "meaningTitle": "What does this mean?",
+    "meaningFresh": "This product is fresh and well within its shelf life.",
+    "meaningGood": "This product is still good, with plenty of shelf life remaining.",
+    "meaningUseSoon": "This product is nearing the end of its shelf life — use it up soon.",
+    "meaningExpired": "This product has passed its shelf life and may no longer be at its best quality.",
+    "meaningUnknown": "We could not estimate the freshness for this code."
   },
   "howItWorks": {
     "eyebrow": "Three simple steps",
