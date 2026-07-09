@@ -1,0 +1,39 @@
+name: Deploy to VPS
+
+# Auto-deploy on every push to main; also runnable by hand from the Actions tab.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Never let two deploys run at once; a newer push supersedes an in-flight one.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH build & restart on the VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          command_timeout: 30m
+          script: |
+            set -e
+            cd /opt/cosmeticsbatch
+            git pull --ff-only
+            docker build -t cosmeticsbatch:latest \
+              --build-arg NEXT_PUBLIC_SITE_URL=https://cosmeticsbatch.com .
+            docker rm -f cosmeticsbatch || true
+            docker run -d --name cosmeticsbatch \
+              --network yerelatlas_default --restart unless-stopped \
+              -e DATASET_DIR=/data \
+              -v /opt/cosmeticsbatch-data:/data \
+              cosmeticsbatch:latest
+            # Reclaim space from the previous build (safe: only dangling images).
+            docker image prune -f
