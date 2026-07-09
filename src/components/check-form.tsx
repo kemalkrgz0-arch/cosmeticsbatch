@@ -63,6 +63,17 @@ export function CheckForm({
   // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate recents on mount
   useEffect(() => setRecent(loadRecent()), []);
 
+  // Tell the mobile bottom nav to slide away while the dropdown is open, so it
+  // doesn't cover the lower brand results.
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("combobox-open", { detail: open }));
+    return () => {
+      if (open) {
+        window.dispatchEvent(new CustomEvent("combobox-open", { detail: false }));
+      }
+    };
+  }, [open]);
+
   // Sections rendered in the dropdown: an optional "Recent" section, then a
   // single flat, alphabetically-sorted list of every brand (no parent-company
   // grouping). While searching, results are shown flat with no header.

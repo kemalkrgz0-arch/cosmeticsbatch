@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { BookOpen, Home, Info, Search, Sparkles } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -15,10 +16,24 @@ export function BottomNav() {
     { label: t("about"), href: "/about", icon: Info },
   ];
   const pathname = usePathname();
+
+  // Slide out of the way while a brand-search dropdown is open — otherwise the
+  // translucent fixed nav covers the lower list items (it can't be beaten by
+  // z-index since it lives at the page root, above the hero's stacking context).
+  const [comboOpen, setComboOpen] = useState(false);
+  useEffect(() => {
+    const on = (e: Event) => setComboOpen((e as CustomEvent<boolean>).detail);
+    window.addEventListener("combobox-open", on);
+    return () => window.removeEventListener("combobox-open", on);
+  }, []);
+
   return (
     <nav
       aria-label="Primary"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-bg/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden"
+      className={cn(
+        "fixed inset-x-0 bottom-0 z-40 border-t border-border bg-bg/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl transition-transform duration-200 md:hidden",
+        comboOpen && "translate-y-full",
+      )}
     >
       <ul className="mx-auto flex max-w-md items-stretch justify-between px-2">
         {items.map(({ label, href, icon: Icon }) => {
