@@ -1,10 +1,11 @@
-import { Flower2 } from "lucide-react";
+import { Flower2, ShieldCheck, Sparkles, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 
 export function SiteFooter() {
   const t = useTranslations("footer");
+  const th = useTranslations("hero");
   const columns = [
     {
       title: t("company"),
@@ -26,11 +27,17 @@ export function SiteFooter() {
       ],
     },
   ];
+  const trust = [
+    { icon: Sparkles, label: th("trustFree") },
+    { icon: ShieldCheck, label: th("trustNoSignup") },
+    { icon: Lock, label: th("trustPrivate") },
+  ];
   return (
-    <footer className="mt-24 border-t border-border">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
-          <Link href="/" className="flex items-center gap-2 font-semibold">
+    <footer className="mt-24 border-t border-border bg-bg-subtle/40">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr] md:gap-x-10">
+        {/* Brand block — full width on mobile, first column on desktop */}
+        <div className="col-span-2 md:col-span-1">
+          <Link href="/" className="inline-flex items-center gap-2 font-semibold">
             <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-cta text-cta-fg">
               <Flower2 className="h-[18px] w-[18px]" />
             </span>
@@ -39,6 +46,17 @@ export function SiteFooter() {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-muted">
             {t("tagline")}
           </p>
+          <ul className="mt-5 flex flex-wrap gap-2">
+            {trust.map(({ icon: Icon, label }) => (
+              <li
+                key={label}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-xs font-medium text-fg-muted"
+              >
+                <Icon className="h-3.5 w-3.5 text-success" />
+                {label}
+              </li>
+            ))}
+          </ul>
         </div>
 
         {columns.map((col) => (
@@ -62,9 +80,12 @@ export function SiteFooter() {
         ))}
       </div>
       <div className="border-t border-border">
-        <p className="mx-auto max-w-6xl px-4 py-6 text-center text-xs text-fg-muted sm:px-6">
-          {t("rights", { year: new Date().getFullYear(), name: site.name })}
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-fg-muted sm:flex-row sm:px-6">
+          <p>{t("rights", { year: new Date().getFullYear(), name: site.name })}</p>
+          <span className="font-medium tracking-tight">
+            {site.url.replace(/^https?:\/\//, "")}
+          </span>
+        </div>
       </div>
     </footer>
   );
