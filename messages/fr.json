@@ -71,9 +71,9 @@
     "relatedBrands": "Marques associées",
     "helpfulGuides": "Guides utiles",
     "faqTitle": "{name}— FAQ",
-    "metaTitle": "Décodeur et vérificateur de codes de lots {name}— Date de fabrication et d'expiration",
+    "metaTitle": "Décodeur et vérificateur de codes de lot {name} — Date de fabrication et d'expiration",
     "blurb": "Décodez les codes de lot {name} pour connaître la date de fabrication, l'âge et la date de péremption de vos produits {category}. Gratuit, instantané et privé.",
-    "metaDescription": "Décodeur de code par lots {name} gratuit. Vérifiez la date de fabrication, l'âge du produit et la date d'expiration de vos produits {name} en quelques secondes, sans inscription.",
+    "metaDescription": "Décodeur de code de lot {name} gratuit. Vérifiez la date de fabrication, l'âge du produit et la date d'expiration de vos produits {name} en quelques secondes, sans inscription.",
     "printsDateNote": "{name} imprime la date de fabrication ou de péremption directement sur l'emballage, vous n'avez donc généralement pas besoin d'un code de lot."
   },
   "faqUi": {
@@ -115,9 +115,9 @@
     "q_store": "Comment dois-je conserver {name} {noun} pour le conserver au frais ?",
     "q_fake": "Un code batch peut-il me dire si mon {name} est faux ?",
     "a_fake": "Un décodeur de code de lot lit la date de production ; à lui seul, il ne peut pas prouver qu'un produit est authentique. Mais un code {name} qui ne décode pas, ou une date qui ne correspond pas au moment ou au lieu où vous l'avez acheté, peut être un signal d'alarme. Pour l'authenticité, vérifiez également l'emballage, les sceaux et la police, et achetez auprès de détaillants {group} agréés.",
-    "q_accuracy": "Quelle est la précision de ce décodeur de code par lots {name}?",
+    "q_accuracy": "Quelle est la précision de ce décodeur de code de lot {name}?",
     "a_accuracy": "Nous lisons la date de fabrication en utilisant {decoder}. Lorsque {group} publie un schéma de code connu, le résultat est précis au mois ou au jour près ; lorsque la marque ne confirme pas un projet public, il s'agit d'une lecture basée sur la meilleure estimation. La date est la date de fabrication, et non une date d'expiration garantie – les chiffres de durée de conservation sont des moyennes typiques de l'industrie.",
-    "q_free": "Le vérificateur de code par lots {name} est-il gratuit ?",
+    "q_free": "Le vérificateur de code de lot {name} est-il gratuit ?",
     "a_free": "Oui, le décodage des codes de lot {name} sur Cosmetics Batch est entièrement gratuit, fonctionne instantanément dans votre navigateur sans inscription et vos codes ne sont jamais stockés ni envoyés à un serveur.",
     "decoderAuto": "détection automatique des dates",
     "decoderKnown": "un schéma de code spécifique au fabricant"
@@ -125,7 +125,7 @@
   "homeFaq": {
     "q1": "Qu'est-ce qu'un code de lot ?",
     "a1": "Un code de lot est un code court imprimé sur les emballages de cosmétiques et de parfums qui identifie le cycle de production. Son décodage révèle la date de fabrication du produit.",
-    "q2": "Ce vérificateur de code par lots est-il gratuit ?",
+    "q2": "Ce vérificateur de code de lot est-il gratuit ?",
     "a2": "Oui. Cosmetics Batch est entièrement gratuit, ne nécessite aucun compte et décode les codes directement dans votre navigateur.",
     "q3": "Quelle est la précision des résultats ?",
     "a3": "Nous utilisons des algorithmes spécifiques au fabricant lorsqu'ils sont disponibles et des niveaux de confiance honnêtes ailleurs. Les estimations de durée de conservation sont des valeurs typiques et non des garanties de sécurité.",

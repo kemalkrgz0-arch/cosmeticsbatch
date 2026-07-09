@@ -61,7 +61,7 @@
     "intro": "Introduza o código de lote {name} abaixo para descodificar instantaneamente a data de fabrico, a idade e a validade estimada — grátis e privado.",
     "howHeading": "Como funcionam os códigos de lote {name}",
     "freshnessPara": "Depois de ler a data de fabricação, estimamos o frescor usando o prazo de validade típico de {name}{shelf}-mês para produtos {category}. Lembre-se de que o período após a abertura (cerca de {pao} meses) passa a ser o limite assim que você começar a usar o produto.",
-    "aliasesPara": "Às vezes, você verá essa ferramenta chamada decodificador de código em lote {name}, verificador de código em lote {name} ou calculadora de código em lote {name}- todos fazem a mesma coisa: ler o código de produção e informar o quão atualizado é seu {name} {category}.",
+    "aliasesPara": "Às vezes, você verá essa ferramenta chamada decodificador de código de lote {name}, verificador de código de lote {name} ou calculadora de código de lote {name}- todos fazem a mesma coisa: ler o código de produção e informar o quão atualizado é seu {name} {category}.",
     "factManufacturer": "Fabricante",
     "factShelfLife": "Validade típica",
     "factPao": "Após abertura (PAO)",
@@ -71,8 +71,8 @@
     "relatedBrands": "Marcas relacionadas",
     "helpfulGuides": "Guias úteis",
     "faqTitle": "{name}— Perguntas frequentes",
-    "metaTitle": "Decodificador e verificador de código em lote {name}- Data de fabricação e validade",
-    "metaDescription": "Decodificador de código em lote {name} gratuito. Verifique a data de fabricação, a idade do produto e a data de validade de seus produtos {name} em segundos - sem inscrição.",
+    "metaTitle": "Decodificador e verificador de código de lote {name} — Data de fabricação e validade",
+    "metaDescription": "Decodificador de código de lote {name} gratuito. Verifique a data de fabricação, a idade do produto e a data de validade de seus produtos {name} em segundos - sem inscrição.",
     "blurb": "Decodifique os códigos de lote {name} para encontrar a data de fabricação, idade e data de validade de seus produtos {category}. Gratuito, instantâneo e privado.",
     "printsDateNote": "{name} imprime a data de fabricação ou validade diretamente na embalagem, então geralmente você não precisa de um código de lote."
   },
@@ -115,9 +115,9 @@
     "q_store": "Como devo armazenar {name} {noun} para mantê-lo atualizado?",
     "q_fake": "Um código de lote pode me dizer se meu {name} é falso?",
     "a_fake": "Um decodificador de código de lote lê a data de produção – por si só, não pode provar que um produto é genuíno. Mas um código {name} que não é decodificado ou uma data que não corresponde a quando ou onde você o comprou pode ser um sinal de alerta. Para verificar a autenticidade, verifique também a embalagem, os selos e a fonte e compre em revendedores autorizados {group}.",
-    "q_accuracy": "Quão preciso é este decodificador de código em lote {name}?",
+    "q_accuracy": "Quão preciso é este decodificador de código de lote {name}?",
     "a_accuracy": "Lemos a data de fabricação usando {decoder}. Onde {group} publica um esquema de código conhecido, o resultado é preciso para o mês ou dia; onde a marca não confirma um esquema público, é uma leitura de melhor estimativa. A data é a data de fabricação, não um prazo de validade garantido – os valores de prazo de validade são médias típicas da indústria.",
-    "q_free": "O verificador de código em lote {name} é gratuito?",
+    "q_free": "O verificador de código de lote {name} é gratuito?",
     "a_free": "Sim – a decodificação de códigos de lote {name} no Cosmetics Batch é totalmente gratuita, funciona instantaneamente em seu navegador sem inscrição e seus códigos nunca são armazenados ou enviados para um servidor.",
     "decoderKnown": "um esquema de código específico do fabricante",
     "decoderAuto": "detecção automática de data"
@@ -125,7 +125,7 @@
   "homeFaq": {
     "q1": "O que é um código de lote?",
     "a1": "Um código de lote é um código curto impresso em embalagens de cosméticos e perfumes que identifica a produção. A decodificação revela quando o produto foi fabricado.",
-    "q2": "Este verificador de código em lote é gratuito?",
+    "q2": "Este verificador de código de lote é gratuito?",
     "a2": "Sim. Cosmetics Batch é totalmente gratuito, não requer conta e decodifica códigos diretamente no seu navegador.",
     "q3": "Quão precisos são os resultados?",
     "a3": "Usamos algoritmos específicos do fabricante quando disponíveis e níveis de confiança honestos em outros lugares. As estimativas de prazo de validade são valores típicos, não garantias de segurança.",
@@ -165,7 +165,7 @@
     "confMedium": "Confiança média",
     "months": "{n} meses",
     "invalidTitle": "Não foi possível ler este código",
-    "invalidBody": "“{code}” não corresponde ao formato de código em lote de {brand}. Verifique se você digitou exatamente como está impresso na embalagem – apenas letras e números, sem espaços – e se é o código do lote, não o código de barras ou uma referência de preço/comercialização."
+    "invalidBody": "“{code}” não corresponde ao formato de código de lote de {brand}. Verifique se você digitou exatamente como está impresso na embalagem – apenas letras e números, sem espaços – e se é o código do lote, não o código de barras ou uma referência de preço/comercialização."
   },
   "howItWorks": {
     "title": "Como funciona",

@@ -61,7 +61,7 @@
     "intro": "Introduce el código de lote de {name} abajo para descifrar al instante la fecha de fabricación, la antigüedad y la caducidad estimada: gratis y privado.",
     "howHeading": "Cómo funcionan los códigos de lote de {name}",
     "freshnessPara": "Una vez que leemos la fecha de fabricación, estimamos la frescura utilizando la vida útil típica de {shelf}de un mes de {name}para los productos {category}. Recuerde que el período posterior a la apertura (aproximadamente {pao} meses) se convierte en el límite una vez que comienza a usar el producto.",
-    "aliasesPara": "A veces verá esta herramienta llamada decodificador de código por lotes {name}, verificador de código por lotes {name} o calculadora de código por lotes {name}; todos hacen lo mismo: leer el código de producción y decirle qué tan actualizado está su {name} {category}.",
+    "aliasesPara": "A veces verá esta herramienta llamada decodificador de código de lote {name}, verificador de código de lote {name} o calculadora de código de lote {name}; todos hacen lo mismo: leer el código de producción y decirle qué tan actualizado está su {name} {category}.",
     "factManufacturer": "Fabricante",
     "factShelfLife": "Vida útil típica",
     "factPao": "Tras abrir (PAO)",
@@ -73,7 +73,7 @@
     "faqTitle": "{name} — Preguntas frecuentes",
     "blurb": "Decodifica los códigos de lote de {name} para encontrar la fecha de fabricación, antigüedad y fecha de vencimiento de tus productos {category}. Gratis, instantáneo y privado.",
     "metaTitle": "Comprobador y decodificador de códigos de lote {name}: fecha de fabricación y caducidad",
-    "metaDescription": "Decodificador de código por lotes {name} gratuito. Verifique la fecha de fabricación, la antigüedad del producto y la fecha de vencimiento de sus productos {name} en segundos, sin necesidad de registrarse.",
+    "metaDescription": "Decodificador de código de lote {name} gratuito. Verifique la fecha de fabricación, la antigüedad del producto y la fecha de vencimiento de sus productos {name} en segundos, sin necesidad de registrarse.",
     "printsDateNote": "{name} imprime la fecha de fabricación o caducidad directamente en el envase, por lo que normalmente no necesitas un código de lote."
   },
   "faqUi": {
@@ -115,9 +115,9 @@
     "q_store": "¿Cómo debo almacenar {name} {noun} para mantenerlo fresco?",
     "q_fake": "¿Puede un código de lote decirme si mi {name} es falso?",
     "a_fake": "Un decodificador de código de lote lee la fecha de producción; por sí solo no puede probar que un producto sea genuino. Pero un código {name} que no se decodifica, o una fecha que no coincide con cuándo o dónde lo compró, pueden ser una señal de alerta. Para verificar la autenticidad, verifique también el empaque, los sellos y la fuente, y compre en minoristas autorizados de {group}.",
-    "q_accuracy": "¿Qué precisión tiene este decodificador de código por lotes {name}?",
+    "q_accuracy": "¿Qué precisión tiene este decodificador de código de lote {name}?",
     "a_accuracy": "Leemos la fecha de fabricación usando {decoder}. Cuando {group} publica un esquema de código conocido, el resultado es preciso para el mes o el día; cuando la marca no confirma un plan público, es una lectura de mejor estimación. La fecha es la fecha de fabricación, no una caducidad garantizada; las cifras de vida útil son promedios típicos de la industria.",
-    "q_free": "¿El verificador de códigos por lotes {name} es gratuito?",
+    "q_free": "¿El verificador de códigos de lote {name} es gratuito?",
     "a_free": "Sí, decodificar códigos de lote {name} en Cosmetics Batch es completamente gratuito, funciona instantáneamente en su navegador sin necesidad de registrarse y sus códigos nunca se almacenan ni envían a un servidor.",
     "decoderKnown": "un esquema de código específico del fabricante",
     "decoderAuto": "detección automática de fecha"
@@ -125,7 +125,7 @@
   "homeFaq": {
     "q1": "¿Qué es un código de lote?",
     "a1": "Un código de lote es un código corto impreso en los envases de cosméticos y perfumes que identifica el ciclo de producción. Decodificarlo revela cuándo se fabricó el producto.",
-    "q2": "¿Este verificador de códigos por lotes es gratuito?",
+    "q2": "¿Este verificador de códigos de lote es gratuito?",
     "a2": "Sí. Cosmetics Batch es completamente gratuito, no requiere cuenta y decodifica códigos directamente en su navegador.",
     "q3": "¿Qué tan precisos son los resultados?",
     "a3": "Utilizamos algoritmos específicos del fabricante cuando están disponibles y niveles de confianza honestos en otros lugares. Las estimaciones de vida útil son valores típicos, no garantías de seguridad.",
@@ -163,7 +163,7 @@
     "confLow": "Baja confianza",
     "pao": "Después de la apertura (PAO)",
     "confHigh": "Alta confianza",
-    "invalidBody": "\"{code}\" no coincide con el formato de código por lotes de {brand}. Verifique que lo haya escrito exactamente como está impreso en el paquete (solo letras y números, sin espacios) y que sea el código de lote, no el código de barras ni una referencia de precio o marketing.",
+    "invalidBody": "\"{code}\" no coincide con el formato de código de lote de {brand}. Verifique que lo haya escrito exactamente como está impreso en el paquete (solo letras y números, sin espacios) y que sea el código de lote, no el código de barras ni una referencia de precio o marketing.",
     "confNone": "No se pudo decodificar",
     "invalidTitle": "No pudimos leer este código."
   },
@@ -171,7 +171,7 @@
     "title": "como funciona",
     "step1Title": "Seleccionar marca",
     "step1Body": "Elija su marca entre más de 120 fabricantes de cosméticos y perfumes compatibles.",
-    "subtitle": "Sin cuenta, sin esperas. Decodifica cualquier código por lotes compatible en menos de diez segundos.",
+    "subtitle": "Sin cuenta, sin esperas. Decodifica cualquier código de lote compatible en menos de diez segundos.",
     "eyebrow": "Tres sencillos pasos",
     "step3Title": "Obtener resultados",
     "step2Title": "Ingrese el código de lote",
@@ -180,7 +180,7 @@
   },
   "popularBrands": {
     "title": "Marcas populares",
-    "subtitle": "Vaya directamente al descodificador de códigos por lotes de una marca.",
+    "subtitle": "Vaya directamente al descodificador de códigos de lote de una marca.",
     "viewAll": "Ver todas las marcas"
   },
   "features": {
