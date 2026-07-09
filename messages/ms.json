@@ -46,7 +46,14 @@
     "lastUsed": "terakhir digunakan",
     "noMatch": "Tiada jenama sepadan dengan “{query}”.",
     "errorNoBrand": "Sila pilih jenama terlebih dahulu.",
-    "errorNoCode": "Masukkan kod kelompok dari produk anda."
+    "errorNoCode": "Masukkan kod kelompok dari produk anda.",
+    "eanTitle": "Kod bar bukan kod kelompok",
+    "eanBody": "Nombor panjang di bawah garis hitam ialah kod bar (EAN). Ia hanya mengenal pasti produk — setiap unit produk yang sama memilikinya, jadi ia tidak menunjukkan sebarang tarikh. Kod kelompok ialah tanda berasingan yang pendek (huruf dan nombor) yang dicetak atau diukir pada bahagian dasar, gelang atau label. Itulah yang perlu dimasukkan.",
+    "batchCodeHint": "Bukan kod bar panjang (EAN) di bawah garis hitam. Kod kelompok ialah tanda pendek berasingan daripada huruf dan nombor pada bahagian dasar, gelang atau label.",
+    "eanWrongLabel": "Kod bar / EAN",
+    "eanWrongSub": "Bukan ini — sama pada setiap unit",
+    "eanRightLabel": "Kod kelompok",
+    "eanRightSub": "Masukkan ini — cap tarikh pendek"
   },
   "brandPage": {
     "metaTitle": "Penyahkod & Penyemak Kod Kelompok {name} — Tarikh Pembuatan & Luput",

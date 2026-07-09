@@ -314,6 +314,10 @@ export function CheckForm({
             />
             <ScanLine className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-muted" />
           </div>
+          {/* Steer users away from typing the product barcode (EAN). */}
+          <p className="mt-1.5 px-1 text-xs leading-relaxed text-fg-muted">
+            {t("form.batchCodeHint")}
+          </p>
         </div>
         )}
 

@@ -46,7 +46,14 @@
     "errorNoBrand": "Kérjük, először válasszon márkát.",
     "errorNoCode": "Adja meg a termék kötegkódját.",
     "recent": "Legutóbbi",
-    "noMatch": "Egyetlen márka sem felel meg az „{query}”-nak."
+    "noMatch": "Egyetlen márka sem felel meg az „{query}”-nak.",
+    "eanTitle": "A vonalkód nem a gyártási szám",
+    "eanBody": "A fekete vonalak alatti hosszú szám a vonalkód (EAN). Ez csak a terméket azonosítja — ugyanannak a terméknek minden darabján azonos, ezért nem árul el dátumot. A gyártási szám egy külön, rövid jelölés (betűk és számok), amely az aljra, a peremre vagy a címkére van nyomtatva vagy gravírozva. Ezt kell megadni.",
+    "batchCodeHint": "Nem a fekete vonalak alatti hosszú vonalkód (EAN). A gyártási szám egy rövid, különálló, betűkből és számokból álló jelölés az aljon, a peremen vagy a címkén.",
+    "eanWrongLabel": "Vonalkód / EAN",
+    "eanWrongSub": "Nem ez — minden darabon azonos",
+    "eanRightLabel": "Gyártási szám",
+    "eanRightSub": "Ezt add meg — rövid dátumjelölés"
   },
   "brandPage": {
     "checkerTitle": "{name} Batch Code Checker",

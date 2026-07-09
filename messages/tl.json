@@ -46,7 +46,14 @@
     "lastUsed": "huling ginamit",
     "noMatch": "Walang brand na tumutugma sa “{query}”.",
     "errorNoBrand": "Mangyaring pumili muna ng brand.",
-    "errorNoCode": "Ilagay ang batch code mula sa iyong produkto."
+    "errorNoCode": "Ilagay ang batch code mula sa iyong produkto.",
+    "eanTitle": "Ang barcode ay hindi ang batch code",
+    "eanBody": "Ang mahabang numero sa ilalim ng mga itim na guhit ay ang barcode (EAN). Tinutukoy lang nito ang produkto — pareho ito sa bawat yunit ng parehong produkto, kaya hindi ito nagsasabi ng petsa. Ang batch code ay isang hiwalay at maikling tatak (mga letra at numero) na nakalimbag o nakaukit sa ilalim, sa singsing, o sa label. Ito ang dapat ilagay.",
+    "batchCodeHint": "Hindi ang mahabang barcode (EAN) sa ilalim ng mga itim na guhit. Ang batch code ay isang maikli at hiwalay na tatak ng mga letra at numero sa ilalim, sa singsing, o sa label.",
+    "eanWrongLabel": "Barcode / EAN",
+    "eanWrongSub": "Hindi ito — pareho sa bawat yunit",
+    "eanRightLabel": "Batch code",
+    "eanRightSub": "Ilagay ito — maikling tatak ng petsa"
   },
   "brandPage": {
     "metaTitle": "Decoder at Checker ng Batch Code ng {name} — Petsa ng Paggawa at Pag-expire",

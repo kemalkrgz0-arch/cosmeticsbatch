@@ -46,7 +46,14 @@
     "lastUsed": "最后使用的",
     "noMatch": "没有品牌匹配“{query}”。",
     "errorNoBrand": "请先选择品牌。",
-    "errorNoCode": "输入您产品的批次代码。"
+    "errorNoCode": "输入您产品的批次代码。",
+    "eanTitle": "条形码不是批号",
+    "eanBody": "黑色条纹下方的长数字是条形码（EAN）。它只标识产品——同一款产品的每一件都相同，因此无法告诉你日期。批号是另外一个简短的印记（字母和数字），印刷或压印在瓶底、封口圈或标签上。要输入的是批号。",
+    "batchCodeHint": "不是黑色条纹下方的长条形码（EAN）。批号是瓶底、封口圈或标签上由字母和数字组成的简短、独立的印记。",
+    "eanWrongLabel": "条形码 / EAN",
+    "eanWrongSub": "不是这个——每件都相同",
+    "eanRightLabel": "批号",
+    "eanRightSub": "输入这个——简短的日期印记"
   },
   "brandPage": {
     "checkerTitle": "{name} 批号查询器",

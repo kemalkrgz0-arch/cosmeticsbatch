@@ -197,31 +197,32 @@ export default async function BrandPage({
 
       {/* Where-to-find + storage — visible, category-specific body content
           (promoted from the FAQ) that reveals nothing about the cipher. */}
-      {introSections.map((s) => (
+      {introSections.map((s, i) => (
         <section key={s.heading} className="mt-10">
           <h2 className="text-xl font-semibold">{s.heading}</h2>
           <p className="mt-3 leading-relaxed text-fg-muted">{s.body}</p>
+          {/* Real product photos sit right under the "where is the code?"
+              explanation (the first section) so the text and the visual are
+              together. */}
+          {i === 0 && brand.codeImages && brand.codeImages.length > 0 && (
+            <figure className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {brand.codeImages.map((img) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={img.src}
+                  src={img.src}
+                  alt={`Where to find the batch code on ${brand.name} packaging`}
+                  width={img.width}
+                  height={img.height}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full rounded-xl border border-border bg-card"
+                />
+              ))}
+            </figure>
+          )}
         </section>
       ))}
-
-      {/* Real product photos of where the batch code sits on the pack. */}
-      {brand.codeImages && brand.codeImages.length > 0 && (
-        <figure className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {brand.codeImages.map((img) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={img.src}
-              src={img.src}
-              alt={`Where to find the batch code on ${brand.name} packaging`}
-              width={img.width}
-              height={img.height}
-              loading="lazy"
-              decoding="async"
-              className="h-auto w-full rounded-xl border border-border bg-card"
-            />
-          ))}
-        </figure>
-      )}
 
       <AdSlot placement="brand" className="my-12" height={250} />
 

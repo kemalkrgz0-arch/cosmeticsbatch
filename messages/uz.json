@@ -46,7 +46,14 @@
     "lastUsed": "oxirgi ishlatilgan",
     "noMatch": "“{query}” boʻyicha mos brend topilmadi.",
     "errorNoBrand": "Avval brendni tanlang.",
-    "errorNoCode": "Mahsulotingizdagi partiya kodini kiriting."
+    "errorNoCode": "Mahsulotingizdagi partiya kodini kiriting.",
+    "eanTitle": "Shtrix-kod partiya kodi emas",
+    "eanBody": "Qora chiziqlar ostidagi uzun raqam — shtrix-kod (EAN). U faqat mahsulotni bildiradi — bir mahsulotning har bir donasida bir xil, shuning uchun sanani ko‘rsatmaydi. Partiya kodi esa tubiga, halqasiga yoki yorlig‘iga bosilgan yoki o‘yib yozilgan alohida, qisqa belgidir (harf va raqamlardan iborat). Kiritish kerak bo‘lgani — shu.",
+    "batchCodeHint": "Qora chiziqlar ostidagi uzun shtrix-kod (EAN) emas. Partiya kodi — tubi, halqasi yoki yorlig‘idagi harf va raqamlardan iborat qisqa, alohida belgi.",
+    "eanWrongLabel": "Shtrix-kod / EAN",
+    "eanWrongSub": "Bu emas — har bir donada bir xil",
+    "eanRightLabel": "Partiya kodi",
+    "eanRightSub": "Buni kiriting — qisqa sana belgisi"
   },
   "brandPage": {
     "metaTitle": "{name} partiya kodi dekoderi va tekshiruvchisi — Ishlab chiqarilgan va yaroqlilik sanasi",

@@ -46,7 +46,14 @@
     "lastUsed": "usado por última vez",
     "noMatch": "Ninguna marca coincide con \"{query}\".",
     "errorNoBrand": "Primero seleccione una marca.",
-    "errorNoCode": "Ingrese el código de lote de su producto."
+    "errorNoCode": "Ingrese el código de lote de su producto.",
+    "eanTitle": "El código de barras no es el código de lote",
+    "eanBody": "El número largo bajo las barras negras es el código de barras (EAN). Solo identifica el producto: todas las unidades del mismo artículo lo comparten, así que no indica ninguna fecha. El código de lote es un sello aparte y corto (letras y números) impreso o grabado en la base, el engarce o la etiqueta. Ese es el que debes introducir.",
+    "batchCodeHint": "No es el código de barras largo (EAN) bajo las barras negras. El código de lote es un sello corto e independiente de letras y números en la base, el engarce o la etiqueta.",
+    "eanWrongLabel": "Código de barras / EAN",
+    "eanWrongSub": "Este no — idéntico en cada unidad",
+    "eanRightLabel": "Código de lote",
+    "eanRightSub": "Introduce este — un sello de fecha corto"
   },
   "brandPage": {
     "checkerTitle": "Verificador de código de lote de {name}",

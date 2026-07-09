@@ -43,7 +43,14 @@
     "recent": "Recente",
     "errorNoBrand": "Seleziona prima una marca.",
     "errorNoCode": "Inserisci il codice batch del tuo prodotto.",
-    "noMatch": "Nessun marchio corrisponde a “{query}”."
+    "noMatch": "Nessun marchio corrisponde a “{query}”.",
+    "eanTitle": "Il codice a barre non è il codice lotto",
+    "eanBody": "Il numero lungo sotto le barre nere è il codice a barre (EAN). Identifica solo il prodotto: ogni confezione dello stesso articolo lo riporta, quindi non indica alcuna data. Il codice lotto è una stampigliatura separata e breve (lettere e numeri) impressa o incisa sul fondo, sulla ghiera o sull'etichetta. È questo da inserire.",
+    "batchCodeHint": "Non è il lungo codice a barre (EAN) sotto le barre nere. Il codice lotto è una breve stampigliatura separata di lettere e numeri sul fondo, sulla ghiera o sull'etichetta.",
+    "eanWrongLabel": "Codice a barre / EAN",
+    "eanWrongSub": "Non questo — identico su ogni unità",
+    "eanRightLabel": "Codice lotto",
+    "eanRightSub": "Inserisci questo — una breve stampigliatura di data"
   },
   "home": {
     "faqSubtitle": "Tutto quello che devi sapere sulla decodifica dei codici lotto di cosmetici e profumi."

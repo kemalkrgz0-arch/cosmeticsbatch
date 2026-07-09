@@ -43,7 +43,14 @@
     "recent": "Son",
     "lastUsed": "son kullanılan",
     "errorNoCode": "Ürününüzün parti kodunu girin.",
-    "noMatch": "Hiçbir marka “{query}” ile eşleşmiyor."
+    "noMatch": "Hiçbir marka “{query}” ile eşleşmiyor.",
+    "eanTitle": "Barkod, parti kodu değildir",
+    "eanBody": "Siyah çizgilerin altındaki uzun numara barkoddur (EAN). Yalnızca ürünü tanımlar — aynı ürünün her şişesinde aynıdır, bu yüzden tarih bilgisi vermez. Parti kodu ise tabana, halka kısmına veya etikete basılmış ya da kabartılmış ayrı, kısa bir damgadır (harf ve rakamlardan oluşur). Girmeniz gereken budur.",
+    "batchCodeHint": "Siyah çizgilerin altındaki uzun barkod (EAN) değildir. Parti kodu; tabanda, halka kısmında veya etikette yer alan, harf ve rakamlardan oluşan kısa ve ayrı bir damgadır.",
+    "eanWrongLabel": "Barkod / EAN",
+    "eanWrongSub": "Bu değil — her üründe aynı",
+    "eanRightLabel": "Parti kodu",
+    "eanRightSub": "Bunu girin — kısa tarih damgası"
   },
   "home": {
     "faqSubtitle": "Kozmetik ve parfüm parti kodlarının kodunu çözme hakkında bilmeniz gereken her şey."

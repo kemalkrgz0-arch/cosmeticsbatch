@@ -46,7 +46,14 @@
     "lastUsed": "senast använd",
     "errorNoBrand": "Välj ett märke först.",
     "errorNoCode": "Ange batchkoden från din produkt.",
-    "noMatch": "Inga märken matchar \"{query}\"."
+    "noMatch": "Inga märken matchar \"{query}\".",
+    "eanTitle": "Streckkoden är inte batchkoden",
+    "eanBody": "Det långa numret under de svarta strecken är streckkoden (EAN). Den anger bara produkten — varje enhet av samma vara har samma, så den visar inget datum. Batchkoden är en separat, kort stämpel (bokstäver och siffror) tryckt eller präglad på botten, kanten eller etiketten. Det är den du ska ange.",
+    "batchCodeHint": "Inte den långa streckkoden (EAN) under de svarta strecken. Batchkoden är en kort, separat stämpel av bokstäver och siffror på botten, kanten eller etiketten.",
+    "eanWrongLabel": "Streckkod / EAN",
+    "eanWrongSub": "Inte denna — likadan på varje enhet",
+    "eanRightLabel": "Batchkod",
+    "eanRightSub": "Ange denna — en kort datumstämpel"
   },
   "brandPage": {
     "blurb": "Avkoda {name} batchkoder för att hitta tillverkningsdatum, ålder och utgångsdatum för dina {category}-produkter. Gratis, omedelbar och privat.",

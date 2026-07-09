@@ -46,7 +46,14 @@
     "lastUsed": "ostatnio używany",
     "errorNoBrand": "Najpierw wybierz markę.",
     "errorNoCode": "Wprowadź kod partii swojego produktu.",
-    "noMatch": "Żadna marka nie pasuje do „{query}”."
+    "noMatch": "Żadna marka nie pasuje do „{query}”.",
+    "eanTitle": "Kod kreskowy to nie kod partii",
+    "eanBody": "Długi numer pod czarnymi kreskami to kod kreskowy (EAN). Oznacza tylko produkt — każdy egzemplarz tego samego artykułu ma taki sam, więc nie wskazuje żadnej daty. Kod partii to osobne, krótkie oznaczenie (litery i cyfry) nadrukowane lub wytłoczone na spodzie, obręczy lub etykiecie. To właśnie jego należy wpisać.",
+    "batchCodeHint": "Nie długi kod kreskowy (EAN) pod czarnymi kreskami. Kod partii to krótkie, osobne oznaczenie z liter i cyfr na spodzie, obręczy lub etykiecie.",
+    "eanWrongLabel": "Kod kreskowy / EAN",
+    "eanWrongSub": "Nie ten — identyczny na każdym egzemplarzu",
+    "eanRightLabel": "Kod partii",
+    "eanRightSub": "Wpisz ten — krótki datownik"
   },
   "brandPage": {
     "blurb": "Odkoduj kody serii {name}, aby znaleźć datę produkcji, wiek i datę ważności produktów {category}. Bezpłatne, natychmiastowe i prywatne.",

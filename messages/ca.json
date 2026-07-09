@@ -46,7 +46,14 @@
     "lastUsed": "últim utilitzat",
     "errorNoCode": "Introduïu el codi de lot del vostre producte.",
     "errorNoBrand": "Seleccioneu primer una marca.",
-    "noMatch": "No hi ha cap marca que coincideixi amb \"{query}\"."
+    "noMatch": "No hi ha cap marca que coincideixi amb \"{query}\".",
+    "eanTitle": "El codi de barres no és el codi de lot",
+    "eanBody": "El número llarg sota les barres negres és el codi de barres (EAN). Només identifica el producte — totes les unitats del mateix article el comparteixen, així que no indica cap data. El codi de lot és una marca separada i curta (lletres i números) impresa o gravada a la base, l'anella o l'etiqueta. És aquest el que has d'introduir.",
+    "batchCodeHint": "No és el codi de barres llarg (EAN) sota les barres negres. El codi de lot és una marca curta i independent de lletres i números a la base, l'anella o l'etiqueta.",
+    "eanWrongLabel": "Codi de barres / EAN",
+    "eanWrongSub": "Aquest no — idèntic a cada unitat",
+    "eanRightLabel": "Codi de lot",
+    "eanRightSub": "Introdueix aquest — una marca de data curta"
   },
   "brandPage": {
     "metaTitle": "Decodificador i verificador de codi de lot {name}- Data de fabricació i caducitat",

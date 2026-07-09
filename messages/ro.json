@@ -43,7 +43,14 @@
     "errorNoBrand": "Vă rugăm să selectați mai întâi o marcă.",
     "errorNoCode": "Introduceți codul lotului de la produsul dvs.",
     "selectBrand": "Selectați Brand",
-    "noMatch": "Nicio marcă nu se potrivește cu „{query}”."
+    "noMatch": "Nicio marcă nu se potrivește cu „{query}”.",
+    "eanTitle": "Codul de bare nu este codul lotului",
+    "eanBody": "Numărul lung de sub liniile negre este codul de bare (EAN). Acesta identifică doar produsul — fiecare unitate a aceluiași articol îl are, deci nu indică nicio dată. Codul lotului este un marcaj separat și scurt (litere și cifre) imprimat sau gravat pe fund, pe inel sau pe etichetă. Pe acesta trebuie să îl introduci.",
+    "batchCodeHint": "Nu codul de bare lung (EAN) de sub liniile negre. Codul lotului este un marcaj scurt și separat, din litere și cifre, pe fund, pe inel sau pe etichetă.",
+    "eanWrongLabel": "Cod de bare / EAN",
+    "eanWrongSub": "Nu acesta — identic pe fiecare unitate",
+    "eanRightLabel": "Codul lotului",
+    "eanRightSub": "Introdu acesta — un scurt marcaj cu data"
   },
   "home": {
     "faqSubtitle": "Tot ce trebuie să știți despre decodarea codurilor de lot de cosmetice și parfumuri."

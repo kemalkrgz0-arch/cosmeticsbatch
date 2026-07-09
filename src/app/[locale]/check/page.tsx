@@ -6,6 +6,7 @@ import { getBrand, POPULAR_BRANDS } from "@/lib/brands";
 import { checkBatchCode } from "@/lib/decoder";
 import { ResultCard } from "@/components/result-card";
 import { CheckForm } from "@/components/check-form";
+import { EanVsBatch } from "@/components/ean-vs-batch";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { AdSlot } from "@/components/ui/ad-slot";
@@ -37,6 +38,7 @@ export default async function CheckPage({
           Select a brand and enter its batch code to decode the manufacture date.
         </p>
         <CheckForm className="mt-8" />
+        <EanVsBatch className="mt-8" />
       </div>
     );
   }

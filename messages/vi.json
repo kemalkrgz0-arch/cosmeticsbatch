@@ -46,7 +46,14 @@
     "lastUsed": "sử dụng lần cuối",
     "noMatch": "Không có thương hiệu nào khớp với “{query}”.",
     "errorNoBrand": "Vui lòng chọn thương hiệu trước.",
-    "errorNoCode": "Nhập mã lô từ sản phẩm của bạn."
+    "errorNoCode": "Nhập mã lô từ sản phẩm của bạn.",
+    "eanTitle": "Mã vạch không phải là mã lô",
+    "eanBody": "Dãy số dài bên dưới các vạch đen là mã vạch (EAN). Nó chỉ xác định sản phẩm — mọi đơn vị của cùng một sản phẩm đều có mã này, nên nó không cho biết ngày tháng. Mã lô là một dấu in riêng, ngắn (gồm chữ và số) được in hoặc dập trên đáy, vành hoặc nhãn. Đó mới là mã cần nhập.",
+    "batchCodeHint": "Không phải mã vạch dài (EAN) bên dưới các vạch đen. Mã lô là một dấu in ngắn, riêng biệt gồm chữ và số trên đáy, vành hoặc nhãn.",
+    "eanWrongLabel": "Mã vạch / EAN",
+    "eanWrongSub": "Không phải mã này — giống nhau trên mọi đơn vị",
+    "eanRightLabel": "Mã lô",
+    "eanRightSub": "Nhập mã này — dấu in ngày ngắn"
   },
   "brandPage": {
     "metaTitle": "Trình giải mã & kiểm tra mã lô {name} — Ngày sản xuất & hạn dùng",

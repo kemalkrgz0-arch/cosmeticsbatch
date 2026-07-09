@@ -46,7 +46,14 @@
     "lastUsed": "dernière utilisation",
     "noMatch": "Aucune marque ne correspond à «{query}».",
     "errorNoBrand": "Veuillez d'abord sélectionner une marque.",
-    "errorNoCode": "Saisissez le code de lot de votre produit."
+    "errorNoCode": "Saisissez le code de lot de votre produit.",
+    "eanTitle": "Le code-barres n'est pas le code de lot",
+    "eanBody": "Le long numéro sous les barres noires est le code-barres (EAN). Il identifie seulement le produit — chaque flacon du même article le porte, il ne donne donc aucune date. Le code de lot est un marquage court et distinct (lettres et chiffres) imprimé ou gravé sur le fond, le sertissage ou l'étiquette. C'est celui-là qu'il faut saisir.",
+    "batchCodeHint": "Pas le long code-barres (EAN) sous les barres noires. Le code de lot est un marquage court et distinct, composé de lettres et de chiffres, sur le fond, le sertissage ou l'étiquette.",
+    "eanWrongLabel": "Code-barres / EAN",
+    "eanWrongSub": "Pas celui-ci — identique sur chaque unité",
+    "eanRightLabel": "Code de lot",
+    "eanRightSub": "Saisissez celui-ci — un court cachet de date"
   },
   "brandPage": {
     "checkerTitle": "Vérificateur de code de lot {name}",

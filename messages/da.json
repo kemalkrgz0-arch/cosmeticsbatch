@@ -43,7 +43,14 @@
     "lastUsed": "sidst brugt",
     "errorNoBrand": "Vælg venligst først et mærke.",
     "errorNoCode": "Indtast batchkoden fra dit produkt.",
-    "noMatch": "Ingen mærker matcher \"{query}\"."
+    "noMatch": "Ingen mærker matcher \"{query}\".",
+    "eanTitle": "Stregkoden er ikke batchkoden",
+    "eanBody": "Det lange tal under de sorte streger er stregkoden (EAN). Den angiver kun produktet — hver enhed af samme vare har den samme, så den fortæller ikke nogen dato. Batchkoden er et separat, kort stempel (bogstaver og tal) trykt eller præget på bunden, kanten eller etiketten. Det er den, du skal indtaste.",
+    "batchCodeHint": "Ikke den lange stregkode (EAN) under de sorte streger. Batchkoden er et kort, separat stempel af bogstaver og tal på bunden, kanten eller etiketten.",
+    "eanWrongLabel": "Stregkode / EAN",
+    "eanWrongSub": "Ikke denne — ens på hver enhed",
+    "eanRightLabel": "Batchkode",
+    "eanRightSub": "Indtast denne — et kort datostempel"
   },
   "home": {
     "faqSubtitle": "Alt hvad du behøver at vide om afkodning af kosmetik- og parfumebatchkoder."

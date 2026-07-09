@@ -46,7 +46,14 @@
     "lastUsed": "son istifadə",
     "noMatch": "“{query}” üzrə uyğun brend yoxdur.",
     "errorNoBrand": "Əvvəlcə brend seçin.",
-    "errorNoCode": "Məhsulunuzdakı partiya kodunu daxil edin."
+    "errorNoCode": "Məhsulunuzdakı partiya kodunu daxil edin.",
+    "eanTitle": "Barkod partiya kodu deyil",
+    "eanBody": "Qara zolaqların altındakı uzun nömrə barkoddur (EAN). O, yalnız məhsulu bildirir — eyni məhsulun hər ədədində eynidir, ona görə də tarix göstərmir. Partiya kodu isə dibə, halqaya və ya etiketə basılmış ya da həkk edilmiş ayrı, qısa bir işarədir (hərf və rəqəmlərdən ibarət). Daxil etməli olduğunuz budur.",
+    "batchCodeHint": "Qara zolaqların altındakı uzun barkod (EAN) deyil. Partiya kodu dibdə, halqada və ya etiketdə olan hərf və rəqəmlərdən ibarət qısa, ayrı bir işarədir.",
+    "eanWrongLabel": "Barkod / EAN",
+    "eanWrongSub": "Bu deyil — hər ədəddə eynidir",
+    "eanRightLabel": "Partiya kodu",
+    "eanRightSub": "Bunu daxil edin — qısa tarix işarəsi"
   },
   "brandPage": {
     "metaTitle": "{name} partiya kodu deşifrələyici və yoxlayıcı — istehsal və son istifadə tarixi",

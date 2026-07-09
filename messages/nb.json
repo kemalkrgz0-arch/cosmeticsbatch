@@ -46,7 +46,14 @@
     "lastUsed": "sist brukt",
     "errorNoBrand": "Velg et merke først.",
     "errorNoCode": "Skriv inn batchkoden fra produktet ditt.",
-    "noMatch": "Ingen merker samsvarer med \"{query}\"."
+    "noMatch": "Ingen merker samsvarer med \"{query}\".",
+    "eanTitle": "Strekkoden er ikke batchkoden",
+    "eanBody": "Det lange tallet under de svarte strekene er strekkoden (EAN). Den angir bare produktet — hver enhet av samme vare har den samme, så den forteller ingen dato. Batchkoden er et separat, kort stempel (bokstaver og tall) trykt eller preget på bunnen, kanten eller etiketten. Det er den du skal skrive inn.",
+    "batchCodeHint": "Ikke den lange strekkoden (EAN) under de svarte strekene. Batchkoden er et kort, separat stempel av bokstaver og tall på bunnen, kanten eller etiketten.",
+    "eanWrongLabel": "Strekkode / EAN",
+    "eanWrongSub": "Ikke denne — lik på hver enhet",
+    "eanRightLabel": "Batchkode",
+    "eanRightSub": "Skriv inn denne — et kort datostempel"
   },
   "brandPage": {
     "blurb": "Dekod {name} batchkoder for å finne produksjonsdato, alder og utløpsdato for {category}-produktene dine. Gratis, øyeblikkelig og privat.",

@@ -46,7 +46,14 @@
     "errorNoBrand": "Najprv vyberte značku.",
     "lastUsed": "naposledy použitý",
     "errorNoCode": "Zadajte kód šarže z vášho produktu.",
-    "noMatch": "Žiadne značky nezodpovedajú „{query}“."
+    "noMatch": "Žiadne značky nezodpovedajú „{query}“.",
+    "eanTitle": "Čiarový kód nie je kód šarže",
+    "eanBody": "Dlhé číslo pod čiernymi čiarami je čiarový kód (EAN). Označuje iba výrobok — každý kus toho istého tovaru ho má rovnaký, takže neurčuje žiadny dátum. Kód šarže je samostatné krátke označenie (písmená a číslice) vytlačené alebo vyrazené na dne, obruči alebo etikete. Práve ten treba zadať.",
+    "batchCodeHint": "Nie dlhý čiarový kód (EAN) pod čiernymi čiarami. Kód šarže je krátke samostatné označenie z písmen a číslic na dne, obruči alebo etikete.",
+    "eanWrongLabel": "Čiarový kód / EAN",
+    "eanWrongSub": "Tento nie — rovnaký na každom kuse",
+    "eanRightLabel": "Kód šarže",
+    "eanRightSub": "Zadajte tento — krátke označenie dátumu"
   },
   "brandPage": {
     "metaTitle": "{name} dekodér a kontrola dávkového kódu – dátum výroby a exspirácie",

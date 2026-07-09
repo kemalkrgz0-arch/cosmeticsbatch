@@ -50,6 +50,10 @@ const API_KEY = process.env.AI_GATEWAY_API_KEY;
 const args = process.argv.slice(2);
 const force = args.includes("--force");
 const all = args.includes("--all");
+// Optional --keys=a.b,c.d limits translation to specific dotted keys (leaves
+// every other still-English key untouched — useful when adding a few strings).
+const keysArg = args.find((a) => a.startsWith("--keys="));
+const onlyKeys = keysArg ? new Set(keysArg.slice("--keys=".length).split(",")) : null;
 const picked = args.filter((a) => !a.startsWith("--"));
 const targets = all ? Object.keys(LANGS) : picked.length ? picked : Object.keys(LANGS);
 
@@ -95,13 +99,16 @@ async function translateBatch(entries, langName) {
     body: JSON.stringify({
       model: MODEL,
       messages: [{ role: "user", content: prompt }],
-      response_format: { type: "json_object" },
       temperature: 0.2,
     }),
   });
   if (!res.ok) throw new Error(`Gateway ${res.status}: ${await res.text()}`);
   const data = await res.json();
-  const out = JSON.parse(data.choices[0].message.content);
+  // Some gateway models reject response_format:json_object, and others wrap the
+  // JSON in ```json fences — extract the first {...} block defensively.
+  const raw = data.choices[0].message.content;
+  const match = raw.match(/\{[\s\S]*\}/);
+  const out = JSON.parse(match ? match[0] : raw);
 
   // Validate placeholders survived.
   for (const { key, text } of entries) {
@@ -127,6 +134,7 @@ for (const code of targets) {
   const flatEx = flatten(existing);
 
   const todo = Object.entries(flatEn)
+    .filter(([k]) => !onlyKeys || onlyKeys.has(k))
     .filter(([k, v]) => force || flatEx[k] === undefined || flatEx[k] === v)
     .map(([key, text]) => ({ key, text }));
 

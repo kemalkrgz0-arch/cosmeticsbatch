@@ -46,7 +46,14 @@
     "lastUsed": "viimeksi käytetty",
     "errorNoCode": "Syötä tuotteesi eräkoodi.",
     "errorNoBrand": "Valitse ensin merkki.",
-    "noMatch": "Yksikään tuotemerkki ei vastaa sanaa{query}."
+    "noMatch": "Yksikään tuotemerkki ei vastaa sanaa{query}.",
+    "eanTitle": "Viivakoodi ei ole eränumero",
+    "eanBody": "Mustien viivojen alla oleva pitkä numero on viivakoodi (EAN). Se ilmaisee vain tuotteen — sama koodi on jokaisessa saman tuotteen kappaleessa, joten se ei kerro päivämäärää. Eränumero on erillinen, lyhyt merkintä (kirjaimia ja numeroita), joka on painettu tai kaiverrettu pohjaan, reunaan tai etikettiin. Juuri se pitää syöttää.",
+    "batchCodeHint": "Ei mustien viivojen alla oleva pitkä viivakoodi (EAN). Eränumero on lyhyt, erillinen kirjaimista ja numeroista koostuva merkintä pohjassa, reunassa tai etiketissä.",
+    "eanWrongLabel": "Viivakoodi / EAN",
+    "eanWrongSub": "Ei tämä — sama joka kappaleessa",
+    "eanRightLabel": "Eränumero",
+    "eanRightSub": "Syötä tämä — lyhyt päiväysmerkintä"
   },
   "brandPage": {
     "metaTitle": "{name} Eräkoodin dekooderi ja tarkistus - valmistus- ja viimeinen voimassaolopäivä",

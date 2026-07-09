@@ -46,7 +46,14 @@
     "lastUsed": "zuletzt verwendet",
     "noMatch": "Keine Marke passt zu „{query}“.",
     "errorNoBrand": "Bitte wählen Sie zunächst eine Marke aus.",
-    "errorNoCode": "Geben Sie den Chargencode Ihres Produkts ein."
+    "errorNoCode": "Geben Sie den Chargencode Ihres Produkts ein.",
+    "eanTitle": "Der Barcode ist nicht der Chargencode",
+    "eanBody": "Die lange Nummer unter den schwarzen Strichen ist der Barcode (EAN). Sie benennt nur das Produkt – jede Flasche desselben Artikels trägt sie, daher verrät sie kein Datum. Der Chargencode ist ein separater, kurzer Aufdruck (Buchstaben und Zahlen), gedruckt oder geprägt auf Boden, Bördelrand oder Etikett. Diesen gibst du ein.",
+    "batchCodeHint": "Nicht der lange Barcode (EAN) unter den schwarzen Strichen. Der Chargencode ist ein kurzer, separater Aufdruck aus Buchstaben und Zahlen auf Boden, Bördelrand oder Etikett.",
+    "eanWrongLabel": "Barcode / EAN",
+    "eanWrongSub": "Nicht dieser – auf jeder Einheit gleich",
+    "eanRightLabel": "Chargencode",
+    "eanRightSub": "Diesen eingeben – ein kurzer Datumsstempel"
   },
   "brandPage": {
     "checkerTitle": "{name} Chargennummer prüfen",
@@ -54,7 +61,7 @@
     "intro": "Gib unten deinen {name}-Chargencode ein, um Herstellungsdatum, Alter und geschätztes Haltbarkeitsdatum sofort zu entschlüsseln – kostenlos und privat.",
     "howHeading": "So funktionieren {name}-Chargencodes",
     "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
-    "aliasesPara": "Sie werden dieses Tool manchmal als {name}-Batchcode-Decoder,{name}-Batchcode-Prüfer oder {name}-Batchcode-Rechner bezeichnen – sie alle machen das Gleiche: Sie lesen den Produktionscode und sagen Ihnen, wie frisch Ihr {name} {category} ist.",
+    "aliasesPara": "Sie werden dieses Tool manchmal als {name}-Batchcode-Decoder, {name}-Chargennummer-Prüfer, {name}-Seriennummer-Prüfer oder {name}-Batchcode-Rechner bezeichnen – sie alle machen das Gleiche: Sie lesen den Produktionscode bzw. die Chargennummer, ermitteln das Herstellungsdatum und sagen Ihnen, wie frisch Ihr {name} {category} ist.",
     "factManufacturer": "Hersteller",
     "factShelfLife": "Typische Haltbarkeit",
     "factPao": "Nach dem Öffnen (PAO)",

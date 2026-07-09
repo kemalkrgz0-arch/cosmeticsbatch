@@ -46,7 +46,14 @@
     "lastUsed": "terakhir digunakan",
     "noMatch": "Tidak ada merek yang cocok dengan “{query}”.",
     "errorNoBrand": "Silakan pilih merek terlebih dahulu.",
-    "errorNoCode": "Masukkan kode batch dari produk Anda."
+    "errorNoCode": "Masukkan kode batch dari produk Anda.",
+    "eanTitle": "Barcode bukan kode batch",
+    "eanBody": "Angka panjang di bawah garis-garis hitam adalah barcode (EAN). Ini hanya menandai produk — setiap unit produk yang sama memilikinya, jadi tidak menunjukkan tanggal. Kode batch adalah tanda terpisah yang pendek (huruf dan angka) yang dicetak atau diukir di bagian dasar, cincin, atau label. Itulah yang harus dimasukkan.",
+    "batchCodeHint": "Bukan barcode panjang (EAN) di bawah garis-garis hitam. Kode batch adalah tanda pendek terpisah berupa huruf dan angka di bagian dasar, cincin, atau label.",
+    "eanWrongLabel": "Barcode / EAN",
+    "eanWrongSub": "Bukan ini — sama di setiap unit",
+    "eanRightLabel": "Kode batch",
+    "eanRightSub": "Masukkan ini — stempel tanggal pendek"
   },
   "brandPage": {
     "metaTitle": "Dekoder & Pemeriksa Kode Batch {name} — Tanggal Produksi & Kedaluwarsa",

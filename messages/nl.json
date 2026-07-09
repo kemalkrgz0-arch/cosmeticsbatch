@@ -43,7 +43,14 @@
     "batchCode": "Batchcode",
     "errorNoCode": "Voer de batchcode van uw product in.",
     "errorNoBrand": "Selecteer eerst een merk.",
-    "noMatch": "Er komen geen merken overeen met \"{query}\"."
+    "noMatch": "Er komen geen merken overeen met \"{query}\".",
+    "eanTitle": "De streepjescode is niet de batchcode",
+    "eanBody": "Het lange nummer onder de zwarte strepen is de streepjescode (EAN). Het benoemt alleen het product — elke fles van hetzelfde artikel heeft hetzelfde nummer, dus het zegt niets over een datum. De batchcode is een aparte, korte opdruk (letters en cijfers), gedrukt of gegraveerd op de bodem, de krimprand of het etiket. Die moet je invoeren.",
+    "batchCodeHint": "Niet de lange streepjescode (EAN) onder de zwarte strepen. De batchcode is een korte, aparte opdruk van letters en cijfers op de bodem, de krimprand of het etiket.",
+    "eanWrongLabel": "Streepjescode / EAN",
+    "eanWrongSub": "Deze niet — identiek op elke eenheid",
+    "eanRightLabel": "Batchcode",
+    "eanRightSub": "Voer deze in — een korte datumstempel"
   },
   "home": {
     "faqSubtitle": "Alles wat u moet weten over het decoderen van batchcodes voor cosmetica en parfums."
