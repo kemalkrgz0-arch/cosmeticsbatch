@@ -878,12 +878,48 @@ const kenvue: Decoder = {
   },
 };
 
+/* -------------------------------------------------------------------------- */
+/*  Unilever mass personal care (YDDD)                                        */
+/*  Standard 4-5 char code: year digit + 3-digit Julian day, then optional     */
+/*  plant/line letters. e.g. 6120X = day 120 of 2026 (30 April). A minority of  */
+/*  skincare plants use a month-letter-first variant, which we don't auto-read. */
+/*  (Dove, Axe, Rexona, Vaseline, Sunsilk, TRESemmé, Simple, Pond's, St. Ives) */
+/* -------------------------------------------------------------------------- */
+const unilever: Decoder = {
+  id: "unilever",
+  label: "Unilever year digit + Julian day (YDDD)",
+  explanation:
+    "Unilever personal-care products use a 4–5 character code: the first digit is the last digit of the production year and the next three are the day of that year, followed by an optional plant/line letter — so 6120X is the 120th day of 2026 (30 April 2026). Some skincare plants use a month-letter-first variant instead.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/\d{4}/);
+    if (!m) return null;
+    const d = m[0];
+    const year = resolveYearDigit(Number(d[0]), ctx.now);
+    const doy = Number(d.slice(1));
+    if (doy < 1 || doy > 366) return null;
+    const date = dateFromDayOfYear(year, doy);
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "Unilever codes give the day precisely (year digit + day-of-year), but the year is a single digit.",
+        `The year is read as the most recent match (${year}); an older product could be from ${year - 10}.`,
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) determines how long the product stays good.",
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
   [pg.id]: pg,
   [kbeauty.id]: kbeauty,
   [rohto.id]: rohto,
   [kenvue.id]: kenvue,
+  [unilever.id]: unilever,
   [loreal.id]: loreal,
   [coty.id]: coty,
   [chanel.id]: chanel,
