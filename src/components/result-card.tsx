@@ -11,6 +11,7 @@ import { useLocale, useTranslations } from "next-intl";
 import type { CheckResult, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { cn } from "@/lib/utils";
+import { ResultActions } from "@/components/result-actions";
 
 const fmt = (d: Date | null, locale: string) =>
   d
@@ -61,7 +62,7 @@ function FreshnessRing({
   const pct = percent ?? 0;
   const dash = (pct / 100) * c;
   return (
-    <div className="relative h-32 w-32 shrink-0">
+    <div className="relative h-36 w-36 shrink-0">
       <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
         <circle cx="60" cy="60" r={r} fill="none" stroke="var(--border)" strokeWidth="10" />
         <circle
@@ -72,13 +73,20 @@ function FreshnessRing({
           stroke={color}
           strokeWidth="10"
           strokeLinecap="round"
-          strokeDasharray={`${dash} ${c}`}
+          strokeDasharray={c}
+          className="animate-ring"
+          style={
+            {
+              "--ring-circumference": c,
+              "--ring-target": c - dash,
+            } as React.CSSProperties
+          }
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-2xl font-semibold tabular-nums">
+        <span className="text-3xl font-semibold tabular-nums">
           {percent ?? "—"}
-          {percent !== null && <span className="text-base">%</span>}
+          {percent !== null && <span className="text-lg">%</span>}
         </span>
         <span className="text-[11px] text-fg-muted">{lifeLeftLabel}</span>
       </div>
@@ -205,6 +213,14 @@ export function ResultCard({
           <DataRow icon={Timer} label={t("pao")} value={months(brand.paoMonths)} />
         </div>
       </div>
+
+      <ResultActions
+        brandName={brand.name}
+        code={result.code}
+        manufactureDate={result.manufactureDate}
+        expirationDate={result.expirationDate}
+        percent={result.percentRemaining}
+      />
     </div>
   );
 }

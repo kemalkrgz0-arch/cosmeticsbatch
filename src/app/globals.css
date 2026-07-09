@@ -124,6 +124,38 @@ body {
   outline-offset: 2px;
 }
 
+/* Entrance animation — content rises + fades in on load. Stagger with inline
+   animation-delay. Disabled automatically by the reduced-motion guard below. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Freshness ring draws itself from empty to its value on mount. The target
+   offset is passed in as --ring-target so the keyframe stays generic. */
+@keyframes ring-draw {
+  from {
+    stroke-dashoffset: var(--ring-circumference);
+  }
+  to {
+    stroke-dashoffset: var(--ring-target);
+  }
+}
+
+.animate-ring {
+  animation: ring-draw 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

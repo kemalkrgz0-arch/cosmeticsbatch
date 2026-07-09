@@ -165,7 +165,14 @@
     "confLow": "Low confidence",
     "confNone": "Could not decode",
     "invalidTitle": "We couldn’t read this code",
-    "invalidBody": "“{code}” doesn’t match {brand}’s batch-code format. Check that you typed it exactly as printed on the packaging — letters and numbers only, no spaces — and that it’s the batch code, not the barcode or a price/marketing reference."
+    "invalidBody": "“{code}” doesn’t match {brand}’s batch-code format. Check that you typed it exactly as printed on the packaging — letters and numbers only, no spaces — and that it’s the batch code, not the barcode or a price/marketing reference.",
+    "share": "Share result",
+    "shareCopied": "Copied!",
+    "shareTitle": "{name} batch code result",
+    "shareMade": "made {date}",
+    "shareLifeLeft": "{n}% life left",
+    "addToCalendar": "Add expiry to calendar",
+    "calendarTitle": "{name} — replace by this date"
   },
   "howItWorks": {
     "eyebrow": "Three simple steps",

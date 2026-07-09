@@ -43,6 +43,11 @@ export function AdSlot({
     }
   }, [enabled]);
 
+  // Until AdSense is configured, render nothing rather than an empty grey
+  // placeholder box — a blank labelled panel reads as unfinished. Real units
+  // appear automatically once the client/slot env vars are set.
+  if (!enabled) return null;
+
   return (
     <aside
       aria-label={label}
@@ -50,27 +55,16 @@ export function AdSlot({
     >
       <div
         style={{ minHeight: height }}
-        className={cn(
-          "flex items-center justify-center overflow-hidden rounded-2xl",
-          enabled
-            ? ""
-            : "border border-dashed border-border bg-bg-subtle/60",
-        )}
+        className="flex items-center justify-center overflow-hidden rounded-2xl"
       >
-        {enabled ? (
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block", width: "100%", minHeight: height }}
-            data-ad-client={client}
-            data-ad-slot={slot}
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          />
-        ) : (
-          <span className="text-xs font-medium uppercase tracking-widest text-fg-muted/70">
-            {label}
-          </span>
-        )}
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", width: "100%", minHeight: height }}
+          data-ad-client={client}
+          data-ad-slot={slot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
       </div>
     </aside>
   );
