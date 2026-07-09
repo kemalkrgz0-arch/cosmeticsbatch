@@ -40,12 +40,18 @@ export function Hero() {
           {t("subtitle")}
         </p>
 
-        <div className="animate-fade-up" style={{ animationDelay: "180ms" }}>
+        {/* relative z-30 keeps the open brand dropdown above the trust chips —
+            the fade-up transforms create stacking contexts, so without this the
+            later chips paint over the dropdown. */}
+        <div
+          className="animate-fade-up relative z-30"
+          style={{ animationDelay: "180ms" }}
+        >
           <CheckForm navigateOnSelect className="mx-auto mt-9 max-w-2xl text-left" />
         </div>
 
         <ul
-          className="animate-fade-up mt-6 flex flex-wrap items-center justify-center gap-2"
+          className="animate-fade-up relative z-10 mt-6 flex flex-wrap items-center justify-center gap-2"
           style={{ animationDelay: "240ms" }}
         >
           {trust.map(({ icon: Icon, label }) => (
