@@ -157,11 +157,15 @@ export function ResultCard({
             {statusLabel}
           </span>
         </div>
-        <FreshnessRing
-          percent={result.percentRemaining}
-          color={meta.ring}
-          lifeLeftLabel={t("lifeLeft")}
-        />
+        {/* Center the ring on mobile (stacked layout) so it doesn't sit
+            against the left edge with dead space beside it. */}
+        <div className="self-center sm:self-auto">
+          <FreshnessRing
+            percent={result.percentRemaining}
+            color={meta.ring}
+            lifeLeftLabel={t("lifeLeft")}
+          />
+        </div>
       </div>
 
       <div className="grid gap-x-8 p-6 sm:p-8 md:grid-cols-2">

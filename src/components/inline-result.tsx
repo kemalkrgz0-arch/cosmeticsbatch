@@ -44,11 +44,14 @@ export function InlineResult({ brand }: { brand: Brand }) {
     };
   }, [code, brand.slug]);
 
+  // Scroll to the result block as soon as a code is being checked — not after
+  // the decode resolves. The block leads with the ad (fixed height, so no
+  // layout shift), so the user lands on the ad while the result loads in below.
   useEffect(() => {
-    if (result && ref.current) {
+    if (code && ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [result]);
+  }, [code]);
 
   if (!code) return null;
 
