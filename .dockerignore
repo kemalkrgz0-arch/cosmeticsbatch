@@ -13,3 +13,6 @@ coverage
 Dockerfile
 .dockerignore
 scratchpad
+
+# Runtime dataset — never bake into the image
+.data

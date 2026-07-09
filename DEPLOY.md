@@ -79,3 +79,28 @@ docker build -t cosmeticsbatch --build-arg NEXT_PUBLIC_SITE_URL=https://cosmetic
 docker run -p 3000:3000 cosmeticsbatch
 # open http://localhost:3000  (English home; /fr, /ar, … for other languages)
 ```
+
+## User-check dataset (persistent volume)
+
+Every batch-code check is appended as one JSON line to
+`$DATASET_DIR/checks-YYYY-MM.jsonl` (`src/lib/dataset.ts`; no IP stored, only a
+coarse `cf-ipcountry`). The container is rebuilt on every deploy, so this dir
+**must** be a bind-mounted host volume or the data is lost.
+
+Run the container with a volume + `DATASET_DIR`:
+
+```bash
+mkdir -p /opt/cosmeticsbatch-data
+docker run -d --name cosmeticsbatch \
+  --network yerelatlas_default --restart unless-stopped \
+  -e DATASET_DIR=/data \
+  -v /opt/cosmeticsbatch-data:/data \
+  cosmeticsbatch:latest
+```
+
+Inspect the data on the host (no need to enter the container):
+
+```bash
+DATASET_DIR=/opt/cosmeticsbatch-data node scripts/dataset-stats.mjs        # summary
+DATASET_DIR=/opt/cosmeticsbatch-data node scripts/dataset-stats.mjs --csv  # export CSV
+```

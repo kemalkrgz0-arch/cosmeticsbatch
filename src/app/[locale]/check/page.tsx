@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { setRequestLocale } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
@@ -8,6 +9,7 @@ import { ResultCard } from "@/components/result-card";
 import { CheckForm } from "@/components/check-form";
 import { EanVsBatch } from "@/components/ean-vs-batch";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { logCheck, toCheckLog } from "@/lib/dataset";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { AdSlot } from "@/components/ui/ad-slot";
 
@@ -50,6 +52,19 @@ export default async function CheckPage({
     shelfLifeMonths: brand.shelfLifeMonths,
     category: brand.category,
   });
+
+  // Record the check in our own dataset (no IP; country is coarse edge data).
+  await logCheck(
+    toCheckLog({
+      source: "check",
+      brandSlug: brand.slug,
+      code,
+      decoderId: brand.decoderId,
+      locale,
+      country: (await headers()).get("cf-ipcountry") ?? undefined,
+      result,
+    }),
+  );
 
   const related = POPULAR_BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 4);
 

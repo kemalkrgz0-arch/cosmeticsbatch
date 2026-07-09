@@ -1,6 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
 import { checkBatchCode } from "@/lib/decoder";
+import { logCheck, toCheckLog } from "@/lib/dataset";
+
+/** Best-effort locale from the referring page path (e.g. /de/brands/... → de). */
+function localeFromReferer(referer: string | null): string | undefined {
+  if (!referer) return undefined;
+  try {
+    const seg = new URL(referer).pathname.split("/")[1];
+    return seg && seg.length >= 2 && seg.length <= 3 ? seg : "en";
+  } catch {
+    return undefined;
+  }
+}
 
 // Decode runs server-side only so the batch-code ciphers never ship to the
 // browser. The response is stripped of `method` and `notes` (which would
@@ -8,7 +20,7 @@ import { checkBatchCode } from "@/lib/decoder";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const slug = req.nextUrl.searchParams.get("slug")?.trim();
   const code = req.nextUrl.searchParams.get("code")?.trim();
   if (!slug || !code) {
@@ -26,6 +38,19 @@ export function GET(req: NextRequest) {
     shelfLifeMonths: brand.shelfLifeMonths,
     category: brand.category,
   });
+
+  // Record the check in our own dataset (no IP; country is coarse edge data).
+  await logCheck(
+    toCheckLog({
+      source: "api",
+      brandSlug: brand.slug,
+      code,
+      decoderId: brand.decoderId,
+      locale: localeFromReferer(req.headers.get("referer")),
+      country: req.headers.get("cf-ipcountry") ?? undefined,
+      result,
+    }),
+  );
 
   // Never expose how the code was read.
   const { method: _method, notes: _notes, ...safe } = result;
