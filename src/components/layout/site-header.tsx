@@ -1,4 +1,3 @@
-import { Flower2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
@@ -18,9 +17,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:gap-6 sm:px-6">
         <Link href="/" className="flex min-w-0 items-center gap-2 font-semibold">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-cta text-cta-fg">
-            <Flower2 className="h-[18px] w-[18px]" />
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.png"
+            alt={site.name}
+            width={32}
+            height={32}
+            className="h-8 w-8 shrink-0 rounded-full border border-border"
+          />
           <span className="whitespace-nowrap text-[17px] tracking-tight">{site.name}</span>
         </Link>
 

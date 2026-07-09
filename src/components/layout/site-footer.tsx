@@ -1,4 +1,4 @@
-import { Flower2, ShieldCheck, Sparkles, Lock } from "lucide-react";
+import { ShieldCheck, Sparkles, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
@@ -39,9 +39,14 @@ export function SiteFooter() {
         {/* Brand block — full width on mobile, first column on desktop */}
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="inline-flex items-center gap-2 font-semibold">
-            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-cta text-cta-fg">
-              <Flower2 className="h-[18px] w-[18px]" />
-            </span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt={site.name}
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-full border border-border"
+            />
             <span className="text-[17px] tracking-tight">{site.name}</span>
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-muted">
