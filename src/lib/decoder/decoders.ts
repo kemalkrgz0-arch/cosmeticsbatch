@@ -834,11 +834,56 @@ const rohto: Decoder = {
   },
 };
 
+/* -------------------------------------------------------------------------- */
+/*  Kenvue / J&J (Julian, day-first)                                          */
+/*  Documented format: the day of year FIRST, then a 1- or 2-digit year —      */
+/*  DDDYY (e.g. 12324 = day 123 of 2024) or DDDY (e.g. 3654 = day 365, 2024).  */
+/*  (Neutrogena, Aveeno, RoC)                                                   */
+/* -------------------------------------------------------------------------- */
+const kenvue: Decoder = {
+  id: "kenvue",
+  label: "Kenvue / J&J Julian date (day-first)",
+  explanation:
+    "Neutrogena, Aveeno and RoC print a Julian date with the day of the year first, then the year — as DDDYY (e.g. 12324 = the 123rd day of 2024) or DDDY (e.g. 3654 = day 365 of 2024). This is the manufacture date.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const now = ctx.now;
+    const cand: DecodeAttempt[] = [];
+    const push = (year: number, doy: number, method: string, conf: DecodeAttempt["confidence"]) => {
+      if (doy < 1 || doy > 366) return;
+      const date = dateFromDayOfYear(year, doy);
+      if (!inFuture(date, now)) cand.push({ manufactureDate: date, confidence: conf, method });
+    };
+    const m5 = c.match(/\d{5}/);
+    if (m5) {
+      const d = m5[0];
+      push(resolveYear2(Number(d.slice(3, 5))), Number(d.slice(0, 3)), "Julian (DDDYY)", "medium");
+    }
+    const m4 = c.match(/\d{4}/);
+    if (m4) {
+      const d = m4[0];
+      push(resolveYearDigit(Number(d[3]), now), Number(d.slice(0, 3)), "Julian (DDDY)", "medium");
+    }
+    if (!cand.length) return null;
+    const rank = { high: 3, medium: 2, low: 1, none: 0 };
+    cand.sort((a, b) => rank[b.confidence] - rank[a.confidence] || b.manufactureDate!.getTime() - a.manufactureDate!.getTime());
+    return {
+      ...cand[0],
+      method: `${this.label} — ${cand[0].method}`,
+      notes: [
+        "The day of manufacture is read precisely; a short (4-digit) code's year is a single digit, so a much older product could be ten years earlier.",
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) sets how long it stays good.",
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
   [pg.id]: pg,
   [kbeauty.id]: kbeauty,
   [rohto.id]: rohto,
+  [kenvue.id]: kenvue,
   [loreal.id]: loreal,
   [coty.id]: coty,
   [chanel.id]: chanel,
