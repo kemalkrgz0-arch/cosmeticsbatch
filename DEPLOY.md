@@ -104,3 +104,21 @@ Inspect the data on the host (no need to enter the container):
 DATASET_DIR=/opt/cosmeticsbatch-data node scripts/dataset-stats.mjs        # summary
 DATASET_DIR=/opt/cosmeticsbatch-data node scripts/dataset-stats.mjs --csv  # export CSV
 ```
+
+## Accelerate indexing after each deploy
+
+Once the new container is live, ping IndexNow so Bing/Yandex/Seznam re-crawl the
+changed pages within minutes (Google ignores IndexNow — use Search Console for
+that). Run as the **last** deploy step, after the site is reachable:
+
+```bash
+node scripts/indexnow.mjs     # reads the live sitemap, submits every URL
+```
+
+Search Console verification is env-driven — set these Build Variables so the
+`<meta>` tags render, then verify + submit the sitemap in each console:
+
+```
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=<code from Google Search Console>
+NEXT_PUBLIC_BING_SITE_VERIFICATION=<code from Bing Webmaster Tools>
+```

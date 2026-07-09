@@ -49,8 +49,16 @@ export const metadata: Metadata = {
     description: site.description,
   },
   robots: { index: true, follow: true },
+  // Search Console ownership. Google/Bing codes come from env so they can be
+  // set per environment without a code change; Yandex is already verified.
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
+  }),
   other: {
     "yandex-verification": "00b71840cf95776d",
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION && {
+      "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION,
+    }),
     ...(adsenseEnabled && { "google-adsense-account": adsense.client }),
   },
 };
