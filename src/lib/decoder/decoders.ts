@@ -688,8 +688,117 @@ const shiseido: Decoder = {
   },
 };
 
+/* -------------------------------------------------------------------------- */
+/*  Procter & Gamble (Julian)                                                  */
+/*  Publicly documented industry format: a Julian production date as YJJJ      */
+/*  (1 year digit + 3-digit day-of-year), YYDDD (2 + 3), or the unambiguous    */
+/*  YYYYJJJ (4 + 3). e.g. 6099 = day 99 of 2016/2026; 2026032 = 1 Feb 2026.    */
+/*  (Olay, Pantene, Head & Shoulders, Herbal Essences, Old Spice, Secret, …)   */
+/* -------------------------------------------------------------------------- */
+const pg: Decoder = {
+  id: "pg",
+  label: "Procter & Gamble Julian date",
+  explanation:
+    "Procter & Gamble prints a Julian production date: the day of the year with the year attached — as YJJJ (one year digit + day, e.g. 6099 = day 99), YYDDD, or the unambiguous seven-digit YYYYJJJ (e.g. 2026032 = the 32nd day of 2026, 1 February).",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const now = ctx.now;
+    const cand: DecodeAttempt[] = [];
+    const push = (year: number, doy: number, method: string, conf: DecodeAttempt["confidence"]) => {
+      if (doy < 1 || doy > 366) return;
+      const date = dateFromDayOfYear(year, doy);
+      if (!inFuture(date, now)) cand.push({ manufactureDate: date, confidence: conf, method });
+    };
+    // 7-digit YYYYJJJ — unambiguous.
+    const m7 = c.match(/\d{7}/);
+    if (m7) {
+      const d = m7[0];
+      push(Number(d.slice(0, 4)), Number(d.slice(4, 7)), "Julian (YYYYJJJ)", "high");
+    }
+    // 5-digit YYDDD.
+    const m5 = c.match(/\d{5}/);
+    if (m5) {
+      const d = m5[0];
+      push(resolveYear2(Number(d.slice(0, 2))), Number(d.slice(2, 5)), "Julian (YYDDD)", "medium");
+    }
+    // 4-digit YJJJ.
+    const m4 = c.match(/\d{4}/);
+    if (m4) {
+      const d = m4[0];
+      push(resolveYearDigit(Number(d[0]), now), Number(d.slice(1, 4)), "Julian (YJJJ)", "medium");
+    }
+    if (!cand.length) return null;
+    const rank = { high: 3, medium: 2, low: 1, none: 0 };
+    cand.sort((a, b) => rank[b.confidence] - rank[a.confidence] || b.manufactureDate!.getTime() - a.manufactureDate!.getTime());
+    return {
+      ...cand[0],
+      method: `${this.label} — ${cand[0].method}`,
+      notes: [
+        "P&G codes give the day precisely; a short (4-digit) code's year is a single digit, so a much older product could be from ten years earlier.",
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) sets how long it stays good.",
+      ],
+    };
+  },
+};
+
+/* -------------------------------------------------------------------------- */
+/*  Korean beauty (manufacture date in the code)                              */
+/*  Korea's MFDS requires the manufacture date (제조) on pack; K-beauty batch  */
+/*  codes lead with that date as YYYYMMDD, YYMMDD, or YYMM, then a line letter.*/
+/*  e.g. 20260118 or 231122B = 22 Nov 2023. (Amorepacific, LG H&H, COSRX, …)  */
+/* -------------------------------------------------------------------------- */
+const kbeauty: Decoder = {
+  id: "kbeauty",
+  label: "Korean manufacture date (YYYYMMDD / YYMMDD)",
+  explanation:
+    "Korean brands print the manufacture date (제조) directly, and their batch code usually begins with it — as YYYYMMDD, YYMMDD or YYMM followed by a production-line letter. So 231122B is 22 November 2023. Many Korean packs also show the date in plain text as 제조 YYYY.MM.DD.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const now = ctx.now;
+    const cand: DecodeAttempt[] = [];
+    const tryDate = (year: number, mo: number, da: number, method: string, conf: DecodeAttempt["confidence"]) => {
+      if (mo < 1 || mo > 12 || da < 1 || da > 31) return;
+      const date = new Date(Date.UTC(year, mo - 1, da));
+      if (date.getUTCMonth() !== mo - 1) return; // day rolled over → invalid
+      if (!inFuture(date, now)) cand.push({ manufactureDate: date, confidence: conf, method });
+    };
+    // 8-digit YYYYMMDD — unambiguous.
+    const m8 = c.match(/\d{8}/);
+    if (m8) {
+      const d = m8[0];
+      tryDate(Number(d.slice(0, 4)), Number(d.slice(4, 6)), Number(d.slice(6, 8)), "YYYYMMDD", "high");
+    }
+    // 6-digit YYMMDD.
+    const m6 = c.match(/\d{6}/);
+    if (m6) {
+      const d = m6[0];
+      tryDate(resolveYear2(Number(d.slice(0, 2))), Number(d.slice(2, 4)), Number(d.slice(4, 6)), "YYMMDD", "medium");
+    }
+    // 4-digit YYMM — month precision only.
+    const m4 = c.match(/\d{4}/);
+    if (m4 && !m6 && !m8) {
+      const d = m4[0];
+      tryDate(resolveYear2(Number(d.slice(0, 2))), Number(d.slice(2, 4)), 1, "YYMM", "low");
+    }
+    if (!cand.length) return null;
+    const rank = { high: 3, medium: 2, low: 1, none: 0 };
+    cand.sort((a, b) => rank[b.confidence] - rank[a.confidence] || b.manufactureDate!.getTime() - a.manufactureDate!.getTime());
+    return {
+      ...cand[0],
+      method: `${this.label} — ${cand[0].method}`,
+      notes: [
+        "The manufacture date is read from the leading digits of the code.",
+        "If your pack shows a plain-text 제조 date, that is the same manufacture date.",
+        "Once opened, the PAO symbol (open-jar icon) determines how long the product stays good.",
+      ],
+    };
+  },
+};
+
 export const DECODERS: Record<string, Decoder> = {
   [esteeLauder.id]: esteeLauder,
+  [pg.id]: pg,
+  [kbeauty.id]: kbeauty,
   [loreal.id]: loreal,
   [coty.id]: coty,
   [chanel.id]: chanel,
