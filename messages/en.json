@@ -205,5 +205,21 @@
     "privateBody": "Codes are decoded privately. Your privacy comes first.",
     "freeTitle": "Always Free",
     "freeBody": "Every feature is 100% free, forever."
+  },
+  "whereCode": {
+    "title": "Where is the batch code?",
+    "subtitle": "It is a short separate stamp — here is where it usually hides on different packs.",
+    "label": {
+      "perfume": "Perfume box",
+      "tube": "Tube",
+      "lipstick": "Lipstick"
+    },
+    "alt": {
+      "perfume": "Batch code highlighted on a perfume box",
+      "tube": "Batch code highlighted on a cosmetic tube crimp",
+      "lipstick": "Batch code highlighted on a lipstick base"
+    },
+    "viewGuide": "Read the full guide",
+    "cardCta": "Where to find the batch code on a {type} — read the guide"
   }
 }

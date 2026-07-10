@@ -6,6 +6,7 @@ import { Hero } from "@/components/home/hero";
 import { FeatureGrid } from "@/components/home/feature-grid";
 import { PopularBrands } from "@/components/home/popular-brands";
 import { HowItWorks } from "@/components/home/how-it-works";
+import { WhereIsCode } from "@/components/home/where-is-code";
 import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
 import { JsonLd } from "@/components/json-ld";
@@ -53,6 +54,7 @@ export default async function HomePage({
       <PopularBrands />
       <AdSlot placement="home" className="my-8" height={250} />
       <HowItWorks />
+      <WhereIsCode />
       <AdSlot placement="home" className="my-8" height={250} />
       <Faq items={homeFaq} subtitle={th("faqSubtitle")} />
     </>

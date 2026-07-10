@@ -161,6 +161,18 @@ export default async function GuidePage({
           <section key={s.heading}>
             <h2 className="mb-3 text-xl font-semibold">{s.heading}</h2>
             <Body lines={s.body} used={usedBrandLinks} />
+            {s.image && (
+              <figure className="mt-4 overflow-hidden rounded-2xl border border-border bg-bg-subtle">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.image.src}
+                  alt={s.image.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="mx-auto max-h-[440px] w-auto object-contain p-3"
+                />
+              </figure>
+            )}
             {i === 0 && (
               <AdSlot placement="article" className="mt-10" height={250} />
             )}

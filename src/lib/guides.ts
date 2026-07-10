@@ -2,6 +2,8 @@ export interface GuideSection {
   heading: string;
   /** Simple paragraphs; each string is one <p>. Use "- " prefix for list items. */
   body: string[];
+  /** Optional illustrative image shown under the section body. */
+  image?: { src: string; alt: string };
 }
 
 export interface Guide {
@@ -645,6 +647,141 @@ export const GUIDES: Guide[] = [
       {
         q: "What does the Korean word 제조 mean on my product?",
         a: "제조 means 'manufactured' — the date next to it is the production date. 까지 means 'until', marking the expiry date.",
+      },
+    ],
+  },
+  {
+    slug: "where-is-the-batch-code-on-perfume",
+    title: "Where Is the Batch Code on Perfume?",
+    description:
+      "The batch code on a perfume is a short stamp on the box and the bottle — here's exactly where to look on the packaging and how to read it.",
+    readMinutes: 3,
+    updated: "2026-07-10",
+    sections: [
+      {
+        heading: "On the box",
+        body: [
+          "The quickest place to find a perfume batch code is the outer box. Look on the bottom flap or one of the side panels, usually printed in small type near the ingredients list or the \"made in\" line.",
+          "It is a short, separate code of 4–8 letters and numbers — not the long barcode. It is often ink-jet printed, so it can look faint or slightly smudged.",
+        ],
+        image: {
+          src: "/where/perfume.jpg",
+          alt: "Batch code circled on the side panel of a perfume box, next to the made-in line",
+        },
+      },
+      {
+        heading: "On the bottle",
+        body: [
+          "If you no longer have the box, check the bottle itself. The code is usually laser-etched or printed on the base of the bottle, or on the clear sticker underneath it.",
+          "On tester and travel bottles the code can be on the crimp around the spray collar. Turn the bottle in good light — etched codes catch the light rather than showing as ink.",
+        ],
+      },
+      {
+        heading: "How to read it",
+        body: [
+          "Most fragrance houses encode the production date. Coty, Dior and many others use a year digit plus the day of the year (e.g. 4135 = the 135th day of 2024).",
+          "You don't need to decode it by hand — pick your brand on the home page, type the code, and the checker returns the manufacture date, age and estimated expiry.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is the perfume batch code the same as the barcode?",
+        a: "No. The barcode is the long striped EAN number used at checkout and is identical on every bottle. The batch code is a separate short stamp that changes with each production run and encodes the date.",
+      },
+      {
+        q: "My perfume has no visible code — why?",
+        a: "Some codes are etched faintly on the glass base or hidden under the peel-off sticker. If there's genuinely no code, the bottle may be a tester, a refill, or a counterfeit.",
+      },
+    ],
+  },
+  {
+    slug: "where-is-the-batch-code-on-tubes-and-creams",
+    title: "Where Is the Batch Code on a Tube or Cream?",
+    description:
+      "On tubes the batch code sits on the crimp at the sealed end; on jars and creams it's stamped on the base or lid. Here's where to look and how to read it.",
+    readMinutes: 3,
+    updated: "2026-07-10",
+    sections: [
+      {
+        heading: "On a tube",
+        body: [
+          "For creams, cleansers and sunscreens in a tube, look at the crimp — the flat sealed end opposite the cap. The batch code is embossed or printed there, often together with the expiry or a factory mark.",
+          "It's a short code of letters and numbers. On soft tubes it can be pressed into the metal or plastic, so tilt it under light to read it.",
+        ],
+        image: {
+          src: "/where/tube.jpg",
+          alt: "Batch code highlighted on the crimp at the sealed end of a cosmetic tube",
+        },
+      },
+      {
+        heading: "On a jar or pot",
+        body: [
+          "For creams in a jar, the code is usually stamped on the base of the jar or on the underside of the lid — not on the paper label.",
+          "It sits near the open-jar PAO symbol (e.g. 12M), which tells you how many months the product lasts once opened.",
+        ],
+      },
+      {
+        heading: "How to read it",
+        body: [
+          "Skincare houses each stamp dates differently — L'Oréal, Beiersdorf (Nivea, Eucerin) and Korean brands all use their own format.",
+          "Choose the brand on the home page and enter the code; the checker applies that brand's rule and shows the manufacture date and estimated shelf life.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What is the crimp on a tube?",
+        a: "The crimp is the flat, sealed end of a tube opposite the cap. Manufacturers stamp the batch code and often the expiry date into this seam.",
+      },
+      {
+        q: "The code on my tube rubbed off — what now?",
+        a: "Ink-jet codes on tubes can wear away. Check the box if you still have it; otherwise the open-jar PAO symbol is your best guide to remaining shelf life.",
+      },
+    ],
+  },
+  {
+    slug: "where-is-the-batch-code-on-lipstick-and-makeup",
+    title: "Where Is the Batch Code on Lipstick & Makeup?",
+    description:
+      "On lipstick the batch code is on the base of the case; on compacts and palettes it's inside or on the back. Here's where to find it and how to read it.",
+    readMinutes: 3,
+    updated: "2026-07-10",
+    sections: [
+      {
+        heading: "On lipstick",
+        body: [
+          "Twist the lipstick closed and look at the flat bottom of the case — the batch code is printed or stamped there, sometimes alongside the shade number and, on Korean products, a plain 제조 (manufacture) date.",
+          "It's a short code separate from the shade name. Good light helps: on glossy cases the print can be low-contrast.",
+        ],
+        image: {
+          src: "/where/lipstick.jpg",
+          alt: "Batch code highlighted on the flat base of a lipstick case",
+        },
+      },
+      {
+        heading: "On compacts, palettes and mascara",
+        body: [
+          "For powders, blushes and palettes, check the back of the compact or the inside of the lid. For mascara and liquid liners, the code is on the bottom of the tube or where the label wraps.",
+          "As with all makeup, the code sits near or under the open-jar PAO symbol.",
+        ],
+      },
+      {
+        heading: "How to read it",
+        body: [
+          "Makeup makers such as Estée Lauder (MAC, Bobbi Brown), Coty (Rimmel, Max Factor, Bourjois) and L'Oréal each use their own date format.",
+          "Enter the code with the brand selected on the home page and the checker returns the manufacture date, age and how much shelf life is left.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Where is the batch code on a MAC or Estée Lauder lipstick?",
+        a: "On the base of the bullet case — a short plant-month-year code (e.g. A56). Enter it with the brand selected to decode the manufacture date.",
+      },
+      {
+        q: "Does makeup show an expiry date?",
+        a: "Rarely. Most makeup only carries a batch code plus the open-jar PAO symbol, so the code is how you find out when it was made.",
       },
     ],
   },
