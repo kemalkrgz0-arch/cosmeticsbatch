@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "brands": "Brands",
+    "codeFormats": "Code formats",
     "guides": "Guides",
     "howItWorks": "How it works",
     "about": "About",
@@ -20,6 +21,7 @@
     "batchGuide": "Batch Code Guide",
     "shelfGuide": "Shelf Life Guide",
     "allBrands": "All Brands",
+    "codeFormats": "Batch code formats",
     "allGuides": "All Guides",
     "rights": "© {year} {name}. All rights reserved. Estimates are informational only and not a guarantee of product safety.",
     "contact": "Contact"

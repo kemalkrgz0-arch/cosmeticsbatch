@@ -9,6 +9,7 @@ export function SiteHeader() {
   const nav = [
     { href: "/", label: t("home") },
     { href: "/brands", label: t("brands") },
+    { href: "/decoders", label: t("codeFormats") },
     { href: "/guides", label: t("guides") },
     { href: "/#how-it-works", label: t("howItWorks") },
     { href: "/about", label: t("about") },

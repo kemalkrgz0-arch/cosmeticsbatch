@@ -24,6 +24,7 @@ export function SiteFooter() {
         { label: t("batchGuide"), href: "/guides/what-is-a-batch-code" },
         { label: t("shelfGuide"), href: "/guides/cosmetics-shelf-life-guide" },
         { label: t("allBrands"), href: "/brands" },
+        { label: t("codeFormats"), href: "/decoders" },
         { label: t("allGuides"), href: "/guides" },
       ],
     },

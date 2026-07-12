@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { BRANDS } from "@/lib/brands";
+import { DECODER_GUIDES } from "@/lib/decoder-guides";
 import { GUIDES } from "@/lib/guides";
 import { absoluteUrl, site } from "@/lib/site";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
@@ -30,18 +30,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: hreflangAlternates(path) },
   });
 
-  const staticRoutes = ["/", "/brands", "/guides", "/about", "/contact"].map(
-    (path) => entry(path, updated, "weekly", path === "/" ? 1 : 0.8),
-  );
+  const staticRoutes = [
+    "/",
+    "/brands",
+    "/decoders",
+    "/guides",
+    "/about",
+    "/contact",
+  ].map((path) => entry(path, updated, "weekly", path === "/" ? 1 : 0.8));
   const legalRoutes = ["/privacy", "/terms"].map((path) =>
     entry(path, updated, "monthly", 0.3),
   );
-  const brandRoutes = BRANDS.map((b) =>
-    entry(`/brands/${b.slug}`, updated, "monthly", 0.7),
+  // The individual brand pages are deliberately absent: they are generated from
+  // one template per decoder family, so a few hundred of them are near-identical
+  // and are marked noindex (see the brand page's generateMetadata). What is
+  // genuinely unique — the cipher itself — lives in /decoders, and that is what
+  // we ask search engines to index. The brand pages stay crawlable via /brands.
+  const decoderRoutes = DECODER_GUIDES.map((g) =>
+    entry(`/decoders/${g.slug}`, new Date(g.updated), "monthly", 0.9),
   );
   const guideRoutes = GUIDES.map((g) =>
     entry(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6),
   );
 
-  return [...staticRoutes, ...legalRoutes, ...brandRoutes, ...guideRoutes];
+  return [...staticRoutes, ...legalRoutes, ...decoderRoutes, ...guideRoutes];
 }

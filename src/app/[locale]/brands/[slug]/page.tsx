@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { BRANDS, getBrand, POPULAR_BRANDS } from "@/lib/brands";
 import { InlineResult } from "@/components/inline-result";
 import { buildBrandFaqs, brandIntroSections } from "@/lib/brand-faq";
+import { guideForBrand } from "@/lib/decoder-guides";
 import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import {
@@ -37,13 +38,20 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "brandPage" });
   // No `keywords` meta: Google has ignored it since 2009 and it only leaks the
   // exact terms we target to competitors.
-  return pageMeta({
+  const meta = pageMeta({
     title: t("metaTitle", { name: brand.name }),
     description: t("metaDescription", { name: brand.name }),
     path: `/brands/${brand.slug}`,
     type: "article",
     locale,
   });
+  // Brand pages are the tool, not the reference. Every brand sharing a decoder
+  // gets the same generated copy — 200-odd near-identical pages, which is the
+  // definition of scaled, low-value content. The cipher they all describe is
+  // documented once, properly, under /decoders, and that is what we index.
+  // `follow` keeps the link equity flowing to those pages and to the guides.
+  meta.robots = { index: false, follow: true };
+  return meta;
 }
 
 /** A representative example code per decoder family (for unique on-page content). */
@@ -71,6 +79,7 @@ export default async function BrandPage({
 
   const brandFaq = buildBrandFaqs(brand, t);
   const introSections = brandIntroSections(brand, t);
+  const codeGuide = guideForBrand(brand);
   const printGuide = brand.printsDate
     ? GUIDES.find((g) => g.slug === "brands-that-print-the-date")
     : undefined;
@@ -193,6 +202,25 @@ export default async function BrandPage({
         <p className="mt-5 leading-relaxed text-fg-muted">
           {tb("aliasesPara", { name: brand.name, category })}
         </p>
+
+        {/* The cipher itself is a property of the manufacturer, so it is
+            documented once per decoder family rather than restated on every
+            brand that shares it. */}
+        {codeGuide && (
+          <div className="mt-6 rounded-xl border border-border bg-card p-4">
+            <p className="text-sm leading-relaxed text-fg-muted">
+              {brand.name} codes are stamped by {brand.group}, and every brand
+              from the same plants reads the same way. The full format —
+              character by character, with worked examples — is documented here:
+            </p>
+            <Link
+              href={`/decoders/${codeGuide.slug}`}
+              className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-hover"
+            >
+              {codeGuide.title} <ArrowRight className="h-4 w-4 shrink-0" />
+            </Link>
+          </div>
+        )}
       </section>
 
       {/* Where-to-find + storage — visible, category-specific body content
