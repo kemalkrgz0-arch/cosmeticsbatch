@@ -95,10 +95,16 @@ Every batch-code check is appended as one JSON line to
 coarse `cf-ipcountry`). The container is rebuilt on every deploy, so this dir
 **must** be a bind-mounted host volume or the data is lost.
 
-Run the container with a volume + `DATASET_DIR`:
+`deploy.sh` creates the volume, sets its owner and passes `DATASET_DIR`, so a
+normal deploy needs nothing extra. The equivalent by hand:
 
 ```bash
 mkdir -p /opt/cosmeticsbatch-data
+# The container runs as uid 1001 (the unprivileged `nextjs` user). A bind mount
+# keeps the host directory's owner, so a root-owned mount rejects every write —
+# and dataset.ts swallows the error by design, so the only symptom is an empty
+# directory. Own it to the container's uid.
+chown 1001:65533 /opt/cosmeticsbatch-data
 docker run -d --name cosmeticsbatch \
   --network yerelatlas_default --restart unless-stopped \
   -e DATASET_DIR=/data \

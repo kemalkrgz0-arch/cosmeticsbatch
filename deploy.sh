@@ -60,6 +60,17 @@ main() {
   docker rm -f cosmeticsbatch 2>/dev/null || true
   # DATASET_DIR must be a host bind mount: the container is replaced on every
   # deploy, so anything written inside it is lost.
+  #
+  # The container runs as the unprivileged nextjs user (uid 1001, gid 65533 —
+  # see the Dockerfile), and a bind mount keeps the *host* directory's owner. A
+  # root-owned mount therefore silently rejects every write: dataset.ts swallows
+  # the EACCES so a failed log can never break a decode, which is right, but it
+  # also means the only symptom is an empty directory. Own the mount to the
+  # container's uid so that can't happen again.
+  mkdir -p /opt/cosmeticsbatch-data
+  chown 1001:65533 /opt/cosmeticsbatch-data
+  chmod 775 /opt/cosmeticsbatch-data
+
   docker run -d --name cosmeticsbatch \
     --network yerelatlas_default \
     --restart unless-stopped \

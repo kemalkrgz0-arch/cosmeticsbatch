@@ -55,14 +55,29 @@ export function toCheckLog(args: {
   };
 }
 
+/**
+ * Warn once per process when the dataset can't be written. Swallowing the error
+ * is correct — a decode must succeed even if the disk is full or the mount is
+ * read-only — but swallowing it *silently* meant a root-owned bind mount went
+ * unnoticed for days, with an empty directory as the only symptom. One line in
+ * the container log is enough to catch that on the next look.
+ */
+let warned = false;
+
 /** Fire-and-forget append. Never throws. */
 export async function logCheck(entry: CheckLog): Promise<void> {
   try {
     await mkdir(DIR, { recursive: true });
     const file = join(DIR, `checks-${entry.ts.slice(0, 7)}.jsonl`);
     await appendFile(file, JSON.stringify(entry) + "\n", "utf8");
-  } catch {
-    // Logging is best-effort; a decode must succeed even if the disk is full
-    // or the volume is read-only.
+  } catch (err) {
+    if (!warned) {
+      warned = true;
+      console.warn(
+        `[dataset] cannot write to ${DIR} — user checks are not being logged. ` +
+          `In Docker the bind mount must be owned by the container's uid (1001). ` +
+          `Cause: ${err instanceof Error ? err.message : String(err)}`,
+      );
+    }
   }
 }
