@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { INDEXED_BRANDS } from "@/lib/brands";
 import { DECODER_GUIDES } from "@/lib/decoder-guides";
 import { GUIDES } from "@/lib/guides";
 import { absoluteUrl, site } from "@/lib/site";
@@ -41,11 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const legalRoutes = ["/privacy", "/terms"].map((path) =>
     entry(path, updated, "monthly", 0.3),
   );
-  // The individual brand pages are deliberately absent: they are generated from
-  // one template per decoder family, so a few hundred of them are near-identical
-  // and are marked noindex (see the brand page's generateMetadata). What is
-  // genuinely unique — the cipher itself — lives in /decoders, and that is what
-  // we ask search engines to index. The brand pages stay crawlable via /brands.
+  // Only the brands carrying their own editorial material (see brand-detail.ts).
+  // The other ~180 are generated from one template per decoder family, are marked
+  // noindex, and listing a noindex URL here would just spend crawl budget
+  // contradicting ourselves. They stay reachable and crawlable via /brands.
+  const brandRoutes = INDEXED_BRANDS.map((b) =>
+    entry(`/brands/${b.slug}`, updated, "monthly", 0.8),
+  );
   const decoderRoutes = DECODER_GUIDES.map((g) =>
     entry(`/decoders/${g.slug}`, new Date(g.updated), "monthly", 0.9),
   );
@@ -53,5 +56,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6),
   );
 
-  return [...staticRoutes, ...legalRoutes, ...decoderRoutes, ...guideRoutes];
+  return [
+    ...staticRoutes,
+    ...legalRoutes,
+    ...brandRoutes,
+    ...decoderRoutes,
+    ...guideRoutes,
+  ];
 }

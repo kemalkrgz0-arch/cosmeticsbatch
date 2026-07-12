@@ -7,7 +7,8 @@
     "brands": "Merken",
     "home": "Thuis",
     "language": "Taal",
-    "checkNow": "Controleer nu"
+    "checkNow": "Controleer nu",
+    "codeFormats": "Codeformaten"
   },
   "footer": {
     "company": "Bedrijf",
@@ -22,7 +23,8 @@
     "allGuides": "Alle gidsen",
     "terms": "Servicevoorwaarden",
     "rights": "© {year} {name}. Alle rechten voorbehouden. Schattingen zijn uitsluitend informatief en vormen geen garantie voor de productveiligheid.",
-    "contact": "Contact"
+    "contact": "Contact",
+    "codeFormats": "Batchcodeformaten"
   },
   "hero": {
     "trustNoSignup": "Geen aanmelding vereist",
@@ -74,7 +76,9 @@
     "faqTitle": "{name}— Veelgestelde vragen",
     "months": "{n} maanden",
     "aliasesPara": "Je ziet deze tool soms een {name} batchcodedecoder,{name} batchcodecontrole of {name} batchcodecalculator genoemd. Ze doen allemaal hetzelfde: lees de productiecode en vertel je hoe nieuw je {name} {category} is.",
-    "printsDateNote": "{name} drukt de productie- of vervaldatum rechtstreeks op de verpakking, dus je hebt meestal geen batchcode nodig."
+    "printsDateNote": "{name} drukt de productie- of vervaldatum rechtstreeks op de verpakking, dus je hebt meestal geen batchcode nodig.",
+    "exampleHeading": "Een echte{name}-code, gedecodeerd",
+    "whereHeading": "Waar kunt u de code vinden op de{name}-verpakking"
   },
   "faqUi": {
     "title": "Veelgestelde vragen",
@@ -165,7 +169,20 @@
     "confMedium": "Gemiddeld vertrouwen",
     "confHigh": "Hoog vertrouwen",
     "percentLeft": "{n}% over",
-    "invalidBody": "“{code}” komt niet overeen met het batchcodeformaat van {brand}. Controleer of u het precies zo hebt getypt als op de verpakking staat afgedrukt (alleen letters en cijfers, geen spaties) en of het de batchcode is, en niet de streepjescode of een prijs-/marketingreferentie."
+    "invalidBody": "“{code}” komt niet overeen met het batchcodeformaat van {brand}. Controleer of u het precies zo hebt getypt als op de verpakking staat afgedrukt (alleen letters en cijfers, geen spaties) en of het de batchcode is, en niet de streepjescode of een prijs-/marketingreferentie.",
+    "shareCopied": "Gekopieerd!",
+    "shareMade": "{date}gemaakt",
+    "share": "Resultaat delen",
+    "shareTitle": "{name}batchcoderesultaat",
+    "meaningTitle": "Wat betekent dit?",
+    "meaningGood": "Dit product is nog steeds goed en heeft nog voldoende houdbaarheid.",
+    "meaningUseSoon": "Dit product nadert het einde van de houdbaarheidsdatum; gebruik het snel.",
+    "meaningFresh": "Dit product is vers en ruim binnen de houdbaarheidstermijn.",
+    "calendarTitle": "{name}— vervangen door deze datum",
+    "meaningExpired": "Dit product heeft de houdbaarheidsdatum overschreden en is mogelijk niet langer van de beste kwaliteit.",
+    "meaningUnknown": "We konden de versheid van deze code niet inschatten.",
+    "addToCalendar": "Voeg vervaldatum toe aan de kalender",
+    "shareLifeLeft": "{n}% resterende levensduur"
   },
   "howItWorks": {
     "title": "Hoe het werkt",
@@ -192,5 +209,339 @@
     "accurateTitle": "Nauwkeurig en betrouwbaar",
     "privateBody": "Codes worden privé gedecodeerd. Uw privacy staat voorop.",
     "freeBody": "Elke functie is voor altijd 100% gratis."
+  },
+  "whereCode": {
+    "subtitle": "Het is een korte, aparte postzegel; hier verbergt hij zich meestal op verschillende verpakkingen.",
+    "title": "Waar is de batchcode?",
+    "label": {
+      "lipstick": "Lippenstift",
+      "tube": "Buis",
+      "perfume": "Parfum doos"
+    },
+    "alt": {
+      "perfume": "Batchcode gemarkeerd op een parfumdoos",
+      "lipstick": "Batchcode gemarkeerd op een lippenstiftbasis",
+      "tube": "Batchcode gemarkeerd op een cosmetische buiskrimp"
+    },
+    "cardCta": "Waar u de batchcode op een{type}kunt vinden - lees de handleiding",
+    "viewGuide": "Lees de volledige gids"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "faq1q": "Hoe decodeer ik een batchcode van Calvin Klein?",
+      "where1": "Op de onderkant van de doos, en op de sticker onder de fles.",
+      "where2": "Op de vlakkere CK One-flessen kan de code direct op de glazen bodem worden afgedrukt.",
+      "faq1a": "CK-geur wordt vervaardigd door Coty. De code bestaat uit vier cijfers: een jaarcijfer gevolgd door de dag van het jaar. Deel de dag door ongeveer 30,4 om de maand te krijgen: dag 135 valt aan het begin van de vijfde maand, mei.",
+      "faq2q": "Kan de batchcode mij vertellen of mijn CK echt is?",
+      "faq2a": "Het kan een slechte vervalsing opvangen: een onmogelijk dagnummer, of codes die niet overeenkomen tussen doos en fles. Het kan een goede code niet bevestigen, omdat een code die is gekopieerd van een echte fles perfect decodeert."
+    },
+    "carolina-herrera": {
+      "where1": "Op de bodem van de doos en de onderkant van de fles.",
+      "where2": "Op de Good Girl stilettofles staat de code op de zool van de hiel.",
+      "faq1q": "Hoe controleer ik een Carolina Herrera-batchcode?",
+      "faq2q": "Wordt Good Girl vaak nagemaakt?",
+      "faq2a": "Het is een van de meest gekopieerde geuren in Europa. Voer de controles uit die een code niet kan doen: vergelijk de doos- en flescodes, weeg de fles en kijk naar de fijnheid van de spray. Een schone decodering is noodzakelijk, maar lang niet voldoende.",
+      "faq1a": "De geur Carolina Herrera is gemaakt door Puig, die de productiedatum in de code afdrukt – als een jaarcijfer plus de dag van het jaar, of als een verpakte datum zoals 231122 voor 22 november 2023."
+    },
+    "cerave": {
+      "where2": "Pompflessen (SA Cleanser, vochtinbrengende lotion): met inkjetprint op het achterlabel of op de basis.",
+      "where1": "Buizen en reinigingsmiddelen: in de krimp aan het afgedichte uiteinde van de buis gedrukt.",
+      "faq1q": "Hoe controleer ik de houdbaarheid van een CeraVe-product?",
+      "faq2a": "De dermatologische lijnen drukken er vaak één af, en de zonnebrandmiddelen doen dat bijna altijd. Als er een gedrukte datum bestaat, vertrouw daar dan op: het is de eigen garantie van de fabrikant en deze overtreft alles wat een decoder kan inschatten.",
+      "faq2q": "Heeft CeraVe een vervaldatum?",
+      "faq3q": "Hoe weet ik of CeraVe namaak is?",
+      "faq1a": "CeraVe is gemaakt door L'Oréal, dus de code volgt het formaat van de groep: de eerste letter is het productiejaar en het teken erna is de maand. Decodeer het voor de fabricagedatum en reken dan op ongeveer 36 maanden ongeopend. Eenmaal geopend, duurt het open-pot-symbool 12 maanden voor het grootste deel van het assortiment.",
+      "faq3a": "CeraVe wordt op grote schaal nagemaakt op marktplaatsen. De batchcode is een eerste filter – een code die niet past in de vorm van L'Oréal is een slecht teken – maar kan een echt product niet bevestigen, aangezien een echte code op een nepbuis kan worden gekopieerd. Vergelijk de textuur van het plastic, de afdrukkwaliteit van de kleine tekst en koop het bij een apotheek of een geautoriseerde verkoper."
+    },
+    "chanel": {
+      "faq1q": "Heeft Chanel een officieel batchcodesysteem?",
+      "where1": "Geur: lasergeëtst in het glas aan de onderkant van de fles en gedrukt op de onderste flap van de doos. De ets bevat geen inkt. Houd de fles schuin zodat het licht er vanaf de zijkant op valt.",
+      "faq1a": "Nee. Chanel heeft er nog nooit een gepubliceerd, en iedereen die beweert het officiële Chanel-cijfer te kennen, vermoedt. Wat verifieerbaar is, is dat de huidige Chanel-producten een leesbare productiedatum in de code afdrukken, en dat is wat we decoderen – gerapporteerd als een medium-betrouwbare lezing, juist omdat er geen gepubliceerd schema is om dit te controleren.",
+      "where2": "Make-up en huidverzorging: op de bodem van de compact of pot, in zeer kleine grijze letters.",
+      "faq3q": "Hoe controleer ik de houdbaarheid van Chanel foundation?",
+      "faq3a": "Decodeer de code op de basis voor de productiedatum en pas vervolgens het open-pot-symbool toe - meestal 12M voor een vloeibare foundation. Wat het eerst opraakt, de ongeopende houdbaarheid of de maanden sinds je het hebt geopend, is de echte deadline.",
+      "faq2q": "Ik kan geen code vinden op mijn Chanel-fles.",
+      "faq2a": "Het is vrijwel zeker met een laser in de glazen basis geëtst in plaats van gedrukt. De ets is onzichtbaar onder direct licht en verschijnt wanneer er licht overheen schijnt. Draai de fles langzaam onder een lamp, of fotografeer de basis met flits en zoom in op de foto."
+    },
+    "clinique": {
+      "where2": "Make-up: de achterkant van de compact of de onderkant van de behuizing.",
+      "where1": "Huidverzorgingsflessen en -potten: reliëf op de bodem.",
+      "faq1q": "Hoe lees ik een Clinique-batchcode?",
+      "faq2q": "Hoe lang gaat de huidverzorging van Clinique mee?",
+      "faq1a": "Clinique is Estée Lauder, dus het formaat is plant, maand, jaar in drie tekens – lees vanaf de rechterkant. Het laatste teken is het jaartal; die ervoor is de maand, waarbij A, B en C staan ​​voor oktober, november en december.",
+      "faq2a": "Ongeveer 36 maanden ongeopend vanaf de productiedatum en 12 maanden na opening voor het grootste deel van het assortiment. Het open-pot-symbool op de verpakking is het nummer dat bindend is zodra u de verzegeling verbreekt."
+    },
+    "creed": {
+      "where1": "Op de onderkant van de fles en op de onderkant van de doos – meestal in zwart gedrukt op de witte basissticker.",
+      "faq1q": "Hoe lees ik een Creed-batchcode?",
+      "where2": "Op de oudere, zwaardere flacons kan de code worden gestempeld in plaats van afgedrukt; richt hem tegen het licht.",
+      "faq3q": "Betekent een ouder geloof een beter geloof?",
+      "faq2q": "Kan de code mij vertellen of mijn Groene Ierse Tweed echt is?",
+      "faq1a": "Alleen de eerste letter doet ertoe. Het codeert het productiejaar, geteld vanaf A = 2010 en I en O overgeslagen: N = 2022, P = 2023, Q = 2024, R = 2025. Alles daarna is een interne batchreeks. Creed codeert de maand niet, dus de code geeft je een jaar en niets fijners.",
+      "faq2a": "Gedeeltelijk. Creed is een van de meest nagemaakte parfumhuizen, en een eerste letter die helemaal niet in de cyclus voorkomt, is een duidelijke aanwijzing. Maar een gekopieerde code wordt netjes gedecodeerd, dus een geldige code is geen bewijs: weeg de fles, kijk naar de spray en de bedrukking van de doos en koop bij een geautoriseerde detailhandelaar.",
+      "faq3a": "Voor de zwaardere, harsachtige composities kan een oudere fles echt de voorkeur verdienen, omdat herformuleringen verschillende klassiekers hebben veranderd – en de batchcode de enige manier is om vast te stellen welke formule je koopt. Voor de lichtere, door citrus geleide Creeds is leeftijd vooral oxidatie en helemaal geen voordeel."
+    },
+    "dior": {
+      "where1": "Geur: op de onderkant van de buitendoos en op de onderkant van de fles - een kleine gedrukte sticker, of met een laser geëtst in het glas van de grotere flessen.",
+      "where2": "Make-up: op de basis van de compact, de onderkant van het lippenstiftdoosje of de krimp van een tube.",
+      "faq1q": "Hoe controleer ik of mijn Dior-parfum echt is?",
+      "where3": "Huidverzorging: gestempeld op de bodem van de pot, naast het open-pot-symbool.",
+      "faq2q": "Hoe ziet een Dior-batchcode eruit?",
+      "faq3q": "Waar staat de batchcode op de Dior-lippenstift?",
+      "faq3a": "Op de platte bodem van de behuizing. Draai de kogel eerst volledig naar beneden - de code is in de basis gestempeld en is gemakkelijk te missen door de metalen afwerking.",
+      "faq1a": "Begin met de codes: die op de doos en die op de fles moeten overeenkomen, omdat beide minuten na elkaar op dezelfde afvullijn worden aangebracht. Decodeer vervolgens: een onmogelijk dagnummer, of een datum vóór de lancering van de geur, is een echte waarschuwing. Maar begrijp de limiet: een vervalser die een echte code kopieert, produceert een code die perfect decodeert. De batchcode kan een vervalsing blootleggen; het kan een echte niet certificeren.",
+      "faq2a": "Meestal vier cijfers, zoals 3245. Dior gebruikt geen geheim cijfer; net als de andere LVMH-huizen drukt het de productiedatum in de code af, als een jaarcijfer gevolgd door de dag van het jaar. Sommige codes hebben in plaats daarvan een langere datum van 5 of 6 cijfers."
+    },
+    "dunhill": {
+      "where1": "Op de bodem van de doos en de onderkant van de fles, in zwart gedrukt op de witte basissticker.",
+      "faq1q": "Hoe lees ik een Dunhill-batchcode?",
+      "faq1a": "De Dunhill-geur wordt onder licentie gemaakt door Inter Parfums. De eerste letter is het productiejaar – een cyclus waarbij I en O worden overgeslagen, dus J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – en de laatste drie cijfers zijn de dag van dat jaar.",
+      "faq2q": "Hoe controleer ik of een Dunhill-geur authentiek is?",
+      "faq2a": "Vergelijk de doos- en flescodes en decodeer vervolgens. Een jaarletter buiten de cyclus, of codes die het daar niet mee eens zijn, zijn echte waarschuwingen. Een schone decodering is geen bewijs; gekopieerde codes worden ook gedecodeerd."
+    },
+    "estee-lauder": {
+      "where1": "Huidverzorging: in reliëf aangebracht op de bodem van de pot of fles – in het materiaal gedrukt, zodat er een harklicht nodig is in plaats van een direct licht.",
+      "faq3q": "Gebruiken Clinique, MAC en La Mer dezelfde code?",
+      "faq1q": "Hoe lees ik een batchcode van Estée Lauder?",
+      "faq2q": "Hoe controleer ik de houdbaarheid als ik de doos heb weggegooid?",
+      "where2": "Geur en make-up: op de bodem van de doos en op de onderkant van het product.",
+      "faq2a": "De code staat op het product zelf, niet alleen op de doos – op de bodem van de pot of fles, meestal in reliëf. Decodeer het voor de productiedatum en pas vervolgens het open-pot-symbool toe vanaf de dag waarop u het opende. Welke deadline het eerst komt, is de echte.",
+      "faq3a": "Ja, dezelfde planten en hetzelfde plant-maand-jaarformaat. Alleen de plantletter verschilt en bevat geen datuminformatie.",
+      "faq1a": "Lees het van rechts, niet van links. Het laatste teken is het jaartal; die ervoor is de maand (1–9 voor januari tot september, daarna A, B en C voor oktober, november en december); alles links is de plant. Dus in EA4 is de plant E, de maand is A (oktober) en het jaar eindigt op 4. Van links naar rechts lezen is de meest voorkomende fout bij deze codes."
+    },
+    "fenty-beauty": {
+      "where1": "Foundation- en vloeibare producten: gedrukt op de onderkant van de fles, of waar het etiket om de achterkant wikkelt.",
+      "faq1q": "Hoe controleer ik of Fenty Beauty authentiek is?",
+      "where2": "Compacts, poeders en glans: op de achterkant van de behuizing of op de onderkant van de tube.",
+      "faq1a": "Decodeer de batchcode — Fenty is een merk van LVMH en drukt een productiedatum in de code af. Een code die een onmogelijke datum of helemaal geen datum oplevert, is een waarschuwing. Maar een gekopieerde code wordt netjes gedecodeerd, dus gebruik deze naast de gebruikelijke controles: afdrukkwaliteit op de verpakking, het gevoel van de applicator en rechtstreeks kopen bij Sephora of Fenty.",
+      "faq2a": "Niet noodzakelijkerwijs: een streepjescode die niet kan worden gescand, is meestal een afdruk- of belichtingsprobleem, en in ieder geval bevat de streepjescode geen datum en geen authenticiteitsinformatie. Het is de batchcode, de korte onregelmatige stempel, die aangeeft wanneer het product is gemaakt.",
+      "faq3q": "Hoe lang gaat Fenty-foundation mee?",
+      "faq3a": "Ongeveer 12 maanden na opening en ongeveer 36 maanden ongeopend vanaf de productiedatum. Wat het eerst komt, is de deadline.",
+      "faq2q": "De streepjescode op mijn Fenty-product kan niet worden gescand. Is het nep?"
+    },
+    "garnier": {
+      "where1": "Serums en dagcrèmes: op de bodem van het flesje of op de rand van de tube.",
+      "faq1q": "Waar vind ik de houdbaarheidsdatum op een Garnier-crème of -serum?",
+      "where3": "Sachets en maskers voor eenmalig gebruik: op de achterkant van het sachet, in zeer kleine letters nabij de naad.",
+      "where2": "SPF en Ambre Solaire: gedrukt op het achterlabel, meestal ook met een expliciete vervaldatum.",
+      "faq2q": "Waar staat de datum op de zonnebrandcrème van Garnier?",
+      "faq3q": "Hoe weet ik dat mijn Garnier-product echt is?",
+      "faq3a": "Controleer of de code past in het formaat van L'Oréal (Garnier is een merk van L'Oréal) en of deze wordt gedecodeerd naar een plausibele datum. Dat sluit grove vervalsingen uit. Het kan een goede code niet uitsluiten, omdat een gekopieerde code perfect decodeert.",
+      "faq2a": "Zonbescherming is de uitzondering; normaal gesproken staat er een gedrukte vervaldatum op, omdat de SPF-claim een ​​veiligheidsclaim is. Gebruik de afgedrukte datum in plaats van een gedecodeerde datum, en vervang elke fles die een zomer in de hitte heeft doorgebracht.",
+      "faq1a": "Garnier drukt er zelden één af. De korte code op de krimpkous of flesbasis is de batchcode en bevat de fabricagedatum: de eerste letter is het jaar, het teken erna is de maand. Tel ongeveer 36 maanden vooruit voor een ongeopend product en gebruik het open-pot-symbool zodra het is geopend."
+    },
+    "giorgio-armani-beauty": {
+      "where1": "Geur (Acqua di Giò, Armani Code): op de onderkant van de doos en de basissticker van de fles.",
+      "where2": "Make-up: op de onderkant van de behuizing of de achterkant van de compact.",
+      "faq2a": "Drie tot vijf jaar is normaal voor een eau de toilette, langer voor de eau de parfum. Geur is de meest vergevingsgezinde categorie die er is, op voorwaarde dat de fles uit licht en hitte wordt gehouden.",
+      "faq1q": "Hoe decodeer ik een Armani Code-batchnummer?",
+      "faq2q": "Hoe lang gaat Acqua di Giò ongeopend mee?",
+      "faq1a": "De Armani-geur is gemaakt door L'Oréal, dus de code volgt het formaat van de groep: de eerste letter is het productiejaar, het teken erna is de maand. (De geur genaamd Armani Code en de batchcode die op de doos is gestempeld, zijn niet-verwante dingen die helaas één woord gemeen hebben.)"
+    },
+    "guerlain": {
+      "where1": "Geur: op de bodem van de doos en op de onderkant van de fles – vaak gedrukt op een kleine sticker.",
+      "where2": "Make-up en huidverzorging: gestempeld op de bodem van de compact of pot.",
+      "faq1q": "Hoe controleer ik de productiedatum van een Guerlain-geur?",
+      "faq1a": "Guerlain is een LVMH-huis en drukt de productiedatum in de batchcode af – meestal een jaarcijfer gevolgd door de dag van het jaar. Decodeer het voor de productiedatum en reken vervolgens op een ongeopend leven van drie tot vijf jaar voor een eau de parfum dat uit licht en hitte wordt gehouden.",
+      "faq2q": "Mijn oude Guerlain-code kan niet worden gedecodeerd.",
+      "faq2a": "Oudere en regiospecifieke codes zijn soms interne alfanumerieke verwijzingen zonder datum. Die kunnen door niemand worden gedecodeerd. Beoordeel de fles op basis van de staat ervan en de geur van het sap."
+    },
+    "hugo-boss": {
+      "where1": "Op de onderkant van de buitendoos en op de doorzichtige sticker onder de fles.",
+      "where2": "De twee codes moeten overeenkomen; ze worden minuten na elkaar op dezelfde regel afgedrukt.",
+      "faq2a": "Het betekent dat de doos en de fles ergens anders dan in de fabriek zijn gekoppeld. Dat gebeurt met vervalsingen, maar ook met legitiem herverpakte, geretourneerde of grijze marktvoorraden. Hoe dan ook, de koppeling die u vasthoudt, is niet de koppeling die door de fabriek is verzonden.",
+      "faq1q": "Hoe controleer ik de batchcode van een Hugo Boss-geur?",
+      "faq2q": "De doos- en flescodes zijn verschillend. Is het nep?",
+      "faq1a": "Hugo Boss-geur is gemaakt door Coty, die een viercijferige code gebruikt: het eerste cijfer is het laatste cijfer van het productiejaar en de overige drie zijn de dag van dat jaar. 4135 is dus de 135e dag van 2024 — 14 mei 2024."
+    },
+    "jean-paul-gaultier": {
+      "where2": "Bij de edities met metalen behuizing staat de code vaak alleen op de doos, of vaag in de bodem van het blik gestempeld.",
+      "where1": "Op de bodem van de doos en op de onderkant van de torsovormige fles.",
+      "faq1a": "JPG-geur wordt vervaardigd door Puig, die de productiedatum in de code afdrukt. Vier cijfers betekent een jaarcijfer plus de dag van het jaar; vijf betekent twee jaarcijfers plus de dag; zes is een drukke kalenderdatum.",
+      "faq1q": "Hoe lees ik een batchcode van Jean Paul Gaultier?",
+      "faq2a": "Op de edities met metalen omhulsels staat de code vaak alleen op de doos, of zo vaag in de basis gestempeld dat er heel licht nodig is om ze te kunnen zien. Controleer eerst de doos - en als u beide heeft, controleer dan of ze overeenkomen.",
+      "faq2q": "Er staat geen code op mijn Le Male-fles."
+    },
+    "kenzo-parfums": {
+      "where1": "Op de onderkant van de buitendoos en op de onderkant van de fles – gedrukt op de basissticker of in het glas gestempeld.",
+      "faq2q": "Herhaalden Kenzo-codes zich elke tien jaar?",
+      "faq1a": "Kenzo Parfums is een LVMH-huis en LVMH drukt de productiedatum in de code af in plaats van deze te coderen. Vier cijfers betekent een jaarcijfer plus de dag van het jaar; vijf of zes cijfers is een vollere datum. Selecteer Kenzo in de checker en de juiste meting wordt toegepast.",
+      "where2": "Bij de Kenzo World- en Flower-flessen kan de code op de platte onderkant zitten waar het etiket onder vouwt.",
+      "faq1q": "Hoe controleer ik een Kenzo-geur op basis van de batchcode?",
+      "faq3q": "Kan de code bewijzen dat een Kenzo-geur authentiek is?",
+      "faq3a": "Het kan een nep betrappen: een onmogelijke dag, of een mismatch tussen de dooscode en de flescode, die geen echte afvullijn produceert. Het kan een echte code niet certificeren, omdat een gekopieerde code netjes wordt gedecodeerd.",
+      "faq2a": "Ja, en dit is eerder een echte beperking dan een gril. Een viercijferige code bevat slechts één cijfer voor het jaartal, dus 4135 is 14 mei 2024 op precies hetzelfde bewijsmateriaal dat het 14 mei 2014 maakt. De decoder gaat uit van de recente lezing; als de fles en de verpakking eruitzien alsof ze uit een vroeger tijdperk behoren, is dat waarschijnlijk ook zo."
+    },
+    "kerastase": {
+      "where1": "Flessen en maskers: met inkjetprint op de achterkant van de fles, vlakbij de basis, of gestempeld op de bodem van de pot.",
+      "where2": "Buizen en reisformaten: in de krimp gedrukt.",
+      "faq2q": "Hoe controleer ik of een Kérastase-product authentiek is?",
+      "faq1q": "Hoe vind ik de houdbaarheid van een Kérastase-masker?",
+      "faq1a": "Kérastase is L'Oréal Professionnel en draagt ​​dus de code van de groep: de eerste letter is het jaar, het teken erna is de maand. Een ongeopend masker is vanaf die datum doorgaans ongeveer 30-36 maanden houdbaar; eenmaal geopend is het open-pot-symbool van toepassing – meestal 12M.",
+      "faq3q": "Het product is in het buitenland gekocht – verandert de houdbaarheid?",
+      "faq2a": "Kérastase is een veelvoorkomend doelwit voor vervalsingen en voor omgeleide salonvoorraad. Decodeer de code: deze moet in het formaat van L'Oréal passen en een plausibele datum opleveren. Er wordt geen gekopieerde code opgevangen, dus kijk ook naar de kwaliteit van de bedrukking, het gewicht en de afwerking van de pet en of de verkoper een geautoriseerde salon of detailhandelaar is.",
+      "faq3a": "Nee. De houdbaarheid van de formule is een eigenschap van het product, niet van de markt. Wat wel verandert met een warm klimaat is hoe snel het daadwerkelijk afbreekt: hitte verkort het leven in de echte wereld ruim onder het gedrukte leven."
+    },
+    "kiehls": {
+      "where2": "Tubes en oogcrèmes: in de krimp geperst.",
+      "where1": "Potten en flessen: gestempeld op de bodem, vaak in reliëf in plaats van bedrukt – kantel het onder een lamp.",
+      "faq1q": "Hoe controleer ik de houdbaarheid van Kiehl's oogcrème?",
+      "faq2a": "Het is meestal in reliëf in de basis aangebracht in plaats van geïnkt. In reliëf gemaakte codes verdwijnen onder direct licht en verschijnen wanneer licht er vanaf de zijkant overheen schijnt - draai de pot langzaam tegen een lamp.",
+      "faq1a": "Decodeer de code op de basis: Kiehl's is L'Oréal, dus de eerste letter is het jaar en het teken erna de maand. Ongeopend, reken op ongeveer 36 maanden; eenmaal geopend, het open-pot-symbool – meestal 12M voor een oogcrème, wat het nummer is dat als eerste bindt.",
+      "faq2q": "De code op mijn Kiehl's pot is onzichtbaar."
+    },
+    "la-roche-posay": {
+      "faq1q": "Waar is de vervaldatum van La Roche-Posay?",
+      "where1": "Buizen: aan het afgedichte uiteinde in de krimp gedrukt.",
+      "where2": "Flessen en Anthelios-zonnebrandcrème: gedrukt op het achteretiket, meestal samen met een echte vervaldatum.",
+      "faq2q": "Hoe lang gaat Anthelios-zonnebrandcrème mee?",
+      "faq3q": "Is mijn La Roche-Posay echt?",
+      "faq1a": "De apotheeklijnen drukken meestal een echte vervaldatum op de doos of de tube - gebruik deze. De korte code ernaast is de batchcode en bevat in plaats daarvan de fabricagedatum: de eerste letter is het jaar, het teken erna is de maand.",
+      "faq2a": "Tot drie jaar ongeopend als het koel wordt bewaard, en ongeveer 12 maanden na opening. Zonnebrandcrème is het enige product waarbij de gedrukte datum er echt toe doet, omdat slechte filters minder bescherming bieden dan het etiket belooft.",
+      "faq3a": "Een code die past in het formaat van L'Oréal en decodeert naar een plausibele datum sluit grove vervalsingen uit. Het kan een goede niet certificeren. Apotheekaankoop blijft de sterkste garantie voor dit assortiment."
+    },
+    "lancome": {
+      "where2": "Huidverzorging en foundation: reliëf of gedrukt op de bodem van de pot, de tube-krimp of de fles.",
+      "where1": "Geur: op de bodem van de doos en op de onderkant van de fles.",
+      "faq2a": "Ongeveer drie jaar na productie, minder voor producten die zijn gebouwd op onstabiele actieve stoffen. Decodeer voordat u bij een discounter koopt: de oude voorraad is echt, maar kan nog heel weinig ongeopend leven hebben.",
+      "faq1q": "Hoe lees ik een Lancôme-batchcode?",
+      "faq2q": "Hoe lang gaat ongeopende Lancôme huidverzorging mee?",
+      "faq1a": "Lancôme is L'Oréal: de eerste letter is het productiejaar (V wordt overgeslagen, dus U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) en het teken direct erna is de maand, waarbij O, N en D staan ​​voor oktober, november en december."
+    },
+    "loreal": {
+      "where1": "Overal waar de producten van de groep worden gestempeld: krimpkousen, flessenbodems, potbodems en kartonnen flappen.",
+      "where2": "Gebruik deze pagina als een submerk niet afzonderlijk wordt vermeld: de hele groep deelt één codeformaat.",
+      "faq2a": "Meestal zes tekens, zoals 40X200: fabriekscijfers, dan de jaarletter, dan het maandteken en dan een batchreeks. De jaarletter en het teken erna zijn de enige onderdelen die een datum dragen.",
+      "faq1a": "Allemaal: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm en de rest. Ze komen van dezelfde planten en hebben dus hetzelfde formaat.",
+      "faq3a": "Dan is het niet dit formaat. Sommige onlangs overgenomen merken, en sommige regionale contractfabrikanten, drukken in plaats daarvan een gewone Juliaanse datum af; de controleur valt terug op het lezen van een datum die in de cijfers is ingebed.",
+      "faq3q": "Mijn code bevat geen letter.",
+      "faq1q": "Welke merken delen de batchcode van L'Oréal?",
+      "faq2q": "Hoe ziet een L'Oréal-code eruit?"
+    },
+    "loreal-paris": {
+      "faq1q": "Hoe controleer ik de houdbaarheid van een L'Oréal Paris crème?",
+      "where1": "Crèmes en potjes: gestempeld op de bodem van het potje, of op de onderkant van het deksel.",
+      "faq2a": "Het wordt niet als datum afgedrukt; het is gecodeerd in de batchcode, de korte, onregelmatige stempel op de krimp, de basis of het achterlabel. Het lange nummer onder de streepjescodestrepen is de EAN en bevat helemaal geen datum.",
+      "where3": "Flessen (shampoo, serum, foundation): met inkjetprint op het achterlabel of de basis.",
+      "where2": "Buizen: aan het afgedichte uiteinde in de krimp gedrukt.",
+      "faq2q": "Waar staat de productiedatum op de producten van L'Oréal?",
+      "faq1a": "Er staat geen vervaldatum op de pot; wat wordt afgedrukt is een batchcode met de productiedatum. Lees de eerste letter als het jaartal (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V wordt overgeslagen) en het teken erna als de maand. Vanaf die datum is een ongeopende crème doorgaans ongeveer 36 maanden houdbaar, en het open-pot-symbool geeft aan hoe lang de crème meegaat zodra u hem gaat gebruiken.",
+      "faq3q": "Hoe kan ik controleren of een L'Oréal-product authentiek is?",
+      "faq3a": "Decodeer de code en kijk of deze überhaupt in het formaat van L'Oréal past; een code zonder jaarletter, of een decodering tot een onmogelijke datum, is een echt waarschuwingssignaal. Maar een gekopieerde code wordt netjes gedecodeerd, dus deze test kan een nepcode detecteren en een echte code niet certificeren. Vergelijk de afdrukkwaliteit van de kleine tekst op de verpakking en koop bij een geautoriseerde detailhandelaar."
+    },
+    "mac-cosmetics": {
+      "faq1q": "Hoe controleer ik de vervaldatum van MAC foundation?",
+      "where1": "Lippenstift: in de platte onderkant van de kogelhuls gestempeld. Draai de kogel volledig naar beneden zodat de behuizing plat ligt.",
+      "where3": "Foundationflessen: op de basis, of waar het etiket om de achterkant wikkelt.",
+      "faq2q": "Hoe ziet een MAC-batchcode eruit?",
+      "where2": "Compacts, blushes en paletten: op de achterkant van de doos – en op sommige producten die op de metalen pan zijn gedrukt, alleen zichtbaar als het poeder is opgebruikt.",
+      "faq1a": "MAC drukt geen vervaldatum af; bijna geen make-up doet dat. Er wordt een batchcode van drie tekens afgedrukt, die de plant, de maand en het jaar aangeeft. Decodeer dat voor de productiedatum en pas vervolgens het open-pot-symbool toe: vloeibare foundation is doorgaans zes tot twaalf maanden houdbaar na opening, en ongeveer 36 maanden ongeopend. De eerdere deadline wint.",
+      "faq3q": "Hoe weet ik of mijn MAC-lipstick echt is?",
+      "faq3a": "De code moet uit drie of vier tekens bestaan ​​en worden gedecodeerd tot een plausibele datum; een code die niet in die vorm past, is een waarschuwing. Maar een gekopieerde code decodeert perfect, dus beoordeel ook het gewicht van de behuizing, de klik van de sluiting en de afdruk van de kleine tekst – en koop bij een geautoriseerde balie.",
+      "faq2a": "Drie tekens, zoals B23. MAC behoort tot de Estée Lauder-groep, dus het laatste teken is het jaarcijfer en het middelste teken is de maand – waarbij A, B en C oktober, november en december betekenen."
+    },
+    "maybelline": {
+      "where1": "Mascara: gedrukt op de onderkant van de tube, of verticaal waar het label omheen wikkelt.",
+      "where2": "Foundationflessen: op de basis of op het achterlabel.",
+      "where3": "Paletten en compacts: op de achterkant van de doos.",
+      "faq1q": "Hoe oud is mijn Maybelline-mascara?",
+      "faq2q": "Waar is de batchcode op Maybelline-producten?",
+      "faq2a": "Op de onderkant van de tube of fles, of op de achterkant van een palet. Het is de korte onregelmatige code – niet het lange streepjescodenummer.",
+      "faq1a": "Decodeer de code op de basis — Maybelline gebruikt het formaat van L'Oréal, waarbij de eerste letter het jaar is en het volgende teken de maand. Maar voor mascara is de productiedatum zelden bindend: de klok van drie tot zes maanden die begint op de dag dat je de tube opent, loopt bijna altijd als eerste leeg."
+    },
+    "montblanc": {
+      "faq1q": "Hoe controleer ik een Montblanc Legend aan de hand van de code?",
+      "where1": "Op de onderkant van de doos en op de onderkant van de fles – in zwart gedrukt op de witte basissticker.",
+      "where2": "Montblanc-codes behoren tot de gemakkelijkere geurcodes om zonder vergrootglas te lezen.",
+      "faq2q": "Is er een serienummer dat ik kan opzoeken?",
+      "faq3q": "De laatste drie cijfers leveren een vreemde datum op.",
+      "faq3a": "Bij een minderheid van de codes van Inter Parfums zijn deze cijfers een fabrieksregel in plaats van een dag. Als de datum voor de fles onwaarschijnlijk lijkt, vertrouw dan op de jaarletter en beschouw de dag als een schatting.",
+      "faq2a": "Nee. Een batchcode identificeert een productierun, niet een individuele fles, en er is geen openbare database waarin je dit kunt opzoeken. Wat het je oplevert is de datum – en dat is het nuttige deel.",
+      "faq1a": "De Montblanc-geur wordt onder licentie gemaakt door Inter Parfums. De eerste letter in de code is het productiejaar, volgens een cyclus die I en O overslaat – J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – en de laatste drie cijfers zijn de dag van dat jaar."
+    },
+    "nivea": {
+      "where1": "Buizen (handcrème, gezichtswasmiddel): in de krimp gestempeld – het platte afgedichte uiteinde tegenover de dop.",
+      "faq2q": "Heeft NIVEA-zonnecrème een houdbaarheidsdatum?",
+      "where2": "Het klassieke blauwe crèmeblikje: in de metalen basis gedrukt, zonder enige inkt. Kantel het onder een lamp; een recht gericht licht laat het verdwijnen.",
+      "faq1q": "Hoe vind ik de productiedatum op NIVEA-producten?",
+      "where3": "Flessen en zonbescherming: met inkjetprint op het achteretiket of op de schouder van de fles.",
+      "faq3q": "Er is geen code zichtbaar op mijn NIVEA-blikje.",
+      "faq2a": "Zonbescherming heeft normaal gesproken een gedrukte vervaldatum, omdat de SPF-claim wordt behandeld als een veiligheidsclaim. Gebruik de afgedrukte datum in plaats van een gedecodeerde schatting – en behandel een fles die een zomer in een hete auto heeft doorgebracht als opgebruikt, ongeacht wat de datum zegt.",
+      "faq1a": "NIVEA (Beiersdorf) codeert de productieweek in plaats van de dag. Het eerste cijfer van de code is het laatste cijfer van het jaar en de volgende twee zijn het weeknummer. Een code die begint met 815 is dus week 15 van een jaar dat eindigt op 8. Dat betekent dat de code binnen zeven dagen valt, wat voldoende is voor een bodylotion.",
+      "faq3a": "Het is in reliëf in de metalen basis aangebracht in plaats van gedrukt, waardoor het bijna onzichtbaar is onder direct licht. Houd het blik zo vast dat een lamp de basis vanaf de zijkant opvangt en de karakters verschijnen."
+    },
+    "paco-rabanne": {
+      "where1": "Op de bodem van de doos, en op de onderkant van de fles. Op de zwaardere flessen – de 1 Million-baar, de Invictus-trofee – wordt de code vaak in het metaal of glas gestempeld in plaats van op een sticker gedrukt.",
+      "where2": "Kantel de fles zo dat licht de stempel vanaf de zijkant opvangt; een direct licht laat het verdwijnen.",
+      "faq2q": "Kan de code bewijzen dat mijn Paco Rabanne echt is?",
+      "faq1q": "Hoe decodeer ik een Invictus- of 1 Million-batchcode?",
+      "faq3q": "Is Rabanne hetzelfde merk als Paco Rabanne?",
+      "faq3a": "Ja, het huis heeft in 2023 'Paco' uit zijn naam geschrapt. Oudere voorraad draagt ​​de vorige merknaam en het codeformaat is niet veranderd.",
+      "faq1a": "Paco Rabanne is gemaakt door Puig, die de productiedatum in de code afdrukt in plaats van deze te coderen. De gebruikelijke vorm is vier cijfers: het eerste is het laatste cijfer van het jaar, de overige drie zijn de dag van dat jaar – dus 4135 is de 135e dag van 2024, 14 mei 2024.",
+      "faq2a": "Het kan een nep herkennen en kan een echte niet certificeren. Paco Rabanne behoort tot de meest nagemaakte geuren in Europa: een onmogelijk dagnummer, of codes die niet overeenkomen tussen doos en fles, zijn sterke waarschuwingen – maar een code gekopieerd van een echte fles decodeert perfect. Weeg de fles en controleer ook het spuitpatroon."
+    },
+    "redken": {
+      "where1": "Flessen: met inkjetprint op het achteretiket of de onderkant van de fles.",
+      "faq1q": "Hoe controleer ik de houdbaarheid van een Redken-product?",
+      "faq1a": "Redken is een merk van L'Oréal en gebruikt het format van de groep: de eerste letter is het productiejaar, het teken erna is de maand. Haarverzorging is doorgaans ongeveer 36 maanden houdbaar ongeopend en 12 maanden na opening.",
+      "faq2a": "Nee. De streepjescode is de EAN: deze identificeert het product dat te koop is en is op elke fles identiek. Alleen de batchcode, de korte onregelmatige stempel, is voorzien van een datum.",
+      "where2": "Poeders en spuitbussen: gestempeld op de bodem van het blik.",
+      "faq2q": "Vertelt de barcode mij de houdbaarheidsdatum?"
+    },
+    "roberto-cavalli": {
+      "where2": "Zoek naar een korte code van vier cijfers; het langere nummer onder de streepjescodestrepen is het niet.",
+      "where1": "Op de bodem van de doos en de bodem van de fles – gedrukt, of op de zwaardere flacons die in het glas zijn gestempeld.",
+      "faq2q": "Waar staat het serienummer op een Roberto Cavalli-fles?",
+      "faq1q": "Hoe controleer ik het parfum van Roberto Cavalli op echtheid?",
+      "faq2a": "Er is er niet één in de zin van een unieke serienummer per fles. Wat wordt afgedrukt is een batchcode – gedeeld door elke eenheid uit dezelfde productierun – en deze codeert de datum, niet een identiteit.",
+      "faq1a": "De Cavalli-geur is gemaakt door Coty, dus de code is een viercijferige productiedatum: een jaarcijfer plus de dag van het jaar. Vergelijk eerst de code op de doos met de code op de fles: een mismatch is het sterkste signaal dat beschikbaar is voor een koper. Decodeer het vervolgens; een onmogelijke dag is duidelijk nep. Een code die netjes decodeert, is echter geen bewijs van authenticiteit; gekopieerde codes decoderen ook."
+    },
+    "tom-ford-beauty": {
+      "where1": "Geur: op de onderkant van de doos en geëtst of gedrukt op de onderkant van de fles.",
+      "where2": "Foundation- en oogschaduwpaletten: gestempeld op de basis van de compact of het flesje.",
+      "faq2q": "Hoe dateer ik een Tom Ford oogschaduwpalet?",
+      "faq1q": "Hoe controleer ik een Tom Ford-batchcode?",
+      "faq2a": "De code bevindt zich op de basis van de compact. Decodeer het voor de fabricagedatum; een geperst poeder is na opening ongeveer 24 maanden houdbaar en ongeopend aanzienlijk langer, omdat een droge formule bacteriën vrijwel niets geeft om in te groeien.",
+      "faq1a": "Tom Ford Beauty wordt vervaardigd door de Estée Lauder-groep en gebruikt daarom de code van drie tekens van de groep: plant, maand, jaar - gelezen vanaf de rechterkant. De maand is 1 t/m 9 voor januari tot en met september, daarna A, B en C voor oktober tot en met december.",
+      "faq3q": "Is de batchcode een bewijs van authenticiteit?",
+      "faq3a": "Nee. Het kan een grove namaak blootleggen – een code die niet in het formaat past, of decodeert naar een onmogelijke maand – maar een gekopieerde code decodeert netjes. De geur van Tom Ford wordt zwaar nagemaakt; weeg de fles, controleer de verstuiver en koop deze bij een erkende detailhandelaar."
+    },
+    "too-faced": {
+      "where1": "Paletten en compacts: op de achterkant van de doos, soms onder de plastic bak.",
+      "where2": "Vloeibare producten: op de bodem van de fles of op de buiskrimp.",
+      "faq1q": "Hoe controleer ik de batchcode van een Too Faced-palet?",
+      "faq1a": "Too Faced behoort tot de Estée Lauder-groep, dus de code bestaat uit drie tekens: plant, maand, jaar, gelezen vanaf de rechterkant. Als de code op uw palet niet bij die vorm past, is het mogelijk een fabriekslijnmarkering in plaats van de batchcode.",
+      "faq2q": "Mijn Too Faced-code kan niet worden gedecodeerd.",
+      "faq2a": "Sommige codes op Too Faced-verpakkingen zijn interne lijnmarkeringen, geen datumcodes, en er zit niets in om te decoderen. Controleer de onderkant en de achterkant van de behuizing voor een tweede, kortere code - en als die er echt niet is, is het open-jar-symbool uw beste gids."
+    },
+    "vichy": {
+      "where1": "Buizen en Capital Soleil-zonnebrandcrème: in de krimp gedrukt - het platte afgedichte uiteinde tegenover de dop.",
+      "where3": "Dozen: op een eindflap, meestal naast het open-pot-symbool. Monsters en sachets bevatten vaak helemaal geen code; alleen de doos waarin ze zijn geleverd, wel.",
+      "faq1q": "Wat is de houdbaarheidsdatum op Vichy-producten?",
+      "where2": "Flessen en pompen (Mineral 89, Liftactiv): met inkjetprint op de basis of op het achterlabel naast de streepjescode.",
+      "faq2q": "Hoe lees ik de code op een Vichy-product?",
+      "faq1a": "De meeste Vichy-producten hebben er geen. Apotheeklijnen hebben vaak een echte houdbaarheidsdatum, en waar die bestaat, overtreft deze elke gedecodeerde schatting - maar als alles wat je kunt vinden een korte code is, is dat de batchcode, en deze bevat de productiedatum in plaats van de vervaldatum. Decodeer het en voeg vervolgens de houdbaarheid toe: ongeveer 36 maanden ongeopend voor huidverzorging, en volg het open-pot-symbool zodra het is geopend.",
+      "faq3q": "Kan de code bewijzen dat mijn Vichy echt is?",
+      "faq2a": "Vichy wordt vervaardigd door L'Oréal en gebruikt het formaat van de groep. Zoek de eerste letter in de code: dat is het productiejaar, in een cyclus die V overslaat, dus U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Het teken er direct achter is de maand: 1 tot en met 9 voor januari tot en met september, en dan O, N en D voor oktober, november en december. Die O is de letter O, geen nul.",
+      "faq4q": "Vervalt de zonnebrandcrème van Capital Soleil?",
+      "faq3a": "Slechts gedeeltelijk. Een code die niet past in de vorm van L'Oréal, of die decodeert naar een datum voordat de productlijn bestond, is een echte waarschuwing. Maar een vervalser die een code uit een echte buis kopieert, produceert een code die perfect decodeert - dus een zuivere decodering bewijst dat de code goed gevormd is, en niet dat de crème dat is. Voor apotheekhuidverzorging blijft kopen bij een apotheek de sterkere bescherming.",
+      "faq4a": "Ja, en dat is belangrijker dan voor al het andere in het assortiment: versleten UV-filters laten meer straling door, dus een verouderde SPF 50 levert geen SPF 50 op. Zonnebrandcrème heeft om precies deze reden normaal gesproken een gedrukte houdbaarheidsdatum: gebruik deze. En behandel een fles die een zomer in een hete auto heeft doorgebracht als opgebruikt, ongeacht de datum."
+    },
+    "ysl-beauty": {
+      "where1": "Lippenstift en make-up: gestempeld op de onderkant van de behuizing of op de achterkant van de compact.",
+      "where2": "Geur: op de bodem van de doos en de onderkant van de fles.",
+      "faq2q": "Waarom lijkt mijn YSL-code op die van Maybelline?",
+      "faq1q": "Hoe controleer ik een batchcode van Yves Saint Laurent?",
+      "faq1a": "YSL Beauty wordt vervaardigd door L'Oréal en draagt ​​dus de code van de groep: fabriekscijfers, een jaarletter en vervolgens een maandteken. Selecteer YSL Beauty in de checker en de engine past de regel van L'Oréal toe.",
+      "faq2a": "Omdat hetzelfde bedrijf beide maakt. Het formaat volgt de fabriek, niet de prijs: een YSL-lipstick en een Maybelline-mascara komen van de L'Oréal-lijnen en hebben dezelfde codestijl."
+    },
+    "zara": {
+      "where2": "Het beauty-assortiment drukt het af op de onderkant van de behuizing of op de krimp van de buis.",
+      "where1": "Op de onderste flap van het geurdoosje en op de onderkant van het flesje.",
+      "faq1a": "In de regel geen gedrukt exemplaar; zoals bij de meeste parfums staat er een batchcode op. Decodeer het voor de productiedatum en reken op een ongeopende levensduur van drie tot vijf jaar, wat normaal is voor een eau de toilette die uit de buurt van licht en hitte wordt gehouden.",
+      "faq1q": "Heeft Zara-parfum een ​​houdbaarheidsdatum?",
+      "faq2q": "Wie maakt eigenlijk Zara-parfum?",
+      "faq2a": "Puig produceert de geurlijn van Zara, en daarom volgen de codes het format van Puig - en een deel van de reden waarom verschillende Zara-geuren vergelijking uitlokken met designergeuren die Puig ook maakt."
+    }
   }
 }

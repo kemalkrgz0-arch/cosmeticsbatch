@@ -263,7 +263,7 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   /* ------------------------------------------------- Dior / LVMH houses -- */
   {
     slug: "dior-lvmh-batch-code-format",
-    decoderIds: ["dior", "chanel", "embedded"],
+    decoderIds: ["dior", "chanel"],
     title: "Dior, Chanel and LVMH Batch Codes: The Date Is in the Code",
     description:
       "Luxury houses don't run a secret cipher — Dior, Guerlain, Givenchy, Chanel and their siblings print the production date straight into the batch code. Here's how to see it.",
@@ -326,6 +326,82 @@ export const DECODER_GUIDES: DecoderGuide[] = [
       {
         q: "Which brands does this cover?",
         a: "Dior, Guerlain, Givenchy Beauty, Kenzo Parfums, Loewe Perfumes, Acqua di Parma, Maison Francis Kurkdjian, Maison Margiela, Fresh, Benefit — plus Chanel, and other houses that print the date rather than encode it.",
+      },
+    ],
+  },
+
+  /* --------------------------------------------------------------- Puig -- */
+  {
+    slug: "puig-batch-code-format",
+    decoderIds: ["embedded"],
+    title: "Paco Rabanne, Jean Paul Gaultier and Zara Batch Codes (Puig)",
+    description:
+      "Puig — the house behind Paco Rabanne, Jean Paul Gaultier, Carolina Herrera, Nina Ricci and Zara fragrance — prints the production date straight into the code. Here's how to read it.",
+    updated: "2026-07-12",
+    readMinutes: 4,
+    anatomy: {
+      code: "4135",
+      parts: [
+        { chars: "4", means: "Last digit of the production year — 2024" },
+        { chars: "135", means: "Day of that year — day 135 is 14 May" },
+      ],
+    },
+    examples: [
+      { code: "4135", note: "The common 4-digit form: year digit, then day of year." },
+      { code: "24045", note: "A 5-digit variant: two year digits, then the day." },
+      { code: "231122", note: "A 6-digit packed calendar date: 22 November 2023." },
+    ],
+    sections: [
+      {
+        heading: "One manufacturer, five very different labels",
+        body: [
+          "Paco Rabanne (now styled Rabanne), Jean Paul Gaultier, Carolina Herrera, Nina Ricci and Zara's fragrance line have no obvious connection — a Spanish fashion house, a French couturier, a Venezuelan-American designer, a Parisian maison and a high-street retailer. They share a manufacturer: Puig, the Barcelona family group that owns or licenses all of them.",
+          "That is why an Invictus and a Zara eau de toilette carry the same style of code. As everywhere in fragrance, the format follows the factory rather than the logo.",
+        ],
+      },
+      {
+        heading: "The date is not encrypted",
+        body: [
+          "Puig does not run a proprietary cipher. It prints the production date inside the batch code, most often as a year digit followed by the day of the year — 4135 is the 135th day of a year ending in 4, that is 14 May 2024.",
+          "Some lines print a longer form instead: five digits (two year digits and the day) or a six-digit packed calendar date in YYMMDD order. Our reader tries each shape and reports which interpretation it used.",
+        ],
+      },
+      {
+        heading: "Reading one by hand",
+        body: [
+          "- Four digits: the first is the year's last digit, the remaining three are the day of the year. Divide the day by about 30.4 for the month.",
+          "- Five digits: the first two are the year, the last three the day.",
+          "- Six digits: read as year, month, day.",
+          "- If two readings both produce a valid date, prefer the one that makes sense for the bottle — a date before the fragrance launched is telling you the reading is wrong.",
+        ],
+      },
+      {
+        heading: "Where Puig prints it",
+        body: [
+          "On the base of the outer box, and on the underside of the bottle — printed on the base sticker or, on the heavier Paco Rabanne bottles, stamped into the glass or the metal. Zara's fragrance boxes carry it on the bottom flap.",
+          "The box code and the bottle code should agree. They are applied minutes apart on the same line, and a mismatch is a sign the box and the bottle were paired somewhere other than the factory.",
+        ],
+      },
+      {
+        heading: "What the code cannot tell you",
+        body: [
+          "The four-digit form carries only one digit of year, so it repeats every decade. The decoder assumes the most recent reading; a bottle that clearly belongs to an older era may be ten years older than the decode suggests.",
+          "And the code is a date, not a certificate. Paco Rabanne and Jean Paul Gaultier are among the most counterfeited fragrances in Europe, and a counterfeiter who copies a genuine code produces a code that decodes perfectly. Use the date as one signal, alongside the weight of the glass, the quality of the atomiser spray and the small print on the box.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is Zara perfume really made by Puig?",
+        a: "Zara's fragrances are produced under a manufacturing arrangement with Puig, which is why they carry a Puig-style production code — and why several of them smell conspicuously like the designer fragrances Puig also makes.",
+      },
+      {
+        q: "My Paco Rabanne code is on the box but not the bottle.",
+        a: "On some formats it is stamped into the metal of the bottle rather than printed, and it can be genuinely hard to see. Tilt the bottle against a light so the stamp catches from the side rather than shining a light straight at it.",
+      },
+      {
+        q: "Rabanne or Paco Rabanne?",
+        a: "The same house — the brand dropped 'Paco' from its name in 2023. Older stock carries the old branding, and the code format did not change.",
       },
     ],
   },
@@ -559,6 +635,10 @@ export const DECODER_GUIDES: DecoderGuide[] = [
       {
         q: "Kenvue or Johnson & Johnson?",
         a: "Same products. J&J spun off its consumer-health division as Kenvue in 2023; the codes did not change.",
+      },
+      {
+        q: "Is RoC still part of the same company?",
+        a: "No — RoC was divested by Johnson & Johnson in 2019 and is now independent. It kept the J&J-era code format, which is why it still reads with this rule, but it is no longer a corporate sibling of Neutrogena and Aveeno. If a RoC code stops decoding cleanly on newer stock, that is the likely reason.",
       },
     ],
   },

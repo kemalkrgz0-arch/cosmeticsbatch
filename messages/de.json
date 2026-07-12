@@ -7,7 +7,8 @@
     "about": "Über uns",
     "search": "Suchen",
     "checkNow": "Prüfen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "codeFormats": "Codeformate"
   },
   "footer": {
     "tagline": "Der vertrauenswürdigste und einfachste Weg, Chargencodes von Kosmetik & Parfüm zu prüfen. Kostenlos, sofort und privat.",
@@ -22,7 +23,8 @@
     "allBrands": "Alle Marken",
     "allGuides": "Alle Ratgeber",
     "rights": "© {year} {name}. Alle Rechte vorbehalten. Schätzungen dienen nur zur Information und sind keine Garantie für die Produktsicherheit.",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "codeFormats": "Batch-Codeformate"
   },
   "hero": {
     "badge": "Weltweit von Beauty-Fans genutzt",
@@ -50,7 +52,7 @@
     "eanTitle": "Der Barcode ist nicht der Chargencode",
     "eanBody": "Die lange Nummer unter den schwarzen Strichen ist der Barcode (EAN). Sie benennt nur das Produkt – jede Flasche desselben Artikels trägt sie, daher verrät sie kein Datum. Der Chargencode ist ein separater, kurzer Aufdruck (Buchstaben und Zahlen), gedruckt oder geprägt auf Boden, Bördelrand oder Etikett. Diesen gibst du ein.",
     "batchCodeHint": "Nicht der lange Barcode (EAN) unter den schwarzen Strichen. Der Chargencode ist ein kurzer, separater Aufdruck aus Buchstaben und Zahlen auf Boden, Bördelrand oder Etikett.",
-    "eanWrongLabel": "Barcode / EAN",
+    "eanWrongLabel": "Barcode/EAN",
     "eanWrongSub": "Nicht dieser – auf jeder Einheit gleich",
     "eanRightLabel": "Chargencode",
     "eanRightSub": "Diesen eingeben – ein kurzer Datumsstempel"
@@ -74,7 +76,9 @@
     "metaTitle": "{name} Chargennummer & Batch Code prüfen – Herstellungsdatum & Ablaufdatum",
     "blurb": "Dekodieren Sie den {name}-Chargencode (Chargennummer), um Herstellungsdatum, Alter und Ablaufdatum Ihrer {category}-Produkte zu ermitteln und die Echtheit zu prüfen. Kostenlos, sofort und privat.",
     "metaDescription": "Kostenlos {name} Chargennummer / Batchcode prüfen: Herstellungsdatum, Produktalter und Ablaufdatum Ihrer {name}-Produkte in Sekunden ermitteln und die Echtheit checken – ohne Anmeldung.",
-    "printsDateNote": "{name} druckt das Herstellungs- oder Ablaufdatum direkt auf die Verpackung, daher brauchst du meist keinen Chargencode."
+    "printsDateNote": "{name} druckt das Herstellungs- oder Ablaufdatum direkt auf die Verpackung, daher brauchst du meist keinen Chargencode.",
+    "whereHeading": "Wo finde ich den Code auf der{name}-Verpackung?",
+    "exampleHeading": "Ein echter{name}-Code, dekodiert"
   },
   "faqUi": {
     "title": "Häufige Fragen",
@@ -165,7 +169,20 @@
     "percentLeft": "{n}% übrig",
     "pao": "Nach dem Öffnen (PAO)",
     "invalidTitle": "Wir konnten diesen Code nicht lesen",
-    "invalidBody": "„{code}“ stimmt nicht mit dem Batch-Code-Format von {brand}überein. Stellen Sie sicher, dass Sie den Code genau so eingegeben haben, wie er auf der Verpackung aufgedruckt ist – nur Buchstaben und Zahlen, keine Leerzeichen – und dass es sich um den Chargencode und nicht um den Barcode oder eine Preis-/Marketingreferenz handelt."
+    "invalidBody": "„{code}“ stimmt nicht mit dem Batch-Code-Format von {brand}überein. Stellen Sie sicher, dass Sie den Code genau so eingegeben haben, wie er auf der Verpackung aufgedruckt ist – nur Buchstaben und Zahlen, keine Leerzeichen – und dass es sich um den Chargencode und nicht um den Barcode oder eine Preis-/Marketingreferenz handelt.",
+    "shareCopied": "Kopiert!",
+    "shareLifeLeft": "{n}% Leben übrig",
+    "addToCalendar": "Ablauf zum Kalender hinzufügen",
+    "share": "Ergebnis teilen",
+    "meaningTitle": "Was bedeutet das?",
+    "shareTitle": "Ergebnis des{name}-Batchcodes",
+    "meaningGood": "Dieses Produkt ist immer noch gut und hat noch eine lange Haltbarkeitsdauer.",
+    "calendarTitle": "{name}– durch dieses Datum ersetzen",
+    "shareMade": "{date}gemacht",
+    "meaningFresh": "Dieses Produkt ist frisch und innerhalb seiner Haltbarkeitsdauer.",
+    "meaningUseSoon": "Dieses Produkt nähert sich dem Ende seiner Haltbarkeitsdauer – verbrauchen Sie es bald.",
+    "meaningExpired": "Dieses Produkt ist abgelaufen und weist möglicherweise nicht mehr die beste Qualität auf.",
+    "meaningUnknown": "Wir konnten die Aktualität dieses Codes nicht einschätzen."
   },
   "howItWorks": {
     "title": "Wie es funktioniert",
@@ -192,5 +209,339 @@
     "freeBody": "Jede Funktion ist für immer 100 % kostenlos.",
     "fastTitle": "Schnell und einfach",
     "privateTitle": "Privat und sicher"
+  },
+  "whereCode": {
+    "label": {
+      "tube": "Rohr",
+      "lipstick": "Lippenstift",
+      "perfume": "Parfümbox"
+    },
+    "title": "Wo ist der Chargencode?",
+    "viewGuide": "Lesen Sie den vollständigen Leitfaden",
+    "alt": {
+      "lipstick": "Chargencode hervorgehoben auf einer Lippenstiftbasis",
+      "tube": "Hervorgehobener Chargencode auf einer Crimphülse für Kosmetiktuben",
+      "perfume": "Chargencode auf einer Parfümschachtel hervorgehoben"
+    },
+    "subtitle": "Es handelt sich um einen kurzen separaten Stempel – hier ist er normalerweise auf verschiedenen Packungen versteckt.",
+    "cardCta": "Wo finde ich den Batch-Code auf einem{type}– lesen Sie die Anleitung"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "where1": "Auf der Unterseite der Schachtel und auf dem Aufkleber unter der Flasche.",
+      "faq2q": "Kann mir der Batch-Code sagen, ob mein CK echt ist?",
+      "where2": "Bei den flacheren CK One-Flaschen kann der Code direkt auf den Glasboden gedruckt werden.",
+      "faq1q": "Wie entschlüssele ich einen Calvin Klein-Chargencode?",
+      "faq1a": "CK-Duft wird von Coty hergestellt. Der Code besteht aus vier Ziffern: einer Jahreszahl, gefolgt vom Tag des Jahres. Teilen Sie den Tag durch etwa 30,4, um den Monat zu erhalten – Tag 135 liegt früh im fünften Monat, Mai.",
+      "faq2a": "Es kann eine schlechte Fälschung aufdecken: eine unmögliche Tagesnummer oder Codes, die zwischen Schachtel und Flasche nicht übereinstimmen. Es kann kein guter Code bestätigt werden, da ein von einer Originalflasche kopierter Code perfekt dekodiert."
+    },
+    "carolina-herrera": {
+      "where2": "Auf der Stiletto-Flasche von Good Girl befindet sich der Code auf der Fersensohle.",
+      "where1": "Auf dem Boden der Schachtel und der Unterseite der Flasche.",
+      "faq1q": "Wie überprüfe ich einen Chargencode von Carolina Herrera?",
+      "faq2a": "Es ist einer der am häufigsten kopierten Düfte in Europa. Führen Sie die Prüfungen durch, die ein Code nicht durchführen kann: Vergleichen Sie die Karton- und Flaschencodes, wiegen Sie die Flasche und prüfen Sie die Feinheit des Sprays. Eine saubere Dekodierung ist notwendig, aber bei weitem nicht ausreichend.",
+      "faq2q": "Wird Good Girl oft gefälscht?",
+      "faq1a": "Der Duft Carolina Herrera wird von Puig hergestellt, das das Produktionsdatum im Code angibt – als Jahreszahl plus Tag des Jahres oder als gepacktes Datum wie 231122 für den 22. November 2023."
+    },
+    "cerave": {
+      "where1": "Tuben und Reinigungsmittel: in die Bördelung am versiegelten Tubenende gedrückt.",
+      "faq1q": "Wie überprüfe ich die Haltbarkeit eines CeraVe-Produkts?",
+      "where2": "Pumpflaschen (SA Cleanser, Feuchtigkeitslotion): Tintenstrahldruck auf dem hinteren Etikett oder auf der Basis.",
+      "faq1a": "CeraVe wird von L'Oréal hergestellt, daher folgt der Code dem Format der Gruppe: Der erste Buchstabe ist das Produktionsjahr und das Zeichen danach der Monat. Entschlüsseln Sie das Herstellungsdatum und rechnen Sie dann mit einer ungeöffneten Haltbarkeit von etwa 36 Monaten. Nach dem Öffnen übernimmt das Symbol des offenen Glases die Kontrolle – 12 Monate für den größten Teil des Sortiments.",
+      "faq3q": "Wie kann ich feststellen, ob CeraVe gefälscht ist?",
+      "faq2q": "Gibt es ein Ablaufdatum für CeraVe?",
+      "faq2a": "Die dermatologischen Linien drucken oft einen aus, und die Sonnenschutzmittel tun dies fast immer. Wenn ein aufgedrucktes Datum vorhanden ist, können Sie sich darauf verlassen: Es handelt sich um die Garantie des Herstellers und übertrifft alles, was ein Decoder einschätzen kann.",
+      "faq3a": "CeraVe wird auf Marktplätzen häufig gefälscht. Der Chargencode ist ein erster Filter – ein Code, der nicht zur Form von L'Oréal passt, ist ein schlechtes Zeichen – er kann jedoch kein Originalprodukt bestätigen, da ein echter Code auf eine gefälschte Tube kopiert werden kann. Vergleichen Sie die Beschaffenheit des Kunststoffs und die Druckqualität des kleinen Textes und kaufen Sie in einer Apotheke oder einem autorisierten Verkäufer."
+    },
+    "chanel": {
+      "where1": "Duft: per Laser in das Glas am Flaschenboden geätzt und auf der unteren Klappe der Schachtel aufgedruckt. Die Radierung enthält keine Tinte – kippen Sie die Flasche so, dass Licht von der Seite einfällt.",
+      "where2": "Make-up und Hautpflege: auf dem Boden der Dose oder des Glases, in sehr kleiner grauer Schrift.",
+      "faq1q": "Verfügt Chanel über ein offizielles Chargencode-System?",
+      "faq2q": "Ich kann keinen Code auf meiner Chanel-Flasche finden.",
+      "faq3a": "Entschlüsseln Sie den Code auf der Basis für das Herstellungsdatum und bringen Sie dann das Symbol für das offene Glas an – normalerweise 12M für eine flüssige Grundierung. Was zuerst abläuft, die Haltbarkeitsdauer im ungeöffneten Zustand oder die Monate seit dem Öffnen, ist die eigentliche Frist.",
+      "faq3q": "Wie überprüfe ich die Haltbarkeit einer Chanel-Foundation?",
+      "faq1a": "Nein. Chanel hat noch nie einen veröffentlicht, und jeder, der behauptet, den offiziellen Chanel-Code zu kennen, spekuliert. Was nachweisbar ist, ist, dass aktuelle Chanel-Produkte ein lesbares Produktionsdatum im Code enthalten, und das ist es, was wir entschlüsseln – es wird als eine Lesung mit mittlerer Konfidenz gemeldet, gerade weil es kein veröffentlichtes Schema gibt, mit dem man es vergleichen könnte.",
+      "faq2a": "Es ist mit ziemlicher Sicherheit eher in den Glasboden gelasert als gedruckt. Die Radierung ist bei direktem Licht unsichtbar und erscheint, wenn Licht darüber fällt – drehen Sie die Flasche langsam unter einer Lampe oder fotografieren Sie den Boden mit Blitz und zoomen Sie in das Bild hinein."
+    },
+    "clinique": {
+      "where1": "Hautpflegeflaschen und -gläser: Prägung auf dem Boden.",
+      "where2": "Make-up: Die Rückseite der Dose oder der Boden des Gehäuses.",
+      "faq1q": "Wie lese ich einen Clinique-Chargencode?",
+      "faq1a": "Clinique ist Estée Lauder, daher ist das Format Pflanze, Monat, Jahr in drei Zeichen – von rechts gelesen. Das letzte Zeichen ist die Jahreszahl; das davor steht für den Monat, wobei A, B und C für Oktober, November und Dezember stehen.",
+      "faq2a": "Etwa 36 Monate ungeöffnet ab Herstellungsdatum und 12 Monate nach dem Öffnen für den größten Teil des Sortiments. Das Symbol des offenen Glases auf der Packung ist die Nummer, die bindet, sobald Sie das Siegel öffnen.",
+      "faq2q": "Wie lange hält die Hautpflege von Clinique?"
+    },
+    "creed": {
+      "where1": "Auf dem Boden der Flasche und auf dem Boden der Schachtel – normalerweise in Schwarz auf dem weißen Bodenaufkleber aufgedruckt.",
+      "where2": "Bei den älteren, schwereren Flakons kann der Code eingestanzt statt aufgedruckt werden; Richten Sie es gegen das Licht aus.",
+      "faq1q": "Wie lese ich einen Creed-Batchcode?",
+      "faq2q": "Kann mir der Code sagen, ob mein Green Irish Tweed echt ist?",
+      "faq1a": "Nur der erste Buchstabe zählt. Es kodiert das Produktionsjahr, gezählt von A = 2010 und überspringt I und O: N = 2022, P = 2023, Q = 2024, R = 2025. Alles danach ist eine interne Chargenserie. Creed kodiert den Monat nicht, daher gibt der Code ein Jahr und nichts Feineres an.",
+      "faq3q": "Bedeutet ein älteres Glaubensbekenntnis ein besseres Glaubensbekenntnis?",
+      "faq3a": "Für die schwereren, harzigen Zusammensetzungen kann eine ältere Flasche tatsächlich vorzuziehen sein, da durch Neuformulierungen mehrere Klassiker verändert wurden – und der Chargencode die einzige Möglichkeit ist, festzustellen, welche Formel Sie kaufen. Bei den leichteren, von Zitrusfrüchten geprägten Creeds ist das Alter hauptsächlich Oxidation und überhaupt kein Vorteil.",
+      "faq2a": "Teilweise. Creed gehört zu den am häufigsten gefälschten Parfümhäusern, und ein Anfangsbuchstabe, der überhaupt nicht im Zyklus enthalten ist, lässt sich leicht erkennen. Da ein kopierter Code jedoch sauber dekodiert wird, ist ein gültiger Code kein Beweis – wiegen Sie die Flasche, sehen Sie sich das Spray und den Aufdruck auf der Verpackung an und kaufen Sie bei einem autorisierten Händler."
+    },
+    "dior": {
+      "where2": "Make-up: auf dem Boden der Dose, auf dem Boden des Lippenstiftetuis oder auf dem Rand einer Tube.",
+      "where3": "Hautpflege: Auf dem Boden des Tiegels neben dem Symbol „Geöffnetes Tiegel“ eingeprägt.",
+      "faq1q": "Wie überprüfe ich, ob mein Dior-Parfüm echt ist?",
+      "faq2q": "Wie sieht ein Dior-Chargencode aus?",
+      "faq1a": "Beginnen Sie mit den Codes: Der Code auf der Schachtel und der auf der Flasche sollten übereinstimmen, da beide im Abstand von Minuten auf derselben Fülllinie angebracht sind. Dann entschlüsseln Sie: Eine unmögliche Tageszahl oder ein Datum vor der Markteinführung des Duftes ist eine echte Warnung. Aber verstehen Sie die Grenze: Ein Fälscher, der einen echten Code kopiert, produziert einen Code, der perfekt entschlüsselt werden kann. Der Batch-Code kann eine Fälschung aufdecken; es kann keinen echten Nachweis erbringen.",
+      "faq3q": "Wo ist der Chargencode des Dior-Lippenstifts?",
+      "where1": "Duft: auf dem Boden der Umverpackung und auf der Unterseite der Flasche – ein kleiner gedruckter Aufkleber oder bei den größeren Flaschen per Laser in das Glas geätzt.",
+      "faq2a": "Typischerweise vier Ziffern, wie zum Beispiel 3245. Dior verwendet keine geheime Chiffre – wie die anderen LVMH-Häuser druckt es das Produktionsdatum in den Code ein, als Jahreszahl, gefolgt vom Tag des Jahres. Einige Codes tragen stattdessen ein längeres 5- oder 6-stelliges Datum.",
+      "faq3a": "Auf dem flachen Gehäuseboden. Drehen Sie das Geschoss zuerst ganz nach unten – der Code ist in die Basis eingestanzt und kann aufgrund der metallischen Oberfläche leicht übersehen werden."
+    },
+    "dunhill": {
+      "where1": "Auf dem Boden der Schachtel und der Unterseite der Flasche, in Schwarz aufgedruckt, auf dem weißen Bodenaufkleber.",
+      "faq1q": "Wie lese ich einen Dunhill-Batchcode?",
+      "faq2q": "Wie überprüfe ich, ob ein Duft von Dunhill authentisch ist?",
+      "faq2a": "Vergleichen Sie die Box- und Flaschencodes und dekodieren Sie sie dann. Ein Jahresbuchstabe außerhalb des Zyklus oder nicht übereinstimmende Codes sind echte Warnungen. Eine saubere Dekodierung ist kein Beweis – kopierte Codes dekodieren auch.",
+      "faq1a": "Der Dunhill-Duft wird unter Lizenz von Inter Parfums hergestellt. Der erste Buchstabe ist das Produktionsjahr – ein Zyklus ohne I und O, also J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – und die letzten drei Ziffern sind der Tag dieses Jahres."
+    },
+    "estee-lauder": {
+      "where1": "Hautpflege: Auf dem Boden des Glases oder der Flasche eingeprägt – in das Material eingepresst, sodass es eher einem Streiflicht als einem direkten Licht bedarf.",
+      "faq1q": "Wie lese ich einen Chargencode von Estée Lauder?",
+      "where2": "Duft und Make-up: auf dem Boden der Schachtel und auf der Unterseite des Produkts.",
+      "faq2q": "Wie überprüfe ich die Haltbarkeit, wenn ich die Schachtel weggeworfen habe?",
+      "faq3q": "Verwenden Clinique, MAC und La Mer denselben Code?",
+      "faq3a": "Ja – die gleichen Pflanzen und das gleiche Pflanze/Monat/Jahr-Format. Lediglich der Pflanzenbuchstabe unterscheidet sich und enthält keine Datumsangabe.",
+      "faq2a": "Der Code befindet sich auf dem Produkt selbst und nicht nur auf dem Karton – er ist normalerweise auf dem Boden des Glases oder der Flasche eingeprägt. Entschlüsseln Sie das Herstellungsdatum und wenden Sie dann das Symbol des offenen Glases ab dem Tag an, an dem Sie es geöffnet haben. Die Frist, die zuerst eintritt, ist die echte.",
+      "faq1a": "Lesen Sie es von rechts, nicht von links. Das letzte Zeichen ist die Jahreszahl; das davor steht für den Monat (1–9 für Januar bis September, dann A, B und C für Oktober, November und Dezember); Alles links ist die Pflanze. In EA4 ist die Pflanze also E, der Monat A – Oktober – und das Jahr endet mit 4. Der häufigste Fehler bei diesen Codes ist das Lesen von links nach rechts."
+    },
+    "fenty-beauty": {
+      "where1": "Foundation- und Flüssigprodukte: Aufgedruckt auf dem Flaschenboden oder dort, wo das Etikett um die Rückseite gewickelt ist.",
+      "faq3q": "Wie lange hält die Fenty Foundation?",
+      "faq2q": "Der Barcode auf meinem Fenty-Produkt lässt sich nicht scannen. Ist es eine Fälschung?",
+      "where2": "Presslinge, Puder und Gloss: auf der Rückseite der Dose oder dem Tubenboden.",
+      "faq1q": "Wie überprüfe ich, ob Fenty Beauty authentisch ist?",
+      "faq3a": "Etwa 12 Monate nach dem Öffnen und etwa 36 Monate ungeöffnet ab Herstellungsdatum. Was zuerst eintritt, ist die Frist.",
+      "faq2a": "Nicht unbedingt – ein Barcode, der nicht gescannt werden kann, ist in der Regel ein Druck- oder Beleuchtungsproblem, und in jedem Fall enthält der Barcode kein Datum und keine Echtheitsinformationen. Es ist der Chargencode, der kurze unregelmäßige Stempel, der Ihnen sagt, wann das Produkt hergestellt wurde.",
+      "faq1a": "Entschlüsseln Sie den Chargencode – Fenty ist eine Marke von LVMH und druckt ein Produktionsdatum in den Code. Ein Code, der ein unmögliches oder gar kein Datum erzeugt, ist eine Warnung. Da ein kopierter Code jedoch sauber dekodiert wird, sollten Sie ihn zusätzlich zu den üblichen Prüfungen verwenden: Druckqualität auf der Verpackung, Haptik des Applikators und direkter Kauf bei Sephora oder Fenty."
+    },
+    "garnier": {
+      "where1": "Seren und Tagescremes: auf dem Flaschenboden oder am Rand der Tube.",
+      "where2": "Lichtschutzfaktor und Ambre Solaire: auf dem rückseitigen Etikett aufgedruckt, normalerweise auch mit einem expliziten Verfallsdatum.",
+      "where3": "Beutel und Einwegmasken: auf der Rückseite des Beutels, in sehr kleiner Schrift nahe der Naht.",
+      "faq2q": "Wo ist das Datum auf der Sonnencreme von Garnier?",
+      "faq1q": "Wo finde ich das Verfallsdatum einer Garnier-Creme oder eines Garnier-Serums?",
+      "faq1a": "Garnier druckt selten einen. Der Kurzcode auf dem Tuben- oder Flaschenboden ist der Chargencode und enthält das Herstellungsdatum: Der erste Buchstabe ist das Jahr, das Zeichen danach der Monat. Rechnen Sie mit etwa 36 Monaten für ein ungeöffnetes Produkt und verwenden Sie nach dem Öffnen das Symbol für das offene Glas.",
+      "faq2a": "Eine Ausnahme bildet Sonnenschutzmittel – normalerweise ist dort ein Verfallsdatum aufgedruckt, da es sich bei der SPF-Angabe um eine Sicherheitsaussage handelt. Verwenden Sie das aufgedruckte Datum anstelle eines entschlüsselten Datums und ersetzen Sie jede Flasche, die einen Sommer in der Hitze verbracht hat.",
+      "faq3q": "Woher weiß ich, dass mein Garnier-Produkt echt ist?",
+      "faq3a": "Überprüfen Sie, ob der Code zum Format von L'Oréal passt – Garnier ist eine Marke von L'Oréal – und dass er ein plausibles Datum ergibt. Das schließt grobe Fälschungen aus. Es kann nicht ausgeschlossen werden, dass es sich um einen guten Code handelt, da ein kopierter Code perfekt dekodiert."
+    },
+    "giorgio-armani-beauty": {
+      "where1": "Duft (Acqua di Giò, Armani Code): auf der Unterseite der Schachtel und dem Bodenaufkleber der Flasche.",
+      "where2": "Make-up: auf dem Gehäuseboden oder auf der Rückseite der Dose.",
+      "faq2a": "Für ein Eau de Toilette sind drei bis fünf Jahre normal, für das Eau de Parfum länger. Duftstoffe sind die nachsichtigste Kategorie, die es gibt, vorausgesetzt, die Flasche wird vor Licht und Hitze geschützt.",
+      "faq1q": "Wie entschlüssele ich die Chargennummer von Armani Code?",
+      "faq2q": "Wie lange ist Acqua di Giò ungeöffnet haltbar?",
+      "faq1a": "Der Armani-Duft wird von L'Oréal hergestellt, daher folgt der Code dem Format der Gruppe: Der erste Buchstabe ist das Produktionsjahr, das Zeichen danach der Monat. (Der Duft mit der Bezeichnung „Armani Code“ und der auf der Verpackung eingeprägte Chargencode haben nichts miteinander zu tun und haben leider ein gemeinsames Wort.)"
+    },
+    "guerlain": {
+      "where1": "Duft: auf dem Boden der Schachtel und auf der Unterseite der Flasche – oft auf einem kleinen Aufkleber aufgedruckt.",
+      "where2": "Make-up und Hautpflege: auf dem Boden der Dose oder des Glases eingeprägt.",
+      "faq1q": "Wie überprüfe ich das Produktionsdatum eines Guerlain-Duftes?",
+      "faq1a": "Guerlain ist ein LVMH-Haus und druckt das Produktionsdatum in den Chargencode – meist eine Jahreszahl gefolgt vom Tag des Jahres. Entschlüsseln Sie es anhand des Herstellungsdatums und rechnen Sie dann damit, dass ein Eau de Parfum, das vor Licht und Hitze geschützt ist, ungeöffnet drei bis fünf Jahre lang haltbar ist.",
+      "faq2q": "Mein alter Guerlain-Code lässt sich nicht dekodieren.",
+      "faq2a": "Bei älteren und regionalspezifischen Codes handelt es sich manchmal um interne alphanumerische Referenzen, die überhaupt kein Datum enthalten. Diese können von niemandem entschlüsselt werden. Beurteilen Sie die Flasche stattdessen anhand ihres Zustands und des Geruchs des Safts."
+    },
+    "hugo-boss": {
+      "faq1q": "Wie überprüfe ich den Chargencode eines Hugo Boss-Duftes?",
+      "where2": "Die beiden Codes sollten übereinstimmen – sie werden im Abstand von Minuten in derselben Zeile gedruckt.",
+      "faq1a": "Der Duft Hugo Boss wird von Coty hergestellt, das einen vierstelligen Code verwendet: Die erste Ziffer ist die letzte Ziffer des Produktionsjahres und die restlichen drei sind der Tag dieses Jahres. 4135 ist also der 135. Tag des Jahres 2024 – der 14. Mai 2024.",
+      "faq2q": "Die Box- und Flaschencodes sind unterschiedlich. Ist es eine Fälschung?",
+      "faq2a": "Das bedeutet, dass die Box und die Flasche an einem anderen Ort als im Werk gepaart wurden. Das passiert bei Fälschungen, aber auch bei rechtmäßig umgepackten, retournierten oder auf dem Graumarkt erhältlichen Waren. In jedem Fall handelt es sich bei der Kopplung, die Sie besitzen, nicht um diejenige, die vom Werk ausgeliefert wurde.",
+      "where1": "Auf dem Boden der Umverpackung und auf dem durchsichtigen Aufkleber unter der Flasche."
+    },
+    "jean-paul-gaultier": {
+      "where1": "Am Boden der Schachtel und an der Unterseite der torsoförmigen Flasche.",
+      "where2": "Bei den Editionen mit Metallgehäuse befindet sich der Code häufig nur auf der Schachtel oder ist schwach in den Dosenboden eingeprägt.",
+      "faq2q": "Auf meiner Le Male-Flasche befindet sich kein Code.",
+      "faq1q": "Wie lese ich einen Chargencode von Jean Paul Gaultier?",
+      "faq2a": "Bei den Ausgaben mit Metallhülle befindet sich der Code oft nur auf der Schachtel oder ist so schwach in den Boden eingestanzt, dass man ihn im Streiflicht erkennen muss. Überprüfen Sie zuerst den Karton – und wenn Sie beides haben, vergewissern Sie sich, dass sie übereinstimmen.",
+      "faq1a": "JPG-Duft wird von Puig hergestellt, das das Produktionsdatum in den Code eindruckt. Vier Ziffern bedeuten eine Jahreszahl plus den Tag des Jahres; fünf bedeutet zwei Jahresziffern plus den Tag; Sechs ist ein vollgepackter Kalendertermin."
+    },
+    "kenzo-parfums": {
+      "where1": "Auf dem Boden der Umverpackung und auf der Unterseite der Flasche – auf dem Bodenaufkleber aufgedruckt oder in das Glas eingestanzt.",
+      "where2": "Bei den Kenzo World- und Flower-Flaschen kann der Code auf der flachen Unterseite angebracht werden, wo sich das Etikett nach unten faltet.",
+      "faq1q": "Wie überprüfe ich einen Kenzo-Duft anhand seines Chargencodes?",
+      "faq3q": "Kann der Code beweisen, dass ein Kenzo-Duft authentisch ist?",
+      "faq2q": "Wiederholen sich Kenzo-Codes alle zehn Jahre?",
+      "faq1a": "Kenzo Parfums ist ein LVMH-Haus und LVMH druckt das Produktionsdatum in den Code, anstatt es zu verschlüsseln. Vier Ziffern bedeuten eine Jahreszahl plus den Tag des Jahres; Fünf oder sechs Ziffern sind ein vollständigeres Datum. Wählen Sie Kenzo im Checker aus und es wird der richtige Messwert angewendet.",
+      "faq3a": "Es kann zu einer Fälschung kommen – einem unmöglichen Tag oder einer Nichtübereinstimmung zwischen dem Boxcode und dem Flaschencode, die bei keiner echten Abfüllanlage auftritt. Es kann keine Echtheit bescheinigt werden, da ein kopierter Code sauber dekodiert wird.",
+      "faq2a": "Ja, und das ist eher eine echte Einschränkung als eine Eigenart. Ein vierstelliger Code trägt nur eine Ziffer der Jahreszahl, daher steht 4135 für den 14. Mai 2024, basierend auf genau denselben Angaben, die ihn für den 14. Mai 2014 halten. Der Decoder geht von der aktuellen Lesung aus; Wenn die Flasche und die Verpackung so aussehen, als ob sie aus einer früheren Zeit stammen würden, dann ist das wahrscheinlich der Fall."
+    },
+    "kerastase": {
+      "where2": "Schläuche und Reisegrößen: in die Quetschhülse eingepresst.",
+      "where1": "Flaschen und Masken: Tintenstrahldruck auf der Rückseite der Flasche, in der Nähe des Bodens, oder Stempelung auf dem Boden des Glases.",
+      "faq1q": "Wie finde ich die Haltbarkeit einer Kérastase-Maske heraus?",
+      "faq1a": "Kérastase ist L'Oréal Professionnel und trägt daher den Code der Gruppe: Der erste Buchstabe ist das Jahr, das Zeichen danach der Monat. Eine ungeöffnete Maske ist ab diesem Datum in der Regel etwa 30–36 Monate haltbar; Nach dem Öffnen gilt das Symbol des offenen Glases – normalerweise 12M.",
+      "faq3q": "Das Produkt wurde im Ausland gekauft – ändert sich die Haltbarkeit?",
+      "faq2q": "Wie überprüfe ich die Echtheit eines Kérastase-Produkts?",
+      "faq3a": "Nein. Die Haltbarkeitsdauer der Formel ist eine Eigenschaft des Produkts, nicht des Marktes. Was sich bei einem heißen Klima ändert, ist die Geschwindigkeit, mit der es tatsächlich abgebaut wird: Hitze verkürzt das Leben in der realen Welt deutlich kürzer als das gedruckte.",
+      "faq2a": "Kérastase ist ein häufiges Ziel von Fälschungen und umgeleiteten Salonbeständen. Entschlüsseln Sie den Code: Er sollte zum Format von L'Oréal passen und ein plausibles Datum ergeben. Ein kopierter Code wird nicht erfasst. Achten Sie daher auch auf die Qualität des Drucks, das Gewicht und die Verarbeitung der Kappe sowie darauf, ob es sich beim Verkäufer um einen autorisierten Salon oder Einzelhändler handelt."
+    },
+    "kiehls": {
+      "where2": "Tuben und Augencremes: in den Crimp drücken.",
+      "faq2q": "Der Code auf meinem Kiehl's-Glas ist unsichtbar.",
+      "faq1a": "Entschlüsseln Sie den Code auf der Basis: Kiehl's ist L'Oréal, daher ist der erste Buchstabe das Jahr und das Zeichen danach der Monat. Ungeöffnet rechnen Sie mit etwa 36 Monaten; nach dem Öffnen das Symbol für das offene Glas – normalerweise 12M für eine Augencreme, das ist die Zahl, die zuerst bindet.",
+      "where1": "Gläser und Flaschen: auf dem Boden eingeprägt, oft eher geprägt als bedruckt – kippen Sie sie unter eine Lampe.",
+      "faq1q": "Wie überprüfe ich die Haltbarkeit der Augencreme von Kiehl's?",
+      "faq2a": "Normalerweise wird es in die Basis eingeprägt und nicht eingefärbt. Geprägte Codes verschwinden unter direktem Licht und erscheinen, wenn Licht von der Seite auf sie fällt – drehen Sie das Glas langsam gegen eine Lampe."
+    },
+    "la-roche-posay": {
+      "where1": "Rohre: am versiegelten Ende in die Bördelung gedrückt.",
+      "faq1q": "Wo ist das Ablaufdatum von La Roche-Posay?",
+      "where2": "Flaschen und Anthelios-Sonnencreme: auf dem Etikett auf der Rückseite aufgedruckt, normalerweise zusammen mit einem echten Verfallsdatum.",
+      "faq2a": "Bei kühler Lagerung ungeöffnet bis zu drei Jahre, nach dem Öffnen etwa 12 Monate. Sonnenschutzmittel sind das einzige Produkt, bei dem das aufgedruckte Datum wirklich wichtig ist, da beschädigte Filter weniger Schutz bieten, als das Etikett verspricht.",
+      "faq1a": "Die Apotheken drucken normalerweise ein echtes Verfallsdatum auf den Karton oder die Tube – verwenden Sie es. Der Funktionscode daneben ist der Chargencode und enthält stattdessen das Herstellungsdatum: Der erste Buchstabe ist das Jahr, das Zeichen danach ist der Monat.",
+      "faq2q": "Wie lange hält die Sonnencreme von Anthelios?",
+      "faq3a": "Ein Code, der zum Format von L'Oréal passt und auf ein plausibles Datum entschlüsselt, schließt grobe Fälschungen aus. Es kann kein gutes Exemplar bescheinigt werden. Der Kauf in der Apotheke bleibt die stärkste Garantie für dieses Sortiment.",
+      "faq3q": "Ist mein La Roche-Posay echt?"
+    },
+    "lancome": {
+      "where1": "Duft: auf dem Boden der Schachtel und auf der Unterseite der Flasche.",
+      "where2": "Hautpflege und Grundierung: geprägt oder aufgedruckt auf dem Boden des Tiegels, dem Tubenrand oder der Flasche.",
+      "faq1q": "Wie lese ich einen Lancôme-Chargencode?",
+      "faq2a": "Ungefähr drei Jahre ab Herstellung, weniger für Produkte, die auf instabilen Wirkstoffen basieren. Dekodieren Sie die Informationen, bevor Sie sie bei einem Discounter kaufen – alte Lagerbestände sind echt, haben aber möglicherweise nur noch sehr wenig ungeöffnete Lebensdauer.",
+      "faq1a": "Lancôme ist L'Oréal: Der erste Buchstabe ist das Produktionsjahr (V wird übersprungen, also U = 2021, W = 2022,",
+      "faq2q": "Wie lange ist die ungeöffnete Lancôme-Hautpflege haltbar?"
+    },
+    "loreal": {
+      "where2": "Verwenden Sie diese Seite, wenn eine Untermarke nicht separat aufgeführt ist – die gesamte Gruppe hat dasselbe Codeformat.",
+      "where1": "Überall dort, wo die Produkte der Gruppe gestempelt werden: Tubenbördel, Flaschenböden, Glasböden und Kartonlaschen.",
+      "faq1q": "Welche Marken teilen sich den Chargencode von L'Oréal?",
+      "faq1a": "Alle: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm und die anderen. Sie stammen von denselben Pflanzen ab und haben daher das gleiche Format.",
+      "faq2q": "Wie sieht ein L'Oréal-Code aus?",
+      "faq3a": "Dann ist es nicht dieses Format. Einige kürzlich erworbene Marken und einige regionale Vertragshersteller drucken stattdessen ein einfaches julianisches Datum – der Prüfer liest stattdessen ein in den Ziffern eingebettetes Datum.",
+      "faq3q": "Mein Code enthält keinen Buchstaben.",
+      "faq2a": "Normalerweise sechs Zeichen, z. B. 40X200: Werksziffern, dann der Jahresbuchstabe, dann das Monatszeichen und dann eine Batch-Serie. Der Jahresbuchstabe und das Zeichen dahinter sind die einzigen Teile, die ein Datum tragen."
+    },
+    "loreal-paris": {
+      "where2": "Rohre: am versiegelten Ende in die Bördelung gedrückt.",
+      "where3": "Flaschen (Shampoo, Serum, Foundation): Tintenstrahldruck auf dem hinteren Etikett oder der Basis.",
+      "where1": "Cremes und Tiegel: Auf dem Tiegelboden bzw. auf der Deckelunterseite gestempelt.",
+      "faq1q": "Wie überprüfe ich die Haltbarkeit einer L'Oréal Paris Creme?",
+      "faq3q": "Wie kann ich überprüfen, ob ein L'Oréal-Produkt authentisch ist?",
+      "faq1a": "Auf dem Glas ist kein Verfallsdatum angegeben – aufgedruckt ist ein Chargencode mit dem Herstellungsdatum. Lesen Sie den ersten Buchstaben als Jahr (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V wird übersprungen) und das Zeichen danach als Monat. Ab diesem Datum ist eine ungeöffnete Creme in der Regel etwa 36 Monate haltbar. Das Symbol „Offenes Glas“ gibt an, wie lange die Creme nach dem ersten Gebrauch haltbar ist.",
+      "faq3a": "Entschlüsseln Sie den Code und prüfen Sie, ob er überhaupt zum Format von L'Oréal passt – ein Code ohne Jahresbuchstabe oder einer, der auf ein unmögliches Datum kodiert, ist ein echtes Warnzeichen. Da ein kopierter Code jedoch sauber dekodiert wird, kann dieser Test eine Fälschung erkennen und keine Echtheit bestätigen. Vergleichen Sie die Druckqualität des kleinen Textes auf der Verpackung und kaufen Sie bei einem autorisierten Händler.",
+      "faq2q": "Wo ist das Herstellungsdatum auf L'Oréal-Produkten aufgedruckt?",
+      "faq2a": "Es wird nicht als Datum aufgedruckt, sondern im Chargencode kodiert, bei dem es sich um den kurzen, unregelmäßigen Stempel auf dem Crimp, der Basis oder dem Rückseitenetikett handelt. Die lange Zahl unter den Barcodestreifen ist die EAN und enthält überhaupt kein Datum."
+    },
+    "mac-cosmetics": {
+      "where1": "Lippenstift: in den flachen Boden der Patronenhülse eingeprägt. Drehen Sie das Geschoss ganz nach unten, sodass die Hülse flach aufliegt.",
+      "faq2q": "Wie sieht ein MAC-Batchcode aus?",
+      "where3": "Foundation-Flaschen: auf der Basis oder dort, wo das Etikett um die Rückseite gewickelt ist.",
+      "faq1q": "Wie überprüfe ich das Ablaufdatum der MAC Foundation?",
+      "faq3q": "Wie kann ich feststellen, ob mein MAC-Lippenstift echt ist?",
+      "where2": "Puderdosen, Rouge und Paletten: auf der Rückseite des Gehäuses – und bei einigen Produkten auf der Metallpfanne aufgedruckt, erst sichtbar, wenn das Puder aufgebraucht ist.",
+      "faq3a": "Der Code sollte drei oder vier Zeichen lang sein und ein plausibles Datum ergeben; Ein Code, der nicht in diese Form passt, ist eine Warnung. Aber ein kopierter Code dekodiert perfekt, also beurteilen Sie auch das Gewicht des Gehäuses, das Klicken des Verschlusses und den Aufdruck des kleinen Textes – und kaufen Sie an einem autorisierten Schalter.",
+      "faq1a": "MAC druckt kein Verfallsdatum – fast jedes Make-up schon. Es druckt einen dreistelligen Chargencode mit Angabe der Anlage, des Monats und des Jahres. Dekodieren Sie das für das Herstellungsdatum und wenden Sie dann das Symbol des offenen Glases an: Flüssige Foundation ist nach dem Öffnen in der Regel 6–12 Monate haltbar, ungeöffnet etwa 36 Monate. Der frühere Termin gewinnt.",
+      "faq2a": "Drei Zeichen, z. B. B23. MAC gehört zur Estée Lauder-Gruppe, daher ist das letzte Zeichen die Jahreszahl und das mittlere der Monat – wobei A, B und C Oktober, November und Dezember bedeuten."
+    },
+    "maybelline": {
+      "where1": "Mascara: auf dem Tubenboden aufgedruckt oder vertikal dort, wo das Etikett umwickelt ist.",
+      "where2": "Foundation-Flaschen: auf der Basis oder auf dem Etikett auf der Rückseite.",
+      "where3": "Paletten und Kompaktdosen: auf der Rückseite des Koffers.",
+      "faq1q": "Wie alt ist meine Maybelline-Mascara?",
+      "faq2a": "Auf dem Boden der Tube oder Flasche oder auf der Rückseite einer Palette. Es handelt sich um den kurzen unregelmäßigen Code – nicht um die lange Barcodenummer.",
+      "faq2q": "Wo ist der Chargencode für Maybelline-Produkte?",
+      "faq1a": "Entschlüsseln Sie den Code auf der Basis – Maybelline verwendet das Format von L'Oréal, wobei der erste Buchstabe das Jahr und das nächste Zeichen der Monat ist. Bei Mascara ist das Herstellungsdatum jedoch selten bindend: Die Drei- bis Sechs-Monats-Uhr, die an dem Tag beginnt, an dem Sie die Tube öffnen, läuft fast immer zuerst ab."
+    },
+    "montblanc": {
+      "where1": "Auf dem Boden der Schachtel und auf der Unterseite der Flasche – in Schwarz auf dem weißen Bodenaufkleber aufgedruckt.",
+      "where2": "Montblanc-Codes gehören zu den Duftcodes, die ohne Lupe leichter zu lesen sind.",
+      "faq1q": "Wie überprüfe ich eine Montblanc Legend anhand ihres Codes?",
+      "faq3a": "Bei einer Minderheit der Inter Parfums-Codes handelt es sich bei diesen Ziffern eher um eine Fabriklinie als um einen Tag. Wenn das Datum für die Flasche unplausibel erscheint, vertrauen Sie dem Jahresbuchstaben und betrachten Sie den Tag als ungefähren Wert.",
+      "faq2q": "Gibt es eine Seriennummer, die ich nachschlagen kann?",
+      "faq1a": "Der Montblanc-Duft wird unter Lizenz von Inter Parfums hergestellt. Der erste Buchstabe im Code ist das Produktionsjahr in einem Zyklus, der I und O überspringt – J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – und die letzten drei Ziffern sind der Tag dieses Jahres.",
+      "faq3q": "Die letzten drei Ziffern ergeben ein seltsames Datum.",
+      "faq2a": "Nein. Ein Chargencode identifiziert einen Produktionslauf, nicht eine einzelne Flasche, und es gibt keine öffentliche Datenbank, in der man nachschlagen kann. Was er Ihnen liefert, ist das Datum – und das ist der nützliche Teil."
+    },
+    "nivea": {
+      "where1": "Tuben (Handcreme, Gesichtswaschmittel): in die Bördelung eingestanzt – das flache, versiegelte Ende gegenüber der Kappe.",
+      "where2": "Die klassische blaue Creme-Dose: in den Metallboden gepresst, ganz ohne Tinte. Kippen Sie es unter eine Lampe. Ein direktes Licht lässt es verschwinden.",
+      "where3": "Flaschen und Sonnenschutzmittel: Tintenstrahldruck auf dem hinteren Etikett oder der Flaschenschulter.",
+      "faq1q": "Wie finde ich das Herstellungsdatum von NIVEA-Produkten?",
+      "faq1a": "NIVEA (Beiersdorf) kodiert die Produktionswoche und nicht den Tag. Die erste Ziffer des Codes ist die letzte Ziffer des Jahres und die nächsten beiden sind die Wochennummer. Ein Code, der mit 815 beginnt, ist also die 15. Woche eines Jahres, das mit 8 endet. Damit liegt er innerhalb von sieben Tagen, was für eine Körperlotion ausreichend ist.",
+      "faq3q": "Auf meiner NIVEA-Dose ist kein Code sichtbar.",
+      "faq2q": "Hat NIVEA Sonnencreme ein Verfallsdatum?",
+      "faq3a": "Es ist in die Metallbasis eingeprägt und nicht aufgedruckt, wodurch es bei direktem Licht nahezu unsichtbar ist. Halten Sie die Dose so, dass eine Lampe den Sockel von der Seite erfasst und die Zeichen erscheinen.",
+      "faq2a": "Sonnenschutzmittel sind normalerweise mit einem aufgedruckten Verfallsdatum versehen, da die SPF-Angabe als Sicherheitsaussage behandelt wird. Verwenden Sie das aufgedruckte Datum statt einer entschlüsselten Schätzung – und behandeln Sie eine Flasche, die einen Sommer in einem heißen Auto verbracht hat, als verbraucht, unabhängig davon, was auf dem Datum steht."
+    },
+    "paco-rabanne": {
+      "where1": "Auf dem Boden der Schachtel und auf der Unterseite der Flasche. Auf den schwereren Flaschen – dem 1-Millionen-Barren oder der Invictus-Trophäe – ist der Code oft in das Metall oder Glas eingeprägt und nicht auf einen Aufkleber gedruckt.",
+      "where2": "Kippen Sie die Flasche so, dass Licht von der Seite auf den Stempel fällt. ein direktes Licht lässt es verschwinden.",
+      "faq1q": "Wie entschlüssele ich einen Invictus- oder 1-Million-Chargencode?",
+      "faq3a": "Ja – das Haus hat „Paco“ im Jahr 2023 aus seinem Namen gestrichen. Ältere Lagerbestände tragen das vorherige Branding und das Codeformat hat sich nicht geändert.",
+      "faq2q": "Kann der Code beweisen, dass mein Paco Rabanne echt ist?",
+      "faq3q": "Ist Rabanne die gleiche Marke wie Paco Rabanne?",
+      "faq1a": "Paco Rabanne wird von Puig hergestellt, das das Produktionsdatum in den Code druckt, anstatt es zu verschlüsseln. Die übliche Form besteht aus vier Ziffern: Die erste ist die letzte Ziffer des Jahres, die restlichen drei sind der Tag dieses Jahres – 4135 ist also der 135. Tag des Jahres 2024, der 14. Mai 2024.",
+      "faq2a": "Es kann eine Fälschung erkennen, eine echte jedoch nicht bestätigen. Paco Rabanne gehört zu den am häufigsten gefälschten Düften in Europa: Eine unmögliche Tagesnummer oder Codes, die zwischen Schachtel und Flasche nicht übereinstimmen, sind starke Warnungen – aber ein von einer echten Flasche kopierter Code dekodiert perfekt. Wiegen Sie die Flasche und überprüfen Sie auch das Sprühbild."
+    },
+    "redken": {
+      "where1": "Flaschen: Tintenstrahldruck auf dem hinteren Etikett oder dem Flaschenboden.",
+      "faq1a": "Redken ist eine Marke von L'Oréal und verwendet das Format der Gruppe: Der erste Buchstabe ist das Produktionsjahr, das Zeichen danach der Monat. Ungeöffnet ist Haarpflege in der Regel etwa 36 Monate und nach dem Öffnen 12 Monate haltbar.",
+      "faq1q": "Wie überprüfe ich die Haltbarkeit eines Redken-Produkts?",
+      "where2": "Pulver und Aerosole: Auf dem Boden der Dose eingeprägt.",
+      "faq2a": "Nein. Der Barcode ist die EAN – er identifiziert das zum Verkauf stehende Produkt und ist auf jeder Flasche identisch. Nur der Chargencode, der kurze unregelmäßige Stempel, trägt ein Datum.",
+      "faq2q": "Verrät mir der Barcode die Haltbarkeit?"
+    },
+    "roberto-cavalli": {
+      "where1": "Auf dem Boden der Schachtel und dem Flaschenboden – aufgedruckt oder auf den schwereren Flakons in das Glas eingestanzt.",
+      "faq2q": "Wo ist die Seriennummer auf einer Roberto Cavalli-Flasche?",
+      "faq2a": "Es gibt keine im Sinne einer eindeutigen Seriennummer pro Flasche. Was gedruckt wird, ist ein Chargencode, der von jeder Einheit desselben Produktionslaufs gemeinsam genutzt wird, und der das Datum und keine Identität kodiert.",
+      "faq1q": "Wie überprüfe ich das Parfüm von Roberto Cavalli auf Echtheit?",
+      "where2": "Suchen Sie nach einem vierstelligen Kurzcode. Die längere Nummer unter den Barcodestreifen ist es nicht.",
+      "faq1a": "Cavalli-Duft wird von Coty hergestellt, daher ist der Code ein vierstelliges Produktionsdatum – eine Jahreszahl plus den Tag des Jahres. Vergleichen Sie zunächst den Code auf der Verpackung mit dem Code auf der Flasche: Eine Nichtübereinstimmung ist das stärkste Signal, das einem Käufer zur Verfügung steht. Dann entschlüsseln Sie es; Ein unmöglicher Tag ist eine klare Fälschung. Ein Code, der sauber dekodiert, ist jedoch kein Beweis für die Echtheit – kopierte Codes dekodieren auch."
+    },
+    "tom-ford-beauty": {
+      "where1": "Duft: auf dem Boden der Schachtel und auf der Unterseite der Flasche eingeätzt oder aufgedruckt.",
+      "where2": "Foundation- und Lidschattenpaletten: Auf der Basis der Dose oder der Flasche eingeprägt.",
+      "faq2q": "Wie date ich eine Lidschattenpalette von Tom Ford?",
+      "faq1q": "Wie überprüfe ich einen Tom Ford-Chargencode?",
+      "faq3q": "Ist der Chargencode ein Echtheitsnachweis?",
+      "faq3a": "Nein. Es kann eine grobe Fälschung aufdecken – einen Code, der nicht in das Format passt oder auf einen unmöglichen Monat dekodiert –, aber ein kopierter Code dekodiert sauber. Der Duft von Tom Ford ist stark gefälscht; Wiegen Sie die Flasche, überprüfen Sie das Zerstäuberspray und kaufen Sie bei einem autorisierten Händler.",
+      "faq2a": "Der Code befindet sich auf der Basis der Dose. Entschlüsseln Sie es für das Herstellungsdatum; Ein gepresstes Pulver ist nach dem Öffnen etwa 24 Monate haltbar und ungeöffnet deutlich länger, da eine Trockenformel den Bakterien nahezu keinen Nährboden bietet.",
+      "faq1a": "Tom Ford Beauty wird von der Estée Lauder-Gruppe hergestellt und verwendet daher den dreistelligen Code der Gruppe: Werk, Monat, Jahr – von rechts gelesen. Der Monat ist 1–9 für Januar bis September, dann A, B und C für Oktober bis Dezember."
+    },
+    "too-faced": {
+      "where2": "Flüssige Produkte: am Flaschenboden oder am Tubenbördel.",
+      "where1": "Paletten und Kompaktdosen: auf der Rückseite des Koffers, teilweise unter der Kunststoffschale.",
+      "faq1a": "Too Faced gehört zur Estée Lauder-Gruppe, daher besteht der Code aus drei Zeichen – Pflanze, Monat, Jahr – gelesen von rechts. Wenn der Code auf Ihrer Palette nicht zu dieser Form passt, handelt es sich möglicherweise eher um eine Fabrikmarkierung als um den Chargencode.",
+      "faq2a": "Einige Codes auf Too Faced-Verpackungen sind interne Linienmarkierungen, keine Datumscodes, und sie enthalten nichts, was entschlüsselt werden könnte. Überprüfen Sie den Boden und die Rückseite des Gehäuses auf einen zweiten, kürzeren Code – und wenn es wirklich keinen gibt, ist das Symbol des offenen Glases Ihr bester Anhaltspunkt.",
+      "faq1q": "Wie überprüfe ich den Stapelcode einer Too Faced-Palette?",
+      "faq2q": "Mein Too Faced-Code lässt sich nicht dekodieren."
+    },
+    "vichy": {
+      "where2": "Flaschen und Pumpen (Mineral 89, Liftactiv): Tintenstrahldruck auf der Basis oder auf dem hinteren Etikett in der Nähe des Barcodes.",
+      "where1": "Tuben und Sonnenschutzmittel von Capital Soleil: in die Bördelung gedrückt – das flache, versiegelte Ende gegenüber der Kappe.",
+      "where3": "Kartons: auf einer Endklappe, normalerweise neben dem Symbol für das offene Glas. Proben und Beutel tragen oft überhaupt keinen Code, sondern nur den Karton, in dem sie geliefert wurden.",
+      "faq2q": "Wie lese ich den Code auf einem Vichy-Produkt?",
+      "faq3q": "Kann der Code beweisen, dass mein Vichy echt ist?",
+      "faq1q": "Wo ist das Verfallsdatum für Vichy-Produkte?",
+      "faq4q": "Läuft das Sonnenschutzmittel von Capital Soleil ab?",
+      "faq4a": "Ja, und das ist wichtiger als alles andere in diesem Sortiment: Abgenutzte UV-Filter lassen mehr Strahlung durch, sodass ein veralteter Lichtschutzfaktor 50 keinen Lichtschutzfaktor 50 liefert. Sonnenschutzmittel tragen normalerweise aus genau diesem Grund ein aufgedrucktes Verfallsdatum – verwenden Sie es. Und behandeln Sie eine Flasche, die einen Sommer in einem heißen Auto verbracht hat, unabhängig vom Datum als ausgetrunken.",
+      "faq1a": "Die meisten Vichy-Produkte drucken keinen. Apothekenzeilen tragen oft ein echtes Verfallsdatum, und wenn es existiert, übertrifft es jede dekodierte Schätzung – aber wenn Sie nur einen Kurzcode finden können, dann ist das der Chargencode, und dieser enthält das Herstellungsdatum und nicht das Verfallsdatum. Entschlüsseln Sie es und fügen Sie dann die Haltbarkeitsdauer hinzu: ungeöffnet etwa 36 Monate für die Hautpflege, und befolgen Sie nach dem Öffnen das Symbol für das offene Glas.",
+      "faq2a": "Vichy wird von L'Oréal hergestellt und nutzt das Format der Gruppe. Suchen Sie den ersten Buchstaben im Code: Das ist das Produktionsjahr, in einem Zyklus, der V überspringt, also U = 2021, W = 2022, Dieses O ist der Buchstabe O, keine Null.",
+      "faq3a": "Nur teilweise. Ein Code, der nicht zur Form von L'Oréal passt oder der auf ein Datum vor der Existenz der Produktlinie hinweist, ist eine echte Warnung. Aber ein Fälscher, der einen Code aus einer echten Tube kopiert, erzeugt einen Code, der perfekt entschlüsselt wird – eine saubere Entschlüsselung beweist also, dass der Code wohlgeformt ist, nicht, dass die Creme es ist. Für Apotheken-Hautpflege bleibt der Kauf in der Apotheke der stärkere Schutz."
+    },
+    "ysl-beauty": {
+      "where1": "Lippenstift und Make-up: auf dem Boden des Gehäuses oder auf der Rückseite der Dose eingeprägt.",
+      "where2": "Duft: auf dem Boden der Box und der Unterseite der Flasche.",
+      "faq1q": "Wie überprüfe ich einen Chargencode von Yves Saint Laurent?",
+      "faq1a": "YSL Beauty wird von L'Oréal hergestellt und trägt daher den Code der Gruppe: Fabrikziffern, ein Jahresbuchstabe und dann ein Monatszeichen. Wählen Sie YSL Beauty im Checker aus und die Engine wendet die Regel von L'Oréal an.",
+      "faq2q": "Warum sieht mein YSL-Code wie ein Maybelline-Code aus?",
+      "faq2a": "Weil das gleiche Unternehmen beides herstellt. Das Format richtet sich nach der Fabrik, nicht nach dem Preis – ein YSL-Lippenstift und eine Maybelline-Mascara stammen von L'Oréal und tragen den gleichen Stilcode."
+    },
+    "zara": {
+      "where1": "Auf der unteren Klappe der Duftbox und auf dem Flaschenboden.",
+      "where2": "Das Beauty-Sortiment druckt es auf die Unterseite des Gehäuses oder die Bördelung der Tube.",
+      "faq2q": "Wer stellt eigentlich Zara-Parfüm her?",
+      "faq1q": "Hat Zara-Parfüm ein Verfallsdatum?",
+      "faq1a": "In der Regel nicht aufgedruckt – wie die meisten Düfte trägt es stattdessen einen Chargencode. Entschlüsseln Sie das Herstellungsdatum und rechnen Sie mit einer ungeöffneten Lebensdauer von drei bis fünf Jahren, was für ein Eau de Toilette, das vor Licht und Hitze geschützt aufbewahrt wird, normal ist.",
+      "faq2a": "Puig stellt die Duftlinie von Zara her, weshalb die Codes dem Format von Puig folgen – und einer der Gründe, warum mehrere Düfte von Zara zum Vergleich mit Designerdüften einladen, die auch Puig herstellt."
+    }
   }
 }

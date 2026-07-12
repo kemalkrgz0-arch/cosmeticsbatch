@@ -7,7 +7,8 @@
     "home": "Hem",
     "howItWorks": "Hur det fungerar",
     "checkNow": "Kontrollera nu",
-    "language": "Språk"
+    "language": "Språk",
+    "codeFormats": "Kodformat"
   },
   "footer": {
     "tagline": "Det mest pålitliga och enklaste sättet att kontrollera batchkoder för kosmetika och parfym. Gratis, omedelbar och privat.",
@@ -22,7 +23,8 @@
     "allBrands": "Alla märken",
     "allGuides": "Alla guider",
     "rights": "© {year} {name}. Alla rättigheter reserverade. Uppskattningar är endast informativa och inte en garanti för produktsäkerhet.",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "codeFormats": "Batchkodformat"
   },
   "hero": {
     "badge": "Betrodd av skönhetsälskare över hela världen",
@@ -59,7 +61,7 @@
     "blurb": "Avkoda {name} batchkoder för att hitta tillverkningsdatum, ålder och utgångsdatum för dina {category}-produkter. Gratis, omedelbar och privat.",
     "metaTitle": "{name} Batch Code Decoder & Checker — Tillverkning och utgångsdatum",
     "metaDescription": "Gratis {name} batchkodavkodare. Kontrollera tillverkningsdatum, produktålder och utgångsdatum för dina {name}-produkter på några sekunder – ingen registrering.",
-    "checkerTitle": "{name} Batch Code Checker",
+    "checkerTitle": "{name}Batch Code Checker",
     "factManufacturer": "Tillverkare",
     "factShelfLife": "Typisk hållbarhet",
     "factPao": "Efter öppning (PAO)",
@@ -74,7 +76,9 @@
     "months": "{n} månader",
     "faqTitle": "{name}— Vanliga frågor",
     "by": "av {group}",
-    "printsDateNote": "{name} trycker tillverknings- eller utgångsdatumet direkt på förpackningen, så du behöver oftast ingen batchkod."
+    "printsDateNote": "{name} trycker tillverknings- eller utgångsdatumet direkt på förpackningen, så du behöver oftast ingen batchkod.",
+    "exampleHeading": "En riktig{name}-kod, avkodad",
+    "whereHeading": "Var hittar du koden på{name}-förpackningen"
   },
   "faqUi": {
     "title": "Vanliga frågor",
@@ -165,7 +169,20 @@
     "percentLeft": "{n}% kvar",
     "confNone": "Kunde inte avkoda",
     "invalidTitle": "Vi kunde inte läsa den här koden",
-    "invalidBody": "\"{code}\" matchar inte {brand}:s batchkodformat. Kontrollera att du skrev det exakt som det står på förpackningen - endast bokstäver och siffror, inga mellanslag - och att det är batchkoden, inte streckkoden eller en pris-/marknadsföringsreferens."
+    "invalidBody": "\"{code}\" matchar inte {brand}:s batchkodformat. Kontrollera att du skrev det exakt som det står på förpackningen - endast bokstäver och siffror, inga mellanslag - och att det är batchkoden, inte streckkoden eller en pris-/marknadsföringsreferens.",
+    "share": "Dela resultat",
+    "shareCopied": "Kopierade!",
+    "meaningTitle": "vad betyder det?",
+    "shareLifeLeft": "{n}% liv kvar",
+    "shareTitle": "{name}batchkod resultat",
+    "addToCalendar": "Lägg till utgångsdatum i kalendern",
+    "shareMade": "gjort{date}",
+    "meaningFresh": "Denna produkt är fräsch och inom hållbarhet.",
+    "meaningGood": "Denna produkt är fortfarande bra, med mycket hållbarhet kvar.",
+    "meaningExpired": "Denna produkt har passerat sin hållbarhetstid och kanske inte längre är i bästa kvalitet.",
+    "calendarTitle": "{name}— ersätt med detta datum",
+    "meaningUnknown": "Vi kunde inte uppskatta färskheten för den här koden.",
+    "meaningUseSoon": "Denna produkt närmar sig slutet av sin hållbarhetstid - använd den snart."
   },
   "howItWorks": {
     "step1Title": "Välj varumärke",
@@ -192,5 +209,339 @@
     "fastBody": "Få resultat på bara några sekunder – ingen registrering.",
     "privateBody": "Koder avkodas privat. Din integritet kommer först.",
     "freeBody": "Varje funktion är 100 % gratis, för alltid."
+  },
+  "whereCode": {
+    "label": {
+      "tube": "Rör",
+      "lipstick": "Läppstift",
+      "perfume": "Parfymlåda"
+    },
+    "alt": {
+      "perfume": "Batchkod markerad på en parfymlåda",
+      "lipstick": "Batchkod markerad på en läppstiftsbas",
+      "tube": "Batchkod markerad på en kosmetisk tubkrympning"
+    },
+    "subtitle": "Det är en kort separat stämpel — här är det där den vanligtvis gömmer sig på olika förpackningar.",
+    "cardCta": "Var du hittar batchkoden på en{type}- läs guiden",
+    "viewGuide": "Läs hela guiden",
+    "title": "Var finns batchkoden?"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "faq1q": "Hur avkodar jag en Calvin Klein batchkod?",
+      "faq2q": "Kan batchkoden tala om för mig om min CK är riktig?",
+      "faq1a": "CK doft är tillverkad av Coty. Koden är fyra siffror: en årssiffra följt av dagen på året. Dela dagen med cirka 30,4 för att få månaden - dag 135 är tidigt i den femte månaden, maj.",
+      "where2": "På de plattare CK One-flaskorna kan koden tryckas direkt på glasbasen.",
+      "where1": "På botten av kartongen och på klistermärket under flaskan.",
+      "faq2a": "Det kan fånga en dålig förfalskning: ett omöjligt dagnummer, eller koder som inte stämmer överens mellan låda och flaska. Det kan inte bekräfta en bra, eftersom en kod kopierad från en äkta flaska avkodar perfekt."
+    },
+    "carolina-herrera": {
+      "faq1a": "Carolina Herrera-doften är gjord av Puig, som skriver ut produktionsdatumet i koden — som en årssiffra plus årets dag, eller som ett packdatum som 231122 för 22 november 2023.",
+      "faq2q": "Är Good Girl ofta förfalskade?",
+      "faq1q": "Hur kontrollerar jag en Carolina Herrera batchkod?",
+      "where1": "På botten av lådan och undersidan av flaskan.",
+      "where2": "På Good Girl stilettflaskan sitter koden på hälsulan.",
+      "faq2a": "Det är en av de mest kopierade dofterna i Europa. Gör de kontroller som en kod inte kan göra: jämför box- och flaskkoderna, väg flaskan och titta på sprayens finhet. En ren avkodning är nödvändig men långt ifrån tillräcklig."
+    },
+    "cerave": {
+      "faq2a": "De dermatologiska linjerna trycker ofta en, och det gör solkrämerna nästan alltid. Om det finns ett tryckt datum, lita på det: det är tillverkarens egen garanti och det slår allt en dekoder kan uppskatta.",
+      "faq2q": "Finns det ett utgångsdatum på CeraVe?",
+      "where1": "Rör och rengöringsmedel: pressas in i krimpningen vid den förseglade änden av röret.",
+      "faq1q": "Hur kontrollerar jag hållbarheten för en CeraVe-produkt?",
+      "where2": "Pumpflaskor (SA Cleanser, fuktgivande lotion): bläckstråletryckt på etiketten på baksidan eller på basen.",
+      "faq1a": "CeraVe är tillverkad av L'Oréal, så koden följer gruppens format: den första bokstaven är produktionsåret och tecknet efter det är månaden. Avkoda den för tillverkningsdatum och räkna sedan med cirka 36 månader oöppnad. När den öppnats tar den öppna burken över — 12 månader för större delen av sortimentet.",
+      "faq3q": "Hur vet jag om CeraVe är förfalskade?",
+      "faq3a": "CeraVe är mycket förfalskade på marknadsplatser. Batchkoden är ett första filter — en kod som inte passar L'Oréals form är ett dåligt tecken — men den kan inte bekräfta en äkta produkt, eftersom en riktig kod kan kopieras till ett falskt rör. Jämför plastens konsistens, tryckkvaliteten på den lilla texten och köp från ett apotek eller en auktoriserad säljare."
+    },
+    "chanel": {
+      "where1": "Doft: laseretsad i glaset på flaskans botten och tryckt på lådans bottenflik. Etsningen har inget bläck – luta flaskan så att ljuset fångar den från sidan.",
+      "where2": "Smink och hudvård: på basen av kompakten eller burken, i mycket liten grå typ.",
+      "faq1q": "Har Chanel ett officiellt batchkodsystem?",
+      "faq2q": "Jag kan inte hitta någon kod på min Chanel-flaska.",
+      "faq1a": "Nej. Chanel har aldrig publicerat en, och alla som påstår sig känna till det officiella Chanel-chifferet gissar. Det som är verifierbart är att nuvarande Chanel-produkter skriver ut ett läsbart produktionsdatum inuti koden, och det är vad vi avkodar – rapporterat som en medelstor förtroendeläsning just för att det inte finns något publicerat schema att kontrollera det mot.",
+      "faq3q": "Hur kontrollerar jag hållbarheten för Chanel foundation?",
+      "faq2a": "Det är nästan säkert laseretsad i glasbasen snarare än tryckt. Etsning är osynlig under ett direkt ljus och uppträder när ljuset drar över den - vänd flaskan långsamt under en lampa, eller fotografera basen med blixt och zooma in i bilden.",
+      "faq3a": "Avkoda koden på basen för tillverkningsdatum och använd sedan symbolen med öppen burk - vanligtvis 12M för en flytande foundation. Oavsett vilket som tar slut först, den oöppnade hållbarheten eller månaderna sedan du öppnade den, är den verkliga deadline."
+    },
+    "clinique": {
+      "where1": "Hudvårdsflaskor och burkar: präglade på basen.",
+      "where2": "Smink: baksidan av kompakten eller fodralets bas.",
+      "faq2q": "Hur länge håller Clinique hudvård?",
+      "faq1q": "Hur läser jag en Clinique batchkod?",
+      "faq1a": "Clinique är Estée Lauder, så formatet är växt, månad, år med tre tecken — läs från höger. Det sista tecknet är årssiffran; den före det är månaden, där A, B och C står för oktober, november och december.",
+      "faq2a": "Cirka 36 månader oöppnad från tillverkningsdatum och 12 månader efter öppnande för större delen av sortimentet. Den öppna burkens symbol på förpackningen är numret som binder när du bryter förseglingen."
+    },
+    "creed": {
+      "where2": "På de äldre, tyngre flakonerna kan koden stämplas istället för att skrivas ut; vinkla den mot ljuset.",
+      "where1": "På botten av flaskan och på botten av lådan - vanligtvis tryckt i svart på den vita basetiketten.",
+      "faq1q": "Hur läser jag en Creed batchkod?",
+      "faq2q": "Kan koden tala om för mig om min Green Irish Tweed är äkta?",
+      "faq2a": "Delvis. Creed är bland de mest förfalskade husen i doft, och en första bokstav som inte alls finns i kretsloppet är en enkel berättelse. Men en kopierad kod avkodar rent, så en giltig kod är inget bevis – väg flaskan, titta på sprayen och kartongen och köp från en auktoriserad återförsäljare.",
+      "faq3q": "Betyder en äldre trosbekännelse en bättre trosbekännelse?",
+      "faq1a": "Bara den första bokstaven spelar roll. Den kodar produktionsåret, räknat från A = 2010 och hoppar över I och O: N = 2022, P = 2023, Q = 2024, R = 2025. Allt efter det är en intern batchserie. Creed kodar inte månaden, så koden ger dig ett år och inget finare.",
+      "faq3a": "För de tyngre, hartsartade kompositionerna kan en äldre flaska verkligen vara att föredra, eftersom omformuleringar har förändrat flera klassiker - och batchkoden är det enda sättet att fastställa vilken formel du köper. För de lättare, citrusledda Creeds är ålder mestadels oxidation och ingen fördel alls."
+    },
+    "dior": {
+      "where3": "Hudvård: stämplad på botten av burken, bredvid symbolen för öppen burk.",
+      "where2": "Smink: på basen av kompakten, undersidan av läppstiftsfodralet, eller krusningen av en tub.",
+      "faq1q": "Hur kontrollerar jag om min Dior-parfym är äkta?",
+      "faq2q": "Hur ser en Dior batchkod ut?",
+      "faq1a": "Börja med koderna: den på kartongen och den på flaskan ska matcha, eftersom båda appliceras på samma påfyllningslinje med minuters mellanrum. Avkoda sedan — ett omöjligt dagnummer, eller ett datum innan doften lanserades, är en riktig varning. Men förstå gränsen: en förfalskare som kopierar en äkta kod producerar en kod som avkodar perfekt. Batchkoden kan avslöja en falsk; den kan inte intyga en riktig.",
+      "where1": "Doft: på botten av den yttre lådan och på undersidan av flaskan - en liten tryckt klistermärke, eller laseretsad i glaset på de större flaskorna.",
+      "faq3q": "Var finns batchkoden på Dior läppstift?",
+      "faq2a": "Vanligtvis fyra siffror, till exempel 3245. Dior kör inget hemligt chiffer - precis som de andra LVMH-husen skriver den ut produktionsdatumet i koden, som en årssiffra följt av dagen på året. Vissa koder har ett längre 5- eller 6-siffrigt datum istället.",
+      "faq3a": "På den platta basen av fodralet. Vrid kulan helt ned först - koden är stämplad i basen och är lätt att missa mot den metalliska finishen."
+    },
+    "dunhill": {
+      "where1": "På botten av lådan och undersidan av flaskan, tryckt i svart på den vita bottenetiketten.",
+      "faq1q": "Hur läser jag en Dunhill batchkod?",
+      "faq2a": "Jämför box- och flaskkoderna och avkoda sedan. Ett årsbrev utanför cykeln, eller koder som inte stämmer överens, är riktiga varningar. En ren avkodning är inte bevis – kopierade koder avkodar också.",
+      "faq2q": "Hur kontrollerar jag att en Dunhill-doft är äkta?",
+      "faq1a": "Dunhill-doften är gjord på licens av Inter Parfums. Den första bokstaven är produktionsåret - en cykel som hoppar över I och O, så J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 - och de tre sista siffrorna är dagen på det året."
+    },
+    "estee-lauder": {
+      "where1": "Hudvård: präglad på botten av burken eller flaskan - intryckt i materialet, så det behöver ett rakande ljus snarare än ett direkt.",
+      "where2": "Doft och smink: på botten av kartongen och på undersidan av produkten.",
+      "faq1q": "Hur läser jag en Estée Lauder batchkod?",
+      "faq3a": "Ja — samma växter och samma anläggning/månad/år format. Endast växtbokstaven skiljer sig, och den innehåller ingen datuminformation.",
+      "faq2q": "Hur kontrollerar jag hållbarheten om jag slänger lådan?",
+      "faq3q": "Använder Clinique, MAC och La Mer samma kod?",
+      "faq1a": "Läs det från höger, inte från vänster. Det sista tecknet är årssiffran; den före det är månaden (1–9 för januari till september, sedan A, B och C för oktober, november och december); allt till vänster är växten. Så i EA4 är anläggningen E, månaden är A — oktober — och året slutar på 4. Att läsa från vänster till höger är det vanligaste misstaget med dessa koder.",
+      "faq2a": "Koden finns på själva produkten, inte bara på kartongen - på botten av burken eller flaskan, vanligtvis präglad. Avkoda den för tillverkningsdatum och använd sedan symbolen för öppen burk från dagen då du öppnade den. Oavsett vilken deadline som kommer först är den riktiga."
+    },
+    "fenty-beauty": {
+      "where1": "Foundation och flytande produkter: tryckt på botten av flaskan, eller där etiketten sveper runt baksidan.",
+      "faq1a": "Avkoda batchkoden — Fenty är ett LVMH-märke och skriver ut ett produktionsdatum i koden. En kod som producerar ett omöjligt datum, eller inget datum alls, är en varning. Men en kopierad kod avkodar rent, så använd den tillsammans med de vanliga kontrollerna: utskriftskvalitet på förpackningen, applikatorns känsla och köp direkt från Sephora eller Fenty.",
+      "faq1q": "Hur kontrollerar jag om Fenty Beauty är äkta?",
+      "faq2a": "Inte nödvändigtvis - en streckkod som inte skannas är vanligtvis ett utskrifts- eller belysningsproblem, och streckkoden innehåller i alla fall inget datum och ingen äkthetsinformation. Det är batchkoden, den korta oregelbundna stämpeln, som talar om när produkten tillverkades.",
+      "where2": "Kompakt, puder och glans: på baksidan av fodralet eller basen av tuben.",
+      "faq3q": "Hur länge håller Fenty foundation?",
+      "faq2q": "Streckkoden på min Fenty-produkt skannar inte. Är det falskt?",
+      "faq3a": "Ungefär 12 månader efter öppnande och cirka 36 månader oöppnad från tillverkningsdatum. Det som kommer först är deadline."
+    },
+    "garnier": {
+      "faq1q": "Var hittar jag utgångsdatum på en Garnier-kräm eller serum?",
+      "where2": "SPF och Ambre Solaire: tryckt på etiketten på baksidan, vanligtvis med ett uttryckligt utgångsdatum också.",
+      "where1": "Serum och dagkrämer: på botten av flaskan eller krusningen av tuben.",
+      "where3": "Påsar och engångsmasker: på baksidan av påsen, i mycket liten typ nära sömmen.",
+      "faq2a": "Solskydd är undantaget - det har normalt ett utskrivet utgångsdatum, eftersom SPF-påståendet är ett säkerhetspåstående. Använd det utskrivna datumet i stället för ett avkodat, och byt ut alla flaskor som har tillbringat en sommar i värmen.",
+      "faq2q": "Var är datumet på Garniers solkräm?",
+      "faq3a": "Kontrollera att koden passar L'Oréals format — Garnier är ett L'Oréal-märke — och att den avkodas till ett rimligt datum. Det utesluter grova förfalskningar. Det kan inte utesluta en bra, eftersom en kopierad kod avkodar perfekt.",
+      "faq3q": "Hur vet jag att min Garnier-produkt är riktig?",
+      "faq1a": "Garnier trycker sällan en. Den korta koden på tubkrympningen eller flaskbasen är batchkoden och den innehåller tillverkningsdatumet: den första bokstaven är årtalet, tecknet efter det är månaden. Räkna fram cirka 36 månader för en oöppnad produkt och använd symbolen för öppen burk när den har öppnats."
+    },
+    "giorgio-armani-beauty": {
+      "where1": "Doft (Acqua di Giò, Armani Code): på botten av lådan och basklistermärket på flaskan.",
+      "where2": "Smink: på undersidan av fodralet eller på baksidan av kompakten.",
+      "faq1q": "Hur avkodar jag ett Armani Code batchnummer?",
+      "faq2q": "Hur länge håller Acqua di Giò oöppnad?",
+      "faq2a": "Tre till fem år är normalt för en eau de toilette, längre för eau de parfum. Doft är den mest förlåtande kategorin som finns, förutsatt att flaskan hålls borta från ljus och värme.",
+      "faq1a": "Armani-doften är tillverkad av L'Oréal, så koden följer gruppens format: den första bokstaven är produktionsåret, tecknet efter det är månaden. (Doften som kallas Armani Code och batchkoden stämplad på dess kartong är orelaterade saker som tyvärr delar ett ord.)"
+    },
+    "guerlain": {
+      "where1": "Doft: på botten av lådan och på undersidan av flaskan - ofta tryckt på ett litet klistermärke.",
+      "faq1a": "Guerlain är ett LVMH-hus och skriver ut produktionsdatumet i batchkoden - oftast en årssiffra följt av dagen på året. Avkoda den för tillverkningsdatum och räkna sedan med tre till fem års oöppnad livslängd för en eau de parfum som hålls borta från ljus och värme.",
+      "faq1q": "Hur kontrollerar jag produktionsdatumet för en Guerlain-doft?",
+      "where2": "Smink och hudvård: stämplad på basen av kompakten eller burken.",
+      "faq2q": "Min gamla Guerlain-kod kommer inte att avkoda.",
+      "faq2a": "Äldre och regionspecifika koder är ibland interna alfanumeriska referenser utan något datum alls. De kan inte avkodas av någon. Bedöm flaskan efter dess skick och saftens lukt istället."
+    },
+    "hugo-boss": {
+      "where2": "De två koderna bör matcha - de skrivs ut med minuters mellanrum på samma rad.",
+      "where1": "På basen av den yttre kartongen och på den genomskinliga klistermärken under flaskan.",
+      "faq1q": "Hur kontrollerar jag en Hugo Boss doftsatskod?",
+      "faq2q": "Box- och flaskkoderna är olika. Är det falskt?",
+      "faq1a": "Hugo Boss-doften är tillverkad av Coty, som använder en fyrsiffrig kod: den första siffran är den sista siffran i produktionsåret och de återstående tre är dagen på det året. Så 4135 är den 135:e dagen 2024 – 14 maj 2024.",
+      "faq2a": "Det betyder att lådan och flaskan parades ihop någon annanstans än fabriken. Det händer med förfalskningar, och även med lagligt ompackade, returnerade eller gråmarknadslager. Hur som helst, parningen du har är inte den som fabriken skickade."
+    },
+    "jean-paul-gaultier": {
+      "faq1q": "Hur läser jag en Jean Paul Gaultier batchkod?",
+      "faq2a": "På utgåvorna med metallhylsor finns koden ofta bara på lådan, eller stämplad så svagt in i basen att den behöver kratta ljus för att se. Kontrollera kartongen först - och om du har båda, bekräfta att de matchar.",
+      "faq2q": "Det finns ingen kod på min Le Male-flaska.",
+      "where1": "På botten av lådan och på undersidan av den bålformade flaskan.",
+      "where2": "På utgåvorna med metallhölje finns koden ofta bara på kartongen, eller stämplad svagt in i burkens bas.",
+      "faq1a": "JPG-doft tillverkas av Puig, som skriver ut produktionsdatum i koden. Fyra siffror betyder en årssiffra plus dagen på året; fem betyder två årssiffror plus dagen; sex är ett fullspäckat kalenderdatum."
+    },
+    "kenzo-parfums": {
+      "where2": "På Kenzo World och Flower-flaskorna kan koden sitta på den platta undersidan där etiketten viks under.",
+      "faq1q": "Hur kontrollerar jag en Kenzo-doft efter dess batchkod?",
+      "faq2a": "Ja, och detta är en verklig begränsning snarare än en egenhet. En fyrsiffrig kod har bara en siffra i år, så 4135 är 14 maj 2024 på exakt samma bevis som gör den 14 maj 2014. Avkodaren antar den senaste läsningen; om flaskan och förpackningen ser ut att tillhöra en tidigare era så gör de det förmodligen.",
+      "faq2q": "Upprepas Kenzo-koder vart tionde år?",
+      "where1": "På basen av den yttre lådan och på undersidan av flaskan - tryckt på basetiketten eller stämplad i glaset.",
+      "faq1a": "Kenzo Parfums är ett LVMH-hus och LVMH skriver ut produktionsdatumet i koden istället för att kryptera det. Fyra siffror betyder en årssiffra plus dagen på året; fem eller sex siffror är ett fullständigare datum. Välj Kenzo i rutan och den tillämpar rätt avläsning.",
+      "faq3q": "Kan koden bevisa att en Kenzo-doft är äkta?",
+      "faq3a": "Det kan fånga en falsk - en omöjlig dag, eller en oöverensstämmelse mellan boxkoden och flaskkoden, som ingen äkta påfyllningslinje producerar. Den kan inte certifiera en äkta, eftersom en kopierad kod avkodar rent."
+    },
+    "kerastase": {
+      "where2": "Rör och vandringsstorlekar: inpressade i krimpningen.",
+      "faq1a": "Kérastase är L'Oréal Professionnel, så den bär gruppens kod: den första bokstaven är året, tecknet efter det är månaden. En oöppnad mask är vanligtvis bra i cirka 30–36 månader från det datumet; när den öppnats gäller symbolen för öppen burk - vanligtvis 12M.",
+      "faq1q": "Hur hittar jag hållbarheten för en Kérastase-mask?",
+      "where1": "Flaskor och masker: bläckstråletryckta på baksidan av flaskan, nära basen eller stämplade på botten av burken.",
+      "faq3q": "Produkten är köpt utomlands — förändras hållbarheten?",
+      "faq3a": "Nej. Formelns hållbarhet är en egenskap hos produkten, inte marknaden. Det som förändras med ett varmt klimat är hur snabbt det faktiskt bryts ned: värme förkortar det verkliga livet långt under det tryckta.",
+      "faq2q": "Hur kontrollerar jag att en Kérastase-produkt är äkta?",
+      "faq2a": "Kérastase är ett vanligt mål för förfalskningar och för avledda salongsbestånd. Avkoda koden: den ska passa L'Oréals format och ge ett rimligt datum. Det kommer inte att fånga en kopierad kod, så titta också på kvaliteten på utskriften, vikten och finishen på locket och om säljaren är en auktoriserad salong eller återförsäljare."
+    },
+    "kiehls": {
+      "where2": "Tuber och ögonkrämer: pressas in i crimpen.",
+      "faq1q": "Hur kontrollerar jag hållbarheten för Kiehls ögonkräm?",
+      "where1": "Burkar och flaskor: stämplade på basen, ofta präglade istället för tryckta - luta den under ett ljus.",
+      "faq2a": "Det är vanligtvis präglat i basen snarare än färgat. Präglade koder försvinner under ett direkt ljus och dyker upp när ljuset drar över dem från sidan - vänd burken långsamt mot en lampa.",
+      "faq1a": "Avkoda koden på basen: Kiehl's är L'Oréal, så den första bokstaven är året och tecknet efter månaden. Oöppnad, räkna med cirka 36 månader; när den öppnats, symbolen med öppen burk - vanligtvis 12M för en ögonkräm, vilket är det nummer som binder först.",
+      "faq2q": "Koden på min Kiehls burk är osynlig."
+    },
+    "la-roche-posay": {
+      "faq1q": "Var är utgångsdatumet på La Roche-Posay?",
+      "where1": "Rör: pressas in i crimpen i den förseglade änden.",
+      "where2": "Flaskor och Anthelios solskyddsmedel: tryckt på etiketten på baksidan, vanligtvis tillsammans med ett äkta utgångsdatum.",
+      "faq2a": "Upp till tre år oöppnad om den förvaras svalt, och cirka 12 månader när den öppnats. Solskyddsmedel är den enda produkten där det tryckta datumet verkligen spelar roll, eftersom nedbrutna filter ger mindre skydd än vad etiketten lovar.",
+      "faq1a": "Apotekslinjerna brukar skriva ut ett riktigt utgångsdatum på kartongen eller tuben — använd den. Den korta koden bredvid är batchkoden och innehåller istället tillverkningsdatumet: första bokstaven är årtalet, tecknet efter det är månaden.",
+      "faq3q": "Är min La Roche-Posay äkta?",
+      "faq2q": "Hur länge håller Anthelios solkräm?",
+      "faq3a": "En kod som passar L'Oréals format och avkodar till ett rimligt datum utesluter de grova förfalskningarna. Det kan inte intyga en bra. Apoteksköp är fortfarande den starkaste garantin för detta sortiment."
+    },
+    "lancome": {
+      "where1": "Doft: på botten av lådan och på undersidan av flaskan.",
+      "faq2q": "Hur länge håller oöppnad Lancôme hudvård?",
+      "faq1q": "Hur läser jag en Lancôme batchkod?",
+      "faq2a": "Cirka tre år från tillverkningen, mindre för produkter byggda på instabila aktiva ämnen. Avkoda innan du köper från en lågprisbutik - gammalt lager är äkta, men det kan ha mycket lite oöppnat liv kvar.",
+      "faq1a": "Lancôme är L'Oréal: den första bokstaven är produktionsåret (hoppar över V, så U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) och tecknet direkt efter det är månaden, där O, N och D står för oktober, november och december.",
+      "where2": "Hudvård och foundation: präglad eller tryckt på botten av burken, tubkrympningen eller flaskan."
+    },
+    "loreal": {
+      "where1": "Överallt där koncernens produkter är stämplade: rörpressar, flaskbottnar, burkbottnar och kartongflikar.",
+      "faq2a": "Vanligtvis sex tecken, till exempel 40X200: fabrikssiffror, sedan årsbokstaven, sedan månadstecknet och sedan en serie. Årsbokstaven och tecknet efter den är de enda delarna som bär ett datum.",
+      "where2": "Använd den här sidan när ett undervarumärke inte är listat separat – hela gruppen delar ett kodformat.",
+      "faq1a": "Alla av dem: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm och resten. De kommer från samma växter, så de bär samma format.",
+      "faq1q": "Vilka märken delar L'Oréals batchkod?",
+      "faq2q": "Hur ser en L'Oréal-kod ut?",
+      "faq3q": "Min kod har ingen bokstav.",
+      "faq3a": "Då är det inte det här formatet. Vissa nyligen förvärvade varumärken, och vissa regionala kontraktstillverkare, skriver ut ett vanligt julianskt datum istället - kontrollen faller tillbaka till att läsa ett datum inbäddat i siffrorna."
+    },
+    "loreal-paris": {
+      "where2": "Rör: pressas in i crimpen i den förseglade änden.",
+      "where3": "Flaskor (schampo, serum, foundation): bläckstråletryckt på baksidans etikett eller basen.",
+      "faq1q": "Hur kontrollerar jag hållbarheten för en L'Oréal Paris-kräm?",
+      "faq2q": "Var är tillverkningsdatumet tryckt på L'Oréals produkter?",
+      "where1": "Krämer och burkar: stämplade på botten av burken, eller på undersidan av locket.",
+      "faq1a": "Det finns inget utgångsdatum på burken – det som skrivs ut är en batchkod som innehåller tillverkningsdatumet. Läs den första bokstaven som årtal (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V hoppas över) och tecknet efter det som månad. Från det datumet är en oöppnad kräm vanligtvis bra i cirka 36 månader, och symbolen med öppen burk styr hur länge den varar när du börjar använda den.",
+      "faq3q": "Hur kan jag kontrollera att en L'Oréal-produkt är äkta?",
+      "faq2a": "Det skrivs inte ut som ett datum – det är kodat i batchkoden, som är den korta oregelbundna stämpeln på krimpningen, basen eller baketiketten. Det långa numret under streckkodsränderna är EAN och innehåller inget datum alls.",
+      "faq3a": "Avkoda koden och se om den överhuvudtaget överensstämmer med L'Oréals format — en kod utan årsbokstav, eller en avkodning till ett omöjligt datum, är ett äkta varningstecken. Men en kopierad kod avkodar rent, så det här testet kan fånga en falsk och kan inte certifiera en riktig. Jämför utskriftskvaliteten på den lilla texten på förpackningen och köp från en auktoriserad återförsäljare."
+    },
+    "mac-cosmetics": {
+      "faq1q": "Hur kontrollerar jag utgångsdatumet för MAC Foundation?",
+      "where3": "Foundationflaskor: på basen, eller där etiketten lindas runt baksidan.",
+      "where1": "Läppstift: stämplat i den platta basen av kulhuset. Vrid kulan helt nedåt så att höljet sitter plant.",
+      "where2": "Kompakterar, rouger och paletter: på baksidan av fodralet — och på vissa produkter tryckta på metallplåten, syns bara när pulvret är förbrukat.",
+      "faq1a": "MAC skriver inte ut ett utgångsdatum – nästan inget smink gör det. Den skriver ut en batchkod på tre tecken som ger anläggningen, månaden och året. Avkoda det för tillverkningsdatumet och använd sedan symbolen med öppen burk: flytande foundation är vanligtvis 6–12 månader efter öppning och cirka 36 månader oöppnad. Den tidigare deadline vinner.",
+      "faq2a": "Tre tecken, som B23. MAC tillhör Estée Lauder-gruppen, så det sista tecknet är årssiffran och den mellersta är månaden - där A, B och C betyder oktober, november och december.",
+      "faq2q": "Hur ser en MAC-batchkod ut?",
+      "faq3q": "Hur vet jag om mitt MAC-läppstift är äkta?",
+      "faq3a": "Koden ska bestå av tre eller fyra tecken och avkodas till ett rimligt datum; en kod som inte passar den formen är en varning. Men en kopierad kod avkodar perfekt, så bedöm också tyngden på väskan, klicket på stängningen och trycket på den lilla texten — och köp från en auktoriserad disk."
+    },
+    "maybelline": {
+      "where1": "Mascara: tryckt på tubens bas, eller vertikalt där etiketten lindas runt.",
+      "where2": "Foundationflaskor: på basen eller på baksidans etikett.",
+      "where3": "Paletter och kompakter: på baksidan av fodralet.",
+      "faq2q": "Var finns batchkoden på Maybelline-produkter?",
+      "faq1q": "Hur gammal är min Maybelline-mascara?",
+      "faq1a": "Avkoda koden på basen — Maybelline använder L'Oréals format, där första bokstaven är år och nästa tecken är månad. Men för mascara binder tillverkningsdatumet sällan: tre-till-sex månadersklockan som startar den dag du öppnar tuben tar nästan alltid slut först.",
+      "faq2a": "På botten av tuben eller flaskan, eller på baksidan av en palett. Det är den korta oregelbundna koden – inte det långa streckkodsnumret."
+    },
+    "montblanc": {
+      "where1": "På botten av lådan och på undersidan av flaskan — tryckt i svart på den vita bottenetiketten.",
+      "faq2q": "Finns det något serienummer jag kan slå upp?",
+      "faq3q": "De tre sista siffrorna ger ett konstigt datum.",
+      "faq1q": "Hur kontrollerar jag en Montblanc Legend efter dess kod?",
+      "where2": "Montblanc-koder är bland de lättare doftkoderna att läsa utan förstoringsglas.",
+      "faq2a": "Nej. En batchkod identifierar en produktionskörning, inte en enskild flaska, och det finns ingen offentlig databas att slå upp den i. Vad den ger dig är datumet - vilket är den användbara delen.",
+      "faq1a": "Montblanc-doften är tillverkad på licens av Inter Parfums. Den första bokstaven i koden är produktionsåret, på en cykel som hoppar över I och O — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 - och de tre sista siffrorna är dagen på det året.",
+      "faq3a": "På en minoritet av Inter Parfums koder är dessa siffror en fabrikslinje snarare än en dag. Om datumet ser osannolikt ut för flaskan, lita på årsbokstaven och behandla dagen som ungefärlig."
+    },
+    "nivea": {
+      "where1": "Tuber (handkräm, ansiktstvätt): stämplade in i crimpen — den platta förseglade änden mittemot locket.",
+      "where3": "Flaskor och solvård: bläckstråletryckt på etiketten på baksidan eller på flaskans axel.",
+      "where2": "Den klassiska blå Creme-burken: pressad in i metallbasen, utan bläck alls. Luta den under ett ljus; ett rakt ljus får det att försvinna.",
+      "faq1q": "Hur hittar jag tillverkningsdatumet på NIVEA-produkter?",
+      "faq2q": "Har NIVEA solkräm ett utgångsdatum?",
+      "faq3q": "Det finns ingen kod synlig på min NIVEA-plåt.",
+      "faq1a": "NIVEA (Beiersdorf) kodar produktionsveckan snarare än dagen. Den första siffran i koden är den sista siffran i året och de nästa två är veckonumret - så en kod som börjar 815 är vecka 15 i ett år som slutar på 8. Det placerar den inom sju dagar, vilket är tillräckligt för en bodylotion.",
+      "faq3a": "Den är präglad i metallbasen snarare än tryckt, vilket gör den nästan osynlig i direkt ljus. Håll plåten så att en lampa fångar basen från sidan och tecknen kommer att dyka upp.",
+      "faq2a": "Solskydd har normalt ett utskrivet utgångsdatum, eftersom SPF-påståendet behandlas som ett säkerhetspåstående. Använd det utskrivna datumet snarare än en avkodad uppskattning - och behandla en flaska som tillbringade en sommar i en varm bil som färdig, oavsett vad datumet säger."
+    },
+    "paco-rabanne": {
+      "faq2q": "Kan koden bevisa att min Paco Rabanne är äkta?",
+      "faq3q": "Är Rabanne samma märke som Paco Rabanne?",
+      "where1": "På botten av lådan och på undersidan av flaskan. På de tyngre flaskorna – 1 miljon götet, Invictus-trofén – är koden ofta stämplad i metallen eller glaset snarare än tryckt på ett klistermärke.",
+      "where2": "Luta flaskan så att ljuset fångar stämpeln från sidan; ett direkt ljus gör att den försvinner.",
+      "faq1q": "Hur avkodar jag en Invictus- eller 1 Million batch-kod?",
+      "faq2a": "Den kan fånga en falsk och kan inte intyga en riktig. Paco Rabanne är bland de mest förfalskade dofterna i Europa: ett omöjligt dagnummer, eller koder som inte stämmer överens mellan låda och flaska, är starka varningar - men en kod kopierad från en äkta flaska avkodar perfekt. Väg flaskan och kontrollera även spraymönstret.",
+      "faq1a": "Paco Rabanne är tillverkad av Puig, som skriver ut produktionsdatum i koden istället för att kryptera den. Den vanliga formen är fyra siffror: den första är den sista siffran i året, de återstående tre är dagen på det året - så 4135 är den 135:e dagen 2024, 14 maj 2024.",
+      "faq3a": "Ja — huset tog bort \"Paco\" från sitt namn 2023. Äldre bestånd har det tidigare varumärket, och kodformatet ändrades inte."
+    },
+    "redken": {
+      "where1": "Flaskor: bläckstråletryckt på etiketten på baksidan eller botten av flaskan.",
+      "faq1q": "Hur kontrollerar jag hållbarheten för en Redken-produkt?",
+      "where2": "Pulver och aerosoler: stämplade på botten av burken.",
+      "faq1a": "Redken är ett L'Oréal-märke och använder gruppens format — första bokstaven är produktionsåret, tecknet efter det är månaden. Hårvård är vanligtvis bra i cirka 36 månader oöppnad och 12 månader efter öppnandet.",
+      "faq2q": "Säger streckkoden mig hållbarheten?",
+      "faq2a": "Nej. Streckkoden är EAN – den identifierar produkten som säljs och är identisk på varje flaska. Endast batchkoden, den korta oregelbundna stämpeln, har ett datum."
+    },
+    "roberto-cavalli": {
+      "where2": "Leta efter en kort kod med fyra siffror; det längre numret under streckkodsränderna är det inte.",
+      "faq1q": "Hur kontrollerar jag att Roberto Cavalli parfym är äkta?",
+      "where1": "På botten av lådan och botten av flaskan — tryckt, eller på de tyngre flakonerna stämplade i glaset.",
+      "faq2a": "Det finns inte en i betydelsen en unik serie per flaska. Det som skrivs ut är en batchkod – som delas av varje enhet från samma produktionskörning – och den kodar datumet, inte en identitet.",
+      "faq2q": "Var finns serienumret på en Roberto Cavalli-flaska?",
+      "faq1a": "Cavalli-doften är gjord av Coty, så koden är ett fyrsiffrigt produktionsdatum - en årssiffra plus dagen på året. Jämför koden på kartongen med koden på flaskan först: en missmatchning är den enskilt starkaste signalen som finns tillgänglig för en köpare. Avkoda det sedan; en omöjlig dag är en klar fejk. En kod som avkodar rent är dock inte bevis på äkthet - kopierade koder avkodar också."
+    },
+    "tom-ford-beauty": {
+      "faq1q": "Hur kontrollerar jag en Tom Ford batchkod?",
+      "where2": "Foundation och ögonskuggspaletter: stämplade på basen av kompakten eller flaskan.",
+      "where1": "Doft: på botten av kartongen och etsad eller tryckt på undersidan av flaskan.",
+      "faq2a": "Koden finns på basen av kompakten. Avkoda det för tillverkningsdatum; ett pressat pulver är bra i cirka 24 månader efter öppnandet och betydligt längre oöppnat, eftersom en torr formula ger bakterier nästan ingenting att växa i.",
+      "faq2q": "Hur dejtar jag en ögonskuggspalett från Tom Ford?",
+      "faq3q": "Är batchkoden bevis på äkthet?",
+      "faq3a": "Nej. Det kan avslöja en grov bluff — en kod som inte passar formatet, eller avkodas till en omöjlig månad — men en kopierad kod avkodar rent. Tom Ford doft är kraftigt förfalskad; väg flaskan, kontrollera sprejsprutan och köp från en auktoriserad återförsäljare.",
+      "faq1a": "Tom Ford Beauty tillverkas av Estée Lauder-gruppen, så den använder gruppens tre-teckenkod: anläggning, månad, år — läs från höger. Månaden är 1–9 för januari till september, sedan A, B och C för oktober till december."
+    },
+    "too-faced": {
+      "faq1a": "Too Faced tillhör Estée Lauder-gruppen, så koden består av tre tecken - växt, månad, år - läs från höger. Om koden på din palett inte passar den formen kan det vara en fabrikslinjemärkning snarare än batchkoden.",
+      "where2": "Flytande produkter: på botten av flaskan eller rörkrympningen.",
+      "where1": "Paletter och kompakter: på baksidan av fodralet, ibland under plastbrickan.",
+      "faq1q": "Hur kontrollerar jag batchkoden för en Too Faced-palett?",
+      "faq2q": "My Too Faced-koden avkodas inte.",
+      "faq2a": "Vissa koder på Too Faced-förpackningar är interna linjemarkeringar, inte datumkoder, och det finns inget i dem att avkoda. Kontrollera basen och baksidan av fodralet för en andra, kortare kod - och om det verkligen inte finns en, är symbolen med öppen burk din bästa guide."
+    },
+    "vichy": {
+      "faq1q": "Var är utgångsdatumet på Vichy-produkter?",
+      "where1": "Tuber och Capital Soleil solskyddsmedel: intryckt i krimpningen — den platta förseglade änden mittemot locket.",
+      "where2": "Flaskor och pumpar (Mineral 89, Liftactiv): bläckstråletryckt på basen eller på baksidans etikett nära streckkoden.",
+      "where3": "Kartonger: på en ändflik, vanligtvis bredvid symbolen med öppen burk. Prover och påsar har ofta ingen kod alls - bara kartongen de kom i gör det.",
+      "faq3q": "Kan koden bevisa att min Vichy är äkta?",
+      "faq2q": "Hur läser jag koden på en Vichy-produkt?",
+      "faq4q": "Tar Capital Soleil solkräm ut?",
+      "faq2a": "Vichy tillverkas av L'Oréal och använder gruppens format. Hitta den första bokstaven i koden: det är produktionsåret, i en cykel som hoppar över V, så U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Tecknet direkt efter det är månaden — 1 till 9 för januari till september, sedan O, N och D för oktober, november och december. Att O är bokstaven O, inte en nolla.",
+      "faq1a": "De flesta Vichy-produkter trycker inte en. Apotekslinjer har ofta ett äkta utgångsdatum, och där det finns slår det alla avkodade uppskattningar - men om allt du kan hitta är en kort kod, det är batchkoden, och den innehåller tillverkningsdatumet snarare än utgångsdatumet. Avkoda den och lägg sedan till hållbarheten: ungefär 36 månader oöppnad för hudvård och följ symbolen för öppen burk när den öppnats.",
+      "faq3a": "Endast delvis. En kod som inte passar L'Oréals form, eller som avkodar till ett datum innan produktlinjen fanns, är en riktig varning. Men en förfalskare som kopierar en kod från ett äkta rör producerar en kod som avkodar perfekt - så en ren avkodning bevisar att koden är välformad, inte att krämen är det. För apotekshudvård är köp från apotek fortfarande det starkare skyddet.",
+      "faq4a": "Ja, och det betyder mer än för något annat i sortimentet: försämrade UV-filter släpper igenom mer strålning, så en föråldrad SPF 50 ger inte SPF 50. Solskyddsmedel har normalt ett utskrivet utgångsdatum av exakt denna anledning - använd det. Och behandla en flaska som tillbringade en sommar i en varm bil som färdig oavsett datum."
+    },
+    "ysl-beauty": {
+      "where1": "Läppstift och smink: stämplat på fodralets bas eller baksidan av kompakten.",
+      "where2": "Doft: på botten av lådan och undersidan av flaskan.",
+      "faq1q": "Hur kontrollerar jag en batchkod för Yves Saint Laurent?",
+      "faq2q": "Varför ser min YSL-kod ut som en Maybelline?",
+      "faq1a": "YSL Beauty tillverkas av L'Oréal, så den bär gruppens kod: fabrikssiffror, ett årtal, sedan ett månadstecken. Välj YSL Beauty i rutan och motorn tillämpar L'Oréals regel.",
+      "faq2a": "För samma företag tillverkar båda. Formatet följer fabriken, inte priset - ett YSL-läppstift och en Maybelline-mascara kommer från L'Oréals linjer och bär samma kodstil."
+    },
+    "zara": {
+      "where1": "På bottenfliken på doftlådan och på flaskans botten.",
+      "where2": "Skönhetssortimentet trycker det på undersidan av fodralet eller krimpningen av tuben.",
+      "faq1q": "Har Zara parfym ett utgångsdatum?",
+      "faq2q": "Vem tillverkar egentligen Zara-parfym?",
+      "faq1a": "Inte en tryckt, som regel - som de flesta dofter har den en batchkod istället. Avkoda den för tillverkningsdatum och räkna med tre till fem års oöppnad livslängd, vilket är normalt för en eau de toilette som hålls borta från ljus och värme.",
+      "faq2a": "Puig tillverkar Zaras doftlinje, varför koderna följer Puigs format — och en del av varför flera Zara-dofter inbjuder till jämförelse med designerdofter som Puig också gör."
+    }
   }
 }

@@ -7,7 +7,8 @@
     "search": "Căutare",
     "howItWorks": "Cum funcționează",
     "language": "Limbă",
-    "checkNow": "Verificați acum"
+    "checkNow": "Verificați acum",
+    "codeFormats": "Formate de cod"
   },
   "footer": {
     "tagline": "Cel mai de încredere și cel mai simplu mod de a verifica codurile loturilor de produse cosmetice și parfumuri. Gratuit, instant și privat.",
@@ -22,7 +23,8 @@
     "allGuides": "Toate ghidurile",
     "batchGuide": "Ghid de cod de lot",
     "rights": "© {year} {name}. Toate drepturile rezervate. Estimările au caracter informativ și nu sunt o garanție a siguranței produsului.",
-    "contact": "Contact"
+    "contact": "Contact",
+    "codeFormats": "Formate de cod de lot"
   },
   "hero": {
     "trustNoSignup": "Nu este necesară înregistrarea",
@@ -74,7 +76,9 @@
     "aliasesPara": "Veți vedea uneori acest instrument numit decodor de cod de lot {name}, verificator de cod de lot {name} sau calculator de cod de lot {name}- toate fac același lucru: citiți codul de producție și vă spun cât de proaspăt este {name} {category}.",
     "months": "{n} luni",
     "faqTitle": "{name}— Întrebări frecvente",
-    "printsDateNote": "{name} imprimă data de fabricație sau de expirare direct pe ambalaj, așa că de obicei nu ai nevoie de un cod de lot."
+    "printsDateNote": "{name} imprimă data de fabricație sau de expirare direct pe ambalaj, așa că de obicei nu ai nevoie de un cod de lot.",
+    "whereHeading": "Unde găsiți codul pe ambalajul{name}",
+    "exampleHeading": "Un cod{name}real, decodat"
   },
   "faqUi": {
     "title": "Întrebări frecvente",
@@ -165,7 +169,20 @@
     "percentLeft": "{n}% rămas",
     "confHigh": "Încredere ridicată",
     "confNone": "Nu s-a putut decoda",
-    "invalidBody": "„{code}” nu se potrivește cu formatul de cod de lot al lui {brand}. Verificați dacă ați tastat exact așa cum este tipărit pe ambalaj - numai litere și cifre, fără spații - și că este codul lotului, nu codul de bare sau referința de preț/marketing."
+    "invalidBody": "„{code}” nu se potrivește cu formatul de cod de lot al lui {brand}. Verificați dacă ați tastat exact așa cum este tipărit pe ambalaj - numai litere și cifre, fără spații - și că este codul lotului, nu codul de bare sau referința de preț/marketing.",
+    "share": "Partajați rezultatul",
+    "shareCopied": "Copiat!",
+    "shareLifeLeft": "{n}% viață rămasă",
+    "shareTitle": "rezultatul codului lot{name}",
+    "addToCalendar": "Adăugați expirarea în calendar",
+    "shareMade": "făcut{date}",
+    "meaningTitle": "Ce înseamnă acest lucru?",
+    "meaningUnknown": "Nu am putut estima prospețimea acestui cod.",
+    "meaningFresh": "Acest produs este proaspăt și în termen de valabilitate.",
+    "meaningGood": "Acest produs este încă bun, cu multă perioadă de valabilitate rămasă.",
+    "meaningUseSoon": "Acest produs se apropie de sfârșitul termenului de valabilitate - folosiți-l în curând.",
+    "meaningExpired": "Acest produs a depășit termenul de valabilitate și este posibil să nu mai fie la cea mai bună calitate.",
+    "calendarTitle": "{name}— înlocuiți cu această dată"
   },
   "howItWorks": {
     "eyebrow": "Trei pași simpli",
@@ -192,5 +209,339 @@
     "privateBody": "Codurile sunt decodate în mod privat. Intimitatea ta este pe primul loc.",
     "fastBody": "Obțineți rezultate în doar câteva secunde - fără înregistrare.",
     "accurateBody": "Algoritmi specifici producătorului pentru rezultate precise."
+  },
+  "whereCode": {
+    "label": {
+      "tube": "Tub",
+      "lipstick": "Ruj",
+      "perfume": "Cutie de parfum"
+    },
+    "title": "Unde este codul lotului?",
+    "subtitle": "Este o ștampilă scurtă separată - aici se ascunde de obicei pe pachete diferite.",
+    "cardCta": "Unde puteți găsi codul de lot pe un{type}- citiți ghidul",
+    "viewGuide": "Citiți ghidul complet",
+    "alt": {
+      "perfume": "Cod de lot evidențiat pe o cutie de parfum",
+      "tube": "Codul de lot evidențiat pe un tub cosmetic de sertizare",
+      "lipstick": "Cod de lot evidențiat pe o bază de ruj"
+    }
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "faq1q": "Cum decodez un cod de lot Calvin Klein?",
+      "faq2q": "Codul lotului îmi poate spune dacă CK-ul meu este real?",
+      "where1": "Pe partea de jos a cutiei și pe autocolantul de sub sticlă.",
+      "faq1a": "Parfumul CK este produs de Coty. Codul este format din patru cifre: o cifră a anului urmată de ziua anului. Împărțiți ziua la aproximativ 30,4 pentru a obține luna - ziua 135 este la începutul lunii a cincea, mai.",
+      "faq2a": "Poate prinde un fals prost: un număr de zi imposibil sau coduri care nu sunt de acord între cutie și sticlă. Nu poate confirma unul bun, pentru că un cod copiat dintr-o sticlă autentică decodifică perfect.",
+      "where2": "Pe sticlele CK One mai plate codul poate fi imprimat direct pe baza de sticla."
+    },
+    "carolina-herrera": {
+      "faq1q": "Cum verific un cod de lot Carolina Herrera?",
+      "faq2q": "Fata bună este adesea contrafăcută?",
+      "where1": "Pe baza cutiei și pe partea inferioară a sticlei.",
+      "faq2a": "Este unul dintre cele mai copiate parfumuri din Europa. Faceți verificările pe care un cod nu le poate face: comparați codurile cutiei și sticlei, cântăriți sticla și priviți finețea spray-ului. O decodare curată este necesară, dar deloc suficientă.",
+      "faq1a": "Parfumul Carolina Herrera este produs de Puig, care tipărește data producției în cod - ca o cifră a anului plus ziua anului sau ca o dată de ambalare, cum ar fi 231122 pentru 22 noiembrie 2023.",
+      "where2": "Pe sticla stiletto Good Girl codul se află pe talpa călcâiului."
+    },
+    "cerave": {
+      "faq1q": "Cum verific durata de valabilitate a unui produs CeraVe?",
+      "where1": "Tuburi și produse de curățare: presate în sertizare la capătul etanș al tubului.",
+      "where2": "Sticle cu pompă (SA Cleanser, loțiune hidratantă): imprimate cu jet de cerneală pe eticheta din spate sau pe bază.",
+      "faq2q": "Există o dată de expirare pe CeraVe?",
+      "faq2a": "Liniile dermatologice tipăresc adesea una, iar cremele de protecție solară o fac aproape întotdeauna. Acolo unde există o dată tipărită, ai încredere în ea: este garanția producătorului și bate orice poate estima un decodor.",
+      "faq1a": "CeraVe este realizat de L'Oréal, așa că codul urmează formatul grupului: prima literă este anul de producție și caracterul de după este luna. Decodificați-l pentru data de fabricație, apoi considerați aproximativ 36 de luni nedeschis. Odată deschis, simbolul borcanului deschis preia — 12 luni pentru cea mai mare parte a gamei.",
+      "faq3q": "Cum pot spune dacă CeraVe este contrafăcut?",
+      "faq3a": "CeraVe este contrafăcut pe scară largă pe piețe. Codul lotului este un prim filtru - un cod care nu se potrivește cu forma L'Oréal este un semn rău - dar nu poate confirma un produs autentic, deoarece un cod real poate fi copiat pe un tub fals. Comparați textura plasticului, calitatea tipăririi textului mic și cumpărați de la o farmacie sau un vânzător autorizat."
+    },
+    "chanel": {
+      "where2": "Machiaj și îngrijire a pielii: pe baza compactului sau borcanului, de tip gri foarte mic.",
+      "where1": "Parfum: gravat cu laser în sticla de pe baza sticlei și imprimat pe clapeta inferioară a cutiei. Gravura nu are cerneală - înclinați sticla astfel încât lumina să o prindă din lateral.",
+      "faq1q": "Are Chanel un sistem oficial de coduri de lot?",
+      "faq3q": "Cum verific durata de valabilitate a fondului de ten Chanel?",
+      "faq3a": "Decodificați codul de pe bază pentru data fabricării, apoi aplicați simbolul borcanului deschis - de obicei 12M pentru un fond de ten lichid. Oricare se epuizează primul, termenul de valabilitate nedeschis sau lunile de când l-ați deschis, este adevăratul termen limită.",
+      "faq1a": "Nu. Chanel nu a publicat niciodată unul și oricine pretinde că cunoaște cifrul oficial Chanel ghicește. Ceea ce este verificabil este că produsele Chanel actuale imprimă o dată de producție care poate fi citită în interiorul codului și asta este ceea ce decodificăm - raportat ca citire cu încredere medie tocmai pentru că nu există nicio schemă publicată pentru a o verifica.",
+      "faq2a": "Este aproape sigur gravat cu laser pe baza de sticlă, mai degrabă decât imprimat. Gravarea este invizibilă sub o lumină directă și apare atunci când lumina trece peste ea - întoarceți sticla încet sub o lampă sau fotografiați baza cu bliț și măriți imaginea.",
+      "faq2q": "Nu găsesc niciun cod pe sticla mea Chanel."
+    },
+    "clinique": {
+      "where1": "Sticle și borcane pentru îngrijirea pielii: în relief pe bază.",
+      "faq2a": "Aproximativ 36 de luni nedeschise de la data fabricației și 12 luni după deschidere pentru cea mai mare parte a gamei. Simbolul borcanului deschis de pe ambalaj este numărul care se leagă odată ce spargeți sigiliul.",
+      "where2": "Machiaj: spatele compactului sau baza carcasei.",
+      "faq2q": "Cât durează îngrijirea Clinique?",
+      "faq1q": "Cum citesc un cod de lot Clinique?",
+      "faq1a": "Clinique este Estée Lauder, deci formatul este plantă, lună, an în trei caractere - citit din dreapta. Ultimul caracter este cifra anului; cea dinaintea ei este luna, cu A, B și C pentru octombrie, noiembrie și decembrie."
+    },
+    "creed": {
+      "where1": "Pe baza sticlei și pe partea inferioară a cutiei - de obicei imprimate cu negru pe autocolantul de bază alb.",
+      "where2": "Pe flacoanele mai vechi, mai grele, codul poate fi ștampilat mai degrabă decât imprimat; înclinați-l împotriva luminii.",
+      "faq1a": "Doar prima literă contează. Codifică anul de producție, numărând de la A = 2010 și sărind peste I și O: N = 2022, P = 2023, Q = 2024, R = 2025. Totul după care este o serie internă de lot. Creed nu codifică luna, așa că codul vă oferă un an și nimic mai fin.",
+      "faq1q": "Cum citesc un cod de lot Creed?",
+      "faq3q": "Un crez mai vechi înseamnă un crez mai bun?",
+      "faq2q": "Îmi poate spune codul dacă Green Irish Tweed este autentic?",
+      "faq2a": "Parţial. Creed este printre cele mai contrafăcute case în parfumuri, iar o primă literă care nu este deloc în ciclu este o poveste simplă. Dar un cod copiat decodifică curat, așa că un cod valid nu este o dovadă - cântăriți sticla, priviți spray-ul și imprimarea cutiei și cumpărați de la un comerciant autorizat.",
+      "faq3a": "Pentru compozițiile mai grele, rășinoase, o sticlă mai veche poate fi cu adevărat de preferat, deoarece reformulările au schimbat mai multe clasice - iar codul lotului este singura modalitate de a stabili ce formulă cumpărați. Pentru Creedurile mai ușoare, conduse de citrice, vârsta este în mare parte oxidare și nici un beneficiu."
+    },
+    "dior": {
+      "where3": "Îngrijirea pielii: ștampilat pe baza borcanului, lângă simbolul borcanului deschis.",
+      "where2": "Machiaj: pe baza compactei, fundul carcasei de ruj, sau sertizarea unui tub.",
+      "where1": "Parfum: pe baza cutiei exterioare și pe partea inferioară a sticlei - un mic autocolant imprimat sau gravat cu laser în sticla pe sticlele mai mari.",
+      "faq2a": "În mod obișnuit, patru cifre, cum ar fi 3245. Dior nu rulează niciun cifru secret - ca și celelalte case LVMH, imprimă data producției în cod, ca o cifră a anului urmată de ziua anului. Unele coduri au în schimb o dată mai lungă de 5 sau 6 cifre.",
+      "faq1q": "Cum verific dacă parfumul meu Dior este autentic?",
+      "faq1a": "Începeți cu codurile: cel de pe cutie și cel de pe sticlă ar trebui să se potrivească, deoarece ambele sunt aplicate pe aceeași linie de umplere la câteva minute distanță. Apoi decodați - un număr imposibil de zi sau o dată înainte de lansarea parfumului, este un adevărat avertisment. Dar înțelegeți limita: un falsificator care copiază un cod autentic produce un cod care decodifică perfect. Codul lotului poate expune un fals; nu poate certifica unul real.",
+      "faq3a": "Pe baza plată a carcasei. Răsuciți glonțul complet în jos mai întâi - codul este ștanțat în bază și este ușor de ratat împotriva finisajului metalic.",
+      "faq2q": "Cum arată un cod de lot Dior?",
+      "faq3q": "Unde este codul lotului pe ruj Dior?"
+    },
+    "estee-lauder": {
+      "where1": "Îngrijirea pielii: în relief pe baza borcanului sau a sticlei - presat în material, așa că are nevoie de o lumină de greblare mai degrabă decât de una directă.",
+      "where2": "Parfum și machiaj: pe baza cutiei și pe partea inferioară a produsului.",
+      "faq1q": "Cum citesc un cod de lot Estée Lauder?",
+      "faq3q": "Clinique, MAC și La Mer folosesc același cod?",
+      "faq2q": "Cum verific termenul de valabilitate dacă arunc cutia?",
+      "faq1a": "Citiți din dreapta, nu din stânga. Ultimul caracter este cifra anului; cea dinaintea ei este luna (1–9 pentru ianuarie până în septembrie, apoi A, B și C pentru octombrie, noiembrie și decembrie); orice în stânga este planta. Deci, în EA4 planta este E, luna este A — octombrie — și anul se termină în 4. Citirea de la stânga la dreapta este cea mai frecventă greșeală cu aceste coduri.",
+      "faq2a": "Codul se află pe produsul în sine, nu doar pe cutie - pe baza borcanului sau sticlei, de obicei în relief. Decodați-l pentru data de fabricație, apoi aplicați simbolul borcanului deschis din ziua în care l-ați deschis. Indiferent de termenul limită care vine primul, este cel real.",
+      "faq3a": "Da — aceleași plante și același format plantă/lună/an. Doar litera plantei diferă și nu conține informații despre dată."
+    },
+    "dunhill": {
+      "faq1q": "Cum citesc un cod de lot Dunhill?",
+      "where1": "Pe baza cutiei și pe partea inferioară a sticlei, imprimate cu negru pe autocolantul de bază alb.",
+      "faq1a": "Parfumul Dunhill este produs sub licență de Inter Parfums. Prima literă este anul de producție — un ciclu care sărește I și O, deci J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — iar ultimele trei cifre sunt ziua acelui an.",
+      "faq2q": "Cum verific că un parfum Dunhill este autentic?",
+      "faq2a": "Comparați codurile cutiei și sticlei, apoi decodați. O scrisoare de un an în afara ciclului sau codurile care nu sunt de acord sunt adevărate avertismente. O decodare curată nu este o dovadă - codurile copiate decodifică, de asemenea."
+    },
+    "fenty-beauty": {
+      "where1": "Fond de ten și produse lichide: imprimate pe baza sticlei sau acolo unde eticheta se înfășoară pe spate.",
+      "where2": "Compacte, pulberi și luciu: pe spatele carcasei sau pe baza tubului.",
+      "faq3q": "Cât durează fondul de ten Fenty?",
+      "faq2q": "Codul de bare de pe produsul meu Fenty nu se va scana. Este fals?",
+      "faq3a": "Aproximativ 12 luni de la deschidere și aproximativ 36 de luni nedeschis de la data fabricației. Oricare vine primul este termenul limită.",
+      "faq1a": "Decodați codul lotului — Fenty este o marcă LVMH și imprimă o dată de producție în cod. Un cod care produce o dată imposibilă sau nicio dată este un avertisment. Dar un cod copiat decodifică curat, așa că utilizați-l alături de verificările obișnuite: calitatea imprimării pe ambalaj, senzația aplicatorului și cumpărarea directă de la Sephora sau Fenty.",
+      "faq2a": "Nu neapărat – un cod de bare care nu se scanează este de obicei o problemă de imprimare sau de iluminare și, în orice caz, codul de bare nu conține nicio dată și nicio informație de autenticitate. Este codul lotului, ștampila scurtă neregulată, care vă spune când a fost fabricat produsul.",
+      "faq1q": "Cum verific dacă Fenty Beauty este autentică?"
+    },
+    "garnier": {
+      "faq2q": "Unde este data de pe crema de soare Garnier?",
+      "where1": "Seruri si creme de zi: pe baza sticlei sau pe cremele tubului.",
+      "faq1q": "Unde găsesc data de expirare pe o cremă sau un ser Garnier?",
+      "where2": "SPF și Ambre Solaire: imprimate pe eticheta din spate, de obicei cu o dată explicită de expirare.",
+      "where3": "Pliculețe și măști de unică folosință: pe spatele plicului, cu caractere foarte mici lângă cusătură.",
+      "faq1a": "Garnier tipărește rar unul. Codul scurt de pe baza tubului de sertizare sau a sticlei este codul lotului și conține data de fabricație: prima literă este anul, caracterul de după este luna. Numărați înainte de aproximativ 36 de luni pentru un produs nedeschis și utilizați simbolul borcanului deschis odată ce acesta a fost deschis.",
+      "faq3q": "De unde știu că produsul meu Garnier este real?",
+      "faq3a": "Verificați dacă codul se potrivește cu formatul L'Oréal - Garnier este o marcă L'Oréal - și că decodează la o dată plauzibilă. Asta exclude falsurile brute. Nu poate exclude unul bun, deoarece un cod copiat decodifică perfect.",
+      "faq2a": "Protecția solară este o excepție - în mod normal are o dată de expirare tipărită, deoarece afirmația SPF este o declarație de siguranță. Folosiți data tipărită mai degrabă decât una decodificată și înlocuiți orice sticlă care a petrecut o vară în căldură."
+    },
+    "giorgio-armani-beauty": {
+      "where2": "Machiaj: pe baza carcasei sau pe spatele compactului.",
+      "faq1q": "Cum decodez un număr de lot Armani Code?",
+      "faq2q": "Cât durează Acqua di Giò nedeschisă?",
+      "faq1a": "Parfumul Armani este produs de L'Oréal, așa că codul urmează formatul grupului: prima literă este anul de producție, caracterul de după este luna. (Parfumul numit Armani Code și codul de lot ștampilat pe cutie sunt lucruri fără legătură cu care, din păcate, împărtășesc un cuvânt.)",
+      "where1": "Parfum (Acqua di Giò, Armani Code): pe partea de jos a cutiei și pe autocolantul de bază al sticlei.",
+      "faq2a": "Trei până la cinci ani este normal pentru o apă de toaletă, mai mult pentru apa de parfum. Parfumul este cea mai îngăduitoare categorie care există, cu condiția ca sticla să fie ferită de lumină și căldură."
+    },
+    "guerlain": {
+      "where2": "Machiaj și îngrijire a pielii: ștanțate pe baza compactei sau a borcanului.",
+      "where1": "Parfum: pe baza cutiei și pe partea inferioară a sticlei - adesea imprimat pe un autocolant mic.",
+      "faq1a": "Guerlain este o casă LVMH și tipărește data producției în codul lotului - cel mai frecvent o cifră a anului urmată de ziua anului. Decodifică-l pentru data fabricării, apoi ia în calcul trei până la cinci ani de viață nedeschisă pentru o apă de parfum ferită de lumină și căldură.",
+      "faq2q": "Vechiul meu cod Guerlain nu va decoda.",
+      "faq1q": "Cum verific data de producție a unui parfum Guerlain?",
+      "faq2a": "Codurile mai vechi și specifice regiunii sunt uneori referințe alfanumerice interne fără nicio dată în ele. Acestea nu pot fi decodificate de nimeni. În schimb, judecă sticla după starea sa și după mirosul sucului."
+    },
+    "hugo-boss": {
+      "where2": "Cele două coduri ar trebui să se potrivească - sunt imprimate la câteva minute distanță pe aceeași linie.",
+      "faq2a": "Înseamnă că cutia și sticla au fost împerecheate în altă parte decât în ​​fabrică. Acest lucru se întâmplă cu contrafacerile și, de asemenea, cu stocurile reambalate în mod legitim, returnate sau de pe piața gri. Oricum, perechea pe care o dețineți nu este cea expediată din fabrică.",
+      "where1": "Pe baza cutiei exterioare și pe autocolantul transparent de sub sticlă.",
+      "faq1a": "Parfumul Hugo Boss este produs de Coty, care folosește un cod din patru cifre: prima cifră este ultima cifră a anului de producție, iar restul de trei sunt ziua acelui an. Deci 4135 este a 135-a zi din 2024 - 14 mai 2024.",
+      "faq1q": "Cum verific un cod de lot de parfum Hugo Boss?",
+      "faq2q": "Codurile cutiei și sticlei sunt diferite. Este fals?"
+    },
+    "jean-paul-gaultier": {
+      "faq1q": "Cum citesc un cod de lot Jean Paul Gaultier?",
+      "where1": "Pe baza cutiei și pe partea inferioară a sticlei în formă de trunchi.",
+      "where2": "La edițiile cu carcasă metalică, codul este frecvent doar pe cutie sau ștampilat ușor în baza cutiei.",
+      "faq1a": "Parfumul JPG este produs de Puig, care imprimă data producției în cod. Patru cifre înseamnă o cifră a anului plus ziua anului; cinci înseamnă cifre de doi ani plus ziua; șase este o dată calendaristică plină.",
+      "faq2a": "La edițiile cu mâneci metalice, codul este adesea doar pe cutie sau ștampilat atât de slab în bază încât are nevoie de lumină pentru a vedea. Verificați mai întâi cutia - și dacă aveți ambele, confirmați că se potrivesc.",
+      "faq2q": "Nu există niciun cod pe sticla mea Le Male."
+    },
+    "kenzo-parfums": {
+      "where1": "Pe baza cutiei exterioare și pe partea inferioară a sticlei - imprimate pe autocolantul de bază sau ștanțate în sticlă.",
+      "faq1q": "Cum verific un parfum Kenzo după codul de lot?",
+      "where2": "Pe sticlele Kenzo World și Flower, codul poate sta pe partea inferioară plată, unde eticheta se pliază.",
+      "faq2q": "Se repetă codurile Kenzo la fiecare zece ani?",
+      "faq2a": "Da, și aceasta este mai degrabă o limitare reală decât o ciudatenie. Un cod din patru cifre poartă o singură cifră a anului, deci 4135 este 14 mai 2024 exact pe aceleași dovezi care îl fac 14 mai 2014. Decodorul presupune citirea recentă; dacă sticla și ambalajul par ca aparțin unei epoci anterioare, probabil că sunt.",
+      "faq1a": "Kenzo Parfums este o casă LVMH, iar LVMH tipărește data producției în cod, în loc să o cripteze. Patru cifre înseamnă o cifră a anului plus ziua anului; cinci sau șase cifre este o dată mai completă. Selectați Kenzo în checker și va aplica lectura corectă.",
+      "faq3a": "Poate prinde un fals - o zi imposibilă sau o nepotrivire între codul cutiei și codul sticlei, pe care nu o produce nicio linie de umplere autentică. Nu poate certifica unul autentic, deoarece un cod copiat decodifică curat.",
+      "faq3q": "Codul poate dovedi că un parfum Kenzo este autentic?"
+    },
+    "kerastase": {
+      "where1": "Sticle și măști: imprimate cu jet de cerneală pe spatele sticlei, lângă bază, sau ștanțate pe fundul borcanului.",
+      "faq1q": "Cum aflu termenul de valabilitate al unei măști Kérastase?",
+      "where2": "Tuburi și dimensiuni de călătorie: presate în sertizare.",
+      "faq3q": "Produsul a fost cumpărat în străinătate — se schimbă termenul de valabilitate?",
+      "faq1a": "Kérastase este L'Oréal Professionnel, deci poartă codul grupului: prima literă este anul, caracterul de după este luna. O mască nedeschisă este de obicei bună pentru aproximativ 30-36 de luni de la acea dată; odată deschis, se aplică simbolul borcanului deschis - de obicei 12M.",
+      "faq2q": "Cum verific că un produs Kérastase este autentic?",
+      "faq3a": "Nu. Perioada de valabilitate a formulei este o proprietate a produsului, nu a pieței. Ceea ce se schimbă cu un climat cald este cât de repede se degradează de fapt: căldura scurtează viața reală cu mult sub cea imprimată.",
+      "faq2a": "Kérastase este o țintă comună pentru contrafăcute și pentru stocurile de salon deturnate. Decodați codul: ar trebui să se potrivească formatului L'Oréal și să producă o dată plauzibilă. Nu va prinde un cod copiat, așa că uitați-vă și la calitatea imprimării, la greutatea și finisajul capacului și dacă vânzătorul este un salon sau comerciant autorizat."
+    },
+    "kiehls": {
+      "where1": "Borcane și sticle: ștanțate pe bază, adesea în relief mai degrabă decât imprimate - înclinați-l sub lumină.",
+      "faq2q": "Codul de pe borcanul meu Kiehl este invizibil.",
+      "where2": "Tuburi și creme de ochi: presate în sert.",
+      "faq1a": "Decodificați codul de pe bază: Kiehl's este L'Oréal, deci prima literă este anul și caracterul de după ea este luna. Nedeschis, socotiți la aproximativ 36 de luni; odată deschis, simbolul borcanului deschis - de obicei 12M pentru o cremă de ochi, care este numărul care se va lega primul.",
+      "faq2a": "De obicei, este imprimat în relief pe bază, mai degrabă decât cu cerneală. Codurile în relief dispar sub o lumină directă și apar atunci când lumina trece peste ele din lateral - întoarceți borcanul încet spre o lampă.",
+      "faq1q": "Cum verific perioada de valabilitate a cremei de ochi Kiehl's?"
+    },
+    "la-roche-posay": {
+      "where2": "Sticle și protecție solară Anthelios: imprimate pe eticheta din spate, de obicei alături de o dată de expirare autentică.",
+      "where1": "Tuburi: presate în sertizare la capătul sigilat.",
+      "faq1q": "Unde este data de expirare pe La Roche-Posay?",
+      "faq2q": "Cât durează crema solară Anthelios?",
+      "faq2a": "Până la trei ani nedeschis dacă este păstrat la rece și aproximativ 12 luni odată deschis. Crema de protecție solară este singurul produs în care data tipărită contează cu adevărat, deoarece filtrele degradate înseamnă mai puțină protecție decât promite eticheta.",
+      "faq3a": "Un cod care se potrivește formatului L'Oréal și decodifică la o dată plauzibilă exclude falsurile brute. Nu poate certifica unul bun. Achiziția la farmacie rămâne cea mai puternică garanție pentru această gamă.",
+      "faq3q": "La Roche-Posay mea este autentică?",
+      "faq1a": "Liniile de farmacie imprimă de obicei o dată de expirare reală pe cutie sau pe tub - folosește-o. Codul scurt de lângă acesta este codul lotului și deține în schimb data de fabricație: prima literă este anul, caracterul de după este luna."
+    },
+    "lancome": {
+      "where2": "Îngrijirea tenului și fond de ten: în relief sau imprimat pe baza borcanului, a tubului de sertizare sau a sticlei.",
+      "where1": "Parfum: pe baza cutiei și pe partea inferioară a sticlei.",
+      "faq1a": "Lancôme este L'Oréal: prima literă este anul de producție (sărind peste V, deci U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) și caracterul imediat după este luna, cu O, N și D pentru octombrie, noiembrie și decembrie.",
+      "faq2a": "Aproximativ trei ani de la fabricație, mai puțin pentru produsele construite pe substanțe active instabile. Decodați înainte de a cumpăra de la un discount - stocul vechi este autentic, dar poate avea foarte puțină viață nedeschisă.",
+      "faq2q": "Cât durează îngrijirea Lancôme nedeschisă?",
+      "faq1q": "Cum citesc un cod de lot Lancôme?"
+    },
+    "loreal": {
+      "where1": "Oriunde sunt ștampilate produsele grupului: sertizarea tuburilor, bazele sticlelor, fundul borcanelor și clapele din carton.",
+      "where2": "Utilizați această pagină atunci când o marcă secundară nu este listată separat - întregul grup are un singur format de cod.",
+      "faq2q": "Cum arată un cod L'Oréal?",
+      "faq1q": "Ce mărci au codul de lot L'Oréal?",
+      "faq1a": "Toate: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm si restul. Se desprind din aceleași plante, așa că poartă același format.",
+      "faq2a": "De obicei, șase caractere, cum ar fi 40X200: cifre din fabrică, apoi litera anului, apoi caracterul lunii, apoi o serie de lot. Litera anului și caracterul de după ea sunt singurele părți care poartă o dată.",
+      "faq3q": "Codul meu nu are nicio literă în el.",
+      "faq3a": "Atunci nu este acest format. Unele mărci recent achiziționate și unii producători regionali prin contract, imprimă în schimb o dată Julian simplă - verificatorul se întoarce la citirea unei date încorporate în cifre."
+    },
+    "loreal-paris": {
+      "where2": "Tuburi: presate în sertizare la capătul sigilat.",
+      "where1": "Creme și borcane: ștanțate pe baza borcanului sau pe partea inferioară a capacului.",
+      "where3": "Sticle (șampon, ser, fond de ten): imprimat cu jet de cerneală pe eticheta din spate sau pe bază.",
+      "faq2q": "Unde este imprimată data de fabricație pe produsele L'Oréal?",
+      "faq1q": "Cum verific perioada de valabilitate a unei creme L'Oréal Paris?",
+      "faq1a": "Nu există o dată de expirare pe borcan - ceea ce este imprimat este un cod de lot care conține data de fabricație. Citiți prima literă ca an (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V este omis) și caracterul de după ea ca lună. De la acea dată, o cremă nedeschisă este de obicei bună pentru aproximativ 36 de luni, iar simbolul borcanului deschis guvernează cât durează odată ce începeți să o utilizați.",
+      "faq2a": "Nu este tipărită ca dată – este codificată în codul lotului, care este ștampila scurtă neregulată de pe sertizare, bază sau eticheta din spate. Numărul lung de sub dungile codului de bare este EAN și nu conține deloc dată.",
+      "faq3a": "Decodați codul și vedeți dacă se potrivește cu formatul L'Oréal - un cod fără literă de an sau o decodare la o dată imposibilă, este un semn de avertizare autentic. Dar un cod copiat decodifică curat, astfel încât acest test poate prinde un fals și nu poate certifica unul real. Comparați calitatea de imprimare a textului mic de pe ambalaj și cumpărați de la un comerciant autorizat.",
+      "faq3q": "Cum pot verifica că un produs L'Oréal este autentic?"
+    },
+    "mac-cosmetics": {
+      "where2": "Compacte, blushuri și palete: pe spatele carcasei — și pe unele produse imprimate pe tava metalică, vizibile doar pe măsură ce pudra este epuizată.",
+      "where1": "Ruj: ștampilat în baza plată a carcasei glonțului. Răsuciți glonțul complet în jos, astfel încât carcasa să stea plată.",
+      "where3": "Sticle de fond de ten: pe bază sau unde eticheta se înfășoară pe spate.",
+      "faq3q": "Cum pot spune dacă rujul meu MAC este autentic?",
+      "faq1q": "Cum verific data de expirare a fondului de ten MAC?",
+      "faq2q": "Cum arată un cod de lot MAC?",
+      "faq2a": "Trei personaje, cum ar fi B23. MAC aparține grupului Estée Lauder, deci ultimul caracter este cifra anului, iar cea din mijloc este luna - unde A, B și C înseamnă octombrie, noiembrie și decembrie.",
+      "faq1a": "MAC nu imprimă o dată de expirare - aproape niciun machiaj nu o face. Tipărește un cod de lot de trei caractere care indică planta, luna și anul. Decodificați-l pentru data de fabricație, apoi aplicați simbolul borcanului deschis: fondul de ten lichid este de obicei 6-12 luni odată deschis și aproximativ 36 de luni nedeschis. Termenul anterior câștigă.",
+      "faq3a": "Codul ar trebui să aibă trei sau patru caractere și să fie decodat la o dată plauzibilă; un cod care nu se potrivește cu acea formă este un avertisment. Dar un cod copiat decodifică perfect, așa că judecă și greutatea carcasei, clicul închiderii și imprimarea textului mic - și cumpără de la un ghișeu autorizat."
+    },
+    "maybelline": {
+      "where1": "Rimel: imprimat pe baza tubului, sau vertical acolo unde se înfășoară eticheta.",
+      "where2": "Sticle de fond de ten: pe bază, sau pe eticheta din spate.",
+      "where3": "Palete și compacte: pe spatele carcasei.",
+      "faq1q": "Câți ani are rimelul meu Maybelline?",
+      "faq2q": "Unde este codul lotului pentru produsele Maybelline?",
+      "faq2a": "Pe baza tubului sau sticlei, sau pe spatele unei palete. Este codul scurt neregulat, nu numărul lung al codului de bare.",
+      "faq1a": "Decodificați codul de pe bază — Maybelline folosește formatul L'Oréal, unde prima literă este anul și următorul caracter este luna. Dar pentru rimel data de fabricație se leagă rar: ceasul de trei până la șase luni care începe în ziua în care deschideți tubul aproape întotdeauna se epuizează primul."
+    },
+    "montblanc": {
+      "where1": "Pe baza cutiei și pe partea inferioară a sticlei - imprimate cu negru pe autocolantul de bază alb.",
+      "faq1q": "Cum verific un Montblanc Legend după codul său?",
+      "faq3a": "Pe o minoritate de coduri Inter Parfums, aceste cifre sunt mai degrabă o linie de fabrică decât o zi. Dacă data pare neplauzibilă pentru sticlă, aveți încredere în litera anului și tratați ziua ca aproximativă.",
+      "faq1a": "Parfumul Montblanc este produs sub licență de Inter Parfums. Prima literă din cod este anul de producție, pe un ciclu care omite I și O — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — iar ultimele trei cifre sunt ziua acelui an.",
+      "where2": "Codurile Montblanc sunt printre codurile de parfum mai ușor de citit fără lupă.",
+      "faq3q": "Ultimele trei cifre produc o dată ciudată.",
+      "faq2q": "Există un număr de serie pe care să-l pot căuta?",
+      "faq2a": "Nu. Un cod de lot identifică o serie de producție, nu o sticlă individuală și nu există o bază de date publică în care să o căutați. Ceea ce vă oferă este data – care este partea utilă."
+    },
+    "nivea": {
+      "faq2q": "Crema solara NIVEA are data de expirare?",
+      "faq1q": "Cum aflu data de fabricație a produselor NIVEA?",
+      "where3": "Sticle și îngrijire solară: imprimat cu jet de cerneală pe eticheta din spate sau pe umărul sticlei.",
+      "faq2a": "Protecția solară are în mod normal o dată de expirare tipărită, deoarece cererea SPF este tratată ca o declarație de siguranță. Folosiți data tipărită mai degrabă decât o estimare decodificată - și tratați o sticlă care a petrecut o vară într-o mașină fierbinte ca fiind terminată, indiferent de ceea ce scrie data.",
+      "where1": "Tuburi (cremă de mâini, spălare pentru față): ștanțate în sert – capătul plat sigilat opus capacului.",
+      "where2": "Forma clasică de cremă albastră: presată în baza metalică, fără cerneală deloc. Înclinați-l sub lumină; o lumină directă o face să dispară.",
+      "faq1a": "NIVEA (Beiersdorf) codifică săptămâna de producție mai degrabă decât ziua. Prima cifră a codului este ultima cifră a anului, iar următoarele două sunt numărul săptămânii - deci un cod care începe cu 815 este săptămâna 15 a unui an care se termină cu 8. Acest lucru îl plasează în șapte zile, ceea ce este suficient pentru o loțiune de corp.",
+      "faq3a": "Este imprimat pe baza metalică, mai degrabă decât imprimat, ceea ce îl face aproape invizibil la lumina directă. Țineți tabla astfel încât o lampă să prindă baza din lateral și vor apărea personajele.",
+      "faq3q": "Nu există niciun cod vizibil pe cutia mea NIVEA."
+    },
+    "paco-rabanne": {
+      "where2": "Înclinați sticla astfel încât lumina să prindă ștampila din lateral; o lumină directă o face să dispară.",
+      "faq2q": "Poate codul să demonstreze că Paco Rabanne al meu este autentic?",
+      "faq1q": "Cum decodez un cod de lot Invictus sau 1 milion?",
+      "where1": "Pe partea de jos a cutiei și pe partea inferioară a sticlei. Pe sticlele mai grele - lingoul de 1 milion, trofeul Invictus - codul este adesea ștanțat pe metal sau sticlă, mai degrabă decât imprimat pe un autocolant.",
+      "faq1a": "Paco Rabanne este realizat de Puig, care tipărește data producției în cod, mai degrabă decât o criptează. Forma obișnuită este de patru cifre: prima este ultima cifră a anului, restul de trei sunt ziua acelui an - deci 4135 este a 135-a zi a anului 2024, 14 mai 2024.",
+      "faq3a": "Da — casa a renunțat la numele său „Paco” în 2023. Stocurile mai vechi poartă marca anterioară, iar formatul codului nu s-a schimbat.",
+      "faq3q": "Este Rabanne aceeași marcă cu Paco Rabanne?",
+      "faq2a": "Poate prinde un fals și nu poate certifica unul real. Paco Rabanne este printre cele mai contrafăcute parfumuri din Europa: un număr imposibil de zi sau coduri care nu sunt de acord între cutie și sticlă, sunt avertismente puternice - dar un cod copiat dintr-o sticlă autentică decodifică perfect. Cântăriți sticla și verificați și modelul de pulverizare."
+    },
+    "redken": {
+      "where2": "Pulberi și aerosoli: ștanțate pe baza cutiei.",
+      "where1": "Sticle: imprimate cu jet de cerneală pe eticheta din spate sau pe baza sticlei.",
+      "faq1q": "Cum verific durata de valabilitate a unui produs Redken?",
+      "faq2q": "Codul de bare îmi spune termenul de valabilitate?",
+      "faq2a": "Nu. Codul de bare este EAN - identifică produsul de vânzare și este identic pe fiecare sticlă. Numai codul lotului, ștampila scurtă neregulată, poartă o dată.",
+      "faq1a": "Redken este un brand L'Oréal și folosește formatul grupului - prima literă este anul de producție, caracterul de după este luna. Îngrijirea părului este de obicei bună pentru aproximativ 36 de luni nedeschise și 12 luni după deschidere."
+    },
+    "roberto-cavalli": {
+      "faq1q": "Cum verific parfumul Roberto Cavalli pentru autenticitate?",
+      "where1": "Pe fundul cutiei și pe baza sticlei — imprimate sau pe flacoanele mai grele ștanțate în sticlă.",
+      "faq1a": "Parfumul Cavalli este produs de Coty, deci codul este o dată de producție din patru cifre - o cifră a anului plus ziua anului. Comparați mai întâi codul de pe cutie cu codul de pe sticlă: o nepotrivire este cel mai puternic semnal disponibil pentru un cumpărător. Apoi decodificați-l; o zi imposibilă este un fals clar. Un cod care decodifică curat, totuși, nu este o dovadă a autenticității - codurile copiate decodifică, de asemenea.",
+      "where2": "Căutați un cod scurt de patru cifre; numărul mai lung de sub dungile codului de bare nu este.",
+      "faq2a": "Nu există unul în sensul unui serial unic pe sticlă. Ceea ce este imprimat este un cod de lot - partajat de fiecare unitate din aceeași serie de producție - și codifică data, nu o identitate.",
+      "faq2q": "Unde este numărul de serie pe o sticlă Roberto Cavalli?"
+    },
+    "tom-ford-beauty": {
+      "where1": "Parfum: pe baza cutiei și gravat sau imprimat pe partea inferioară a sticlei.",
+      "where2": "Palete de fond de ten și fard de pleoape: ștanțate pe baza compactului sau a sticlei.",
+      "faq2q": "Cum mă întâlnesc cu o paletă de fard de pleoape Tom Ford?",
+      "faq2a": "Codul se află pe baza compactului. Decodați-l pentru data de fabricație; o pulbere presată este bună pentru aproximativ 24 de luni după deschidere și considerabil mai mult timp nedeschisă, deoarece o formulă uscată nu oferă bacteriilor aproape nimic în care să crească.",
+      "faq1q": "Cum verific un cod de lot Tom Ford?",
+      "faq3q": "Codul lotului este o dovadă a autenticității?",
+      "faq3a": "Nu. Poate dezvălui un fals brut - un cod care nu se potrivește cu formatul sau decodifică într-o lună imposibilă - dar un cod copiat decodifică curat. Parfumul Tom Ford este foarte contrafăcut; cântăriți sticla, verificați spray-ul pentru atomizor și cumpărați de la un distribuitor autorizat.",
+      "faq1a": "Tom Ford Beauty este produs de grupul Estée Lauder, așa că folosește codul de trei caractere al grupului: plantă, lună, an — citit din dreapta. Luna este 1–9 pentru ianuarie până în septembrie, apoi A, B și C pentru octombrie până în decembrie."
+    },
+    "too-faced": {
+      "where1": "Palete și compacte: pe spatele carcasei, uneori sub tava de plastic.",
+      "where2": "Produse lichide: pe baza sticlei sau a tubului de sertizare.",
+      "faq2q": "Codul meu Too Faced nu va decoda.",
+      "faq2a": "Unele coduri de pe ambalajul Too Faced sunt marcaje de linii interne, nu coduri de dată și nu există nimic de decodat în ele. Verificați baza și partea din spate a carcasei pentru un al doilea cod mai scurt - și dacă cu adevărat nu există unul, simbolul borcanului deschis este cel mai bun ghid.",
+      "faq1a": "Too Faced aparține grupului Estée Lauder, deci codul este format din trei caractere - plantă, lună, an - citite din dreapta. Dacă codul de pe paleta dvs. nu se potrivește cu acea formă, poate fi o linie de marcare din fabrică, mai degrabă decât codul lotului.",
+      "faq1q": "Cum verific codul de lot al paletei Too Faced?"
+    },
+    "vichy": {
+      "where2": "Sticle și pompe (Mineral 89, Liftactiv): imprimate cu jet de cerneală pe bază sau pe eticheta din spate lângă codul de bare.",
+      "where1": "Tuburi și protecție solară Capital Soleil: presate în sert – capătul plat sigilat opus capacului.",
+      "where3": "Cutii: pe o clapă de capăt, de obicei lângă simbolul borcanului deschis. Mostrele și pliculețele nu au de multe ori niciun cod - doar cutia în care au venit.",
+      "faq2q": "Cum citesc codul unui produs Vichy?",
+      "faq3q": "Poate codul să demonstreze că Vichy-ul meu este autentic?",
+      "faq1q": "Unde este data de expirare a produselor Vichy?",
+      "faq2a": "Vichy este produs de L'Oréal și folosește formatul grupului. Găsiți prima literă din cod: adică anul de producție, pe un ciclu care omite V, deci U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Caracterul imediat după este luna — 1 la 9 pentru ianuarie până în septembrie, apoi O, N și D pentru octombrie, noiembrie și decembrie. Acel O este litera O, nu zero.",
+      "faq1a": "Majoritatea produselor Vichy nu tipăresc unul. Liniile de farmacie poartă adesea o dată de expirare autentică și, acolo unde aceasta există, depășește orice estimare decodificată - dar dacă tot ce puteți găsi este un cod scurt, acesta este codul lotului și conține mai degrabă data de fabricație decât cea de expirare. Decodificați-l, apoi adăugați termenul de valabilitate: aproximativ 36 de luni nedeschis pentru îngrijirea pielii și urmați simbolul borcanului deschis odată deschis.",
+      "faq3a": "Doar parțial. Un cod care nu se potrivește cu forma L'Oréal sau care decodifică la o dată înainte de a exista linia de produse, este un adevărat avertisment. Dar un falsificator care copie un cod dintr-un tub autentic produce un cod care decodifică perfect - așa că o decodificare curată dovedește că codul este bine format, nu că crema este. Pentru îngrijirea pielii la farmacie, cumpărarea de la o farmacie rămâne protecția mai puternică.",
+      "faq4a": "Da, și contează mai mult decât pentru orice altceva din gamă: filtrele UV degradate lasă să treacă mai multă radiație, așa că un SPF 50 învechit nu oferă SPF 50. Crema solară are în mod normal o dată de expirare tipărită tocmai din acest motiv - folosește-o. Și tratați o sticlă care a petrecut o vară într-o mașină fierbinte ca fiind terminată, indiferent de dată.",
+      "faq4q": "Crema solară Capital Soleil expiră?"
+    },
+    "ysl-beauty": {
+      "faq1a": "YSL Beauty este produs de L'Oréal, așa că poartă codul grupului: cifre din fabrică, o literă de an, apoi un caracter de lună. Selectați YSL Beauty în checker și motorul aplică regula L'Oréal.",
+      "where2": "Parfum: pe baza cutiei și pe partea inferioară a sticlei.",
+      "where1": "Ruj și machiaj: ștanțate pe baza carcasei sau pe spatele compactului.",
+      "faq1q": "Cum verific un cod de lot Yves Saint Laurent?",
+      "faq2q": "De ce codul meu YSL arată ca unul Maybelline?",
+      "faq2a": "Pentru că aceeași companie le face pe amândouă. Formatul urmează fabrica, nu prețul - un ruj YSL și o mascara Maybelline se desprind din liniile L'Oréal și poartă același stil de cod."
+    },
+    "zara": {
+      "faq1a": "Nu este una tipărită, de regulă - ca majoritatea parfumurilor, are în schimb un cod de lot. Decodificați-o pentru data de fabricație și luați în considerare trei până la cinci ani de viață nedeschisă, ceea ce este normal pentru o apă de toaletă ținută departe de lumină și căldură.",
+      "where2": "Gama de frumusețe îl imprimă pe partea inferioară a carcasei sau pe marginea tubului.",
+      "where1": "Pe clapeta inferioară a cutiei de parfum și pe baza sticlei.",
+      "faq2q": "Cine face de fapt parfumul Zara?",
+      "faq1q": "Parfumul Zara are data de expirare?",
+      "faq2a": "Puig produce linia de parfumuri Zara, motiv pentru care codurile urmează formatul lui Puig - și o parte din motivul pentru care mai multe arome Zara invită la comparație cu parfumurile de designer pe care Puig le produce."
+    }
   }
 }

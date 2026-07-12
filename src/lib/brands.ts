@@ -1,4 +1,5 @@
 import type { ProductCategory } from "./decoder/types";
+import { BRAND_DETAILS } from "./brand-detail";
 
 export interface Brand {
   slug: string;
@@ -79,7 +80,7 @@ const ROWS: Row[] = [
   ["Miss Sporty", "Coty", "coty", "makeup", 36, 24],
   ["Kylie Cosmetics", "Coty", "coty", "makeup", 36, 24],
   ["Kylie Skin", "Coty", "coty", "skincare", 36, 12],
-  ["Younique", "Coty", "coty", "makeup", 36, 24],
+  ["Younique", "Younique", undefined, "makeup", 36, 24],
   ["Lancaster", "Coty", "coty", "skincare", 36, 12],
   // Consumer Beauty — mass fragrance
   ["adidas", "Coty", "coty", "perfume", 60, 36],
@@ -155,7 +156,7 @@ const ROWS: Row[] = [
   ["Matrix", "L'Oréal Group", "loreal", "haircare", 36, 12],
   ["Pureology", "L'Oréal Group", "loreal", "haircare", 36, 12],
   ["Mizani", "L'Oréal Group", "loreal", "haircare", 36, 12],
-  ["Color Wow", "L'Oréal Group", "loreal", "haircare", 36, 12],
+  ["Color Wow", "Color Wow", undefined, "haircare", 36, 12],
 
   // ---- LVMH (Dior + sister houses share a production-date code) ----
   ["Dior", "LVMH", "dior", "perfume", 60, 36, true],
@@ -249,7 +250,7 @@ const ROWS: Row[] = [
   ["Neutrogena", "Kenvue", "kenvue", "skincare", 36, 12],
   ["Aveeno", "Kenvue", "kenvue", "skincare", 36, 12],
   ["Clean & Clear", "Kenvue", undefined, "skincare", 36, 12],
-  ["RoC", "Kenvue", "kenvue", "skincare", 36, 12],
+  ["RoC", "RoC Skincare", "kenvue", "skincare", 36, 12],
   ["Le Petit Marseillais", "Kenvue", undefined, "generic", 36, 12],
   ["OGX", "Kenvue", undefined, "haircare", 36, 12],
   ["Maui Moisture", "Kenvue", undefined, "haircare", 36, 12],
@@ -292,8 +293,8 @@ const ROWS: Row[] = [
   ["Clé de Peau Beauté", "Shiseido", "shiseido", "skincare", 36, 12],
   ["Anessa", "Shiseido", "shiseido", "suncare", 36, 12],
   ["Elixir", "Shiseido", "shiseido", "skincare", 36, 12],
-  ["bareMinerals", "Shiseido", undefined, "makeup", 36, 24],
-  ["Laura Mercier", "Shiseido", undefined, "makeup", 36, 24],
+  ["bareMinerals", "AS Beauty", undefined, "makeup", 36, 24],
+  ["Laura Mercier", "AS Beauty", undefined, "makeup", 36, 24],
   ["Ipsa", "Shiseido", "shiseido", "skincare", 36, 12],
   ["Sekkisei", "Kosé", undefined, "skincare", 36, 12],
   ["Cosme Decorte", "Kosé", undefined, "skincare", 36, 12],
@@ -318,7 +319,7 @@ const ROWS: Row[] = [
   ["Flormar", "Groupe Rocher", undefined, "makeup", 36, 24],
   ["Natura", "Natura & Co", undefined, "generic", 36, 12],
   ["Avon", "Natura & Co", undefined, "makeup", 36, 24],
-  ["The Body Shop", "Natura & Co", undefined, "skincare", 36, 12],
+  ["The Body Shop", "The Body Shop", undefined, "skincare", 36, 12],
   ["Revlon", "Revlon", undefined, "makeup", 36, 24],
   ["Almay", "Revlon", undefined, "makeup", 36, 24],
   ["Elizabeth Arden", "Revlon", undefined, "skincare", 36, 12],
@@ -444,6 +445,12 @@ function normalizeSearch(s: string) {
  * tested decoder covers it.
  */
 const HIDDEN_SLUGS = new Set<string>([
+  // Corrected ownership (see git history): these were mapped to a parent group's
+  // decoder that does not apply to them, which produced confidently wrong dates.
+  // Staged out until a verified format exists — the rule is unchanged: never ship
+  // a decoder we haven't verified.
+  "color-wow",
+  "younique",
   // Coty makeup/skin — the 4-digit YDDD fragrance format does NOT apply here.
   "sk-ii",
   "charlotte-tilbury",
@@ -622,6 +629,23 @@ export const ALL_BRANDS: Brand[] = ROWS.map(
 export const BRANDS: Brand[] = ALL_BRANDS.filter((b) => !b.hidden);
 
 export const POPULAR_BRANDS = BRANDS.filter((b) => b.popular);
+
+/**
+ * A brand page is indexable only when it carries editorially written,
+ * brand-specific material (see [[brand-detail]]): a decoded sample code, where
+ * the code sits on that brand's packaging, and answers to the questions people
+ * actually search for it. Without that, the page is one of a few hundred
+ * generated from the same template per decoder family — near-duplicates, which
+ * is what search engines score as scaled, low-value content. Those stay
+ * `noindex, follow`: still the tool, still crawlable, just not in the index.
+ */
+export const INDEXED_BRANDS: Brand[] = BRANDS.filter((b) =>
+  Object.hasOwn(BRAND_DETAILS, b.slug),
+);
+
+export function isIndexedBrand(brand: Brand): boolean {
+  return !brand.hidden && Object.hasOwn(BRAND_DETAILS, brand.slug);
+}
 
 const bySlug = new Map(ALL_BRANDS.map((b) => [b.slug, b]));
 export function getBrand(slug: string): Brand | undefined {

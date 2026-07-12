@@ -7,7 +7,8 @@
     "home": "Casa",
     "brands": "Marques",
     "language": "Llengua",
-    "checkNow": "Comproveu ara"
+    "checkNow": "Comproveu ara",
+    "codeFormats": "Formats de codi"
   },
   "footer": {
     "company": "Companyia",
@@ -22,7 +23,8 @@
     "terms": "Condicions del servei",
     "allGuides": "Totes les guies",
     "rights": "© {year} {name}. Tots els drets reservats. Les estimacions són només informatives i no garanteixen la seguretat del producte.",
-    "contact": "Contacte"
+    "contact": "Contacte",
+    "codeFormats": "Formats de codi per lots"
   },
   "hero": {
     "badge": "Confiat pels amants de la bellesa de tot el món",
@@ -74,7 +76,9 @@
     "faqTitle": "{name}— Preguntes freqüents",
     "aliasesPara": "De vegades veureu aquesta eina anomenada descodificador de codi de lot {name}, verificador de codi de lot {name} o calculadora de codi de lot {name}; tots fan el mateix: llegiu el codi de producció i us diuen com de fresc és el vostre {name} {category}.",
     "freshnessPara": "Un cop llegim la data de fabricació, estimem la frescor utilitzant la vida útil típica de {shelf}-mes de {name}per als productes {category}. Recordeu que el període després de l'obertura (uns {pao} mesos) es converteix en el límit un cop comenceu a utilitzar el producte.",
-    "printsDateNote": "{name} imprimeix la data de fabricació o caducitat directament a l'envàs, així que normalment no necessites un codi de lot."
+    "printsDateNote": "{name} imprimeix la data de fabricació o caducitat directament a l'envàs, així que normalment no necessites un codi de lot.",
+    "exampleHeading": "Un codi{name}real, descodificat",
+    "whereHeading": "On trobar el codi a l'embalatge{name}"
   },
   "faqUi": {
     "title": "Preguntes freqüents",
@@ -165,7 +169,20 @@
     "expirationDate": "Data de caducitat",
     "confMedium": "Confiança mitjana",
     "invalidTitle": "No hem pogut llegir aquest codi",
-    "invalidBody": "“{code}” no coincideix amb el format de codi de lot de {brand}. Comproveu que l'heu escrit exactament tal com està imprès a l'embalatge (només lletres i números, sense espais) i que sigui el codi del lot, no el codi de barres o una referència de preu/màrqueting."
+    "invalidBody": "“{code}” no coincideix amb el format de codi de lot de {brand}. Comproveu que l'heu escrit exactament tal com està imprès a l'embalatge (només lletres i números, sense espais) i que sigui el codi del lot, no el codi de barres o una referència de preu/màrqueting.",
+    "shareCopied": "Copiat!",
+    "share": "Comparteix el resultat",
+    "shareTitle": "Resultat del codi de lot{name}",
+    "shareMade": "fet{date}",
+    "meaningFresh": "Aquest producte és fresc i es troba dins de la seva vida útil.",
+    "addToCalendar": "Afegeix caducitat al calendari",
+    "meaningTitle": "Què vol dir això?",
+    "shareLifeLeft": "{n}% de vida restant",
+    "calendarTitle": "{name}— substitueix per aquesta data",
+    "meaningUnknown": "No hem pogut estimar la frescor d'aquest codi.",
+    "meaningUseSoon": "Aquest producte s'acosta al final de la seva vida útil; utilitzeu-lo aviat.",
+    "meaningExpired": "Aquest producte ha passat la seva vida útil i és possible que ja no tingui la seva millor qualitat.",
+    "meaningGood": "Aquest producte encara és bo, amb molta vida útil restant."
   },
   "howItWorks": {
     "title": "Com funciona",
@@ -192,5 +209,339 @@
     "freeBody": "Cada funció és 100% gratuïta, per sempre.",
     "privateBody": "Els codis es descodifiquen de manera privada. La teva privadesa és el primer.",
     "freeTitle": "Sempre Gratis"
+  },
+  "whereCode": {
+    "title": "On és el codi del lot?",
+    "subtitle": "Es tracta d'un segell curt i separat; aquí és on s'amaga normalment en diferents paquets.",
+    "alt": {
+      "perfume": "Codi de lot destacat en una caixa de perfum",
+      "tube": "Codi de lot destacat en un enganxat de tub cosmètic",
+      "lipstick": "Codi de lot destacat en una base de pintallavis"
+    },
+    "label": {
+      "lipstick": "Pintallavis",
+      "tube": "Tub",
+      "perfume": "Caixa de perfums"
+    },
+    "cardCta": "On trobar el codi del lot en un{type}: llegiu la guia",
+    "viewGuide": "Llegeix la guia completa"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "where1": "A la part inferior de la caixa i a l'adhesiu sota l'ampolla.",
+      "where2": "A les ampolles CK One més planes, el codi es pot imprimir directament a la base de vidre.",
+      "faq1a": "La fragància CK és fabricada per Coty. El codi és de quatre dígits: un dígit de l'any seguit del dia de l'any. Dividiu el dia per uns 30,4 per obtenir el mes: el dia 135 és a principis del cinquè mes, maig.",
+      "faq1q": "Com puc descodificar un codi de lot de Calvin Klein?",
+      "faq2a": "Pot atrapar una falsificació dolenta: un número de dia impossible o codis que no coincideixen entre la caixa i l'ampolla. No pot confirmar-ne un de bo, perquè un codi copiat d'una ampolla genuïna descodifica perfectament.",
+      "faq2q": "El codi del lot em pot dir si el meu CK és real?"
+    },
+    "carolina-herrera": {
+      "where1": "A la base de la caixa i a la part inferior de l'ampolla.",
+      "where2": "A l'ampolla d'estilet Good Girl, el codi es troba a la sola del taló.",
+      "faq1q": "Com comprobo un codi de lot de Carolina Herrera?",
+      "faq1a": "La fragància Carolina Herrera està feta per Puig, que imprimeix la data de producció al codi, com a dígit de l'any més el dia de l'any, o com a data d'embalatge com 231122 per al 22 de novembre de 2023.",
+      "faq2q": "Sovint es falsifica Good Girl?",
+      "faq2a": "És una de les fragàncies més copiades d'Europa. Feu les comprovacions que un codi no pot fer: compareu els codis de la caixa i de l'ampolla, peseu l'ampolla i observeu la finesa de l'esprai. Una descodificació neta és necessària, però no és suficient."
+    },
+    "cerave": {
+      "where2": "Ampolles bomba (SA Cleanser, loció hidratant): impreses amb injecció de tinta a la contraetiqueta o a la base.",
+      "faq1q": "Com comprobo la vida útil d'un producte CeraVe?",
+      "faq2q": "Hi ha una data de caducitat a CeraVe?",
+      "faq3q": "Com puc saber si CeraVe és fals?",
+      "faq1a": "CeraVe està fet per L'Oréal, de manera que el codi segueix el format del grup: la primera lletra és l'any de producció i el caràcter posterior és el mes. Descodifiqueu-lo per a la data de fabricació i, a continuació, tingueu en compte uns 36 mesos sense obrir. Un cop obert, el símbol de pot obert pren el relleu: 12 mesos per a la major part de la gamma.",
+      "faq2a": "Les línies dermatològiques solen imprimir-ne una, i els protectors solars gairebé sempre ho fan. Quan hi hagi una data impresa, confieu-hi: és la garantia del fabricant i supera qualsevol cosa que un descodificador pugui estimar.",
+      "where1": "Tubs i netejadors: pressionats a l'extrem segellat del tub.",
+      "faq3a": "CeraVe està àmpliament falsificat als mercats. El codi del lot és un primer filtre, un codi que no s'ajusta a la forma de L'Oréal és un mal senyal, però no pot confirmar un producte genuí, ja que un codi real es pot copiar en un tub fals. Compareu la textura del plàstic, la qualitat d'impressió del text petit i compreu a una farmàcia o a un venedor autoritzat."
+    },
+    "chanel": {
+      "faq2q": "No trobo cap codi a la meva ampolla de Chanel.",
+      "where1": "Fragància: gravat amb làser al vidre de la base de l'ampolla i impresa a la solapa inferior de la caixa. L'aiguafort no té tinta: inclineu l'ampolla perquè la llum l'agafi des del costat.",
+      "faq1q": "Chanel té un sistema de codi de lots oficial?",
+      "faq1a": "No. Chanel mai n'ha publicat cap, i qualsevol que digui conèixer el xifrat oficial de Chanel ho està endevinant. El que és verificable és que els productes actuals de Chanel imprimeixen una data de producció llegible dins del codi, i això és el que descodifiquem, informat com a lectura de confiança mitjana precisament perquè no hi ha cap esquema publicat per comprovar-ho.",
+      "faq3q": "Com comprobo la vida útil de la fundació Chanel?",
+      "faq2a": "És gairebé segur que està gravat amb làser a la base de vidre en lloc d'imprimir. L'aiguafort és invisible sota una llum directa i apareix quan la llum passa a través d'ell: gireu l'ampolla lentament sota un llum o fotografia la base amb flaix i apropa la imatge.",
+      "faq3a": "Descodifiqueu el codi a la base per a la data de fabricació i, a continuació, apliqueu el símbol de pot obert, normalment 12 M per a una base líquida. El que s'esgoti primer, la vida útil sense obrir o els mesos des que l'heu obert, és la veritable data límit.",
+      "where2": "Maquillatge i cura de la pell: a la base del compacte o pot, de color gris molt petit."
+    },
+    "clinique": {
+      "faq2a": "Uns 36 mesos sense obrir des de la data de fabricació i 12 mesos després de l'obertura per a la majoria de la gamma. El símbol de pot obert al paquet és el número que s'uneix un cop trenqueu el segell.",
+      "where2": "Maquillatge: la part posterior del compacte o la base de la funda.",
+      "faq1q": "Com puc llegir un codi de lot de Clinique?",
+      "where1": "Ampolles i pots per a la cura de la pell: amb relleu a la base.",
+      "faq2q": "Quant de temps dura la cura de la pell Clinique?",
+      "faq1a": "Clinique és Estée Lauder, de manera que el format és planta, mes, any en tres caràcters, llegit a la dreta. L'últim caràcter és el dígit de l'any; l'anterior és el mes, amb A, B i C per octubre, novembre i desembre."
+    },
+    "creed": {
+      "faq1q": "Com puc llegir un codi per lots de Creed?",
+      "faq3q": "Un credo més antic significa un credo millor?",
+      "where1": "A la base de l'ampolla i a la part inferior de la caixa, normalment imprès en negre a l'adhesiu de la base blanca.",
+      "where2": "En els flacons més antics i pesats, el codi es pot estampar en lloc d'imprimir; angle contra la llum.",
+      "faq2q": "El codi em pot dir si el meu Tweed irlandès verd és autèntic?",
+      "faq1a": "Només importa la primera lletra. Codifica l'any de producció, comptant des de A = 2010 i saltant I i O: N = 2022, P = 2023, Q = 2024, R = 2025. Tot després és una sèrie de lots interna. Creed no codifica el mes, de manera que el codi us ofereix un any i res més fi.",
+      "faq3a": "Per a les composicions més pesades i resinoses, una ampolla més antiga pot ser realment preferible, perquè les reformulacions han canviat diversos clàssics, i el codi del lot és l'única manera d'establir quina fórmula esteu comprant. Per als Creeds més lleugers i dirigits per cítrics, l'edat és principalment oxidació i no té cap benefici.",
+      "faq2a": "En part. Creed es troba entre les cases de fragància més falsificades, i una primera lletra que no està en absolut al cicle és una explicació senzilla. Però un codi copiat es descodifica netament, de manera que un codi vàlid no és una prova: peseu l'ampolla, mireu l'esprai i la impressió de la caixa i compreu a un minorista autoritzat."
+    },
+    "dior": {
+      "where1": "Fragància: a la base de la caixa exterior i a la part inferior de l'ampolla: un petit adhesiu imprès o gravat amb làser al vidre de les ampolles més grans.",
+      "faq2q": "Com és un codi de lot de Dior?",
+      "faq1q": "Com puc comprovar si el meu perfum Dior és autèntic?",
+      "where3": "Cura de la pell: estampat a la base del pot, al costat del símbol del pot obert.",
+      "where2": "Maquillatge: a la base del compacte, a la part inferior de l'estoig del llapis de llavis o a la corba d'un tub.",
+      "faq1a": "Comenceu amb els codis: el de la caixa i el de l'ampolla han de coincidir, perquè tots dos s'apliquen a la mateixa línia d'ompliment amb minuts de diferència. A continuació, descodifiqueu: un número de dia impossible, o una data abans del llançament de la fragància, és un avís real. Però entengueu el límit: un falsificador que copia un codi genuí produeix un codi que descodifica perfectament. El codi del lot pot exposar un fals; no pot certificar-ne un de real.",
+      "faq2a": "Normalment, quatre dígits, com ara 3245. Dior no executa cap xifrat secret; com les altres cases de LVMH, imprimeix la data de producció al codi, com un dígit de l'any seguit del dia de l'any. Alguns codis porten una data més llarga de 5 o 6 dígits.",
+      "faq3q": "On és el codi del lot del pintallavis Dior?",
+      "faq3a": "A la base plana de la caixa. Gireu la bala completament cap avall primer: el codi està estampat a la base i és fàcil de perdre's contra l'acabat metàl·lic."
+    },
+    "dunhill": {
+      "faq1q": "Com puc llegir un codi de lot de Dunhill?",
+      "where1": "A la base de la caixa i la part inferior de l'ampolla, imprès en negre a l'adhesiu de la base blanca.",
+      "faq2a": "Compareu els codis de la caixa i de l'ampolla i, a continuació, descodifiqueu. Una carta d'any fora del cicle, o codis que no estan d'acord, són advertències reals. Una descodificació neta no és una prova; els codis copiats també es descodifiquen.",
+      "faq2q": "Com comprobo que una fragància Dunhill és autèntica?",
+      "faq1a": "La fragància Dunhill està feta sota llicència d'Inter Parfums. La primera lletra és l'any de producció, un cicle que salta I i O, de manera que J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025, i els tres últims dígits són el dia d'aquest any."
+    },
+    "estee-lauder": {
+      "where2": "Fragància i maquillatge: a la base de la caixa i a la part inferior del producte.",
+      "where1": "Cura de la pell: en relleu a la base del pot o de l'ampolla, pressionat al material, de manera que necessita una llum de rasclet en lloc d'una directa.",
+      "faq1q": "Com puc llegir un codi de lot d'Estée Lauder?",
+      "faq2q": "Com comprobo la vida útil si he llençat la caixa?",
+      "faq1a": "Llegeix-ho des de la dreta, no de l'esquerra. L'últim caràcter és el dígit de l'any; l'anterior és el mes (1–9 de gener a setembre, després A, B i C per a octubre, novembre i desembre); qualsevol cosa a l'esquerra és la planta. Així, a EA4 la planta és E, el mes és A —octubre— i l'any acaba en 4. Llegir d'esquerra a dreta és l'error més comú amb aquests codis.",
+      "faq3a": "Sí, les mateixes plantes i el mateix format planta/mes/any. Només la lletra de la planta difereix i no porta informació de data.",
+      "faq2a": "El codi es troba al producte en si, no només al cartró, a la base del pot o ampolla, normalment en relleu. Descodifiqueu-lo per a la data de fabricació i, a continuació, apliqueu el símbol de pot obert des del dia que l'heu obert. Sigui quina sigui la data límit primer, és la real.",
+      "faq3q": "Clinique, MAC i La Mer utilitzen el mateix codi?"
+    },
+    "fenty-beauty": {
+      "faq2q": "El codi de barres del meu producte Fenty no s'escanejarà. És fals?",
+      "faq3q": "Quant de temps dura la fundació Fenty?",
+      "faq1q": "Com puc comprovar si Fenty Beauty és autèntic?",
+      "where2": "Compactes, pols i brillantor: a la part posterior de la caixa o a la base del tub.",
+      "where1": "Fonaments i productes líquids: impresos a la base de l'ampolla, o on l'etiqueta s'embolica al dors.",
+      "faq1a": "Descodifica el codi del lot: Fenty és una marca LVMH i imprimeix una data de producció al codi. Un codi que produeix una data impossible, o cap data, és un avís. Però un codi copiat descodifica netament, així que utilitzeu-lo juntament amb les comprovacions habituals: qualitat d'impressió a l'embalatge, sensació de l'aplicador i compra directament a Sephora o Fenty.",
+      "faq2a": "No necessàriament: un codi de barres que no s'escaneja sol ser un problema d'impressió o il·luminació i, en qualsevol cas, el codi de barres no porta cap data ni informació d'autenticitat. És el codi del lot, el segell curt irregular, que us indica quan es va fer el producte.",
+      "faq3a": "Aproximadament 12 mesos després de l'obertura i uns 36 mesos sense obrir des de la data de fabricació. El que passi primer és la data límit."
+    },
+    "garnier": {
+      "where2": "SPF i Ambre Solaire: imprès a la contraetiqueta, normalment amb una data de caducitat explícita també.",
+      "where3": "Sobres i màscares d'un sol ús: a la part posterior del sobre, en lletra molt petita prop de la costura.",
+      "where1": "Sèrums i cremes de dia: a la base de l'ampolla o al cordó del tub.",
+      "faq2a": "La protecció solar és l'excepció: normalment porta una data de caducitat impresa, perquè la reclamació SPF és una reclamació de seguretat. Utilitzeu la data impresa en lloc d'una descodificada i substituïu qualsevol ampolla que hagi passat un estiu a la calor.",
+      "faq1q": "On trobo la data de caducitat d'una crema o sèrum Garnier?",
+      "faq2q": "On és la data de la crema solar Garnier?",
+      "faq3a": "Comproveu que el codi s'ajusta al format de L'Oréal —Garnier és una marca de L'Oréal— i que es descodifica a una data plausible. Això descarta les falsificacions crues. No es pot descartar un de bo, perquè un codi copiat descodifica perfectament.",
+      "faq3q": "Com sé que el meu producte Garnier és real?",
+      "faq1a": "Garnier rarament en imprimeix un. El codi curt de la base del tub o de l'ampolla és el codi del lot i conté la data de fabricació: la primera lletra és l'any, el caràcter posterior al mes. Compteu cap endavant uns 36 mesos per a un producte sense obrir i utilitzeu el símbol de pot obert un cop s'hagi obert."
+    },
+    "giorgio-armani-beauty": {
+      "where1": "Fragància (Acqua di Giò, Armani Code): a la part inferior de la caixa i l'adhesiu de la base de l'ampolla.",
+      "where2": "Maquillatge: a la base de l'estoig o a la part posterior del compacte.",
+      "faq1q": "Com puc descodificar un número de lot d'Armani Code?",
+      "faq2q": "Quant de temps dura Acqua di Giò sense obrir?",
+      "faq2a": "De tres a cinc anys és normal per a una aigua de tocador, més llarg per a l'aigua de perfum. La fragància és la categoria més indulgent que hi ha, sempre que l'ampolla es mantingui fora de la llum i la calor.",
+      "faq1a": "La fragància Armani està feta per L'Oréal, de manera que el codi segueix el format del grup: la primera lletra és l'any de producció, el caràcter posterior és el mes. (La fragància anomenada Armani Code i el codi de lot estampat a la seva caixa són coses no relacionades que, malauradament, comparteixen una paraula.)"
+    },
+    "guerlain": {
+      "where1": "Fragància: a la base de la caixa i a la part inferior de l'ampolla, sovint imprès en un petit adhesiu.",
+      "faq2q": "El meu antic codi de Guerlain no es descodificarà.",
+      "where2": "Maquillatge i cura de la pell: estampat a la base del compacte o pot.",
+      "faq2a": "De vegades, els codis antics i específics de la regió són referències alfanumèriques internes sense cap data. Ningú no els pot descodificar. Jutgeu l'ampolla pel seu estat i per l'olor del suc.",
+      "faq1q": "Com comprobo la data de producció d'una fragància Guerlain?",
+      "faq1a": "Guerlain és una casa de LVMH i imprimeix la data de producció dins del codi del lot, normalment un dígit de l'any seguit del dia de l'any. Descodifiqueu-lo per a la data de fabricació i, a continuació, tingueu en compte entre tres i cinc anys de vida sense obrir per a una aigua de perfum que no tingui llum ni calor."
+    },
+    "hugo-boss": {
+      "faq2a": "Significa que la caixa i l'ampolla estaven emparellades en un lloc diferent de la fàbrica. Això passa amb les falsificacions, i també amb les accions legítimament reenvasades, retornades o del mercat gris. De qualsevol manera, la parella que teniu no és la que va enviar la fàbrica.",
+      "faq2q": "Els codis de caixa i ampolla són diferents. És fals?",
+      "faq1q": "Com comprobo un codi de lot de fragància Hugo Boss?",
+      "faq1a": "La fragància Hugo Boss està feta per Coty, que utilitza un codi de quatre dígits: el primer dígit és l'últim dígit de l'any de producció i els tres restants són el dia d'aquell any. Així, 4135 és el 135è dia de 2024 - 14 de maig de 2024.",
+      "where2": "Els dos codis haurien de coincidir: s'imprimeixen amb uns minuts de diferència a la mateixa línia.",
+      "where1": "A la base de la caixa exterior i a l'adhesiu transparent sota l'ampolla."
+    },
+    "jean-paul-gaultier": {
+      "where2": "A les edicions amb carcassa metàl·lica, el codi només apareix sovint a la caixa o estampat lleugerament a la base de la llauna.",
+      "where1": "A la base de la caixa i a la part inferior de l'ampolla en forma de tors.",
+      "faq1q": "Com puc llegir un codi de lot de Jean Paul Gaultier?",
+      "faq2q": "No hi ha cap codi a la meva ampolla Le Male.",
+      "faq1a": "La fragància JPG és fabricada per Puig, que imprimeix la data de producció al codi. Quatre dígits significa un dígit de l'any més el dia de l'any; cinc significa dos dígits de l'any més el dia; sis és una data de calendari plena.",
+      "faq2a": "A les edicions amb mànigues metàl·liques, el codi sovint només es troba a la caixa o estampat tan lleugerament a la base que necessita llum per veure'l. Comproveu primer el cartró i, si teniu tots dos, confirmeu que coincideixen."
+    },
+    "kenzo-parfums": {
+      "faq1q": "Com comprobo una fragància Kenzo pel seu codi de lot?",
+      "where1": "A la base de la caixa exterior i a la part inferior de l'ampolla, imprès a l'adhesiu de la base o estampat al vidre.",
+      "where2": "A les ampolles Kenzo World i Flower, el codi es pot situar a la part inferior plana on es plega l'etiqueta.",
+      "faq3a": "Pot atrapar una falsificació: un dia impossible o un desajust entre el codi de la caixa i el codi de l'ampolla, que no produeix cap línia d'ompliment genuïna. No pot certificar-ne un de genuí, perquè un codi copiat es descodifica netament.",
+      "faq3q": "El codi pot demostrar que una fragància Kenzo és autèntica?",
+      "faq2q": "Els codis Kenzo es repeteixen cada deu anys?",
+      "faq1a": "Kenzo Parfums és una casa de LVMH i LVMH imprimeix la data de producció al codi en lloc de xifrar-la. Quatre dígits significa un dígit de l'any més el dia de l'any; cinc o sis dígits és una data més completa. Seleccioneu Kenzo al verificador i aplicarà la lectura correcta.",
+      "faq2a": "Sí, i això és una limitació genuïna més que una peculiaritat. Un codi de quatre dígits només porta un dígit de l'any, de manera que 4135 és el 14 de maig de 2024 exactament amb la mateixa evidència que el fa 14 de maig de 2014. El descodificador assumeix la lectura recent; si l'ampolla i l'envàs sembla que pertanyen a una època anterior, probablement ho siguin."
+    },
+    "kerastase": {
+      "where2": "Tubs i mides de viatge: pressionats a la crimpada.",
+      "where1": "Ampolles i màscares: impreses amb injecció de tinta a la part posterior de l'ampolla, prop de la base, o estampades a la part inferior del pot.",
+      "faq3q": "El producte es va comprar a l'estranger: canvia la vida útil?",
+      "faq3a": "No. La vida útil de la fórmula és una propietat del producte, no del mercat. El que canvia amb un clima càlid és la rapidesa amb què es degrada realment: la calor escurça la vida real molt per sota de la impresa.",
+      "faq1a": "Kérastase és L'Oréal Professionnel, de manera que porta el codi del grup: la primera lletra és l'any, el caràcter posterior és el mes. Una màscara sense obrir sol ser bona durant uns 30-36 mesos a partir d'aquesta data; un cop obert, s'aplica el símbol de pot obert, normalment 12M.",
+      "faq1q": "Com trobo la vida útil d'una màscara Kérastase?",
+      "faq2q": "Com comprobo que un producte Kérastase és autèntic?",
+      "faq2a": "Kérastase és un objectiu comú per a les falsificacions i per a l'estoc de saló desviat. Descodificar el codi: hauria d'ajustar-se al format de L'Oréal i produir una data plausible. No capturarà cap codi copiat, així que mireu també la qualitat de la impressió, el pes i l'acabat de la gorra i si el venedor és un saló o minorista autoritzat."
+    },
+    "kiehls": {
+      "where1": "Flascons i ampolles: estampats a la base, sovint en relleu en lloc d'impresos; inclineu-lo sota una llum.",
+      "faq2a": "Normalment està gravat en relleu a la base en comptes de tintar. Els codis en relleu desapareixen sota una llum directa i apareixen quan la llum els travessa des del costat; gireu el pot lentament contra un llum.",
+      "faq1q": "Com comprobo la vida útil de la crema per als ulls de Kiehl's?",
+      "where2": "Tubs i cremes d'ulls: pressionats a la crimpada.",
+      "faq1a": "Descodifica el codi a la base: Kiehl's és L'Oréal, de manera que la primera lletra és l'any i el caràcter posterior al mes. Sense obrir, compteu amb uns 36 mesos; un cop obert, el símbol de pot obert, normalment 12M per a una crema per als ulls, que és el número que s'unirà primer.",
+      "faq2q": "El codi del meu pot de Kiehl és invisible."
+    },
+    "la-roche-posay": {
+      "faq1q": "On és la data de caducitat a La Roche-Posay?",
+      "faq2q": "Quant de temps dura el protector solar Anthelios?",
+      "where1": "Tubs: pressionats a l'extrem segellat.",
+      "where2": "Ampolles i protector solar Anthelios: impresos a la contraetiqueta, normalment al costat d'una data de caducitat genuïna.",
+      "faq2a": "Fins a tres anys sense obrir si es manté fresc, i uns 12 mesos un cop obert. La protecció solar és l'únic producte on la data impresa realment importa, perquè els filtres degradats signifiquen menys protecció del que promet l'etiqueta.",
+      "faq1a": "Les línies de farmàcia solen imprimir una data de caducitat real al cartró o al tub; utilitzeu-lo. El codi curt que hi ha al costat és el codi del lot i conté la data de fabricació: la primera lletra és l'any, el caràcter posterior és el mes.",
+      "faq3a": "Un codi que s'ajusta al format de L'Oréal i que descodifica fins a una data plausible descarta les falsificacions brutes. No pot certificar-ne un de bo. La compra a la farmàcia segueix sent la garantia més sòlida d'aquesta gamma.",
+      "faq3q": "La meva La Roche-Posay és autèntica?"
+    },
+    "lancome": {
+      "where2": "Cura de la pell i fonament: en relleu o estampat a la base del pot, a l'encrespament del tub o a l'ampolla.",
+      "where1": "Fragància: a la base de la caixa i a la part inferior de l'ampolla.",
+      "faq2q": "Quant de temps dura la cura de la pell Lancôme sense obrir?",
+      "faq1a": "Lancôme és L'Oréal: la primera lletra és l'any de producció (omet V = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) i el caràcter després és el mes, amb O, N i D per a octubre, novembre i desembre.",
+      "faq1q": "Com puc llegir un codi de lot de Lancôme?",
+      "faq2a": "Uns tres anys des de la fabricació, menys per als productes construïts amb actius inestables. Descodificar abans de comprar a un descompte: l'estoc antic és genuí, però pot tenir molt poca vida sense obrir."
+    },
+    "loreal": {
+      "where2": "Utilitzeu aquesta pàgina quan una submarca no aparegui a la llista per separat: tot el grup comparteix un format de codi.",
+      "where1": "A qualsevol lloc s'estampa els productes del grup: engarçadors de tubs, bases d'ampolles, fons de pots i solapes de cartró.",
+      "faq1q": "Quines marques comparteixen el codi de lot de L'Oréal?",
+      "faq2q": "Com és un codi de L'Oréal?",
+      "faq3q": "El meu codi no té cap lletra.",
+      "faq3a": "Aleshores no és aquest format. Algunes marques adquirides recentment i alguns fabricants regionals per contracte, en canvi, imprimeixen una data juliana senzilla: el verificador torna a llegir una data incrustada als dígits.",
+      "faq1a": "Tots ells: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm i la resta. Surten de les mateixes plantes, de manera que porten el mateix format.",
+      "faq2a": "Normalment sis caràcters, com ara 40X200: dígits de fàbrica, després la lletra de l'any, després el caràcter del mes i després una sèrie per lots. La lletra de l'any i el caràcter posterior són les úniques parts que porten data."
+    },
+    "loreal-paris": {
+      "where2": "Tubs: pressionats a l'extrem segellat.",
+      "faq2q": "On està impresa la data de fabricació dels productes L'Oréal?",
+      "where3": "Ampolles (xampú, sèrum, base): impreses amb injecció de tinta a la contraetiqueta o la base.",
+      "faq1q": "Com comprobo la vida útil d'una crema L'Oréal Paris?",
+      "where1": "Cremes i pots: estampats a la base del pot, o a la part inferior de la tapa.",
+      "faq3q": "Com puc comprovar que un producte L'Oréal és autèntic?",
+      "faq1a": "No hi ha data de caducitat al pot; el que s'imprimeix és un codi de lot que conté la data de fabricació. Llegeix la primera lletra com a any (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; s'omet V) i el caràcter posterior com a mes. A partir d'aquesta data, una crema sense obrir sol ser bona durant uns 36 mesos, i el símbol de pot obert regula quant de temps dura un cop comença a utilitzar-la.",
+      "faq2a": "No s'imprimeix com a data, sinó que està codificat al codi del lot, que és el segell curt irregular de l'encrespament, la base o l'etiqueta posterior. El número llarg sota les ratlles del codi de barres és l'EAN i no conté cap data.",
+      "faq3a": "Descodifiqueu el codi i comproveu si s'adapta al format de L'Oréal: un codi sense lletra d'any, o una descodificació a una data impossible, és un autèntic senyal d'advertència. Però un codi copiat es descodifica netament, de manera que aquesta prova pot detectar un fals i no pot certificar-ne un de real. Compareu la qualitat d'impressió del text petit de l'embalatge i compreu a un minorista autoritzat."
+    },
+    "mac-cosmetics": {
+      "where2": "Compactes, colorets i paletes: a la part posterior de la caixa i en alguns productes impresos a la paella metàl·lica, només visibles quan s'esgota la pols.",
+      "where1": "Pintallavis: estampat a la base plana de la caixa de bala. Gireu la bala completament cap avall perquè la funda quedi plana.",
+      "where3": "Ampolles de base: a la base o on l'etiqueta s'embolica a la part posterior.",
+      "faq3q": "Com puc saber si el meu pintallavis MAC és autèntic?",
+      "faq2q": "Com és un codi de lot MAC?",
+      "faq2a": "Tres personatges, com ara B23. MAC pertany al grup Estée Lauder, de manera que l'últim caràcter és el dígit de l'any i el del mig és el mes, on A, B i C signifiquen octubre, novembre i desembre.",
+      "faq3a": "El codi ha de tenir tres o quatre caràcters i descodificar-lo a una data plausible; un codi que no s'ajusta a aquesta forma és un avís. Però un codi copiat descodifica perfectament, així que també jutja el pes de l'estoig, el clic del tancament i la impressió del text petit, i compra en un comptador autoritzat.",
+      "faq1q": "Com comprobo la data de caducitat de la fundació MAC?",
+      "faq1a": "MAC no imprimeix una data de caducitat, gairebé cap maquillatge. Imprimeix un codi de lot de tres caràcters que indica la planta, el mes i l'any. Descodifiqueu-ho per a la data de fabricació i, a continuació, apliqueu el símbol de flascó obert: la base líquida sol ser de 6 a 12 mesos un cop oberta i uns 36 mesos sense obrir. El termini anterior guanya."
+    },
+    "maybelline": {
+      "where1": "Mascara: impresa a la base del tub, o verticalment on l'etiqueta s'envolta.",
+      "where2": "Ampolles de base: a la base o a la contraetiqueta.",
+      "faq1q": "Quants anys té el meu rímel Maybelline?",
+      "faq2q": "On és el codi de lot dels productes Maybelline?",
+      "where3": "Paletes i compactes: a la part posterior de la caixa.",
+      "faq2a": "A la base del tub o de l'ampolla, o a la part posterior d'una paleta. És el codi irregular curt, no el número de codi de barres llarg.",
+      "faq1a": "Descodifica el codi a la base: Maybelline utilitza el format de L'Oréal, on la primera lletra és l'any i el següent caràcter és el mes. Però per al rímel, la data de fabricació rarament s'uneix: el rellotge de tres a sis mesos que comença el dia que obriu el tub gairebé sempre s'acaba primer."
+    },
+    "montblanc": {
+      "where1": "A la base de la caixa i a la part inferior de l'ampolla, imprès en negre a l'adhesiu de la base blanca.",
+      "where2": "Els codis de Montblanc es troben entre els codis de fragància més fàcils de llegir sense una lupa.",
+      "faq1a": "La fragància Montblanc està feta sota llicència d'Inter Parfums. La primera lletra del codi és l'any de producció, en un cicle que salta I i O — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — i els tres últims dígits són el dia d'aquest any.",
+      "faq1q": "Com comprobo un Montblanc Legend pel seu codi?",
+      "faq2q": "Hi ha un número de sèrie que puc buscar?",
+      "faq3a": "En una minoria de codis d'Inter Parfums, aquests dígits són una línia de fàbrica en lloc d'un dia. Si la data sembla poc plausible per a l'ampolla, confieu en la lletra de l'any i considereu el dia com a aproximat.",
+      "faq3q": "Els tres últims dígits produeixen una data estranya.",
+      "faq2a": "No. Un codi de lot identifica una sèrie de producció, no una ampolla individual, i no hi ha una base de dades pública on buscar-la. El que us dóna és la data, que és la part útil."
+    },
+    "nivea": {
+      "where3": "Ampolles i cura solar: impreses amb injecció de tinta a la contraetiqueta o a l'espatlla de l'ampolla.",
+      "where1": "Tubs (crema de mans, rentat de cara): estampat a la crimpada: l'extrem pla segellat oposat a la tapa.",
+      "faq2q": "La crema solar NIVEA té data de caducitat?",
+      "where2": "La clàssica llauna blava Creme: premsada a la base metàl·lica, sense tinta. Inclineu-lo sota una llum; una llum directa la fa desaparèixer.",
+      "faq1q": "Com trobo la data de fabricació dels productes NIVEA?",
+      "faq1a": "NIVEA (Beiersdorf) codifica la setmana de producció més que el dia. El primer dígit del codi és l'últim dígit de l'any i els dos següents són el número de la setmana, de manera que un codi que comença per 815 és la setmana 15 d'un any que acaba en 8. Això el situa dins de set dies, que és suficient per a una loció corporal.",
+      "faq3a": "Està gravat a la base metàl·lica en lloc d'imprimir, cosa que el fa gairebé invisible sota la llum directa. Agafeu la llauna de manera que un llum agafi la base des del costat i apareixeran els personatges.",
+      "faq3q": "No hi ha cap codi visible a la meva llauna NIVEA.",
+      "faq2a": "La protecció solar normalment porta una data de caducitat impresa, perquè la reclamació SPF es tracta com una reclamació de seguretat. Utilitzeu la data impresa en lloc d'una estimació descodificada i tractar una ampolla que va passar un estiu en un cotxe calent com a acabada, independentment del que digui la data."
+    },
+    "paco-rabanne": {
+      "faq1q": "Com puc descodificar un codi de lot Invictus o 1 Million?",
+      "faq2q": "Pot el codi demostrar que el meu Paco Rabanne és genuí?",
+      "where2": "Inclineu l'ampolla perquè la llum atrapi el segell des del costat; una llum directa el fa desaparèixer.",
+      "faq1a": "Paco Rabanne està fet per Puig, que imprimeix la data de producció al codi en lloc de xifrar-la. La forma habitual és de quatre dígits: el primer és l'últim dígit de l'any, els tres restants són el dia d'aquest any, de manera que 4135 és el 135è dia de 2024, 14 de maig de 2024.",
+      "where1": "A la part inferior de la caixa i a la part inferior de l'ampolla. A les ampolles més pesades (el lingot d'1 milió, el trofeu Invictus), el codi sovint s'estampa al metall o al vidre en lloc d'imprimir-se en un adhesiu.",
+      "faq3a": "Sí, la casa va abandonar el seu nom \"Paco\" el 2023. L'estoc més antic porta la marca anterior i el format del codi no va canviar.",
+      "faq2a": "Pot atrapar un fals i no pot certificar-ne un de real. Paco Rabanne es troba entre les fragàncies més falsificades d'Europa: un número de dia impossible, o codis que no coincideixen entre la caixa i l'ampolla, són advertències contundents, però un codi copiat d'una ampolla genuïna descodifica perfectament. Peseu l'ampolla i comproveu també el patró de polvorització.",
+      "faq3q": "Rabanne és la mateixa marca que Paco Rabanne?"
+    },
+    "redken": {
+      "where1": "Ampolles: impreses amb injecció de tinta a la contraetiqueta o a la base de l'ampolla.",
+      "where2": "Pols i aerosols: estampats a la base de la llauna.",
+      "faq1q": "Com comprovo la vida útil d'un producte Redken?",
+      "faq2q": "El codi de barres em diu la vida útil?",
+      "faq1a": "Redken és una marca de L'Oréal i utilitza el format del grup: la primera lletra és l'any de producció, el personatge després és el mes. La cura del cabell sol ser bona durant uns 36 mesos sense obrir i 12 mesos després de l'obertura.",
+      "faq2a": "No. El codi de barres és l'EAN: identifica el producte a la venda i és idèntic a cada ampolla. Només el codi del lot, el segell curt irregular, porta data."
+    },
+    "roberto-cavalli": {
+      "faq1q": "Com comprobo l'autenticitat del perfum Roberto Cavalli?",
+      "where1": "A la part inferior de la caixa i a la base de l'ampolla: imprès, o als flacons més pesats estampats al vidre.",
+      "faq2q": "On és el número de sèrie d'una ampolla de Roberto Cavalli?",
+      "faq1a": "La fragància Cavalli la fa Coty, de manera que el codi és una data de producció de quatre dígits: un dígit de l'any més el dia de l'any. Primer compareu el codi de la caixa amb el codi de l'ampolla: un desajust és el senyal més fort disponible per a un comprador. A continuació, descodifiqueu-lo; un dia impossible és una clara falsificació. Tanmateix, un codi que es descodifica netament no és una prova d'autenticitat, sinó que també es descodifiquen els codis copiats.",
+      "where2": "Busqueu un codi curt de quatre dígits; el número més llarg sota les ratlles del codi de barres no ho és.",
+      "faq2a": "No n'hi ha cap en el sentit d'una sèrie única per ampolla. El que s'imprimeix és un codi de lot, compartit per totes les unitats de la mateixa producció, i codifica la data, no una identitat."
+    },
+    "tom-ford-beauty": {
+      "where2": "Paletes de fons i ombres d'ulls: estampades a la base del compacte o de l'ampolla.",
+      "where1": "Fragància: a la base de la caixa, i gravada o estampada a la part inferior de l'ampolla.",
+      "faq1q": "Com comprobo un codi de lot de Tom Ford?",
+      "faq2q": "Com puc sortir amb una paleta d'ombres d'ulls de Tom Ford?",
+      "faq3q": "El codi del lot és una prova d'autenticitat?",
+      "faq1a": "Tom Ford Beauty és fabricat pel grup Estée Lauder, de manera que utilitza el codi de tres caràcters del grup: planta, mes, any, llegit a la dreta. El mes és de l'1 al 9 de gener a setembre, després A, B i C d'octubre a desembre.",
+      "faq3a": "No. Pot exposar una falsificació bruta (un codi que no s'ajusta al format o que es descodifica a un mes impossible), però un codi copiat es descodifica netament. La fragància de Tom Ford està molt falsificada; Peseu l'ampolla, comproveu l'esprai de l'atomitzador i compreu a un minorista autoritzat.",
+      "faq2a": "El codi es troba a la base del compacte. Descodifiqueu-lo per a la data de fabricació; una pols premsada és bona durant uns 24 mesos després d'obrir-la i molt més temps sense obrir, perquè una fórmula seca no permet que els bacteris creixin gairebé res."
+    },
+    "too-faced": {
+      "where1": "Paletes i compactes: a la part posterior de la caixa, de vegades sota la safata de plàstic.",
+      "where2": "Productes líquids: a la base de l'ampolla o a la corba del tub.",
+      "faq1a": "Too Faced pertany al grup Estée Lauder, de manera que el codi és de tres caràcters (planta, mes, any) llegits des de la dreta. Si el codi de la paleta no s'ajusta a aquesta forma, pot ser que sigui una marca de línia de fàbrica en lloc del codi del lot.",
+      "faq2q": "El meu codi Too Faced no es descodificarà.",
+      "faq1q": "Com comprobo el codi de lot d'una paleta Too Faced?",
+      "faq2a": "Alguns codis dels envasos de Too Faced són marques de línies internes, no codis de data, i no hi ha res per descodificar. Comproveu la base i la part posterior de la caixa per obtenir un segon codi més curt, i si realment no n'hi ha cap, el símbol de pot obert és la vostra millor guia."
+    },
+    "vichy": {
+      "where3": "Cartons: en una solapa final, normalment al costat del símbol de pot obert. Les mostres i els sobres sovint no porten cap codi, només el cartró en què van entrar.",
+      "where2": "Ampolles i bombes (Mineral 89, Liftactiv): impreses amb injecció de tinta a la base, o a la contraetiqueta prop del codi de barres.",
+      "where1": "Tubs i protector solar Capital Soleil: pressionat a la crimpada: l'extrem pla segellat oposat a la tapa.",
+      "faq2q": "Com puc llegir el codi d'un producte de Vichy?",
+      "faq1q": "On és la data de caducitat dels productes de Vichy?",
+      "faq3q": "El codi pot demostrar que el meu Vichy és genuí?",
+      "faq4q": "El protector solar Capital Soleil caduca?",
+      "faq2a": "Vichy és fabricat per L'Oréal i utilitza el format del grup. Trobeu la primera lletra del codi: és a dir, l'any de producció, en un cicle que salta V, de manera que U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. El caràcter just després és el mes: de l'1 al 9 de gener a setembre, després O, N i D per a octubre, novembre i desembre. Aquesta O és la lletra O, no un zero.",
+      "faq1a": "La majoria dels productes de Vichy no en imprimeixen cap. Les línies de farmàcia sovint porten una data de caducitat genuïna i, on existeix, supera qualsevol estimació descodificada, però si tot el que podeu trobar és un codi curt, aquest és el codi del lot, i conté la data de fabricació en lloc de la caducitat. Descodifiqueu-lo i, a continuació, afegiu-hi la vida útil: aproximadament 36 mesos sense obrir per a la cura de la pell i seguiu el símbol del pot obert un cop obert.",
+      "faq3a": "Només en part. Un codi que no s'ajusta a la forma de L'Oréal, o que es descodifica a una data anterior a l'existència de la línia de productes, és un avís real. Però un falsificador que copia un codi d'un tub genuí produeix un codi que descodifica perfectament, de manera que una descodificació neta demostra que el codi està ben format, no que la crema ho sigui. Per a la cura de la pell de farmàcia, comprar a una farmàcia continua sent la protecció més forta.",
+      "faq4a": "Sí, i és més important que per a qualsevol altra cosa de la gamma: els filtres UV degradats deixen passar més radiació, de manera que un SPF 50 obsolet no ofereix un SPF 50. Normalment, la crema solar porta una data de caducitat impresa exactament per aquest motiu: utilitzeu-la. I tractar una ampolla que va passar un estiu en un cotxe calent com a acabada, independentment de la data."
+    },
+    "ysl-beauty": {
+      "where1": "Pintallavis i maquillatge: estampat a la base de l'estoig o a la part posterior del compacte.",
+      "where2": "Fragància: a la base de la caixa i a la part inferior de l'ampolla.",
+      "faq1a": "YSL Beauty és fabricat per L'Oréal, de manera que porta el codi del grup: dígits de fàbrica, una lletra d'any i després un caràcter de mes. Seleccioneu YSL Beauty al verificador i el motor aplicarà la regla de L'Oréal.",
+      "faq1q": "Com comprobo un codi de lot d'Yves Saint Laurent?",
+      "faq2a": "Perquè la mateixa empresa fa les dues coses. El format segueix la fàbrica, no el preu: un pintallavis YSL i una màscara Maybelline surten de les línies de L'Oréal i porten el mateix estil de codi.",
+      "faq2q": "Per què el meu codi YSL sembla un de Maybelline?"
+    },
+    "zara": {
+      "where1": "A la solapa inferior de la caixa de fragàncies i a la base de l'ampolla.",
+      "where2": "La gamma de bellesa l'imprimeix a la part inferior de la caixa o a la corba del tub.",
+      "faq1q": "El perfum de Zara té data de caducitat?",
+      "faq2q": "Qui fa realment el perfum de Zara?",
+      "faq1a": "No és imprès, per regla general, com la majoria de les fragàncies, en lloc d'això porta un codi de lot. Descodifiqueu-lo per a la data de fabricació i tingueu en compte entre tres i cinc anys de vida sense obrir, cosa que és normal per a una aigua de tocador allunyada de la llum i la calor.",
+      "faq2a": "Puig fabrica la línia de fragàncies de Zara, motiu pel qual els codis segueixen el format de Puig, i una part de la raó per la qual diverses aromes de Zara conviden a comparar-les amb les fragàncies de disseny que Puig també fa."
+    }
   }
 }

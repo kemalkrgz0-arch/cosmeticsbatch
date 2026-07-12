@@ -7,7 +7,8 @@
     "brands": "Márkák",
     "howItWorks": "Hogyan működik",
     "checkNow": "Ellenőrizze most",
-    "language": "Nyelv"
+    "language": "Nyelv",
+    "codeFormats": "Kódformátumok"
   },
   "footer": {
     "resources": "Erőforrás",
@@ -22,7 +23,8 @@
     "allBrands": "Minden márka",
     "allGuides": "Minden útmutató",
     "rights": "© {year} {name}. Minden jog fenntartva. A becslések csak tájékoztató jellegűek, és nem garantálják a termék biztonságát.",
-    "contact": "Kapcsolat"
+    "contact": "Kapcsolat",
+    "codeFormats": "Batch kód formátumok"
   },
   "hero": {
     "badge": "A szépség szerelmesei világszerte megbíznak benne",
@@ -56,7 +58,7 @@
     "eanRightSub": "Ezt add meg — rövid dátumjelölés"
   },
   "brandPage": {
-    "checkerTitle": "{name} Batch Code Checker",
+    "checkerTitle": "{name}Batch Code Checker",
     "metaDescription": "Ingyenes {name} kötegelt kód dekóder. Másodpercek alatt ellenőrizheti {name} termékei gyártási dátumát, korát és lejárati idejét – regisztráció nélkül.",
     "metaTitle": "{name} Batch Code Dekóder és Ellenőrző — Gyártási és lejárati dátum",
     "blurb": "Az {name} kötegkódok dekódolása az {category} termékek gyártási dátumának, korának és lejárati dátumának megállapításához. Ingyenes, azonnali és privát.",
@@ -74,7 +76,9 @@
     "faqTitle": "{name}– GYIK",
     "months": "{n} hónap",
     "by": "{group} által",
-    "printsDateNote": "A {name} a gyártási vagy lejárati dátumot közvetlenül a csomagolásra nyomtatja, így általában nincs szükség tételkódra."
+    "printsDateNote": "A {name} a gyártási vagy lejárati dátumot közvetlenül a csomagolásra nyomtatja, így általában nincs szükség tételkódra.",
+    "exampleHeading": "Valódi{name}kód, dekódolva",
+    "whereHeading": "Hol található a kód az{name}csomagoláson"
   },
   "faqUi": {
     "title": "Gyakran Ismételt Kérdések",
@@ -165,7 +169,20 @@
     "confLow": "Alacsony önbizalom",
     "confNone": "Nem sikerült dekódolni",
     "invalidTitle": "Nem tudtuk elolvasni ezt a kódot",
-    "invalidBody": "Az „{code}” nem egyezik az {brand}kötegkód formátumával. Ellenőrizze, hogy pontosan úgy írta-e be, ahogy a csomagoláson szerepel – csak betűk és számok, szóközök nélkül –, és hogy ez a kötegkód, nem pedig a vonalkód vagy az ár/marketing hivatkozás."
+    "invalidBody": "Az „{code}” nem egyezik az {brand}kötegkód formátumával. Ellenőrizze, hogy pontosan úgy írta-e be, ahogy a csomagoláson szerepel – csak betűk és számok, szóközök nélkül –, és hogy ez a kötegkód, nem pedig a vonalkód vagy az ár/marketing hivatkozás.",
+    "shareCopied": "Másolva!",
+    "share": "Eredmény megosztása",
+    "shareTitle": "{name}kötegkód eredménye",
+    "meaningTitle": "Ez mit jelent?",
+    "meaningGood": "Ez a termék még mindig jó, még bőven eltartható.",
+    "meaningFresh": "Ez a termék friss és jó eltarthatósági időn belül van.",
+    "calendarTitle": "{name}– cserélje le erre a dátumra",
+    "shareMade": "{date}készült",
+    "shareLifeLeft": "{n}% élettartam maradt",
+    "addToCalendar": "Lejárat hozzáadása a naptárhoz",
+    "meaningExpired": "Ennek a terméknek lejárt az eltarthatósági ideje, és előfordulhat, hogy már nem a legjobb minőségű.",
+    "meaningUnknown": "Nem tudtuk megbecsülni ennek a kódnak a frissességét.",
+    "meaningUseSoon": "Ez a termék eltarthatósági idejének végéhez közeledik – hamarosan használja fel."
   },
   "howItWorks": {
     "title": "Hogyan működik",
@@ -192,5 +209,339 @@
     "freeTitle": "Mindig ingyenes",
     "accurateTitle": "Pontos és megbízható",
     "freeBody": "Minden funkció 100%-ban ingyenes, örökre."
+  },
+  "whereCode": {
+    "title": "Hol van a kötegkód?",
+    "label": {
+      "perfume": "Parfüm doboz",
+      "tube": "Cső",
+      "lipstick": "Ajakrúzs"
+    },
+    "subtitle": "Ez egy rövid, különálló bélyegző – általában itt rejtőzik a különböző csomagokon.",
+    "alt": {
+      "perfume": "A tételkód kiemelve egy parfümdobozon",
+      "tube": "A kötegkód kiemelve egy kozmetikai cső krimpén",
+      "lipstick": "A köteg kódja kiemelve egy rúzs alapon"
+    },
+    "viewGuide": "Olvassa el a teljes útmutatót",
+    "cardCta": "Hol található a kötegkód az{type}-en – olvassa el az útmutatót"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "where1": "A doboz alján, és az üveg alatti matricán.",
+      "where2": "A laposabb CK One palackokon a kód közvetlenül az üveglapra nyomtatható.",
+      "faq2q": "Meg tudja mondani a kötegkód, hogy a CK valódi-e?",
+      "faq1a": "A CK parfümöt a Coty gyártja. A kód négy számjegyből áll: egy év számjegy, amelyet az év napja követ. Osszuk el a napot körülbelül 30,4-gyel, hogy megkapjuk a hónapot – a 135. nap az ötödik hónap, május eleje.",
+      "faq1q": "Hogyan dekódolhatok egy Calvin Klein kötegkódot?",
+      "faq2a": "Elkaphat egy rossz hamisítványt: egy lehetetlen napszámot, vagy olyan kódokat, amelyek nem egyeznek a doboz és az üveg között. Nem tudja megerősíteni a jót, mert az eredeti palackból másolt kód tökéletesen dekódol."
+    },
+    "carolina-herrera": {
+      "where1": "A doboz alján és a palack alján.",
+      "where2": "A Good Girl tűsarkús üvegen a kód a sarok talpán található.",
+      "faq2q": "A Good Girlt gyakran hamisítják?",
+      "faq1q": "Hogyan ellenőrizhetem a Carolina Herrera kötegkódot?",
+      "faq2a": "Ez az egyik legtöbbet másolt illat Európában. Végezze el azokat az ellenőrzéseket, amelyeket egy kód nem tud: hasonlítsa össze a doboz és a palack kódját, mérje le az üveget, és nézze meg a spray finomságát. A tiszta dekódolás szükséges, de közel sem elegendő.",
+      "faq1a": "A Carolina Herrera illatot a Puig gyártja, amely a gyártás dátumát írja ki a kódba – egy év számjegye plusz az év napja, vagy egy csomagolt dátum, például 231122 2023. november 22-re."
+    },
+    "cerave": {
+      "where1": "Csövek és tisztítószerek: a cső lezárt végén lévő présbe nyomva.",
+      "faq1q": "Hogyan ellenőrizhetem a CeraVe termék eltarthatóságát?",
+      "faq2a": "A bőrgyógyászati ​​vonalak gyakran nyomtatnak egyet, a fényvédők pedig szinte mindig. Ahol létezik nyomtatott dátum, bízzon benne: ez a gyártó saját garanciája, és mindent felülmúl, amit egy dekóder meg tud becsülni.",
+      "where2": "Pumpás palackok (SA Cleanser, hidratáló lotion): tintasugaras nyomtatással a hátsó címkére vagy az alapra.",
+      "faq1a": "A CeraVe-t a L'Oréal gyártja, így a kód a csoport formátumát követi: az első betű a gyártási év, az utána lévő karakter pedig a hónap. Dekódolja a gyártási dátumot, majd számítson körülbelül 36 hónapig bontatlanul. Felbontás után a nyitott tégely szimbólum veszi át az irányítást – 12 hónap a tartomány nagy részén.",
+      "faq3q": "Honnan tudhatom, hogy a CeraVe hamisítvány?",
+      "faq2q": "Van a CeraVe-nek lejárati dátuma?",
+      "faq3a": "A CeraVe-t széles körben hamisítják a piacokon. A kötegkód az első szűrő – a L'Oréal formájához nem illő kód rossz jel –, de nem tudja megerősíteni az eredeti terméket, mivel a valódi kódot át lehet másolni egy hamis csőre. Hasonlítsa össze a műanyag textúráját, a kis szöveg nyomtatási minőségét, és vásároljon gyógyszertárban vagy hivatalos eladótól."
+    },
+    "chanel": {
+      "faq1q": "Van a Chanelnek hivatalos kötegkód rendszere?",
+      "faq1a": "Nem. A Chanel még soha nem publikált, és bárki, aki azt állítja, hogy ismeri a hivatalos Chanel-rejtjelet, találgat. Ami ellenőrizhető, az az, hogy a jelenlegi Chanel termékek olvasható gyártási dátumot nyomtatnak a kódba, és ezt mi dekódoljuk – pontosan azért, mert nincs közzétett séma, amivel ellenőrizhető lenne.",
+      "faq2a": "Szinte biztos, hogy lézerrel van bevésve az üveglapba, nem pedig nyomtatva. Közvetlen fényben a rézkarc láthatatlan, és akkor jelenik meg, ha a fény átverődik rajta – lassan fordítsa el a palackot egy lámpa alatt, vagy fényképezze le a talpat vakuval, és nagyítsa rá a képet.",
+      "where1": "Illat: lézerrel az üvegbe maratva a palack alján, és a doboz alsó fülére nyomtatva. A rézkarcban nincs tinta – döntse meg az üveget, hogy a fény elkapja oldalról.",
+      "where2": "Smink és bőrápoló: a kompakt vagy tégely alján, nagyon kicsi szürke színben.",
+      "faq2q": "Nem találok kódot a Chanel üvegemen.",
+      "faq3a": "Dekódolja a kódot az alapon a gyártás dátumához, majd alkalmazza a nyitott tégely szimbólumot – általában 12M folyékony alapozó esetén. Melyik fogy el előbb, a bontatlan szavatossági idő vagy a felbontás óta eltelt hónapok az igazi határidő.",
+      "faq3q": "Hogyan ellenőrizhetem a Chanel alapozó eltarthatóságát?"
+    },
+    "clinique": {
+      "where1": "Bőrápoló flakonok és tégelyek: dombornyomott az alapon.",
+      "faq1q": "Hogyan olvashatom ki a Clinique kötegkódját?",
+      "where2": "Smink: a kompakt hátulja vagy a tok alapja.",
+      "faq2a": "Körülbelül 36 hónapig bontatlan állapotban a gyártástól számítva, és 12 hónapig a felnyitás után a termékcsalád nagy részénél. A csomagon lévő nyitott üveg szimbólum az a szám, amely a pecsét feltörése után kötődik.",
+      "faq1a": "A Clinique az Estée Lauder, tehát a formátum növény, hónap, év három karakterben – olvasható jobbról. Az utolsó karakter az év számjegye; az előtte lévő a hónap, ahol A, B és C az októbert, novembert és decembert jelenti.",
+      "faq2q": "Mennyi ideig tart a Clinique bőrápoló?"
+    },
+    "creed": {
+      "where1": "A palack alján és a doboz alján – általában feketével nyomtatva a fehér alapmatricára.",
+      "where2": "A régebbi, nehezebb lapokon a kód nyomtatás helyett bélyegzhető; döntse a fény felé.",
+      "faq1q": "Hogyan olvashatok ki egy Creed kötegkódot?",
+      "faq3q": "Egy régebbi hitvallás jobb hitvallást jelent?",
+      "faq2a": "Részben. A Creed az illatban a legtöbbet hamisított házak közé tartozik, és az első betű, amely egyáltalán nem szerepel a ciklusban, egyenesen jelzi. A másolt kód azonban tisztán dekódol, ezért az érvényes kód nem bizonyíték – mérje meg az üveget, nézze meg a spray-t és a doboz nyomtatását, és vásároljon egy hivatalos viszonteladótól.",
+      "faq3a": "A nehezebb, gyantás kompozícióknál valóban előnyösebb lehet egy régebbi palack, mert az újraformulálások számos klasszikust megváltoztattak – és a tételkód az egyetlen módja annak, hogy megállapítsa, melyik formulát vásárolja. A világosabb, citrusfélék által vezetett Creedek esetében az öregedés többnyire oxidáció, és semmi előnye.",
+      "faq1a": "Csak az első betű számít. A gyártási évet kódolja, A = 2010-től számolva, és kihagyja az I-t és az O-t: N = 2022, P = 2023, Q = 2024, R = 2025. Minden utána egy belső tétel sorozat. A Creed nem kódolja a hónapot, így a kód egy évet ad, és semmivel sem finomabb.",
+      "faq2q": "Meg tudja mondani a kód, hogy a Green Irish Tweed eredeti-e?"
+    },
+    "dior": {
+      "where1": "Illat: a külső doboz alján és a palack alján - kis nyomtatott matrica, vagy a nagyobb üvegeken lézerrel az üvegbe maratva.",
+      "faq1q": "Hogyan ellenőrizhetem, hogy a Dior parfüm eredeti-e?",
+      "where2": "Smink: a kompakt alján, a rúzs tok alján vagy egy tubus hullámos részén.",
+      "where3": "Bőrápolás: az edény aljára, a nyitott tégely szimbólum mellé bélyegzett.",
+      "faq2q": "Hogyan néz ki a Dior kötegkód?",
+      "faq1a": "Kezdje a kódokkal: a dobozon és az üvegen lévőnek egyeznie kell, mert mindkettőt ugyanazon a töltővonalon kell felvinni perc különbséggel. Ezután dekódoljon – egy lehetetlen napszám vagy egy dátum az illat megjelenése előtt valódi figyelmeztetés. De értse meg a határt: egy hamisító, aki eredeti kódot másol, olyan kódot hoz létre, amely tökéletesen dekódol. A kötegkód felfedhet egy hamisítványt; nem igazolhat igazit.",
+      "faq2a": "Általában négy számjegy, például 3245. A Dior nem futtat titkos titkosítást – a többi LVMH-házhoz hasonlóan a gyártás dátumát írja be a kódba, egy év számjegyként, amelyet az év napja követ. Egyes kódok helyett hosszabb 5 vagy 6 számjegyű dátum szerepel.",
+      "faq3q": "Hol található a tétel kódja a Dior rúzson?",
+      "faq3a": "A tok lapos talpán. Először csavarja le teljesen a golyót – a kód az alapba van bélyegezve, és könnyen eltéveszthető a fémes felülettel szemben."
+    },
+    "dunhill": {
+      "faq2q": "Hogyan ellenőrizhetem a Dunhill illat eredetiségét?",
+      "faq1q": "Hogyan olvashatok ki egy Dunhill kötegkódot?",
+      "where1": "A doboz alján és a palack alján, a fehér alapmatricán feketével nyomva.",
+      "faq2a": "Hasonlítsa össze a doboz és a palack kódját, majd dekódolja. A cikluson kívüli év betűjele vagy az eltérő kódok valódi figyelmeztetések. A tiszta dekódolás nem bizonyíték – a másolt kódok is dekódolnak.",
+      "faq1a": "A Dunhill illat az Inter Parfums licence alapján készül. Az első betű a gyártási év – egy ciklus, amely kihagyja az I-t és az O-t, tehát J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 -, az utolsó három számjegy pedig az adott év napja."
+    },
+    "estee-lauder": {
+      "faq1q": "Hogyan olvashatok ki egy Estée Lauder kötegkódot?",
+      "where1": "Bőrápoló: dombornyomott az edény vagy üveg alján – belenyomva az anyagba, így nem közvetlen, hanem gereblyéző fényt igényel.",
+      "where2": "Illat és smink: a doboz alján és a termék alján.",
+      "faq1a": "Olvassa jobbról, ne balról. Az utolsó karakter az év számjegye; az előtte lévő a hónap (januártól szeptemberig 1–9, majd október, november és december esetén A, B és C); balra bármi a növény. Tehát az EA4-ben az üzem E, a hónap A – október – és az év 4-re végződik. A balról jobbra olvasás a leggyakoribb hiba ezekkel a kódokkal.",
+      "faq2q": "Hogyan ellenőrizhetem az eltarthatósági időt, ha kidobtam a dobozt?",
+      "faq3a": "Igen – ugyanazok a növények és ugyanaz a növény/hónap/év formátum. Csak a növény betűje különbözik, és nem tartalmaz dátuminformációt.",
+      "faq3q": "A Clinique, a MAC és a La Mer ugyanazt a kódot használják?",
+      "faq2a": "A kód magán a terméken található, nem csak a kartonon – az edény vagy palack alján, általában dombornyomással. Dekódolja a gyártás dátumát, majd alkalmazza a nyitott tégely szimbólumot attól a naptól kezdve, amikor kinyitotta. Amelyik határidő előbb következik be, az az igazi."
+    },
+    "fenty-beauty": {
+      "where1": "Alapozó és folyékony termékek: a palack aljára nyomtatva, vagy ott, ahol a címke a hátára tekered.",
+      "where2": "Kompaktok, púderek és fényesek: a tok hátoldalán vagy a cső alján.",
+      "faq1a": "A kötegkód dekódolása – A Fenty LVMH márka, és a gyártási dátumot nyomtatja a kódba. Az a kód, amely lehetetlen dátumot produkál, vagy egyáltalán nincs dátum, figyelmeztetés. A másolt kód azonban tisztán dekódol, ezért használja a szokásos ellenőrzések mellett: nyomtatási minőség a csomagoláson, az applikátor tapintása, és közvetlenül a Sephorától vagy a Fentytől vásároljon.",
+      "faq1q": "Hogyan ellenőrizhetem, hogy a Fenty Beauty hiteles-e?",
+      "faq2a": "Nem feltétlenül – a nem szkennelhető vonalkód általában nyomtatási vagy világítási probléma, és mindenesetre a vonalkód nem tartalmaz dátumot és hitelességi információt. A tételkód, a rövid, szabálytalan bélyegző jelzi, hogy a termék mikor készült.",
+      "faq2q": "A Fenty termékem vonalkódja nem szkennelhető. Ez hamis?",
+      "faq3q": "Meddig tart a Fenty alapozó?",
+      "faq3a": "Körülbelül 12 hónappal a felbontás után és körülbelül 36 hónapig bontatlanul a gyártás dátumától számítva. Amelyik előbb következik be, az a határidő."
+    },
+    "garnier": {
+      "where3": "Tasakok és egyszer használatos maszkok: a tasak hátoldalán, nagyon kis betűkkel a varrás közelében.",
+      "where2": "SPF és Ambre Solaire: a hátsó címkére nyomtatva, általában kifejezett lejárati dátummal is.",
+      "where1": "Szérumok és nappali krémek: a flakon aljára vagy a tubus préselésére.",
+      "faq1q": "Hol találom a Garnier krém vagy szérum lejárati idejét?",
+      "faq3q": "Honnan tudhatom, hogy a Garnier termékem valódi?",
+      "faq2q": "Hol van a dátum a Garnier napvédő krémen?",
+      "faq2a": "A napvédelem a kivétel – általában nyomtatott lejárati dátummal rendelkezik, mivel az SPF-re vonatkozó állítás egy biztonsági állítás. Használja a nyomtatott dátumot a dekódolt helyett, és cseréljen ki minden olyan palackot, amely egy nyarat a hőségben töltött.",
+      "faq1a": "Garnier ritkán nyomtat egyet. A csőperemen vagy palack alján található rövid kód a sarzskód, és a gyártás dátumát tartalmazza: az első betű az év, az utána lévő karakter a hónap. Számoljon előre körülbelül 36 hónappal egy bontatlan termék esetében, és használja a nyitott üveg szimbólumot, miután kinyitotta.",
+      "faq3a": "Ellenőrizze, hogy a kód illeszkedik-e a L'Oréal formátumához – a Garnier a L'Oréal márka –, és dekódolása elfogadható dátumra történik-e. Ez kizárja a nyers hamisítványokat. Nem zárhatja ki a jót, mert a másolt kód tökéletesen dekódol."
+    },
+    "giorgio-armani-beauty": {
+      "where1": "Illat (Acqua di Giò, Armani Code): a doboz alján és az üveg alapmatricáján.",
+      "where2": "Smink: a tok alján vagy a kompakt hátulján.",
+      "faq1q": "Hogyan dekódolhatok egy Armani Code kötegszámot?",
+      "faq2a": "Három-öt év normális egy eau de toilette-nél, hosszabb a parfümvíznél. Az illat a legmegbocsátóbb kategória, feltéve, hogy az üveget fénytől és hőtől távol tartják.",
+      "faq2q": "Mennyi ideig áll el az Acqua di Giò bontatlanul?",
+      "faq1a": "Az Armani illatot a L'Oréal gyártja, így a kód a csoport formátumát követi: az első betű a gyártási év, a karakter utána a hónap. (Az Armani Code nevű illat és a dobozára bélyegzett tételkód nem összefüggő dolgok, amelyek sajnos közösek.)"
+    },
+    "guerlain": {
+      "where2": "Smink és bőrápolás: a kompakt vagy a tégely aljára bélyegzett.",
+      "where1": "Illat: a doboz alján és a palack alján – gyakran egy kis matricára nyomtatva.",
+      "faq1q": "Hogyan ellenőrizhetem a Guerlain illat gyártási dátumát?",
+      "faq2q": "A régi Guerlain kódom nem fog dekódolni.",
+      "faq2a": "A régebbi és régióspecifikus kódok néha belső alfanumerikus hivatkozások, amelyekben egyáltalán nincs dátum. Ezeket senki nem tudja dekódolni. Inkább az állapota és a gyümölcslé illata alapján ítélje meg az üveget.",
+      "faq1a": "A Guerlain egy LVMH ház, és a gyártási dátumot a tételkódon belül nyomtatja ki – leggyakrabban egy évszámjegyet, amelyet az év napja követ. Dekódolja meg a gyártási dátumot, majd számoljon három-öt év bontatlan élettartammal egy fénytől és hőtől távol tartott parfüm eau de parfum esetében."
+    },
+    "hugo-boss": {
+      "faq1q": "Hogyan ellenőrizhetem a Hugo Boss illattétel kódját?",
+      "where2": "A két kódnak egyeznie kell – perc különbséggel ugyanabban a sorban jelennek meg.",
+      "where1": "A külső doboz alján és az üveg alatti átlátszó matricán.",
+      "faq2a": "Ez azt jelenti, hogy a dobozt és az üveget máshol párosították, mint a gyárban. Ez megtörténik a hamisítványokkal és a jogszerűen újracsomagolt, visszavitt vagy szürkepiaci készletekkel is. Akárhogy is, az Ön által birtokolt párosítás nem a gyár által szállított párosítás.",
+      "faq1a": "A Hugo Boss illatot a Coty gyártja, amely négyjegyű kódot használ: az első számjegy a gyártási év utolsó számjegye, a maradék három pedig az adott év napja. Tehát a 4135 a 2024. év 135. napja – 2024. május 14.",
+      "faq2q": "A doboz és a palack kódja eltérő. Ez hamis?"
+    },
+    "jean-paul-gaultier": {
+      "where2": "A fémházas kiadásokon a kód gyakran csak a dobozon található, vagy halványan bele van nyomva a doboz aljába.",
+      "where1": "A doboz alján, és a torzó alakú palack alján.",
+      "faq1q": "Hogyan olvashatom ki a Jean Paul Gaultier kötegkódot?",
+      "faq2a": "A fémhüvelyes kiadásokon a kód gyakran csak a dobozon van, vagy olyan halványan van belenyomva az alapba, hogy fényre van szüksége ahhoz, hogy lássa. Először ellenőrizze a kartont – és ha mindkettő megvan, ellenőrizze, hogy megegyeznek-e.",
+      "faq1a": "A JPG illatot a Puig gyártja, amely a gyártás dátumát írja be a kódba. A négy számjegy egy év számjegye plusz az év napja; az öt két év számjegye plusz a nap; hat egy csomagolt naptári dátum.",
+      "faq2q": "A Le Male üvegemen nincs kód."
+    },
+    "kenzo-parfums": {
+      "where1": "A külső doboz alján és a palack alján – az alapmatricára nyomtatva vagy az üvegbe nyomva.",
+      "where2": "A Kenzo World és Flower palackokon a kód a lapos alján helyezkedhet el, ahol a címke behajtható.",
+      "faq1q": "Hogyan ellenőrizhetem a Kenzo illatot a tételkódja alapján?",
+      "faq2q": "A Kenzo kódok tízévente ismétlődnek?",
+      "faq1a": "A Kenzo Parfums egy LVMH ház, és az LVMH titkosítás helyett a gyártási dátumot nyomtatja ki a kódba. A négy számjegy egy év számjegye plusz az év napja; öt vagy hat számjegy egy teljesebb dátum. Válassza ki a Kenzo-t az ellenőrzőben, és alkalmazza a megfelelő leolvasást.",
+      "faq3q": "A kód bizonyítja, hogy a Kenzo illat hiteles?",
+      "faq2a": "Igen, és ez inkább valódi korlátozás, mint furcsaság. A négyjegyű kód csak egy számjegyet tartalmaz az évből, így a 4135 2024. május 14-e pontosan ugyanazon bizonyíték alapján, mint 2014. május 14. A dekódoló a legutóbbi leolvasást veszi alapul; ha az üveg és a csomagolás úgy néz ki, mintha egy korábbi korszakhoz tartozna, akkor valószínűleg így van.",
+      "faq3a": "Elkaphat egy hamisítványt – egy lehetetlen napot, vagy a doboz kódja és a palack kódja közötti eltérést, amit egyetlen valódi töltősor sem produkál. Nem igazolhat valódi kódot, mert a másolt kód tisztán dekódol."
+    },
+    "kerastase": {
+      "where1": "Palackok és maszkok: tintasugaras nyomtatással a palack hátuljára, az alap közelében, vagy az edény aljára bélyegzett.",
+      "faq1q": "Hogyan találhatom meg a Kérastase maszk eltarthatóságát?",
+      "faq1a": "A Kérastase a L'Oréal Professionnel, tehát a csoport kódját hordozza: az első betű az év, a karakter utána a hónap. A felbontatlan maszk általában körülbelül 30–36 hónapig használható ettől a dátumtól számítva; kinyitás után az open-jar szimbólum érvényes – általában 12M.",
+      "where2": "Csövek és utazási méretek: préselésbe préselve.",
+      "faq2a": "A Kérastase gyakori célpontja a hamisítványoknak és az eltérített szalonkészleteknek. Dekódolja a kódot: illeszkednie kell a L'Oréal formátumához, és elfogadható dátumot kell adnia. Nem fogja el a másolt kódot, ezért nézze meg a nyomtatás minőségét, a kupak súlyát és felületét, valamint azt, hogy az eladó hivatalos szalon vagy kereskedő-e.",
+      "faq3q": "A terméket külföldön vásárolták – változik-e az eltarthatóság?",
+      "faq3a": "Nem. A tápszer eltarthatósága a termék sajátja, nem a piac. Ami változik a forró éghajlat mellett, az az, hogy valójában milyen gyorsan bomlik le: a hő jóval a nyomtatotthoz képest lerövidíti a valós életet.",
+      "faq2q": "Hogyan ellenőrizhetem a Kérastase termék eredetiségét?"
+    },
+    "kiehls": {
+      "where2": "Tubusok és szemkörnyékápoló krémek: préselésbe nyomva.",
+      "where1": "Üvegek és palackok: az alapra bélyegzett, gyakran dombornyomott, mintsem nyomtatott – döntse meg lámpa alá.",
+      "faq2q": "A Kiehl's üvegemen lévő kód láthatatlan.",
+      "faq2a": "Általában dombornyomott az alapba, nem pedig tintával. A dombornyomott kódok eltűnnek a közvetlen fény hatására, és akkor jelennek meg, amikor oldalról fény csap át rajtuk – fordítsa lassan az üveget egy lámpához.",
+      "faq1q": "Hogyan ellenőrizhetem a Kiehl's szemkörnyékápoló krém eltarthatóságát?",
+      "faq1a": "Dekódolja a kódot az alapon: a Kiehl's a L'Oréal, tehát az első betű az év, az utána lévő karakter pedig a hónap. Bontatlan, körülbelül 36 hónapig számol; kinyitás után a nyitott üveg szimbólum – jellemzően 12 millió szemkörnyékápoló krém esetében, ez az a szám, amelyik először kötődik."
+    },
+    "la-roche-posay": {
+      "where1": "Csövek: a tömített végén a krimpbe nyomva.",
+      "where2": "Palackok és Anthelios fényvédő: a hátsó címkére nyomtatva, általában a valódi lejárati dátum mellett.",
+      "faq1q": "Hol van a La Roche-Posay lejárati dátuma?",
+      "faq1a": "A gyógyszertárak általában valódi lejárati dátumot nyomtatnak a kartonra vagy a tubusra – használja. A mellette lévő rövid kód a kötegkód, és helyette a gyártás dátumát tartalmazza: az első betű az év, az utána lévő karakter a hónap.",
+      "faq2a": "Legfeljebb három évig bontatlanul, ha hűvös állapotban tartják, és körülbelül 12 hónapig kinyitva. A naptej az egyetlen olyan termék, amelynél a nyomtatott dátum valóban számít, mert a leromlott szűrők kevesebb védelmet jelentenek, mint a címke ígéri.",
+      "faq3a": "A L'Oréal formátumához illeszkedő és elfogadható dátumra dekódoló kód kizárja a nyers hamisítványokat. Nem igazolhat jót. A gyógyszertári vásárlás továbbra is a legerősebb garancia erre a körre.",
+      "faq3q": "Eredeti a La Roche-Posay?",
+      "faq2q": "Mennyi ideig tart az Anthelios fényvédő krém?"
+    },
+    "lancome": {
+      "where1": "Illat: a doboz alján és a palack alján.",
+      "where2": "Bőrápolás és alapozó: dombornyomással vagy nyomtatva az edény aljára, a tubusra vagy az üvegre.",
+      "faq1a": "A Lancôme a L'Oréal: az első betű a gyártási év (V kihagyása, tehát U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025), és közvetlenül utána a karakter a hónap, az O, N és D pedig októbert, novembert és decembert jelent.",
+      "faq2a": "Körülbelül három év a gyártástól, kevesebb az instabil hatóanyagokra épülő termékek esetében. Dekódoljon, mielőtt diszkontban vásárolna – a régi készlet eredeti, de előfordulhat, hogy nagyon kevés bontatlan élettartama maradt.",
+      "faq1q": "Hogyan olvashatom ki a Lancôme kötegkódot?",
+      "faq2q": "Mennyi ideig tart a bontatlan Lancôme bőrápoló?"
+    },
+    "loreal": {
+      "where2": "Akkor használja ezt az oldalt, ha egy almárka nincs külön listázva – az egész csoport egy kódformátumot használ.",
+      "where1": "Bárhol, ahol a csoport termékeit bélyegzéssel látják el: csőperemek, palackok alja, tégely feneke és kartondobozok.",
+      "faq1q": "Mely márkák osztják meg a L'Oréal kötegkódot?",
+      "faq1a": "Mindegyik: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm és a többi. Ugyanazokról a növényekről származnak, így ugyanazt a formátumot hordozzák.",
+      "faq2a": "Általában hat karakter, például 40X200: gyári számjegyek, majd az év betűje, majd a hónap karaktere, majd egy kötegsorozat. Az év betűje és az azt követő karakter az egyetlen olyan rész, amely dátummal rendelkezik.",
+      "faq2q": "Hogyan néz ki egy L'Oréal kód?",
+      "faq3q": "A kódomban nincs betű.",
+      "faq3a": "Akkor ez nem ez a formátum. Egyes nemrégiben felvásárolt márkák és néhány regionális szerződéses gyártó sima Julian-dátumot nyomtat helyette – az ellenőrző visszaesik a számjegyekbe ágyazott dátum olvasására."
+    },
+    "loreal-paris": {
+      "where1": "Krémek és üvegek: az edény aljára vagy a fedél aljára bélyegzett.",
+      "where2": "Csövek: a tömített végén a krimpbe nyomva.",
+      "faq2a": "Nem dátumként van kinyomtatva, hanem a kötegkódba van kódolva, amely a krimpelésen, az alapon vagy a hátsó címkén található rövid, szabálytalan bélyegző. A vonalkódcsíkok alatti hosszú szám az EAN, és egyáltalán nem tartalmaz dátumot.",
+      "faq2q": "Hol található a L'Oréal termékekre nyomtatott gyártási dátum?",
+      "faq1a": "A tégelyen nincs lejárati idő – ami a gyártási dátumot tartalmazó tételkódot tartalmazza. Olvassa el az első betűt évként (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V kihagyva), az utána lévő karaktert pedig hónapként. Ettől a dátumtól kezdve a bontatlan krém általában körülbelül 36 hónapig jó, és a nyitott tégelyes szimbólum határozza meg, hogy mennyi ideig áll el, miután elkezdi használni.",
+      "where3": "Palackok (sampon, szérum, alapozó): tintasugaras nyomtatással a hátsó címkére vagy az alapra.",
+      "faq1q": "Hogyan ellenőrizhetem egy L'Oréal Paris krém eltarthatóságát?",
+      "faq3a": "Dekódolja a kódot, és nézze meg, hogy az egyáltalán illeszkedik-e a L'Oréal formátumához – az évbetű nélküli kód, vagy egy lehetetlen dátumra dekódolt kód valódi figyelmeztető jel. A másolt kód azonban tisztán dekódol, így ez a teszt hamisítványt fog el, és nem tud valódit igazolni. Hasonlítsa össze a csomagoláson található kis szöveg nyomtatási minőségét, és vásároljon egy hivatalos viszonteladótól.",
+      "faq3q": "Hogyan ellenőrizhetem a L'Oréal termék eredetiségét?"
+    },
+    "mac-cosmetics": {
+      "where1": "Rúzs: a golyótartó lapos aljába nyomva. Csavarja le teljesen a golyót, hogy a tok laposan üljön.",
+      "faq1q": "Hogyan ellenőrizhetem a MAC alapítvány lejárati dátumát?",
+      "where3": "Alapozó palackok: az alapon, vagy ott, ahol a címke a hátára tekered.",
+      "where2": "Tömörítések, pirosítók és paletták: a tok hátulján – és egyes termékeken a fém serpenyőre nyomtatva, csak a por elhasználódása után látható.",
+      "faq2q": "Hogyan néz ki a MAC kötegkód?",
+      "faq2a": "Három karakter, például B23. A MAC az Estée Lauder csoporthoz tartozik, így az utolsó karakter az év számjegye, a középső pedig a hónap – ahol A, B és C az októbert, novembert és decembert jelenti.",
+      "faq1a": "A MAC nem nyomtat lejárati dátumot – szinte semmilyen smink nem nyomtat. Három karakteres kötegkódot nyomtat, amely megadja a növényt, a hónapot és az évet. Dekódolja ezt a gyártási dátumot, majd alkalmazza a nyitott üveg szimbólumot: a folyékony alapozó általában 6-12 hónapig tart felnyitás után, és körülbelül 36 hónapig bontatlanul. A korábbi határidő nyer.",
+      "faq3q": "Honnan tudhatom meg, hogy a MAC rúzsom eredeti-e?",
+      "faq3a": "A kódnak három vagy négy karakterből kell állnia, és dekódolnia kell egy elfogadható dátumra; a kód, amely nem illik ehhez az alakhoz, figyelmeztetés. De a másolt kód tökéletesen dekódol, ezért mérlegelje a tok súlyát, a zárócsatolás kattanását és a kis szöveg nyomtatását is – és vásároljon hivatalos pulttól."
+    },
+    "maybelline": {
+      "faq1q": "Hány éves a Maybelline szempillaspirálom?",
+      "faq2q": "Hol található a Maybelline termékek kötegkódja?",
+      "where3": "Paletták és kompaktok: a tok hátoldalán.",
+      "faq1a": "Dekódolja a kódot az alapon – A Maybelline a L'Oréal formátumát használja, ahol az első betű az év, a következő karakter pedig a hónap. De a szempillaspirál esetében a gyártási dátum ritkán kötődik: a tubus kinyitásának napján induló három-hat hónapos óra szinte mindig először fogy le.",
+      "where1": "Szempillaspirál: a tubus aljára nyomtatva, vagy függőlegesen, ahol a címke körbeveszi.",
+      "where2": "Alapozó palackok: az alapon, vagy a hátsó címkén.",
+      "faq2a": "A tubus vagy üveg alján, vagy egy paletta hátoldalán. Ez a rövid szabálytalan kód – nem a hosszú vonalkód."
+    },
+    "montblanc": {
+      "where1": "A doboz alján és a palack alján – feketével nyomtatva a fehér alapmatricára.",
+      "faq1a": "A Montblanc illat az Inter Parfums licence alapján készült. A kód első betűje a gyártási év, egy olyan ciklusban, amely kihagyja az I-t és az O-t — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 -, az utolsó három számjegy pedig az adott év napja.",
+      "where2": "A Montblanc kódok a könnyebben olvasható illatkódok közé tartoznak nagyító nélkül.",
+      "faq1q": "Hogyan ellenőrizhetem a Montblanc Legend-et a kódja alapján?",
+      "faq2q": "Van valami sorozatszám, amit megkereshetek?",
+      "faq3q": "Az utolsó három számjegy furcsa dátumot eredményez.",
+      "faq2a": "Nem. A kötegkód a gyártási sorozatot azonosítja, nem egy egyedi palackot, és nincs nyilvános adatbázis, amelyben utánanézhetne. A dátumot adja meg – ami a hasznos rész.",
+      "faq3a": "Az Inter Parfums kódok kisebb részénél ezek a számjegyek egy gyári szám, nem pedig egy nap. Ha a dátum valószínűtlennek tűnik az üveg esetében, bízzon az év betűjében, és kezelje hozzávetőlegesnek a napot."
+    },
+    "nivea": {
+      "where2": "A klasszikus kék Creme ón: a fém alapba nyomva, tinta nélkül. Döntse meg egy lámpa alatt; egy egyenesen világító lámpa eltünteti.",
+      "where3": "Palackok és fényvédő: tintasugaras nyomtatással a hátsó címkére vagy az üveg vállára.",
+      "where1": "Csövek (kézkrém, arclemosó): benyomva a krimpbe – a lapos lezárt vége a kupakkal szemben.",
+      "faq1q": "Hogyan találhatom meg a NIVEA termékek gyártási dátumát?",
+      "faq2q": "Van a NIVEA fényvédő krémnek lejárati ideje?",
+      "faq3q": "A NIVEA dobozomon nem látható kód.",
+      "faq1a": "A NIVEA (Beiersdorf) nem a napot, hanem a gyártási hetet kódolja. A kód első számjegye az év utolsó számjegye, a következő kettő pedig a hét száma – tehát a 815-tel kezdődő kód az év 8-ra végződő 15. hetét jelenti. Ez hét napon belülre helyezi, ami bőven elegendő egy testápolóhoz.",
+      "faq2a": "A napvédelemnek általában nyomtatott lejárati dátuma van, mivel az SPF-re vonatkozó állítást biztonsági állításként kezelik. Használja a nyomtatott dátumot a dekódolt becslés helyett – és kezelje késznek azt a palackot, amely egy forró autóban töltött egy nyarat, függetlenül attól, hogy mit mond a dátum.",
+      "faq3a": "Nyomtatás helyett dombornyomott a fém alapba, ami közvetlen fényben szinte láthatatlanná teszi. Tartsa az ónt úgy, hogy oldalról egy lámpa elkapja a talpat, és megjelenjenek a karakterek."
+    },
+    "paco-rabanne": {
+      "where1": "A doboz alján és a palack alján. A nehezebb palackokon – az 1 milliós ingot, az Invictus trófeán – a kódot gyakran a fémbe vagy az üvegbe bélyegzik, nem pedig matricára nyomtatják.",
+      "faq1q": "Hogyan dekódolhatok egy Invictus vagy 1 Million kötegkódot?",
+      "faq3a": "Igen – a ház nevéből 2023-ban kikerült a „Paco”. A régebbi állomány a korábbi márkajelzést viseli, és a kódformátum nem változott.",
+      "where2": "Döntse meg az üveget úgy, hogy a fény oldalról elkapja a bélyeget; közvetlen fény hatására eltűnik.",
+      "faq3q": "A Rabanne ugyanaz a márka, mint a Paco Rabanne?",
+      "faq2q": "Bizonyíthatja a kód, hogy a Paco Rabanne eredeti?",
+      "faq1a": "A Paco Rabanne-t a Puig gyártja, amely titkosítás helyett a gyártás dátumát írja be a kódba. A szokásos forma négyjegyű: az első az év utolsó számjegye, a maradék három az adott év napja – tehát a 4135 a 2024. év 135. napja, 2024. május 14.",
+      "faq2a": "Elkaphat egy hamisítványt, és nem igazolhat valódit. A Paco Rabanne az egyik legtöbbet hamisított illat Európában: a lehetetlen napszám, vagy a doboz és a palack között eltérő kódok erős figyelmeztetések – de az eredeti palackból másolt kód tökéletesen dekódol. Mérje le az üveget, és ellenőrizze a permetezési mintát is."
+    },
+    "redken": {
+      "faq1a": "A Redken egy L'Oréal márka, és a csoport formátumát használja – az első betű a gyártási év, a karakter utána a hónap. A hajápolás általában körülbelül 36 hónapig jó bontatlanul és 12 hónapig a felbontás után.",
+      "where1": "Palackok: tintasugaras nyomtatással a hátsó címkére vagy a palack aljára.",
+      "where2": "Porok és aeroszolok: a doboz aljára bélyegzett.",
+      "faq1q": "Hogyan ellenőrizhetem egy Redken termék eltarthatóságát?",
+      "faq2a": "Nem. A vonalkód az EAN – azonosítja az eladó terméket, és minden palackon azonos. Csak a kötegkód, a rövid, szabálytalan bélyegző tartalmaz dátumot.",
+      "faq2q": "A vonalkód megmutatja az eltarthatósági időt?"
+    },
+    "roberto-cavalli": {
+      "where1": "A doboz aljára és a palack aljára - nyomtatva, vagy a nehezebb flakonokra az üvegbe nyomva.",
+      "faq1q": "Hogyan ellenőrizhetem a Roberto Cavalli parfüm eredetiségét?",
+      "faq2q": "Hol található a Roberto Cavalli-palack sorozatszáma?",
+      "where2": "Keressen egy négyjegyű rövid kódot; a vonalkódcsíkok alatti hosszabb szám nem az.",
+      "faq1a": "A Cavalli illatot a Coty gyártja, így a kód egy négy számjegyű gyártási dátum – egy év számjegye plusz az év napja. Hasonlítsa össze először a dobozon található kódot a palackon található kóddal: az eltérés a vevő számára elérhető legerősebb jel. Ezután dekódolja; egy lehetetlen nap egyértelmű hamisítvány. A tisztán dekódoló kód azonban nem bizonyítja az eredetiséget – a másolt kódok is dekódolnak.",
+      "faq2a": "Egyetlen palackonkénti sorozat értelmében nincs ilyen. A kinyomtatott kötegkód – amelyen ugyanazon gyártási sorozat minden egysége osztozik –, és a dátumot kódolja, nem pedig az azonosságot."
+    },
+    "tom-ford-beauty": {
+      "where1": "Illat: a doboz alján, és a palack aljára maratva vagy nyomtatva.",
+      "where2": "Alapozó és szemhéjfesték paletták: a kompakt vagy a palack aljára bélyegezve.",
+      "faq3q": "A kötegkód bizonyítja az eredetiséget?",
+      "faq1q": "Hogyan ellenőrizhetem a Tom Ford kötegkódot?",
+      "faq2q": "Hogyan randevúzhatok egy Tom Ford szemhéjpúder palettával?",
+      "faq1a": "A Tom Ford Beauty-t az Estée Lauder csoport gyártja, így a csoport három karakteres kódját használja: üzem, hónap, év – olvasható jobbról. A hónap januártól szeptemberig 1–9, majd októbertől decemberig A, B és C.",
+      "faq2a": "A kód a kompakt alján található. Dekódolja a gyártás dátumára; a préselt por körülbelül 24 hónapig jó felbontás után, és jóval tovább bontatlanul, mert a száraz formula szinte semmit sem ad a baktériumoknak.",
+      "faq3a": "Nem. Felfedhet egy durva hamisítványt – egy olyan kódot, amely nem illik a formátumhoz, vagy egy lehetetlen hónapra dekódol –, de a másolt kód tisztán dekódol. A Tom Ford illat erősen hamisított; mérje le az üveget, ellenőrizze a porlasztó spray-t, és vásároljon egy hivatalos viszonteladótól."
+    },
+    "too-faced": {
+      "faq1q": "Hogyan ellenőrizhetem a Too Faced paletta kötegkódját?",
+      "where1": "Paletták és kompaktok: a tok hátulján, esetenként a műanyag tálca alatt.",
+      "where2": "Folyékony termékek: a palack alján vagy a csőperemen.",
+      "faq1a": "A Too Faced az Estée Lauder csoporthoz tartozik, így a kód három karakterből áll – növény, hónap, év – jobbról olvasható. Ha a palettán lévő kód nem illeszkedik ehhez az alakzathoz, akkor lehet, hogy a kötegkód helyett gyári vonaljelölés.",
+      "faq2q": "A Too Faced kódom nem dekódolható.",
+      "faq2a": "A Too Faced csomagoláson lévő egyes kódok belső vonaljelzések, nem dátumkódok, és nincs bennük semmi, ami dekódolható lenne. Ellenőrizze a tok alját és hátulját egy második, rövidebb kódért – és ha valóban nincs ilyen, akkor a nyitott jar szimbólum a legjobb útmutató."
+    },
+    "vichy": {
+      "faq1q": "Hol van a Vichy termékek lejárati ideje?",
+      "where2": "Palackok és pumpák (Mineral 89, Liftactiv): tintasugaras nyomtatással az alapra vagy a hátoldali címkére a vonalkód közelében.",
+      "where3": "Kartonok: egy végfedőn, általában a nyitott üveg szimbólum mellett. A mintákon és a tasakon gyakran egyáltalán nincs kód – csak a dobozon, amelyben bekerültek.",
+      "faq2q": "Hogyan olvashatom ki a kódot egy Vichy terméken?",
+      "faq1a": "A Vichy legtöbb terméke nem nyomtat. A gyógyszertárak gyakran tartalmaznak valódi lejárati dátumot, és ahol létezik, az felülmúl minden dekódolt becslést – de ha csak egy rövid kódot talál, akkor ez a tételkód, és nem a lejárati dátumot, hanem a gyártási dátumot tartalmazza. Dekódolja meg, majd adja hozzá az eltarthatósági időt: nagyjából 36 hónap bontatlan bőrápoláshoz, és kövesse a nyitott üveg szimbólumot, miután kinyitotta.",
+      "faq3q": "Bizonyíthatja a kód, hogy a Vichy eredeti?",
+      "faq4q": "Lejár a Capital Soleil fényvédő krém?",
+      "faq3a": "Csak részben. Az a kód, amely nem illeszkedik a L'Oréal formájához, vagy amely a termékcsalád létezése előtti dátumra dekódol, igazi figyelmeztetés. De egy hamisító, aki egy kódot másol egy eredeti tubusból, olyan kódot hoz létre, amely tökéletesen dekódol – tehát a tiszta dekódolás azt bizonyítja, hogy a kód jól formált, nem azt, hogy a krém az. A gyógyszertári bőrápolásnál továbbra is a gyógyszertári vásárlás jelenti az erősebb védelmet.",
+      "faq4a": "Igen, és ez fontosabb, mint bármi más a kínálatban: a leromlott UV-szűrők több sugárzást engednek át, így az elavult SPF 50 nem ad SPF 50-et. A fényvédők általában pontosan emiatt nyomtatott lejárati dátumot tartalmaznak – használja. És kezelje késznek azt az üveget, amely egy nyarat forró autóban töltött, a dátumtól függetlenül.",
+      "faq2a": "A Vichyt a L'Oréal gyártja, és a csoport formátumát használja. Keresse meg a kód első betűjét: ez a gyártási év egy olyan ciklusban, amely kihagyja V-t, tehát U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. A karakter közvetlenül utána a hónap – 1-től 9-ig januártól szeptemberig, majd O, N és D október, november és december esetén. Ez az O az O betű, nem nulla.",
+      "where1": "Tubes és Capital Soleil fényvédő: préseljük a krimpbe – a lapos lezárt vége a kupakkal szemben."
+    },
+    "ysl-beauty": {
+      "where1": "Rúzs és smink: a tok aljára vagy a kompakt hátuljára bélyegzett.",
+      "faq2q": "Miért néz ki az YSL-kódom, mint egy Maybelline?",
+      "where2": "Illat: a doboz alján és a palack alján.",
+      "faq1q": "Hogyan ellenőrizhetem az Yves Saint Laurent kötegkódot?",
+      "faq2a": "Mert ugyanaz a cég gyártja mindkettőt. A formátum a gyárat követi, nem az árat – egy YSL rúzs és egy Maybelline szempillaspirál jön le a L'Oréal vonalairól, és ugyanazt a kódstílust hordozza.",
+      "faq1a": "Az YSL Beauty-t a L'Oréal gyártja, tehát a csoport kódját hordozza: gyári számjegyek, év betű, majd hónap karakter. Válassza az YSL Beauty lehetőséget az ellenőrzőben, és a motor alkalmazza a L'Oréal szabályát."
+    },
+    "zara": {
+      "faq1q": "Van a Zara parfümnek lejárati ideje?",
+      "faq2q": "Ki gyárt valójában Zara parfümöt?",
+      "where1": "Az illatdoboz alsó fülén és a palack alján.",
+      "where2": "A beauty termékcsalád a tok alsó oldalára vagy a cső krimpére nyomtatja.",
+      "faq1a": "Általában nem nyomtatott – a legtöbb illathoz hasonlóan ez is kötegkódot tartalmaz. Dekódolja a gyártási dátumot, és számoljon három-öt év bontatlan élettartammal, ami normális a fénytől és hőtől távol tartott toalettvíz esetében.",
+      "faq2a": "A Puig a Zara illatcsaládját gyártja, ezért a kódok a Puig formátumát követik – és részben azért, mert számos Zara illat összevethető a Puig által is gyártott dizájner illatokkal."
+    }
   }
 }

@@ -7,7 +7,8 @@
     "brands": "Tuotemerkit",
     "howItWorks": "Miten se toimii",
     "language": "Kieli",
-    "checkNow": "Tarkista nyt"
+    "checkNow": "Tarkista nyt",
+    "codeFormats": "Koodimuodot"
   },
   "footer": {
     "aboutUs": "Tietoja meistä",
@@ -22,7 +23,8 @@
     "terms": "Palveluehdot",
     "allGuides": "Kaikki oppaat",
     "rights": "© {year} {name}. Kaikki oikeudet pidätetään. Arviot ovat vain informatiivisia, eivätkä ne takaa tuotteen turvallisuutta.",
-    "contact": "Yhteystiedot"
+    "contact": "Yhteystiedot",
+    "codeFormats": "Eräkoodimuodot"
   },
   "hero": {
     "badge": "Kauneuden ystävät maailmanlaajuisesti luottavat",
@@ -74,7 +76,9 @@
     "freshnessPara": "Kun olemme lukeneet valmistuspäivän, arvioimme tuoreuden käyttämällä {name}:n tyypillistä {shelf}-kuukauden säilyvyyttä {category}-tuotteille. Muista, että avaamisen jälkeinen ajanjakso (noin {pao} kuukautta) tulee rajaksi, kun aloitat tuotteen käytön.",
     "aliasesPara": "Joskus näet tämän työkalun nimeltä {name} eräkoodin dekooderi,{name} eräkoodin tarkistus tai {name} eräkoodilaskin – ne kaikki tekevät saman asian: lukevat tuotantokoodin ja kertovat, kuinka tuore {name} {category} on.",
     "faqTitle": "{name}- UKK",
-    "printsDateNote": "{name} painaa valmistus- tai viimeisen käyttöpäivän suoraan pakkaukseen, joten eräkoodia ei yleensä tarvita."
+    "printsDateNote": "{name} painaa valmistus- tai viimeisen käyttöpäivän suoraan pakkaukseen, joten eräkoodia ei yleensä tarvita.",
+    "exampleHeading": "Todellinen{name}-koodi, purettu",
+    "whereHeading": "Mistä löytää koodin{name}pakkauksessa"
   },
   "faqUi": {
     "title": "Usein kysytyt kysymykset",
@@ -165,7 +169,20 @@
     "confNone": "Ei voitu purkaa",
     "confMedium": "Keskinkertainen luottamus",
     "invalidBody": "\"{code}\" ei vastaa {brand}:n eräkoodimuotoa. Tarkista, että kirjoitit sen täsmälleen pakkaukseen painetun mukaisesti – vain kirjaimia ja numeroita, ei välilyöntejä – ja että se on eräkoodi, ei viivakoodi tai hinta/markkinointiviite.",
-    "invalidTitle": "Emme voineet lukea tätä koodia"
+    "invalidTitle": "Emme voineet lukea tätä koodia",
+    "shareCopied": "Kopioitu!",
+    "share": "Jaa tulos",
+    "shareTitle": "{name}eräkoodin tulos",
+    "meaningTitle": "Mitä tämä tarkoittaa?",
+    "calendarTitle": "{name}— korvaa tähän päivämäärään",
+    "meaningFresh": "Tämä tuote on tuore ja hyvin säilyvyysaika.",
+    "meaningGood": "Tämä tuote on edelleen hyvä, säilyvyysaikaa on runsaasti jäljellä.",
+    "shareLifeLeft": "{n}% käyttöikää jäljellä",
+    "addToCalendar": "Lisää voimassaoloaika kalenteriin",
+    "shareMade": "tehty{date}",
+    "meaningUseSoon": "Tämä tuote lähenee käyttöikänsä loppua – käytä se pian loppuun.",
+    "meaningExpired": "Tämä tuote on kulunut umpeen, eikä se välttämättä ole enää parhaimmillaan.",
+    "meaningUnknown": "Emme voineet arvioida tämän koodin tuoreutta."
   },
   "howItWorks": {
     "title": "Miten se toimii",
@@ -192,5 +209,339 @@
     "accurateTitle": "Tarkka & Luotettava",
     "freeBody": "Jokainen ominaisuus on 100% ilmainen, ikuisesti.",
     "privateBody": "Koodit puretaan yksityisesti. Yksityisyytesi on etusijalla."
+  },
+  "whereCode": {
+    "title": "Missä eräkoodi on?",
+    "label": {
+      "perfume": "Hajuvesilaatikko",
+      "tube": "Putki",
+      "lipstick": "Huulipuna"
+    },
+    "subtitle": "Se on lyhyt erillinen leima - tässä se yleensä piiloutuu eri pakkauksiin.",
+    "alt": {
+      "perfume": "Eräkoodi korostettuna hajuvesilaatikossa",
+      "lipstick": "Eräkoodi korostettuna huulipunapohjassa",
+      "tube": "Eräkoodi korostettuna kosmeettisessa putkipuristuksessa"
+    },
+    "cardCta": "Mistä löytää eräkoodi{type}:sta – lue opas",
+    "viewGuide": "Lue koko opas"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "where2": "Tasaisemmissa CK One -pulloissa koodi voidaan painaa suoraan lasipohjalle.",
+      "where1": "Laatikon pohjassa ja pullon alla olevassa tarrassa.",
+      "faq1q": "Kuinka puran Calvin Kleinin eräkoodin?",
+      "faq2q": "Voiko eräkoodi kertoa minulle, onko CK:ni todellinen?",
+      "faq2a": "Se voi saada kiinni huonon väärennöksen: mahdoton päivänumeron tai koodit, jotka ovat eri mieltä laatikon ja pullon välillä. Se ei voi vahvistaa hyvää, koska aidosta pullosta kopioitu koodi purkaa täydellisesti.",
+      "faq1a": "CK-tuoksua valmistaa Coty. Koodi on nelinumeroinen: vuoden numero, jota seuraa vuoden päivä. Jaa päivä noin luvulla 30,4 saadaksesi kuukauden – päivä 135 on viidennen kuukauden, toukokuun, alussa."
+    },
+    "carolina-herrera": {
+      "where2": "Good Girl stiletto -pullossa koodi on kantapään pohjassa.",
+      "where1": "Laatikon pohjalle ja pullon alapuolelle.",
+      "faq1q": "Kuinka tarkistan Carolina Herreran eräkoodin?",
+      "faq2a": "Se on yksi Euroopan kopioiduimmista tuoksuista. Tee tarkistukset, joita koodi ei voi tehdä: vertaa laatikon ja pullon koodeja, punnita pullo ja katso suihkeen hienoutta. Puhdas dekoodaus on välttämätön, mutta ei läheskään riittävä.",
+      "faq2q": "Väärennetäänkö Good Girlia usein?",
+      "faq1a": "Carolina Herrera -tuoksu on Puigin valmistama, joka tulostaa koodiin valmistuspäivämäärän — vuosilukuna plus vuodenpäivänä tai pakkauspäivämääränä, kuten 231122 22.11.2023."
+    },
+    "cerave": {
+      "faq1q": "Kuinka tarkistan CeraVe-tuotteen säilyvyyden?",
+      "where1": "Putket ja puhdistusaineet: painetaan puristuksiin putken suljetussa päässä.",
+      "where2": "Pumppupullot (SA Cleanser, kosteuttava voide): mustesuihkupainettu takaetiketissä tai pohjassa.",
+      "faq2q": "Onko CeraVella viimeinen käyttöpäivä?",
+      "faq3q": "Mistä tiedän, onko CeraVe väärennös?",
+      "faq2a": "Dermatologiset linjat painavat usein yhden, ja aurinkovoiteet tekevät melkein aina. Jos painettu päivämäärä on olemassa, luota siihen: se on valmistajan oma takuu ja se voittaa kaiken, mitä dekooderi voi arvioida.",
+      "faq1a": "CeraVen valmistaa L'Oréal, joten koodi noudattaa ryhmän muotoa: ensimmäinen kirjain on valmistusvuosi ja merkki sen jälkeen on kuukausi. Dekoodaa se valmistuspäivämäärää varten, ja laske sen jälkeen noin 36 kuukautta avaamattomana. Avaamisen jälkeen avaa purkin symboli - 12 kuukautta suurimmalla osalla valikoimasta.",
+      "faq3a": "CeraVe on laajalti väärennetty markkinoilla. Eräkoodi on ensimmäinen suodatin – koodi, joka ei sovi L'Oréalin muotoon, on huono merkki – mutta se ei voi vahvistaa aitoa tuotetta, koska oikea koodi voidaan kopioida väärennettyyn putkeen. Vertaa muovin rakennetta, pienen tekstin tulostuslaatua ja osta apteekista tai valtuutetulta myyjältä."
+    },
+    "chanel": {
+      "where1": "Tuoksu: lasersyövytetty lasiin pullon pohjassa ja painettu laatikon pohjaläpälle. Etsauksessa ei ole mustetta – kallista pulloa niin, että valo tarttuu sen sivulta.",
+      "where2": "Meikki ja ihonhoito: kompaktin tai purkin pohjalla, hyvin pieni harmaa.",
+      "faq2q": "En löydä koodia Chanel-pullostani.",
+      "faq1q": "Onko Chanelilla virallinen eräkoodijärjestelmä?",
+      "faq3q": "Kuinka tarkistan Chanel-meikkivoiteen säilyvyyden?",
+      "faq2a": "Se on melkein varmasti laseretsattu lasipohjaan painettumisen sijaan. Etsaus on näkymätön suorassa valossa ja näkyy, kun valo räjäyttää sen poikki – käännä pulloa hitaasti lampun alla tai valokuvaa pohja salamalla ja zoomaa kuvaan.",
+      "faq1a": "Ei. Chanel ei ole koskaan julkaissut sellaista, ja jokainen, joka väittää tuntevansa virallisen Chanel-salauksen, arvaa. Todennettavissa on, että nykyiset Chanel-tuotteet tulostavat koodin sisään luettavan valmistuspäivämäärän, ja se on se, mitä me puramme – raportoidaan keskiluottamukselliseksi luetuksi juuri siksi, että sen tarkistamiseen ei ole julkaistua järjestelmää.",
+      "faq3a": "Pura pohjassa oleva koodi valmistuspäivämäärää varten ja käytä sitten avoimen purkin symbolia – tyypillisesti 12M nestemäiselle meikkivoiteelle. Se, kumpi loppuu ensin, avaamattoman säilyvyys vai avaamisen jälkeen kuluneet kuukaudet, on todellinen määräaika."
+    },
+    "clinique": {
+      "where2": "Meikki: kompaktin takaosa tai kotelon pohja.",
+      "where1": "Ihonhoitopullot ja purkit: pohjassa kohokuvioitu.",
+      "faq2q": "Kuinka kauan Clinique-ihonhoito kestää?",
+      "faq1q": "Kuinka luen Cliniquen eräkoodin?",
+      "faq1a": "Clinique on Estée Lauder, joten muoto on kasvi, kuukausi, vuosi kolmella merkillä – lue oikealta. Viimeinen merkki on vuoden numero; sitä edeltävä on kuukausi, jossa A, B ja C tarkoittavat loka-, marras- ja joulukuuta.",
+      "faq2a": "Noin 36 kuukautta avaamattomana valmistuspäivästä ja 12 kuukautta avaamisen jälkeen suurimmalle osalle sarjaa. Pakkauksessa oleva avoimen purkin symboli on numero, joka sitoo sinetin rikkomisen jälkeen."
+    },
+    "creed": {
+      "faq2q": "Voiko koodi kertoa minulle, onko Green Irish Tweed aito?",
+      "where1": "Pullon pohjassa ja laatikon pohjassa - yleensä mustalla painettu valkoiseen pohjatarraan.",
+      "where2": "Vanhemmissa, raskaammissa flakoneissa koodi voidaan leimata painamisen sijaan; käännä se valoa vasten.",
+      "faq1q": "Kuinka luen Creedin eräkoodin?",
+      "faq1a": "Vain ensimmäisellä kirjaimella on väliä. Se koodaa tuotantovuoden, laskettuna vuodesta A = 2010 ja ohittaen I:n ja O:n: N = 2022, P = 2023, Q = 2024, R = 2025. Kaikki sen jälkeen on sisäistä eräsarjaa. Creed ei koodaa kuukautta, joten koodi antaa sinulle vuoden eikä mitään hienompaa.",
+      "faq3a": "Raskaammille, hartsimaisille koostumuksille vanhempi pullo voi todellakin olla parempi, koska uudelleenformulaatiot ovat muuttaneet useita klassikoita - ja eräkoodi on ainoa tapa määrittää, mitä kaavaa olet ostamassa. Kevyemmille, sitrushedelmille johtaville Creedeille ikä on enimmäkseen hapettumista, eikä siitä ole mitään hyötyä.",
+      "faq2a": "Osittain. Creed on tuoksussa väärennetyimpiä taloja, ja ensimmäinen kirjain, joka ei ole ollenkaan syklissä, on suoraselkäinen. Mutta kopioitu koodi purkaa puhtaasti, joten kelvollinen koodi ei ole todiste – punnitse pullo, katso suihketta ja laatikon tulostusta ja osta valtuutetulta jälleenmyyjältä.",
+      "faq3q": "Tarkoittaako vanhempi uskontunnustus parempaa uskontunnustusta?"
+    },
+    "dior": {
+      "where2": "Meikki: Compactin pohjassa, huulipunakotelon pohjassa tai putken poimussa.",
+      "where1": "Tuoksu: ulkolaatikon pohjassa ja pullon alapuolella - pieni painettu tarra tai laseretsattu lasiin suurempiin pulloihin.",
+      "where3": "Ihonhoito: leimattu purkin pohjaan avoimen purkin symbolin viereen.",
+      "faq1q": "Kuinka tarkistan, onko Dior-hajuvesi aito?",
+      "faq2a": "Tyypillisesti neljä numeroa, kuten 3245. Dior ei käytä salaista salausta – kuten muissa LVMH-taloissa, se tulostaa koodiin valmistuspäivämäärän vuosilukuna, jota seuraa vuoden päivä. Joissakin koodeissa on sen sijaan pidempi 5- tai 6-numeroinen päivämäärä.",
+      "faq1a": "Aloita koodeilla: laatikon ja pullon koodin tulee olla samat, koska molemmat asetetaan samalle täyttöviivalle minuutin välein. Sitten dekoodaa - mahdoton päivänumero tai päivämäärä ennen tuoksun julkaisua on todellinen varoitus. Mutta ymmärrä raja: väärentäjä, joka kopioi aitoa koodia, tuottaa koodin, joka purkaa täydellisesti. Eräkoodi voi paljastaa väärennöksen; se ei voi todistaa todellista.",
+      "faq3q": "Missä on Dior-huulipunan eräkoodi?",
+      "faq3a": "Kotelon tasaisella pohjalla. Kierrä luoti ensin kokonaan alas – koodi on leimattu pohjaan ja se on helppo ohittaa metallipinnasta.",
+      "faq2q": "Miltä Diorin eräkoodi näyttää?"
+    },
+    "estee-lauder": {
+      "where1": "Ihonhoito: kohokuvioitu purkin tai pullon pohjaan - painettuna materiaaliin, joten se tarvitsee suoran sijaan haravoivan valon.",
+      "where2": "Tuoksu ja meikki: laatikon pohjassa ja tuotteen alapuolella.",
+      "faq2q": "Kuinka tarkistan säilyvyyden, jos olen heittänyt laatikon pois?",
+      "faq3q": "Käyttävätkö Clinique, MAC ja La Mer samaa koodia?",
+      "faq1q": "Kuinka luen Estée Lauderin eräkoodin?",
+      "faq1a": "Lue se oikealta, älä vasemmalta. Viimeinen merkki on vuoden numero; sitä edeltävä on kuukausi (1–9 tammi-syyskuussa, sitten A, B ja C loka-, marras- ja joulukuussa); mikä tahansa vasemmalla on kasvi. Joten EA4:ssä kasvi on E, kuukausi on A - lokakuu - ja vuosi päättyy numeroon 4. Vasemmalta oikealle lukeminen on yleisin virhe näissä koodeissa.",
+      "faq2a": "Koodi on itse tuotteessa, ei vain pahvikotelossa – purkin tai pullon pohjassa, yleensä kohokuvioituna. Pura se valmistuspäivämääräksi ja käytä sitten avauspurkin symbolia avauspäivästä lähtien. Se mikä määräaika tulee ensin, on todellinen.",
+      "faq3a": "Kyllä – samat kasvit ja sama kasvi/kuukausi/vuosi-muoto. Vain kasvin kirjain eroaa, eikä siinä ole päivämäärätietoja."
+    },
+    "dunhill": {
+      "where1": "Laatikon pohjassa ja pullon alapuolella, painettu mustalla valkoiseen pohjatarraan.",
+      "faq1q": "Kuinka luen Dunhillin eräkoodin?",
+      "faq2q": "Kuinka tarkistan, että Dunhill-tuoksu on aito?",
+      "faq2a": "Vertaa laatikon ja pullon koodeja ja pura sitten koodi. Syklin ulkopuolella oleva vuosikirjain tai koodit, jotka ovat eri mieltä, ovat todellisia varoituksia. Puhdas dekoodaus ei ole todiste – myös kopioidut koodit purkaa.",
+      "faq1a": "Dunhill-tuoksu on valmistettu Inter Parfumsin lisenssillä. Ensimmäinen kirjain on tuotantovuosi - sykli, joka ohittaa I:n ja O:n, joten J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 - ja kolme viimeistä numeroa ovat kyseisen vuoden päivä."
+    },
+    "fenty-beauty": {
+      "where1": "Meikkivoide ja nestemäiset tuotteet: painettu pullon pohjaan tai kohtaan, jossa etiketti kietoutuu selän ympärille.",
+      "faq1q": "Kuinka tarkistan, onko Fenty Beauty aito?",
+      "where2": "Tiivisteet, jauheet ja kiilto: kotelon takana tai putken pohjassa.",
+      "faq1a": "Eräkoodin purkaminen — Fenty on LVMH-tuotemerkki ja tulostaa koodiin valmistuspäivämäärän. Koodi, joka tuottaa mahdoton päivämäärän tai ei ollenkaan päivämäärää, on varoitus. Mutta kopioitu koodi purkaa siististi, joten käytä sitä tavallisten tarkistusten ohella: pakkauksen tulostuslaatu, applikaattorin tuntu ja ostaminen suoraan Sephoralta tai Fentyltä.",
+      "faq2a": "Ei välttämättä – viivakoodi, joka ei skannaa, on yleensä tulostus- tai valaistusongelma, ja joka tapauksessa viivakoodissa ei ole päivämäärää eikä aitoustietoja. Se on eräkoodi, lyhyt epäsäännöllinen leima, joka kertoo sinulle, milloin tuote on valmistettu.",
+      "faq3a": "Noin 12 kuukautta avaamisen jälkeen ja noin 36 kuukautta avaamattomana valmistuspäivästä. Se kumpi tulee ensin, on määräaika.",
+      "faq2q": "Fenty-tuotteeni viivakoodi ei skannata. Onko se väärennös?",
+      "faq3q": "Kuinka kauan Fenty meikkivoide kestää?"
+    },
+    "garnier": {
+      "where1": "Seerumit ja päivävoiteet: pullon pohjalle tai putken poimulle.",
+      "faq2q": "Missä Garnierin aurinkovoiteen päivämäärä on?",
+      "where2": "SPF ja Ambre Solaire: painettu takatarraan, yleensä myös selkeä viimeinen käyttöpäivä.",
+      "faq1q": "Mistä löydän Garnier-voiteen tai seerumin viimeinen käyttöpäivämäärä?",
+      "faq1a": "Garnier tulostaa harvoin sellaisen. Putkipuristimen tai pullon pohjan lyhyt koodi on eräkoodi, ja siinä on valmistuspäivämäärä: ensimmäinen kirjain on vuosi, merkki sen jälkeen on kuukausi. Laske avaamattomalle tuotteelle noin 36 kuukautta eteenpäin ja käytä avatun purkin symbolia, kun se on avattu.",
+      "where3": "Pussit ja kertakäyttöiset naamarit: pussin takana, hyvin pienellä kirjaimella lähellä saumaa.",
+      "faq3q": "Mistä tiedän, että Garnier-tuotteeni on todellinen?",
+      "faq2a": "Aurinkosuoja on poikkeus – siinä on yleensä painettu viimeinen käyttöpäivä, koska SPF-vaatimus on turvallisuusväite. Käytä painettua päivämäärää dekoodatun päivämäärän sijaan ja vaihda kaikki kesän helteessä viettäneet pullot.",
+      "faq3a": "Tarkista, että koodi sopii L'Oréalin muotoon – Garnier on L'Oréal-tuotemerkki – ja että koodi puretaan uskottavaan päivämäärään. Tämä sulkee pois raakoja väärennöksiä. Se ei voi sulkea pois hyvää, koska kopioitu koodi purkaa täydellisesti."
+    },
+    "giorgio-armani-beauty": {
+      "where1": "Tuoksu (Acqua di Giò, Armani Code): laatikon pohjassa ja pullon pohjatarrassa.",
+      "faq1q": "Kuinka puran Armani Code -eränumeron?",
+      "faq2q": "Kuinka kauan Acqua di Giò säilyy avaamattomana?",
+      "where2": "Meikki: kotelon pohjassa tai kompaktin takana.",
+      "faq2a": "Kolmesta viiteen vuotta on normaali vessavedelle, pidempi parfyymivesille. Tuoksu on anteeksiantavin luokka, kunhan pullo pidetään poissa valolta ja lämmöltä.",
+      "faq1a": "Armani-tuoksu on L'Oréalin valmistama, joten koodi noudattaa ryhmän muotoa: ensimmäinen kirjain on valmistusvuosi, merkki sen jälkeen on kuukausi. (Armani Code -niminen tuoksu ja sen laatikkoon leimattu eräkoodi ovat toisiinsa liittymättömiä asioita, joilla on valitettavasti yhteinen sana.)"
+    },
+    "guerlain": {
+      "faq2q": "Vanha Guerlain-koodini ei pure.",
+      "where2": "Meikki ja ihonhoito: leimattu kompaktin tai purkin pohjaan.",
+      "where1": "Tuoksu: laatikon pohjassa ja pullon alapuolella - usein painettu pieneen tarraan.",
+      "faq2a": "Vanhemmat ja aluekohtaiset koodit ovat joskus sisäisiä aakkosnumeerisia viittauksia, joissa ei ole lainkaan päivämäärää. Niitä ei voi kukaan purkaa. Arvioi pullo sen sijaan sen kunnon ja mehun hajun perusteella.",
+      "faq1a": "Guerlain on LVMH-talo ja tulostaa valmistuspäivämäärän eräkoodiin - useimmiten vuosinumeron ja vuoden päivän jälkeen. Dekoodaa se valmistuspäivämäärää varten ja ota sitten huomioon 3–5 vuoden avaamaton käyttöikä parfyymille, joka on suojattu valolta ja lämmöltä.",
+      "faq1q": "Kuinka tarkistan Guerlain-tuoksun valmistuspäivän?"
+    },
+    "hugo-boss": {
+      "where1": "Ulkolaatikon pohjassa ja läpinäkyvässä tarrassa pullon alla.",
+      "faq2a": "Se tarkoittaa, että laatikko ja pullo on yhdistetty muualla kuin tehtaalla. Näin tapahtuu väärennöksillä ja myös laillisesti uudelleen pakatuilla, palautetuilla tai harmailla markkinoilla olevilla osakkeilla. Joka tapauksessa käytössäsi oleva pariliitos ei ole se, jonka tehdas on toimittanut.",
+      "where2": "Kahden koodin tulee vastata toisiaan – ne tulostetaan minuuttien välein samalle riville.",
+      "faq1q": "Kuinka tarkistan Hugo Boss -tuoksuerän koodin?",
+      "faq2q": "Laatikon ja pullon koodit ovat erilaisia. Onko se väärennös?",
+      "faq1a": "Hugo Boss -tuoksu on Cotyn valmistama, joka käyttää nelinumeroista koodia: ensimmäinen numero on valmistusvuoden viimeinen numero ja loput kolme saman vuoden päivää. Joten 4135 on vuoden 2024 135. päivä – 14. toukokuuta 2024."
+    },
+    "jean-paul-gaultier": {
+      "faq2q": "Le Male -pullossani ei ole koodia.",
+      "faq1a": "JPG-tuoksua valmistaa Puig, joka tulostaa valmistuspäivämäärän koodiin. Neljä numeroa tarkoittaa vuoden numeroa plus vuoden päivää; viisi tarkoittaa kahta vuoden numeroa plus päivä; kuusi on pakattu kalenteripäivämäärä.",
+      "where1": "Laatikon pohjassa ja vartalon muotoisen pullon alapuolella.",
+      "faq2a": "Metalliholkisissa versioissa koodi on usein vain laatikon päällä tai painettu niin heikosti pohjaan, että se tarvitsee haravointivaloa nähdäkseen. Tarkista ensin laatikko ja jos sinulla on molemmat, varmista, että ne vastaavat.",
+      "where2": "Metallikoteloisissa versioissa koodi on usein vain laatikossa tai leimattu heikosti tölkin pohjaan.",
+      "faq1q": "Kuinka luen Jean Paul Gaultierin eräkoodin?"
+    },
+    "kenzo-parfums": {
+      "where1": "Ulkolaatikon pohjalle ja pullon alapuolelle - painettu pohjatarraan tai leimattu lasiin.",
+      "faq2q": "Toistuvatko Kenzo-koodit kymmenen vuoden välein?",
+      "faq1a": "Kenzo Parfums on LVMH-talo, ja LVMH tulostaa koodiin valmistuspäivämäärän salaamisen sijaan. Neljä numeroa tarkoittaa vuoden numeroa plus vuoden päivää; viisi tai kuusi numeroa on täydellisempi päivämäärä. Valitse Kenzo tarkistusruudusta ja se käyttää oikeaa lukemaa.",
+      "faq1q": "Kuinka tarkistan Kenzo-tuoksun sen eräkoodin perusteella?",
+      "faq3a": "Se voi tarttua väärennökseen – mahdottomaan päivään tai laatikkokoodin ja pullon koodin väliseen epäsuhtaan, jota mikään aito täyttölinja ei tuota. Se ei voi varmentaa aitoa, koska kopioitu koodi purkaa puhtaasti.",
+      "faq3q": "Voiko koodi todistaa, että Kenzo-tuoksu on aito?",
+      "where2": "Kenzo World- ja Flower -pulloissa koodi voi olla tasaisella alapuolella, jossa etiketti taittuu alapuolelle.",
+      "faq2a": "Kyllä, ja tämä on pikemminkin todellinen rajoitus kuin omituisuus. Nelinumeroisessa koodissa on vain yksi vuosinumero, joten 4135 on 14. toukokuuta 2024 täsmälleen samoilla todisteilla kuin 14. toukokuuta 2014. Dekooderi olettaa viimeisimmän lukeman; jos pullo ja pakkaus näyttävät kuuluvalta aikaisemmalta aikakaudelta, luultavasti ovat."
+    },
+    "kerastase": {
+      "where2": "Putket ja matkakoot: puristettu puristuksiin.",
+      "faq2q": "Kuinka tarkistan, että Kérastase-tuote on aito?",
+      "where1": "Pullot ja naamarit: mustesuihkupainettu pullon taakse, pohjan lähelle tai leimattu purkin pohjaan.",
+      "faq1q": "Miten löydän Kérastase-naamion säilyvyyden?",
+      "faq2a": "Kérastase on yleinen kohde väärennöksille ja muualle suunnatuille salonkivarastoille. Dekoodaa koodi: sen tulee sopia L'Oréalin muotoon ja tuottaa uskottava päivämäärä. Se ei nappaa kopioitua koodia, joten tarkista myös tulostuksen laatu, korkin paino ja viimeistely sekä onko myyjä valtuutettu salonki tai jälleenmyyjä.",
+      "faq1a": "Kérastase on L'Oréal Professionnel, joten siinä on ryhmän koodi: ensimmäinen kirjain on vuosi, merkki sen jälkeen on kuukausi. Avaamaton naamio on tyypillisesti hyvä noin 30–36 kuukautta kyseisestä päivämäärästä; avaamisen jälkeen avaa purkin symboli – yleensä 12M.",
+      "faq3a": "Ei. Kaavan säilyvyys on tuotteen ominaisuus, ei markkinoiden. Kuuman ilmaston myötä muuttuu se, kuinka nopeasti se todellisuudessa hajoaa: lämpö lyhentää todellista elämää huomattavasti painettua vähemmän.",
+      "faq3q": "Tuote ostettu ulkomailta – muuttuuko säilyvyys?"
+    },
+    "kiehls": {
+      "faq1q": "Kuinka tarkistan Kiehl's silmänympärysvoiteen säilyvyyden?",
+      "where1": "Tölkit ja pullot: leimattu pohjaan, usein kohokuvioitu kuin painettu – kallista sitä valon alle.",
+      "where2": "Putket ja silmänympärysvoiteet: puristetaan puristukseen.",
+      "faq1a": "Dekoodaa pohjassa oleva koodi: Kiehl's on L'Oréal, joten ensimmäinen kirjain on vuosi ja merkki sen jälkeen kuukausi. Avaamaton, noin 36 kuukautta; avaamisen jälkeen avaa purkin symboli – tyypillisesti 12M silmänympärysvoideelle, joka on numero, joka sitoo ensin.",
+      "faq2a": "Se on yleensä kohokuvioitu pohjaan musteella. Kohokuvioidut koodit katoavat suorassa valossa ja ilmestyvät, kun valo kaatuu niiden poikki sivulta – käännä purkkia hitaasti lamppua vasten.",
+      "faq2q": "Kiehl's-purkissani oleva koodi on näkymätön."
+    },
+    "la-roche-posay": {
+      "where2": "Pullot ja Anthelios-aurinkosuojatuotteet: painettu takatarraan, yleensä aito viimeinen käyttöpäivämäärä.",
+      "faq1a": "Apteekkilinjat painavat yleensä oikean viimeisen käyttöpäivämäärän pahvikoteloon tai putkeen – käytä sitä. Sen vieressä oleva lyhyt koodi on eräkoodi, ja sen sijaan sisältää valmistuspäivämäärän: ensimmäinen kirjain on vuosi, merkki sen jälkeen on kuukausi.",
+      "faq1q": "Missä on La Roche-Posayn viimeinen käyttöpäivä?",
+      "where1": "Putket: puristetaan puristusliittimeen tiivistetystä päästä.",
+      "faq2a": "Jopa kolme vuotta avaamattomana, jos se säilytetään viileässä, ja noin 12 kuukautta avaamisen jälkeen. Aurinkosuojavoide on yksi tuote, jossa painetulla päivämäärällä on aidosti merkitystä, koska heikentyneet suodattimet suojaavat vähemmän kuin etiketti lupaa.",
+      "faq3a": "Koodi, joka sopii L'Oréalin muotoon ja puretaan uskottavaan päivämäärään, sulkee pois karkeat väärennökset. Se ei voi todistaa hyvää. Apteekista ostaminen on edelleen vahvin takuu tälle valikoimalle.",
+      "faq3q": "Onko La Roche-Posayni aito?",
+      "faq2q": "Kuinka kauan Anthelios aurinkovoide kestää?"
+    },
+    "lancome": {
+      "where1": "Tuoksu: laatikon pohjassa ja pullon alapuolella.",
+      "where2": "Ihonhoito ja meikkivoide: kohokuvioitu tai painettu purkin pohjaan, putkipuristuksiin tai pulloon.",
+      "faq2a": "Noin kolme vuotta valmistuksesta, vähemmän epävakaille aktiivisille aineille rakennetuilla tuotteilla. Pura ennen alennusliikkeestä ostamista – vanhat varastot ovat aitoja, mutta sillä voi olla hyvin vähän avaamatonta käyttöikää jäljellä.",
+      "faq1q": "Kuinka luen Lancômen eräkoodin?",
+      "faq2q": "Kuinka kauan avaamaton Lancôme-ihonhoitoaine kestää?",
+      "faq1a": "Lancôme on L'Oréal: ensimmäinen kirjain on tuotantovuosi (ohitetaan V, joten U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) ja merkki heti sen jälkeen on kuukausi, jossa O, N ja D tarkoittavat loka-, marras- ja joulukuussa."
+    },
+    "loreal": {
+      "where2": "Käytä tätä sivua, kun alabrändiä ei ole listattu erikseen – koko ryhmällä on yksi koodimuoto.",
+      "where1": "Kaikkialla, missä ryhmän tuotteet on leimattu: putkipuristimet, pullojen pohjat, purkkien pohjat ja pahviläpät.",
+      "faq2a": "Yleensä kuusi merkkiä, kuten 40X200: tehdasnumerot, sitten vuosikirjain, sitten kuukausimerkki, sitten eräsarja. Vuosikirjain ja sen jälkeinen merkki ovat ainoat osat, joissa on päivämäärä.",
+      "faq1q": "Millä tuotemerkeillä on L'Oréal-eräkoodi?",
+      "faq2q": "Miltä L'Oréal-koodi näyttää?",
+      "faq3q": "Koodissani ei ole kirjainta.",
+      "faq1a": "Ne kaikki: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm ja muut. Ne tulevat samoista kasveista, joten niillä on sama muoto.",
+      "faq3a": "Sitten se ei ole tämä muoto. Jotkut äskettäin hankitut tuotemerkit ja jotkin alueelliset sopimusvalmistajat tulostavat sen sijaan tavallisen Julian-päivämäärän – tarkistusmerkki palaa lukemaan numeroihin upotetun päivämäärän."
+    },
+    "loreal-paris": {
+      "where2": "Putket: puristetaan puristusliittimeen tiivistetystä päästä.",
+      "where3": "Pullot (shampoo, seerumi, meikkivoide): mustesuihkupainettu takaetikettiin tai pohjaan.",
+      "where1": "Voiteet ja purkit: leimattu purkin pohjaan tai kannen alapuolelle.",
+      "faq1a": "Purkissa ei ole viimeistä käyttöpäivää - se on painettu eräkoodilla, jossa on valmistuspäivämäärä. Lue ensimmäinen kirjain vuodeksi (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V ohitetaan) ja sen jälkeinen merkki kuukaudeksi. Tuosta päivämäärästä lähtien avaamaton voide on tyypillisesti hyvä noin 36 kuukautta, ja avoimen purkin symboli määrää, kuinka kauan se säilyy, kun aloitat sen käytön.",
+      "faq2a": "Sitä ei ole painettu päivämääränä, vaan se on koodattu eräkoodiin, joka on lyhyt epäsäännöllinen leima poimussa, pohjassa tai takatarrassa. Viivakoodiraitojen alla oleva pitkä numero on EAN, eikä se sisällä lainkaan päivämäärää.",
+      "faq1q": "Kuinka tarkistan L'Oréal Paris -voiteen säilyvyyden?",
+      "faq2q": "Missä valmistuspäivämäärä on painettu L'Oréal-tuotteisiin?",
+      "faq3a": "Pura koodi ja katso, sopiiko se L'Oréalin muotoon – koodi, jossa ei ole vuosikirjainta tai joka puretaan mahdottomaan päivämäärään, on aito varoitusmerkki. Mutta kopioitu koodi purkaa puhtaasti, joten tämä testi voi saada väärennöksen, eikä se voi varmentaa oikeaa koodia. Vertaa pakkauksessa olevan pienen tekstin tulostuslaatua ja osta valtuutetulta jälleenmyyjältä.",
+      "faq3q": "Kuinka voin tarkistaa, että L'Oréal-tuote on aito?"
+    },
+    "mac-cosmetics": {
+      "where1": "Huulipuna: meistetty luotikotelon tasaiseen pohjaan. Kierrä luoti kokonaan alas niin, että kotelo on tasaisesti.",
+      "where3": "Pohjapullot: pohjassa tai missä etiketti kiertyy selän ympärille.",
+      "faq1q": "Kuinka tarkistan MAC-säätiön viimeinen käyttöpäivä?",
+      "where2": "Kompaktit, poskipunat ja paletit: kotelon takana – ja joissakin metallipannulle painetuissa tuotteissa, näkyy vain jauheen loppuessa.",
+      "faq2q": "Miltä MAC-eräkoodi näyttää?",
+      "faq2a": "Kolme merkkiä, kuten B23. MAC kuuluu Estée Lauder -ryhmään, joten viimeinen merkki on vuosiluku ja keskimmäinen on kuukausi - missä A, B ja C tarkoittavat lokakuuta, marraskuuta ja joulukuuta.",
+      "faq1a": "MAC ei tulosta viimeistä käyttöpäivää – melkein mikään meikki ei tulosta. Se tulostaa kolmimerkkisen eräkoodin, joka antaa kasvin, kuukauden ja vuoden. Pura se valmistuspäivämääräksi ja käytä sitten avoimen purkin symbolia: nestemäinen meikkivoide on tyypillisesti 6–12 kuukautta avaamisen jälkeen ja noin 36 kuukautta avaamattomana. Aikaisempi määräaika voittaa.",
+      "faq3q": "Mistä tiedän, onko MAC-huulipunani aito?",
+      "faq3a": "Koodin tulee olla kolme tai neljä merkkiä ja purkaa uskottavaan päivämäärään. koodi, joka ei sovi tähän muotoon, on varoitus. Mutta kopioitu koodi purkaa täydellisesti, joten arvioi myös kotelon paino, sulkimen napsautus ja pienen tekstin tulostus – ja osta valtuutetulta tiskiltä."
+    },
+    "maybelline": {
+      "where1": "Ripsiväri: painettu putken pohjalle tai pystysuoraan etiketin ympärille.",
+      "where2": "Pohjapullot: pohjassa tai takaetiketissä.",
+      "faq1q": "Kuinka vanha Maybelline ripsivärini on?",
+      "where3": "Paletit ja kompaktit: kotelon takana.",
+      "faq2q": "Missä Maybelline-tuotteiden eräkoodi on?",
+      "faq2a": "Putken tai pullon pohjalle tai paletin taakse. Se on lyhyt epäsäännöllinen koodi – ei pitkä viivakoodinumero.",
+      "faq1a": "Dekoodaa koodi pohjalta — Maybelline käyttää L'Oréalin muotoa, jossa ensimmäinen kirjain on vuosi ja seuraava merkki on kuukausi. Mutta ripsivärin valmistuspäivämäärä harvoin sitoo: kolmesta kuuteen kuukauteen ulottuva kello, joka alkaa siitä päivästä, jolloin avaat putken, loppuu melkein aina ensimmäisenä."
+    },
+    "montblanc": {
+      "faq1q": "Kuinka tarkistan Montblanc Legendin sen koodin perusteella?",
+      "where2": "Montblanc-koodit ovat helpommin luettavia tuoksukoodeja ilman suurennuslasia.",
+      "where1": "Laatikon pohjassa ja pullon alapuolella - painettu mustalla valkoiseen pohjatarraan.",
+      "faq2a": "Ei. Eräkoodi identifioi tuotantoajon, ei yksittäistä pulloa, eikä julkista tietokantaa ole, josta sitä voisi etsiä. Se antaa sinulle päivämäärän, joka on hyödyllinen osa.",
+      "faq3q": "Kolme viimeistä numeroa tuottavat kummallisen päivämäärän.",
+      "faq2q": "Onko olemassa sarjanumeroa, jonka voin etsiä?",
+      "faq1a": "Montblanc-tuoksu on valmistettu Inter Parfumsin lisenssillä. Koodin ensimmäinen kirjain on tuotantovuosi syklissä, joka ohittaa I:n ja O:n — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — ja kolme viimeistä numeroa ovat kyseisen vuoden päivä.",
+      "faq3a": "Vähemmistössä Inter Parfums -koodeja nämä numerot ovat tehdasriviä eikä päivää. Jos päivämäärä näyttää epätodennäköiseltä pullolle, luota vuosikirjaimeen ja pidä päivää likimääräisenä."
+    },
+    "nivea": {
+      "where1": "Putket (käsivoide, kasvojen pesu): meistetty puristuksiin – litteä suljettu pää korkkia vastapäätä.",
+      "where2": "Klassinen sininen Creme tina: painetaan metallipohjaan ilman mustetta. Kallista sitä valon alle; suoraan palava valo saa sen katoamaan.",
+      "faq2q": "Onko NIVEA-aurinkovoiteella viimeinen käyttöpäivä?",
+      "faq3q": "NIVEA-purkissani ei näy koodia.",
+      "faq1q": "Kuinka löydän NIVEA-tuotteiden valmistuspäivämäärän?",
+      "where3": "Pullot ja aurinkovoide: mustesuihkupainatus pullon takasivulle tai olakkeelle.",
+      "faq1a": "NIVEA (Beiersdorf) koodaa tuotantoviikon päivän sijaan. Koodin ensimmäinen numero on vuoden viimeinen numero ja kaksi seuraavaa viikon numeroa – joten numerolla 815 alkava koodi on 8:aan päättyvän vuoden viikko 15. Tämä sijoittaa sen seitsemän päivän sisällä, mikä riittää vartaloemulsiolle.",
+      "faq2a": "Aurinkosuojassa on yleensä painettu viimeinen käyttöpäivä, koska SPF-vaatimusta käsitellään turvallisuusväitteenä. Käytä painettua päivämäärää dekoodatun arvion sijaan – ja pidä kuumassa autossa kesän viettämää pulloa valmiina riippumatta siitä, mitä päivämäärä sanoo.",
+      "faq3a": "Se on kohokuvioitu metallipohjaan painetun sijaan, mikä tekee siitä lähes näkymätön suorassa valossa. Pidä tinasta niin, että lamppu tarttuu pohjaan sivulta ja merkit tulevat näkyviin."
+    },
+    "paco-rabanne": {
+      "faq2q": "Voiko koodi todistaa, että Paco Rabanne on aito?",
+      "where2": "Kallista pulloa niin, että valo tarttuu leimaan sivulta; suora valo saa sen katoamaan.",
+      "where1": "Laatikon pohjalla ja pullon alapuolella. Raskaimmissa pulloissa – 1 miljoonan harkon, Invictus-trofeen – koodi on usein leimattu metalliin tai lasiin sen sijaan, että se olisi painettu tarraan.",
+      "faq1q": "Kuinka puran Invictus- tai 1 Million -eräkoodin?",
+      "faq1a": "Paco Rabannen valmistaa Puig, joka tulostaa koodiin valmistuspäivämäärän salaamisen sijaan. Tavanomainen muoto on nelinumeroinen: ensimmäinen on vuoden viimeinen numero, loput kolme ovat kyseisen vuoden päivä - joten 4135 on vuoden 2024 135. päivä, 14. toukokuuta 2024.",
+      "faq3q": "Onko Rabanne sama merkki kuin Paco Rabanne?",
+      "faq3a": "Kyllä – talon nimestä poistettiin 'Paco' vuonna 2023. Vanhemmissa osakkeissa on aiempi brändäys, eikä koodimuoto ole muuttunut.",
+      "faq2a": "Se voi saada väärennöksen, eikä se voi todistaa oikeaa. Paco Rabanne on yksi Euroopan väärennetyimmistä tuoksuista: mahdoton päivänumero tai koodit, jotka ovat eri mieltä laatikon ja pullon välillä, ovat voimakkaita varoituksia – mutta aidosta pullosta kopioitu koodi purkaa täydellisesti. Punnitse pullo ja tarkista myös ruiskutuskuvio."
+    },
+    "redken": {
+      "faq1q": "Kuinka tarkistan Redken-tuotteen säilyvyyden?",
+      "where2": "Jauheet ja aerosolit: leimattu tölkin pohjaan.",
+      "where1": "Pullot: mustesuihkupainettu takaetikettiin tai pullon pohjaan.",
+      "faq1a": "Redken on L'Oréal-brändi ja käyttää ryhmän muotoa – ensimmäinen kirjain on tuotantovuosi, merkki sen jälkeen on kuukausi. Hiustenhoito kestää yleensä noin 36 kuukautta avaamattomana ja 12 kuukautta avaamisen jälkeen.",
+      "faq2a": "Ei. Viivakoodi on EAN – se tunnistaa myytävän tuotteen ja on sama jokaisessa pullossa. Vain eräkoodissa, lyhyessä epäsäännöllisessä leimassa, on päivämäärä.",
+      "faq2q": "Kertooko viivakoodi minulle säilyvyyden?"
+    },
+    "roberto-cavalli": {
+      "faq1q": "Kuinka tarkistan Roberto Cavalli -hajuveden aitouden?",
+      "where1": "Laatikon pohjalle ja pullon pohjalle - painettu tai painavampiin lasiin leimattuina.",
+      "faq2q": "Missä on Roberto Cavalli -pullon sarjanumero?",
+      "faq2a": "Ei ole olemassa sellaista ainutlaatuista pullokohtaista sarjaa. Tulostettava eräkoodi, jonka jokainen yksikkö jakaa saman tuotantojakson aikana, koodaa päivämäärän, ei identiteettiä.",
+      "where2": "Etsi lyhyt nelinumeroinen koodi; viivakoodiraitojen alla oleva pidempi numero ei ole sitä.",
+      "faq1a": "Cavalli-tuoksu on Cotyn valmistama, joten koodi on nelinumeroinen valmistuspäivämäärä – vuosiluku plus vuoden päivä. Vertaa ensin pakkauksessa olevaa koodia pullossa olevaan koodiin: yhteensopimattomuus on vahvin ostajan käytettävissä oleva signaali. Sitten purkaa se; mahdoton päivä on selvä väärennös. Koodi, joka purkaa puhtaasti, ei kuitenkaan ole todiste aitoudesta – myös kopioidut koodit purkaa."
+    },
+    "tom-ford-beauty": {
+      "faq1q": "Kuinka tarkistan Tom Fordin eräkoodin?",
+      "where2": "Meikkivoide ja luomiväripaletit: leimattu kompaktin tai pullon pohjaan.",
+      "where1": "Tuoksu: laatikon pohjassa ja kaiverrettu tai painettu pullon alapuolelle.",
+      "faq3q": "Onko eräkoodi todiste aitoudesta?",
+      "faq2q": "Kuinka seurustelen Tom Fordin luomiväripaletin kanssa?",
+      "faq1a": "Tom Ford Beauty on Estée Lauder -konsernin valmistama, joten se käyttää ryhmän kolmimerkkistä koodia: kasvi, kuukausi, vuosi – lue oikealta. Kuukausi on 1–9 tammi–syyskuussa, sitten A, B ja C loka–joulukuussa.",
+      "faq2a": "Koodi on kompaktin pohjassa. Pura se valmistuspäivämäärää varten; puristettu jauhe on hyvä noin 24 kuukautta avaamisen jälkeen ja huomattavasti pidempään avaamattomana, koska kuiva koostumus ei anna bakteereille juuri mitään kasvua.",
+      "faq3a": "Ei. Se voi paljastaa karkean väärennöksen – koodin, joka ei sovi muotoon tai purkaa mahdottomaksi kuukaudeksi – mutta kopioitu koodi purkaa puhtaasti. Tom Ford -tuoksu on pahasti väärennetty; punnitse pullo, tarkista sumuttimen suihke ja osta valtuutetulta jälleenmyyjältä."
+    },
+    "too-faced": {
+      "where2": "Nestemäiset tuotteet: pullon pohjalla tai putkipuristuksella.",
+      "faq1a": "Too Faced kuuluu Estée Lauder -ryhmään, joten koodissa on kolme merkkiä - kasvi, kuukausi, vuosi - luettuna oikealta. Jos paletissasi oleva koodi ei sovi tähän muotoon, se voi olla tehtaan rivimerkintä eräkoodin sijaan.",
+      "where1": "Paletit ja kompaktit: kotelon takana, joskus muovialustan alla.",
+      "faq1q": "Kuinka tarkistan Too Faced -paletin eräkoodin?",
+      "faq2q": "Minun Too Faced -koodini ei pure koodia.",
+      "faq2a": "Jotkut Too Faced -pakkausten koodit ovat sisäisiä rivimerkintöjä, eivät päivämääräkoodeja, eikä niissä ole mitään purettavaa. Tarkista pohjasta ja kotelon takaosasta toinen, lyhyempi koodi – ja jos sellaista ei todellakaan ole, avoimen purkin symboli on paras ohjeesi."
+    },
+    "vichy": {
+      "where1": "Putket ja Capital Soleil -aurinkosuojavoide: puristetaan puristuksiin – tasainen tiivistetty pää korkkia vastapäätä.",
+      "where3": "Pahvilaatikot: päätyläpässä, yleensä avoimen purkin symbolin vieressä. Näytteissä ja pusseissa ei usein ole lainkaan koodia – vain pakkauksessa, johon ne tulivat.",
+      "where2": "Pullot ja pumput (Mineral 89, Liftactiv): mustesuihkupainettu pohjaan tai takatarraan viivakoodin lähellä.",
+      "faq2q": "Kuinka luen Vichy-tuotteen koodin?",
+      "faq1q": "Missä on Vichy-tuotteiden viimeinen käyttöpäivä?",
+      "faq3q": "Voiko koodi todistaa, että Vichyni on aito?",
+      "faq1a": "Useimmat Vichyn tuotteet eivät tulosta niitä. Apteekkilinjoilla on usein aito viimeinen käyttöpäivä, ja jos se on olemassa, se ylittää kaikki dekoodatut arviot – mutta jos löydät vain lyhyen koodin, se on eräkoodi, ja siinä on valmistuspäivämäärä eikä viimeinen käyttöpäivä. Pura se ja lisää säilyvyysaika: noin 36 kuukautta avaamattomana ihonhoitoa varten ja noudata avatun purkin symbolia.",
+      "faq2a": "Vichyn valmistaa L'Oréal ja se käyttää ryhmän muotoa. Etsi koodin ensimmäinen kirjain: se on tuotantovuosi syklissä, joka ohittaa V:n, joten U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Merkki heti sen jälkeen on kuukausi – 1-9 tammikuusta syyskuuhun, sitten O, N ja D loka-, marras- ja joulukuussa. Se O on O-kirjain, ei nolla.",
+      "faq4a": "Kyllä, ja se on tärkeämpää kuin missään muussa sarjassa: heikentyneet UV-suodattimet päästävät läpi enemmän säteilyä, joten vanhentunut SPF 50 ei anna SPF 50:tä. Aurinkosuojavoiteissa on yleensä painettu viimeinen käyttöpäivä juuri tästä syystä – käytä sitä. Ja pidä kuumassa autossa kesän viettäneen pullon valmiina päivämäärästä riippumatta.",
+      "faq3a": "Vain osittain. Koodi, joka ei sovi L'Oréalin muotoon tai joka purkaa tuotelinjan olemassaoloa edeltävään päivämäärään, on todellinen varoitus. Mutta väärentäjä, joka kopioi koodin aidosta putkesta, tuottaa koodin, joka purkaa täydellisesti - joten puhdas dekoodaus todistaa koodin olevan hyvin muotoiltu, ei sen, että voide on. Apteekkien ihonhoidossa apteekista ostaminen on edelleen vahvempi suoja.",
+      "faq4q": "Vanheneeko Capital Soleilin aurinkovoide?"
+    },
+    "ysl-beauty": {
+      "where1": "Huulipuna ja meikki: leimattu kotelon pohjaan tai kompaktin takaosaan.",
+      "where2": "Tuoksu: laatikon pohjalla ja pullon alapuolella.",
+      "faq1q": "Kuinka tarkistan Yves Saint Laurentin eräkoodin?",
+      "faq2q": "Miksi YSL-koodini näyttää Maybelline-koodilta?",
+      "faq2a": "Koska sama yritys tekee molempia. Muoto noudattaa tehdasta, ei hintaa – YSL-huulipuna ja Maybelline ripsiväri irtoavat L'Oréalin linjoista ja sisältävät samaa koodityyliä.",
+      "faq1a": "YSL Beauty on L'Oréalin valmistama, joten siinä on ryhmän koodi: tehdasnumerot, vuosikirjain, sitten kuukausimerkki. Valitse valintaruudusta YSL Beauty ja moottori soveltaa L'Oréalin sääntöä."
+    },
+    "zara": {
+      "where2": "Kauneussarja painaa sen kotelon alapuolelle tai putken puristuskohtaan.",
+      "where1": "Tuoksulaatikon pohjaläpälle ja pullon pohjalle.",
+      "faq1q": "Onko Zaran hajuvedellä viimeinen käyttöpäivä?",
+      "faq2q": "Kuka oikeastaan ​​tekee Zara-hajuvettä?",
+      "faq2a": "Puig valmistaa Zaran tuoksusarjaa, minkä vuoksi koodit noudattavat Puigin muotoa – ja osa siitä, miksi useat Zara-tuoksut kutsuvat vertailemaan Puigin valmistamiin designtuoksuihin.",
+      "faq1a": "Ei yleensä painettu - kuten useimmat tuoksut, se sisältää sen sijaan eräkoodin. Dekoodaa se valmistuspäivämäärää varten ja ota huomioon kolmesta viiteen vuotta avaamaton käyttöikä, mikä on normaalia wc-vedelle, joka pidetään loitolla valolta ja lämmöltä."
+    }
   }
 }

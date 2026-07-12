@@ -4,7 +4,17 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight, CalendarClock, Info, MapPin, Timer } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { BRANDS, getBrand, POPULAR_BRANDS } from "@/lib/brands";
+import {
+  BRANDS,
+  getBrand,
+  isIndexedBrand,
+  POPULAR_BRANDS,
+} from "@/lib/brands";
+import {
+  brandDetail,
+  MAX_FAQ_ITEMS,
+  MAX_WHERE_LINES,
+} from "@/lib/brand-detail";
 import { InlineResult } from "@/components/inline-result";
 import { buildBrandFaqs, brandIntroSections } from "@/lib/brand-faq";
 import { guideForBrand } from "@/lib/decoder-guides";
@@ -45,12 +55,12 @@ export async function generateMetadata({
     type: "article",
     locale,
   });
-  // Brand pages are the tool, not the reference. Every brand sharing a decoder
-  // gets the same generated copy — 200-odd near-identical pages, which is the
-  // definition of scaled, low-value content. The cipher they all describe is
-  // documented once, properly, under /decoders, and that is what we index.
-  // `follow` keeps the link equity flowing to those pages and to the guides.
-  meta.robots = { index: false, follow: true };
+  // Only brands carrying their own editorial material are indexable. The rest
+  // are generated from one template per decoder family — a few hundred
+  // near-identical pages, which is the definition of scaled, low-value content.
+  // They stay live and crawlable (they are the tool), they just don't enter the
+  // index; `follow` keeps their link equity flowing to the pages that should.
+  if (!isIndexedBrand(brand)) meta.robots = { index: false, follow: true };
   return meta;
 }
 
@@ -80,6 +90,30 @@ export default async function BrandPage({
   const brandFaq = buildBrandFaqs(brand, t);
   const introSections = brandIntroSections(brand, t);
   const codeGuide = guideForBrand(brand);
+
+  // Editorial, brand-specific material: a real code run through this brand's own
+  // decoder, where the code sits on its packaging, and the questions people
+  // actually search for it. Only brands that have this are indexable.
+  const detail = brandDetail(brand.slug);
+  const sample = detail
+    ? DECODERS[brand.decoderId ?? ""]?.decode(detail.sampleCode, {
+        now: new Date(),
+      })
+    : null;
+  const has = (key: string) => t.has(`brandDetail.${brand.slug}.${key}`);
+  const whereLines = detail
+    ? Array.from({ length: MAX_WHERE_LINES }, (_, i) => `where${i + 1}`)
+        .filter(has)
+        .map((k) => t(`brandDetail.${brand.slug}.${k}`))
+    : [];
+  const detailFaq = detail
+    ? Array.from({ length: MAX_FAQ_ITEMS }, (_, i) => i + 1)
+        .filter((i) => has(`faq${i}q`))
+        .map((i) => ({
+          q: t(`brandDetail.${brand.slug}.faq${i}q`),
+          a: t(`brandDetail.${brand.slug}.faq${i}a`),
+        }))
+    : [];
   const printGuide = brand.printsDate
     ? GUIDES.find((g) => g.slug === "brands-that-print-the-date")
     : undefined;
@@ -117,7 +151,7 @@ export default async function BrandPage({
       <JsonLd
         data={[
           breadcrumbSchema(crumbs),
-          faqSchema(brandFaq),
+          faqSchema([...detailFaq, ...brandFaq]),
           articleSchema({
             title: tb("checkerTitle", { name: brand.name }),
             description: tb("blurb", { name: brand.name, category }),
@@ -252,9 +286,60 @@ export default async function BrandPage({
         </section>
       ))}
 
+      {/* Brand-specific material. A worked example run through this brand's own
+          decoder — decoded here by the live engine, not transcribed — plus where
+          the code sits on its packaging. */}
+      {detail && sample?.manufactureDate && (
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold">
+            {tb("exampleHeading", { name: brand.name })}
+          </h2>
+          <div className="mt-4 rounded-xl border border-border bg-card p-4">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <code className="rounded-lg bg-bg-subtle px-2 py-1 font-mono text-sm font-semibold">
+                {detail.sampleCode}
+              </code>
+              <ArrowRight className="h-4 w-4 shrink-0 text-fg-muted" />
+              <span className="font-medium">
+                {sample.manufactureDate.toLocaleDateString(locale, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  timeZone: "UTC",
+                })}
+              </span>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+              {sample.method}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {whereLines.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold">
+            {tb("whereHeading", { name: brand.name })}
+          </h2>
+          <ul className="mt-3 space-y-2">
+            {whereLines.map((line) => (
+              <li key={line} className="flex gap-2 text-fg-muted">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                <span className="leading-relaxed">{line}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <AdSlot placement="brand" className="my-12" height={250} />
 
-      <Faq items={brandFaq} title={tb("faqTitle", { name: brand.name })} />
+      {/* Brand-specific questions first (they are what people actually search
+          for), then the shared category questions. */}
+      <Faq
+        items={[...detailFaq, ...brandFaq]}
+        title={tb("faqTitle", { name: brand.name })}
+      />
 
       {/* Related brands */}
       <section className="mt-4">
