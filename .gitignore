@@ -30,9 +30,11 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (real secrets ignored; the example template is committed)
+# env files (real secrets ignored; the example templates are committed).
+# .env.build holds the VPS build-time config consumed by deploy.sh.
 .env*
 !.env.example
+!.env.build.example
 
 # vercel
 .vercel

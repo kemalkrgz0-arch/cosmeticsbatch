@@ -27,13 +27,8 @@ jobs:
             set -e
             cd /opt/cosmeticsbatch
             git pull --ff-only
-            docker build -t cosmeticsbatch:latest \
-              --build-arg NEXT_PUBLIC_SITE_URL=https://cosmeticsbatch.com .
-            docker rm -f cosmeticsbatch || true
-            docker run -d --name cosmeticsbatch \
-              --network yerelatlas_default --restart unless-stopped \
-              -e DATASET_DIR=/data \
-              -v /opt/cosmeticsbatch-data:/data \
-              cosmeticsbatch:latest
-            # Reclaim space from the previous build (safe: only dangling images).
-            docker image prune -f
+            # deploy.sh owns the build args (read from .env.build on the VPS) and
+            # the run flags. Inlining a partial `docker build` here once shipped a
+            # production image with the analytics/AdSense ids missing, because
+            # NEXT_PUBLIC_* are baked in at build time.
+            SKIP_PULL=1 bash ./deploy.sh

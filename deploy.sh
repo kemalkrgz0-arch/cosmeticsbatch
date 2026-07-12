@@ -1,33 +1,78 @@
 #!/usr/bin/env bash
 # One-shot redeploy on the VPS: pull latest, rebuild the image with the public
-# build-time vars baked in, and replace the running container. Run from /opt/cosmeticsbatch.
+# build-time vars baked in, and replace the running container. Run from
+# /opt/cosmeticsbatch. The GitHub Actions workflow runs this same script, so the
+# build config has exactly one source of truth.
 #
-#   ./deploy.sh
+#   ./deploy.sh              # pull + build + restart
+#   SKIP_PULL=1 ./deploy.sh  # caller already pulled (CI)
 #
-# NEXT_PUBLIC_* values are inlined at build time. The AdSense client id is a
-# public identifier (it appears in the page source), so it is safe to keep here.
+# Every NEXT_PUBLIC_* value is inlined into the JS bundle at build time, so it
+# must be a --build-arg; passing it at runtime with -e does nothing. The values
+# live in .env.build on the VPS (untracked) — see .env.build.example.
 set -euo pipefail
 
-cd "$(dirname "$0")"
+# The whole script is one function: bash parses it fully before running a line,
+# so the `git pull` that rewrites this file mid-run cannot corrupt execution.
+main() {
+  cd "$(dirname "$0")"
 
-echo "→ Pulling latest…"
-git pull --ff-only
+  if [ "${SKIP_PULL:-0}" != "1" ]; then
+    echo "→ Pulling latest…"
+    git pull --ff-only
+  fi
 
-echo "→ Building image…"
-docker build -t cosmeticsbatch:latest \
-  --build-arg NEXT_PUBLIC_SITE_URL=https://cosmeticsbatch.com \
-  --build-arg NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-6300134697173168 \
-  --build-arg NEXT_PUBLIC_GA_ID=G-LR51EM3ESQ \
-  --build-arg NEXT_PUBLIC_YM_ID=110450605 \
-  .
+  local env_file="${ENV_FILE:-.env.build}"
+  if [ ! -f "$env_file" ]; then
+    echo "✗ $env_file not found. Copy .env.build.example to $env_file and fill it in." >&2
+    exit 1
+  fi
+  set -a
+  # shellcheck disable=SC1090
+  . "./$env_file"
+  set +a
 
-echo "→ Restarting container…"
-docker rm -f cosmeticsbatch 2>/dev/null || true
-docker run -d --name cosmeticsbatch \
-  --network yerelatlas_default \
-  --restart unless-stopped \
-  cosmeticsbatch:latest
+  # Blank optional vars degrade gracefully (no analytics, ad placeholders), but a
+  # blank site URL breaks canonicals/sitemap — fail loudly on that one.
+  : "${NEXT_PUBLIC_SITE_URL:?must be set in $env_file}"
 
-echo "→ Status:"
-docker ps | grep cosmeticsbatch
-echo "✓ Done. https://cosmeticsbatch.com"
+  local build_args=()
+  local v
+  for v in \
+    NEXT_PUBLIC_SITE_URL \
+    NEXT_PUBLIC_ADSENSE_CLIENT \
+    NEXT_PUBLIC_ADSENSE_SLOT_HOME \
+    NEXT_PUBLIC_ADSENSE_SLOT_RESULT \
+    NEXT_PUBLIC_ADSENSE_SLOT_ARTICLE \
+    NEXT_PUBLIC_ADSENSE_SLOT_BRAND \
+    NEXT_PUBLIC_GA_ID \
+    NEXT_PUBLIC_YM_ID \
+    NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION \
+    NEXT_PUBLIC_BING_SITE_VERIFICATION
+  do
+    build_args+=(--build-arg "$v=${!v-}")
+  done
+
+  echo "→ Building image…"
+  docker build -t cosmeticsbatch:latest "${build_args[@]}" .
+
+  echo "→ Restarting container…"
+  docker rm -f cosmeticsbatch 2>/dev/null || true
+  # DATASET_DIR must be a host bind mount: the container is replaced on every
+  # deploy, so anything written inside it is lost.
+  docker run -d --name cosmeticsbatch \
+    --network yerelatlas_default \
+    --restart unless-stopped \
+    -e DATASET_DIR=/data \
+    -v /opt/cosmeticsbatch-data:/data \
+    cosmeticsbatch:latest
+
+  # Reclaim space from the previous build (safe: only dangling images).
+  docker image prune -f >/dev/null
+
+  echo "→ Status:"
+  docker ps | grep cosmeticsbatch
+  echo "✓ Done. $NEXT_PUBLIC_SITE_URL"
+}
+
+main "$@"

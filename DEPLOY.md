@@ -31,8 +31,12 @@ git remote add origin <your-repo-url> && git push -u origin main
 
 ### Environment variables
 
-`NEXT_PUBLIC_*` values are **inlined at build time**, so in Coolify mark them as
-**Build Variables** (not just runtime). Set at minimum:
+`NEXT_PUBLIC_*` values are **inlined at build time**, so they must reach `docker
+build` as `--build-arg` — setting them as runtime env has no effect at all. On
+the VPS they live in `/opt/cosmeticsbatch/.env.build` (untracked; copy
+`.env.build.example`), which `deploy.sh` reads and turns into build args. The
+GitHub Actions workflow calls that same script, so both deploy paths bake in the
+identical set. In Coolify, mark them as **Build Variables** instead.
 
 | Variable | Example | Notes |
 |---|---|---|
@@ -44,9 +48,13 @@ git remote add origin <your-repo-url> && git push -u origin main
 | `NEXT_PUBLIC_ADSENSE_SLOT_BRAND` | `1234567890` | Optional. |
 | `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` | Optional. Google Analytics 4 measurement ID. Blank = no analytics, no cookies. |
 | `NEXT_PUBLIC_YM_ID` | `110450605` | Optional. Yandex Metrica counter id. Loads only after cookie consent. Blank = off. |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | `abc…` | Optional. Renders the Search Console ownership `<meta>`. |
+| `NEXT_PUBLIC_BING_SITE_VERIFICATION` | `abc…` | Optional. Renders the Bing Webmaster ownership `<meta>`. |
 
 > Changing any `NEXT_PUBLIC_*` requires a **rebuild** (they are baked into the
-> build), not just a restart.
+> build), not just a restart. Adding a *new* one means adding an `ARG`/`ENV` pair
+> in the Dockerfile **and** the name to the loop in `deploy.sh` — otherwise it is
+> silently empty in production.
 
 ### Domain & SSL
 
