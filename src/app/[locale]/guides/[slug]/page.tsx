@@ -182,6 +182,24 @@ export default async function GuidePage({
 
       {guide.faq && <Faq items={guide.faq} title="FAQ" />}
 
+      {guide.seeAlso && guide.seeAlso.length > 0 && (
+        <section className="mt-14 border-t border-border pt-8">
+          <h2 className="mb-4 text-lg font-semibold">Read next</h2>
+          <ul className="space-y-2">
+            {guide.seeAlso.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
+                >
+                  {link.label} <ArrowRight className="h-4 w-4 shrink-0" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section className="mt-14 border-t border-border pt-8">
         <h2 className="mb-4 text-lg font-semibold">Check a brand&apos;s batch code</h2>
         <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
