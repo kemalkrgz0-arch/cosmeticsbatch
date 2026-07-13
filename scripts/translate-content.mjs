@@ -35,6 +35,18 @@ const SRC = "messages/content/en.json";
 const en = JSON.parse(readFileSync(SRC, "utf8"));
 const entries = Object.entries(en);
 
+/**
+ * Strings a human has written or corrected, as `{ "<locale>": ["<key>", …] }`.
+ * The machine never touches these — not even with --force. Machine translation is
+ * the floor for a locale, not the ceiling: every string that gets rewritten
+ * properly is recorded here so the next translation pass cannot undo the work.
+ */
+const REVIEWED_PATH = "messages/content/reviewed.json";
+const reviewed = existsSync(REVIEWED_PATH)
+  ? JSON.parse(readFileSync(REVIEWED_PATH, "utf8"))
+  : {};
+const isReviewed = (code, key) => (reviewed[code] ?? []).includes(key);
+
 async function translate(text, tl, tries = 4) {
   const url =
     `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl}&dt=t&q=` +
@@ -76,7 +88,10 @@ for (const [code, tl] of Object.entries(LANGS)) {
   const existing = existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : {};
   const out = { ...existing };
 
-  const todo = entries.filter(([k, v]) => force || !existing[k] || existing[k] === v);
+  const todo = entries.filter(
+    ([k, v]) =>
+      !isReviewed(code, k) && (force || !existing[k] || existing[k] === v),
+  );
   const started = Date.now();
   await pool(todo, 8, async ([k, v]) => {
     out[k] = await translate(v, tl);
