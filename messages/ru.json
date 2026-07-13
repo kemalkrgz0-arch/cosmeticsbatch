@@ -63,7 +63,7 @@
     "intro": "Введите батч-код {name} ниже, чтобы мгновенно узнать дату выпуска, возраст продукта и примерный срок годности — бесплатно и конфиденциально.",
     "howHeading": "Как работают батч-коды {name}",
     "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
-    "aliasesPara": "Иногда вы можете увидеть этот инструмент под названием декодер пакетного кода {name} , средство проверки пакетного кода {name} или калькулятор пакетного кода {name} — все они делают одно и то же: читают производственный код и сообщают вам, насколько свеж ваш {name} {category} .",
+    "aliasesPara": "Иногда вы можете увидеть этот инструмент под названием декодер батч-кода {name} , средство проверки батч-кода {name} или калькулятор батч-кода {name} — все они делают одно и то же: читают производственный код и сообщают вам, насколько свеж ваш {name} {category} .",
     "factManufacturer": "Производитель",
     "factShelfLife": "Типичный срок годности",
     "factPao": "После вскрытия (PAO)",
