@@ -16,6 +16,11 @@ const LANGS = {
   tr: "tr", it: "it", nl: "nl", pl: "pl", sv: "sv", uk: "uk", el: "el",
   cs: "cs", nb: "no", da: "da", fi: "fi", ro: "ro", hu: "hu", ca: "ca",
   sr: "sr", bg: "bg", sk: "sk",
+  // The rest of ACTIVE in src/i18n/locales.ts — these were missing, so every new
+  // UI key silently fell back to English in half the supported languages.
+  ja: "ja", ko: "ko", hi: "hi", id: "id", vi: "vi", th: "th", ms: "ms",
+  tl: "tl", bn: "bn", ur: "ur", ta: "ta", te: "te", mr: "mr", pa: "pa",
+  gu: "gu", yue: "zh-TW", uz: "uz", az: "az", kk: "kk",
 };
 
 const en = JSON.parse(readFileSync("messages/en.json", "utf8"));

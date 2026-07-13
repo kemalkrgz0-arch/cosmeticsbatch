@@ -75,7 +75,7 @@
     "faqTitle": "{name} — Česta pitanja",
     "intro": "Unesite svoj {name} batch kod ispod da biste odmah dekodirali datum proizvodnje, starost proizvoda i procenjeni rok trajanja — besplatno i privatno.",
     "freshnessPara": "Kada pročitamo datum proizvodnje, procenjujemo svežinu koristeći tipičan {name} rok trajanja od {shelf} meseci za {category} proizvode. Zapamtite da period nakon otvaranja (oko {pao} meseci) postaje granica čim počnete da koristite proizvod.",
-    "aliasesPara": "Ponekad ćete videti da se ovaj alat naziva {name} dekoder batch koda, {name} provera batch koda ili {name} kalkulator batch koda — svi rade istu stvar: čitaju proizvodni kod i govore vam koliko je svež vaš {name} {category}.",
+    "aliasesPara": "Ponekad ćete videti da se ovaj alat naziva {name} dekoder batch koda, {name} provera batch koda ili {name} kalkulator batch koda — svi rade istu stvar: čitaju proizvodni kod i govore vam koliko je svež vaš {name} {category} .",
     "printsDateNote": "{name} štampa datum proizvodnje ili isteka direktno na ambalaži, pa vam obično nije potreban kod serije.",
     "whereHeading": "Where to find the code on {name} packaging",
     "exampleHeading": "A real {name} code, decoded"
@@ -111,10 +111,10 @@
     "a_where": "Potražite kratak utisnut, reljefan ili ink-jet kod — obično na dnu bočice ili tegle, na spoju na kraju tube ili na dnu ili preklopu kutije. Na {name} {noun} odvojen je od barkoda i obično sadrži 3–8 slova i brojeva.",
     "q_pao": "Koliko dugo {name} traje nakon otvaranja (PAO)?",
     "a_unopened": "Neotvoreni {name} {noun} obično ostaje dobar oko {shelf} meseci od datuma proizvodnje kada se pravilno čuva. Ovo je procena industrije — {name} ne štampa fiksni rok trajanja na većini artikala, zbog čega je batch kod važan.",
-    "q_paoSymbol": "Šta znači simbol otvorene tegle (PAO) na {name}?",
+    "q_paoSymbol": "Šta znači simbol otvorene tegle (PAO) na {name} ?",
     "q_afterExpiry": "Mogu li i dalje da koristim {name} nakon isteka roka?",
     "a_paoSymbol": "Mala ikona otvorene tegle sa brojem i slovom „M” (za mesece) predstavlja period nakon otvaranja. Za većinu {name} {noun} to je oko {pao}M, što znači otprilike {pao} meseci bezbedne upotrebe od dana kada ga prvi put otvorite. Batch kod vam govori koliko je bio svež pre otvaranja; PAO vam govori koliko traje nakon.",
-    "a_pao": "Nakon otvaranja, {name} {noun} bi generalno trebalo iskoristiti u roku od oko {pao} meseci — to je period nakon otvaranja (PAO), prikazan simbolom otvorene tegle (npr. {pao}M) na ambalaži. Kada otvorite proizvod, PAO postaje granica čak i ako je sama serija još sveža.",
+    "a_pao": "Nakon otvaranja, {name} {noun} bi generalno trebalo iskoristiti u roku od oko {pao} meseci — to je period nakon otvaranja (PAO), prikazan simbolom otvorene tegle (npr. {pao} M) na ambalaži. Kada otvorite proizvod, PAO postaje granica čak i ako je sama serija još sveža.",
     "a_fake": "Dekoder batch koda čita datum proizvodnje — sam po sebi ne može dokazati da je proizvod originalan. Ali {name} kod koji se ne dekodira, ili datum koji ne odgovara vremenu ili mestu kupovine, može biti znak upozorenja. Za autentičnost proverite i ambalažu, pečate i font, i kupujte kod ovlašćenih {group} prodavaca.",
     "q_store": "Kako treba čuvati {name} {noun} da bi ostao svež?",
     "a_afterExpiry": "Korišćenje {name} {noun} kratko nakon procenjenog datuma obično je pitanje kozmetičkog kvaliteta, a ne bezbednosti — aktivni sastojci gube snagu, teksture se razdvajaju, a mirisi blede. Prestanite da ga koristite ako primetite promenu mirisa, boje ili konzistencije, i nikada ne koristite stare proizvode za oči ili usne jer je rizik od bakterija veći.",
@@ -543,5 +543,28 @@
       "faq2q": "Ко заправо производи Зара парфем?",
       "faq1a": "По правилу није штампан - као и већина мириса, уместо тога носи шифру серије. Дешифрирајте га за датум производње и рачунајте на три до пет година неотвореног века трајања, што је нормално за тоалетну воду подаље од светлости и топлоте."
     }
+  },
+  "contentPages": {
+    "faq": "ФАК",
+    "updated": "Updated {date}",
+    "minRead": "{n} min read",
+    "readNext": "Прочитајте следеће",
+    "moreGuides": "Више водича",
+    "workedExamples": "Обрађени примери",
+    "anatomy": "Анатомија кода",
+    "encodes": "Оно што кодирају",
+    "characters": "ликови",
+    "checkBrand": "Проверите серијски код марке",
+    "brandsUsingNote": "Формат припада произвођачу, а не етикети на боци — сваки бренд испод има печат истих биљака и чита се на исти начин.",
+    "workedExamplesNote": "Декодирано уживо истим мотором који покреће чеккер — није преписано руком.",
+    "formatsTitle": "Формати батцх кода",
+    "confidence": "{level} confidence",
+    "doesNotDecode": "не декодира",
+    "otherFormats": "Други формати кода",
+    "brandsUsing": "Brands that use this code ({count})",
+    "formatsIntro": "Формат кода серије припада ономе ко производи производ, а не називу на боци. Цоти печати исте четири цифре на Риммел, Гуцци и Адидас; Интер Парфумс печати истих девет ликова на Монтбланц, Цоацх и Јимми Цхоо. Научите шифру једном и моћи ћете да прочитате сваки бренд који је дели.",
+    "whichCode": "Нисте сигурни који је код на паковању батцх код?",
+    "formatsIntro2": "Свака страница испод документује једну породицу: шта сваки знак кодира, стварне кодове које декодира исти механизам који покреће чеккер, где је код одштампан на паковању и — што је исто тако важно — шта вам формат не може рећи.",
+    "brandCount": "брендова"
   }
 }

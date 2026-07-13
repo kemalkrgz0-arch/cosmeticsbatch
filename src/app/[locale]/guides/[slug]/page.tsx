@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { GUIDES, getGuide } from "@/lib/guides";
+import { contentTranslator, localizeGuide } from "@/lib/content-i18n";
 import { POPULAR_BRANDS } from "@/lib/brands";
 import { linkifyBrands, type TextToken } from "@/lib/internal-links";
 import {
@@ -27,8 +28,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const guide = getGuide(slug);
-  if (!guide) return {};
+  const source = getGuide(slug);
+  if (!source) return {};
+  const guide = localizeGuide(source, await contentTranslator(locale));
   return pageMeta({
     title: guide.title,
     description: guide.description,
@@ -106,11 +108,20 @@ export default async function GuidePage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const guide = getGuide(slug);
-  if (!guide) notFound();
+  const source = getGuide(slug);
+  if (!source) notFound();
+
+  // The guides are authored in English in src/lib/guides.ts; this renders the
+  // translation for the requested locale, falling back to English per string.
+  const t = await contentTranslator(locale);
+  const guide = localizeGuide(source, t);
+  const tc = await getTranslations("contentPages");
+  const nav = await getTranslations("nav");
 
   const path = `/guides/${guide.slug}`;
-  const others = GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 3);
+  const others = GUIDES.filter((g) => g.slug !== guide.slug)
+    .slice(0, 3)
+    .map((g) => localizeGuide(g, t));
   // Shared across every section so each brand is linked at most once per guide.
   const usedBrandLinks = new Set<string>();
   const brandChecks = POPULAR_BRANDS.slice(0, 8);
@@ -120,8 +131,8 @@ export default async function GuidePage({
       <JsonLd
         data={[
           breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Guides", path: "/guides" },
+            { name: nav("home"), path: "/" },
+            { name: nav("guides"), path: "/guides" },
             { name: guide.title, path },
           ]),
           articleSchema({
@@ -135,8 +146,8 @@ export default async function GuidePage({
       />
       <Breadcrumbs
         items={[
-          { name: "Home", path: "/" },
-          { name: "Guides", path: "/guides" },
+          { name: nav("home"), path: "/" },
+          { name: nav("guides"), path: "/guides" },
           { name: guide.title, path },
         ]}
       />
@@ -149,10 +160,12 @@ export default async function GuidePage({
       </p>
       <p className="mt-4 inline-flex items-center gap-1.5 text-sm text-fg-muted">
         <Clock className="h-3.5 w-3.5" />
-        {guide.readMinutes} min read · Updated{" "}
-        {new Date(guide.updated).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
+        {tc("minRead", { n: guide.readMinutes })} ·{" "}
+        {tc("updated", {
+          date: new Date(guide.updated).toLocaleDateString(locale, {
+            year: "numeric",
+            month: "long",
+          }),
         })}
       </p>
 
@@ -180,11 +193,11 @@ export default async function GuidePage({
         ))}
       </div>
 
-      {guide.faq && <Faq items={guide.faq} title="FAQ" />}
+      {guide.faq && <Faq items={guide.faq} title={tc("faq")} />}
 
       {guide.seeAlso && guide.seeAlso.length > 0 && (
         <section className="mt-14 border-t border-border pt-8">
-          <h2 className="mb-4 text-lg font-semibold">Read next</h2>
+          <h2 className="mb-4 text-lg font-semibold">{tc("readNext")}</h2>
           <ul className="space-y-2">
             {guide.seeAlso.map((link) => (
               <li key={link.href}>
@@ -201,7 +214,7 @@ export default async function GuidePage({
       )}
 
       <section className="mt-14 border-t border-border pt-8">
-        <h2 className="mb-4 text-lg font-semibold">Check a brand&apos;s batch code</h2>
+        <h2 className="mb-4 text-lg font-semibold">{tc("checkBrand")}</h2>
         <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {brandChecks.map((b) => (
             <li key={b.slug}>
@@ -217,7 +230,7 @@ export default async function GuidePage({
       </section>
 
       <section className="mt-14 border-t border-border pt-8">
-        <h2 className="mb-4 text-lg font-semibold">More guides</h2>
+        <h2 className="mb-4 text-lg font-semibold">{tc("moreGuides")}</h2>
         <ul className="space-y-2">
           {others.map((g) => (
             <li key={g.slug}>

@@ -70,15 +70,15 @@
     "howHeading": "Hogyan működnek az {name} kötegkódok",
     "relatedBrands": "Kapcsolódó márkák",
     "helpfulGuides": "Hasznos útmutatók",
-    "freshnessPara": "Miután elolvastuk a gyártási dátumot, megbecsüljük a frissességet az {name}tipikus {shelf}hónapos eltarthatósága alapján az {category} termékekre. Ne feledje, hogy a termék használatának megkezdése után a nyitás utáni időszak (kb.{pao} hónap) lesz a korlát.",
+    "freshnessPara": "Miután elolvastuk a gyártási dátumot, megbecsüljük a frissességet az {name}tipikus {shelf}hónapos eltarthatósága alapján az {category} termékekre. Ne feledje, hogy a termék használatának megkezdése után a nyitás utáni időszak (kb. {pao} hónap) lesz a korlát.",
     "intro": "Adja meg alább {name} kötegkódját, hogy azonnal dekódolja a gyártás dátumát, a termék korát és a becsült lejárati dátumot – ingyenes és privát.",
-    "aliasesPara": "Néha látni fogja ezt az {name} kötegkód-dekódernek,{name} kötegkód-ellenőrzőnek vagy {name} kötegkód-kalkulátornak nevezett eszközt – mindegyik ugyanazt csinálja: elolvassa a gyártási kódot, és elmondja, mennyire friss az {name} {category}.",
-    "faqTitle": "{name}– GYIK",
+    "aliasesPara": "Néha látni fogja ezt az {name} kötegkód-dekódernek, {name} kötegkód-ellenőrzőnek vagy {name} kötegkód-kalkulátornak nevezett eszközt – mindegyik ugyanazt csinálja: elolvassa a gyártási kódot, és elmondja, mennyire friss az {name} {category} .",
+    "faqTitle": "{name} – GYIK",
     "months": "{n} hónap",
     "by": "{group} által",
     "printsDateNote": "A {name} a gyártási vagy lejárati dátumot közvetlenül a csomagolásra nyomtatja, így általában nincs szükség tételkódra.",
-    "exampleHeading": "Valódi{name}kód, dekódolva",
-    "whereHeading": "Hol található a kód az{name}csomagoláson"
+    "exampleHeading": "Valódi {name} kód, dekódolva",
+    "whereHeading": "Hol található a kód az {name} csomagoláson"
   },
   "faqUi": {
     "title": "Gyakran Ismételt Kérdések",
@@ -110,15 +110,15 @@
     "a_unopened": "Bontatlan {name} {noun} általában a gyártástól számított {shelf} hónapig jó állapotban marad, ha megfelelően tárolják. Ez egy iparági becslés – az {name} nem nyomtat kemény lejárati dátumot a legtöbb cikkre, ezért számít a kötegkód.",
     "q_pao": "Mennyi ideig tart az {name} a felbontás után (PAO)?",
     "q_unopened": "Mennyi ideig használhatók a bontatlan {name} termékek?",
-    "q_paoSymbol": "Mit jelent az open-jar (PAO) szimbólum az {name}-en?",
+    "q_paoSymbol": "Mit jelent az open-jar (PAO) szimbólum az {name} -en?",
     "a_paoSymbol": "A kis nyitott üveg ikon egy számmal és egy \"M\" betűvel (hónapokig) a nyitás utáni időszakot jelenti. A legtöbb {name} {noun} esetében ez körülbelül {pao}M, ami nagyjából {pao} hónapos biztonságos használatot jelent az első kinyitás napjától számítva. A kötegkód megmondja, mennyire volt friss felnyitás előtt; a PAO megmondja, mennyi ideig tart ezután.",
-    "q_afterExpiry": "Használhatom az {name}-et a lejárati dátum után is?",
+    "q_afterExpiry": "Használhatom az {name} -et a lejárati dátum után is?",
     "a_afterExpiry": "Az {name} {noun} használata röviddel a becsült dátum után általában kozmetikai minőségi probléma, nem pedig biztonsági probléma – a hatóanyagok elveszítik a hatásukat, a textúrák szétválnak, az illatanyagok pedig kifakulnak. Hagyja abba a használatát, ha változást észlel a szagában, színében vagy állagában, és soha ne használjon régi szem- vagy ajaktermékeket, mert nagyobb a baktériumok kockázata.",
-    "a_expired": "Adja meg fent az {name} kötegkódot, hogy megkapja a gyártási dátumot, majd hasonlítsa össze a tipikus {shelf}hónapos bontatlan eltarthatósági idővel. Ha ennél több idő telt el – vagy több mint kb.{pao} hónap a felnyitás óta – a terméket lejártnak kell tekinteni, különösen, ha megváltozott az állaga, színe vagy illata.",
-    "a_pao": "Felbontás után az {name} {noun}-et általában körülbelül {pao} hónapon belül fel kell használni – ez a felnyitás utáni időszak, amely a nyitott tégely szimbólumaként (pl.{pao}M) látható a csomagoláson. Egy termék megnyitása után a PAO lesz a korlát, még akkor is, ha maga a tétel még friss.",
-    "q_store": "Hogyan tároljam az {name} {noun}-et, hogy friss legyen?",
+    "a_expired": "Adja meg fent az {name} kötegkódot, hogy megkapja a gyártási dátumot, majd hasonlítsa össze a tipikus {shelf}hónapos bontatlan eltarthatósági idővel. Ha ennél több idő telt el – vagy több mint kb. {pao} hónap a felnyitás óta – a terméket lejártnak kell tekinteni, különösen, ha megváltozott az állaga, színe vagy illata.",
+    "a_pao": "Felbontás után az {name} {noun} -et általában körülbelül {pao} hónapon belül fel kell használni – ez a felnyitás utáni időszak, amely a nyitott tégely szimbólumaként (pl. {pao} M) látható a csomagoláson. Egy termék megnyitása után a PAO lesz a korlát, még akkor is, ha maga a tétel még friss.",
+    "q_store": "Hogyan tároljam az {name} {noun} -et, hogy friss legyen?",
     "q_free": "Ingyenes az {name} kötegkód-ellenőrző?",
-    "q_fake": "Megmondhatja a kötegkód, hogy az {name}-em hamis?",
+    "q_fake": "Megmondhatja a kötegkód, hogy az {name} -em hamis?",
     "q_accuracy": "Mennyire pontos ez az {name} kötegkód dekóder?",
     "decoderKnown": "egy gyártó-specifikus kódséma",
     "decoderAuto": "automatikus dátumérzékelés",
@@ -172,11 +172,11 @@
     "invalidBody": "Az „{code}” nem egyezik az {brand}kötegkód formátumával. Ellenőrizze, hogy pontosan úgy írta-e be, ahogy a csomagoláson szerepel – csak betűk és számok, szóközök nélkül –, és hogy ez a kötegkód, nem pedig a vonalkód vagy az ár/marketing hivatkozás.",
     "shareCopied": "Másolva!",
     "share": "Eredmény megosztása",
-    "shareTitle": "{name}kötegkód eredménye",
+    "shareTitle": "{name} kötegkód eredménye",
     "meaningTitle": "Ez mit jelent?",
     "meaningGood": "Ez a termék még mindig jó, még bőven eltartható.",
     "meaningFresh": "Ez a termék friss és jó eltarthatósági időn belül van.",
-    "calendarTitle": "{name}– cserélje le erre a dátumra",
+    "calendarTitle": "{name} – cserélje le erre a dátumra",
     "shareMade": "{date}készült",
     "shareLifeLeft": "{n}% élettartam maradt",
     "addToCalendar": "Lejárat hozzáadása a naptárhoz",
@@ -224,7 +224,7 @@
       "lipstick": "A köteg kódja kiemelve egy rúzs alapon"
     },
     "viewGuide": "Olvassa el a teljes útmutatót",
-    "cardCta": "Hol található a kötegkód az{type}-en – olvassa el az útmutatót"
+    "cardCta": "Hol található a kötegkód az {type} -en – olvassa el az útmutatót"
   },
   "brandDetail": {
     "calvin-klein": {
@@ -543,5 +543,28 @@
       "faq1a": "Általában nem nyomtatott – a legtöbb illathoz hasonlóan ez is kötegkódot tartalmaz. Dekódolja a gyártási dátumot, és számoljon három-öt év bontatlan élettartammal, ami normális a fénytől és hőtől távol tartott toalettvíz esetében.",
       "faq2a": "A Puig a Zara illatcsaládját gyártja, ezért a kódok a Puig formátumát követik – és részben azért, mert számos Zara illat összevethető a Puig által is gyártott dizájner illatokkal."
     }
+  },
+  "contentPages": {
+    "faq": "GYIK",
+    "minRead": "{n} perc olvasás",
+    "updated": "Frissítve {date}",
+    "readNext": "Olvassa el a következőt",
+    "characters": "Karakterek",
+    "workedExamplesNote": "Élőben dekódolja ugyanaz a motor, amely az ellenőrzőt hajtja – nem kézzel írva át.",
+    "doesNotDecode": "nem dekódolja",
+    "encodes": "Amit kódolnak",
+    "moreGuides": "További útmutatók",
+    "workedExamples": "Működő példák",
+    "anatomy": "A kód anatómiája",
+    "checkBrand": "Ellenőrizze a márka kötegkódját",
+    "formatsTitle": "Batch kód formátumok",
+    "whichCode": "Nem biztos benne, hogy a csomagon melyik kód a kötegkód?",
+    "brandsUsingNote": "A formátum a gyártóé, nem a palackon lévő címke – az alábbi márkákat ugyanazok a növények bélyegzik, és ugyanúgy olvasható.",
+    "brandsUsing": "Ezt a kódot használó márkák ({count})",
+    "confidence": "{level} bizalom",
+    "otherFormats": "Egyéb kódformátumok",
+    "formatsIntro": "A tételkód formátuma a terméket gyártóé, nem pedig a palackon szereplő névé. Coty ugyanazt a négy számjegyet bélyegzi a Rimmelen, a Gucciban és az Adidasban; Az Inter Parfums ugyanazt a kilenc karaktert bélyegzi a Montblanc-on, Coach-t és Jimmy Choo-t. Tanulja meg egyszer a titkosítást, és minden olyan márkát elolvashat, amely megosztja azt.",
+    "formatsIntro2": "Minden alábbi oldal egy családot dokumentál: amit minden karakter kódol, valódi kódokat, amelyeket ugyanaz a motor dekódol, amely az ellenőrzőt hajtja, ahol a kód a csomagra van nyomtatva, és – ami ugyanilyen fontos –, amit a formátum nem árul el.",
+    "brandCount": "márkák"
   }
 }

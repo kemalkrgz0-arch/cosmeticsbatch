@@ -543,5 +543,28 @@
       "faq2q": "Who actually makes Zara perfume?",
       "faq2a": "Puig manufactures Zara's fragrance line, which is why the codes follow Puig's format — and part of why several Zara scents invite comparison with designer fragrances that Puig also makes."
     }
+  },
+  "contentPages": {
+    "minRead": "{n} min read",
+    "updated": "Updated {date}",
+    "faq": "FAQ",
+    "readNext": "Read next",
+    "moreGuides": "More guides",
+    "checkBrand": "Check a brand's batch code",
+    "anatomy": "Anatomy of the code",
+    "characters": "Characters",
+    "encodes": "What they encode",
+    "workedExamples": "Worked examples",
+    "workedExamplesNote": "Decoded live by the same engine that powers the checker — not transcribed by hand.",
+    "doesNotDecode": "does not decode",
+    "confidence": "{level} confidence",
+    "brandsUsing": "Brands that use this code ({count})",
+    "brandsUsingNote": "The format belongs to the manufacturer, not the label on the bottle — every brand below is stamped by the same plants and reads the same way.",
+    "otherFormats": "Other code formats",
+    "whichCode": "Not sure which code on the pack is the batch code?",
+    "formatsTitle": "Batch code formats",
+    "formatsIntro": "A batch code's format belongs to whoever manufactures the product, not to the name on the bottle. Coty stamps the same four digits on Rimmel, Gucci and adidas; Inter Parfums stamps the same nine characters on Montblanc, Coach and Jimmy Choo. Learn the cipher once and you can read every brand that shares it.",
+    "formatsIntro2": "Each page below documents one family: what every character encodes, real codes decoded by the same engine that powers the checker, where the code is printed on the pack, and — just as importantly — what the format cannot tell you.",
+    "brandCount": "brands"
   }
 }

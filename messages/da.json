@@ -59,26 +59,26 @@
   },
   "brandPage": {
     "checkerTitle": "{name}Batch Code Checker",
-    "metaDescription": "Gratis {name} batch kode dekoder. Tjek fremstillingsdatoen, produktalderen og udløbsdatoen for dine {name}-produkter på få sekunder – ingen tilmelding.",
-    "blurb": "Afkode {name} batchkoder for at finde fremstillingsdatoen, alderen og udløbsdatoen for dine {category}-produkter. Gratis, øjeblikkelig og privat.",
+    "metaDescription": "Gratis {name} batch kode dekoder. Tjek fremstillingsdatoen, produktalderen og udløbsdatoen for dine {name} -produkter på få sekunder – ingen tilmelding.",
+    "blurb": "Afkode {name} batchkoder for at finde fremstillingsdatoen, alderen og udløbsdatoen for dine {category} -produkter. Gratis, øjeblikkelig og privat.",
     "metaTitle": "{name} Batch Code Decoder & Checker — Fremstilling og udløbsdato",
     "by": "af {group}",
     "factManufacturer": "Fabrikant",
     "factShelfLife": "Typisk holdbarhed",
     "factDecoder": "Dekoder",
     "factPao": "Efter åbning (PAO)",
-    "intro": "Indtast din {name}-batchkode nedenfor for øjeblikkeligt at afkode fremstillingsdatoen, produktets alder og estimerede udløbsdato - gratis og privat.",
-    "freshnessPara": "Når vi har læst fremstillingsdatoen, estimerer vi friskhed ved hjælp af {name}'s typiske {shelf}-måneders holdbarhed for {category}-produkter. Husk, at perioden efter åbning (ca.{pao} måneder) bliver grænsen, når du begynder at bruge produktet.",
+    "intro": "Indtast din {name} -batchkode nedenfor for øjeblikkeligt at afkode fremstillingsdatoen, produktets alder og estimerede udløbsdato - gratis og privat.",
+    "freshnessPara": "Når vi har læst fremstillingsdatoen, estimerer vi friskhed ved hjælp af {name}'s typiske {shelf}-måneders holdbarhed for {category} -produkter. Husk, at perioden efter åbning (ca. {pao} måneder) bliver grænsen, når du begynder at bruge produktet.",
     "autoDecoder": "Automatisk datoregistrering",
     "relatedBrands": "Relaterede mærker",
     "helpfulGuides": "Nyttige guider",
     "howHeading": "Sådan fungerer {name} batchkoder",
-    "faqTitle": "{name}— ofte stillede spørgsmål",
+    "faqTitle": "{name} — ofte stillede spørgsmål",
     "months": "{n} måneder",
-    "aliasesPara": "Du vil nogle gange se dette værktøj kaldet en {name} batchkodedekoder,{name} batchkodekontrol eller {name} batchkodeberegner - de gør alle det samme: læs produktionskoden og fortæller dig, hvor frisk din {name} {category} er.",
+    "aliasesPara": "Du vil nogle gange se dette værktøj kaldet en {name} batchkodedekoder, {name} batchkodekontrol eller {name} batchkodeberegner - de gør alle det samme: læs produktionskoden og fortæller dig, hvor frisk din {name} {category} er.",
     "printsDateNote": "{name} trykker fremstillings- eller udløbsdatoen direkte på emballagen, så du behøver normalt ikke en batchkode.",
-    "exampleHeading": "En rigtig{name}-kode, afkodet",
-    "whereHeading": "Hvor finder man koden på{name}-emballagen"
+    "exampleHeading": "En rigtig {name} -kode, afkodet",
+    "whereHeading": "Hvor finder man koden på {name} -emballagen"
   },
   "faqUi": {
     "title": "Ofte stillede spørgsmål",
@@ -103,19 +103,19 @@
   },
   "brandFaq": {
     "q_barcode": "Hvad er forskellen mellem {name} batchkoden og stregkoden?",
-    "q_where": "Hvor er batchkoden på {name}-produkter?",
-    "q_expired": "Hvordan ved jeg, om mit {name}-produkt er udløbet?",
+    "q_where": "Hvor er batchkoden på {name} -produkter?",
+    "q_expired": "Hvordan ved jeg, om mit {name} -produkt er udløbet?",
     "a_where": "Se efter en kort stemplet, præget eller inkjet-kode - normalt på bunden af ​​flasken eller krukken, krympningen for enden af ​​et rør eller bunden eller flappen af ​​æsken. På {name} {noun} er den adskilt fra stregkoden og typisk 3-8 tegn med bogstaver og tal.",
-    "a_pao": "Efter åbning bør {name} {noun} generelt bruges inden for ca.{pao} måneder - dette er perioden efter åbning, vist som symbolet med åben krukke (f.eks.{pao}M) på emballagen. Når du har åbnet et produkt, bliver PAO grænsen, selvom selve batchen stadig er frisk.",
-    "a_expired": "Indtast din {name} batchkode ovenfor for at få fremstillingsdatoen, og sammenlign den derefter med den typiske {shelf}-måneders uåbnede holdbarhed. Hvis der er gået mere tid end det - eller mere end ca.{pao} måneder siden du åbnede det - skal du behandle produktet som udløbet, især hvis tekstur, farve eller lugt har ændret sig.",
-    "a_barcode": "Stregkoden er det langstribede EAN/UPC-nummer, der bruges ved kassen og er den samme for hver enhed af et produkt.{name}-batchkoden er en kort produktionskode, der ændres med hver produktionskørsel og koder, når varen blev lavet - det er den, som dette værktøj afkoder.",
-    "q_paoSymbol": "Hvad betyder open-jar (PAO) symbolet på {name}?",
+    "a_pao": "Efter åbning bør {name} {noun} generelt bruges inden for ca. {pao} måneder - dette er perioden efter åbning, vist som symbolet med åben krukke (f.eks. {pao} M) på emballagen. Når du har åbnet et produkt, bliver PAO grænsen, selvom selve batchen stadig er frisk.",
+    "a_expired": "Indtast din {name} batchkode ovenfor for at få fremstillingsdatoen, og sammenlign den derefter med den typiske {shelf}-måneders uåbnede holdbarhed. Hvis der er gået mere tid end det - eller mere end ca. {pao} måneder siden du åbnede det - skal du behandle produktet som udløbet, især hvis tekstur, farve eller lugt har ændret sig.",
+    "a_barcode": "Stregkoden er det langstribede EAN/UPC-nummer, der bruges ved kassen og er den samme for hver enhed af et produkt. {name} -batchkoden er en kort produktionskode, der ændres med hver produktionskørsel og koder, når varen blev lavet - det er den, som dette værktøj afkoder.",
+    "q_paoSymbol": "Hvad betyder open-jar (PAO) symbolet på {name} ?",
     "q_afterExpiry": "Kan jeg stadig bruge {name} efter udløbsdatoen?",
-    "a_unopened": "Uåbnet {name} {noun} forbliver typisk godt i ca.{shelf} måneder fra fremstillingsdatoen, når det opbevares korrekt. Dette er et industriestimat —{name} udskriver ikke en hård udløbsdato på de fleste varer, hvilket er grunden til, at batchkoden er vigtig.",
-    "q_unopened": "Hvor længe holder uåbnede {name}-produkter?",
+    "a_unopened": "Uåbnet {name} {noun} forbliver typisk godt i ca. {shelf} måneder fra fremstillingsdatoen, når det opbevares korrekt. Dette er et industriestimat — {name} udskriver ikke en hård udløbsdato på de fleste varer, hvilket er grunden til, at batchkoden er vigtig.",
+    "q_unopened": "Hvor længe holder uåbnede {name} -produkter?",
     "q_pao": "Hvor længe varer {name} efter åbning (PAO)?",
     "q_store": "Hvordan skal jeg opbevare {name} {noun} for at holde den frisk?",
-    "a_fake": "En batchkode-dekoder læser produktionsdatoen - i sig selv kan den ikke bevise, at et produkt er ægte. Men en {name}-kode, der ikke vil afkode, eller en dato, der ikke stemmer overens med, hvornår eller hvor du købte den, kan være et rødt flag. For ægthed skal du også tjekke emballagen, seglerne og skrifttypen og købe fra autoriserede {group}-forhandlere.",
+    "a_fake": "En batchkode-dekoder læser produktionsdatoen - i sig selv kan den ikke bevise, at et produkt er ægte. Men en {name} -kode, der ikke vil afkode, eller en dato, der ikke stemmer overens med, hvornår eller hvor du købte den, kan være et rødt flag. For ægthed skal du også tjekke emballagen, seglerne og skrifttypen og købe fra autoriserede {group} -forhandlere.",
     "a_paoSymbol": "Det lille åbne krukke-ikon med et tal og et \"M\" (i måneder) er perioden efter åbning. For de fleste {name} {noun} er det omkring {pao}M, hvilket betyder cirka {pao} måneders sikker brug fra den dag, du åbner den første gang. Batchkoden fortæller dig, hvor frisk den var før åbning; PAO fortæller dig, hvor længe det varer efter.",
     "a_afterExpiry": "Brug af {name} {noun} kort efter dens estimerede dato er normalt et problem af kosmetisk kvalitet snarere end et sikkerhedsproblem - aktive stoffer mister styrke, teksturer adskilles og duftstoffer falmer. Stop med at bruge det, hvis du bemærker en ændring i lugt, farve eller konsistens, og brug aldrig øjen- eller læbeprodukter, der er gamle, da risikoen for bakterier er højere.",
     "q_accuracy": "Hvor nøjagtig er denne {name} batchkodedekoder?",
@@ -124,7 +124,7 @@
     "decoderKnown": "en producentspecifik kodeordning",
     "decoderAuto": "automatisk datoregistrering",
     "a_accuracy": "Vi læser fremstillingsdatoen ved hjælp af {decoder}. Hvor {group} udgiver et kendt kodeskema, er resultatet præcist til måneden eller dagen; hvor mærket ikke bekræfter en offentlig ordning, er det den bedste vurdering. Datoen er fremstillingsdatoen, ikke en garanteret udløbsdato - tal for holdbarhed er typiske branchegennemsnit.",
-    "a_free": "Ja — afkodning af {name}-batchkoder på Cosmetics Batch er helt gratis, virker øjeblikkeligt i din browser uden tilmelding, og dine koder bliver aldrig gemt eller sendt til en server."
+    "a_free": "Ja — afkodning af {name} -batchkoder på Cosmetics Batch er helt gratis, virker øjeblikkeligt i din browser uden tilmelding, og dine koder bliver aldrig gemt eller sendt til en server."
   },
   "homeFaq": {
     "q1": "Hvad er en batchkode?",
@@ -173,11 +173,11 @@
     "shareCopied": "Kopieret!",
     "share": "Del resultat",
     "meaningTitle": "Hvad betyder det?",
-    "calendarTitle": "{name}— erstat med denne dato",
+    "calendarTitle": "{name} — erstat med denne dato",
     "shareLifeLeft": "{n}% levetid tilbage",
     "addToCalendar": "Tilføj udløb til kalenderen",
-    "shareTitle": "{name}batchkode resultat",
-    "shareMade": "lavet{date}",
+    "shareTitle": "{name} batchkode resultat",
+    "shareMade": "lavet {date}",
     "meaningFresh": "Dette produkt er frisk og inden for sin holdbarhed.",
     "meaningExpired": "Dette produkt har overskredet sin holdbarhed og er muligvis ikke længere i sin bedste kvalitet.",
     "meaningUseSoon": "Dette produkt nærmer sig slutningen af ​​dets holdbarhed - brug det snart op.",
@@ -224,7 +224,7 @@
       "tube": "Batchkode fremhævet på en kosmetisk rørkrympning",
       "perfume": "Batchkode fremhævet på en parfumeæske"
     },
-    "cardCta": "Hvor finder man batchkoden på en{type}- læs vejledningen"
+    "cardCta": "Hvor finder man batchkoden på en {type} - læs vejledningen"
   },
   "brandDetail": {
     "calvin-klein": {
@@ -543,5 +543,28 @@
       "faq2q": "Hvem laver egentlig Zara parfume?",
       "faq2a": "Puig fremstiller Zaras duftlinje, hvorfor koderne følger Puigs format — og en del af hvorfor flere Zara-dufte inviterer til sammenligning med designerdufte, som Puig også laver."
     }
+  },
+  "contentPages": {
+    "faq": "FAQ",
+    "checkBrand": "Tjek et mærkes batchkode",
+    "characters": "Karakterer",
+    "updated": "Opdateret {date}",
+    "minRead": "{n} min læst",
+    "moreGuides": "Flere guider",
+    "readNext": "Læs næste",
+    "anatomy": "Anatomi af koden",
+    "workedExamplesNote": "Dekodet live af den samme motor, der driver kontrollen - ikke transskriberet i hånden.",
+    "confidence": "{level} tillid",
+    "workedExamples": "Bearbejdede eksempler",
+    "encodes": "Hvad de koder",
+    "doesNotDecode": "afkoder ikke",
+    "brandsUsing": "Mærker, der bruger denne kode ({count})",
+    "formatsTitle": "Batch kode formater",
+    "whichCode": "Ikke sikker på, hvilken kode på pakken er batchkoden?",
+    "brandsUsingNote": "Formatet tilhører producenten, ikke etiketten på flasken - hvert mærke nedenfor er stemplet af de samme planter og læses på samme måde.",
+    "formatsIntro2": "Hver side nedenfor dokumenterer én familie: hvad hvert tegn koder, rigtige koder afkodet af den samme motor, der driver checkeren, hvor koden er trykt på pakken, og - lige så vigtigt - hvad formatet ikke kan fortælle dig.",
+    "formatsIntro": "En batchkodes format tilhører den, der fremstiller produktet, ikke navnet på flasken. Coty stempler de samme fire cifre på Rimmel, Gucci og adidas; Inter Parfums stempler de samme ni karakterer på Montblanc, Coach og Jimmy Choo. Lær chifferen én gang, og du kan læse hvert mærke, der deler det.",
+    "otherFormats": "Andre kodeformater",
+    "brandCount": "mærker"
   }
 }

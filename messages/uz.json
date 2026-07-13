@@ -7,7 +7,8 @@
     "about": "Biz haqimizda",
     "search": "Qidirish",
     "checkNow": "Hoziroq tekshirish",
-    "language": "Til"
+    "language": "Til",
+    "codeFormats": "Kod formatlari"
   },
   "footer": {
     "tagline": "Kosmetika va parfyum partiya kodlarini tekshirishning eng ishonchli va eng oson usuli. Bepul, tezkor va maxfiy.",
@@ -22,7 +23,8 @@
     "allBrands": "Barcha brendlar",
     "allGuides": "Barcha qoʻllanmalar",
     "rights": "© {year} {name}. Barcha huquqlar himoyalangan. Baholashlar faqat maʼlumot uchun boʻlib, mahsulot xavfsizligiga kafolat bermaydi.",
-    "contact": "Aloqa"
+    "contact": "Aloqa",
+    "codeFormats": "Ommaviy kod formatlari"
   },
   "hero": {
     "badge": "Butun dunyo goʻzallik ixlosmandlarining ishonchi",
@@ -74,7 +76,9 @@
     "relatedBrands": "Aloqador brendlar",
     "helpfulGuides": "Foydali qoʻllanmalar",
     "faqTitle": "{name} — Savol-javob",
-    "printsDateNote": "{name} ishlab chiqarish yoki yaroqlilik muddatini to'g'ridan-to'g'ri qadoqqa bosadi, shuning uchun odatda partiya kodi kerak emas."
+    "printsDateNote": "{name} ishlab chiqarish yoki yaroqlilik muddatini to'g'ridan-to'g'ri qadoqqa bosadi, shuning uchun odatda partiya kodi kerak emas.",
+    "whereHeading": "{name} paketidagi kodni qaerdan topish mumkin",
+    "exampleHeading": "Haqiqiy {name} kodi, dekodlangan"
   },
   "faqUi": {
     "title": "Koʻp beriladigan savollar",
@@ -107,12 +111,12 @@
     "q_unopened": "Ochilmagan {name} mahsulotlari qancha muddat saqlanadi?",
     "a_unopened": "Ochilmagan {name} {noun} toʻgʻri saqlanganda ishlab chiqarilgan sanadan boshlab odatda taxminan {shelf} oy davomida yaroqli boʻlib qoladi. Bu — sohaviy baholash; {name} koʻpchilik mahsulotlarda qatʼiy yaroqlilik sanasini bosmaydi, shuning uchun partiya kodi muhim.",
     "q_pao": "{name} ochilgandan keyin (PAO) qancha muddat saqlanadi?",
-    "a_pao": "Ochilgandan soʻng, {name} {noun} odatda taxminan {pao} oy ichida ishlatilishi kerak — bu Ochilgandan keyingi muddat boʻlib, qadoqda ochiq banka belgisi (masalan, {pao}M) sifatida koʻrsatiladi. Mahsulotni ochganingizdan soʻng, partiyaning oʻzi hali yangi boʻlsa ham, PAO asosiy chegara boʻlib qoladi.",
-    "q_paoSymbol": "{name}dagi ochiq banka (PAO) belgisi nimani anglatadi?",
+    "a_pao": "Ochilgandan soʻng, {name} {noun} odatda taxminan {pao} oy ichida ishlatilishi kerak — bu Ochilgandan keyingi muddat boʻlib, qadoqda ochiq banka belgisi (masalan, {pao} M) sifatida koʻrsatiladi. Mahsulotni ochganingizdan soʻng, partiyaning oʻzi hali yangi boʻlsa ham, PAO asosiy chegara boʻlib qoladi.",
+    "q_paoSymbol": "{name} dagi ochiq banka (PAO) belgisi nimani anglatadi?",
     "a_paoSymbol": "Raqam va \"M\" (oy uchun) bilan belgilangan kichik ochiq banka belgisi — bu Ochilgandan keyingi muddat. Koʻpchilik {name} {noun} uchun u taxminan {pao}M ni tashkil qiladi, yaʼni birinchi ochgan kuningizdan boshlab taxminan {pao} oy xavfsiz foydalanish demakdir. Partiya kodi ochishdan oldin mahsulot qanchalik yangi boʻlganini aytadi; PAO esa ochilgandan keyin qancha muddat saqlanishini bildiradi.",
-    "q_afterExpiry": "Yaroqlilik sanasi oʻtganidan keyin {name}ni ishlata olamanmi?",
-    "a_afterExpiry": "{name} {noun}ni taxminiy sanasidan biroz oʻtgach ishlatish odatda xavfsizlik emas, balki kosmetik sifat masalasi hisoblanadi — faol moddalar kuchini yoʻqotadi, teksturalar ajraladi va hidlar susayadi. Hidi, rangi yoki qivomida oʻzgarish sezsangiz, foydalanishni toʻxtating va koʻz yoki lab mahsulotlarini eski boʻlsa hech qachon ishlatmang, chunki bakteriya xavfi yuqoriroq.",
-    "q_store": "{name} {noun}ni yangi saqlash uchun qanday saqlashim kerak?",
+    "q_afterExpiry": "Yaroqlilik sanasi oʻtganidan keyin {name} ni ishlata olamanmi?",
+    "a_afterExpiry": "{name} {noun} ni taxminiy sanasidan biroz oʻtgach ishlatish odatda xavfsizlik emas, balki kosmetik sifat masalasi hisoblanadi — faol moddalar kuchini yoʻqotadi, teksturalar ajraladi va hidlar susayadi. Hidi, rangi yoki qivomida oʻzgarish sezsangiz, foydalanishni toʻxtating va koʻz yoki lab mahsulotlarini eski boʻlsa hech qachon ishlatmang, chunki bakteriya xavfi yuqoriroq.",
+    "q_store": "{name} {noun} ni yangi saqlash uchun qanday saqlashim kerak?",
     "q_fake": "Partiya kodi {name} mahsulotim soxtami yoki yoʻqligini ayta oladimi?",
     "a_fake": "Partiya kodi dekoderi ishlab chiqarilgan sanani oʻqiydi — oʻzi holicha mahsulot haqiqiy ekanligini isbotlay olmaydi. Ammo dekodlanmaydigan {name} kodi yoki xarid qilgan vaqt yoxud joyingizga mos kelmaydigan sana ogohlantiruvchi belgi boʻlishi mumkin. Haqiqiyligi uchun qadoq, plombalar va shriftni ham tekshiring va vakolatli {group} sotuvchilaridan xarid qiling.",
     "q_accuracy": "Bu {name} partiya kodi dekoderi qanchalik aniq?",
@@ -165,7 +169,20 @@
     "confLow": "Past ishonch",
     "confNone": "Dekodlab boʻlmadi",
     "invalidTitle": "Bu kodni oʻqiy olmadik",
-    "invalidBody": "“{code}” {brand} partiya kodi formatiga mos kelmaydi. Uni qadoqda bosilganidek aniq kiritganingizni tekshiring — faqat harf va raqamlar, boʻsh joysiz — va bu shtrix-kod yoki narx/marketing havolasi emas, balki partiya kodi ekanligiga ishonch hosil qiling."
+    "invalidBody": "“{code}” {brand} partiya kodi formatiga mos kelmaydi. Uni qadoqda bosilganidek aniq kiritganingizni tekshiring — faqat harf va raqamlar, boʻsh joysiz — va bu shtrix-kod yoki narx/marketing havolasi emas, balki partiya kodi ekanligiga ishonch hosil qiling.",
+    "shareCopied": "Ko‘chirildi!",
+    "share": "Natijani ulashish",
+    "meaningTitle": "Bu qanday ma'nono bildiradi?",
+    "shareTitle": "{name} ommaviy kod natijasi",
+    "addToCalendar": "Kalendarga amal qilish muddatini qo'shing",
+    "shareLifeLeft": "{n}% umr qoldi",
+    "shareMade": "{date}qildi",
+    "meaningExpired": "Ushbu mahsulot o'zining yaroqlilik muddatidan o'tgan va endi eng yaxshi sifatga ega bo'lmasligi mumkin.",
+    "meaningGood": "Bu mahsulot hali ham yaxshi, yaroqlilik muddati ko'p.",
+    "meaningUnknown": "Ushbu kodning yangiligini taxmin qila olmadik.",
+    "meaningUseSoon": "Ushbu mahsulotning yaroqlilik muddati tugayapti - uni tez orada ishlating.",
+    "meaningFresh": "Ushbu mahsulot yangi va yaroqlilik muddati davomida yaxshi.",
+    "calendarTitle": "{name} - bu sana bilan almashtiring"
   },
   "howItWorks": {
     "eyebrow": "Uch oddiy qadam",
@@ -192,5 +209,362 @@
     "privateBody": "Kodlar maxfiy dekodlanadi. Sizning maxfiyligingiz birinchi oʻrinda.",
     "freeTitle": "Doimo bepul",
     "freeBody": "Har bir funksiya 100% bepul, abadiy."
+  },
+  "whereCode": {
+    "label": {
+      "tube": "Quvur",
+      "perfume": "Parfyum qutisi",
+      "lipstick": "Pomada"
+    },
+    "title": "Paket kodi qayerda?",
+    "subtitle": "Bu qisqacha alohida shtamp - bu erda odatda turli paketlarda yashirinadi.",
+    "cardCta": "{type} -da paket kodini qaerdan topish mumkin — qo'llanmani o'qing",
+    "alt": {
+      "perfume": "Parfyum qutisida ta'kidlangan partiya kodi",
+      "lipstick": "To'plam kodi lab bo'yog'i asosida ta'kidlangan",
+      "tube": "Kosmetik trubkaning burmasida ta'kidlangan partiya kodi"
+    },
+    "viewGuide": "To'liq qo'llanmani o'qing"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "faq2q": "Partiya kodi mening CK haqiqiy yoki yo'qligini ayta oladimi?",
+      "faq1q": "Calvin Klein ommaviy kodini qanday dekodlashim mumkin?",
+      "faq2a": "Bu yomon soxtani qo'lga olishi mumkin: imkonsiz kun raqami yoki quti va shisha o'rtasida kelishmovchilik bo'lgan kodlar. Bu yaxshi kodni tasdiqlay olmaydi, chunki haqiqiy shishadan ko'chirilgan kod mukammal tarzda dekodlanadi.",
+      "where2": "Yassiroq CK One butilkalarida kod to'g'ridan-to'g'ri shisha tagida chop etilishi mumkin.",
+      "faq1a": "CK xushbo'yligi Coty tomonidan ishlab chiqariladi. Kod to'rtta raqamdan iborat: yil raqamidan keyin yilning kuni. Oyni olish uchun kunni taxminan 30,4 ga bo'ling - 135-kun beshinchi oyning boshida, may.",
+      "where1": "Qutining pastki qismida va shisha ostidagi stikerda."
+    },
+    "carolina-herrera": {
+      "where2": "Good Girl stiletto shishasida kod tovonning tagida joylashgan.",
+      "where1": "Qutining tagida va shishaning pastki qismida.",
+      "faq2q": "Yaxshi qiz ko'pincha qalbakilashtiriladimi?",
+      "faq1q": "Carolina Herrera partiya kodini qanday tekshirish mumkin?",
+      "faq1a": "Carolina Herrera xushbo'yligi Puig tomonidan ishlab chiqarilgan bo'lib, kodda ishlab chiqarilgan sanani - yil raqami va yil kunini yoki 2023 yil 22-noyabr uchun 231122 kabi qadoqlangan sanani bosib chiqaradi.",
+      "faq2a": "Bu Evropada eng ko'p ko'chiriladigan xushbo'y hidlardan biridir. Kod qila olmaydigan tekshiruvlarni bajaring: quti va shisha kodlarini solishtiring, shishani torting va buzadigan amallar nozikligiga qarang. Toza dekodlash zarur, ammo etarli darajada emas."
+    },
+    "cerave": {
+      "where1": "Naychalar va tozalagichlar: trubaning muhrlangan uchidagi burmaga bosiladi.",
+      "where2": "Nasosli butilkalar (SA Cleanser, namlovchi loson): orqa yorliqda yoki poydevorda siyohli bosilgan.",
+      "faq1q": "CeraVe mahsulotining yaroqlilik muddatini qanday tekshirish mumkin?",
+      "faq2a": "Dermatologik chiziqlar ko'pincha bittasini bosib chiqaradi va quyoshdan himoya qiluvchi kremlar deyarli har doim shunday qiladi. Qaerda chop etilgan sana mavjud bo'lsa, unga ishoning: bu ishlab chiqaruvchining o'z kafolati va u dekoder baholay oladigan barcha narsadan ustun turadi.",
+      "faq1a": "CeraVe L'Oréal tomonidan ishlab chiqarilgan, shuning uchun kod guruh formatiga mos keladi: birinchi harf ishlab chiqarilgan yil va undan keyingi belgi oydir. Uni ishlab chiqarilgan sana uchun dekodlang, so'ngra taxminan 36 oy ochilmagan deb hisoblang. Ochilgandan so'ng, ochiq kavanoz belgisi o'z vaqtini oladi - diapazonning ko'p qismi uchun 12 oy.",
+      "faq3a": "CeraVe bozorlarda keng tarqalgan qalbakilashtirilgan. Partiya kodi birinchi filtrdir - L'Oréal shakliga to'g'ri kelmaydigan kod yomon belgidir - lekin u haqiqiy mahsulotni tasdiqlay olmaydi, chunki haqiqiy kod soxta naychaga ko'chirilishi mumkin. Plastmassaning tuzilishini, kichik matnning bosib chiqarish sifatini solishtiring va dorixona yoki vakolatli sotuvchidan sotib oling.",
+      "faq2q": "CeraVe da amal qilish muddati bormi?",
+      "faq3q": "CeraVe soxta ekanligini qanday aniqlash mumkin?"
+    },
+    "chanel": {
+      "faq1q": "Chanelda rasmiy partiya kod tizimi bormi?",
+      "faq2q": "Chanel shishamda hech qanday kod topa olmayapman.",
+      "where1": "Xushbo'y hid: shisha tagidagi stakanga lazer bilan chizilgan va qutining pastki qopqog'ida bosilgan. Oshlamada siyoh yo'q - shishani yorug'lik uni yon tomondan ushlab turishi uchun eging.",
+      "where2": "Pardoz va terini parvarish qilish: ixcham yoki kavanoz bazasida, juda kichik kulrang turda.",
+      "faq1a": "Yo'q. Chanel hech qachon nashr etmagan va rasmiy Chanel shifrini bilishni da'vo qiladigan har bir kishi taxmin qilmoqda. Tasdiqlanishi mumkin bo'lgan narsa shundaki, joriy Chanel mahsulotlari kod ichida o'qilishi mumkin bo'lgan ishlab chiqarish sanasini chop etadi va biz buni dekodlaymiz - aniq o'qiladigan o'rtacha ishonchlilik deb xabar qilinadi, chunki uni tekshirish uchun nashr etilgan sxema yo'q.",
+      "faq2a": "U deyarli bosilgan emas, balki shisha tagiga lazer bilan ishlangan. Oshlama to'g'ridan-to'g'ri yorug'lik ostida ko'rinmaydi va yorug'lik uning bo'ylab tarqalib ketganda paydo bo'ladi - shishani chiroq ostida sekin aylantiring yoki poydevorni miltillovchi bilan suratga oling va rasmni kattalashtiring.",
+      "faq3q": "Chanel poydevorining yaroqlilik muddatini qanday tekshirish mumkin?",
+      "faq3a": "Ishlab chiqarilgan sana uchun bazadagi kodni dekodlang, so'ngra ochiq banka belgisini qo'llang - suyuq poydevor uchun odatda 12M. Qaysi biri birinchi bo'lib tugasa, ochilmagan raf muddati yoki uni ochganingizdan beri oylar - haqiqiy muddat."
+    },
+    "clinique": {
+      "where1": "Terini parvarish qilish uchun idishlar va idishlar: poydevorga bo'rttirma.",
+      "faq1q": "Clinique ommaviy kodini qanday o'qiyman?",
+      "faq1a": "Clinique - Estée Lauder, shuning uchun format uchta belgida o'simlik, oy, yil - o'ngdan o'qing. Oxirgi belgi - yil raqami; undan oldingisi oy, A, B va C esa oktyabr, noyabr va dekabr oylariga to'g'ri keladi.",
+      "where2": "Pardoz: ixchamning orqa tomoni yoki korpusning asosi.",
+      "faq2q": "Clinique terini parvarishi qancha davom etadi?",
+      "faq2a": "Ishlab chiqarilgan kundan boshlab ochilmagan taxminan 36 oy va assortimentning ko'p qismi uchun ochilgandan keyin 12 oy. Paketdagi ochiq banka belgisi muhrni buzganingizdan keyin bog'lanadigan raqamdir."
+    },
+    "creed": {
+      "faq1q": "Creed ommaviy kodini qanday o'qiyman?",
+      "where2": "Qadimgi, og'irroq flakonlarda kod chop etish o'rniga muhrlanishi mumkin; uni yorug'likka qaratib qo'ying.",
+      "where1": "Shishaning tagida va qutining pastki qismida - odatda oq tayanch stikerida qora rangda bosilgan.",
+      "faq1a": "Faqat birinchi harf muhim. U ishlab chiqarish yilini kodlaydi, A = 2010 dan sanab, I va O ni o'tkazib yuboradi: N = 2022, P = 2023, Q = 2024, R = 2025. Undan keyingi hamma narsa ichki partiya seriyasidir. Creed oyni kodlamaydi, shuning uchun kod sizga bir yil beradi va hech qanday nozik narsa yo'q.",
+      "faq3q": "Qadimgi Creed yaxshiroq e'tiqodni anglatadimi?",
+      "faq2a": "Qisman. Creed xushbo'y hidda eng ko'p soxtalashtirilgan uylar qatoriga kiradi va tsiklda umuman bo'lmagan birinchi harf - bu to'g'ridan-to'g'ri. Ammo nusxa ko'chirilgan kod aniq dekodlanadi, shuning uchun haqiqiy kod isbot emas - shishani torting, buzadigan amallar va qutining chop etilishiga qarang va vakolatli sotuvchidan sotib oling.",
+      "faq3a": "Og'irroq, qatronli kompozitsiyalar uchun, albatta, eski shisha afzalroq bo'lishi mumkin, chunki reformatsiyalar bir nechta klassikani o'zgartirdi - va partiya kodi qaysi formulani sotib olganingizni aniqlashning yagona yo'li. Engilroq, sitrusli Creeds uchun yosh asosan oksidlanishdir va hech qanday foyda keltirmaydi.",
+      "faq2q": "Kod mening Yashil Irish Tvidim haqiqiy yoki yo'qligini ayta oladimi?"
+    },
+    "dior": {
+      "where1": "Xushbo'y hid: tashqi qutining tagida va shishaning pastki qismida - kichik bosilgan stiker yoki kattaroq shishadagi stakanga lazer bilan o'yib qo'yilgan.",
+      "where2": "Pardoz: ixcham asosda, lab bo'yog'i qutisining pastki qismida yoki naychaning burmasida.",
+      "faq1q": "Dior parfyumining haqiqiyligini qanday tekshirish mumkin?",
+      "where3": "Terini parvarish qilish: bankaning tagida ochiq banka belgisi yonida muhrlangan.",
+      "faq2a": "Odatda to'rtta raqam, masalan, 3245. Dior hech qanday maxfiy shifrni ishlatmaydi - boshqa LVMH uylari singari u ishlab chiqarish sanasini yil raqami va yil kuni sifatida kodga kiritadi. Ba'zi kodlar o'rniga uzoqroq 5 yoki 6 xonali sanani o'z ichiga oladi.",
+      "faq3q": "Dior lab bo'yog'idagi partiya kodi qayerda?",
+      "faq2q": "Dior partiya kodi nimaga o'xshaydi?",
+      "faq1a": "Kodlardan boshlang: qutidagi va shishadagi bir-biriga mos kelishi kerak, chunki ikkalasi ham bir xil to'ldirish chizig'ida bir necha daqiqa farq bilan qo'llaniladi. Keyin dekodlash - imkonsiz kun raqami yoki xushbo'y hid paydo bo'lishidan oldingi sana haqiqiy ogohlantirishdir. Ammo chegarani tushuning: haqiqiy kodni nusxa ko'chiruvchi soxtakor mukammal dekodlovchi kod ishlab chiqaradi. Ommaviy kod soxtalikni fosh qilishi mumkin; u haqiqiyni tasdiqlay olmaydi.",
+      "faq3a": "Kosonning tekis poydevorida. Avval o'qni to'liq pastga burang - kod taglikka muhrlangan va metall qoplamaga nisbatan o'tkazib yuborish oson."
+    },
+    "dunhill": {
+      "where1": "Qutining tagida va shishaning pastki qismida, oq tayanch stikerida qora rangda bosilgan.",
+      "faq1q": "Dunhill ommaviy kodini qanday o'qiyman?",
+      "faq2a": "Quti va shisha kodlarini solishtiring, keyin dekodlang. Tsikldan tashqari bir yillik xat yoki bir-biriga zid bo'lgan kodlar haqiqiy ogohlantirishdir. Toza dekodlash dalil emas - nusxalangan kodlar ham dekodlanadi.",
+      "faq2q": "Dunhill atirining haqiqiyligini qanday tekshirish mumkin?",
+      "faq1a": "Dunhill xushbo'yligi Inter Parfums litsenziyasi ostida ishlab chiqariladi. Birinchi harf ishlab chiqarish yili - I va O ni o'tkazib yuboradigan tsikl, shuning uchun J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 - va oxirgi uchta raqam o'sha yilning kuni."
+    },
+    "estee-lauder": {
+      "faq1q": "Estée Lauder partiya kodini qanday o'qiyman?",
+      "faq2a": "Kod mahsulotning o'zida emas, balki faqat kartonda - kavanoz yoki shisha tagida, odatda bo'rttirma bo'ladi. Uni ishlab chiqarilgan sana uchun dekodlang, so'ngra uni ochgan kundan boshlab ochiq banka belgisini qo'llang. Qaysi muddat birinchi bo'lib kelsa, u haqiqiy hisoblanadi.",
+      "where2": "Xushbo'y hid va bo'yanish: qutining tagida va mahsulotning pastki qismida.",
+      "faq2q": "Agar qutini tashlagan bo'lsam, saqlash muddatini qanday tekshirishim mumkin?",
+      "where1": "Terini parvarish qilish: kavanoz yoki shisha tagida bo'rttirma - materialga bosilgan, shuning uchun u to'g'ridan-to'g'ri emas, balki raking nuriga muhtoj.",
+      "faq1a": "Uni chapdan emas, o'ngdan o'qing. Oxirgi belgi - yil raqami; undan oldingi oy (yanvar-sentyabr uchun 1–9, keyin oktyabr, noyabr va dekabr uchun A, B va C); chapdagi har qanday narsa o'simlikdir. Shunday qilib, EA4 da o'simlik E, oy A - oktyabr - va yil 4da tugaydi. Chapdan o'ngga o'qish - bu kodlar bilan eng keng tarqalgan xato.",
+      "faq3a": "Ha - bir xil o'simliklar va bir xil o'simlik / oy / yil formati. Faqat o'simlik harfi farq qiladi va unda sana ma'lumoti yo'q.",
+      "faq3q": "Clinique, MAC va La Mer bir xil koddan foydalanadimi?"
+    },
+    "fenty-beauty": {
+      "faq1q": "Fenty Beauty haqiqiyligini qanday tekshirish mumkin?",
+      "where2": "Kompaktlar, kukunlar va porlash: korpusning orqa tomonida yoki trubaning tagida.",
+      "where1": "Poydevor va suyuq mahsulotlar: shisha tagida yoki yorliq orqa tomonga o'ralgan joyda bosilgan.",
+      "faq1a": "Partiya kodini dekodlash - Fenty LVMH brendidir va ishlab chiqarish sanasini kodda chop etadi. Imkonsiz sanani yoki umuman sanani keltirmaydigan kod ogohlantirishdir. Ammo nusxa ko'chirilgan kod aniq dekodlanadi, shuning uchun uni odatdagi tekshiruvlar bilan bir qatorda foydalaning: qadoqdagi bosib chiqarish sifati, aplikator hissi va Sephora yoki Fenty-dan to'g'ridan-to'g'ri xarid qilish.",
+      "faq2a": "Majburiy emas — skanerdan o‘tmaydigan shtrix-kod odatda chop etish yoki yoritish muammosidir va har qanday holatda ham shtrix-kodda sana va haqiqiylik ma’lumotlari yo‘q. Bu mahsulot qachon ishlab chiqarilganligini ko'rsatadigan partiya kodi, qisqa tartibsiz shtamp.",
+      "faq2q": "Fenty mahsulotimdagi shtrix-kod skanerlanmaydi. Bu soxtami?",
+      "faq3q": "Fenty poydevori qancha davom etadi?",
+      "faq3a": "Ochilganidan keyin taxminan 12 oy va ishlab chiqarilgan kundan boshlab taxminan 36 oy ochilmagan. Qaysi biri birinchi bo'lsa, oxirgi muddat."
+    },
+    "garnier": {
+      "where1": "Sarumlar va kun kremlari: shisha tagida yoki naychaning burmasida.",
+      "where3": "Paketlar va bir martalik niqoblar: sumkaning orqa tomonida, tikuv yaqinida juda kichik turdagi.",
+      "faq2a": "Quyoshdan himoyalanish bundan mustasno - odatda uning amal qilish muddati ko'rsatilgan, chunki SPF da'vosi xavfsizlik talabidir. Dekodlangan sanadan ko'ra chop etilgan sanadan foydalaning va yozni issiqda o'tkazgan har qanday shishani almashtiring.",
+      "faq1q": "Garnier kremi yoki sarumining yaroqlilik muddatini qayerdan topsam bo'ladi?",
+      "where2": "SPF va Ambre Solaire: orqa yorliqda bosilgan, odatda yaroqlilik muddati ham ko'rsatilgan.",
+      "faq2q": "Garnier quyosh kremida xurmo qayerda?",
+      "faq3q": "Garnier mahsulotim haqiqiy ekanligini qanday bilsam bo'ladi?",
+      "faq1a": "Garnier kamdan-kam hollarda chop etadi. Naychaning qisilishi yoki shisha tagidagi qisqa kod partiya kodi bo'lib, unda ishlab chiqarilgan sana ko'rsatilgan: birinchi harf - yil, undan keyingi belgi - oy. Ochilmagan mahsulot uchun taxminan 36 oy oldinga hisoblang va ochilgandan so'ng ochiq banka belgisidan foydalaning.",
+      "faq3a": "Kod L'Oréal formatiga mos kelishini tekshiring - Garnier L'Oréal brendidir - va u ishonchli sanaga dekodlanadi. Bu qo'pol soxta narsalarni istisno qiladi. Bu yaxshi kodni istisno qila olmaydi, chunki nusxa ko'chirilgan kod mukammal tarzda dekodlanadi."
+    },
+    "giorgio-armani-beauty": {
+      "where1": "Xushbo'y hid (Acqua di Giò, Armani Code): qutining pastki qismida va shisha tagidagi stikerda.",
+      "where2": "Pardoz: korpusning tagida yoki ixchamning orqa tomonida.",
+      "faq1a": "Armani xushbo'yligi L'Oréal tomonidan ishlab chiqarilgan, shuning uchun kod guruh formatiga mos keladi: birinchi harf ishlab chiqarilgan yil, undan keyingi belgi - oy. (Armani Code deb nomlangan xushbo'y hid va uning qutisiga muhrlangan partiya kodi, afsuski, bir so'zni baham ko'radigan bir-biriga bog'liq bo'lmagan narsalardir.)",
+      "faq2q": "Acqua di Gio qancha vaqt ochilmaydi?",
+      "faq1q": "Armani Code partiya raqamini qanday dekodlashim mumkin?",
+      "faq2a": "Tualet suvi uchun 3-5 yil normal, parfyum uchun esa uzoqroq. Xushbo'ylik eng kechirimli toifadir, agar shisha yorug'lik va issiqlikdan saqlansa."
+    },
+    "guerlain": {
+      "faq1q": "Guerlain parfyumining ishlab chiqarilgan sanasini qanday tekshirish mumkin?",
+      "where2": "Pardoz va terini parvarish qilish: ixcham yoki kavanoz tagida muhrlangan.",
+      "faq1a": "Guerlain LVMH uyidir va ishlab chiqarish sanasini partiya kodida chop etadi - ko'pincha yil raqamidan keyin yil kuni. Uni ishlab chiqarilgan sana uchun dekodlang, so'ngra yorug'lik va issiqlikdan saqlanadigan parfyumning ochilmagan umrini uch yildan besh yilgacha deb hisoblang.",
+      "where1": "Xushbo'y hid: qutining tagida va shishaning pastki qismida - ko'pincha kichik stikerda bosilgan.",
+      "faq2q": "Mening eski Guerlain kodim dekodlanmaydi.",
+      "faq2a": "Qadimgi va mintaqaga xos kodlar ba'zan ichki harf-raqamli havolalar bo'lib, ularda hech qanday sana yo'q. Ularni hech kim dekodlay olmaydi. Shishani uning holatiga va uning o'rniga sharbatning hidiga qarab baholang."
+    },
+    "hugo-boss": {
+      "where1": "Tashqi qutining tagida va shisha ostidagi shaffof stikerda.",
+      "faq1a": "Hugo Boss xushbo'yligi Koty tomonidan ishlab chiqariladi, u to'rt xonali koddan foydalanadi: birinchi raqam ishlab chiqarish yilining oxirgi raqami, qolgan uchtasi esa o'sha yilning kunidir. Shunday qilib, 4135 - 2024 yilning 135-kuni - 2024 yil 14 may.",
+      "faq1q": "Hugo Boss parfyumining partiya kodini qanday tekshirish mumkin?",
+      "faq2q": "Quti va shisha kodlari boshqacha. Bu soxtami?",
+      "where2": "Ikkita kod mos kelishi kerak - ular bir xil satrda bir necha daqiqa farq bilan chop etiladi.",
+      "faq2a": "Bu quti va shisha zavoddan boshqa joyda birlashtirilganligini anglatadi. Bu soxta narsalar bilan, shuningdek, qonuniy ravishda qayta qadoqlangan, qaytarilgan yoki kulrang bozor aktsiyalari bilan sodir bo'ladi. Qanday bo'lmasin, siz ushlab turgan juftlik zavod tomonidan yuborilgani emas."
+    },
+    "jean-paul-gaultier": {
+      "where1": "Qutining tagida va torso shaklidagi shishaning pastki qismida.",
+      "faq2a": "Metall yengli nashrlarda kod ko'pincha faqat qutida bo'ladi yoki poydevorga shu qadar zaif muhrlanadiki, uni ko'rish uchun yorug'lik kerak. Avval kartonni tekshiring - va agar sizda ikkalangiz ham bo'lsa, ularning mos kelishini tasdiqlang.",
+      "where2": "Metall korpusli nashrlarda kod ko'pincha faqat qutida bo'ladi yoki qutining tagiga ozgina muhrlanadi.",
+      "faq2q": "Mening Le Male shishamda kod yo'q.",
+      "faq1q": "Jan Pol Gaultierning ommaviy kodini qanday o'qiyman?",
+      "faq1a": "JPG xushbo'yligi Puig tomonidan ishlab chiqarilgan bo'lib, u ishlab chiqarish sanasini kodga bosib chiqaradi. To'rtta raqam yil raqamini va yil kunini bildiradi; besh ikki yil raqamlari va kunni bildiradi; olti - qadoqlangan kalendar sanasi."
+    },
+    "kenzo-parfums": {
+      "where1": "Tashqi qutining tagida va shishaning pastki qismida - taglik stikeriga bosilgan yoki oynaga muhrlangan.",
+      "faq3q": "Kod Kenzo atirining haqiqiyligini isbotlay oladimi?",
+      "faq1q": "Kenzo parfyumini partiya kodi bo'yicha qanday tekshirish mumkin?",
+      "faq1a": "Kenzo Parfums LVMH uyidir va LVMH ishlab chiqarish sanasini shifrlash o'rniga kodda chop etadi. To'rtta raqam yil raqamini va yil kunini bildiradi; besh yoki olti raqam - to'liq sana. Tekshirgichda Kenzo-ni tanlang va u to'g'ri o'qishni qo'llaydi.",
+      "where2": "Kenzo World va Flower shishalarida kod yorlig'i buklanadigan tekis pastki qismida o'tirishi mumkin.",
+      "faq2q": "Kenzo kodlari har o'n yilda takrorlanadimi?",
+      "faq3a": "U soxta narsani ushlashi mumkin - imkonsiz kun yoki quti kodi va shisha kodi o'rtasidagi nomuvofiqlik, hech qanday haqiqiy to'ldirish liniyasi ishlab chiqarmaydi. U haqiqiy kodni tasdiqlay olmaydi, chunki nusxa ko'chirilgan kod aniq dekodlanadi.",
+      "faq2a": "Ha, va bu g'alati emas, balki haqiqiy cheklovdir. To'rt xonali kod faqat bitta yil raqamini o'z ichiga oladi, shuning uchun 4135 2024 yil 14 mayni tashkil etadi, bu esa 2014 yil 14 mayga to'g'ri keladi. agar shisha va qadoqlash avvalgi davrga tegishli bo'lsa, ehtimol shundaydir."
+    },
+    "kerastase": {
+      "where2": "Naychalar va sayohat o'lchamlari: burmaga bosilgan.",
+      "faq1a": "Kérastase - L'Oréal Professionnel, shuning uchun u guruh kodini olib yuradi: birinchi harf - yil, undan keyingi belgi - oy. Ochilmagan niqob odatda o'sha kundan boshlab 30-36 oy davomida yaxshi bo'ladi; ochilgandan so'ng, ochiq banka belgisi qo'llaniladi - odatda 12M.",
+      "faq2q": "Kérastase mahsulotining haqiqiyligini qanday tekshirish mumkin?",
+      "where1": "Shishalar va niqoblar: shishaning orqa tomonida, taglik yaqinida siyohli bosilgan yoki bankaning pastki qismiga muhrlangan.",
+      "faq1q": "Kérastase niqobining yaroqlilik muddatini qanday topish mumkin?",
+      "faq3q": "Mahsulot chet elda sotib olingan - saqlash muddati o'zgaradimi?",
+      "faq3a": "Yo'q. Formulaning yaroqlilik muddati bozor emas, balki mahsulotning mulkidir. Issiq iqlim bilan nima o'zgaradi - u qanchalik tez buziladi: issiqlik haqiqiy hayotni bosilganidan ancha qisqartiradi.",
+      "faq2a": "Kérastase qalbaki mahsulotlar va boshqa yo'naltirilgan salon zaxiralari uchun keng tarqalgan maqsaddir. Kodni dekodlash: u L'Oréal formatiga mos kelishi va ishonchli sanani ko'rsatishi kerak. U nusxa ko'chirilgan kodni ushlamaydi, shuning uchun chop etish sifati, qopqoqning og'irligi va tugashiga, shuningdek, sotuvchi vakolatli salon yoki sotuvchi ekanligiga e'tibor bering."
+    },
+    "kiehls": {
+      "where1": "Idishlar va shishalar: poydevorga muhrlangan, ko'pincha bosma emas, balki bo'rttirma - uni yorug'lik ostida egib qo'ying.",
+      "faq1q": "Kiehl's ko'z kremining yaroqlilik muddatini qanday tekshirish mumkin?",
+      "where2": "Naychalar va ko'z kremlari: burmaga bosiladi.",
+      "faq2a": "Odatda siyoh bilan emas, balki asosga bo'rttiriladi. Naqshli kodlar to'g'ridan-to'g'ri yorug'lik ostida yo'qoladi va yorug'lik yon tomondan ular bo'ylab o'tganda paydo bo'ladi - bankani asta-sekin chiroqqa burang.",
+      "faq2q": "Kiehl bankamdagi kod ko'rinmas.",
+      "faq1a": "Bazadagi kodni dekodlang: Kiehl's - L'Oréal, shuning uchun birinchi harf yil va undan keyingi belgi oydir. Ochilmagan, taxminan 36 oyni hisoblash; ochilgandan so'ng, ochiq banka belgisi - odatda ko'z kremi uchun 12M, bu birinchi bo'lib bog'lanadigan raqam."
+    },
+    "la-roche-posay": {
+      "where2": "Shishalar va Anthelios quyosh kremi: orqa yorliqda, odatda haqiqiy yaroqlilik muddati bilan birga bosilgan.",
+      "faq1q": "La Roche-Posayda amal qilish muddati qayerda?",
+      "where1": "Quvurlar: muhrlangan uchida burmaga bosiladi.",
+      "faq2q": "Anthelios quyosh kremi qancha davom etadi?",
+      "faq3q": "Mening La Roche-Posay mahsulotim haqiqiymi?",
+      "faq2a": "Agar u salqin saqlansa, uch yilgacha ochilmaydi va bir marta ochilganda taxminan 12 oy. Quyoshdan himoya qiluvchi krem ​​- bu chop etilgan sana haqiqatan ham muhim bo'lgan mahsulotdir, chunki buzilgan filtrlar yorliqda va'da qilinganidan kamroq himoyani anglatadi.",
+      "faq3a": "L'Oréal formatiga mos keladigan va ma'qul sanani dekodlaydigan kod qo'pol soxta narsalarni istisno qiladi. Yaxshisini tasdiqlay olmaydi. Dorixona sotib olish ushbu diapazon uchun eng kuchli kafolat bo'lib qolmoqda.",
+      "faq1a": "Dorixona liniyalari odatda karton yoki naychada haqiqiy yaroqlilik muddatini chop etadi - undan foydalaning. Uning yonidagi qisqa kod partiya kodi bo'lib, uning o'rniga ishlab chiqarilgan sana ko'rsatilgan: birinchi harf yil, undan keyingi belgi oy."
+    },
+    "lancome": {
+      "where1": "Xushbo'y hid: qutining tagida va shishaning pastki qismida.",
+      "where2": "Terini parvarish qilish va poydevor: kavanoz tagida, trubkada yoki shishada bo'rttirma yoki bosilgan.",
+      "faq2a": "Ishlab chiqarishdan taxminan uch yil, barqaror bo'lmagan faol moddalarga asoslangan mahsulotlar uchun kamroq. Discounterdan sotib olishdan oldin dekodlash - eski aktsiya haqiqiy, ammo uning ochilmagan muddati juda oz bo'lishi mumkin.",
+      "faq2q": "Ochilmagan Lancome terini parvarishi qancha davom etadi?",
+      "faq1q": "Lancome ommaviy kodini qanday o'qiyman?",
+      "faq1a": "Lancom - L'Oréal: birinchi harf ishlab chiqarish yili (o'tkazib yuborilgan V, shuning uchun U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) va undan keyingi belgi to'g'ridan-to'g'ri oy, O, N va D oktyabr, noyabr va dekabr uchun turadi."
+    },
+    "loreal": {
+      "where1": "Guruh mahsulotlari har qanday joyda muhrlangan: trubka burmalari, shisha tagliklari, kavanoz tagliklari va karton qopqoqlar.",
+      "where2": "Agar subbrend alohida roʻyxatda boʻlmasa, bu sahifadan foydalaning — butun guruh bitta kod formatini baham koʻradi.",
+      "faq2a": "Odatda oltita belgi, masalan, 40X200: zavod raqamlari, keyin yil harfi, keyin oy belgisi, keyin ommaviy seriya. Yil harfi va undan keyingi belgi sanani ko'rsatadigan yagona qismlardir.",
+      "faq1a": "Ularning barchasi: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancome, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm va boshqalar. Ular bir xil o'simliklardan chiqadilar, shuning uchun ular bir xil formatga ega.",
+      "faq1q": "Qaysi brendlar L'Oréal partiya kodini baham ko'radi?",
+      "faq2q": "L'Oréal kodi nimaga o'xshaydi?",
+      "faq3q": "Mening kodimda harf yo'q.",
+      "faq3a": "Keyin bu format emas. Ba'zi yaqinda sotib olingan brendlar va ba'zi mintaqaviy shartnoma ishlab chiqaruvchilari o'rniga oddiy Julian sanasini chop etishadi - tekshiruvchi raqamlarga kiritilgan sanani o'qishga qaytadi."
+    },
+    "loreal-paris": {
+      "where2": "Quvurlar: muhrlangan uchida burmaga bosiladi.",
+      "faq1q": "L'Oréal Paris kremining yaroqlilik muddatini qanday tekshirish mumkin?",
+      "faq2q": "L'Oréal mahsulotlarida ishlab chiqarilgan sana qayerda yozilgan?",
+      "where1": "Kremlar va bankalar: bankaning tagida yoki qopqoqning pastki qismida muhrlangan.",
+      "faq1a": "Bankada yaroqlilik muddati yo'q - ishlab chiqarilgan sanani ko'rsatadigan partiya kodi chop etiladi. Birinchi harfni yil sifatida (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V o'tkazib yuborilgan) va undan keyingi belgini oy sifatida o'qing. O'sha kundan boshlab, ochilmagan krem ​​odatda taxminan 36 oy davomida yaxshi bo'ladi va ochiq kavanoz belgisi uni ishlatishni boshlaganingizdan keyin qancha davom etishini boshqaradi.",
+      "where3": "Shishalar (shampun, sarum, tonal krem): orqa yorliqda yoki poydevorda siyohli bosilgan.",
+      "faq2a": "U sana sifatida chop etilmaydi — u partiya kodida kodlangan, bu qisqich, taglik yoki orqa yorliqdagi qisqa tartibsiz shtampdir. Shtrixli chiziqlar ostidagi uzun raqam EAN bo'lib, unda hech qanday sana yo'q.",
+      "faq3a": "Kodni dekodlang va uning L'Oréal formatiga umuman mos kelishini ko'ring - yil harfi bo'lmagan kod yoki imkonsiz sanani bitta dekodlash haqiqiy ogohlantirish belgisidir. Ammo nusxa ko'chirilgan kod aniq dekodlanadi, shuning uchun bu test soxtalikni aniqlay oladi va haqiqiyni tasdiqlay olmaydi. Paketdagi kichik matnning bosib chiqarish sifatini solishtiring va vakolatli sotuvchidan xarid qiling.",
+      "faq3q": "L'Oréal mahsulotining haqiqiyligini qanday tekshirish mumkin?"
+    },
+    "mac-cosmetics": {
+      "where3": "Poydevor idishlari: poydevorda yoki yorliq orqa tomonga o'ralgan joyda.",
+      "where1": "Lip bo'yog'i: o'q qutisining tekis poydevoriga muhrlangan. O'qni to'liq pastga burang, shunda quti tekis o'tiradi.",
+      "where2": "Kompaktlar, qizarib ketishlar va palitralar: korpusning orqa tomonida - va metall panga bosilgan ba'zi mahsulotlarda, faqat kukun tugaganidan keyin ko'rinadi.",
+      "faq2q": "MAC ommaviy kodi nimaga o'xshaydi?",
+      "faq3q": "MAC lab bo'yog'imning haqiqiyligini qanday aniqlash mumkin?",
+      "faq1a": "MAC yaroqlilik muddatini chop etmaydi - deyarli hech qanday bo'yanish bo'lmaydi. U zavod, oy va yilni ko'rsatadigan uch belgidan iborat partiya kodini chop etadi. Ishlab chiqarilgan sanani dekodlang, so'ngra ochiq banka belgisini qo'llang: suyuq poydevor odatda ochilgandan keyin 6-12 oy va ochilmaganda taxminan 36 oy davom etadi. Oldinroq muddat g'alaba qozonadi.",
+      "faq1q": "MAC poydevorining amal qilish muddatini qanday tekshirish mumkin?",
+      "faq3a": "Kod uch yoki to'rtta belgidan iborat bo'lishi va maqbul sanaga dekodlanishi kerak; bu shaklga mos kelmaydigan kod ogohlantirishdir. Ammo nusxa ko'chirilgan kod juda yaxshi dekodlanadi, shuning uchun ishning og'irligini, yopilishini bosish va kichik matnning chop etilishini baholang - va vakolatli hisoblagichdan sotib oling.",
+      "faq2a": "B23 kabi uchta belgi. MAC Estée Lauder guruhiga tegishli, shuning uchun oxirgi belgi yil raqami va o'rtadagi belgi oydir - bu erda A, B va C oktyabr, noyabr va dekabrni bildiradi."
+    },
+    "maybelline": {
+      "where1": "Maskara: trubaning tagida yoki yorliq o'ralgan joyda vertikal ravishda bosilgan.",
+      "faq1q": "Mening Maybelline maskaram necha yoshda?",
+      "where3": "Palitralar va kompaktlar: korpusning orqa tomonida.",
+      "faq2q": "Maybelline mahsulotlarida partiya kodi qayerda?",
+      "where2": "Poydevor idishlari: taglikda yoki orqa yorliqda.",
+      "faq2a": "Naycha yoki shisha tagida yoki palitraning orqasida. Bu qisqa tartibsiz kod - uzun shtrix kod raqami emas.",
+      "faq1a": "Bazadagi kodni dekodlash — Maybelline L'Oréal formatidan foydalanadi, bunda birinchi harf yil, keyingi belgi esa oydir. Ammo maskara uchun ishlab chiqarish sanasi kamdan-kam hollarda bog'lanadi: trubkani ochgan kundan boshlanadigan uch oydan olti oygacha bo'lgan soat deyarli har doim birinchi bo'lib tugaydi."
+    },
+    "montblanc": {
+      "where1": "Qutining tagida va shishaning pastki qismida - oq tayanch stikerida qora rangda bosilgan.",
+      "where2": "Montblanc kodlari lupasiz o'qilishi oson bo'lgan xushbo'y kodlar qatoriga kiradi.",
+      "faq3q": "Oxirgi uchta raqam g'alati sanani keltirib chiqaradi.",
+      "faq1q": "Montblanc afsonasini uning kodi bo'yicha qanday tekshirish mumkin?",
+      "faq2q": "Men qidira oladigan seriya raqami bormi?",
+      "faq2a": "Yo'q. Partiya kodi alohida shishani emas, ishlab chiqarish jarayonini belgilaydi va uni qidirish uchun umumiy ma'lumotlar bazasi mavjud emas. U sizga sanani beradi - bu foydali qismdir.",
+      "faq1a": "Montblanc xushbo'yligi Inter Parfums litsenziyasi ostida ishlab chiqariladi. Koddagi birinchi harf ishlab chiqarish yili bo'lib, I va O ni o'tkazib yuboradigan tsiklda - J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 - va oxirgi uchta raqam o'sha yilning kuni.",
+      "faq3a": "Inter Parfums kodlarining ozchiligida bu raqamlar bir kun emas, balki zavod qatoridir. Agar sana shisha uchun aql bovar qilmaydigan bo'lsa, yil xatiga ishoning va kunni taxminiy deb hisoblang."
+    },
+    "nivea": {
+      "where1": "Naychalar (qo'l kremi, yuzni yuvish): burama ichiga muhrlangan - qopqoq qarshisidagi tekis muhrlangan uchi.",
+      "where3": "Shishalar va quyoshni parvarish qilish: orqa yorliqda yoki shishaning yelkasida siyohli bosilgan.",
+      "faq3q": "Mening NIVEA qutimda hech qanday kod ko'rinmaydi.",
+      "where2": "Klassik ko'k krem ​​qalay: metall taglikka bosilgan, siyohsiz. Uni yorug'lik ostida egib oling; to'g'ridan-to'g'ri yorug'lik uni yo'q qiladi.",
+      "faq2q": "NIVEA quyosh kremining yaroqlilik muddati bormi?",
+      "faq1q": "NIVEA mahsulotlarida ishlab chiqarilgan sanani qanday topish mumkin?",
+      "faq3a": "U bosma emas, balki metall asosga bo'rttiriladi, bu uni to'g'ridan-to'g'ri yorug'lik ostida deyarli ko'rinmas qiladi. Qopni ushlab turing, shunda chiroq yon tomondan poydevorni ushlab turadi va belgilar paydo bo'ladi.",
+      "faq1a": "NIVEA (Beiersdorf) kun emas, balki ishlab chiqarish haftasini kodlaydi. Kodning birinchi raqami yilning oxirgi raqami, keyingi ikkitasi esa hafta raqamidir — shuning uchun 815 dan boshlangan kod 8 bilan tugaydigan yilning 15-haftasidir. Bu uni yetti kun ichida joylashtiradi, bu tana losoni uchun yetarli.",
+      "faq2a": "Quyoshdan himoyalanish odatda chop etilgan yaroqlilik muddatiga ega, chunki SPF da'vosi xavfsizlik talabi sifatida ko'rib chiqiladi. Kod dekodlangan hisobdan ko'ra chop etilgan sanadan foydalaning va yozni issiq mashinada o'tkazgan shishani sana nima bo'lishidan qat'i nazar, tugagan deb hisoblang."
+    },
+    "paco-rabanne": {
+      "where1": "Qutining pastki qismida va shishaning pastki qismida. Og'irroq idishlarda - 1 Million ingot, Invictus kubogi - kod ko'pincha stikerga emas, balki metall yoki shishaga muhrlanadi.",
+      "where2": "Shishani egib qo'ying, shunda yorug'lik muhrni yon tomondan ushlab turadi; to'g'ridan-to'g'ri yorug'lik uni yo'q qiladi.",
+      "faq2q": "Kod mening Paco Rabanne haqiqiyligini isbotlay oladimi?",
+      "faq3q": "Rabanne Paco Rabanne bilan bir xil brendmi?",
+      "faq3a": "Ha — 2023-yilda uy oʻz nomidan “Paco” soʻzini olib tashladi. Eski aksiyalar avvalgi brendingga ega va kod formati oʻzgarmagan.",
+      "faq1q": "Invictus yoki 1 Million partiya kodini qanday dekodlashim mumkin?",
+      "faq2a": "U soxta narsani ushlay oladi va haqiqiyni tasdiqlay olmaydi. Paco Rabanne Yevropadagi eng soxta atirlar qatoriga kiradi: mumkin bo'lmagan kun raqami yoki quti va shisha o'rtasida kelishmovchilik bo'lgan kodlar kuchli ogohlantirishdir - lekin haqiqiy shishadan ko'chirilgan kod juda yaxshi dekodlanadi. Shishani torting va püskürtme naqshini ham tekshiring.",
+      "faq1a": "Paco Rabanne Puig tomonidan ishlab chiqarilgan bo'lib, u ishlab chiqarish sanasini shifrlash o'rniga kodda chop etadi. Odatiy shakl - to'rtta raqam: birinchisi - yilning oxirgi raqami, qolgan uchtasi - o'sha yilning kuni - shuning uchun 4135 - 2024 yilning 135-kuni, 2024 yil 14-may."
+    },
+    "redken": {
+      "where1": "Shishalar: orqa yorlig'ida yoki shisha tagida siyohli bosilgan.",
+      "where2": "Kukunlar va aerozollar: banka asosiga muhrlangan.",
+      "faq2q": "Shtrix-kod menga saqlash muddatini aytadimi?",
+      "faq1q": "Redken mahsulotining yaroqlilik muddatini qanday tekshirish mumkin?",
+      "faq1a": "Redken L'Oréal brendidir va guruh formatidan foydalanadi — birinchi harf ishlab chiqarilgan yil, undan keyingi belgi esa oy. Sochni parvarish qilish odatda 36 oy ochilmagan va ochilgandan keyin 12 oy davomida yaxshi bo'ladi.",
+      "faq2a": "Yoʻq. Shtrix-kod EAN — sotiladigan mahsulotni aniqlaydi va har bir shishada bir xil boʻladi. Faqat partiya kodi, qisqa tartibsiz shtampda sana ko'rsatilgan."
+    },
+    "roberto-cavalli": {
+      "where1": "Qutining pastki qismida va shisha tagida - bosilgan yoki shishaga muhrlangan og'irroq flakonlarda.",
+      "faq1q": "Roberto Kavalli parfyumining haqiqiyligini qanday tekshirish mumkin?",
+      "where2": "To'rtta raqamdan iborat qisqa kodni qidiring; shtrix-kod chiziqlari ostidagi uzunroq raqam bu emas.",
+      "faq2q": "Roberto Kavalli shishasining seriya raqami qayerda?",
+      "faq2a": "Har bir shisha uchun noyob seriya ma'nosida bittasi yo'q. Chop etilgan narsa paketli kod bo'lib, u bir xil ishlab chiqarishdagi har bir birlik tomonidan taqsimlanadi va u identifikatsiyani emas, sanani kodlaydi.",
+      "faq1a": "Cavalli xushbo'yligi Coty tomonidan ishlab chiqarilgan, shuning uchun kod to'rt xonali ishlab chiqarish sanasi - yil raqami va yil kuni. Avval qutidagi kodni shishadagi kod bilan solishtiring: mos kelmaslik xaridor uchun mavjud bo'lgan yagona kuchli signaldir. Keyin uni dekodlash; imkonsiz kun aniq soxta. Toza dekodlanadigan kod haqiqiyligini tasdiqlamaydi - ko'chirilgan kodlar ham dekodlanadi."
+    },
+    "tom-ford-beauty": {
+      "faq1q": "Tom Ford ommaviy kodini qanday tekshirish mumkin?",
+      "where1": "Xushbo'y hid: qutining tagida va shishaning pastki tomonida chizilgan yoki bosilgan.",
+      "where2": "Poydevor va ko'zoynak palitralari: ixcham yoki shisha tagida muhrlangan.",
+      "faq2q": "Tom Ford ko'zoynak palitrasi bilan qanday tanishish mumkin?",
+      "faq3q": "Partiya kodi haqiqiyligini tasdiqlaydimi?",
+      "faq3a": "Yo'q. U qo'pol soxta ma'lumotni fosh qilishi mumkin - bu formatga mos kelmaydigan kod yoki imkonsiz oyga dekodlanadi - lekin ko'chirilgan kod toza dekodlanadi. Tom Ford xushbo'yligi juda soxtalashtirilgan; shishani torting, atomizator spreyini tekshiring va vakolatli sotuvchidan sotib oling.",
+      "faq2a": "Kod kompakt bazasida. Uni ishlab chiqarilgan sana uchun dekodlash; siqilgan kukun ochilgandan keyin taxminan 24 oy davomida yaxshi bo'ladi va ochilmaganda ancha uzoqroq bo'ladi, chunki quruq formulalar bakteriyalarning o'sishi uchun deyarli hech narsa bermaydi.",
+      "faq1a": "Tom Ford Beauty Estée Lauder guruhi tomonidan ishlab chiqarilgan, shuning uchun u guruhning uch belgidan iborat kodidan foydalanadi: o'simlik, oy, yil - o'ngdan o'qing. Oy 1-9 yanvardan sentyabrgacha, keyin A, B va C oktyabrdan dekabrgacha."
+    },
+    "too-faced": {
+      "where1": "Palitralar va ixchamlar: ishning orqa tomonida, ba'zan plastik laganda ostida.",
+      "faq2q": "Mening Too Faced kodim dekodlanmaydi.",
+      "faq1q": "Too Faced palitrasining ommaviy kodini qanday tekshirish mumkin?",
+      "faq2a": "Too Faced qadoqdagi ba'zi kodlar sana kodlari emas, ichki chiziq belgilaridir va ularda dekodlash uchun hech narsa yo'q. G'ilofning tagini va orqa tomonini ikkinchi, qisqaroq kodni tekshiring - agar u bo'lmasa, ochiq banka belgisi sizning eng yaxshi qo'llanmangizdir.",
+      "where2": "Suyuq mahsulotlar: shisha tagida yoki trubka qisqichida.",
+      "faq1a": "Too Faced Estée Lauder guruhiga tegishli, shuning uchun kod uchta belgidan iborat - o'simlik, oy, yil - o'ngdan o'qiladi. Agar palitrangizdagi kod ushbu shaklga mos kelmasa, bu partiya kodi emas, balki zavod chizig'i belgisi bo'lishi mumkin."
+    },
+    "vichy": {
+      "where1": "Quvurlar va Capital Soleil quyoshdan himoya qiluvchi krem: burmaga bosilgan - qopqoq qarshisidagi tekis muhrlangan uchi.",
+      "where3": "Kartonlar: so'nggi qopqoqda, odatda ochiq banka belgisi yonida. Namunalar va paketlar ko'pincha kodni o'z ichiga olmaydi - faqat ular kelgan karton.",
+      "where2": "Shishalar va nasoslar (Mineral 89, Liftactiv): asosda yoki shtrix-kod yaqinidagi orqa yorliqda siyohli bosilgan.",
+      "faq1q": "Vichy mahsulotlarining yaroqlilik muddati qayerda?",
+      "faq2a": "Vichy L'Oréal tomonidan ishlab chiqarilgan va guruh formatidan foydalanadi. Koddagi birinchi harfni toping: ya'ni ishlab chiqarish yili, V ni o'tkazib yuboradigan tsiklda, shuning uchun U = 2021, V = 2022, X = 2023, Y = 2024, Z = 2025. Undan keyingi belgi to'g'ridan-to'g'ri oy - yanvardan sentyabrgacha 1 dan 9 gacha, keyin oktyabr, noyabr va dekabr uchun O, N va D. Bu O nol emas, O harfi.",
+      "faq1a": "Vichy mahsulotlarining aksariyati chop etilmaydi. Dorixona liniyalari ko'pincha haqiqiy yaroqlilik muddatini o'z ichiga oladi va u mavjud bo'lgan joyda u har qanday dekodlangan smetadan ustun keladi - lekin agar siz qisqa kodni topishingiz mumkin bo'lsa, bu partiya kodi va unda yaroqlilik muddati emas, balki ishlab chiqarish sanasi mavjud. Uni dekodlang, so'ngra saqlash muddatini qo'shing: terini parvarish qilish uchun ochilmagan taxminan 36 oy va ochilgandan so'ng ochiq banka belgisiga amal qiling.",
+      "faq2q": "Vichy mahsulotidagi kodni qanday o'qiyman?",
+      "faq3q": "Kod mening Vichyimning haqiqiyligini isbotlay oladimi?",
+      "faq4q": "Capital Soleil quyosh kremi muddati tugaydimi?",
+      "faq3a": "Faqat qisman. L'Oréal shakliga to'g'ri kelmaydigan yoki mahsulot qatori mavjud bo'lgunga qadar sanaga dekodlangan kod haqiqiy ogohlantirishdir. Ammo haqiqiy trubadan kodni nusxa ko‘chiruvchi soxtakor mukammal dekodlovchi kodni ishlab chiqaradi – shuning uchun toza dekodlash kremni emas, balki kodning yaxshi shakllanganligini isbotlaydi. Dorixona terisini parvarish qilish uchun dorixonadan sotib olish kuchliroq himoya bo'lib qoladi.",
+      "faq4a": "Ha, va bu assortimentdagi hamma narsadan ko'ra muhimroqdir: buzilgan UV filtrlari ko'proq nurlanishni ta'minlaydi, shuning uchun eskirgan SPF 50 SPF 50 ni bermaydi. Quyoshdan himoyalovchi krem ​​odatda aynan shu sababga ko'ra amal qilish muddatini ko'rsatadi - undan foydalaning. Va yozni issiq mashinada o'tkazgan shishani sanadan qat'i nazar, tugagan deb hisoblang."
+    },
+    "ysl-beauty": {
+      "where2": "Xushbo'y hid: qutining tagida va shishaning pastki qismida.",
+      "where1": "Lip bo'yog'i va bo'yanish: korpusning tagida yoki ixchamning orqa tomonida muhrlangan.",
+      "faq1a": "YSL Beauty L'Oréal tomonidan ishlab chiqarilgan, shuning uchun u guruh kodini o'z ichiga oladi: zavod raqamlari, yil harfi, keyin bir oy belgisi. Tekshirgichda YSL Beauty ni tanlang va vosita L'Oréal qoidasini qo'llaydi.",
+      "faq2q": "Nega mening YSL kodim Maybelline kodiga o'xshaydi?",
+      "faq1q": "Yves Saint Laurent partiya kodini qanday tekshirish mumkin?",
+      "faq2a": "Chunki bir kompaniya ikkalasini ham ishlab chiqaradi. Format narxga emas, zavodga mos keladi — YSL lab bo'yog'i va Maybelline maskara L'Oréal liniyalaridan chiqadi va bir xil kod uslubiga ega."
+    },
+    "zara": {
+      "where1": "Xushbo'y hid qutisining pastki qopqog'ida va shisha tagida.",
+      "where2": "Go'zallik diapazoni uni korpusning pastki qismiga yoki trubaning burmasiga bosib chiqaradi.",
+      "faq1a": "Qoidaga ko'ra, bosma emas - ko'pgina xushbo'y hidlar kabi, uning o'rniga partiya kodini olib yuradi. Uni ishlab chiqarilgan sana uchun dekodlang va ochilmagan 3-5 yil xizmat qilish muddatini hisoblang, bu yorug'lik va issiqlikdan uzoqda saqlanadigan tualet suvi uchun odatiy holdir.",
+      "faq1q": "Zara parfyumining yaroqlilik muddati bormi?",
+      "faq2q": "Zara parfyumini kim ishlab chiqaradi?",
+      "faq2a": "Puig Zara parfyumeriya liniyasini ishlab chiqaradi, shuning uchun kodlar Puig formatiga mos keladi - va nima uchun bir nechta Zara hidlari Puig ishlab chiqaradigan dizaynerlik parfyumlari bilan taqqoslashni taklif qiladi."
+    }
+  },
+  "contentPages": {
+    "updated": "Yangilangan {date}",
+    "minRead": "{n} daqiqa o'qish",
+    "faq": "TSS",
+    "characters": "Belgilar",
+    "encodes": "Ular nimani kodlaydilar",
+    "readNext": "Keyingisini oʻqing",
+    "anatomy": "Kod anatomiyasi",
+    "moreGuides": "Ko'proq qo'llanmalar",
+    "workedExamples": "Ishlagan misollar",
+    "brandsUsing": "Ushbu koddan foydalanadigan brendlar ({count})",
+    "checkBrand": "Brendning ommaviy kodini tekshiring",
+    "doesNotDecode": "dekodlamaydi",
+    "confidence": "{level} ishonch",
+    "otherFormats": "Boshqa kod formatlari",
+    "formatsTitle": "Ommaviy kod formatlari",
+    "whichCode": "Paketdagi qaysi kod ommaviy kod ekanligini bilmayapsizmi?",
+    "workedExamplesNote": "Tekshirgichni quvvatlaydigan bir xil dvigatel tomonidan jonli ravishda dekodlangan - qo'lda transkripsiya qilinmaydi.",
+    "brandsUsingNote": "Format shishadagi yorliq emas, ishlab chiqaruvchiga tegishli - quyida joylashgan har bir brend bir xil o'simliklar tomonidan muhrlangan va xuddi shunday o'qiydi.",
+    "formatsIntro2": "Quyidagi har bir sahifa bitta oilani hujjatlashtiradi: har bir belgi nimani kodlashi, tekshirgichni quvvatlaydigan bir xil dvigatel tomonidan dekodlangan haqiqiy kodlar, kod paketda chop etilgan joy va eng muhimi, format sizga nima aytolmaydi.",
+    "formatsIntro": "Partiya kodining formati shishadagi nomga emas, balki mahsulotni kim ishlab chiqarganiga tegishli. Koti Rimmel, Gucci va Adidas-da bir xil to'rtta raqamni muhrlaydi; Inter Parfums Montblanc, Coach va Jimmy Choo-da bir xil to'qqizta belgini muhrlaydi. Shifrni bir marta o'rganing va uni baham ko'radigan har bir brendni o'qishingiz mumkin.",
+    "brandCount": "brendlar"
   }
 }

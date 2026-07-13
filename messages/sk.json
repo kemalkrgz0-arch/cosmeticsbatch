@@ -59,8 +59,8 @@
   },
   "brandPage": {
     "metaTitle": "{name} dekodér a kontrola dávkového kódu – dátum výroby a exspirácie",
-    "blurb": "Dekódujte kódy šarží {name}, aby ste našli dátum výroby, vek a dátum exspirácie vašich produktov {category}. Bezplatné, okamžité a súkromné.",
-    "metaDescription": "Bezplatný dekodér dávkového kódu {name}. Skontrolujte dátum výroby, vek produktu a dátum vypršania platnosti vašich produktov {name} v priebehu niekoľkých sekúnd – bez registrácie.",
+    "blurb": "Dekódujte kódy šarží {name} , aby ste našli dátum výroby, vek a dátum exspirácie vašich produktov {category} . Bezplatné, okamžité a súkromné.",
+    "metaDescription": "Bezplatný dekodér dávkového kódu {name} . Skontrolujte dátum výroby, vek produktu a dátum vypršania platnosti vašich produktov {name} v priebehu niekoľkých sekúnd – bez registrácie.",
     "howHeading": "Ako fungujú dávkové kódy {name}",
     "checkerTitle": "{name} Kontrola dávkového kódu",
     "factManufacturer": "Výrobca",
@@ -72,13 +72,13 @@
     "helpfulGuides": "Užitoční sprievodcovia",
     "intro": "Zadajte kód šarže {name} nižšie, aby ste okamžite dekódovali dátum výroby, vek produktu a odhadovaný dátum vypršania platnosti – bezplatné a súkromné.",
     "months": "{n} mesiacov",
-    "freshnessPara": "Keď si prečítame dátum výroby, odhadneme čerstvosť pomocou {name}typickej {shelf}-mesačnej trvanlivosti produktov {category}. Pamätajte, že obdobie po otvorení (asi {pao} mesiacov) sa stane limitom, keď začnete produkt používať.",
+    "freshnessPara": "Keď si prečítame dátum výroby, odhadneme čerstvosť pomocou {name}typickej {shelf}-mesačnej trvanlivosti produktov {category} . Pamätajte, že obdobie po otvorení (asi {pao} mesiacov) sa stane limitom, keď začnete produkt používať.",
     "by": "od {group}",
-    "faqTitle": "{name}— často kladené otázky",
-    "aliasesPara": "Niekedy uvidíte tento nástroj nazývaný dekodér dávkového kódu {name}, kontrola dávkového kódu {name} alebo kalkulačka dávkového kódu {name}– všetky robia to isté: prečítajte si produkčný kód a povedia vám, aký čerstvý je váš {name} {category}.",
+    "faqTitle": "{name} — často kladené otázky",
+    "aliasesPara": "Niekedy uvidíte tento nástroj nazývaný dekodér dávkového kódu {name} , kontrola dávkového kódu {name} alebo kalkulačka dávkového kódu {name} – všetky robia to isté: prečítajte si produkčný kód a povedia vám, aký čerstvý je váš {name} {category} .",
     "printsDateNote": "{name} tlačí dátum výroby alebo spotreby priamo na obal, takže zvyčajne nepotrebujete kód šarže.",
-    "exampleHeading": "Skutočný kód{name}, dekódovaný",
-    "whereHeading": "Kde nájsť kód na obale{name}"
+    "exampleHeading": "Skutočný kód {name} , dekódovaný",
+    "whereHeading": "Kde nájsť kód na obale {name}"
   },
   "categoryNoun": {
     "skincare": "starostlivosť o pleť",
@@ -102,24 +102,24 @@
     "haircare": "Uchovávajte fľaše uzavreté a mimo dosahu priameho tepla zo sprchy a pary, keď sa nepoužívajú, a skladujte ich na chladnom a suchom mieste. Voda, ktorá zostane vo vnútri čerpadiel alebo uzáverov, môže časom podporiť tvorbu plesní."
   },
   "brandFaq": {
-    "q_where": "Kde je kód šarže na produktoch {name}?",
+    "q_where": "Kde je kód šarže na produktoch {name} ?",
     "a_barcode": "Čiarový kód je dlhé pruhované číslo EAN/UPC používané pri pokladni a je rovnaké pre každú jednotku produktu. Kód šarže {name} je krátky výrobný kód, ktorý sa mení s každou výrobnou sériou a kóduje, kedy bola položka vyrobená – to je ten, ktorý tento nástroj dekóduje.",
     "q_barcode": "Aký je rozdiel medzi kódom šarže {name} a čiarovým kódom?",
     "a_where": "Vyhľadajte krátky vyrazený, vyrazený alebo atramentový kód – zvyčajne na dne fľaše alebo pohára, záhybe na konci tuby alebo na dne alebo chlopni škatule. Na {name} {noun} je oddelený od čiarového kódu a zvyčajne obsahuje 3–8 znakov písmen a číslic.",
     "q_pao": "Ako dlho vydrží {name} po otvorení (PAO)?",
-    "q_unopened": "Ako dlho vydržia neotvorené produkty {name}?",
+    "q_unopened": "Ako dlho vydržia neotvorené produkty {name} ?",
     "q_expired": "Ako zistím, že platnosť môjho produktu {name} vypršala?",
     "a_expired": "Zadajte kód šarže {name} vyššie, aby ste získali dátum výroby, a potom ho porovnajte s typickou {shelf}-mesačnou dobou použiteľnosti bez otvorenia. Ak uplynulo viac času – alebo viac ako približne {pao} mesiacov od jeho otvorenia – zaobchádzajte s produktom ako s expirovaným, najmä ak sa zmenila textúra, farba alebo vôňa.",
-    "a_pao": "Po otvorení by sa mal {name} {noun} vo všeobecnosti použiť do približne {pao} mesiacov – toto je Obdobie po otvorení, ktoré sa zobrazuje ako symbol otvoreného pohára (napr.{pao}M) na obale. Po otvorení produktu sa PAO stane limitom, aj keď je samotná šarža ešte čerstvá.",
-    "q_paoSymbol": "Čo znamená symbol otvoreného pohára (PAO) na {name}?",
+    "a_pao": "Po otvorení by sa mal {name} {noun} vo všeobecnosti použiť do približne {pao} mesiacov – toto je Obdobie po otvorení, ktoré sa zobrazuje ako symbol otvoreného pohára (napr. {pao} M) na obale. Po otvorení produktu sa PAO stane limitom, aj keď je samotná šarža ešte čerstvá.",
+    "q_paoSymbol": "Čo znamená symbol otvoreného pohára (PAO) na {name} ?",
     "a_paoSymbol": "Malá ikona otvoreného pohára s číslom a \"M\" (pre mesiace) je Obdobie po otvorení. Pre väčšinu {name} {noun} je to okolo {pao}M, čo znamená zhruba {pao} mesiacov bezpečného používania odo dňa, keď ho prvýkrát otvoríte. Kód šarže vám povie, aké čerstvé bolo pred otvorením; PAO vám povie, ako dlho to trvá.",
-    "a_unopened": "Neotvorený {name} {noun} zvyčajne vydrží v poriadku približne {shelf} mesiacov od dátumu výroby, ak je správne skladovaný. Toto je odhad odvetvia –{name} na väčšine položiek netlačí pevný dátum vypršania platnosti, a preto je dôležitý kód šarže.",
+    "a_unopened": "Neotvorený {name} {noun} zvyčajne vydrží v poriadku približne {shelf} mesiacov od dátumu výroby, ak je správne skladovaný. Toto je odhad odvetvia – {name} na väčšine položiek netlačí pevný dátum vypršania platnosti, a preto je dôležitý kód šarže.",
     "q_afterExpiry": "Môžem používať {name} aj po dátume exspirácie?",
-    "q_accuracy": "Aký presný je tento dekodér dávkového kódu {name}?",
+    "q_accuracy": "Aký presný je tento dekodér dávkového kódu {name} ?",
     "q_fake": "Môže mi kód šarže povedať, či je môj {name} falošný?",
-    "a_fake": "Dekodér šaržového kódu číta dátum výroby – sám o sebe nemôže dokázať, že výrobok je pravý. Ale kód {name}, ktorý sa nedá dekódovať, alebo dátum, ktorý sa nezhoduje s tým, kedy alebo kde ste ho kúpili, môže byť varovaním. Pre pravosť skontrolujte aj obal, pečate a písmo a nakupujte u autorizovaných predajcov {group}.",
+    "a_fake": "Dekodér šaržového kódu číta dátum výroby – sám o sebe nemôže dokázať, že výrobok je pravý. Ale kód {name} , ktorý sa nedá dekódovať, alebo dátum, ktorý sa nezhoduje s tým, kedy alebo kde ste ho kúpili, môže byť varovaním. Pre pravosť skontrolujte aj obal, pečate a písmo a nakupujte u autorizovaných predajcov {group} .",
     "a_accuracy": "Dátum výroby čítame pomocou {decoder}. Ak {group} publikuje známu kódovú schému, výsledok je presný na mesiac alebo deň; tam, kde značka nepotvrdzuje verejnú schému, ide o najlepší odhad. Dátum je dátum výroby, nie zaručená doba použiteľnosti – údaje o skladovateľnosti sú typické priemyselné priemery.",
-    "q_store": "Ako mám uchovávať {name} {noun}, aby zostal čerstvý?",
+    "q_store": "Ako mám uchovávať {name} {noun} , aby zostal čerstvý?",
     "decoderKnown": "kódová schéma špecifická pre výrobcu",
     "decoderAuto": "automatická detekcia dátumu",
     "a_afterExpiry": "Používanie {name} {noun} krátko po odhadovanom dátume je zvyčajne skôr problémom kozmetickej kvality než bezpečnosti – aktívne látky strácajú účinnosť, textúry sa oddeľujú a vône miznú. Prestaňte ho používať, ak spozorujete zmenu vône, farby alebo konzistencie, a nikdy nepoužívajte prípravky na oči alebo pery, ktoré sú staré, pretože riziko baktérií je vyššie.",
@@ -172,7 +172,7 @@
     "invalidBody": "„{code}“ sa nezhoduje s formátom dávkového kódu {brand}. Skontrolujte, či ste ho napísali presne tak, ako je vytlačené na obale – iba písmená a čísla, žiadne medzery – a či ide o kód šarže, nie čiarový kód alebo cenovú/marketingovú referenciu.",
     "shareCopied": "Skopírované!",
     "share": "Zdieľajte výsledok",
-    "shareMade": "vyrobené{date}",
+    "shareMade": "vyrobené {date}",
     "shareTitle": "výsledok dávkového kódu{name}",
     "meaningTitle": "čo to znamená?",
     "addToCalendar": "Pridajte do kalendára expiráciu",
@@ -182,7 +182,7 @@
     "meaningUnknown": "Nemohli sme odhadnúť aktuálnosť tohto kódu.",
     "meaningExpired": "Čas použiteľnosti tohto produktu uplynul a už nemusí mať najlepšiu kvalitu.",
     "meaningFresh": "Tento produkt je čerstvý a v rámci svojej trvanlivosti.",
-    "calendarTitle": "{name}— nahraďte týmto dátumom"
+    "calendarTitle": "{name} — nahraďte týmto dátumom"
   },
   "howItWorks": {
     "title": "Ako to funguje",
@@ -223,7 +223,7 @@
       "lipstick": "Kód šarže zvýraznený na podklade rúžu",
       "perfume": "Kód šarže zvýraznený na škatuľke parfumu"
     },
-    "cardCta": "Kde nájsť kód šarže na{type}– prečítajte si príručku",
+    "cardCta": "Kde nájsť kód šarže na {type} – prečítajte si príručku",
     "viewGuide": "Prečítajte si celý návod"
   },
   "brandDetail": {
@@ -543,5 +543,28 @@
       "faq1q": "Má parfém Zara dátum spotreby?",
       "faq2q": "Kto vlastne vyrába parfum Zara?"
     }
+  },
+  "contentPages": {
+    "faq": "FAQ",
+    "moreGuides": "Viac sprievodcov",
+    "characters": "Postavy",
+    "anatomy": "Anatómia kódu",
+    "encodes": "Čo kódujú",
+    "minRead": "prečítané{n} min",
+    "readNext": "Čítajte ďalej",
+    "updated": "Aktualizované {date}",
+    "checkBrand": "Skontrolujte kód šarže značky",
+    "brandsUsing": "Značky, ktoré používajú tento kód ({count})",
+    "workedExamples": "Spracované príklady",
+    "doesNotDecode": "nedekóduje",
+    "confidence": "{level} sebavedomie",
+    "formatsTitle": "Formáty dávkového kódu",
+    "workedExamplesNote": "Dekódované naživo tým istým motorom, ktorý poháňa kontrolku – neprepísané ručne.",
+    "brandsUsingNote": "Formát patrí výrobcovi, nie štítok na fľaši – každá značka nižšie je vyrazená rovnakými závodmi a číta sa rovnakým spôsobom.",
+    "otherFormats": "Iné formáty kódov",
+    "whichCode": "Nie ste si istí, ktorý kód na balení je kód šarže?",
+    "formatsIntro": "Formát kódu šarže patrí tomu, kto vyrába produkt, nie názvu na fľaši. Coty razí rovnaké štvorčíslie na Rimmel, Gucci a adidas; Inter Parfums vytlačí rovnakých deväť postáv na Montblanc, Coach a Jimmy Choo. Naučte sa šifru raz a môžete si prečítať každú značku, ktorá ju zdieľa.",
+    "formatsIntro2": "Každá nižšie uvedená stránka dokumentuje jednu rodinu: čo každý znak zakóduje, skutočné kódy dekódované tým istým motorom, ktorý poháňa kontrolu, kde je kód vytlačený na obale, a čo je rovnako dôležité, čo vám formát nemôže povedať.",
+    "brandCount": "značky"
   }
 }

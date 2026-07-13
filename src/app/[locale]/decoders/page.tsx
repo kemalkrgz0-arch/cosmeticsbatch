@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { DECODER_GUIDES, brandsForGuide } from "@/lib/decoder-guides";
+import { contentTranslator, localizeDecoderGuide } from "@/lib/content-i18n";
 import { breadcrumbSchema, pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
@@ -29,16 +30,19 @@ export default async function DecodersIndexPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await contentTranslator(locale);
+  const tc = await getTranslations("contentPages");
+  const nav = await getTranslations("nav");
 
   const crumbs = [
-    { name: "Home", path: "/" },
-    { name: "Code formats", path: "/decoders" },
+    { name: nav("home"), path: "/" },
+    { name: nav("codeFormats"), path: "/decoders" },
   ];
 
   // Biggest families first: the pages that answer the most people's question.
-  const guides = [...DECODER_GUIDES].sort(
-    (a, z) => brandsForGuide(z).length - brandsForGuide(a).length,
-  );
+  const guides = [...DECODER_GUIDES]
+    .sort((a, z) => brandsForGuide(z).length - brandsForGuide(a).length)
+    .map((g) => localizeDecoderGuide(g, t));
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
@@ -46,20 +50,13 @@ export default async function DecodersIndexPage({
       <Breadcrumbs items={crumbs} />
 
       <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-        Batch code formats
+        {tc("formatsTitle")}
       </h1>
       <p className="mt-3 text-lg leading-relaxed text-fg-muted">
-        A batch code&apos;s format belongs to whoever manufactures the product,
-        not to the name on the bottle. Coty stamps the same four digits on
-        Rimmel, Gucci and adidas; Inter Parfums stamps the same nine characters
-        on Montblanc, Coach and Jimmy Choo. Learn the cipher once and you can
-        read every brand that shares it.
+        {tc("formatsIntro")}
       </p>
       <p className="mt-4 leading-relaxed text-fg-muted">
-        Each page below documents one family: what every character encodes, real
-        codes decoded by the same engine that powers the checker, where the code
-        is printed on the pack, and — just as importantly — what the format
-        cannot tell you.
+        {tc("formatsIntro2")}
       </p>
 
       <ul className="mt-10 space-y-4">
@@ -86,10 +83,10 @@ export default async function DecodersIndexPage({
                   </code>
                   {count > 0 && (
                     <span>
-                      {count} brand{count === 1 ? "" : "s"}
+                      {count} {tc("brandCount")}
                     </span>
                   )}
-                  <span>{g.readMinutes} min read</span>
+                  <span>{tc("minRead", { n: g.readMinutes })}</span>
                 </p>
               </Link>
             </li>

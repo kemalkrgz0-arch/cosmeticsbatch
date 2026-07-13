@@ -60,7 +60,7 @@
   "brandPage": {
     "checkerTitle": "{name} Controllo codice batch",
     "by": "di {group}",
-    "blurb": "Decodifica i codici batch {name} per trovare la data di produzione, l'età e la data di scadenza dei tuoi prodotti {category}. Gratuito, immediato e privato.",
+    "blurb": "Decodifica i codici batch {name} per trovare la data di produzione, l'età e la data di scadenza dei tuoi prodotti {category} . Gratuito, immediato e privato.",
     "metaDescription": "Decoder codice batch {name} gratuito. Controlla la data di produzione, l'età del prodotto e la data di scadenza dei tuoi prodotti {name} in pochi secondi, senza registrazione.",
     "metaTitle": "{name} Decodificatore e controllore del codice batch: data di produzione e scadenza",
     "factShelfLife": "Durata di conservazione tipica",
@@ -70,15 +70,15 @@
     "autoDecoder": "Rilevamento automatico della data",
     "relatedBrands": "Marchi correlati",
     "helpfulGuides": "Guide utili",
-    "freshnessPara": "Una volta letta la data di produzione, stimiamo la freschezza utilizzando la durata di conservazione {shelf}tipica di {name}per i prodotti {category}. Ricorda che il periodo successivo all'apertura (circa {pao} mesi) diventa il limite una volta che inizi a utilizzare il prodotto.",
+    "freshnessPara": "Una volta letta la data di produzione, stimiamo la freschezza utilizzando la durata di conservazione {shelf}tipica di {name}per i prodotti {category} . Ricorda che il periodo successivo all'apertura (circa {pao} mesi) diventa il limite una volta che inizi a utilizzare il prodotto.",
     "intro": "Inserisci il tuo codice batch {name} di seguito per decodificare immediatamente la data di produzione, l'età del prodotto e la data di scadenza stimata: in modo gratuito e privato.",
     "months": "{n} mesi",
-    "faqTitle": "{name}: domande frequenti",
-    "aliasesPara": "A volte vedrai questo strumento chiamato decodificatore di codice batch {name}, controllo di codice batch {name} o calcolatore di codice batch {name}: fanno tutti la stessa cosa: leggi il codice di produzione e ti dicono quanto è fresco il tuo {name} {category}.",
+    "faqTitle": "{name} : domande frequenti",
+    "aliasesPara": "A volte vedrai questo strumento chiamato decodificatore di codice batch {name} , controllo di codice batch {name} o calcolatore di codice batch {name} : fanno tutti la stessa cosa: leggi il codice di produzione e ti dicono quanto è fresco il tuo {name} {category} .",
     "howHeading": "Come funzionano i codici batch {name}",
     "printsDateNote": "{name} stampa la data di produzione o scadenza direttamente sulla confezione, quindi di solito non serve un codice lotto.",
-    "whereHeading": "Dove trovare il codice sulla confezione{name}",
-    "exampleHeading": "Un vero codice{name}, decodificato"
+    "whereHeading": "Dove trovare il codice sulla confezione {name}",
+    "exampleHeading": "Un vero codice {name} , decodificato"
   },
   "faqUi": {
     "title": "Domande frequenti",
@@ -106,15 +106,15 @@
     "a_where": "Cerca un codice breve stampato, in rilievo o a getto d'inchiostro, solitamente sulla base della bottiglia o del barattolo, sulla piega all'estremità di un tubo o sul fondo o sul lembo della scatola. Su {name} {noun} è separato dal codice a barre e in genere contiene 3-8 caratteri tra lettere e numeri.",
     "q_unopened": "Quanto durano i prodotti {name} non aperti?",
     "q_expired": "Come faccio a sapere se il mio prodotto {name} è scaduto?",
-    "q_where": "Dov'è il codice batch sui prodotti {name}?",
+    "q_where": "Dov'è il codice batch sui prodotti {name} ?",
     "a_expired": "Inserisci il codice batch {name} qui sopra per ottenere la data di produzione, quindi confrontalo con la tipica durata di conservazione di {shelf}non aperta di un mese. Se è trascorso più tempo - o più di circa {pao} mesi da quando lo hai aperto - tratta il prodotto come scaduto, soprattutto se la consistenza, il colore o l'odore sono cambiati.",
     "a_barcode": "Il codice a barre è il numero EAN/UPC a strisce lunghe utilizzato al momento del pagamento ed è lo stesso per ogni unità di prodotto. Il codice batch {name} è un breve codice di produzione che cambia con ogni ciclo di produzione e codifica il momento in cui l'articolo è stato realizzato: è quello che questo strumento decodifica.",
-    "a_unopened": "Un {name} {noun} non aperto in genere rimane in buone condizioni per circa {shelf} mesi dalla data di produzione se conservato correttamente. Si tratta di una stima del settore:{name} non stampa una data di scadenza fissa sulla maggior parte degli articoli, motivo per cui il codice batch è importante.",
-    "q_paoSymbol": "Cosa significa il simbolo del vaso aperto (PAO) su {name}?",
+    "a_unopened": "Un {name} {noun} non aperto in genere rimane in buone condizioni per circa {shelf} mesi dalla data di produzione se conservato correttamente. Si tratta di una stima del settore: {name} non stampa una data di scadenza fissa sulla maggior parte degli articoli, motivo per cui il codice batch è importante.",
+    "q_paoSymbol": "Cosa significa il simbolo del vaso aperto (PAO) su {name} ?",
     "q_afterExpiry": "Posso ancora utilizzare {name} dopo la data di scadenza?",
     "a_paoSymbol": "La piccola icona del barattolo aperto con un numero e una \"M\" (per mesi) indica il periodo successivo all'apertura. Per la maggior parte di {name} {noun} si tratta di circa {pao}M, il che significa circa {pao} mesi di utilizzo sicuro dal giorno in cui lo apri per la prima volta. Il codice batch ti dice quanto era fresco prima dell'apertura; il PAO ti dice quanto dura dopo.",
     "a_afterExpiry": "L'uso di {name} {noun} poco dopo la data stimata è solitamente un problema di qualità cosmetica piuttosto che di sicurezza: i principi attivi perdono potenza, le texture si separano e le fragranze svaniscono. Smetti di usarlo se noti un cambiamento nell'odore, nel colore o nella consistenza e non usare mai prodotti per occhi o labbra vecchi, poiché il rischio di batteri è maggiore.",
-    "a_pao": "Una volta aperto,{name} {noun} dovrebbe generalmente essere utilizzato entro circa {pao} mesi: questo è il periodo successivo all'apertura, indicato come il simbolo del barattolo aperto (ad esempio {pao}M) sulla confezione. Dopo aver aperto un prodotto, il PAO diventa il limite anche se il lotto stesso è ancora fresco.",
+    "a_pao": "Una volta aperto, {name} {noun} dovrebbe generalmente essere utilizzato entro circa {pao} mesi: questo è il periodo successivo all'apertura, indicato come il simbolo del barattolo aperto (ad esempio {pao} M) sulla confezione. Dopo aver aperto un prodotto, il PAO diventa il limite anche se il lotto stesso è ancora fresco.",
     "q_pao": "Quanto dura {name} dopo l'apertura (PAO)?",
     "q_fake": "Un codice batch può dirmi se il mio {name} è falso?",
     "q_store": "Come dovrei conservare {name} {noun} per mantenerlo fresco?",
@@ -122,7 +122,7 @@
     "decoderKnown": "uno schema di codici specifico del produttore",
     "decoderAuto": "rilevamento automatico della data",
     "a_accuracy": "Leggiamo la data di produzione utilizzando {decoder}. Laddove {group} pubblica uno schema di codice noto, il risultato è preciso al mese o al giorno; laddove il marchio non conferma uno schema pubblico si tratta di una lettura basata sulla migliore stima. La data è la data di produzione, non una scadenza garantita: i dati sulla durata di conservazione sono medie tipiche del settore.",
-    "q_accuracy": "Quanto è accurato questo decodificatore di codice batch {name}?",
+    "q_accuracy": "Quanto è accurato questo decodificatore di codice batch {name} ?",
     "q_free": "Il controllo del codice batch {name} è gratuito?",
     "a_free": "Sì, la decodifica dei codici batch {name} su Cosmetics Batch è completamente gratuita, funziona istantaneamente nel tuo browser senza registrazione e i tuoi codici non vengono mai archiviati o inviati a un server."
   },
@@ -176,9 +176,9 @@
     "meaningTitle": "Cosa significa questo?",
     "meaningFresh": "Questo prodotto è fresco e ben entro la sua durata di conservazione.",
     "shareLifeLeft": "{n}% di vita rimasta",
-    "shareMade": "fatto{date}",
+    "shareMade": "fatto {date}",
     "addToCalendar": "Aggiungi scadenza al calendario",
-    "calendarTitle": "{name}: sostituisci entro questa data",
+    "calendarTitle": "{name} : sostituisci entro questa data",
     "meaningGood": "Questo prodotto è ancora buono, con molta durata rimanente.",
     "meaningExpired": "Questo prodotto ha superato la sua durata di conservazione e potrebbe non essere più della migliore qualità.",
     "meaningUseSoon": "Questo prodotto si sta avvicinando alla fine della sua durata di conservazione: consumalo presto.",
@@ -224,7 +224,7 @@
     },
     "title": "Dov'è il codice batch?",
     "viewGuide": "Leggi la guida completa",
-    "cardCta": "Dove trovare il codice batch su{type}: leggi la guida"
+    "cardCta": "Dove trovare il codice batch su {type} : leggi la guida"
   },
   "brandDetail": {
     "calvin-klein": {
@@ -543,5 +543,28 @@
       "faq2q": "Chi produce realmente il profumo Zara?",
       "faq2a": "Puig produce la linea di fragranze di Zara, motivo per cui i codici seguono il formato di Puig - e parte del motivo per cui diversi profumi di Zara invitano al confronto con le fragranze firmate prodotte anche da Puig."
     }
+  },
+  "contentPages": {
+    "faq": "Domande frequenti",
+    "readNext": "Leggi dopo",
+    "minRead": "{n} lettura minima",
+    "updated": "{date}aggiornato",
+    "characters": "Caratteri",
+    "checkBrand": "Controlla il codice batch di un marchio",
+    "anatomy": "Anatomia del codice",
+    "moreGuides": "Più guide",
+    "workedExamples": "Esempi realizzati",
+    "encodes": "Cosa codificano",
+    "confidence": "confidenza{level}",
+    "workedExamplesNote": "Decodificato in tempo reale dallo stesso motore che alimenta la pedina, non trascritto a mano.",
+    "brandsUsingNote": "Il formato appartiene al produttore, non l'etichetta sulla bottiglia: ogni marchio riportato di seguito è stampato dalle stesse piante e si legge allo stesso modo.",
+    "doesNotDecode": "non decodifica",
+    "otherFormats": "Altri formati di codice",
+    "whichCode": "Non sei sicuro di quale codice sulla confezione sia il codice batch?",
+    "formatsIntro": "Il formato di un codice lotto appartiene a chi fabbrica il prodotto, non al nome sulla bottiglia. Coty timbra le stesse quattro cifre su Rimmel, Gucci e adidas; Inter Parfums imprime gli stessi nove caratteri su Montblanc, Coach e Jimmy Choo. Impara la cifra una volta e potrai leggere ogni marchio che la condivide.",
+    "formatsIntro2": "Ogni pagina sottostante documenta una famiglia: ciò che ogni carattere codifica, i codici reali decodificati dallo stesso motore che alimenta la pedina, dove il codice è stampato sulla confezione e, cosa altrettanto importante, ciò che il formato non può dirti.",
+    "formatsTitle": "Formati di codici batch",
+    "brandsUsing": "Marchi che utilizzano questo codice ({count})",
+    "brandCount": "marchi"
   }
 }

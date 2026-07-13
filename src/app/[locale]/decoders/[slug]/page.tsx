@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import {
@@ -9,6 +9,11 @@ import {
   getDecoderGuide,
   type DecoderGuide,
 } from "@/lib/decoder-guides";
+import {
+  contentTranslator,
+  localizeDecoderGuide,
+  localizeGuide,
+} from "@/lib/content-i18n";
 import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import {
@@ -32,8 +37,9 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const guide = getDecoderGuide(slug);
-  if (!guide) return {};
+  const source = getDecoderGuide(slug);
+  if (!source) return {};
+  const guide = localizeDecoderGuide(source, await contentTranslator(locale));
   return pageMeta({
     title: guide.title,
     description: guide.description,
@@ -55,7 +61,17 @@ const DATE_FMT: Intl.DateTimeFormatOptions = {
  * examples are not transcribed results — if the engine's rules change, these
  * change with them, so the page cannot drift away from the tool.
  */
-function WorkedExamples({ guide }: { guide: DecoderGuide }) {
+function WorkedExamples({
+  guide,
+  locale,
+  noDate,
+  confidenceLabel,
+}: {
+  guide: DecoderGuide;
+  locale: string;
+  noDate: string;
+  confidenceLabel: (level: string) => string;
+}) {
   const decoder = DECODERS[guide.decoderIds[0]];
   const now = new Date();
   const rows = guide.examples.map((ex) => {
@@ -77,12 +93,12 @@ function WorkedExamples({ guide }: { guide: DecoderGuide }) {
             <ArrowRight className="h-4 w-4 shrink-0 text-fg-muted" />
             <span className="font-medium">
               {result?.manufactureDate
-                ? result.manufactureDate.toLocaleDateString("en-US", DATE_FMT)
-                : "does not decode"}
+                ? result.manufactureDate.toLocaleDateString(locale, DATE_FMT)
+                : noDate}
             </span>
             {result?.confidence && (
               <span className="text-xs uppercase tracking-wide text-fg-muted">
-                {result.confidence} confidence
+                {confidenceLabel(result.confidence)}
               </span>
             )}
           </div>
@@ -134,17 +150,25 @@ export default async function DecoderGuidePage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const guide = getDecoderGuide(slug);
-  if (!guide) notFound();
+  const source = getDecoderGuide(slug);
+  if (!source) notFound();
+
+  const t = await contentTranslator(locale);
+  const guide = localizeDecoderGuide(source, t);
+  const tc = await getTranslations("contentPages");
+  const nav = await getTranslations("nav");
 
   const path = `/decoders/${guide.slug}`;
   const brands = brandsForGuide(guide);
-  const others = DECODER_GUIDES.filter((g) => g.slug !== guide.slug).slice(0, 4);
-  const formatGuide = GUIDES.find((g) => g.slug === "how-to-find-your-batch-code");
+  const others = DECODER_GUIDES.filter((g) => g.slug !== guide.slug)
+    .slice(0, 4)
+    .map((g) => localizeDecoderGuide(g, t));
+  const formatSource = GUIDES.find((g) => g.slug === "how-to-find-your-batch-code");
+  const formatGuide = formatSource ? localizeGuide(formatSource, t) : undefined;
 
   const crumbs = [
-    { name: "Home", path: "/" },
-    { name: "Code formats", path: "/decoders" },
+    { name: nav("home"), path: "/" },
+    { name: nav("codeFormats"), path: "/decoders" },
     { name: guide.title, path },
   ];
 
@@ -172,17 +196,19 @@ export default async function DecoderGuidePage({
       </p>
       <p className="mt-4 inline-flex items-center gap-1.5 text-sm text-fg-muted">
         <Clock className="h-3.5 w-3.5" />
-        {guide.readMinutes} min read · Updated{" "}
-        {new Date(guide.updated).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
+        {tc("minRead", { n: guide.readMinutes })} ·{" "}
+        {tc("updated", {
+          date: new Date(guide.updated).toLocaleDateString(locale, {
+            year: "numeric",
+            month: "long",
+          }),
         })}
       </p>
 
       {/* Anatomy — the whole cipher in one table. */}
       <section className="mt-10">
         <h2 className="mb-3 text-xl font-semibold">
-          Anatomy of the code{" "}
+          {tc("anatomy")}{" "}
           <code className="font-mono text-lg text-accent">
             {guide.anatomy.code}
           </code>
@@ -191,8 +217,8 @@ export default async function DecoderGuidePage({
           <table className="w-full min-w-[22rem] border-collapse text-left text-sm">
             <thead>
               <tr className="border-b border-border text-xs uppercase tracking-wide text-fg-muted">
-                <th className="py-2 pr-4 font-medium">Characters</th>
-                <th className="py-2 font-medium">What they encode</th>
+                <th className="py-2 pr-4 font-medium">{tc("characters")}</th>
+                <th className="py-2 font-medium">{tc("encodes")}</th>
               </tr>
             </thead>
             <tbody>
@@ -214,12 +240,16 @@ export default async function DecoderGuidePage({
       </section>
 
       <section className="mt-10">
-        <h2 className="text-xl font-semibold">Worked examples</h2>
+        <h2 className="text-xl font-semibold">{tc("workedExamples")}</h2>
         <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-          Decoded live by the same engine that powers the checker — not
-          transcribed by hand.
+          {tc("workedExamplesNote")}
         </p>
-        <WorkedExamples guide={guide} />
+        <WorkedExamples
+          guide={guide}
+          locale={locale}
+          noDate={tc("doesNotDecode")}
+          confidenceLabel={(level) => tc("confidence", { level })}
+        />
       </section>
 
       <AdSlot placement="article" className="mt-10" height={250} />
@@ -233,17 +263,15 @@ export default async function DecoderGuidePage({
         ))}
       </div>
 
-      <Faq items={guide.faq} title="FAQ" />
+      <Faq items={guide.faq} title={tc("faq")} />
 
       {brands.length > 0 && (
         <section className="mt-14 border-t border-border pt-8">
           <h2 className="mb-2 text-lg font-semibold">
-            Brands that use this code ({brands.length})
+            {tc("brandsUsing", { count: brands.length })}
           </h2>
           <p className="mb-4 text-sm leading-relaxed text-fg-muted">
-            The format belongs to the manufacturer, not the label on the bottle —
-            every brand below is stamped by the same plants and reads the same
-            way.
+            {tc("brandsUsingNote")}
           </p>
           <ul className="flex flex-wrap gap-x-3 gap-y-2">
             {brands.map((b) => (
@@ -261,7 +289,7 @@ export default async function DecoderGuidePage({
       )}
 
       <section className="mt-14 border-t border-border pt-8">
-        <h2 className="mb-4 text-lg font-semibold">Other code formats</h2>
+        <h2 className="mb-4 text-lg font-semibold">{tc("otherFormats")}</h2>
         <ul className="space-y-2">
           {others.map((g) => (
             <li key={g.slug}>
@@ -276,7 +304,7 @@ export default async function DecoderGuidePage({
         </ul>
         {formatGuide && (
           <p className="mt-5 text-sm leading-relaxed text-fg-muted">
-            Not sure which code on the pack is the batch code?{" "}
+            {tc("whichCode")}{" "}
             <Link
               href={`/guides/${formatGuide.slug}`}
               className="font-medium text-accent hover:text-accent-hover"

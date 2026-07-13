@@ -58,11 +58,11 @@
     "faqSubtitle": "Tot ce trebuie să știți despre decodarea codurilor de lot de cosmetice și parfumuri."
   },
   "brandPage": {
-    "blurb": "Decodificați codurile lot {name} pentru a găsi data de fabricație, vârsta și data de expirare a produselor dvs.{category}. Gratuit, instant și privat.",
+    "blurb": "Decodificați codurile lot {name} pentru a găsi data de fabricație, vârsta și data de expirare a produselor dvs. {category} . Gratuit, instant și privat.",
     "metaTitle": "{name} Batch Code Decoder & Checker — Data de fabricație și expirare",
     "by": "de {group}",
     "checkerTitle": "Verificator cod lot {name}",
-    "metaDescription": "Decodor de cod lot gratuit {name}. Verificați data de fabricație, vârsta produsului și data de expirare a produselor dvs.{name} în câteva secunde - fără înregistrare.",
+    "metaDescription": "Decodor de cod lot gratuit {name} . Verificați data de fabricație, vârsta produsului și data de expirare a produselor dvs. {name} în câteva secunde - fără înregistrare.",
     "howHeading": "Cum funcționează codurile lot {name}",
     "factPao": "După deschidere (PAO)",
     "factShelfLife": "Perioada de valabilitate tipică",
@@ -73,12 +73,12 @@
     "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
     "relatedBrands": "Mărci înrudite",
     "helpfulGuides": "Ghiduri utile",
-    "aliasesPara": "Veți vedea uneori acest instrument numit decodor de cod de lot {name}, verificator de cod de lot {name} sau calculator de cod de lot {name}- toate fac același lucru: citiți codul de producție și vă spun cât de proaspăt este {name} {category}.",
+    "aliasesPara": "Veți vedea uneori acest instrument numit decodor de cod de lot {name} , verificator de cod de lot {name} sau calculator de cod de lot {name} - toate fac același lucru: citiți codul de producție și vă spun cât de proaspăt este {name} {category} .",
     "months": "{n} luni",
-    "faqTitle": "{name}— Întrebări frecvente",
+    "faqTitle": "{name} — Întrebări frecvente",
     "printsDateNote": "{name} imprimă data de fabricație sau de expirare direct pe ambalaj, așa că de obicei nu ai nevoie de un cod de lot.",
-    "whereHeading": "Unde găsiți codul pe ambalajul{name}",
-    "exampleHeading": "Un cod{name}real, decodat"
+    "whereHeading": "Unde găsiți codul pe ambalajul {name}",
+    "exampleHeading": "Un cod {name} real, decodat"
   },
   "faqUi": {
     "title": "Întrebări frecvente",
@@ -102,7 +102,7 @@
     "generic": "Păstrați-l într-un loc răcoros și uscat, ferit de lumina directă a soarelui și păstrați recipientul bine închis între utilizări."
   },
   "brandFaq": {
-    "q_where": "Unde este codul lotului pentru produsele {name}?",
+    "q_where": "Unde este codul lotului pentru produsele {name} ?",
     "q_barcode": "Care este diferența dintre codul de lot {name} și codul de bare?",
     "a_where": "Căutați un cod scurt ștampilat, în relief sau cu jet de cerneală - de obicei, pe baza sticlei sau a borcanului, pe marginea de la capătul unui tub sau pe fundul sau clapa cutiei. Pe {name} {noun} este separat de codul de bare și, de obicei, are 3-8 caractere de litere și numere.",
     "q_pao": "Cât durează {name} după deschidere (PAO)?",
@@ -110,16 +110,16 @@
     "q_expired": "Cum știu dacă produsul meu {name} este expirat?",
     "a_barcode": "Codul de bare este numărul EAN/UPC cu dungi lungi utilizat la finalizarea comenzii și este același pentru fiecare unitate a unui produs. Codul lotului {name} este un cod scurt de producție care se modifică cu fiecare producție și codifică când a fost realizat articolul - acesta este cel pe care acest instrument îl decodifică.",
     "q_afterExpiry": "Pot folosi în continuare {name} după data de expirare?",
-    "q_paoSymbol": "Ce înseamnă simbolul borcan deschis (PAO) pe {name}?",
-    "a_unopened": "{name} {noun} nedeschis, de obicei, rămâne bun timp de aproximativ {shelf} luni de la data fabricației, atunci când este depozitat corespunzător. Aceasta este o estimare a industriei -{name} nu imprimă o dată de expirare strictă pe majoritatea articolelor, motiv pentru care codul lotului contează.",
+    "q_paoSymbol": "Ce înseamnă simbolul borcan deschis (PAO) pe {name} ?",
+    "a_unopened": "{name} {noun} nedeschis, de obicei, rămâne bun timp de aproximativ {shelf} luni de la data fabricației, atunci când este depozitat corespunzător. Aceasta este o estimare a industriei - {name} nu imprimă o dată de expirare strictă pe majoritatea articolelor, motiv pentru care codul lotului contează.",
     "a_expired": "Introduceți codul de lot {name} de mai sus pentru a obține data de fabricație, apoi comparați-l cu termenul de valabilitate tipic {shelf}-lună nedeschis. Dacă a trecut mai mult timp decât atât - sau mai mult de aproximativ {pao} luni de când l-ați deschis - tratați produsul ca expirat, mai ales dacă textura, culoarea sau mirosul s-au schimbat.",
     "a_paoSymbol": "Pictograma borcanului deschis cu un număr și un „M” (pentru luni) este Perioada de după deschidere. Pentru majoritatea {name} {noun} este în jur de {pao}M, adică aproximativ {pao} luni de utilizare în siguranță din ziua în care îl deschideți pentru prima dată. Codul lotului vă spune cât de proaspăt era înainte de deschidere; PAO vă spune cât durează după.",
-    "q_accuracy": "Cât de precis este acest decodor de cod lot {name}?",
-    "q_fake": "Îmi poate spune un cod de lot dacă {name}-ul meu este fals?",
-    "a_pao": "Odată deschis,{name} {noun} ar trebui, în general, să fie folosit în aproximativ {pao} luni - aceasta este perioada de după deschidere, afișată ca simbolul borcanului deschis (de exemplu,{pao}M) pe ambalaj. După ce deschideți un produs, PAO devine limita chiar dacă lotul în sine este încă proaspăt.",
+    "q_accuracy": "Cât de precis este acest decodor de cod lot {name} ?",
+    "q_fake": "Îmi poate spune un cod de lot dacă {name} -ul meu este fals?",
+    "a_pao": "Odată deschis, {name} {noun} ar trebui, în general, să fie folosit în aproximativ {pao} luni - aceasta este perioada de după deschidere, afișată ca simbolul borcanului deschis (de exemplu, {pao} M) pe ambalaj. După ce deschideți un produs, PAO devine limita chiar dacă lotul în sine este încă proaspăt.",
     "a_afterExpiry": "Utilizarea {name} {noun} cu puțin timp după data estimată este de obicei o problemă de calitate cosmetică, mai degrabă decât una de siguranță - activele își pierd potența, texturile se separă și parfumurile se estompează. Nu mai utilizați dacă observați o schimbare a mirosului, culorii sau consistenței și nu utilizați niciodată produse pentru ochi sau buze vechi, deoarece riscul de bacterii este mai mare.",
     "q_store": "Cum ar trebui să stochez {name} {noun} pentru a-l păstra proaspăt?",
-    "a_fake": "Un decodor de cod de lot citește data de producție - singur nu poate dovedi că un produs este autentic. Dar un cod {name} care nu va decoda, sau o dată care nu se potrivește când sau unde l-ați cumpărat, poate fi un semnal roșu. Pentru autenticitate, verificați și ambalajul, sigiliile și fontul și cumpărați de la comercianții autorizați {group}.",
+    "a_fake": "Un decodor de cod de lot citește data de producție - singur nu poate dovedi că un produs este autentic. Dar un cod {name} care nu va decoda, sau o dată care nu se potrivește când sau unde l-ați cumpărat, poate fi un semnal roșu. Pentru autenticitate, verificați și ambalajul, sigiliile și fontul și cumpărați de la comercianții autorizați {group} .",
     "decoderKnown": "o schemă de coduri specifică producătorului",
     "decoderAuto": "detectarea automată a datei",
     "a_accuracy": "Citim data fabricației folosind {decoder}. Acolo unde {group} publică o schemă de cod cunoscută, rezultatul este precis pentru luna sau ziua; în cazul în care marca nu confirmă o schemă publică, este o lectură de cea mai bună estimare. Data este data de fabricație, nu o expirare garantată - cifrele de valabilitate sunt medii tipice din industrie.",
@@ -175,14 +175,14 @@
     "shareLifeLeft": "{n}% viață rămasă",
     "shareTitle": "rezultatul codului lot{name}",
     "addToCalendar": "Adăugați expirarea în calendar",
-    "shareMade": "făcut{date}",
+    "shareMade": "făcut {date}",
     "meaningTitle": "Ce înseamnă acest lucru?",
     "meaningUnknown": "Nu am putut estima prospețimea acestui cod.",
     "meaningFresh": "Acest produs este proaspăt și în termen de valabilitate.",
     "meaningGood": "Acest produs este încă bun, cu multă perioadă de valabilitate rămasă.",
     "meaningUseSoon": "Acest produs se apropie de sfârșitul termenului de valabilitate - folosiți-l în curând.",
     "meaningExpired": "Acest produs a depășit termenul de valabilitate și este posibil să nu mai fie la cea mai bună calitate.",
-    "calendarTitle": "{name}— înlocuiți cu această dată"
+    "calendarTitle": "{name} — înlocuiți cu această dată"
   },
   "howItWorks": {
     "eyebrow": "Trei pași simpli",
@@ -218,7 +218,7 @@
     },
     "title": "Unde este codul lotului?",
     "subtitle": "Este o ștampilă scurtă separată - aici se ascunde de obicei pe pachete diferite.",
-    "cardCta": "Unde puteți găsi codul de lot pe un{type}- citiți ghidul",
+    "cardCta": "Unde puteți găsi codul de lot pe un {type} - citiți ghidul",
     "viewGuide": "Citiți ghidul complet",
     "alt": {
       "perfume": "Cod de lot evidențiat pe o cutie de parfum",
@@ -543,5 +543,28 @@
       "faq1q": "Parfumul Zara are data de expirare?",
       "faq2a": "Puig produce linia de parfumuri Zara, motiv pentru care codurile urmează formatul lui Puig - și o parte din motivul pentru care mai multe arome Zara invită la comparație cu parfumurile de designer pe care Puig le produce."
     }
+  },
+  "contentPages": {
+    "faq": "FAQ",
+    "checkBrand": "Verificați codul de lot al unei mărci",
+    "characters": "Personaje",
+    "minRead": "{n} min citire",
+    "moreGuides": "Mai multe ghiduri",
+    "updated": "Actualizat {date}",
+    "readNext": "Citiți în continuare",
+    "anatomy": "Anatomia codului",
+    "brandsUsing": "Mărcile care folosesc acest cod ({count})",
+    "workedExamples": "Exemple lucrate",
+    "confidence": "încredere{level}",
+    "encodes": "Ce codifică ei",
+    "doesNotDecode": "nu decodifică",
+    "formatsTitle": "Formate de cod de lot",
+    "workedExamplesNote": "Decodat în direct de același motor care alimentează verificatorul — nu este transcris manual.",
+    "brandsUsingNote": "Formatul aparține producătorului, nu eticheta de pe sticlă - fiecare marcă de mai jos este ștampilată de aceleași plante și se citește în același mod.",
+    "formatsIntro2": "Fiecare pagină de mai jos documentează o singură familie: ce codifică fiecare caracter, coduri reale decodificate de același motor care alimentează verificatorul, unde codul este tipărit pe pachet și, la fel de important, ce nu vă poate spune formatul.",
+    "otherFormats": "Alte formate de cod",
+    "whichCode": "Nu sunteți sigur ce cod de pe pachet este codul lotului?",
+    "formatsIntro": "Formatul unui cod de lot aparține celui care produce produsul, nu numelui de pe sticla. Coty imprimă aceleași patru cifre pe Rimmel, Gucci și adidas; Inter Parfums imprimă aceleași nouă personaje pe Montblanc, Coach și Jimmy Choo. Învață cifrul o dată și poți citi fiecare marcă care îl împărtășește.",
+    "brandCount": "mărci"
   }
 }

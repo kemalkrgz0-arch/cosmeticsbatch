@@ -7,7 +7,8 @@
     "about": "Giới thiệu",
     "search": "Tìm kiếm",
     "checkNow": "Kiểm tra ngay",
-    "language": "Ngôn ngữ"
+    "language": "Ngôn ngữ",
+    "codeFormats": "Định dạng mã"
   },
   "footer": {
     "tagline": "Cách đáng tin cậy và dễ dàng nhất để kiểm tra mã lô mỹ phẩm & nước hoa. Miễn phí, tức thì và riêng tư.",
@@ -22,7 +23,8 @@
     "allBrands": "Tất cả thương hiệu",
     "allGuides": "Tất cả hướng dẫn",
     "rights": "© {year} {name}. Bảo lưu mọi quyền. Ước tính chỉ mang tính tham khảo và không đảm bảo an toàn sản phẩm.",
-    "contact": "Liên hệ"
+    "contact": "Liên hệ",
+    "codeFormats": "Định dạng mã hàng loạt"
   },
   "hero": {
     "badge": "Được tin dùng bởi những người yêu làm đẹp trên toàn thế giới",
@@ -63,8 +65,8 @@
     "by": "bởi {group}",
     "intro": "Nhập mã lô {name} của bạn bên dưới để giải mã ngay ngày sản xuất, tuổi sản phẩm và hạn sử dụng ước tính — miễn phí và riêng tư.",
     "howHeading": "Cách mã lô {name} hoạt động",
-    "freshnessPara": "Sau khi đọc ngày sản xuất, chúng tôi ước tính độ tươi mới bằng hạn sử dụng thông thường {shelf} tháng của {name} cho sản phẩm {category}. Hãy nhớ rằng thời hạn sau khi mở (khoảng {pao} tháng) trở thành giới hạn khi bạn bắt đầu sử dụng sản phẩm.",
-    "aliasesPara": "Đôi khi bạn sẽ thấy công cụ này được gọi là trình giải mã mã lô {name}, trình kiểm tra mã lô {name}, hoặc máy tính mã lô {name} — tất cả đều làm cùng một việc: đọc mã sản xuất và cho bạn biết sản phẩm {category} {name} của bạn tươi mới đến mức nào.",
+    "freshnessPara": "Sau khi đọc ngày sản xuất, chúng tôi ước tính độ tươi mới bằng hạn sử dụng thông thường {shelf} tháng của {name} cho sản phẩm {category} . Hãy nhớ rằng thời hạn sau khi mở (khoảng {pao} tháng) trở thành giới hạn khi bạn bắt đầu sử dụng sản phẩm.",
+    "aliasesPara": "Đôi khi bạn sẽ thấy công cụ này được gọi là trình giải mã mã lô {name} , trình kiểm tra mã lô {name} , hoặc máy tính mã lô {name} — tất cả đều làm cùng một việc: đọc mã sản xuất và cho bạn biết sản phẩm {category} {name} của bạn tươi mới đến mức nào.",
     "factManufacturer": "Nhà sản xuất",
     "factShelfLife": "Hạn sử dụng thông thường",
     "factPao": "Sau khi mở (PAO)",
@@ -74,7 +76,9 @@
     "relatedBrands": "Thương hiệu liên quan",
     "helpfulGuides": "Hướng dẫn hữu ích",
     "faqTitle": "{name} — Câu hỏi thường gặp",
-    "printsDateNote": "{name} in ngày sản xuất hoặc hạn sử dụng trực tiếp trên bao bì, nên bạn thường không cần mã lô."
+    "printsDateNote": "{name} in ngày sản xuất hoặc hạn sử dụng trực tiếp trên bao bì, nên bạn thường không cần mã lô.",
+    "exampleHeading": "Mã {name} thực, đã được giải mã",
+    "whereHeading": "Tìm mã ở đâu trên bao bì {name}"
   },
   "faqUi": {
     "title": "Câu hỏi thường gặp",
@@ -99,7 +103,7 @@
   },
   "brandFaq": {
     "q_where": "Mã lô trên sản phẩm {name} nằm ở đâu?",
-    "a_where": "Tìm một mã ngắn được dập, in nổi hoặc in phun — thường ở đáy chai hoặc hũ, phần gấp ở cuối tuýp, hoặc đáy hoặc nắp hộp. Trên {noun} {name}, nó tách biệt với mã vạch và thường gồm 3–8 ký tự chữ và số.",
+    "a_where": "Tìm một mã ngắn được dập, in nổi hoặc in phun — thường ở đáy chai hoặc hũ, phần gấp ở cuối tuýp, hoặc đáy hoặc nắp hộp. Trên {noun} {name} , nó tách biệt với mã vạch và thường gồm 3–8 ký tự chữ và số.",
     "q_barcode": "Sự khác biệt giữa mã lô {name} và mã vạch là gì?",
     "a_barcode": "Mã vạch là dãy số EAN/UPC dài có sọc dùng khi thanh toán và giống nhau cho mọi đơn vị sản phẩm. Mã lô {name} là mã sản xuất ngắn thay đổi theo từng đợt sản xuất và mã hóa thời điểm sản phẩm được làm ra — đó là mã mà công cụ này giải mã.",
     "q_expired": "Làm sao tôi biết sản phẩm {name} của mình đã hết hạn?",
@@ -107,9 +111,9 @@
     "q_unopened": "Sản phẩm {name} chưa mở dùng được bao lâu?",
     "a_unopened": "{noun} {name} chưa mở thường giữ tốt khoảng {shelf} tháng kể từ ngày sản xuất khi được bảo quản đúng cách. Đây là ước tính của ngành — {name} không in ngày hết hạn cứng trên hầu hết sản phẩm, đó là lý do mã lô quan trọng.",
     "q_pao": "{name} dùng được bao lâu sau khi mở (PAO)?",
-    "a_pao": "Sau khi mở, {noun} {name} nói chung nên được dùng trong khoảng {pao} tháng — đây là Thời hạn sau khi mở (PAO), thể hiện bằng biểu tượng hũ mở (ví dụ {pao}M) trên bao bì. Sau khi bạn mở sản phẩm, PAO trở thành giới hạn ngay cả khi bản thân lô hàng vẫn còn tươi mới.",
+    "a_pao": "Sau khi mở, {noun} {name} nói chung nên được dùng trong khoảng {pao} tháng — đây là Thời hạn sau khi mở (PAO), thể hiện bằng biểu tượng hũ mở (ví dụ {pao} M) trên bao bì. Sau khi bạn mở sản phẩm, PAO trở thành giới hạn ngay cả khi bản thân lô hàng vẫn còn tươi mới.",
     "q_paoSymbol": "Biểu tượng hũ mở (PAO) trên {name} có nghĩa là gì?",
-    "a_paoSymbol": "Biểu tượng hũ mở nhỏ với một con số và chữ \"M\" (chỉ tháng) là Thời hạn sau khi mở. Với hầu hết {noun} {name}, nó khoảng {pao}M, nghĩa là khoảng {pao} tháng sử dụng an toàn kể từ ngày bạn mở lần đầu. Mã lô cho biết sản phẩm tươi mới thế nào trước khi mở; PAO cho biết nó dùng được bao lâu sau đó.",
+    "a_paoSymbol": "Biểu tượng hũ mở nhỏ với một con số và chữ \"M\" (chỉ tháng) là Thời hạn sau khi mở. Với hầu hết {noun} {name} , nó khoảng {pao}M, nghĩa là khoảng {pao} tháng sử dụng an toàn kể từ ngày bạn mở lần đầu. Mã lô cho biết sản phẩm tươi mới thế nào trước khi mở; PAO cho biết nó dùng được bao lâu sau đó.",
     "q_afterExpiry": "Tôi có thể dùng {name} sau ngày hết hạn không?",
     "a_afterExpiry": "Dùng {noun} {name} ngay sau ngày ước tính thường là vấn đề chất lượng mỹ phẩm hơn là an toàn — hoạt chất mất tác dụng, kết cấu tách lớp và mùi hương phai. Ngừng dùng nếu bạn nhận thấy thay đổi về mùi, màu hoặc độ đặc, và đừng bao giờ dùng sản phẩm cho mắt hoặc môi đã cũ, vì nguy cơ vi khuẩn cao hơn.",
     "q_store": "Tôi nên bảo quản {noun} {name} thế nào để giữ tươi mới?",
@@ -165,7 +169,20 @@
     "confLow": "Độ tin cậy thấp",
     "confNone": "Không thể giải mã",
     "invalidTitle": "Chúng tôi không đọc được mã này",
-    "invalidBody": "“{code}” không khớp với định dạng mã lô của {brand}. Hãy kiểm tra bạn đã nhập chính xác như in trên bao bì — chỉ chữ và số, không có khoảng trắng — và đó là mã lô, không phải mã vạch hay tham chiếu giá/tiếp thị."
+    "invalidBody": "“{code}” không khớp với định dạng mã lô của {brand}. Hãy kiểm tra bạn đã nhập chính xác như in trên bao bì — chỉ chữ và số, không có khoảng trắng — và đó là mã lô, không phải mã vạch hay tham chiếu giá/tiếp thị.",
+    "shareCopied": "Đã sao chép!",
+    "share": "Chia sẻ kết quả",
+    "shareTitle": "kết quả mã lô{name}",
+    "meaningTitle": "Điều này có nghĩa là gì?",
+    "meaningGood": "Sản phẩm này vẫn dùng tốt, còn hạn sử dụng dài.",
+    "meaningFresh": "Sản phẩm này còn tươi và còn hạn sử dụng.",
+    "calendarTitle": "{name} - thay thế trước ngày này",
+    "shareLifeLeft": "{n}% thời gian còn lại",
+    "addToCalendar": "Thêm ngày hết hạn vào lịch",
+    "shareMade": "đã tạo {date}",
+    "meaningUseSoon": "Sản phẩm này sắp hết hạn sử dụng - hãy sớm sử dụng nhé.",
+    "meaningUnknown": "Chúng tôi không thể ước tính độ mới của mã này.",
+    "meaningExpired": "Sản phẩm này đã hết hạn sử dụng và có thể không còn ở chất lượng tốt nhất nữa."
   },
   "howItWorks": {
     "eyebrow": "Ba bước đơn giản",
@@ -192,5 +209,362 @@
     "privateBody": "Mã được giải mã riêng tư. Quyền riêng tư của bạn là trên hết.",
     "freeTitle": "Luôn miễn phí",
     "freeBody": "Mọi tính năng đều 100% miễn phí, mãi mãi."
+  },
+  "whereCode": {
+    "label": {
+      "perfume": "Hộp nước hoa",
+      "tube": "Ống",
+      "lipstick": "Cây son"
+    },
+    "title": "Mã lô ở đâu?",
+    "subtitle": "Đó là một con tem ngắn riêng biệt — đây là nơi nó thường ẩn trên các gói hàng khác nhau.",
+    "alt": {
+      "perfume": "Mã lô được đánh dấu trên hộp nước hoa",
+      "tube": "Mã lô được đánh dấu trên phần uốn ống mỹ phẩm",
+      "lipstick": "Mã lô được đánh dấu trên nền son môi"
+    },
+    "viewGuide": "Đọc hướng dẫn đầy đủ",
+    "cardCta": "Nơi tìm mã lô trên {type} - đọc hướng dẫn"
+  },
+  "brandDetail": {
+    "calvin-klein": {
+      "where1": "Ở đáy hộp và trên nhãn dán dưới chai.",
+      "where2": "Trên chai CK One phẳng hơn, mã có thể được in trực tiếp trên đế thủy tinh.",
+      "faq1q": "Làm cách nào để giải mã mã lô Calvin Klein?",
+      "faq2q": "Mã lô có thể cho tôi biết CK của tôi có thật không?",
+      "faq1a": "Nước hoa CK được sản xuất bởi Coty. Mã có bốn chữ số: một chữ số năm theo sau là ngày trong năm. Chia ngày cho khoảng 30,4 để được tháng - ngày 135 là đầu tháng thứ năm, tháng Năm.",
+      "faq2a": "Nó có thể phát hiện hàng giả xấu: số ngày không thể hoặc mã không khớp giữa hộp và chai. Nó không thể xác nhận là tốt, vì mã sao chép từ chai chính hãng sẽ giải mã hoàn hảo."
+    },
+    "carolina-herrera": {
+      "faq2q": "Good Girl có thường xuyên bị làm giả không?",
+      "faq1q": "Làm cách nào để kiểm tra mã lô Carolina Herrera?",
+      "where2": "Trên chai giày cao gót Good Girl, mã nằm ở đế gót chân.",
+      "where1": "Trên đế hộp và mặt dưới của chai.",
+      "faq2a": "Đây là một trong những loại nước hoa được sao chép nhiều nhất ở châu Âu. Thực hiện các bước kiểm tra mà mã không thể thực hiện: so sánh mã hộp và mã chai, cân chai và xem độ mịn của bình xịt. Việc giải mã rõ ràng là cần thiết nhưng chưa đủ.",
+      "faq1a": "Nước hoa Carolina Herrera do Puig sản xuất, in ngày sản xuất dưới dạng mã - dưới dạng chữ số năm cộng với ngày trong năm hoặc dưới dạng ngày đóng gói, chẳng hạn như 231122 cho ngày 22 tháng 11 năm 2023."
+    },
+    "cerave": {
+      "where1": "Ống và chất tẩy rửa: ép vào phần uốn ở đầu bịt kín của ống.",
+      "faq3q": "Làm cách nào để biết CeraVe có phải là hàng giả không?",
+      "faq2q": "CeraVe có hạn sử dụng không?",
+      "faq2a": "Các dòng da liễu thường in một cái, còn các loại kem chống nắng hầu như đều có. Nếu có ngày in, hãy tin tưởng: đó là sự đảm bảo của chính nhà sản xuất và nó vượt trội hơn bất cứ điều gì mà bộ giải mã có thể ước tính.",
+      "where2": "Chai bơm (SA Cleanser, lotion dưỡng ẩm): in phun ở nhãn sau hoặc trên đế.",
+      "faq1q": "Làm cách nào để kiểm tra thời hạn sử dụng của sản phẩm CeraVe?",
+      "faq1a": "CeraVe do L'Oréal sản xuất nên code tuân theo định dạng của nhóm: chữ cái đầu tiên là năm sản xuất và ký tự sau đó là tháng. Giải mã ngày sản xuất, sau đó tính ra khoảng 36 tháng chưa mở. Sau khi mở, biểu tượng lọ mở sẽ tiếp tục hoạt động - 12 tháng đối với hầu hết phạm vi.",
+      "faq3a": "CeraVe bị làm giả rộng rãi trên thị trường. Mã lô là bộ lọc đầu tiên - mã không vừa với hình dạng của L'Oréal là một dấu hiệu xấu - nhưng nó không thể xác nhận sản phẩm chính hãng vì mã thật có thể được sao chép vào ống giả. So sánh kết cấu của nhựa, chất lượng in của dòng chữ nhỏ và mua từ hiệu thuốc hoặc người bán được ủy quyền."
+    },
+    "chanel": {
+      "where1": "Hương thơm: được khắc laser vào ly thủy tinh dưới đáy chai, và in ở nắp dưới nắp hộp. Bản khắc không có mực - nghiêng chai để ánh sáng lọt vào từ bên cạnh.",
+      "where2": "Trang điểm và chăm sóc da: trên đế của hộp nhỏ gọn hoặc lọ, loại rất nhỏ màu xám.",
+      "faq1q": "Chanel có hệ thống mã lô chính thức không?",
+      "faq1a": "Không. Chanel chưa bao giờ xuất bản mật mã này, và bất cứ ai tuyên bố biết mật mã chính thức của Chanel đều đang đoán mò. Điều có thể kiểm chứng là các sản phẩm Chanel hiện tại in ngày sản xuất có thể đọc được bên trong mã và đó là những gì chúng tôi giải mã - được báo cáo là đọc chính xác với độ tin cậy trung bình vì không có kế hoạch nào được công bố để kiểm tra nó.",
+      "faq2q": "Tôi không tìm thấy mã nào trên chai Chanel của mình.",
+      "faq3q": "Làm cách nào để kiểm tra thời hạn sử dụng của kem nền Chanel?",
+      "faq3a": "Giải mã mã ngày sản xuất trên đế, sau đó áp dụng ký hiệu lọ mở - thường là 12M cho kem nền dạng lỏng. Bất kể thời hạn nào hết trước, thời hạn sử dụng chưa mở hoặc số tháng kể từ khi bạn mở hộp, mới là thời hạn thực sự.",
+      "faq2a": "Nó gần như chắc chắn được khắc laser vào đế kính chứ không phải được in. Bản khắc không thể nhìn thấy dưới ánh sáng trực tiếp và xuất hiện khi ánh sáng chiếu qua nó - xoay chai từ từ dưới đèn hoặc chụp ảnh phần đế bằng đèn flash và phóng to hình ảnh."
+    },
+    "clinique": {
+      "where2": "Trang điểm: mặt sau của hộp đựng hoặc đế của hộp đựng.",
+      "where1": "Chai, lọ dưỡng da: in nổi trên đế.",
+      "faq1q": "Làm cách nào để đọc mã lô Clinique?",
+      "faq2q": "Chăm sóc da Clinique kéo dài bao lâu?",
+      "faq1a": "Clinique là Estée Lauder nên định dạng là cây, tháng, năm gồm ba ký tự - đọc từ bên phải. Ký tự cuối cùng là chữ số năm; cái trước nó là tháng, với A, B và C tượng trưng cho tháng 10, tháng 11 và tháng 12.",
+      "faq2a": "Khoảng 36 tháng chưa mở kể từ ngày sản xuất và 12 tháng sau khi mở đối với hầu hết các sản phẩm. Biểu tượng lọ mở trên bao bì là con số được liên kết sau khi bạn bóc tem."
+    },
+    "creed": {
+      "faq1q": "Làm cách nào để đọc mã lô Creed?",
+      "where2": "Trên các chai cũ hơn, nặng hơn, mã có thể được đóng dấu thay vì in; nghiêng nó về phía ánh sáng.",
+      "where1": "Trên đáy chai và dưới đáy hộp - thường được in màu đen trên nhãn dán nền trắng.",
+      "faq2q": "Mã có thể cho tôi biết vải Tweed Green Irish của tôi là hàng thật không?",
+      "faq3a": "Đối với các chế phẩm nặng hơn, chứa nhiều nhựa, một chai cũ thực sự có thể thích hợp hơn vì các công thức cải tiến đã thay đổi một số kiểu cổ điển - và mã lô là cách duy nhất để xác định loại sữa công thức bạn đang mua. Đối với các Creed nhẹ hơn, có nguồn gốc từ cam quýt, tuổi tác chủ yếu là quá trình oxy hóa và không có lợi ích gì cả.",
+      "faq2a": "Một phần. Creed là một trong những hãng nước hoa bị làm giả nhiều nhất, và chữ cái đầu tiên hoàn toàn không nằm trong chu kỳ là một dấu hiệu rõ ràng. Nhưng mã được sao chép sẽ giải mã rõ ràng, vì vậy mã hợp lệ không phải là bằng chứng - hãy cân chai, xem xét vòi phun và in trên hộp rồi mua từ nhà bán lẻ được ủy quyền.",
+      "faq1a": "Chỉ có chữ cái đầu tiên quan trọng. Nó mã hóa năm sản xuất, tính từ A = 2010 và bỏ qua I và O: N = 2022, P = 2023, Q = 2024, R = 2025. Những thứ sau đó là dãy lô nội bộ. Creed không mã hóa tháng nên mã sẽ cho bạn một năm và không có gì tốt hơn.",
+      "faq3q": "Tín điều cũ hơn có nghĩa là Tín điều tốt hơn không?"
+    },
+    "dior": {
+      "where1": "Hương thơm: ở đáy hộp bên ngoài và ở mặt dưới của chai - một nhãn dán in nhỏ hoặc khắc laser vào kính trên các chai lớn hơn.",
+      "faq2a": "Thông thường có bốn chữ số, chẳng hạn như 3245. Dior không sử dụng mật mã bí mật - giống như các hãng LVMH khác, nó in ngày sản xuất thành mã, dưới dạng chữ số năm theo sau là ngày trong năm. Thay vào đó, một số mã có ngày dài hơn gồm 5 hoặc 6 chữ số.",
+      "where3": "Dưỡng da: được dán dưới đáy lọ, bên cạnh biểu tượng nắp lọ đang mở.",
+      "faq1a": "Bắt đầu với các mã: mã trên hộp và mã trên chai phải khớp nhau vì cả hai đều được áp dụng trên cùng một dây chuyền chiết rót cách nhau vài phút. Sau đó giải mã - một con số không thể có trong ngày hoặc ngày trước khi nước hoa ra mắt, là một cảnh báo thực sự. Nhưng hãy hiểu giới hạn: kẻ giả mạo sao chép mã thật sẽ tạo ra mã giải mã hoàn hảo. Mã lô có thể phát hiện hàng giả; nó không thể chứng nhận một cái thật.",
+      "where2": "Trang điểm: trên đế của hộp son, dưới đáy hộp son, hoặc trên đầu ống.",
+      "faq1q": "Làm cách nào để kiểm tra xem nước hoa Dior của tôi có phải là chính hãng hay không?",
+      "faq2q": "Mã lô Dior trông như thế nào?",
+      "faq3q": "Mã lô son Dior ở đâu?",
+      "faq3a": "Trên đế phẳng của vỏ. Trước tiên hãy vặn viên đạn xuống hoàn toàn — mã được đóng vào đế và rất dễ bị trượt so với lớp hoàn thiện bằng kim loại."
+    },
+    "dunhill": {
+      "faq2q": "Làm cách nào để kiểm tra nước hoa Dunhill có phải hàng thật không?",
+      "faq1q": "Làm cách nào để đọc mã lô Dunhill?",
+      "where1": "Trên đế hộp và mặt dưới chai in màu đen trên nền nhãn dán màu trắng.",
+      "faq1a": "Nước hoa Dunhill được sản xuất theo giấy phép của Inter Parfums. Chữ cái đầu tiên là năm sản xuất — chu kỳ bỏ qua I và O, vì vậy J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — và ba chữ số cuối là ngày của năm đó.",
+      "faq2a": "So sánh mã hộp và mã chai rồi giải mã. Một lá thư năm nằm ngoài chu kỳ hoặc các mã không đồng ý là những cảnh báo thực sự. Giải mã rõ ràng không phải là bằng chứng - mã được sao chép cũng giải mã."
+    },
+    "estee-lauder": {
+      "where1": "Chăm sóc da: được chạm nổi trên đế lọ hoặc chai - được ép vào nguyên liệu nên cần có đèn cào chứ không phải đèn chiếu trực tiếp.",
+      "where2": "Hương thơm và đồ trang điểm: ở đáy hộp và mặt dưới của sản phẩm.",
+      "faq1q": "Làm cách nào để đọc mã lô Estée Lauder?",
+      "faq3q": "Clinique, MAC và La Mer có sử dụng cùng một mã không?",
+      "faq2q": "Làm cách nào để kiểm tra thời hạn sử dụng nếu tôi đã vứt hộp đi?",
+      "faq2a": "Mã này nằm trên chính sản phẩm chứ không chỉ trên thùng carton - trên đáy lọ hoặc chai, thường được in nổi. Giải mã ngày sản xuất, sau đó áp dụng biểu tượng lọ đã mở kể từ ngày bạn mở lọ. Thời hạn nào đến trước là thời hạn thực sự.",
+      "faq1a": "Đọc nó từ bên phải, không phải bên trái. Ký tự cuối cùng là chữ số năm; tháng trước đó là tháng (1-9 cho tháng 1 đến tháng 9, sau đó là A, B và C cho tháng 10, tháng 11 và tháng 12); bất cứ thứ gì ở bên trái là cây. Vì vậy, trong EA4, nhà máy là E, tháng là A - tháng 10 - và năm kết thúc bằng 4. Đọc từ trái sang phải là lỗi phổ biến nhất với các mã này.",
+      "faq3a": "Có - cùng một loại cây và cùng một định dạng cây/tháng/năm. Chỉ có chữ cái thực vật là khác và nó không mang thông tin ngày tháng."
+    },
+    "fenty-beauty": {
+      "faq1a": "Giải mã mã lô — Fenty là thương hiệu LVMH và in ngày sản xuất trong mã. Mã tạo ra ngày không thể hoặc không có ngày nào là một cảnh báo. Tuy nhiên, mã được sao chép sẽ giải mã rõ ràng, vì vậy hãy sử dụng mã đó cùng với các biện pháp kiểm tra thông thường: chất lượng in trên bao bì, cảm giác khi bôi và mua trực tiếp từ Sephora hoặc Fenty.",
+      "faq1q": "Làm cách nào để kiểm tra xem Fenty Beauty có phải hàng chính hãng hay không?",
+      "where2": "Chất nén, bột và độ bóng: ở mặt sau của vỏ hoặc đế của ống.",
+      "where1": "Sản phẩm kem nền và dạng lỏng: in ở đáy chai hoặc nơi nhãn quấn quanh mặt sau.",
+      "faq2q": "Mã vạch trên sản phẩm Fenty của tôi không quét được. Nó có phải là giả không?",
+      "faq3q": "Kem nền Fenty tồn tại được bao lâu?",
+      "faq3a": "Khoảng 12 tháng sau khi mở và khoảng 36 tháng chưa mở kể từ ngày sản xuất. Cái nào đến trước là deadline.",
+      "faq2a": "Không nhất thiết - mã vạch không quét được thường là do sự cố in hoặc chiếu sáng và trong mọi trường hợp, mã vạch không có ngày tháng và không có thông tin xác thực. Đó là mã lô, con tem ngắn không đều, cho bạn biết thời điểm sản phẩm được sản xuất."
+    },
+    "garnier": {
+      "where3": "Túi và khẩu trang dùng một lần: ở mặt sau của túi, in chữ rất nhỏ gần mép túi.",
+      "faq1q": "Tôi có thể tìm ngày hết hạn trên kem hoặc huyết thanh Garnier ở đâu?",
+      "where2": "SPF và Ambre Solaire: được in trên nhãn sau, thường có ngày hết hạn rõ ràng.",
+      "where1": "Serum và kem dưỡng ban ngày: trên đáy chai hoặc phần uốn của ống.",
+      "faq3q": "Làm sao tôi biết sản phẩm Garnier của tôi là hàng thật?",
+      "faq2q": "Ngày trên kem chống nắng Garnier ở đâu?",
+      "faq2a": "Khả năng chống nắng là ngoại lệ - nó thường có ngày hết hạn được in sẵn vì tuyên bố về SPF là tuyên bố về sự an toàn. Sử dụng ngày được in thay vì ngày được giải mã và thay thế bất kỳ chai nào đã trải qua mùa hè nắng nóng.",
+      "faq3a": "Kiểm tra xem mã có phù hợp với định dạng của L'Oréal hay không - Garnier là một thương hiệu của L'Oréal - và nó có giải mã được ngày tháng hợp lý hay không. Điều đó loại trừ hàng giả thô. Không thể loại trừ mã tốt, vì mã được sao chép sẽ giải mã hoàn hảo.",
+      "faq1a": "Garnier hiếm khi in một cái. Mã ngắn trên phần uốn ống hoặc đế chai là mã lô và chứa ngày sản xuất: chữ cái đầu tiên là năm, ký tự sau là tháng. Đếm tiếp khoảng 36 tháng đối với sản phẩm chưa mở và sử dụng biểu tượng lọ đã mở sau khi sản phẩm đã được mở."
+    },
+    "giorgio-armani-beauty": {
+      "faq2q": "Acqua di Giò chưa mở để được bao lâu?",
+      "faq1q": "Làm cách nào để giải mã số lô Armani Code?",
+      "faq1a": "Nước hoa Armani do L'Oréal sản xuất nên code tuân theo định dạng của nhóm: chữ cái đầu tiên là năm sản xuất, ký tự sau là tháng. (Hương thơm có tên Armani Code và mã lô được dán trên hộp của nó là những thứ không liên quan nhưng tiếc là có chung một từ.)",
+      "faq2a": "Ba đến năm năm là bình thường đối với một loại nước hoa, lâu hơn đối với một loại nước hoa. Nước hoa là loại dễ chịu nhất, miễn là chai được giữ ở nơi tránh ánh sáng và nhiệt độ.",
+      "where1": "Hương thơm (Acqua di Giò, Armani Code): dưới đáy hộp và nhãn dán đáy chai.",
+      "where2": "Trang điểm: trên đế của hộp hoặc mặt sau của hộp đựng."
+    },
+    "guerlain": {
+      "where1": "Hương thơm: ở đáy hộp và mặt dưới chai - thường được in trên nhãn dán nhỏ.",
+      "faq2q": "Mã Guerlain cũ của tôi không giải mã được.",
+      "faq2a": "Các mã cũ hơn và dành riêng cho vùng đôi khi là các tham chiếu chữ và số nội bộ không có ngày tháng trong đó. Những thứ đó không ai có thể giải mã được. Thay vào đó, hãy đánh giá chai theo tình trạng của nó và mùi của nước trái cây.",
+      "where2": "Trang điểm và chăm sóc da: được in trên đế của hộp hoặc lọ.",
+      "faq1q": "Làm cách nào để kiểm tra ngày sản xuất nước hoa Guerlain?",
+      "faq1a": "Guerlain là một công ty LVMH và in ngày sản xuất bên trong mã lô - phổ biến nhất là chữ số năm theo sau là ngày trong năm. Giải mã nó để biết ngày sản xuất, sau đó tính đến thời hạn sử dụng từ ba đến năm năm chưa mở cho một loại nước hoa được bảo quản ở nơi tránh ánh sáng và nhiệt."
+    },
+    "hugo-boss": {
+      "where1": "Trên đế hộp bên ngoài và trên nhãn dán trong suốt dưới chai.",
+      "faq1q": "Làm cách nào để kiểm tra mã lô nước hoa Hugo Boss?",
+      "where2": "Hai mã phải khớp nhau - chúng được in cách nhau vài phút trên cùng một dòng.",
+      "faq2a": "Điều đó có nghĩa là hộp và chai được ghép nối ở đâu đó không phải tại nhà máy. Điều đó xảy ra với hàng giả và cả với hàng được đóng gói lại, trả lại hoặc hàng chợ đen một cách hợp pháp. Dù thế nào đi nữa, cặp bạn đang cầm không phải là cặp mà nhà máy đã vận chuyển.",
+      "faq1a": "Nước hoa Hugo Boss do Coty sản xuất, sử dụng mã gồm 4 chữ số: chữ số đầu tiên là chữ số cuối cùng của năm sản xuất và 3 chữ số còn lại là ngày của năm đó. Vậy 4135 là ngày thứ 135 của năm 2024 — ngày 14 tháng 5 năm 2024.",
+      "faq2q": "Mã hộp và mã chai khác nhau. Nó có phải là giả không?"
+    },
+    "jean-paul-gaultier": {
+      "where1": "Ở đáy hộp và ở mặt dưới của chai hình thân.",
+      "where2": "Trên các phiên bản vỏ kim loại, mã thường chỉ có trên hộp hoặc được dán mờ vào đế hộp.",
+      "faq1q": "Làm cách nào để đọc mã lô Jean Paul Gaultier?",
+      "faq2q": "Không có mã trên chai Le Male của tôi.",
+      "faq1a": "Nước hoa JPG do Puig sản xuất, in ngày sản xuất vào mã. Bốn chữ số có nghĩa là một chữ số năm cộng với ngày trong năm; năm có nghĩa là hai chữ số năm cộng với ngày; sáu là một ngày theo lịch đóng gói.",
+      "faq2a": "Trên các phiên bản có tay kim loại, mã thường chỉ có trên hộp hoặc được đóng dấu mờ ở phần đế nên cần phải chiếu sáng mới nhìn được. Trước tiên hãy kiểm tra thùng carton - và nếu bạn có cả hai, hãy xác nhận rằng chúng khớp với nhau."
+    },
+    "kenzo-parfums": {
+      "where2": "Trên các chai Kenzo World và Flower, mã có thể nằm ở mặt dưới phẳng nơi nhãn gập xuống.",
+      "faq1a": "Kenzo Parfums là một công ty LVMH và LVMH in ngày sản xuất bằng mã thay vì mã hóa nó. Bốn chữ số có nghĩa là một chữ số năm cộng với ngày trong năm; năm hoặc sáu chữ số là ngày đầy đủ hơn. Chọn Kenzo trong bộ kiểm tra và nó sẽ áp dụng kết quả đúng.",
+      "faq1q": "Làm cách nào để kiểm tra nước hoa Kenzo theo mã lô của nó?",
+      "where1": "Trên đế hộp bên ngoài và mặt dưới chai - được in trên nhãn dán đế hoặc đóng dấu vào kính.",
+      "faq2q": "Mã Kenzo có lặp lại sau mỗi 10 năm không?",
+      "faq3q": "Mã có thể chứng minh nước hoa Kenzo là hàng thật không?",
+      "faq3a": "Nó có thể phát hiện hàng giả - một ngày không thể xảy ra hoặc mã hộp và mã chai không khớp, điều mà không dây chuyền chiết rót chính hãng nào tạo ra. Nó không thể chứng nhận mã thật vì mã được sao chép sẽ giải mã rõ ràng.",
+      "faq2a": "Có, và đây thực sự là một hạn chế chứ không phải là một điều kỳ quặc. Mã bốn chữ số chỉ mang một chữ số của năm, vì vậy 4135 là ngày 14 tháng 5 năm 2024 dựa trên cùng một bằng chứng cho thấy nó là ngày 14 tháng 5 năm 2014. Bộ giải mã giả định kết quả đọc gần đây; nếu chai và bao bì trông giống như thuộc về thời đại trước đó thì có lẽ đúng như vậy."
+    },
+    "kerastase": {
+      "where1": "Chai và khẩu trang: in phun ở mặt sau chai, gần chân đế hoặc dán tem dưới đáy lọ.",
+      "where2": "Ống và kích thước du lịch: ép vào phần uốn.",
+      "faq2q": "Làm cách nào để kiểm tra sản phẩm Kérastase là hàng thật?",
+      "faq1a": "Kérastase là L'Oréal Professionnel nên mang mã của nhóm: chữ cái đầu tiên là năm, ký tự sau là tháng. Khẩu trang chưa mở thường dùng được trong khoảng 30–36 tháng kể từ ngày đó; sau khi mở, ký hiệu lọ mở sẽ được áp dụng - thường là 12M.",
+      "faq2a": "Kérastase là mục tiêu phổ biến của hàng giả và hàng mỹ phẩm bị chuyển hướng. Giải mã mã: nó phải phù hợp với định dạng của L'Oréal và tạo ra ngày tháng hợp lý. Nó sẽ không bắt được mã sao chép, vì vậy, hãy xem xét chất lượng in ấn, trọng lượng và độ hoàn thiện của nắp cũng như liệu người bán có phải là thẩm mỹ viện hay nhà bán lẻ được ủy quyền hay không.",
+      "faq1q": "Làm cách nào để biết thời hạn sử dụng của mặt nạ Kérastase?",
+      "faq3a": "Không. Thời hạn sử dụng của sữa công thức là đặc tính của sản phẩm, không phải của thị trường. Điều thay đổi với khí hậu nóng là nó thực sự xuống cấp nhanh như thế nào: nhiệt rút ngắn tuổi thọ trong thế giới thực xuống thấp hơn mức in.",
+      "faq3q": "Sản phẩm được mua ở nước ngoài – thời hạn sử dụng có thay đổi không?"
+    },
+    "kiehls": {
+      "where2": "Ống và kem mắt: ép vào nếp gấp.",
+      "faq2q": "Mã trên lọ Kiehl's của tôi không thể nhìn thấy được.",
+      "faq2a": "Nó thường được dập nổi vào phần đế chứ không phải bằng mực. Các mã in nổi sẽ biến mất dưới ánh sáng trực tiếp và xuất hiện khi ánh sáng chiếu qua chúng từ một bên - hãy xoay lọ từ từ về phía đèn.",
+      "faq1q": "Làm cách nào để kiểm tra hạn sử dụng của kem dưỡng mắt Kiehl's?",
+      "faq1a": "Giải mã mã trên đế: Kiehl's là L'Oréal nên chữ cái đầu tiên là năm và ký tự sau đó là tháng. Chưa mở, tính khoảng 36 tháng; Sau khi mở ra, biểu tượng lọ mở - thường là 12M đối với kem mắt, đây là con số sẽ liên kết đầu tiên.",
+      "where1": "Lọ và chai: được đóng dấu trên đế, thường được dập nổi thay vì in - nghiêng nó dưới ánh đèn."
+    },
+    "la-roche-posay": {
+      "faq2q": "Kem chống nắng Anthelios kéo dài bao lâu?",
+      "where1": "Ống: ép vào phần uốn ở đầu bịt kín.",
+      "faq1q": "Hạn sử dụng của La Roche-Posay ở đâu?",
+      "where2": "Chai và kem chống nắng Anthelios: được in trên nhãn sau, thường kèm theo ngày hết hạn chính hãng.",
+      "faq2a": "Lên đến ba năm chưa mở nếu nó được giữ mát và khoảng 12 tháng sau khi mở. Kem chống nắng là sản phẩm mà ngày in thực sự quan trọng vì bộ lọc đã xuống cấp đồng nghĩa với khả năng bảo vệ kém hơn so với những gì nhãn hứa hẹn.",
+      "faq1a": "Các quầy thuốc thường in hạn sử dụng thật trên hộp hoặc tuýp - hãy sử dụng. Đoạn mã ngắn bên cạnh là mã lô và thay vào đó là ngày sản xuất: chữ cái đầu tiên là năm, ký tự sau là tháng.",
+      "faq3q": "La Roche-Posay của tôi có phải là hàng chính hãng không?",
+      "faq3a": "Một mã phù hợp với định dạng của L'Oréal và giải mã được ngày tháng hợp lý sẽ loại trừ hàng giả thô sơ. Nó không thể chứng nhận một cái tốt. Mua thuốc vẫn là sự đảm bảo mạnh mẽ nhất cho phạm vi này."
+    },
+    "lancome": {
+      "where1": "Hương thơm: ở đáy hộp và mặt dưới chai.",
+      "faq1q": "Làm cách nào để đọc mã lô Lancôme?",
+      "faq1a": "Lancôme là L'Oréal: chữ cái đầu tiên là năm sản xuất (bỏ qua V nên U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) và ký tự ngay sau đó là tháng, với O, N và D tượng trưng cho tháng 10, tháng 11 và tháng 12.",
+      "faq2q": "Kem dưỡng da Lancôme chưa mở sử dụng được bao lâu?",
+      "where2": "Kem dưỡng da và kem nền: in nổi hoặc in trên đế lọ, phần uốn ống, hoặc trên lọ.",
+      "faq2a": "Khoảng ba năm kể từ khi sản xuất, ít hơn đối với các sản phẩm được tạo ra từ hoạt chất không ổn định. Giải mã trước khi mua từ cửa hàng giảm giá - hàng cũ là hàng chính hãng nhưng có thể còn rất ít thời hạn sử dụng chưa mở."
+    },
+    "loreal": {
+      "where1": "Bất kỳ nơi nào sản phẩm của nhóm đều được dán tem: mép ống, đáy chai, đáy lọ và nắp thùng carton.",
+      "where2": "Sử dụng trang này khi thương hiệu phụ không được liệt kê riêng — cả nhóm chia sẻ một định dạng mã.",
+      "faq2a": "Thông thường có sáu ký tự, chẳng hạn như 40X200: chữ số gốc, sau đó là chữ cái năm, sau đó là ký tự tháng, sau đó là chuỗi lô. Chữ cái năm và ký tự sau nó là những phần duy nhất có ngày tháng.",
+      "faq1q": "Những thương hiệu nào chia sẻ mã lô L'Oréal?",
+      "faq3q": "Mã của tôi không có chữ cái trong đó.",
+      "faq2q": "Mã L'Oréal trông như thế nào?",
+      "faq1a": "Tất cả đều: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm và phần còn lại. Chúng có cùng một loại cây nên chúng có cùng hình dạng.",
+      "faq3a": "Vậy thì nó không phải là định dạng này. Thay vào đó, một số thương hiệu được mua lại gần đây và một số nhà sản xuất theo hợp đồng trong khu vực, in ngày Julian đơn giản - bộ kiểm tra sẽ quay lại đọc ngày được nhúng trong các chữ số."
+    },
+    "loreal-paris": {
+      "where2": "Ống: ép vào phần uốn ở đầu bịt kín.",
+      "where3": "Chai (dầu gội, serum, kem nền): in phun trên nhãn sau hoặc đế.",
+      "where1": "Kem, lọ: được dán dưới đáy lọ hoặc dưới nắp lọ.",
+      "faq1q": "Làm cách nào để kiểm tra thời hạn sử dụng của kem L'Oréal Paris?",
+      "faq1a": "Không có ngày hết hạn trên lọ - những gì được in là mã lô chứa ngày sản xuất. Đọc chữ cái đầu tiên là năm (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V bị bỏ qua) và ký tự sau nó là tháng. Kể từ ngày đó, một loại kem chưa mở thường có thời hạn sử dụng khoảng 36 tháng và biểu tượng lọ mở sẽ quyết định thời gian sử dụng sau khi bạn bắt đầu sử dụng.",
+      "faq3q": "Làm cách nào để kiểm tra sản phẩm L'Oréal là hàng thật?",
+      "faq2a": "Nó không được in dưới dạng ngày tháng - nó được mã hóa theo mã lô, là con tem ngắn không đều trên phần uốn, đế hoặc nhãn sau. Số dài bên dưới sọc mã vạch là EAN và không chứa ngày nào cả.",
+      "faq2q": "Ngày sản xuất được in trên sản phẩm L'Oréal ở đâu?",
+      "faq3a": "Giải mã mã và xem liệu nó có phù hợp với định dạng của L'Oréal hay không - mã không có chữ cái năm hoặc mã giải mã thành ngày không thể thực hiện được là một dấu hiệu cảnh báo thực sự. Tuy nhiên, mã sao chép sẽ giải mã rõ ràng nên quá trình kiểm tra này có thể phát hiện ra mã giả và không thể xác nhận mã thật. So sánh chất lượng in của dòng chữ nhỏ trên bao bì và mua từ nhà bán lẻ được ủy quyền."
+    },
+    "mac-cosmetics": {
+      "where3": "Chai kem nền: đặt trên đế hoặc nơi nhãn quấn quanh mặt sau.",
+      "where1": "Son môi: được đóng dấu vào đế phẳng của vỏ đạn. Xoay viên đạn hoàn toàn xuống để vỏ nằm phẳng.",
+      "where2": "Phấn nén, phấn má hồng và bảng màu: ở mặt sau hộp — và trên một số sản phẩm được in trên chảo kim loại, chỉ hiển thị khi bột đã được sử dụng hết.",
+      "faq2a": "Ba ký tự, chẳng hạn như B23. MAC thuộc nhóm Estée Lauder, vì vậy ký tự cuối cùng là chữ số năm và ký tự ở giữa là tháng - trong đó A, B và C có nghĩa là tháng 10, tháng 11 và tháng 12.",
+      "faq2q": "Mã lô MAC trông như thế nào?",
+      "faq1q": "Làm cách nào để kiểm tra hạn sử dụng của kem nền MAC?",
+      "faq1a": "MAC không in ngày hết hạn - hầu như không có sản phẩm trang điểm nào. Nó in mã lô gồm ba ký tự cho nhà máy, tháng và năm. Giải mã ngày sản xuất, sau đó áp dụng biểu tượng lọ đã mở: kem nền dạng lỏng thường có hạn sử dụng từ 6–12 tháng sau khi mở và khoảng 36 tháng nếu chưa mở. Thời hạn sớm hơn sẽ thắng.",
+      "faq3q": "Làm sao để biết son MAC của tôi có phải hàng chính hãng hay không?",
+      "faq3a": "Mã phải có ba hoặc bốn ký tự và giải mã theo ngày hợp lý; mã không phù hợp với hình dạng đó là một cảnh báo. Tuy nhiên, mã được sao chép sẽ giải mã hoàn hảo, do đó, bạn cũng có thể đánh giá trọng lượng của hộp, tiếng bấm đóng và bản in của văn bản nhỏ - và mua từ quầy được ủy quyền."
+    },
+    "maybelline": {
+      "where3": "Bảng màu và hộp compact: ở mặt sau của hộp.",
+      "faq1q": "Mascara Maybelline của tôi bao nhiêu tuổi?",
+      "where2": "Chai kem nền: trên đế hoặc trên nhãn phía sau.",
+      "where1": "Mascara: được in trên đế ống, hoặc theo chiều dọc nơi nhãn bao bọc xung quanh.",
+      "faq2q": "Mã lô sản phẩm Maybelline ở đâu?",
+      "faq2a": "Trên đế của ống hoặc chai, hoặc mặt sau của bảng màu. Đó là mã ngắn không đều - không phải số mã vạch dài.",
+      "faq1a": "Giải mã mã trên cơ sở - Maybelline sử dụng định dạng của L'Oréal, trong đó chữ cái đầu tiên là năm và ký tự tiếp theo là tháng. Nhưng đối với mascara, ngày sản xuất hiếm khi bị ràng buộc: đồng hồ từ ba đến sáu tháng bắt đầu từ ngày bạn mở ống hầu như luôn hết trước."
+    },
+    "montblanc": {
+      "faq1q": "Làm cách nào để kiểm tra Montblanc Legend bằng mã của nó?",
+      "where2": "Mã Montblanc là một trong những mã hương thơm dễ đọc hơn mà không cần kính lúp.",
+      "where1": "Trên đế hộp và mặt dưới chai - được in màu đen trên nhãn dán đế màu trắng.",
+      "faq3q": "Ba chữ số cuối tạo ra một ngày kỳ lạ.",
+      "faq2q": "Có số sê-ri nào tôi có thể tra cứu không?",
+      "faq3a": "Trên một số ít mã của Inter Parfums, những chữ số đó là dòng sản phẩm của nhà máy chứ không phải là ngày. Nếu ngày tháng trên chai có vẻ không hợp lý, hãy tin vào chữ cái năm và coi ngày đó là gần đúng.",
+      "faq1a": "Nước hoa Montblanc được sản xuất theo giấy phép của Inter Parfums. Chữ cái đầu tiên trong mã là năm sản xuất, trong chu kỳ bỏ qua I và O - J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 - và ba chữ số cuối là ngày của năm đó.",
+      "faq2a": "Không. Mã lô xác định một đợt sản xuất chứ không phải từng chai riêng lẻ và không có cơ sở dữ liệu công khai để tra cứu. Những gì nó cung cấp cho bạn là ngày tháng - đây là phần hữu ích."
+    },
+    "nivea": {
+      "where1": "Ống (kem dưỡng da tay, sữa rửa mặt): được đóng dấu vào phần uốn - đầu phẳng bịt kín đối diện với nắp.",
+      "where3": "Chai và kem chống nắng: in phun trên nhãn sau hoặc vai chai.",
+      "faq1a": "NIVEA (Beiersdorf) mã hóa tuần sản xuất thay vì ngày. Chữ số đầu tiên của mã là chữ số cuối cùng của năm và hai chữ số tiếp theo là số tuần - vì vậy, mã bắt đầu từ 815 là tuần thứ 15 của năm kết thúc bằng số 8. Điều đó đặt mã trong vòng bảy ngày, đủ cho một loại kem dưỡng thể.",
+      "faq1q": "Làm cách nào để tìm ngày sản xuất trên các sản phẩm NIVEA?",
+      "where2": "Hộp thiếc màu xanh cổ điển: được ép vào đế kim loại, không hề có mực. Nghiêng nó dưới ánh đèn; một ánh sáng thẳng vào làm cho nó biến mất.",
+      "faq3q": "Không có mã nào hiển thị trên hộp NIVEA của tôi.",
+      "faq2q": "Kem chống nắng NIVEA có hạn sử dụng không?",
+      "faq2a": "Kem chống nắng thường có ghi ngày hết hạn vì tuyên bố về SPF được coi là tuyên bố về độ an toàn. Sử dụng ngày được in thay vì ước tính được giải mã - và coi một chai đã trải qua cả mùa hè trong ô tô nóng nực là đã hết bất kể ngày tháng ghi như thế nào.",
+      "faq3a": "Nó được dập nổi vào đế kim loại chứ không phải được in, khiến nó gần như vô hình dưới ánh sáng trực tiếp. Giữ hộp thiếc để đèn bắt vào đế từ bên cạnh và các ký tự sẽ xuất hiện."
+    },
+    "paco-rabanne": {
+      "where2": "Nghiêng chai để ánh sáng chạm vào tem từ bên cạnh; một ánh sáng trực tiếp làm cho nó biến mất.",
+      "faq1a": "Paco Rabanne được sản xuất bởi Puig, in ngày sản xuất dưới dạng mã thay vì mã hóa nó. Dạng thông thường có bốn chữ số: chữ số đầu tiên là chữ số cuối cùng của năm, ba chữ số còn lại là ngày của năm đó - vì vậy 4135 là ngày thứ 135 của năm 2024, ngày 14 tháng 5 năm 2024.",
+      "where1": "Ở đáy hộp và ở mặt dưới của chai. Trên những chai nặng hơn – thỏi 1 Million, cúp Invictus – mã thường được đóng dấu vào kim loại hoặc thủy tinh thay vì in trên nhãn dán.",
+      "faq1q": "Làm cách nào để giải mã mã lô Invictus hoặc 1 Million?",
+      "faq2q": "Mã có thể chứng minh Paco Rabanne của tôi là chính hãng không?",
+      "faq3q": "Rabanne có cùng nhãn hiệu với Paco Rabanne không?",
+      "faq3a": "Có — công ty đã bỏ 'Paco' khỏi tên của nó vào năm 2023. Hàng cũ hơn mang nhãn hiệu trước đó và định dạng mã không thay đổi.",
+      "faq2a": "Nó có thể bắt được hàng giả và không thể xác nhận hàng thật. Paco Rabanne là một trong những loại nước hoa bị làm giả nhiều nhất ở châu Âu: số ngày không thể có hoặc mã không đồng nhất giữa hộp và chai là những cảnh báo mạnh mẽ - nhưng mã sao chép từ chai chính hãng sẽ giải mã hoàn hảo. Cân chai và kiểm tra kiểu phun."
+    },
+    "redken": {
+      "where2": "Bột và bình xịt: được dán tem dưới đáy lon.",
+      "where1": "Chai: in phun trên nhãn sau hoặc đáy chai.",
+      "faq1a": "Redken là thương hiệu L'Oréal và sử dụng định dạng của nhóm - chữ cái đầu tiên là năm sản xuất, ký tự sau đó là tháng. Chăm sóc tóc thường tốt trong khoảng 36 tháng chưa mở và 12 tháng sau khi mở.",
+      "faq1q": "Làm cách nào để kiểm tra thời hạn sử dụng của sản phẩm Redken?",
+      "faq2q": "Mã vạch có cho tôi biết thời hạn sử dụng không?",
+      "faq2a": "Không. Mã vạch là EAN — nó xác định sản phẩm được bán và giống hệt nhau trên mỗi chai. Chỉ có mã lô, tem ngắn không đều, có ghi ngày tháng."
+    },
+    "roberto-cavalli": {
+      "faq1q": "Làm cách nào để kiểm tra tính xác thực của nước hoa Roberto Cavalli?",
+      "where1": "Ở đáy hộp và đế chai - được in hoặc trên các chai nặng hơn được đóng dấu vào ly.",
+      "where2": "Hãy tìm một mã ngắn gồm bốn chữ số; số dưới sọc mã vạch càng dài phải không.",
+      "faq1a": "Nước hoa Cavalli được sản xuất bởi Coty nên mã này có bốn chữ số ngày sản xuất - một chữ số năm cộng với ngày trong năm. Trước tiên hãy so sánh mã trên hộp với mã trên chai: mã không khớp là tín hiệu mạnh nhất mà người mua có được. Sau đó giải mã nó; một ngày không thể là một ngày giả mạo rõ ràng. Tuy nhiên, một mã giải mã rõ ràng không phải là bằng chứng về tính xác thực - các mã được sao chép cũng giải mã được.",
+      "faq2q": "Số serial trên chai Roberto Cavalli ở đâu?",
+      "faq2a": "Không có cái nào theo nghĩa là một sê-ri duy nhất trên mỗi chai. Những gì được in là mã lô - được chia sẻ bởi mọi đơn vị trong cùng một đợt sản xuất - và nó mã hóa ngày tháng chứ không phải mã nhận dạng."
+    },
+    "tom-ford-beauty": {
+      "where1": "Hương thơm: trên đáy hộp và được khắc hoặc in ở mặt dưới chai.",
+      "where2": "Bảng phấn nền và phấn mắt: được in trên đế hộp hoặc chai.",
+      "faq2q": "Làm cách nào để sử dụng bảng phấn mắt Tom Ford?",
+      "faq1q": "Làm cách nào để kiểm tra mã lô Tom Ford?",
+      "faq3q": "Mã lô có phải là bằng chứng xác thực không?",
+      "faq3a": "Không. Nó có thể phát hiện ra một mã giả thô thiển — một mã không phù hợp với định dạng hoặc giải mã đến một tháng không thể thực hiện được — nhưng mã được sao chép sẽ giải mã rõ ràng. Nước hoa Tom Ford bị làm giả nhiều; cân chai, kiểm tra bình xịt phun và mua từ nhà bán lẻ được ủy quyền.",
+      "faq1a": "Tom Ford Beauty do tập đoàn Estée Lauder sản xuất nên sử dụng mã gồm 3 ký tự của tập đoàn: cây, tháng, năm — đọc từ bên phải. Tháng là 1-9 từ tháng 1 đến tháng 9, sau đó là A, B và C từ tháng 10 đến tháng 12.",
+      "faq2a": "Mã nằm trên cơ sở của nhỏ gọn. Giải mã nó theo ngày sản xuất; bột ép có thời hạn sử dụng khoảng 24 tháng sau khi mở và lâu hơn đáng kể khi chưa mở, vì công thức khô hầu như không có gì để vi khuẩn phát triển."
+    },
+    "too-faced": {
+      "faq1q": "Làm cách nào để kiểm tra mã lô của bảng màu Too Faced?",
+      "faq2q": "Mã Too Faced của tôi không giải mã được.",
+      "where1": "Bảng màu và hộp compact: ở mặt sau hộp, đôi khi dưới khay nhựa.",
+      "where2": "Sản phẩm dạng lỏng: trên đế chai hoặc phần uốn ống.",
+      "faq2a": "Một số mã trên bao bì Too Faced là các dòng đánh dấu nội bộ, không phải mã ngày tháng và không có gì để giải mã. Kiểm tra phần đế và mặt sau của hộp để tìm mã thứ hai, ngắn hơn - và nếu thực sự không có mã nào thì biểu tượng lọ mở là hướng dẫn tốt nhất cho bạn.",
+      "faq1a": "Too Faced thuộc nhóm Estée Lauder nên mã gồm ba ký tự - cây, tháng, năm - đọc từ bên phải. Nếu mã trên bảng màu của bạn không vừa với hình dạng đó, thì đó có thể là mã đánh dấu dòng của nhà máy chứ không phải mã lô."
+    },
+    "vichy": {
+      "where1": "Dạng tuýp và kem chống nắng Capital Soleil: ép vào phần gấp — đầu phẳng bịt kín đối diện với nắp.",
+      "where3": "Thùng carton: ở nắp cuối, thường bên cạnh biểu tượng nắp lọ đang mở. Các mẫu và gói thường không có mã nào cả - chỉ có thùng carton chứa chúng.",
+      "where2": "Chai và máy bơm (Mineral 89, Liftactiv): in phun trên đế hoặc trên nhãn phía sau gần mã vạch.",
+      "faq2q": "Làm cách nào để đọc mã trên sản phẩm Vichy?",
+      "faq1q": "Hạn sử dụng của sản phẩm Vichy ở đâu?",
+      "faq1a": "Hầu hết các sản phẩm của Vichy không in. Các dòng dược phẩm thường có ngày hết hạn chính hãng và nếu tồn tại, nó sẽ đánh bại mọi ước tính đã được giải mã - nhưng nếu tất cả những gì bạn có thể tìm thấy là một mã ngắn thì đó là mã lô và nó chứa ngày sản xuất thay vì ngày hết hạn. Giải mã nó, sau đó thêm thời hạn sử dụng: khoảng 36 tháng chưa mở đối với sản phẩm chăm sóc da và làm theo biểu tượng lọ đã mở sau khi mở.",
+      "faq3q": "Mã có thể chứng minh Vichy của tôi là chính hãng không?",
+      "faq4q": "Kem chống nắng Capital Soleil có hết hạn sử dụng không?",
+      "faq2a": "Vichy được sản xuất bởi L'Oréal và sử dụng định dạng của nhóm. Tìm chữ cái đầu tiên trong mã: đó là năm sản xuất, trên một chu kỳ bỏ qua V, do đó U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Ký tự ngay sau đó là tháng - 1 đến 9 cho tháng 1 đến tháng 9, sau đó là O, N và D cho tháng 10, tháng 11 và tháng 12. Chữ O đó là chữ O chứ không phải số 0.",
+      "faq4a": "Có, và nó quan trọng hơn bất kỳ sản phẩm nào khác trong danh mục: các bộ lọc UV đã xuống cấp cho phép xuyên qua nhiều bức xạ hơn, vì vậy kem chống nắng SPF 50 đã lỗi thời không mang lại SPF 50. Kem chống nắng thường có in ngày hết hạn vì lý do chính xác này - hãy sử dụng nó. Và hãy coi chai rượu đã trải qua cả mùa hè trong xe nóng nực như đã cạn kiệt bất kể ngày tháng.",
+      "faq3a": "Chỉ một phần thôi. Một mã không phù hợp với hình dạng của L'Oréal hoặc giải mã đến ngày trước khi dòng sản phẩm tồn tại là một cảnh báo thực sự. Nhưng kẻ làm giả sao chép mã từ ống chính hãng sẽ tạo ra mã giải mã hoàn hảo - do đó, việc giải mã rõ ràng chứng tỏ mã được định dạng đúng chứ không phải kem. Đối với sản phẩm chăm sóc da ở hiệu thuốc, mua hàng ở hiệu thuốc vẫn là sự bảo vệ mạnh mẽ hơn."
+    },
+    "ysl-beauty": {
+      "where1": "Son môi và đồ trang điểm: được in trên đế hộp hoặc mặt sau của hộp đựng.",
+      "faq1q": "Làm cách nào để kiểm tra mã lô Yves Saint Laurent?",
+      "faq2a": "Bởi vì cùng một công ty sản xuất cả hai. Định dạng tuân theo nhà máy chứ không phải giá cả - son môi YSL và mascara Maybelline đều xuất phát từ dòng L'Oréal và mang cùng một kiểu mã.",
+      "faq2q": "Tại sao mã YSL của tôi trông giống mã Maybelline?",
+      "where2": "Hương thơm: ở đáy hộp và mặt dưới chai.",
+      "faq1a": "YSL Beauty do L'Oréal sản xuất nên mang mã của tập đoàn: chữ số xuất xưởng, chữ cái năm, sau đó là ký tự tháng. Chọn YSL Beauty trong trình kiểm tra và động cơ sẽ áp dụng quy tắc của L'Oréal."
+    },
+    "zara": {
+      "where1": "Trên nắp dưới của hộp nước hoa và trên đế chai.",
+      "faq1q": "Nước hoa Zara có hạn sử dụng không?",
+      "faq2a": "Puig sản xuất dòng nước hoa của Zara, đó là lý do tại sao các mã tuân theo định dạng của Puig - và một phần lý do tại sao một số mùi hương của Zara được so sánh với các loại nước hoa của nhà thiết kế mà Puig cũng sản xuất.",
+      "where2": "Phạm vi làm đẹp in nó ở mặt dưới của vỏ hoặc phần uốn của ống.",
+      "faq2q": "Ai thực sự làm ra nước hoa Zara?",
+      "faq1a": "Theo quy định, không phải là bản in - giống như hầu hết các loại nước hoa, thay vào đó, nó mang mã lô. Giải mã nó theo ngày sản xuất và tính thời hạn sử dụng từ 3 đến 5 năm khi chưa mở nắp, điều này là bình thường đối với nước hoa được tránh xa ánh sáng và nhiệt."
+    }
+  },
+  "contentPages": {
+    "updated": "Đã cập nhật {date}",
+    "minRead": "{n} phút đọc",
+    "faq": "Câu hỏi thường gặp",
+    "characters": "nhân vật",
+    "moreGuides": "Thêm hướng dẫn",
+    "readNext": "Đọc tiếp",
+    "encodes": "Những gì họ mã hóa",
+    "anatomy": "Giải phẫu của mã",
+    "checkBrand": "Kiểm tra mã lô của thương hiệu",
+    "doesNotDecode": "không giải mã",
+    "workedExamples": "Ví dụ đã làm việc",
+    "brandsUsingNote": "Định dạng thuộc về nhà sản xuất, không phải nhãn trên chai - mọi thương hiệu bên dưới đều được đóng dấu bởi cùng một nhà máy và đọc theo cùng một cách.",
+    "workedExamplesNote": "Được giải mã trực tiếp bằng cùng một công cụ hỗ trợ bộ kiểm tra — không được chép lại bằng tay.",
+    "confidence": "sự tự tin của{level}",
+    "formatsTitle": "Định dạng mã hàng loạt",
+    "brandsUsing": "Các thương hiệu sử dụng mã này ({count})",
+    "formatsIntro": "Định dạng của mã lô thuộc về nhà sản xuất sản phẩm chứ không thuộc về tên trên chai. Coty đóng dấu bốn chữ số giống nhau trên Rimmel, Gucci và adidas; Inter Parfums đóng dấu chín ký tự giống nhau trên Montblanc, Coach và Jimmy Choo. Tìm hiểu mật mã một lần và bạn có thể đọc được mọi thương hiệu chia sẻ nó.",
+    "whichCode": "Bạn không chắc mã nào trên gói là mã lô?",
+    "formatsIntro2": "Mỗi trang bên dưới ghi lại một họ: nội dung mà mỗi ký tự mã hóa, mã thực được giải mã bởi cùng một công cụ hỗ trợ trình kiểm tra, nơi mã được in trên bao bì và - cũng quan trọng không kém - định dạng nào không thể cho bạn biết.",
+    "otherFormats": "Các định dạng mã khác",
+    "brandCount": "thương hiệu"
   }
 }
