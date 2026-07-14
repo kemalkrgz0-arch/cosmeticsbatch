@@ -1,10 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site";
 
-// Result permutations are noindex; keep them out of crawl budget too.
-// Locale-prefixed (/en/check, /fr/check…), so match across locales.
-const DISALLOW = ["/check", "/*/check"];
-
 // Bots we explicitly welcome. Two groups, both allowed:
 //  - Search engines → classic ranking (Googlebot, Bingbot, …).
 //  - AI answer engines → Generative Engine Optimization. These cite + link
@@ -41,13 +37,11 @@ export default function robots(): MetadataRoute.Robots {
       ...WELCOME_BOTS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: DISALLOW,
       })),
       // Everyone else: same policy.
       {
         userAgent: "*",
         allow: "/",
-        disallow: DISALLOW,
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),

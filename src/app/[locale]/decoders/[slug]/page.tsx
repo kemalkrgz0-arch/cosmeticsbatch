@@ -26,7 +26,7 @@ import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
 import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
-import { isContentReviewed, reviewedContentLocales } from "@/lib/content-review";
+import { isContentReviewed } from "@/lib/content-review";
 
 export function generateStaticParams() {
   return DECODER_GUIDES.map((g) => ({ slug: g.slug }));
@@ -41,16 +41,13 @@ export async function generateMetadata({
   const source = getDecoderGuide(slug);
   if (!source) return {};
   const guide = localizeDecoderGuide(source, await contentTranslator(locale));
-  const prefix = `dec.${source.slug}`;
   const meta = pageMeta({
     title: guide.title,
     description: guide.description,
     path: `/decoders/${guide.slug}`,
     type: "article",
     locale,
-    availableLocales: reviewedContentLocales(prefix),
   });
-  if (!isContentReviewed(locale, prefix)) meta.robots = { index: false, follow: true };
   return meta;
 }
 

@@ -12,13 +12,24 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { logCheck, toCheckLog } from "@/lib/dataset";
 import { isHumanUA } from "@/lib/bot-filter";
 import { BrandLogo } from "@/components/ui/brand-logo";
+import { pageMeta } from "@/lib/seo";
 
-// Result pages are user-specific query permutations — keep them out of the index
-// but let them pass link equity. The indexable SEO targets are the brand pages.
-export const metadata: Metadata = {
-  title: "Batch Code Result",
-  robots: { index: false, follow: true },
-};
+// Query permutations consolidate to the locale's base checker URL. This keeps
+// the checker indexable without creating one search document per entered code.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return pageMeta({
+    title: "Batch Code Checker",
+    description:
+      "Select a cosmetic or perfume brand and enter its batch code to estimate the manufacture date and product age.",
+    path: "/check",
+    locale,
+  });
+}
 
 export default async function CheckPage({
   params,

@@ -6,7 +6,6 @@ import { GUIDES } from "@/lib/guides";
 import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { DEFAULT_LOCALE } from "@/i18n/locales";
 
 export async function generateMetadata({
   params,
@@ -20,9 +19,7 @@ export async function generateMetadata({
       "Practical guides on reading batch codes, cosmetic and perfume shelf life, safe storage, and spotting counterfeits.",
     path: "/guides",
     locale,
-    availableLocales: [DEFAULT_LOCALE],
   });
-  if (locale !== DEFAULT_LOCALE) meta.robots = { index: false, follow: true };
   return meta;
 }
 

@@ -1,8 +1,8 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-14
-Current version: **0.2.5**
-Current phase: **Phase 2 in progress — production email active**
+Current version: **0.4.0**
+Current phase: **Phase 3 in progress — primary UX and accessibility**
 
 This is the shared handoff document for maintainers and agents. Read it before
 work and update it after every logical change group. Detailed audit evidence and
@@ -23,7 +23,8 @@ priorities live in `AUDIT.md`.
   secret wiring, commit `fcb8268` deployed successfully in Actions run
   `29318501863`, and a second controlled submission returned HTTP 201 with
   `notification: sent`.
-- Phase 2 technical SEO/content integrity audit and fixes are in progress.
+- Phase 2 high-confidence technical SEO/content-integrity fixes are complete;
+  manufacturer/parent-company factual claims still need primary-source review.
 - Reviewed long-form locale coverage is now enforced from
   `messages/content/reviewed.json`; English and fully reviewed Russian content
   remain indexable, while unreviewed article translations remain accessible but
@@ -88,9 +89,10 @@ priorities live in `AUDIT.md`.
 
 ### Phase 3 — primary user flow and accessibility
 
-- Improve 200+ brand selection, keyboard navigation and mobile interaction.
-- Clarify manufactured date, estimated unopened shelf life, PAO, confidence and
-  limitations in result UX.
+- Completed: improved 200+ brand selection, keyboard navigation, form semantics
+  and mobile interaction.
+- Completed: clarified manufacture date, estimated unopened shelf life, PAO,
+  confidence and limitations in result UX.
 - Improve invalid, ambiguous and unsupported-code guidance.
 - Add a review workflow/status process for photo submissions.
 
@@ -234,6 +236,178 @@ files, reason, verification and known risk. Never include secrets or personal da
   Article or FAQ schema and the English photo form did not leak into them.
 - Risk / needs verification: new locales should be promoted only after their
   complete editorial corpus and brand-page UI are reviewed.
+- Deployment: commit `944027d`, Actions run `29319717782`, completed
+  successfully. Live English/Russian/Turkish samples matched the tested robots,
+  hreflang, schema and photo-form visibility rules.
+
+### 2026-07-14 — 0.2.5 — Codex / Data-first SEO decision hold
+
+- Decision: paused the proposed brand-promotion automation before commit, push
+  or deployment because changing index coverage without query/page evidence may
+  remove valuable organic opportunities.
+- Next input: Google Search Console and Yandex Webmaster exports/screenshots.
+- Required analysis: page/query/country/device performance, indexed/excluded
+  coverage, crawl and sitemap issues, cannibalization, locale demand and pages
+  currently receiving impressions despite thin-content risk.
+- Rule: no further broad robots, sitemap, canonical or hreflang changes until the
+  webmaster evidence is reviewed together.
+
+### 2026-07-14 — 0.2.5 — Codex / GSC evidence review (preliminary)
+
+- Evidence: GSC query, page and country exports show meaningful demand outside
+  English and Russian. Spain, Japan, Italy, Ukraine and Turkey generated the
+  most non-English clicks; several localized brand URLs already earned clicks
+  or top-10 positions, including Russian Escada, Spanish Nivea, Thai/Turkish
+  Dior, Japanese Maybelline/Dove/Nivea and Vietnamese Neutrogena.
+- Live verification: slash variants such as `/es/`, `/it/`, `/fi/`, `/ro/` and
+  `/sv/` correctly return 308 to their slashless canonical URL; the duplicate
+  rows in GSC are therefore historical consolidation signals, not two current
+  200/indexable URLs.
+- Risk: the 0.2.5 locale-wide editorial gate currently returns `noindex,
+  follow` for some localized brand URLs with demonstrated search demand. It is
+  not a ranking penalty, but retaining it can remove existing organic entry
+  points after Google recrawls them.
+- Preliminary decision: keep locale home pages indexable; replace locale-wide
+  brand gating with a reviewed locale+brand eligibility model; keep weak,
+  repetitive localized guide clusters gated; do not reopen every generated URL.
+- Required before implementation: confirm the GSC date range and compare it to
+  the 0.2.5 deployment date, then review Yandex evidence and page-filtered query
+  exports for the highest-impression English brand pages.
+
+### 2026-07-14 — 0.2.5 — Codex / Yandex Webmaster query evidence
+
+- Source: user-supplied Yandex Webmaster XLSX covering 2026-06-12 through
+  2026-07-12; 363 query rows, 517 impressions and 42 reported clicks.
+- Signal: Russian brand-specific demand is much stronger than generic demand.
+  Batch-code terms account for 226 impressions/23 clicks; shelf-life or
+  manufacture-date terms for 128/12; authenticity-related terms for 44/9.
+- Brand clusters: L'Oréal (55 impressions), Vichy (54), Kenzo (26), Estée
+  Lauder (25), Dior (24), Garnier (18) and Kérastase (16) are the clearest
+  content/CTR priorities. Several top-10 L'Oréal and Vichy queries have no click.
+- Safety implication: authenticity intent is material, but a valid batch code
+  cannot prove authenticity. Russian snippets and result copy must capture the
+  intent without claiming counterfeit detection.
+- Data caveat: some exported rows report more clicks than impressions, so totals
+  and tiny samples are directional rather than suitable for URL-level automated
+  promotion. This workbook contains queries, not landing-page evidence.
+
+### 2026-07-14 — 0.2.5 — Owner decision / Strengthen before indexing
+
+- Decision: do not reopen additional localized URLs merely because they have
+  early GSC/Yandex signals. Keep the current index gates while existing
+  indexable pages are strengthened and verified.
+- Priority: improve current English/Russian brand pages and indexable locale
+  entry pages, beginning with high-impression L'Oréal, Vichy, Kérastase, Dior,
+  Nivea, Lancôme, Estée Lauder, Kenzo and Garnier demand clusters.
+- Quality gate: each page must accurately distinguish batch-code decoding,
+  estimated manufacture/shelf-life information and authenticity; no page may
+  imply that a valid code proves authenticity.
+- Measurement: establish pre-change query/page baselines, deploy improvements
+  in small groups, and compare CTR, impressions and average position before any
+  broader index expansion is reconsidered.
+
+### 2026-07-14 — 0.3.0 — Codex / L'Oréal group content foundation
+
+- Changed: strengthened all 39 current L'Oréal Group catalog pages with a
+  localized, evidence-aware family section in the 10 demand-priority locales:
+  English, Russian, Spanish, Japanese, Italian, Turkish, German, Indonesian,
+  Vietnamese and Swedish.
+- Corrected: metadata and introductions no longer promise a manufacturer expiry
+  date or authenticity check; the page now states month precision, midpoint-day
+  estimation, printed-date precedence, regional format variation and the fact
+  that a copied batch code cannot prove authenticity.
+- Fixed: the decoder-guide callout no longer leaks English into the 10 priority
+  locales. The L'Oréal fact label now says the format is observed rather than
+  presenting the repository's `UNKNOWN` decoder profile as manufacturer-verified.
+- Data integrity: updated Color Wow to L'Oréal Group after the acquisition was
+  officially reported as completed in September 2025. No decoder was assigned;
+  packaging evidence is still required before claiming format compatibility.
+- Index decision: unchanged. No locale was added to the review manifest and no
+  URL was newly indexed. English is the source copy; Russian core copy was
+  corrected; the other eight localized packages remain editorial drafts pending
+  native-language review.
+- Files: `messages/{en,ru,es,ja,it,tr,de,id,vi,sv}.json`, L'Oréal constants,
+  brand route/catalog, editorial review document and quality regression tests.
+- Verification: priority JSON parsing, full ESLint, TypeScript and production
+  build passed; quality/decoder regression suite expanded from 16 to 18 tests
+  and passed 18/18 after correcting one initially over-broad assertion. Local
+  production HTML confirmed the L'Oréal family block on all 10 sample locales,
+  no legacy English callout leakage, English/Russian `index, follow`, and the
+  other eight locales still `noindex, follow`.
+- Risk / needs verification: native editors must validate non-English natural
+  phrasing before any locale review/index promotion. The observed L'Oréal code
+  cycle still has no stored primary-source provenance and remains `UNKNOWN`.
+
+### 2026-07-14 — 0.4.0 — Owner decision / Full public index coverage
+
+- Decision: removed page-level `noindex` gates from all public brand, guide,
+  decoder, company/legal and checker routes across every active locale. This
+  intentionally supersedes the earlier reviewed-locale-only indexing policy;
+  AdSense reapplication is not currently the governing constraint.
+- Consistency: every public locale URL is emitted as its own sitemap entry with
+  reciprocal hreflang; robots now allows `/check`; query-based checker results
+  canonicalize to the locale's base `/check` page instead of creating one index
+  target per user-entered code.
+- Preserved safeguards: content review status still controls Article/FAQ schema
+  and advertising eligibility where applicable. Indexability is not recorded as
+  proof of native editorial review or decoder verification.
+- Files: all metadata-gated public routes, `src/app/sitemap.ts`,
+  `src/app/robots.ts`, checker metadata, quality tests and editorial records.
+- Risk accepted by owner: broad indexing increases thin-content, duplicate and
+  mixed-language exposure until remaining translations receive native review.
+- Verification: full ESLint, TypeScript, 19/19 regression tests, diff check and
+  production build passed. Rendered samples across brands, guides, decoders,
+  company/legal and checker routes returned `index, follow` with self-canonical
+  URLs; query checker variants canonicalized to `/check`; robots had no
+  disallow. Sitemap emitted 11,352 localized URLs (about 1.99 MB), including
+  Turkish Dior and Japanese Color Wow.
+
+### 2026-07-14 — 0.4.0 — Codex team / Phase 3 parallel UX group 1
+
+- Brand selector/form: added unique label/control relationships, complete
+  combobox/listbox semantics, active-descendant keyboard behavior, Escape focus
+  return, reachable no-results feedback, mobile viewport/overscroll limits,
+  accessible batch-code errors and 44px touch targets.
+- Result UX: separated decoded manufacture date and product age from estimated
+  unopened shelf-life information; made the estimated date, PAO, confidence and
+  existing English decoder limitations visually distinct; improved mobile cell
+  stacking.
+- Photo submission UX: added focus management, explicit missing-photo errors,
+  live file/send/success announcements, clearer required email/consent text,
+  iOS-safe input sizing, larger mobile targets and take-or-choose photo behavior.
+  API, storage, email and privacy payload semantics were unchanged.
+- Files: `src/components/check-form.tsx`, `src/components/result-card.tsx`,
+  `src/components/code-photo-submission.tsx`.
+- Verification: included in the full 0.4.0 ESLint, TypeScript, 19/19 tests,
+  production build and rendered route checks above.
+- Remaining Phase 3 work: native-language parity for the new detailed error
+  guidance, retention/deletion policy approval, and a web reviewer UI only if a
+  trusted external authentication boundary is introduced.
+
+### 2026-07-14 — 0.4.0 — Codex team / Phase 3 parallel UX group 2
+
+- Invalid/unsupported results: English result cards now expose existing decoder
+  notes, explain that regional/older/contract-manufacturer formats may be valid
+  but unsupported, avoid treating decode failure as proof of an invalid product,
+  and link back to the checker or the private photo submission form.
+- Form continuity: shared/refreshed `?code=` values hydrate back into the input;
+  recent brands no longer duplicate alphabetical options; active keyboard
+  options scroll into view; empty result navigation and accessible trigger names
+  were tightened.
+- Reviewer workflow: added a server-local, owner-only CLI that lists pending
+  submissions without PII, shows a selected private record, and appends guarded
+  `pending -> in_review -> awaiting_user/completed/discarded` review events.
+  Replies remain in the authenticated contact mailbox; no photo/admin endpoint
+  is exposed publicly.
+- Files: result/check/photo components, `scripts/submission-review.mjs`,
+  `docs/SUBMISSION_REVIEW_WORKFLOW.md`, package scripts.
+- Verification: scoped agent lint/type checks passed. A controlled CLI fixture
+  exposed and then corrected an invalid lock-cleanup call; the complete
+  pending/list/show/in-review/completed flow and lock removal then passed. Full
+  ESLint, TypeScript, 19/19 regression tests, CLI help smoke test, diff check and
+  production build passed after the parallel changes were merged.
+- Remaining decision: retention duration and deletion coverage for disk,
+  mailbox and backups require owner/legal approval before adding automation.
 
 <!-- Example:
 ### 2026-07-15 — 0.2.1 — agent/name

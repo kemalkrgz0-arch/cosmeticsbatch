@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
@@ -56,12 +56,23 @@ export function CheckForm({
   const [active, setActive] = useState(0);
   const [recent, setRecent] = useState<Brand[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const id = useId();
+  const brandLabelId = `${id}-brand-label`;
+  const brandValueId = `${id}-brand-value`;
+  const brandListId = `${id}-brand-list`;
+  const codeInputId = `${id}-batch-code`;
+  const codeHintId = `${id}-batch-code-hint`;
+  const errorId = `${id}-error`;
 
   const rootRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const codeRef = useRef<HTMLInputElement>(null);
 
-  // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate recents on mount
-  useEffect(() => setRecent(loadRecent()), []);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- hydrate client-only persisted/URL state on mount
+    setRecent(loadRecent());
+    setCode(new URLSearchParams(window.location.search).get("code") ?? "");
+  }, []);
 
   // Tell the mobile bottom nav to slide away while the dropdown is open, so it
   // doesn't cover the lower brand results.
@@ -88,7 +99,11 @@ export function CheckForm({
       raw.push({ label: "", brands: searchBrands(query, 80) });
     } else {
       if (recent.length) raw.push({ label: "Recent", brands: recent });
-      raw.push({ label: "", brands: allSorted });
+      const recentSlugs = new Set(recent.map((brand) => brand.slug));
+      raw.push({
+        label: "",
+        brands: allSorted.filter((brand) => !recentSlugs.has(brand.slug)),
+      });
     }
     let start = 0;
     const secs = raw.map((s) => {
@@ -98,6 +113,14 @@ export function CheckForm({
     });
     return { sections: secs, flat: raw.flatMap((s) => s.brands) };
   }, [query, recent, allSorted]);
+
+  // Keep the keyboard-highlighted option visible in long lists.
+  useEffect(() => {
+    if (!open || !flat[active]) return;
+    listRef.current
+      ?.querySelector<HTMLElement>(`[id="${CSS.escape(`${id}-brand-${active}`)}"]`)
+      ?.scrollIntoView({ block: "nearest" });
+  }, [active, flat, id, open]);
 
   // Close on outside click.
   useEffect(() => {
@@ -130,16 +153,24 @@ export function CheckForm({
     if (!open) return;
     if (e.key === "ArrowDown") {
       e.preventDefault();
+      if (!flat.length) return;
       setActive((a) => Math.min(a + 1, flat.length - 1));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
+      if (!flat.length) return;
       setActive((a) => Math.max(a - 1, 0));
     } else if (e.key === "Enter") {
       e.preventDefault();
       if (flat[active]) selectBrand(flat[active]);
     } else if (e.key === "Escape") {
       setOpen(false);
+      rootRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
     }
+  }
+
+  function openPicker() {
+    setActive(Math.max(0, brand ? flat.findIndex((b) => b.slug === brand.slug) : 0));
+    setOpen(true);
   }
 
   function submit(e: React.FormEvent) {
@@ -168,6 +199,7 @@ export function CheckForm({
 
   return (
     <form
+      id="batch-checker"
       onSubmit={submit}
       className={cn(
         "rounded-2xl border border-border bg-card p-3 shadow-card sm:p-4",
@@ -182,14 +214,26 @@ export function CheckForm({
       >
         {/* Brand picker */}
         <div ref={rootRef} className="relative">
-          <label className="mb-1.5 block px-1 text-xs font-medium text-fg-muted">
+          <span
+            id={brandLabelId}
+            className="mb-1.5 block px-1 text-xs font-medium text-fg-muted"
+          >
             {t("form.selectBrand")}
-          </label>
+          </span>
           <button
             type="button"
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => (open ? setOpen(false) : openPicker())}
+            onKeyDown={(e) => {
+              if (!open && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
+                e.preventDefault();
+                openPicker();
+              }
+            }}
+            aria-labelledby={`${brandLabelId} ${brandValueId}`}
             aria-haspopup="listbox"
             aria-expanded={open}
+            aria-controls={brandListId}
+            aria-describedby={error ? errorId : undefined}
             className="flex h-12 w-full items-center gap-2.5 rounded-xl border border-border bg-bg px-3 text-left transition-colors duration-200 hover:border-border-strong focus-visible:border-accent"
           >
             {brand ? (
@@ -199,10 +243,10 @@ export function CheckForm({
                   slug={brand.slug}
                   className="h-7 w-7 text-[11px]"
                 />
-                <span className="truncate font-medium">{brand.name}</span>
+                <span id={brandValueId} className="truncate font-medium">{brand.name}</span>
               </>
             ) : (
-              <span className="text-fg-muted">
+              <span id={brandValueId} className="text-fg-muted">
                 {t("form.selectBrandPlaceholder")}
               </span>
             )}
@@ -221,20 +265,36 @@ export function CheckForm({
                     setActive(0);
                   }}
                   onKeyDown={onKeyDown}
+                  role="combobox"
+                  aria-label={t("form.searchBrands")}
+                  aria-autocomplete="list"
+                  aria-controls={brandListId}
+                  aria-expanded="true"
+                  aria-activedescendant={flat[active] ? `${id}-brand-${active}` : undefined}
                   placeholder={t("form.searchBrands")}
                   className="h-11 w-full bg-transparent text-sm outline-none placeholder:text-fg-muted"
                 />
                 {query && (
                   <button
                     type="button"
-                    onClick={() => setQuery("")}
-                    className="text-fg-muted hover:text-fg"
+                    onClick={() => {
+                      setQuery("");
+                      setActive(0);
+                    }}
+                    aria-label={t("form.searchBrands")}
+                    className="inline-flex h-11 w-11 items-center justify-center text-fg-muted hover:text-fg"
                   >
                     <X className="h-4 w-4" />
                   </button>
                 )}
               </div>
-              <ul role="listbox" className="max-h-80 overflow-y-auto p-1.5">
+              <ul
+                id={brandListId}
+                ref={listRef}
+                role="listbox"
+                aria-labelledby={brandLabelId}
+                className="max-h-[min(20rem,50dvh)] overflow-y-auto overscroll-contain p-1.5"
+              >
                 {sections.map((section) => (
                   <li key={section.label || "all"} role="presentation">
                     {section.label && (
@@ -255,11 +315,13 @@ export function CheckForm({
                         return (
                           <li
                             key={`${section.label}-${b.slug}`}
-                            role="option"
-                            aria-selected={i === active}
+                            role="presentation"
                           >
                             <button
+                              id={`${id}-brand-${i}`}
                               type="button"
+                              role="option"
+                              aria-selected={brand?.slug === b.slug}
                               onMouseEnter={() => setActive(i)}
                               onClick={() => selectBrand(b)}
                               className={cn(
@@ -287,8 +349,11 @@ export function CheckForm({
                     </ul>
                   </li>
                 ))}
-                {sections.length === 0 && (
-                  <li className="px-3 py-6 text-center text-sm text-fg-muted">
+                {flat.length === 0 && (
+                  <li
+                    role="presentation"
+                    className="px-3 py-6 text-center text-sm text-fg-muted"
+                  >
                     {t("form.noMatch", { query })}
                   </li>
                 )}
@@ -301,14 +366,14 @@ export function CheckForm({
         {!navigateOnSelect && (
         <div>
           <label
-            htmlFor="batch-code"
+            htmlFor={codeInputId}
             className="mb-1.5 block px-1 text-xs font-medium text-fg-muted"
           >
             {t("form.batchCode")}
           </label>
           <div className="relative">
             <input
-              id="batch-code"
+              id={codeInputId}
               ref={codeRef}
               autoFocus={autoFocusCode}
               value={code}
@@ -320,13 +385,15 @@ export function CheckForm({
               autoCapitalize="characters"
               autoCorrect="off"
               spellCheck={false}
+              aria-describedby={`${codeHintId}${error ? ` ${errorId}` : ""}`}
+              aria-invalid={Boolean(error && brand)}
               placeholder={t("form.batchCodePlaceholder")}
               className="h-12 w-full rounded-xl border border-border bg-bg px-3 pr-10 font-medium tracking-wide outline-none transition-colors duration-200 hover:border-border-strong focus-visible:border-accent placeholder:font-normal placeholder:text-fg-muted"
             />
             <ScanLine className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-muted" />
           </div>
           {/* Steer users away from typing the product barcode (EAN). */}
-          <p className="mt-1.5 px-1 text-xs leading-relaxed text-fg-muted">
+          <p id={codeHintId} className="mt-1.5 px-1 text-xs leading-relaxed text-fg-muted">
             {t("form.batchCodeHint")}
           </p>
         </div>
@@ -335,7 +402,7 @@ export function CheckForm({
         {/* CTA */}
         <button
           type={navigateOnSelect ? "button" : "submit"}
-          onClick={navigateOnSelect ? () => setOpen(true) : undefined}
+          onClick={navigateOnSelect ? openPicker : undefined}
           className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-cta px-6 font-semibold text-cta-fg transition-[background-color,transform] duration-200 hover:bg-cta-hover active:scale-[0.98] sm:px-7"
         >
           {navigateOnSelect ? t("form.chooseBrand") : t("nav.checkNow")}
@@ -343,7 +410,7 @@ export function CheckForm({
       </div>
 
       {error && (
-        <p className="px-1 pt-2 text-sm text-danger" role="alert">
+        <p id={errorId} className="px-1 pt-2 text-sm text-danger" role="alert">
           {error}
         </p>
       )}

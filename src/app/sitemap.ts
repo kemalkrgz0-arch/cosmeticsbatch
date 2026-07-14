@@ -1,74 +1,56 @@
 import type { MetadataRoute } from "next";
-import { INDEXED_BRANDS } from "@/lib/brands";
+import { ALL_BRANDS } from "@/lib/brands";
 import { DECODER_GUIDES } from "@/lib/decoder-guides";
 import { GUIDES } from "@/lib/guides";
 import { absoluteUrl, site } from "@/lib/site";
-import { DEFAULT_LOCALE } from "@/i18n/locales";
-import { localizedPath, hreflangAlternates } from "@/lib/seo";
-import {
-  EDITORIALLY_REVIEWED_LOCALES,
-  reviewedContentLocales,
-} from "@/lib/content-review";
+import { LOCALE_CODES } from "@/i18n/locales";
+import { localizedPath } from "@/lib/seo";
+import { isLorealGroupBrand } from "@/lib/loreal";
 
 /**
- * One entry per path (at the default-locale URL), each declaring all language
- * versions via hreflang `alternates.languages`. Search engines discover and
- * index the other locales through the alternates, so we don't repeat every path
- * once per locale — keeping the sitemap ~8× smaller (one <loc> per page, not
- * one per page × language).
+ * Every public locale URL gets its own sitemap entry. Reciprocal hreflang stays
+ * in page metadata; repeating the full 45-link set on every sitemap row would
+ * create more than 500,000 XML links and exceed response/cache size limits.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Stable content date, not `new Date()` — a real <lastmod> signal that only
-  // moves when page content actually changes (see site.contentUpdated).
   const updated = new Date(site.contentUpdated);
 
-  const entry = (
+  const entries = (
     path: string,
     lastModified: Date,
     changeFrequency: "weekly" | "monthly",
     priority: number,
-    localeCodes?: readonly string[],
-  ) => ({
-    url: absoluteUrl(localizedPath(DEFAULT_LOCALE, path)),
-    lastModified,
-    changeFrequency,
-    priority,
-    alternates: { languages: hreflangAlternates(path, localeCodes) },
-  });
+  ): MetadataRoute.Sitemap =>
+    LOCALE_CODES.map((locale) => ({
+      url: absoluteUrl(localizedPath(locale, path)),
+      lastModified,
+      changeFrequency,
+      priority,
+    }));
 
-  const staticRoutes = [
-    "/",
-    "/brands",
-  ].map((path) => entry(path, updated, "weekly", path === "/" ? 1 : 0.8));
-  const editorialIndexRoutes = [
-    entry("/decoders", updated, "weekly", 0.8, EDITORIALLY_REVIEWED_LOCALES),
-    entry("/guides", updated, "weekly", 0.8, [DEFAULT_LOCALE]),
+  const routeEntries = [
+    ...entries("/", updated, "weekly", 1),
+    ...entries("/brands", updated, "weekly", 0.8),
+    ...entries("/check", updated, "weekly", 0.7),
+    ...entries("/decoders", updated, "weekly", 0.8),
+    ...entries("/guides", updated, "weekly", 0.8),
+    ...entries("/about", updated, "monthly", 0.6),
+    ...entries("/contact", updated, "monthly", 0.6),
+    ...entries("/privacy", updated, "monthly", 0.3),
+    ...entries("/terms", updated, "monthly", 0.3),
   ];
-  // These routes currently have reviewed English copy only. Advertising them
-  // as 44 translated alternates creates mixed-language duplicate pages.
-  const englishOnlyRoutes = ["/about", "/contact", "/privacy", "/terms"].map((path) =>
-    entry(path, updated, "monthly", path === "/about" || path === "/contact" ? 0.6 : 0.3, [DEFAULT_LOCALE]),
+  const publicBrands = ALL_BRANDS.filter(
+    (brand) => !brand.hidden || isLorealGroupBrand(brand),
   );
-  // Only the brands carrying their own editorial material (see brand-detail.ts).
-  // The other ~180 are generated from one template per decoder family, are marked
-  // noindex, and listing a noindex URL here would just spend crawl budget
-  // contradicting ourselves. They stay reachable and crawlable via /brands.
-  const brandRoutes = INDEXED_BRANDS.map((b) =>
-    entry(`/brands/${b.slug}`, updated, "monthly", 0.8, EDITORIALLY_REVIEWED_LOCALES),
+  const brandEntries = publicBrands.flatMap((brand) =>
+    entries(`/brands/${brand.slug}`, updated, "monthly", 0.8),
   );
-  const decoderRoutes = DECODER_GUIDES.map((g) =>
-    entry(`/decoders/${g.slug}`, new Date(g.updated), "monthly", 0.9, reviewedContentLocales(`dec.${g.slug}`)),
+  const decoderEntries = DECODER_GUIDES.flatMap((guide) =>
+    entries(`/decoders/${guide.slug}`, new Date(guide.updated), "monthly", 0.9),
   );
-  const guideRoutes = GUIDES.map((g) =>
-    entry(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6, reviewedContentLocales(`guide.${g.slug}`)),
+  const guideEntries = GUIDES.flatMap((guide) =>
+    entries(`/guides/${guide.slug}`, new Date(guide.updated), "monthly", 0.6),
   );
 
-  return [
-    ...staticRoutes,
-    ...editorialIndexRoutes,
-    ...englishOnlyRoutes,
-    ...brandRoutes,
-    ...decoderRoutes,
-    ...guideRoutes,
-  ];
+  return [...routeEntries, ...brandEntries, ...decoderEntries, ...guideEntries];
 }

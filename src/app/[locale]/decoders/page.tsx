@@ -6,10 +6,6 @@ import { DECODER_GUIDES, brandsForGuide } from "@/lib/decoder-guides";
 import { contentTranslator, localizeDecoderGuide } from "@/lib/content-i18n";
 import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import {
-  EDITORIALLY_REVIEWED_LOCALES,
-  isEditorialLocaleReviewed,
-} from "@/lib/content-review";
 
 export async function generateMetadata({
   params,
@@ -23,9 +19,7 @@ export async function generateMetadata({
     description: tc("formatsIntro"),
     path: "/decoders",
     locale,
-    availableLocales: EDITORIALLY_REVIEWED_LOCALES,
   });
-  if (!isEditorialLocaleReviewed(locale)) meta.robots = { index: false, follow: true };
   return meta;
 }
 

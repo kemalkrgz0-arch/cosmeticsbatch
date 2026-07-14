@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Mail } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
-import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
@@ -17,9 +16,7 @@ export async function generateMetadata({
     description: `Get in touch with ${site.name} — corrections to a batch-code result, a brand request, or any question about the tool.`,
     path: "/contact",
     locale,
-    availableLocales: [DEFAULT_LOCALE],
   });
-  if (locale !== DEFAULT_LOCALE) meta.robots = { index: false, follow: true };
   return meta;
 }
 

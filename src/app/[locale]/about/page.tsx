@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { pageMeta } from "@/lib/seo";
-import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
@@ -17,9 +16,7 @@ export async function generateMetadata({
     description: `About ${site.name} — a free, private cosmetic and perfume batch code checker.`,
     path: "/about",
     locale,
-    availableLocales: [DEFAULT_LOCALE],
   });
-  if (locale !== DEFAULT_LOCALE) meta.robots = { index: false, follow: true };
   return meta;
 }
 

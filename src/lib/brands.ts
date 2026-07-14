@@ -156,7 +156,9 @@ const ROWS: Row[] = [
   ["Matrix", "L'Oréal Group", "loreal", "haircare", 36, 12],
   ["Pureology", "L'Oréal Group", "loreal", "haircare", 36, 12],
   ["Mizani", "L'Oréal Group", "loreal", "haircare", 36, 12],
-  ["Color Wow", "Color Wow", undefined, "haircare", 36, 12],
+  // L'Oréal completed the acquisition in September 2025. Do not assign the
+  // shared decoder until post-acquisition packaging samples verify its format.
+  ["Color Wow", "L'Oréal Group", undefined, "haircare", 36, 12],
 
   // ---- LVMH (Dior + sister houses share a production-date code) ----
   ["Dior", "LVMH", "dior", "perfume", 60, 36, true],
@@ -636,9 +638,9 @@ export const POPULAR_BRANDS = BRANDS.filter((b) => b.popular);
  * brand-specific material (see [[brand-detail]]): a decoded sample code, where
  * the code sits on that brand's packaging, and answers to the questions people
  * actually search for it. Without that, the page is one of a few hundred
- * generated from the same template per decoder family — near-duplicates, which
- * is what search engines score as scaled, low-value content. Those stay
- * `noindex, follow`: still the tool, still crawlable, just not in the index.
+ * generated from the same template per decoder family. This remains the
+ * brand-specific editorial threshold used for structured data and
+ * monetization; public index coverage is configured separately by routes.
  */
 export const INDEXED_BRANDS: Brand[] = BRANDS.filter((b) =>
   Object.hasOwn(BRAND_DETAILS, b.slug),

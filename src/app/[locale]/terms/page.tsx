@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { pageMeta } from "@/lib/seo";
-import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
@@ -19,9 +18,7 @@ export async function generateMetadata({
     description: `The terms for using ${site.name}. Batch-code results are informational estimates, not a guarantee of product safety.`,
     path: "/terms",
     locale,
-    availableLocales: [DEFAULT_LOCALE],
   });
-  if (locale !== DEFAULT_LOCALE) meta.robots = { index: false, follow: true };
   return meta;
 }
 

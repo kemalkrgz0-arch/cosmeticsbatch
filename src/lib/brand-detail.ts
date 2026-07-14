@@ -1,11 +1,10 @@
 /**
  * The brands whose pages are indexable, and the sample code decoded on each.
  *
- * Every brand page is generated from one template per decoder family, so a few
- * hundred of them read as near-duplicates — those are `noindex, follow` and
- * exist as a tool, not as a document. A brand earns a place in the index by
- * having material that is true of *it* and not of the forty other brands sharing
- * its cipher:
+ * Every brand page is generated from one template per decoder family. This
+ * registry identifies the subset with additional brand-specific evidence and
+ * remains the quality/monetization threshold even while public index coverage
+ * is broader:
  *
  *   - a real, format-valid sample code, decoded on the page by the live engine
  *     (guarded by scripts/verify-decoder-examples.ts, so it can't silently rot);

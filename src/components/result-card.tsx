@@ -183,6 +183,7 @@ export function ResultCard({
   // Decode failed — almost always a mistyped code. We deliberately do NOT reveal
   // the brand's code format here, only how to re-check the input.
   if (!result.decoded) {
+    const showDetailedHelp = locale.startsWith("en");
     return (
       <div className="overflow-hidden rounded-3xl border border-warning/40 bg-warning-bg shadow-card">
         <div className="flex flex-col items-center gap-3 px-6 py-8 text-center sm:px-8">
@@ -194,6 +195,37 @@ export function ResultCard({
             <p className="mx-auto mt-1.5 max-w-md text-sm text-fg-muted">
               {t("invalidBody", { code: result.code, brand: brand.name })}
             </p>
+            {showDetailedHelp && (
+              <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
+                {result.notes.length > 0 && (
+                  <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-fg-muted">
+                    {result.notes.map((note, index) => (
+                      <li key={`${index}:${note}`}>{note}</li>
+                    ))}
+                  </ul>
+                )}
+                <p className="mt-3 text-sm leading-relaxed text-fg-muted">
+                  A code can be valid but still use a regional, older, or
+                  contract-manufacturer format that this checker does not yet
+                  support. This result does not prove that the code or product
+                  is invalid.
+                </p>
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                  <a
+                    href="#batch-checker"
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong"
+                  >
+                    Check the brand and code again
+                  </a>
+                  <a
+                    href="#code-photo-submission"
+                    className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg"
+                  >
+                    Send a clear code photo
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -204,7 +236,8 @@ export function ResultCard({
     result.percentRemaining !== null
       ? t("percentLeft", { n: result.percentRemaining })
       : undefined;
-  const rowDivide = "grid grid-cols-2 divide-x divide-border";
+  const pairedCells =
+    "grid grid-cols-1 divide-y divide-border sm:grid-cols-2 sm:divide-x sm:divide-y-0";
 
   return (
     <div className="space-y-4">
@@ -224,37 +257,61 @@ export function ResultCard({
           {statusLabel}
         </span>
         <div className="mt-6 flex justify-center sm:justify-start">
-          <FreshnessRing
-            percent={result.percentRemaining}
-            color={color}
-            lifeLeftLabel={t("lifeLeft")}
-          />
+          <div className="text-center sm:text-left">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-fg-muted">
+              {t("expirationDate")}
+            </p>
+            <FreshnessRing
+              percent={result.percentRemaining}
+              color={color}
+              lifeLeftLabel={t("lifeLeft")}
+            />
+          </div>
         </div>
       </div>
 
-      {/* Card 2 — data rows in row-major pairs */}
+      {/* Card 2 — keep decoded facts separate from unopened-life estimates. */}
       <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
         <div className="divide-y divide-border">
-          <div className={rowDivide}>
+          <div className={pairedCells}>
             <DataCell icon={CalendarDays} color={color} label={t("manufactureDate")} value={fmt(result.manufactureDate, locale)} />
             <DataCell icon={Clock} color={color} label={t("age")} value={result.ageLabel ?? "—"} />
           </div>
-          <div className={rowDivide}>
-            <DataCell icon={Hourglass} color={color} label={t("shelfLife")} value={months(result.shelfLifeMonths)} />
-            <DataCell icon={CalendarCheck} color={color} label={t("expirationDate")} value={fmt(result.expirationDate, locale)} />
-          </div>
-          <div className={rowDivide}>
-            <DataCell
-              icon={Leaf}
-              color={color}
-              label={t("freshness")}
-              value={statusLabel}
-              valueColored
-              sub={percentLeft ? `• ${percentLeft}` : undefined}
-            />
+          <section
+            aria-label={t("expirationDate")}
+            className="bg-bg-subtle/45"
+          >
+            <div className={pairedCells}>
+              <DataCell icon={Hourglass} color={color} label={t("shelfLife")} value={months(result.shelfLifeMonths)} />
+              <DataCell icon={CalendarCheck} color={color} label={t("expirationDate")} value={fmt(result.expirationDate, locale)} />
+            </div>
+            <div className="border-t border-border">
+              <DataCell
+                icon={Leaf}
+                color={color}
+                label={t("freshness")}
+                value={statusLabel}
+                valueColored
+                sub={percentLeft ? `• ${percentLeft}` : undefined}
+              />
+            </div>
+          </section>
+          <section aria-label={t("pao")}>
+            <DataCell icon={PackageOpen} color={color} label={t("pao")} value={`${brand.paoMonths}M · ${months(brand.paoMonths)}`} />
+          </section>
+          <section aria-label={t("confidence")}>
             <DataCell icon={ShieldCheck} color={color} label={t("confidence")} value={t(CONF_KEY[result.confidence])} />
-          </div>
-          <DataCell icon={PackageOpen} color={color} label={t("pao")} value={months(brand.paoMonths)} />
+            {locale.startsWith("en") && (result.method || result.notes.length > 0) && (
+              <div className="border-t border-border px-5 py-4 text-sm leading-relaxed text-fg-muted">
+                {result.method && <p>{result.method}</p>}
+                {result.notes.length > 0 && (
+                  <ul className="mt-2 list-disc space-y-1 pl-5">
+                    {result.notes.map((note) => <li key={note}>{note}</li>)}
+                  </ul>
+                )}
+              </div>
+            )}
+          </section>
         </div>
       </div>
 

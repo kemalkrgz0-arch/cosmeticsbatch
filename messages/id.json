@@ -58,12 +58,12 @@
     "eanRightSub": "Masukkan ini — stempel tanggal pendek"
   },
   "brandPage": {
-    "metaTitle": "Dekoder & Pemeriksa Kode Batch {name} — Tanggal Produksi & Kedaluwarsa",
-    "metaDescription": "Dekoder kode batch {name} gratis. Periksa tanggal produksi, usia produk, dan tanggal kedaluwarsa produk {name} Anda dalam hitungan detik — tanpa mendaftar.",
-    "blurb": "Dekode kode batch {name} untuk menemukan tanggal produksi, usia, dan tanggal kedaluwarsa produk {category} Anda. Gratis, instan, dan pribadi.",
+    "metaTitle": "Periksa Kode Batch {name} — Perkiraan Tanggal Produksi",
+    "metaDescription": "Periksa kode batch {name} untuk memperkirakan tanggal produksi dan usia produk. Lihat batas dekoder, masa simpan belum dibuka, dan PAO.",
+    "blurb": "Baca kode batch {name} untuk memperkirakan tanggal produksi dan usia. Masa simpan adalah perkiraan; kode saja tidak membuktikan keaslian.",
     "checkerTitle": "Pemeriksa Kode Batch {name}",
     "by": "oleh {group}",
-    "intro": "Masukkan kode batch {name} Anda di bawah untuk langsung mendekode tanggal produksi, usia produk, dan perkiraan tanggal kedaluwarsa — gratis dan pribadi.",
+    "intro": "Masukkan kode batch singkat {name} untuk memperkirakan tanggal produksi dan usia produk. Hasil ini bukan tanggal kedaluwarsa resmi atau verifikasi keaslian.",
     "howHeading": "Cara kerja kode batch {name}",
     "freshnessPara": "Setelah kami membaca tanggal produksi, kami memperkirakan kesegaran menggunakan masa simpan khas {name} selama {shelf} bulan untuk produk {category} . Ingat bahwa periode setelah dibuka (sekitar {pao} bulan) menjadi batas begitu Anda mulai menggunakan produk.",
     "aliasesPara": "Terkadang Anda akan melihat alat ini disebut dekoder kode batch {name} , pemeriksa kode batch {name} , atau kalkulator kode batch {name} — semuanya melakukan hal yang sama: membaca kode produksi dan memberi tahu Anda seberapa segar produk {category} {name} Anda.",
@@ -78,7 +78,18 @@
     "faqTitle": "{name} — Tanya Jawab",
     "printsDateNote": "{name} mencetak tanggal produksi atau kedaluwarsa langsung pada kemasan, jadi biasanya Anda tidak memerlukan kode batch.",
     "whereHeading": "Dimana menemukan kode pada kemasan {name}",
-    "exampleHeading": "Kode {name} asli, diterjemahkan"
+    "exampleHeading": "Kode {name} asli, diterjemahkan",
+    "decoderGuideBody": "{name} terkait dengan {group}. Jika kode cocok dengan format grup yang diamati, dekoder membaca pola tanggal; produk regional atau produksi kontrak dapat memakai format lain.",
+    "decoderGuideLink": "Tinjau format dan batas kode {name}"
+  },
+  "lorealFamily": {
+    "heading": "Yang perlu diketahui tentang kode {name} dan L'Oréal",
+    "portfolio": "{name} tercantum dalam portofolio merek resmi L'Oréal Groupe. Kepemilikan grup tidak menjamin setiap pabrik, pasar, atau produk lama memakai format yang sama.",
+    "format": "Format L'Oréal yang umum diamati menggabungkan awalan pabrik, huruf tahun, dan karakter bulan sesudahnya. Pembacaan ini hanya digunakan jika kode yang dimasukkan cocok dengan pola tersebut.",
+    "precision": "Format ini menunjukkan bulan, bukan hari tepat. Hari yang ditampilkan adalah perkiraan pertengahan bulan. Tanggal kedaluwarsa atau baik digunakan sebelum yang tercetak selalu lebih utama.",
+    "authenticity": "Kode yang berhasil dibaca tidak membuktikan produk asli karena kode dapat disalin. Periksa juga penjual, kemasan, segel, dan kualitas cetak.",
+    "officialSource": "Konfirmasi merek di portofolio resmi L'Oréal Groupe",
+    "decoderLabel": "Format grup yang diamati (ketelitian bulan)"
   },
   "faqUi": {
     "title": "Pertanyaan yang Sering Diajukan",

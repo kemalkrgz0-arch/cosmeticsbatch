@@ -58,12 +58,12 @@
     "eanRightSub": "Nhập mã này — dấu in ngày ngắn"
   },
   "brandPage": {
-    "metaTitle": "Trình giải mã & kiểm tra mã lô {name} — Ngày sản xuất & hạn dùng",
-    "metaDescription": "Trình giải mã mã lô {name} miễn phí. Kiểm tra ngày sản xuất, tuổi sản phẩm và hạn sử dụng của sản phẩm {name} chỉ trong vài giây — không cần đăng ký.",
-    "blurb": "Giải mã mã lô {name} để tìm ngày sản xuất, tuổi và hạn sử dụng của sản phẩm {category} của bạn. Miễn phí, tức thì và riêng tư.",
+    "metaTitle": "Kiểm tra mã lô {name} — Ước tính ngày sản xuất",
+    "metaDescription": "Kiểm tra mã lô {name} để ước tính ngày sản xuất và tuổi sản phẩm. Xem giới hạn giải mã, thời hạn khi chưa mở và PAO.",
+    "blurb": "Đọc mã lô {name} để ước tính ngày sản xuất và tuổi sản phẩm. Thời hạn chỉ là ước tính; mã lô không tự chứng minh hàng chính hãng.",
     "checkerTitle": "Trình kiểm tra mã lô {name}",
     "by": "bởi {group}",
-    "intro": "Nhập mã lô {name} của bạn bên dưới để giải mã ngay ngày sản xuất, tuổi sản phẩm và hạn sử dụng ước tính — miễn phí và riêng tư.",
+    "intro": "Nhập mã lô ngắn của {name} để ước tính ngày sản xuất và tuổi sản phẩm. Đây không phải hạn dùng chính thức của nhà sản xuất hay xác minh hàng thật.",
     "howHeading": "Cách mã lô {name} hoạt động",
     "freshnessPara": "Sau khi đọc ngày sản xuất, chúng tôi ước tính độ tươi mới bằng hạn sử dụng thông thường {shelf} tháng của {name} cho sản phẩm {category} . Hãy nhớ rằng thời hạn sau khi mở (khoảng {pao} tháng) trở thành giới hạn khi bạn bắt đầu sử dụng sản phẩm.",
     "aliasesPara": "Đôi khi bạn sẽ thấy công cụ này được gọi là trình giải mã mã lô {name} , trình kiểm tra mã lô {name} , hoặc máy tính mã lô {name} — tất cả đều làm cùng một việc: đọc mã sản xuất và cho bạn biết sản phẩm {category} {name} của bạn tươi mới đến mức nào.",
@@ -78,7 +78,18 @@
     "faqTitle": "{name} — Câu hỏi thường gặp",
     "printsDateNote": "{name} in ngày sản xuất hoặc hạn sử dụng trực tiếp trên bao bì, nên bạn thường không cần mã lô.",
     "exampleHeading": "Mã {name} thực, đã được giải mã",
-    "whereHeading": "Tìm mã ở đâu trên bao bì {name}"
+    "whereHeading": "Tìm mã ở đâu trên bao bì {name}",
+    "decoderGuideBody": "{name} thuộc hệ thống {group}. Khi mã khớp định dạng nhóm đã quan sát, công cụ sẽ đọc mẫu ngày; sản phẩm theo khu vực hoặc gia công có thể dùng định dạng khác.",
+    "decoderGuideLink": "Xem định dạng và giới hạn mã {name}"
+  },
+  "lorealFamily": {
+    "heading": "Điều cần biết về mã {name} và L'Oréal",
+    "portfolio": "{name} có trong danh mục thương hiệu chính thức của L'Oréal Groupe. Việc cùng tập đoàn không đảm bảo mọi nhà máy, thị trường hay sản phẩm cũ đều dùng cùng định dạng.",
+    "format": "Một định dạng L'Oréal thường được quan sát gồm tiền tố nhà máy, chữ cái chỉ năm và ký tự tháng ngay sau đó. Công cụ chỉ áp dụng cách đọc này khi mã nhập vào khớp mẫu.",
+    "precision": "Định dạng xác định tháng, không phải ngày chính xác. Ngày hiển thị là ước tính giữa tháng. Ngày hết hạn hoặc dùng tốt nhất trước in trên sản phẩm luôn được ưu tiên.",
+    "authenticity": "Mã giải được không chứng minh sản phẩm chính hãng vì mã có thể bị sao chép. Hãy kiểm tra thêm người bán, bao bì, niêm phong và chất lượng in.",
+    "officialSource": "Xác nhận thương hiệu trong danh mục chính thức của L'Oréal Groupe",
+    "decoderLabel": "Định dạng nhóm đã quan sát (độ chính xác theo tháng)"
   },
   "faqUi": {
     "title": "Câu hỏi thường gặp",

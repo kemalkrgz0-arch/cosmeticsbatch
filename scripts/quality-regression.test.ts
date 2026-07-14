@@ -12,6 +12,7 @@ import {
 import { DECODER_GUIDES } from "../src/lib/decoder-guides";
 import { DECODERS } from "../src/lib/decoder";
 import { LOCALE_CODES } from "../src/i18n/locales";
+import { LOREAL_PRIORITY_LOCALES } from "../src/lib/loreal";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -84,5 +85,77 @@ test("content review manifest contains only known, current source keys", () => {
     new Set(reviewedContent.ru ?? []),
     sourceKeys,
     "Russian is declared reviewed but does not cover the complete source corpus",
+  );
+});
+
+test("priority L'Oréal locales contain complete cautious editorial copy", () => {
+  const requiredFamilyKeys = [
+    "heading",
+    "portfolio",
+    "format",
+    "precision",
+    "authenticity",
+    "officialSource",
+    "decoderLabel",
+  ];
+  for (const locale of LOREAL_PRIORITY_LOCALES) {
+    const messages = JSON.parse(
+      readFileSync(`messages/${locale}.json`, "utf8"),
+    ) as {
+      brandPage?: Record<string, string>;
+      lorealFamily?: Record<string, string>;
+    };
+    assert.ok(messages.brandPage?.decoderGuideBody, `${locale} lacks decoder guide copy`);
+    assert.ok(messages.brandPage?.decoderGuideLink, `${locale} lacks decoder guide link`);
+    for (const key of requiredFamilyKeys) {
+      assert.ok(messages.lorealFamily?.[key]?.trim(), `${locale} lacks lorealFamily.${key}`);
+    }
+    const claims = [
+      messages.brandPage?.metaTitle,
+      messages.brandPage?.metaDescription,
+      messages.brandPage?.blurb,
+      messages.brandPage?.intro,
+    ].join(" ");
+    assert.doesNotMatch(
+      claims,
+      /help check authenticity|and check authenticity|проверка на подлинность —|die Echtheit checken/i,
+      `${locale} promises an authenticity check`,
+    );
+  }
+});
+
+test("reviewed Russian brand-page copy has no known English fallback leak", () => {
+  const russian = JSON.parse(readFileSync("messages/ru.json", "utf8")) as {
+    brandPage: Record<string, string>;
+  };
+  for (const [key, value] of Object.entries(russian.brandPage)) {
+    assert.doesNotMatch(value, /Once we read|You'll sometimes see|No sign-up/i, key);
+  }
+});
+
+test("public page routes do not reintroduce a noindex directive", () => {
+  const metadataRoutes = [
+    "src/app/[locale]/about/page.tsx",
+    "src/app/[locale]/brands/[slug]/page.tsx",
+    "src/app/[locale]/check/page.tsx",
+    "src/app/[locale]/contact/page.tsx",
+    "src/app/[locale]/decoders/page.tsx",
+    "src/app/[locale]/decoders/[slug]/page.tsx",
+    "src/app/[locale]/guides/page.tsx",
+    "src/app/[locale]/guides/[slug]/page.tsx",
+    "src/app/[locale]/privacy/page.tsx",
+    "src/app/[locale]/terms/page.tsx",
+  ];
+  for (const file of metadataRoutes) {
+    assert.doesNotMatch(
+      readFileSync(file, "utf8"),
+      /index:\s*false/,
+      `${file} contains noindex`,
+    );
+  }
+  assert.doesNotMatch(
+    readFileSync("src/app/robots.ts", "utf8"),
+    /disallow:/i,
+    "robots.ts blocks a public route",
   );
 });

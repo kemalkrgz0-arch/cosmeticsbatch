@@ -58,11 +58,11 @@
     "faqSubtitle": "Kozmetik ve parfüm batch kodlarının kodunu çözme hakkında bilmeniz gereken her şey."
   },
   "brandPage": {
-    "metaTitle": "{name} batch kodu sorgulama — üretim tarihi ve son kullanma",
-    "blurb": "{category} ürünlerinizin üretim tarihini, yaşını ve son kullanma tarihini bulmak için {name} batch kodlarını çözün. Ücretsiz, anında ve özel.",
-    "metaDescription": "Ücretsiz {name} batch kod çözücü. {name} ürünlerinizin üretim tarihini, ürün yaşını ve son kullanma tarihini saniyeler içinde kontrol edin; kaydolmanıza gerek yok.",
+    "metaTitle": "{name} batch kodu sorgulama — tahmini üretim tarihi",
+    "blurb": "{name} batch kodunu okuyarak üretim tarihini ve ürün yaşını tahmin edin. Raf ömrü tahminidir; batch kodu tek başına orijinalliği kanıtlamaz.",
+    "metaDescription": "{name} batch koduyla tahmini üretim tarihini ve ürün yaşını kontrol edin. Kod çözücü sınırlarını, açılmamış raf ömrünü ve PAO bilgisini görün.",
     "freshnessPara": "Üretim tarihini okuduktan sonra, {name}'in {category} ürünleri için tipik {shelf} aylık raf ömrünü kullanarak tazeliği tahmin ediyoruz. Ürünü kullanmaya başladığınızda açıldıktan sonraki sürenin (yaklaşık {pao} ay) sınır haline geldiğini unutmayın.",
-    "intro": "Üretim tarihini, ürün yaşını ve tahmini son kullanma tarihini ücretsiz ve özel olarak anında çözmek için {name} batch kodunuzu aşağıya girin.",
+    "intro": "Tahmini üretim tarihini ve ürün yaşını görmek için kısa {name} batch kodunu girin. Bu sonuç üreticinin verdiği son kullanma tarihi veya orijinallik doğrulaması değildir.",
     "aliasesPara": "Bazen {name} batch kod çözücü, {name} batch kod denetleyici veya {name} batch kod hesaplayıcı olarak adlandırılan bu aracı görürsünüz; bunların hepsi aynı şeyi yapar: üretim kodunu okuyun ve size {name} {category} 'inizin ne kadar yeni olduğunu söyleyin.",
     "factShelfLife": "Tipik raf ömrü",
     "factManufacturer": "Üretici",
@@ -78,7 +78,18 @@
     "relatedBrands": "İlgili markalar",
     "printsDateNote": "{name} üretim veya son kullanma tarihini doğrudan ambalaja basar, bu yüzden genellikle bir batch koduna ihtiyacınız olmaz.",
     "whereHeading": "{name} ambalajındaki kodu nerede bulabilirim?",
-    "exampleHeading": "Kodu çözülmüş gerçek bir {name} kodu"
+    "exampleHeading": "Kodu çözülmüş gerçek bir {name} kodu",
+    "decoderGuideBody": "{name}, {group} ile ilişkilidir. Kod gözlemlenen grup formatına uyduğunda tarih deseni okunur; bölgesel veya sözleşmeli üretim ürünlerinde farklı bir format bulunabilir.",
+    "decoderGuideLink": "{name} kod formatını ve sınırlamalarını inceleyin"
+  },
+  "lorealFamily": {
+    "heading": "{name} ve L'Oréal batch kodları hakkında bilinmesi gerekenler",
+    "portfolio": "{name}, L'Oréal Groupe'un resmi marka portföyünde yer alır. Grup üyeliği her fabrikanın, pazarın veya eski ürünün aynı batch kodu formatını kullandığını garanti etmez.",
+    "format": "Yaygın olarak gözlemlenen L'Oréal formatı fabrika ön eki, yıl harfi ve hemen arkasındaki ay karakterinden oluşur. Kod çözücü bu yorumu yalnızca girilen kod bu desene uyduğunda uygular.",
+    "precision": "Bu format ayı belirler, kesin günü değil. Sonuçta görünen gün ay ortası tahminidir. Ürün üzerinde basılı son kullanma veya tavsiye edilen tüketim tarihi her zaman önceliklidir.",
+    "authenticity": "Kodun başarıyla çözülmesi ürünün orijinal olduğunu kanıtlamaz; kod kopyalanabilir. Satıcıyı, ambalajı, mühürleri ve baskı kalitesini de kontrol edin.",
+    "officialSource": "Markayı L'Oréal Groupe resmi portföyünde doğrulayın",
+    "decoderLabel": "Gözlemlenen grup formatı (ay hassasiyeti)"
   },
   "faqUi": {
     "title": "Sıkça Sorulan Sorular",

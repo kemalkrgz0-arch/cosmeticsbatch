@@ -58,16 +58,16 @@
     "eanRightSub": "Ange denna — en kort datumstämpel"
   },
   "brandPage": {
-    "blurb": "Avkoda {name} batchkoder för att hitta tillverkningsdatum, ålder och utgångsdatum för dina {category} -produkter. Gratis, omedelbar och privat.",
-    "metaTitle": "{name} Batch Code Decoder & Checker — Tillverkning och utgångsdatum",
-    "metaDescription": "Gratis {name} batchkodavkodare. Kontrollera tillverkningsdatum, produktålder och utgångsdatum för dina {name} -produkter på några sekunder – ingen registrering.",
-    "checkerTitle": "{name}Batch Code Checker",
+    "blurb": "Läs batchkoden för {name} för att uppskatta tillverkningsmånad och produktens ålder. Hållbarheten är en uppskattning och koden bevisar inte äkthet.",
+    "metaTitle": "Kontrollera batchkod för {name} — uppskatta tillverkningsdatum",
+    "metaDescription": "Kontrollera batchkoden för {name} för ett uppskattat tillverkningsdatum och produktålder. Se avkodarens gränser, oöppnad hållbarhet och PAO.",
+    "checkerTitle": "Batchkodskontroll för {name}",
     "factManufacturer": "Tillverkare",
     "factShelfLife": "Typisk hållbarhet",
     "factPao": "Efter öppning (PAO)",
     "factDecoder": "Avkodare",
     "autoDecoder": "Automatisk datumdetektering",
-    "intro": "Ange din {name} batchkod nedan för att omedelbart avkoda tillverkningsdatum, produktens ålder och beräknat utgångsdatum – gratis och privat.",
+    "intro": "Ange den korta batchkoden för {name} för att uppskatta tillverkningsmånad och produktens ålder. Resultatet är inte ett officiellt utgångsdatum eller äkthetsintyg.",
     "freshnessPara": "När vi har läst tillverkningsdatumet uppskattar vi färskhet med hjälp av {name}'s typiska {shelf}-månaders hållbarhetstid för {category} -produkter. Kom ihåg att perioden efter öppning (ca {pao} månader) blir gränsen när du börjar använda produkten.",
     "howHeading": "Hur {name} batchkoder fungerar",
     "relatedBrands": "Relaterade varumärken",
@@ -78,7 +78,18 @@
     "by": "av {group}",
     "printsDateNote": "{name} trycker tillverknings- eller utgångsdatumet direkt på förpackningen, så du behöver oftast ingen batchkod.",
     "exampleHeading": "En riktig {name} -kod, avkodad",
-    "whereHeading": "Var hittar du koden på {name} -förpackningen"
+    "whereHeading": "Var hittar du koden på {name} -förpackningen",
+    "decoderGuideBody": "{name} är kopplat till {group}. När koden matchar det observerade gruppformatet läser avkodaren datummönstret; regionala eller kontraktstillverkade produkter kan använda ett annat format.",
+    "decoderGuideLink": "Granska kodformat och begränsningar för {name}"
+  },
+  "lorealFamily": {
+    "heading": "Att veta om {name} och L'Oréals batchkoder",
+    "portfolio": "{name} finns i L'Oréal Groupes officiella varumärkesportfölj. Grupptillhörigheten garanterar inte att alla fabriker, marknader eller äldre produkter använder samma format.",
+    "format": "Ett vanligt observerat L'Oréal-format kombinerar fabriksprefix, årsbokstav och efterföljande månadstecken. Tolkningen används bara när den angivna koden matchar mönstret.",
+    "precision": "Formatet anger månad, inte exakt dag. Dagen som visas är en uppskattning av mitten av månaden. Ett tryckt utgångs- eller bäst före-datum har alltid företräde.",
+    "authenticity": "En kod som kan läsas bevisar inte att produkten är äkta eftersom koder kan kopieras. Kontrollera även säljare, förpackning, förseglingar och tryckkvalitet.",
+    "officialSource": "Bekräfta varumärket i L'Oréal Groupes officiella portfölj",
+    "decoderLabel": "Observerat gruppformat (månadsprecision)"
   },
   "faqUi": {
     "title": "Vanliga frågor",

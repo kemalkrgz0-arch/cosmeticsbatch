@@ -6,6 +6,7 @@ import { ArrowRight, CalendarClock, Info, MapPin, Timer } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import {
   BRANDS,
+  ALL_BRANDS,
   getBrand,
   isIndexedBrand,
   isMonetizableBrand,
@@ -23,10 +24,7 @@ import { guideForBrand } from "@/lib/decoder-guides";
 import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import { contentTranslator, localizeGuide } from "@/lib/content-i18n";
-import {
-  EDITORIALLY_REVIEWED_LOCALES,
-  isEditorialLocaleReviewed,
-} from "@/lib/content-review";
+import { isEditorialLocaleReviewed } from "@/lib/content-review";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 import {
   articleSchema,
@@ -41,9 +39,16 @@ import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { JsonLd } from "@/components/json-ld";
 import { CodePhotoSubmission } from "@/components/code-photo-submission";
+import {
+  LOREAL_OFFICIAL_PORTFOLIO_URL,
+  isLorealGroupBrand,
+  isLorealPriorityLocale,
+} from "@/lib/loreal";
 
 export function generateStaticParams() {
-  return BRANDS.map((b) => ({ slug: b.slug }));
+  return ALL_BRANDS.filter(
+    (brand) => !brand.hidden || isLorealGroupBrand(brand),
+  ).map((brand) => ({ slug: brand.slug }));
 }
 
 export async function generateMetadata({
@@ -57,22 +62,13 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "brandPage" });
   // No `keywords` meta: Google has ignored it since 2009 and it only leaks the
   // exact terms we target to competitors.
-  const indexed = isIndexedBrand(brand);
-  const localeReviewed = isEditorialLocaleReviewed(locale);
   const meta = pageMeta({
     title: t("metaTitle", { name: brand.name }),
     description: t("metaDescription", { name: brand.name }),
     path: `/brands/${brand.slug}`,
     type: "article",
     locale,
-    availableLocales: indexed ? EDITORIALLY_REVIEWED_LOCALES : undefined,
   });
-  // Only brands carrying their own editorial material are indexable. The rest
-  // are generated from one template per decoder family — a few hundred
-  // near-identical pages, which is the definition of scaled, low-value content.
-  // They stay live and crawlable (they are the tool), they just don't enter the
-  // index; `follow` keeps their link equity flowing to the pages that should.
-  if (!indexed || !localeReviewed) meta.robots = { index: false, follow: true };
   return meta;
 }
 
@@ -103,13 +99,19 @@ export default async function BrandPage({
   const brandFaq = buildBrandFaqs(brand, t);
   const introSections = brandIntroSections(brand, t);
   const codeGuide = guideForBrand(brand);
+  const hasLocalizedDecoderGuide = t.has("brandPage.decoderGuideBody");
+  const hasLorealFamilyContent =
+    isLorealGroupBrand(brand) && t.has("lorealFamily.heading");
 
   // Editorial, brand-specific material: a real code run through this brand's own
   // decoder, where the code sits on its packaging, and the questions people
   // actually search for it. Only brands that have this are indexable.
   const detail = brandDetail(brand.slug);
   const localeReviewed = isEditorialLocaleReviewed(locale);
-  const monetizable = isMonetizableBrand(brand) && localeReviewed;
+  const localeIndexable =
+    (isIndexedBrand(brand) && localeReviewed) ||
+    (isLorealGroupBrand(brand) && isLorealPriorityLocale(locale));
+  const monetizable = isMonetizableBrand(brand) && localeIndexable;
   const helpfulGuides = GUIDES.slice(0, 4).map((guide) =>
     localizeGuide(guide, contentT),
   );
@@ -143,8 +145,10 @@ export default async function BrandPage({
   // have one, generic auto-detection otherwise (was hardcoded to "auto" for
   // every brand, which understated brands that do have a real decoder).
   const hasRealDecoder = Boolean(brand.decoderId && DECODERS[brand.decoderId]);
-  const decoderValue = hasRealDecoder
-    ? t("brandFaq.decoderKnown")
+  const decoderValue = hasLorealFamilyContent
+    ? t("lorealFamily.decoderLabel")
+    : hasRealDecoder
+      ? t("brandFaq.decoderKnown")
     : t("brandFaq.decoderAuto");
 
   const facts = [
@@ -263,22 +267,47 @@ export default async function BrandPage({
         {/* The cipher itself is a property of the manufacturer, so it is
             documented once per decoder family rather than restated on every
             brand that shares it. */}
-        {codeGuide && (
+        {codeGuide && hasLocalizedDecoderGuide && (
           <div className="mt-6 rounded-xl border border-border bg-card p-4">
             <p className="text-sm leading-relaxed text-fg-muted">
-              {brand.name} codes are stamped by {brand.group}, and every brand
-              from the same plants reads the same way. The full format —
-              character by character, with worked examples — is documented here:
+              {t("brandPage.decoderGuideBody", {
+                name: brand.name,
+                group: brand.group,
+              })}
             </p>
             <Link
               href={`/decoders/${codeGuide.slug}`}
               className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-hover"
             >
-              {codeGuide.title} <ArrowRight className="h-4 w-4 shrink-0" />
+              {t("brandPage.decoderGuideLink", { name: brand.name })}{" "}
+              <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>
           </div>
         )}
       </section>
+
+      {hasLorealFamilyContent && (
+        <section className="mt-10" aria-labelledby="loreal-family-heading">
+          <h2 id="loreal-family-heading" className="text-xl font-semibold">
+            {t("lorealFamily.heading", { name: brand.name })}
+          </h2>
+          <div className="mt-4 space-y-4 rounded-xl border border-border bg-card p-5 text-sm leading-relaxed text-fg-muted">
+            <p>{t("lorealFamily.portfolio", { name: brand.name })}</p>
+            <p>{t("lorealFamily.format")}</p>
+            <p>{t("lorealFamily.precision")}</p>
+            <p>{t("lorealFamily.authenticity")}</p>
+            <a
+              href={LOREAL_OFFICIAL_PORTFOLIO_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-semibold text-accent hover:text-accent-hover"
+            >
+              {t("lorealFamily.officialSource")}{" "}
+              <ArrowRight className="h-4 w-4 shrink-0" />
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* Where-to-find + storage — visible, category-specific body content
           (promoted from the FAQ) that reveals nothing about the cipher. */}

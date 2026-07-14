@@ -58,12 +58,12 @@
     "errorNoCode": "Enter the batch code from your product."
   },
   "brandPage": {
-    "metaTitle": "{name} Batch Code Checker & Decoder — Expiry Date & Authenticity",
-    "metaDescription": "Free {name} batch code checker. Find the manufacture date, product age and expiry date of your {name} products in seconds — and help check authenticity. No sign-up.",
-    "blurb": "Decode {name} batch codes to find the manufacture date, age and expiry date of your {category} products — and check authenticity. Free, instant and private.",
+    "metaTitle": "{name} Batch Code Checker — Estimate the Manufacture Date",
+    "metaDescription": "Check a {name} batch code for an estimated manufacture date and product age. See the decoder limits, typical unopened shelf life and PAO guidance.",
+    "blurb": "Read a {name} batch code to estimate its manufacture date and age. Shelf-life guidance is an estimate, and a batch code alone cannot prove authenticity.",
     "checkerTitle": "{name} Batch Code Checker",
     "by": "by {group}",
-    "intro": "Enter your {name} batch code below to instantly decode the manufacture date, product age, and estimated expiration date — free and private.",
+    "intro": "Enter the short {name} batch code below to estimate its manufacture date and product age. This is not a manufacturer-issued expiry or authenticity check.",
     "howHeading": "How {name} batch codes work",
     "exampleHeading": "A real {name} code, decoded",
     "whereHeading": "Where to find the code on {name} packaging",
@@ -78,7 +78,18 @@
     "relatedBrands": "Related brands",
     "helpfulGuides": "Helpful guides",
     "faqTitle": "{name} — FAQ",
-    "printsDateNote": "{name} prints the manufacture or expiry date directly on the packaging, so you usually don't need a batch code."
+    "printsDateNote": "{name} prints the manufacture or expiry date directly on the packaging, so you usually don't need a batch code.",
+    "decoderGuideBody": "{name} is associated with {group}. Where its code matches the observed group format, the decoder reads the date pattern; regional or contract-manufactured products may use another format.",
+    "decoderGuideLink": "Review the {name} code format and limitations"
+  },
+  "lorealFamily": {
+    "heading": "What to know about {name} and L'Oréal batch codes",
+    "portfolio": "{name} is listed in L'Oréal Groupe's brand portfolio. Group ownership does not guarantee that every factory, market or older product uses the same batch-code format.",
+    "format": "A commonly observed L'Oréal format combines a factory prefix, a year letter and the following month character. The decoder only applies this reading when the entered code matches that pattern.",
+    "precision": "This format identifies a month, not an exact day. Any day displayed in the result is a mid-month estimate. A printed expiry or best-before date on the product always takes priority.",
+    "authenticity": "A code that decodes successfully cannot prove the product is genuine because a code can be copied. Use the result as one consistency check alongside the seller, packaging, seals and print quality.",
+    "officialSource": "Confirm the brand in L'Oréal Groupe's official portfolio",
+    "decoderLabel": "Observed group format (month precision)"
   },
   "faqUi": {
     "title": "Frequently Asked Questions",

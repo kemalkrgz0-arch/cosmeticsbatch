@@ -60,9 +60,9 @@
   "brandPage": {
     "checkerTitle": "{name} Controllo codice batch",
     "by": "di {group}",
-    "blurb": "Decodifica i codici batch {name} per trovare la data di produzione, l'età e la data di scadenza dei tuoi prodotti {category} . Gratuito, immediato e privato.",
-    "metaDescription": "Decoder codice batch {name} gratuito. Controlla la data di produzione, l'età del prodotto e la data di scadenza dei tuoi prodotti {name} in pochi secondi, senza registrazione.",
-    "metaTitle": "{name} Decodificatore e controllore del codice batch: data di produzione e scadenza",
+    "blurb": "Leggi il codice lotto {name} per stimare data di produzione ed età. La durata è indicativa e il codice da solo non prova l'autenticità.",
+    "metaDescription": "Controlla il codice lotto {name} per stimare data di produzione ed età. Consulta limiti del decoder, durata da chiuso e PAO.",
+    "metaTitle": "Controllo codice lotto {name} — data di produzione stimata",
     "factShelfLife": "Durata di conservazione tipica",
     "factManufacturer": "Produttore",
     "factPao": "Dopo l'apertura (PAO)",
@@ -71,14 +71,25 @@
     "relatedBrands": "Marchi correlati",
     "helpfulGuides": "Guide utili",
     "freshnessPara": "Una volta letta la data di produzione, stimiamo la freschezza utilizzando la durata di conservazione {shelf}tipica di {name}per i prodotti {category} . Ricorda che il periodo successivo all'apertura (circa {pao} mesi) diventa il limite una volta che inizi a utilizzare il prodotto.",
-    "intro": "Inserisci il tuo codice batch {name} di seguito per decodificare immediatamente la data di produzione, l'età del prodotto e la data di scadenza stimata: in modo gratuito e privato.",
+    "intro": "Inserisci il breve codice lotto {name} per stimare data di produzione ed età. Non è una scadenza ufficiale del produttore né una verifica di autenticità.",
     "months": "{n} mesi",
     "faqTitle": "{name} : domande frequenti",
     "aliasesPara": "A volte vedrai questo strumento chiamato decodificatore di codice batch {name} , controllo di codice batch {name} o calcolatore di codice batch {name} : fanno tutti la stessa cosa: leggi il codice di produzione e ti dicono quanto è fresco il tuo {name} {category} .",
     "howHeading": "Come funzionano i codici batch {name}",
     "printsDateNote": "{name} stampa la data di produzione o scadenza direttamente sulla confezione, quindi di solito non serve un codice lotto.",
     "whereHeading": "Dove trovare il codice sulla confezione {name}",
-    "exampleHeading": "Un vero codice {name} , decodificato"
+    "exampleHeading": "Un vero codice {name} , decodificato",
+    "decoderGuideBody": "{name} è associato a {group}. Se il codice corrisponde al formato osservato del gruppo, il decoder interpreta lo schema della data; mercati o produzioni in appalto possono usare formati diversi.",
+    "decoderGuideLink": "Formato e limiti del codice {name}"
+  },
+  "lorealFamily": {
+    "heading": "Cosa sapere sui codici {name} e L'Oréal",
+    "portfolio": "{name} compare nel portafoglio ufficiale di L'Oréal Groupe. L'appartenenza al gruppo non garantisce che ogni stabilimento, mercato o prodotto meno recente usi lo stesso formato.",
+    "format": "Un formato L'Oréal comunemente osservato combina prefisso dello stabilimento, lettera dell'anno e carattere del mese successivo. Viene applicato solo quando il codice inserito coincide con questo schema.",
+    "precision": "Il formato identifica il mese, non il giorno esatto. Il giorno mostrato è una stima di metà mese. Una data di scadenza o preferibile consumo stampata sul prodotto ha sempre la precedenza.",
+    "authenticity": "Un codice decodificato correttamente non prova l'autenticità perché può essere copiato. Controlla anche venditore, confezione, sigilli e qualità di stampa.",
+    "officialSource": "Verifica il marchio nel portafoglio ufficiale L'Oréal Groupe",
+    "decoderLabel": "Formato di gruppo osservato (precisione mensile)"
   },
   "faqUi": {
     "title": "Domande frequenti",

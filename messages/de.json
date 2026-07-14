@@ -60,9 +60,9 @@
   "brandPage": {
     "checkerTitle": "{name} Chargennummer prüfen",
     "by": "von {group}",
-    "intro": "Gib unten deinen {name} -Chargencode ein, um Herstellungsdatum, Alter und geschätztes Haltbarkeitsdatum sofort zu entschlüsseln – kostenlos und privat.",
+    "intro": "Gib den kurzen Chargencode von {name} ein, um Herstellungsmonat und Produktalter zu schätzen. Das Ergebnis ist kein Hersteller-Verfallsdatum und kein Echtheitsnachweis.",
     "howHeading": "So funktionieren {name} -Chargencodes",
-    "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
+    "freshnessPara": "Nach dem geschätzten Herstellungsdatum ordnen wir ungeöffnete {name}-{category} mit einer typischen Haltbarkeit von {shelf} Monaten ein. Nach dem Öffnen gilt das PAO-Symbol auf der Packung (oft etwa {pao} Monate); Herstellerangaben haben immer Vorrang.",
     "aliasesPara": "Sie werden dieses Tool manchmal als {name} -Batchcode-Decoder, {name} -Batchcode-Prüfer oder {name} -Batchcode-Rechner bezeichnen – sie alle machen das Gleiche: Sie lesen den Produktionscode und sagen Ihnen, wie frisch Ihr {name} {category} ist.",
     "factManufacturer": "Hersteller",
     "factShelfLife": "Typische Haltbarkeit",
@@ -73,12 +73,23 @@
     "relatedBrands": "Verwandte Marken",
     "helpfulGuides": "Hilfreiche Ratgeber",
     "faqTitle": "{name} – FAQ",
-    "metaTitle": "{name} Chargennummer & Batch Code prüfen – Herstellungsdatum & Ablaufdatum",
-    "blurb": "Dekodieren Sie den {name} -Chargencode (Chargennummer), um Herstellungsdatum, Alter und Ablaufdatum Ihrer {category} -Produkte zu ermitteln und die Echtheit zu prüfen. Kostenlos, sofort und privat.",
-    "metaDescription": "Kostenlos {name} Chargennummer / Batchcode prüfen: Herstellungsdatum, Produktalter und Ablaufdatum Ihrer {name} -Produkte in Sekunden ermitteln und die Echtheit checken – ohne Anmeldung.",
+    "metaTitle": "{name} Chargennummer prüfen — Herstellungsdatum schätzen",
+    "blurb": "Lies die Chargennummer von {name}, um Herstellungsdatum und Alter zu schätzen. Die Haltbarkeit ist eine Orientierung; der Code allein beweist keine Echtheit.",
+    "metaDescription": "Prüfe die {name} Chargennummer für ein geschätztes Herstellungsdatum und Produktalter. Sieh Decoder-Grenzen, ungeöffnete Haltbarkeit und PAO.",
     "printsDateNote": "{name} druckt das Herstellungs- oder Ablaufdatum direkt auf die Verpackung, daher brauchst du meist keinen Chargencode.",
     "whereHeading": "Wo finde ich den Code auf der {name} -Verpackung?",
-    "exampleHeading": "Ein echter {name} -Code, dekodiert"
+    "exampleHeading": "Ein echter {name} -Code, dekodiert",
+    "decoderGuideBody": "{name} gehört zu {group}. Entspricht der Code dem beobachteten Gruppenformat, liest der Decoder das Datumsmuster; regionale oder extern gefertigte Produkte können abweichen.",
+    "decoderGuideLink": "{name} Codeformat und Grenzen ansehen"
+  },
+  "lorealFamily": {
+    "heading": "Wissenswertes zu {name} und L'Oréal-Chargencodes",
+    "portfolio": "{name} ist im offiziellen Markenportfolio von L'Oréal Groupe aufgeführt. Die Gruppenzugehörigkeit garantiert nicht, dass jedes Werk, jeder Markt oder jedes ältere Produkt dasselbe Format nutzt.",
+    "format": "Ein häufig beobachtetes L'Oréal-Format besteht aus Werkpräfix, Jahresbuchstabe und dem folgenden Monatszeichen. Der Decoder nutzt diese Lesart nur, wenn der eingegebene Code dazu passt.",
+    "precision": "Das Format bestimmt den Monat, nicht den exakten Tag. Ein angezeigter Tag ist eine Schätzung zur Monatsmitte. Ein aufgedrucktes Verfalls- oder Mindesthaltbarkeitsdatum hat immer Vorrang.",
+    "authenticity": "Ein erfolgreich gelesener Code beweist keine Echtheit, da Codes kopiert werden können. Prüfe zusätzlich Händler, Verpackung, Siegel und Druckqualität.",
+    "officialSource": "Marke im offiziellen Portfolio von L'Oréal Groupe bestätigen",
+    "decoderLabel": "Beobachtetes Gruppenformat (Monatsgenauigkeit)"
   },
   "faqUi": {
     "title": "Häufige Fragen",
