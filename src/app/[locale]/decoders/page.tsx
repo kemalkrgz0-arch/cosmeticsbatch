@@ -6,6 +6,10 @@ import { DECODER_GUIDES, brandsForGuide } from "@/lib/decoder-guides";
 import { contentTranslator, localizeDecoderGuide } from "@/lib/content-i18n";
 import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import {
+  EDITORIALLY_REVIEWED_LOCALES,
+  isEditorialLocaleReviewed,
+} from "@/lib/content-review";
 
 export async function generateMetadata({
   params,
@@ -13,13 +17,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return pageMeta({
-    title: "Batch Code Formats: Every Manufacturer's Cipher, Explained",
-    description:
-      "A batch-code format belongs to the manufacturer, not the brand. Coty, L'Oréal, Estée Lauder, LVMH, P&G, Unilever and the rest — each cipher documented with its anatomy, worked examples and blind spots.",
+  const tc = await getTranslations({ locale, namespace: "contentPages" });
+  const meta = pageMeta({
+    title: tc("formatsTitle"),
+    description: tc("formatsIntro"),
     path: "/decoders",
     locale,
+    availableLocales: EDITORIALLY_REVIEWED_LOCALES,
   });
+  if (!isEditorialLocaleReviewed(locale)) meta.robots = { index: false, follow: true };
+  return meta;
 }
 
 export default async function DecodersIndexPage({

@@ -80,4 +80,9 @@ test("content review manifest contains only known, current source keys", () => {
     assert.equal(new Set(keys).size, keys.length, `${locale} review manifest has duplicate keys`);
     for (const key of keys) assert.ok(sourceKeys.has(key), `${locale} reviewed unknown key ${key}`);
   }
+  assert.deepEqual(
+    new Set(reviewedContent.ru ?? []),
+    sourceKeys,
+    "Russian is declared reviewed but does not cover the complete source corpus",
+  );
 });

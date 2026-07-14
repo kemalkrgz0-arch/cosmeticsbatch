@@ -6,6 +6,17 @@ import { DEFAULT_LOCALE, LOCALE_CODES } from "@/i18n/locales";
 const sourceKeys = Object.keys(english);
 const reviewedByLocale = reviewed as Record<string, string[]>;
 
+/** Locales whose complete long-form corpus has passed editorial review. */
+export const EDITORIALLY_REVIEWED_LOCALES = LOCALE_CODES.filter((locale) => {
+  if (locale === DEFAULT_LOCALE) return true;
+  const approved = new Set(reviewedByLocale[locale] ?? []);
+  return sourceKeys.every((key) => approved.has(key));
+});
+
+export function isEditorialLocaleReviewed(locale: string): boolean {
+  return EDITORIALLY_REVIEWED_LOCALES.includes(locale);
+}
+
 /** True only when every source string below a content prefix was reviewed. */
 export function isContentReviewed(locale: string, prefix: string): boolean {
   if (locale === DEFAULT_LOCALE) return true;

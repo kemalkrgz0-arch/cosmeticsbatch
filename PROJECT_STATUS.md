@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-14
-Current version: **0.2.4**
+Current version: **0.2.5**
 Current phase: **Phase 2 in progress — production email active**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -212,6 +212,28 @@ files, reason, verification and known risk. Never include secrets or personal da
 - Environment note: the first build attempt hit the known sandbox-only
   Turbopack worker-port restriction; the permitted production-equivalent rerun
   passed. This is not a repository regression.
+
+### 2026-07-14 — 0.2.5 — Codex / Brand locale quality gate
+
+- Changed: indexable brand-page hreflang, robots and advertising now require a
+  completely reviewed editorial locale; currently English and Russian qualify.
+- Fixed: helpful guide titles on brand pages now use localized long-form content
+  instead of raw English titles.
+- Changed: the English-only photo form is rendered only on English brand pages,
+  preventing mixed-language indexed pages until the form itself is translated.
+- Changed: the English-only Guides index is indexable only in English; the
+  localized Decoders index follows the complete editorial review allowlist.
+- Changed: unreviewed/noindex brand, guide and decoder pages no longer publish
+  Article or FAQ structured data for fallback or unreviewed copy.
+- Files: `src/lib/content-review.ts`, brand detail route, sitemap, quality tests.
+- Why: a translated file's presence is not proof of review, and English widgets
+  on localized URLs weaken content quality and international SEO consistency.
+- Verification: ESLint, TypeScript, 16/16 tests and 264/264 production build
+  passed. Rendered English/Russian/Turkish brand, guide and decoder samples
+  confirmed the expected robots/hreflang gates; unreviewed samples emitted no
+  Article or FAQ schema and the English photo form did not leak into them.
+- Risk / needs verification: new locales should be promoted only after their
+  complete editorial corpus and brand-page UI are reviewed.
 
 <!-- Example:
 ### 2026-07-15 — 0.2.1 — agent/name

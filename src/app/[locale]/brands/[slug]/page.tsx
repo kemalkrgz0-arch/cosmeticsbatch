@@ -22,6 +22,12 @@ import { buildBrandFaqs, brandIntroSections } from "@/lib/brand-faq";
 import { guideForBrand } from "@/lib/decoder-guides";
 import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
+import { contentTranslator, localizeGuide } from "@/lib/content-i18n";
+import {
+  EDITORIALLY_REVIEWED_LOCALES,
+  isEditorialLocaleReviewed,
+} from "@/lib/content-review";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
 import {
   articleSchema,
   faqSchema,
@@ -51,19 +57,22 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "brandPage" });
   // No `keywords` meta: Google has ignored it since 2009 and it only leaks the
   // exact terms we target to competitors.
+  const indexed = isIndexedBrand(brand);
+  const localeReviewed = isEditorialLocaleReviewed(locale);
   const meta = pageMeta({
     title: t("metaTitle", { name: brand.name }),
     description: t("metaDescription", { name: brand.name }),
     path: `/brands/${brand.slug}`,
     type: "article",
     locale,
+    availableLocales: indexed ? EDITORIALLY_REVIEWED_LOCALES : undefined,
   });
   // Only brands carrying their own editorial material are indexable. The rest
   // are generated from one template per decoder family — a few hundred
   // near-identical pages, which is the definition of scaled, low-value content.
   // They stay live and crawlable (they are the tool), they just don't enter the
   // index; `follow` keeps their link equity flowing to the pages that should.
-  if (!isIndexedBrand(brand)) meta.robots = { index: false, follow: true };
+  if (!indexed || !localeReviewed) meta.robots = { index: false, follow: true };
   return meta;
 }
 
@@ -81,6 +90,7 @@ export default async function BrandPage({
   const t = await getTranslations();
   const tb = await getTranslations("brandPage");
   const nav = await getTranslations("nav");
+  const contentT = await contentTranslator(locale);
   const path = `/brands/${brand.slug}`;
 
   const related = [
@@ -98,7 +108,11 @@ export default async function BrandPage({
   // decoder, where the code sits on its packaging, and the questions people
   // actually search for it. Only brands that have this are indexable.
   const detail = brandDetail(brand.slug);
-  const monetizable = isMonetizableBrand(brand);
+  const localeReviewed = isEditorialLocaleReviewed(locale);
+  const monetizable = isMonetizableBrand(brand) && localeReviewed;
+  const helpfulGuides = GUIDES.slice(0, 4).map((guide) =>
+    localizeGuide(guide, contentT),
+  );
   const sample = detail
     ? DECODERS[brand.decoderId ?? ""]?.decode(detail.sampleCode, {
         now: new Date(),
@@ -155,7 +169,7 @@ export default async function BrandPage({
       {monetizable && <AdsenseLoader />}
       <JsonLd
         data={[
-          ...(detail ? [
+          ...(detail && localeReviewed ? [
             faqSchema([...detailFaq, ...brandFaq]),
             articleSchema({
             title: tb("checkerTitle", { name: brand.name }),
@@ -213,7 +227,7 @@ export default async function BrandPage({
         <InlineResult brand={brand} />
       </Suspense>
 
-      <CodePhotoSubmission brand={brand} />
+      {locale === DEFAULT_LOCALE && <CodePhotoSubmission brand={brand} />}
 
       {/* Quick facts */}
       <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -373,7 +387,7 @@ export default async function BrandPage({
       <section className="mt-10">
         <h2 className="mb-4 text-lg font-semibold">{tb("helpfulGuides")}</h2>
         <ul className="space-y-2">
-          {GUIDES.slice(0, 4).map((g) => (
+          {helpfulGuides.map((g) => (
             <li key={g.slug}>
               <Link
                 href={`/guides/${g.slug}`}

@@ -182,7 +182,7 @@ export default async function DecoderGuidePage({
     <article className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
       {reviewed && <AdsenseLoader />}
       <JsonLd
-        data={[
+        data={reviewed ? [
           articleSchema({
             title: guide.title,
             description: guide.description,
@@ -191,7 +191,7 @@ export default async function DecoderGuidePage({
             locale,
           }),
           faqSchema(guide.faq),
-        ]}
+        ] : []}
       />
       <Breadcrumbs items={crumbs} />
 

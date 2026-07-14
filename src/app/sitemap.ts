@@ -5,7 +5,10 @@ import { GUIDES } from "@/lib/guides";
 import { absoluteUrl, site } from "@/lib/site";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { localizedPath, hreflangAlternates } from "@/lib/seo";
-import { reviewedContentLocales } from "@/lib/content-review";
+import {
+  EDITORIALLY_REVIEWED_LOCALES,
+  reviewedContentLocales,
+} from "@/lib/content-review";
 
 /**
  * One entry per path (at the default-locale URL), each declaring all language
@@ -36,9 +39,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/",
     "/brands",
-    "/decoders",
-    "/guides",
   ].map((path) => entry(path, updated, "weekly", path === "/" ? 1 : 0.8));
+  const editorialIndexRoutes = [
+    entry("/decoders", updated, "weekly", 0.8, EDITORIALLY_REVIEWED_LOCALES),
+    entry("/guides", updated, "weekly", 0.8, [DEFAULT_LOCALE]),
+  ];
   // These routes currently have reviewed English copy only. Advertising them
   // as 44 translated alternates creates mixed-language duplicate pages.
   const englishOnlyRoutes = ["/about", "/contact", "/privacy", "/terms"].map((path) =>
@@ -49,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // noindex, and listing a noindex URL here would just spend crawl budget
   // contradicting ourselves. They stay reachable and crawlable via /brands.
   const brandRoutes = INDEXED_BRANDS.map((b) =>
-    entry(`/brands/${b.slug}`, updated, "monthly", 0.8),
+    entry(`/brands/${b.slug}`, updated, "monthly", 0.8, EDITORIALLY_REVIEWED_LOCALES),
   );
   const decoderRoutes = DECODER_GUIDES.map((g) =>
     entry(`/decoders/${g.slug}`, new Date(g.updated), "monthly", 0.9, reviewedContentLocales(`dec.${g.slug}`)),
@@ -60,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
+    ...editorialIndexRoutes,
     ...englishOnlyRoutes,
     ...brandRoutes,
     ...decoderRoutes,
