@@ -13,6 +13,11 @@ import { DECODER_GUIDES } from "../src/lib/decoder-guides";
 import { DECODERS } from "../src/lib/decoder";
 import { LOCALE_CODES } from "../src/i18n/locales";
 import { LOREAL_PRIORITY_LOCALES } from "../src/lib/loreal";
+import {
+  PHOTO_SUBMISSION_LOCALES,
+  photoSubmissionCopy,
+} from "../src/lib/photo-submission-copy";
+import { getBrandDomain } from "../src/lib/brand-logos";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -130,6 +135,40 @@ test("reviewed Russian brand-page copy has no known English fallback leak", () =
   };
   for (const [key, value] of Object.entries(russian.brandPage)) {
     assert.doesNotMatch(value, /Once we read|You'll sometimes see|No sign-up/i, key);
+  }
+});
+
+test("photo review flow has complete copy for every active locale", () => {
+  assert.deepEqual([...PHOTO_SUBMISSION_LOCALES].sort(), [...LOCALE_CODES].sort());
+  for (const locale of LOCALE_CODES) {
+    const copy = photoSubmissionCopy(locale);
+    assert.equal(Object.keys(copy).length, 20, `${locale} has incomplete photo copy`);
+    for (const [key, value] of Object.entries(copy)) {
+      assert.ok(value.trim(), `${locale} photo copy ${key} is empty`);
+      assert.doesNotMatch(value, /^ਹੈ\s*$/u, `${locale} contains a broken translation fragment`);
+    }
+    assert.match(copy.title, /BRANDNAME/, `${locale} title lost brand placeholder`);
+    assert.match(copy.reply, /EMAILADDRESS/, `${locale} reply lost email placeholder`);
+  }
+});
+
+test("brand logo inventory only omits discontinued licensed lines without an official site", () => {
+  const intentionallyUnmapped = new Set([
+    "beyonce",
+    "enrique-iglesias",
+    "jovan",
+    "katy-perry",
+    "nikos",
+    "sjp",
+  ]);
+  const unmapped = BRANDS.filter((brand) => !getBrandDomain(brand.slug)).map(
+    (brand) => brand.slug,
+  );
+  assert.deepEqual(unmapped.sort(), [...intentionallyUnmapped].sort());
+  for (const brand of BRANDS) {
+    const domain = getBrandDomain(brand.slug);
+    if (!domain) continue;
+    assert.match(domain, /^[a-z0-9.-]+$/i, `${brand.slug} has an invalid logo domain`);
   }
 });
 

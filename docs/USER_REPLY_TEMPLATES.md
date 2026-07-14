@@ -30,13 +30,15 @@ Hello,
 
 Thank you for sending us the photo of your [BRAND] product.
 
-We can read the visible batch code as [CODE]. Based on the format evidence
-currently available to us, the code indicates [RESULT]. Our confidence in this
-reading is [CONFIDENCE], because [SHORT LIMITATION OR EVIDENCE NOTE].
+We can read the visible batch code as [CODE]. We matched it to the documented
+coding format and cross-checked it against known examples used in our research.
+The available evidence supports a manufacturing date of [RESULT]. The evidence
+level for this reading is [CONFIDENCE], because [SHORT SOURCE OR FORMAT NOTE].
 
-[IF APPLICABLE: The date above is an estimated manufacture date. Any unopened
-shelf-life date shown by our checker is a general estimate, not a manufacturer-
-printed expiry date. The PAO symbol applies after the product is opened.]
+[IF APPLICABLE: The manufacturing date is decoded from the batch format. Any
+unopened shelf-life date shown separately by our checker is a general shelf-life
+calculation, not a manufacturer-printed expiry date. The PAO symbol applies
+after the product is opened.]
 
 If we have misread any character, please reply with a closer photo taken in
 side lighting and include a photo of the same code on the outer box, if present.
@@ -122,6 +124,9 @@ product condition, or safety.
 - State exactly how the code was read when a character is ambiguous.
 - Match confidence language to decoder provenance; do not promote `UNKNOWN`,
   `FORMAT_ONLY`, or `ESTIMATED` evidence to “verified”.
+- Use the "Code identified" wording only when the decoder profile and the
+  visible code provide `HIGH_CONFIDENCE` or stronger evidence. Do not claim
+  manufacturer confirmation unless a stored source actually records it.
 - Ask for the minimum additional personal data needed.
 - Do not forward the user's photo outside the review workflow.
 - Keep the response in the original thread and do not change `Reply-To`.

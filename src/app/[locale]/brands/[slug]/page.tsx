@@ -25,7 +25,6 @@ import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import { contentTranslator, localizeGuide } from "@/lib/content-i18n";
 import { isEditorialLocaleReviewed } from "@/lib/content-review";
-import { DEFAULT_LOCALE } from "@/i18n/locales";
 import {
   articleSchema,
   faqSchema,
@@ -231,7 +230,7 @@ export default async function BrandPage({
         <InlineResult brand={brand} />
       </Suspense>
 
-      {locale === DEFAULT_LOCALE && <CodePhotoSubmission brand={brand} />}
+      <CodePhotoSubmission brand={brand} locale={locale} />
 
       {/* Quick facts */}
       <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">

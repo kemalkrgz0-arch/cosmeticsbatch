@@ -58,21 +58,6 @@ export function BrandLogo({
   const [idx, setIdx] = useState(0);
   const failed = idx >= sources.length;
 
-  // Curated brand tile: crisp wordmark on the brand colour, no image request.
-  if (tile) {
-    return (
-      <span
-        className={cn(
-          "flex shrink-0 items-center justify-center overflow-hidden rounded-xl",
-          className,
-        )}
-        style={{ backgroundColor: tile.bg }}
-      >
-        <WordmarkSvg label={tile.label} fg={tile.fg ?? "#ffffff"} />
-      </span>
-    );
-  }
-
   return (
     <span
       className={cn(
@@ -80,7 +65,11 @@ export function BrandLogo({
         className,
       )}
     >
-      {failed ? (
+      {failed && tile ? (
+        <span className="h-full w-full" style={{ backgroundColor: tile.bg }}>
+          <WordmarkSvg label={tile.label} fg={tile.fg ?? "#ffffff"} />
+        </span>
+      ) : failed ? (
         <span className="font-semibold tracking-tight text-[#0a0a0a]">
           {monogram(name)}
         </span>

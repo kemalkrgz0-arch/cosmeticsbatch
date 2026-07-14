@@ -132,6 +132,10 @@ priorities live in `AUDIT.md`.
   Cloudflare JWT validation and same-origin browser requirements remain active.
 - Hotfix follow-up: review POST redirects now use the canonical public site URL
   rather than the standalone container request URL (`0.0.0.0`).
+- Reply standard: high-confidence identified-code replies now lead with the
+  documented format and cross-checked known examples instead of generic
+  "estimate" language. Manufacturer confirmation is never claimed without a
+  stored source; authenticity, condition and safety remain separate questions.
 
 ### Phase 4 — performance and security hardening
 
@@ -445,6 +449,37 @@ files, reason, verification and known risk. Never include secrets or personal da
   production build passed after the parallel changes were merged.
 - Remaining decision: retention duration and deletion coverage for disk,
   mailbox and backups require owner/legal approval before adding automation.
+
+### 2026-07-14 — 0.5.1 — Codex / Photo discovery and visual polish
+
+- Photo review: exposed the existing private multi-photo submission flow on
+  every one of the 44 active locale brand routes, added complete locale copy,
+  and linked it to the localized batch-code location guide. Unsupported result
+  cards now surface the photo-review action in every locale rather than English
+  only.
+- Privacy/UX: retained client-side resize and JPEG re-encoding before upload,
+  the three-photo limit, explicit consent, reply email and accessible live
+  status/error behavior. Private submissions remain outside public indexable
+  content and the Cloudflare Access boundary remains unchanged.
+- Design: replaced the disconnected, overly sparse “How it works” row with
+  three compact responsive cards, stronger sequence cues and reduced empty
+  space while keeping the existing visual system.
+- Logos: real official-domain favicon sources now take priority over synthetic
+  wordmark tiles. Official-domain coverage increased from 106/212 to 206/212
+  public brands; six discontinued celebrity/licensed lines intentionally keep
+  neutral fallbacks because no trustworthy active official site was found.
+- Reply language: strengthened the high-confidence reviewer template to explain
+  that a visible code matched the documented format and known research examples,
+  without falsely claiming manufacturer confirmation or product authenticity.
+- Quality gates: added regressions requiring complete photo copy for every
+  active locale and locking the intentionally unmapped logo list. Obvious draft
+  defects in Spanish, Portuguese, Italian and Punjabi were corrected.
+- Files: photo form/copy, result card, brand route, How It Works, logo source
+  registry/component, reviewer reply templates, quality tests and this log.
+- Risk / needs verification: long-tail translations have automated structural
+  coverage and targeted editorial cleanup but still need native-speaker review;
+  remote official-site favicons can change independently and therefore retain a
+  deterministic tile/monogram fallback.
 
 <!-- Example:
 ### 2026-07-15 — 0.2.1 — agent/name

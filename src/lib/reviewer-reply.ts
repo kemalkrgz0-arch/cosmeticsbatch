@@ -4,7 +4,7 @@ export const REPLY_TEMPLATES = {
   identified: {
     label: "Code identified",
     subject: "Your Cosmetics Batch code review",
-    body: "Thank you for sending the photo. We reviewed the visible batch code and were able to identify its format. Please remember that a batch-code result estimates manufacturing information; it does not prove authenticity or guarantee product safety.\n\nReview note:\n",
+    body: "Thank you for sending the photo. We reviewed the visible batch code, matched it to the documented coding format, and cross-checked it against known examples used in our research. The available evidence supports the manufacturing-date result below.\n\nVerified reading:\n\nEvidence note:\n\nThis result concerns the manufacturing information encoded in the batch format. It does not by itself authenticate the product or replace manufacturer guidance about product condition or safety.",
   },
   clearer_photo: {
     label: "Clearer photo needed",

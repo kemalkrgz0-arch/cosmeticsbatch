@@ -18,6 +18,7 @@ import { Link } from "@/i18n/navigation";
 import type { CheckResult, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
+import { photoSubmissionCopy } from "@/lib/photo-submission-copy";
 
 const fmt = (d: Date | null, locale: string) =>
   d
@@ -174,6 +175,7 @@ export function ResultCard({
 }) {
   const t = useTranslations("result");
   const locale = useLocale();
+  const photoCopy = photoSubmissionCopy(locale);
   const meta = statusMeta[result.freshness];
   const color = meta.color;
   const StatusIcon = meta.icon;
@@ -195,37 +197,43 @@ export function ResultCard({
             <p className="mx-auto mt-1.5 max-w-md text-sm text-fg-muted">
               {t("invalidBody", { code: result.code, brand: brand.name })}
             </p>
-            {showDetailedHelp && (
-              <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
-                {result.notes.length > 0 && (
-                  <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-fg-muted">
-                    {result.notes.map((note, index) => (
-                      <li key={`${index}:${note}`}>{note}</li>
-                    ))}
-                  </ul>
-                )}
-                <p className="mt-3 text-sm leading-relaxed text-fg-muted">
-                  A code can be valid but still use a regional, older, or
-                  contract-manufacturer format that this checker does not yet
-                  support. This result does not prove that the code or product
-                  is invalid.
-                </p>
-                <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+            <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
+              {showDetailedHelp && (
+                <>
+                  {result.notes.length > 0 && (
+                    <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-fg-muted">
+                      {result.notes.map((note, index) => (
+                        <li key={`${index}:${note}`}>{note}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <p className="mt-3 text-sm leading-relaxed text-fg-muted">
+                    A code can be valid but still use a regional, older, or
+                    contract-manufacturer format that this checker does not yet
+                    support. This result does not prove that the code or product
+                    is invalid.
+                  </p>
+                </>
+              )}
+              <div
+                className={`flex flex-col gap-2 sm:flex-row ${showDetailedHelp ? "mt-4" : ""}`}
+              >
+                {showDetailedHelp && (
                   <a
                     href="#batch-checker"
                     className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong"
                   >
                     Check the brand and code again
                   </a>
-                  <a
-                    href="#code-photo-submission"
-                    className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg"
-                  >
-                    Send a clear code photo
-                  </a>
-                </div>
+                )}
+                <a
+                  href="#code-photo-submission"
+                  className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg"
+                >
+                  {photoCopy.open}
+                </a>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
