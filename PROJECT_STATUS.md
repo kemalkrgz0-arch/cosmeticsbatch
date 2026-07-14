@@ -130,6 +130,8 @@ priorities live in `AUDIT.md`.
 - Hotfix: review form POST origin validation now compares the browser origin to
   the forwarded public host instead of the container's internal request URL.
   Cloudflare JWT validation and same-origin browser requirements remain active.
+- Hotfix follow-up: review POST redirects now use the canonical public site URL
+  rather than the standalone container request URL (`0.0.0.0`).
 
 ### Phase 4 — performance and security hardening
 

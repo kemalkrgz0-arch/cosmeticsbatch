@@ -6,8 +6,9 @@ import { appendReply, appendReview, getSubmission, REVIEW_STATUSES, type ReviewS
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function redirect(request: Request, suffix: string) {
-  return NextResponse.redirect(new URL(`/review/dashboard?${suffix}`, request.url), 303);
+function redirect(suffix: string) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://cosmeticsbatch.com";
+  return NextResponse.redirect(new URL(`/review/dashboard?${suffix}`, siteUrl), 303);
 }
 
 function isSameOriginBrowserRequest(request: Request) {
@@ -38,7 +39,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       if (!REVIEW_STATUSES.includes(status)) throw new Error("Invalid status");
       const note = String(form.get("note") ?? "").trim().slice(0, 300);
       await appendReview(id, status, reviewer.email, note);
-      return redirect(request, `status=${status}&updated=1`);
+      return redirect(`status=${status}&updated=1`);
     }
     if (intent === "reply") {
       const template = String(form.get("template") ?? "");
@@ -50,15 +51,15 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       if (!submission) throw new Error("Submission not found");
       const result = await sendReviewerReply(submission, subject, message);
       await appendReply(id, result.status, reviewer.email, result.status === "sent" ? result.providerId : undefined, result.status === "failed" ? result.reason : undefined);
-      if (result.status !== "sent") return redirect(request, `status=${submission.status}&error=reply`);
+      if (result.status !== "sent") return redirect(`status=${submission.status}&error=reply`);
       const nextStatus = template === "clearer_photo" ? "awaiting_user" : "completed";
       const outcome = template === "identified" ? "identified" : template === "unverifiable" ? "unverifiable" : undefined;
       await appendReview(id, nextStatus, reviewer.email, `Reply sent: ${REPLY_TEMPLATES[template as keyof typeof REPLY_TEMPLATES].label}`, outcome);
-      return redirect(request, `status=${nextStatus}&updated=1`);
+      return redirect(`status=${nextStatus}&updated=1`);
     }
     throw new Error("Invalid action");
   } catch (error) {
     console.error("Review update failed", { id, reason: error instanceof Error ? error.message : "unknown" });
-    return redirect(request, "error=update");
+    return redirect("error=update");
   }
 }
