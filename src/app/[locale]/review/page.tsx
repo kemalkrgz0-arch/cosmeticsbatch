@@ -48,15 +48,15 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
         {query.error && <p role="alert" className="mb-4 rounded-xl bg-danger-bg p-3 text-sm text-danger">The update could not be completed. No reply was recorded as sent.</p>}
 
         <nav aria-label="Review workspace" className="mb-5 flex gap-2 border-b pb-4">
-          <Link href="/review" aria-current={view === "submissions" ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === "submissions" ? "bg-cta text-cta-fg" : "bg-card"}`}>Photo submissions</Link>
-          <Link href="/review?view=checks" aria-current={view === "checks" ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === "checks" ? "bg-cta text-cta-fg" : "bg-card"}`}>Batch-code checks</Link>
+          <Link href="/review/dashboard" aria-current={view === "submissions" ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === "submissions" ? "bg-cta text-cta-fg" : "bg-card"}`}>Photo submissions</Link>
+          <Link href="/review/dashboard?view=checks" aria-current={view === "checks" ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === "checks" ? "bg-cta text-cta-fg" : "bg-card"}`}>Batch-code checks</Link>
         </nav>
 
         {view === "submissions" && <nav aria-label="Submission status" className="mb-6 flex gap-2 overflow-x-auto pb-2">
           {REVIEW_STATUSES.map((status) => {
             const count = all.filter((item) => item.status === status).length;
             const active = status === selectedStatus;
-            return <Link key={status} href={`/review?status=${status}`} aria-current={active ? "page" : undefined} className={`whitespace-nowrap rounded-full border px-4 py-2 text-sm font-semibold ${active ? "border-accent bg-accent text-white" : "bg-card"}`}>{statusLabels[status]} ({count})</Link>;
+            return <Link key={status} href={`/review/dashboard?status=${status}`} aria-current={active ? "page" : undefined} className={`whitespace-nowrap rounded-full border px-4 py-2 text-sm font-semibold ${active ? "border-accent bg-accent text-white" : "bg-card"}`}>{statusLabels[status]} ({count})</Link>;
           })}
         </nav>}
 
@@ -81,10 +81,12 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
               return (
                 <article key={submission.id} className="overflow-hidden rounded-2xl border bg-card shadow-sm">
                   <div className="grid gap-0 lg:grid-cols-[minmax(280px,0.8fr)_1.2fr]">
-                    <a href={`/review/api/images/${encodeURIComponent(submission.id)}`} target="_blank" rel="noreferrer" className="flex min-h-72 items-center justify-center bg-black/5 p-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={`/review/api/images/${encodeURIComponent(submission.id)}`} alt={`Submitted batch code for ${brand?.name ?? submission.brand}`} className="max-h-[32rem] w-full object-contain" />
-                    </a>
+                    <div className="grid min-h-72 gap-2 bg-black/5 p-3">
+                      {(submission.files?.length ? submission.files : [submission.file]).map((_, index) => <a key={index} href={`/review/api/images/${encodeURIComponent(submission.id)}?index=${index}`} target="_blank" rel="noreferrer" className="flex items-center justify-center">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={`/review/api/images/${encodeURIComponent(submission.id)}?index=${index}`} alt={`Submitted batch code photo ${index + 1} for ${brand?.name ?? submission.brand}`} className="max-h-[24rem] w-full object-contain" />
+                      </a>)}
+                    </div>
                     <div className="p-5 sm:p-6">
                       <div className="flex flex-wrap items-start justify-between gap-3">
                         <div><h2 className="text-xl font-bold">{brand?.name ?? submission.brand}</h2><p className="mt-1 break-all text-xs text-fg-muted">{submission.id}</p></div>

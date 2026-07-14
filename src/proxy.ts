@@ -26,6 +26,16 @@ export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const seg = pathname.split("/")[1] ?? "";
 
+  // The Access destination is /review/*, which intentionally protects every
+  // panel asset and mutation. Cloudflare does not treat that wildcard as the
+  // slashless /review path, so send the entry URL to a protected child route
+  // before locale rewriting. The origin still validates JWTs too.
+  if (pathname === "/review") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/review/dashboard";
+    return NextResponse.redirect(url, 307);
+  }
+
   // Explicit default-locale prefix → redirect to the canonical bare path.
   if (seg === DEFAULT_LOCALE) {
     const url = request.nextUrl.clone();

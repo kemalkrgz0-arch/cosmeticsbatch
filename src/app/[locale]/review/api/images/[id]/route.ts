@@ -9,13 +9,16 @@ export const dynamic = "force-dynamic";
 
 const MIME: Record<string, string> = { ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp" };
 
-export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireReviewer();
     const { id } = await params;
     const submission = await getSubmission(id);
     if (!submission) return new NextResponse("Not found", { status: 404 });
-    const path = submissionImagePath(submission.file);
+    const files = submission.files?.length ? submission.files : [submission.file];
+    const index = Number(new URL(request.url).searchParams.get("index") ?? "0");
+    if (!Number.isInteger(index) || index < 0 || index >= files.length) return new NextResponse("Not found", { status: 404 });
+    const path = submissionImagePath(files[index]);
     const bytes = await readFile(path);
     return new NextResponse(bytes, {
       headers: {

@@ -5,9 +5,7 @@ type SubmissionEmail = {
   code: string;
   note: string;
   userEmail: string;
-  filename: string;
-  imageType: string;
-  imageBytes: Uint8Array;
+  images: Array<{ filename: string; imageType: string; imageBytes: Uint8Array }>;
 };
 
 export type NotificationResult =
@@ -29,7 +27,7 @@ export async function sendSubmissionEmail(data: SubmissionEmail): Promise<Notifi
     `Visible code: ${data.code || "Not supplied"}`,
     `User note: ${data.note || "Not supplied"}`,
     `Reply email: ${data.userEmail}`,
-    `Stored file: ${data.filename}`,
+    `Stored files: ${data.images.map((image) => image.filename).join(", ")}`,
     "",
     "Reply to this email to answer the user directly.",
   ].join("\n");
@@ -48,11 +46,11 @@ export async function sendSubmissionEmail(data: SubmissionEmail): Promise<Notifi
         reply_to: data.userEmail,
         subject: `[Code photo] ${data.brandName} — ${data.id.slice(0, 19)}`,
         text,
-        attachments: [{
-          content: Buffer.from(data.imageBytes).toString("base64"),
-          filename: data.filename.split("/").at(-1) ?? "batch-code.jpg",
-          content_type: data.imageType,
-        }],
+        attachments: data.images.map((image) => ({
+          content: Buffer.from(image.imageBytes).toString("base64"),
+          filename: image.filename.split("/").at(-1) ?? "batch-code.jpg",
+          content_type: image.imageType,
+        })),
       }),
       signal: AbortSignal.timeout(10_000),
     });

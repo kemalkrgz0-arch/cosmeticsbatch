@@ -120,6 +120,13 @@ priorities live in `AUDIT.md`.
 - Deployment note: the first `0.5.0` run stopped safely before rebuilding because
   `CF_ACCESS_TEAM_DOMAIN` arrived blank. The public tenant URL was then pinned in
   the workflow; AUD and reviewer addresses remain encrypted secrets.
+- Live hardening: Cloudflare correctly challenged `/review/*`, while slashless
+  `/review` reached the fail-closed origin and returned 500. The proxy now sends
+  that entry point to `/review/dashboard` so users receive the Access challenge.
+- Added before handoff: users may select one to three camera/gallery photos in a
+  single submission. Every image is independently re-encoded client-side,
+  signature/size checked server-side, stored privately and displayed together
+  in the review panel. Legacy one-photo records remain readable.
 
 ### Phase 4 — performance and security hardening
 

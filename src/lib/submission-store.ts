@@ -18,6 +18,7 @@ export type Submission = {
   note: string;
   email: string;
   file: string;
+  files?: string[];
   status: ReviewStatus;
   revision: number;
   outcome?: ReviewOutcome;

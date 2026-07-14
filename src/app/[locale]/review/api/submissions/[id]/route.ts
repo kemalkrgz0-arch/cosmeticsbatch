@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 function redirect(request: Request, suffix: string) {
-  return NextResponse.redirect(new URL(`/review?${suffix}`, request.url), 303);
+  return NextResponse.redirect(new URL(`/review/dashboard?${suffix}`, request.url), 303);
 }
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {

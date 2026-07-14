@@ -22,7 +22,7 @@ export function CodePhotoSubmission({ brand }: { brand: Brand }) {
   const photoButton = useRef<HTMLButtonElement>(null);
   const formId = useId();
   const [open, setOpen] = useState(false);
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [code, setCode] = useState("");
   const [note, setNote] = useState("");
   const [email, setEmail] = useState("");
@@ -36,8 +36,8 @@ export function CodePhotoSubmission({ brand }: { brand: Brand }) {
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
-    if (!file) {
-      setValidationError("Choose a JPEG, PNG or WebP photo before sending.");
+    if (files.length === 0) {
+      setValidationError("Choose at least one JPEG, PNG or WebP photo before sending.");
       photoButton.current?.focus();
       return;
     }
@@ -45,14 +45,14 @@ export function CodePhotoSubmission({ brand }: { brand: Brand }) {
     setValidationError("");
     setState("sending");
     try {
-      const clean = await sanitizeImage(file);
+      const clean = await Promise.all(files.map(sanitizeImage));
       const body = new FormData();
       body.set("slug", brand.slug);
       body.set("code", code);
       body.set("note", note);
       body.set("email", email);
       body.set("consent", "true");
-      body.set("image", clean);
+      clean.forEach((image) => body.append("image", image));
       const response = await fetch("/api/code-photo", { method: "POST", body });
       if (!response.ok) throw new Error("submission failed");
       setState("sent");
@@ -83,12 +83,13 @@ export function CodePhotoSubmission({ brand }: { brand: Brand }) {
 
       {open && (
         <form id={`${formId}-form`} onSubmit={submit} aria-busy={state === "sending"} className="mt-5 space-y-4 border-t border-border pt-5">
-          <input id={`${formId}-photo`} ref={input} type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={(e) => { setFile(e.target.files?.[0] ?? null); setState("idle"); setValidationError(""); }} />
+          <input id={`${formId}-photo`} ref={input} type="file" multiple accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={(e) => { const selected = Array.from(e.target.files ?? []).slice(0, 3); setFiles(selected); setState("idle"); setValidationError((e.target.files?.length ?? 0) > 3 ? "You can send up to 3 photos in one submission." : ""); }} />
           <button ref={photoButton} type="button" aria-describedby={`${formId}-photo-help ${formId}-photo-status`} onClick={() => input.current?.click()} className="flex min-h-28 w-full flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-border-strong bg-bg-subtle px-4 text-sm font-medium hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">
             <ImagePlus className="h-6 w-6 text-accent" />
-            {file ? file.name : "Take or choose a photo"}
+            {files.length ? `${files.length} photo${files.length > 1 ? "s" : ""} selected` : "Take or choose photos"}
           </button>
-          <p id={`${formId}-photo-status`} className="sr-only" aria-live="polite">{file ? `Selected photo: ${file.name}` : "No photo selected."}</p>
+          {files.length > 0 && <ul className="space-y-1 text-sm text-fg-muted">{files.map((file, index) => <li key={`${file.name}-${index}`}>{index + 1}. {file.name}</li>)}</ul>}
+          <p id={`${formId}-photo-status`} className="sr-only" aria-live="polite">{files.length ? `${files.length} photos selected.` : "No photo selected."}</p>
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-sm font-medium">Visible code (optional)<input value={code} maxLength={64} onChange={(e) => setCode(e.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
             <label className="text-sm font-medium">What went wrong? (optional)<input value={note} maxLength={500} onChange={(e) => setNote(e.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
@@ -99,7 +100,7 @@ export function CodePhotoSubmission({ brand }: { brand: Brand }) {
           {validationError && <p role="alert" className="text-sm text-danger">{validationError}</p>}
           {state === "error" && <p role="alert" className="text-sm text-danger">The photo could not be sent. Please try a smaller JPEG, PNG or WebP image.</p>}
           <button disabled={state === "sending"} className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-cta px-5 text-sm font-semibold text-cta-fg disabled:cursor-wait disabled:opacity-70 sm:w-auto">{state === "sending" && <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />} {state === "sending" ? "Sending…" : "Send for review"}</button>
-          <p id={`${formId}-photo-help`} className="text-xs text-fg-muted">Choose a JPEG, PNG or WebP image. The image is resized and re-encoded before upload to remove embedded location metadata. Maximum upload: 5 MB. Avoid including faces or other personal details.</p>
+          <p id={`${formId}-photo-help`} className="text-xs text-fg-muted">Choose up to 3 JPEG, PNG or WebP images from your camera or gallery. Each image is resized and re-encoded before upload to remove embedded location metadata. Maximum: 5 MB per processed image. Avoid including faces or other personal details.</p>
         </form>
       )}
     </section>

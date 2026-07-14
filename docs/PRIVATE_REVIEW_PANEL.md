@@ -19,6 +19,7 @@ environment example, issue, log or screenshot.
 ## Workflow
 
 1. New submissions enter `pending` and remain in the append-only JSONL ledger.
+   Each submission may contain one to three gallery/camera images.
 2. A reviewer can set `in_review`, `awaiting_user`, `completed` or `discarded`.
 3. Replies use one of the approved English templates and always append the
    institutional signature.
@@ -37,6 +38,9 @@ identifiers or user emails.
 ## Security and operations
 
 - Keep the Access destination scoped to `cosmeticsbatch.com/review/*`.
+- The proxy redirects the slashless `/review` entry point to protected
+  `/review/dashboard`; do not remove this redirect without changing the Access
+  route.
 - Keep the policy restricted to named reviewer email addresses.
 - Do not create a Cloudflare Bypass policy for the route.
 - Private images are streamed only after JWT validation with `private, no-store`.

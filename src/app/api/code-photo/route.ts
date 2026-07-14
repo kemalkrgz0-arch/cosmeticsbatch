@@ -12,8 +12,9 @@ export const dynamic = "force-dynamic";
 // A fixed external development fallback avoids tracing the entire project
 // directory; production supplies the bind-mounted SUBMISSIONS_DIR.
 const DIR = process.env.SUBMISSIONS_DIR || "/tmp/cosmeticsbatch-submissions";
-const MAX_BODY_BYTES = 6 * 1024 * 1024;
+const MAX_BODY_BYTES = 16 * 1024 * 1024;
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
+const MAX_IMAGES = 3;
 const LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const LIMIT = 5;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,18 +71,12 @@ export async function POST(req: NextRequest) {
   const note = String(form.get("note") ?? "").trim().slice(0, 500);
   const email = String(form.get("email") ?? "").trim().toLowerCase().slice(0, 254);
   const consent = form.get("consent") === "true";
-  const image = form.get("image");
+  const images = form.getAll("image");
   const brand = getBrand(slug);
   if (!brand) return json("unknown brand", 404);
   if (!EMAIL.test(email)) return json("valid email is required", 400);
   if (!consent) return json("consent is required", 400);
-  if (!(image instanceof File) || image.size === 0) return json("image is required", 400);
-  if (image.size > MAX_IMAGE_BYTES) return json("image is too large", 413);
-
-  const type = TYPES[image.type];
-  if (!type) return json("unsupported image type", 415);
-  const bytes = new Uint8Array(await image.arrayBuffer());
-  if (!type.signature(bytes)) return json("invalid image data", 415);
+  if (images.length === 0 || images.length > MAX_IMAGES || images.some((image) => !(image instanceof File) || image.size === 0)) return json("between 1 and 3 images are required", 400);
 
   const id = `${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID()}`;
   const monthDir = join(
@@ -89,9 +84,22 @@ export async function POST(req: NextRequest) {
     new Date().toISOString().slice(0, 7),
   );
   await mkdir(monthDir, { recursive: true });
-  const filename = `${id}.${type.ext}`;
-  await writeFile(join(monthDir, filename), bytes, { flag: "wx", mode: 0o600 });
-  const relativeFile = `${new Date().toISOString().slice(0, 7)}/${filename}`;
+  const stored = [];
+  for (const [index, value] of images.entries()) {
+    const image = value as File;
+    if (image.size > MAX_IMAGE_BYTES) return json("image is too large", 413);
+    const type = TYPES[image.type];
+    if (!type) return json("unsupported image type", 415);
+    const bytes = new Uint8Array(await image.arrayBuffer());
+    if (!type.signature(bytes)) return json("invalid image data", 415);
+    stored.push({
+      relativeFile: `${new Date().toISOString().slice(0, 7)}/${id}-${index + 1}.${type.ext}`,
+      imageType: image.type,
+      bytes,
+    });
+  }
+  for (const image of stored) await writeFile(join(DIR, image.relativeFile), image.bytes, { flag: "wx", mode: 0o600 });
+  const relativeFiles = stored.map((image) => image.relativeFile);
   const queueFile = join(DIR, "submissions.jsonl");
   await appendFile(queueFile, JSON.stringify({
     type: "submission",
@@ -101,7 +109,8 @@ export async function POST(req: NextRequest) {
     code,
     note,
     email,
-    file: relativeFile,
+    file: relativeFiles[0],
+    files: relativeFiles,
     status: "pending",
   }) + "\n", { encoding: "utf8", mode: 0o600 });
 
@@ -112,9 +121,7 @@ export async function POST(req: NextRequest) {
     code,
     note,
     userEmail: email,
-    filename: relativeFile,
-    imageType: image.type,
-    imageBytes: bytes,
+    images: stored.map((image) => ({ filename: image.relativeFile, imageType: image.imageType, imageBytes: image.bytes })),
   });
   await appendFile(queueFile, JSON.stringify({
     type: "notification",
