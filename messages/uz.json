@@ -189,7 +189,7 @@
     "title": "Qanday ishlaydi",
     "subtitle": "Hisob qaydnomasiz, kutishsiz. Har qanday qoʻllab-quvvatlanadigan partiya kodini oʻn soniyadan kamroq vaqtda dekodlang.",
     "step1Title": "Brendni tanlang",
-    "step1Body": "120 dan ortiq qoʻllab-quvvatlanadigan kosmetika va parfyum ishlab chiqaruvchilaridan brendingizni tanlang.",
+    "step1Body": "{n} dan ortiq qoʻllab-quvvatlanadigan kosmetika va parfyum ishlab chiqaruvchilaridan brendingizni tanlang.",
     "step2Title": "Partiya kodini kiriting",
     "step2Body": "Mahsulotingizga bosilgan yoki oʻyilgan partiya kodini kiriting.",
     "step3Title": "Natijalarni oling",

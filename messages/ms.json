@@ -189,7 +189,7 @@
     "title": "Cara ia berfungsi",
     "subtitle": "Tiada akaun, tiada menunggu. Nyahkod mana-mana kod kelompok yang disokong dalam masa kurang sepuluh saat.",
     "step1Title": "Pilih Jenama",
-    "step1Body": "Pilih jenama anda daripada 120+ pengeluar kosmetik dan minyak wangi yang disokong.",
+    "step1Body": "Pilih jenama anda daripada {n}+ pengeluar kosmetik dan minyak wangi yang disokong.",
     "step2Title": "Masukkan Kod Kelompok",
     "step2Body": "Taip kod kelompok yang dicap atau ditimbul pada produk anda.",
     "step3Title": "Dapatkan Keputusan",

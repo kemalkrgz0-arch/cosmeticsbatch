@@ -1,11 +1,16 @@
 import { CircleCheck, ScanLine, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { SUPPORTED_BRAND_COUNT } from "@/lib/brands";
 
 export function HowItWorks() {
   const t = useTranslations("howItWorks");
   const steps = [
-    { icon: Search, title: t("step1Title"), body: t("step1Body") },
+    {
+      icon: Search,
+      title: t("step1Title"),
+      body: t("step1Body", { n: SUPPORTED_BRAND_COUNT }),
+    },
     { icon: ScanLine, title: t("step2Title"), body: t("step2Body") },
     { icon: CircleCheck, title: t("step3Title"), body: t("step3Body") },
   ];

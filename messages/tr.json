@@ -191,7 +191,7 @@
     "subtitle": "Hesap yok, beklemek yok. Desteklenen herhangi bir batch kodun kodunu on saniyeden kısa sürede çözün.",
     "step3Title": "Sonuçları Al",
     "step2Title": "batch kodunu Girin",
-    "step1Body": "120'den fazla desteklenen kozmetik ve parfüm üreticisi arasından markanızı seçin.",
+    "step1Body": "{n}'den fazla desteklenen kozmetik ve parfüm üreticisi arasından markanızı seçin.",
     "step2Body": "Ürününüzün üzerine damgalanmış veya kabartmalı batch kodunu yazın.",
     "step3Body": "Üretim tarihini, yaşını, tazeliğini ve son kullanma tarihini anında görün."
   },

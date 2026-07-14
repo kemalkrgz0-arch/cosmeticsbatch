@@ -189,7 +189,7 @@
     "title": "How it works",
     "subtitle": "No account, no waiting. Decode any supported batch code in under ten seconds.",
     "step1Title": "Select Brand",
-    "step1Body": "Choose your brand from 120+ supported cosmetic and perfume makers.",
+    "step1Body": "Choose from {n} supported cosmetic and perfume brands.",
     "step2Title": "Enter Batch Code",
     "step2Body": "Type the batch code stamped or embossed on your product.",
     "step3Title": "Get Results",

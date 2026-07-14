@@ -188,7 +188,7 @@
     "title": "Ako to funguje",
     "eyebrow": "Tri jednoduché kroky",
     "step1Title": "Vyberte položku Značka",
-    "step1Body": "Vyberte si svoju značku z viac ako 120 podporovaných výrobcov kozmetiky a parfumov.",
+    "step1Body": "Vyberte si svoju značku z viac ako {n} podporovaných výrobcov kozmetiky a parfumov.",
     "step2Body": "Zadajte kód šarže vyrazený alebo vyrazený na vašom produkte.",
     "step3Body": "Okamžite uvidíte dátum výroby, vek, čerstvosť a expiráciu.",
     "step3Title": "Získajte výsledky",

@@ -191,7 +191,7 @@
     "step3Title": "Obțineți rezultate",
     "step2Title": "Introduceți codul lotului",
     "subtitle": "Fără cont, fără așteptare. Decodați orice cod de lot acceptat în mai puțin de zece secunde.",
-    "step1Body": "Alegeți-vă marca dintre cei peste 120 de producători de cosmetice și parfumuri acceptați.",
+    "step1Body": "Alegeți-vă marca dintre cei peste {n} de producători de cosmetice și parfumuri acceptați.",
     "step2Body": "Introduceți codul lotului ștampilat sau în relief pe produsul dvs.",
     "step3Body": "Vezi instantaneu data fabricației, vârsta, prospețimea și expirarea."
   },

@@ -189,7 +189,7 @@
     "title": "Cara kerja",
     "subtitle": "Tanpa akun, tanpa menunggu. Dekode kode batch yang didukung dalam waktu kurang dari sepuluh detik.",
     "step1Title": "Pilih Merek",
-    "step1Body": "Pilih merek Anda dari 120+ produsen kosmetik dan parfum yang didukung.",
+    "step1Body": "Pilih merek Anda dari {n}+ produsen kosmetik dan parfum yang didukung.",
     "step2Title": "Masukkan Kode Batch",
     "step2Body": "Ketik kode batch yang dicap atau timbul pada produk Anda.",
     "step3Title": "Dapatkan Hasil",

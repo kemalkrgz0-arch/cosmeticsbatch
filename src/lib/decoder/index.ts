@@ -3,6 +3,7 @@ import { FALLBACK_CHAIN, getDecoder } from "./decoders";
 
 export * from "./types";
 export { DECODERS, getDecoder } from "./decoders";
+export { DECODER_PROFILES, getDecoderProfile } from "./profiles";
 
 export type FreshnessStatus =
   | "fresh"

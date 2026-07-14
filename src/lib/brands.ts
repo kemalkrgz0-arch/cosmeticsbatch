@@ -627,6 +627,7 @@ export const ALL_BRANDS: Brand[] = ROWS.map(
 
 /** Public, verified-decode brands shown in the picker, search and listings. */
 export const BRANDS: Brand[] = ALL_BRANDS.filter((b) => !b.hidden);
+export const SUPPORTED_BRAND_COUNT = BRANDS.length;
 
 export const POPULAR_BRANDS = BRANDS.filter((b) => b.popular);
 

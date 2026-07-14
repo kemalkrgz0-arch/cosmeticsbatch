@@ -187,7 +187,7 @@
   "howItWorks": {
     "title": "como funciona",
     "step1Title": "Seleccionar marca",
-    "step1Body": "Elija su marca entre más de 120 fabricantes de cosméticos y perfumes compatibles.",
+    "step1Body": "Elija su marca entre más de {n} fabricantes de cosméticos y perfumes compatibles.",
     "subtitle": "Sin cuenta, sin esperas. Decodifica cualquier código de lote compatible en menos de diez segundos.",
     "eyebrow": "Tres sencillos pasos",
     "step3Title": "Obtener resultados",

@@ -192,7 +192,7 @@
     "subtitle": "Pas de compte, pas d'attente. Decode any supported batch code in under ten seconds.",
     "eyebrow": "Trois étapes simples",
     "step3Body": "Consultez instantanément la date de fabrication, l’âge, la fraîcheur et l’expiration.",
-    "step1Body": "Choisissez votre marque parmi plus de 120 fabricants de cosmétiques et de parfums pris en charge.",
+    "step1Body": "Choisissez votre marque parmi plus de {n} fabricants de cosmétiques et de parfums pris en charge.",
     "step2Body": "Tapez le code de lot tamponné ou gravé sur votre produit."
   },
   "popularBrands": {

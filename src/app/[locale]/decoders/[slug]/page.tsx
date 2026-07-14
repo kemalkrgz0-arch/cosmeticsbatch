@@ -25,6 +25,7 @@ import {
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
+import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
 
 export function generateStaticParams() {
@@ -174,6 +175,7 @@ export default async function DecoderGuidePage({
 
   return (
     <article className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+      <AdsenseLoader />
       <JsonLd
         data={[
           breadcrumbSchema(crumbs),

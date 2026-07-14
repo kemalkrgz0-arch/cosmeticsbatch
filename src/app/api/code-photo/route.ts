@@ -4,17 +4,19 @@ import { join } from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
 import { isRealApiUser } from "@/lib/bot-filter";
+import { sendSubmissionEmail } from "@/lib/submission-email";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-// A relative development fallback avoids tracing the entire project directory;
-// production always supplies the absolute bind-mounted SUBMISSIONS_DIR.
-const DIR = process.env.SUBMISSIONS_DIR || ".data/submissions";
+// A fixed external development fallback avoids tracing the entire project
+// directory; production supplies the bind-mounted SUBMISSIONS_DIR.
+const DIR = process.env.SUBMISSIONS_DIR || "/tmp/cosmeticsbatch-submissions";
 const MAX_BODY_BYTES = 6 * 1024 * 1024;
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 const LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const LIMIT = 5;
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const buckets = new Map<string, { count: number; resetAt: number }>();
 
 const TYPES: Record<string, { ext: string; signature: (b: Uint8Array) => boolean }> = {
@@ -66,10 +68,12 @@ export async function POST(req: NextRequest) {
   const slug = String(form.get("slug") ?? "").trim();
   const code = String(form.get("code") ?? "").trim().slice(0, 64);
   const note = String(form.get("note") ?? "").trim().slice(0, 500);
+  const email = String(form.get("email") ?? "").trim().toLowerCase().slice(0, 254);
   const consent = form.get("consent") === "true";
   const image = form.get("image");
   const brand = getBrand(slug);
   if (!brand) return json("unknown brand", 404);
+  if (!EMAIL.test(email)) return json("valid email is required", 400);
   if (!consent) return json("consent is required", 400);
   if (!(image instanceof File) || image.size === 0) return json("image is required", 400);
   if (image.size > MAX_IMAGE_BYTES) return json("image is too large", 413);
@@ -80,19 +84,46 @@ export async function POST(req: NextRequest) {
   if (!type.signature(bytes)) return json("invalid image data", 415);
 
   const id = `${new Date().toISOString().replace(/[:.]/g, "-")}-${randomUUID()}`;
-  const monthDir = join(DIR, new Date().toISOString().slice(0, 7));
+  const monthDir = join(
+    /* turbopackIgnore: true */ DIR,
+    new Date().toISOString().slice(0, 7),
+  );
   await mkdir(monthDir, { recursive: true });
   const filename = `${id}.${type.ext}`;
   await writeFile(join(monthDir, filename), bytes, { flag: "wx", mode: 0o600 });
-  await appendFile(join(DIR, "submissions.jsonl"), JSON.stringify({
+  const relativeFile = `${new Date().toISOString().slice(0, 7)}/${filename}`;
+  const queueFile = join(DIR, "submissions.jsonl");
+  await appendFile(queueFile, JSON.stringify({
+    type: "submission",
     id,
     ts: new Date().toISOString(),
     brand: brand.slug,
     code,
     note,
-    file: `${new Date().toISOString().slice(0, 7)}/${filename}`,
+    email,
+    file: relativeFile,
     status: "pending",
   }) + "\n", { encoding: "utf8", mode: 0o600 });
 
-  return NextResponse.json({ ok: true, id }, { status: 201, headers: { "Cache-Control": "no-store" } });
+  const notification = await sendSubmissionEmail({
+    id,
+    brandName: brand.name,
+    brandSlug: brand.slug,
+    code,
+    note,
+    userEmail: email,
+    filename: relativeFile,
+    imageType: image.type,
+    imageBytes: bytes,
+  });
+  await appendFile(queueFile, JSON.stringify({
+    type: "notification",
+    id,
+    ts: new Date().toISOString(),
+    channel: "email",
+    ...notification,
+  }) + "\n", { encoding: "utf8", mode: 0o600 });
+  if (notification.status === "failed") console.warn("Submission email failed", { id, reason: notification.reason });
+
+  return NextResponse.json({ ok: true, id, notification: notification.status }, { status: 201, headers: { "Cache-Control": "no-store" } });
 }

@@ -1,5 +1,40 @@
 export type Confidence = "high" | "medium" | "low" | "none";
 
+/** Strength of the evidence behind a decoder rule, not date precision. */
+export type VerificationStatus =
+  | "VERIFIED"
+  | "HIGH_CONFIDENCE"
+  | "ESTIMATED"
+  | "FORMAT_ONLY"
+  | "UNKNOWN";
+
+export type DatePrecision = "day" | "month" | "year" | "variable";
+
+export type DecoderSourceType =
+  | "manufacturer"
+  | "regulator"
+  | "documented-industry"
+  | "observed-samples"
+  | "community"
+  | "none";
+
+/**
+ * Auditable provenance kept separately from runtime confidence. An empty
+ * sourceReferences array is intentional: it prevents prose comments from being
+ * mistaken for evidence and keeps the decoder in the verification backlog.
+ */
+export interface DecoderProfile {
+  decoderId: string;
+  version: string;
+  verificationStatus: VerificationStatus;
+  datePrecision: DatePrecision;
+  sourceType: DecoderSourceType;
+  sourceReferences: string[];
+  verifiedAt: string | null;
+  supportedCodeFormats: string[];
+  knownLimitations: string[];
+}
+
 export type ProductCategory =
   | "skincare"
   | "makeup"

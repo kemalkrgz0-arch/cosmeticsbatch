@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Script from "next/script";
 import { adsense, type AdPlacement } from "@/lib/ads";
 import { cn } from "@/lib/utils";
 
@@ -31,54 +30,44 @@ export function AdSlot({
 }) {
   const client = adsense.client;
   const slot = placement ? adsense.slots[placement] : "";
-  const enabled = Boolean(client && slot);
+  // The unit needs a slot id. The loader script does not, and lives in
+  // [[adsense-loader]] — a server component, so it reaches the HTML the reviewer
+  // reads. Until slot ids exist, the loader is on the page and no box is drawn.
+  const hasUnit = Boolean(client && slot);
   const pushed = useRef(false);
 
   useEffect(() => {
-    if (!enabled || pushed.current) return;
+    if (!hasUnit || pushed.current) return;
     pushed.current = true;
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
-      /* AdSense not ready / blocked — placeholder height keeps layout stable */
+      /* AdSense not ready / blocked — reserved height keeps layout stable */
     }
-  }, [enabled]);
+  }, [hasUnit]);
 
-  // Until AdSense is configured, render nothing rather than an empty grey
-  // placeholder box — a blank labelled panel reads as unfinished. Real units
-  // appear automatically once the client/slot env vars are set.
-  if (!enabled) return null;
+  // No slot id yet: nothing to fill a box with, and a blank labelled panel reads
+  // as an unfinished site.
+  if (!hasUnit) return null;
 
   return (
-    <>
-      {/* Load AdSense only on pages that render approved publisher content.
-          Keeping this out of the root layout excludes thin/noindex tools from
-          the site's monetized inventory entirely. Duplicate ids are deduped by
-          next/script when a page contains more than one reviewed placement. */}
-      <Script
-        id="adsense"
-        strategy="lazyOnload"
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`}
-        crossOrigin="anonymous"
-      />
-      <aside
-        aria-label={label}
-        className={cn("mx-auto w-full max-w-3xl px-4", className)}
+    <aside
+      aria-label={label}
+      className={cn("mx-auto w-full max-w-3xl px-4", className)}
+    >
+      <div
+        style={{ minHeight: height }}
+        className="flex items-center justify-center overflow-hidden rounded-2xl"
       >
-        <div
-          style={{ minHeight: height }}
-          className="flex items-center justify-center overflow-hidden rounded-2xl"
-        >
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block", width: "100%", minHeight: height }}
-            data-ad-client={client}
-            data-ad-slot={slot}
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          />
-        </div>
-      </aside>
-    </>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", width: "100%", minHeight: height }}
+          data-ad-client={client}
+          data-ad-slot={slot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+    </aside>
   );
 }

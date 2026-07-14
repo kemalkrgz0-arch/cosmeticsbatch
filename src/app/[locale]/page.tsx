@@ -9,6 +9,7 @@ import { HowItWorks } from "@/components/home/how-it-works";
 import { WhereIsCode } from "@/components/home/where-is-code";
 import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
+import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
 import { faqSchema, howToSchema } from "@/lib/seo";
 
@@ -46,6 +47,7 @@ export default async function HomePage({
 
   return (
     <>
+      <AdsenseLoader />
       <JsonLd data={[faqSchema(homeFaq), howToSchema()]} />
       <Hero />
       <FeatureGrid />

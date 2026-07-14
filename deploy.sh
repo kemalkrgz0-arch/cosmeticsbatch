@@ -76,6 +76,9 @@ main() {
     --restart unless-stopped \
     -e DATASET_DIR=/data \
     -e SUBMISSIONS_DIR=/data/submissions \
+    -e RESEND_API_KEY \
+    -e SUBMISSION_NOTIFY_EMAIL \
+    -e SUBMISSION_FROM_EMAIL \
     -v /opt/cosmeticsbatch-data:/data \
     cosmeticsbatch:latest
 

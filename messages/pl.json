@@ -189,7 +189,7 @@
     "step1Title": "Wybierz markę",
     "eyebrow": "Trzy proste kroki",
     "subtitle": "Bez konta, bez czekania. Odkoduj dowolny obsługiwany kod wsadowy w mniej niż dziesięć sekund.",
-    "step1Body": "Wybierz swoją markę spośród ponad 120 wspieranych producentów kosmetyków i perfum.",
+    "step1Body": "Wybierz swoją markę spośród ponad {n} wspieranych producentów kosmetyków i perfum.",
     "step2Body": "Wpisz kod partii wybity lub wytłoczony na produkcie.",
     "step3Title": "Uzyskaj wyniki",
     "step2Title": "Wprowadź kod partii",

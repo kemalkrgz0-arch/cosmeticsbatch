@@ -190,7 +190,7 @@
     "step2Title": "Introduïu el codi de lot",
     "eyebrow": "Tres passos senzills",
     "subtitle": "Sense compte, sense espera. Descodifiqueu qualsevol codi de lot compatible en menys de deu segons.",
-    "step1Body": "Tria la teva marca entre més de 120 fabricants de cosmètics i perfums compatibles.",
+    "step1Body": "Tria la teva marca entre més de {n} fabricants de cosmètics i perfums compatibles.",
     "step2Body": "Escriviu el codi del lot estampat o en relleu al vostre producte.",
     "step3Title": "Obteniu resultats",
     "step3Body": "Consulta la data de fabricació, l'edat, la frescor i la caducitat a l'instant."

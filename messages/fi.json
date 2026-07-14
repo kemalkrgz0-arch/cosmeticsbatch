@@ -187,7 +187,7 @@
   "howItWorks": {
     "title": "Miten se toimii",
     "step1Title": "Valitse Brändi",
-    "step1Body": "Valitse tuotemerkkisi yli 120 tuetun kosmetiikka- ja hajuvesivalmistajan joukosta.",
+    "step1Body": "Valitse tuotemerkkisi yli {n} tuetun kosmetiikka- ja hajuvesivalmistajan joukosta.",
     "step2Body": "Kirjoita tuotteeseen leimattu tai kohokuvioitu eräkoodi.",
     "subtitle": "Ei tiliä, ei odottelua. Pura kaikki tuetut eräkoodit alle kymmenessä sekunnissa.",
     "step2Title": "Anna eräkoodi",

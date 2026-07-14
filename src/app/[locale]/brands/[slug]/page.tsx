@@ -32,6 +32,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CheckForm } from "@/components/check-form";
 import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
+import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { JsonLd } from "@/components/json-ld";
 import { CodePhotoSubmission } from "@/components/code-photo-submission";
@@ -152,6 +153,7 @@ export default async function BrandPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      {monetizable && <AdsenseLoader />}
       <JsonLd
         data={[
           breadcrumbSchema(crumbs),

@@ -189,7 +189,7 @@
     "title": "Cách hoạt động",
     "subtitle": "Không tài khoản, không chờ đợi. Giải mã bất kỳ mã lô được hỗ trợ nào trong chưa đầy mười giây.",
     "step1Title": "Chọn thương hiệu",
-    "step1Body": "Chọn thương hiệu của bạn từ hơn 120 nhà sản xuất mỹ phẩm và nước hoa được hỗ trợ.",
+    "step1Body": "Chọn thương hiệu của bạn từ hơn {n} nhà sản xuất mỹ phẩm và nước hoa được hỗ trợ.",
     "step2Title": "Nhập mã lô",
     "step2Body": "Gõ mã lô được dập hoặc in nổi trên sản phẩm của bạn.",
     "step3Title": "Nhận kết quả",

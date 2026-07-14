@@ -189,7 +189,7 @@
     "eyebrow": "Három egyszerű lépés",
     "step1Title": "Válassza a Márka lehetőséget",
     "step2Body": "Írja be a termékre bélyegzett vagy dombornyomott kötegkódot.",
-    "step1Body": "Válassza ki márkáját több mint 120 támogatott kozmetikai és parfümgyártó közül.",
+    "step1Body": "Válassza ki márkáját több mint {n} támogatott kozmetikai és parfümgyártó közül.",
     "step2Title": "Adja meg a kötegkódot",
     "step3Title": "Eredmények",
     "subtitle": "Nincs számla, nincs várakozás. Tíz másodpercen belül dekódolja a támogatott kötegkódokat.",

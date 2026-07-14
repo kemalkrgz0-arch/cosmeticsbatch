@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm test:decoder",
+    "test:decoder": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --skipLibCheck scripts/decoder-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/decoder-regression.test.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

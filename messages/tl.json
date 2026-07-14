@@ -189,7 +189,7 @@
     "title": "Paano ito gumagana",
     "subtitle": "Walang account, walang paghihintay. I-decode ang anumang suportadong batch code sa loob ng wala pang sampung segundo.",
     "step1Title": "Pumili ng Brand",
-    "step1Body": "Piliin ang iyong brand mula sa 120+ suportadong tagagawa ng kosmetiko at pabango.",
+    "step1Body": "Piliin ang iyong brand mula sa {n}+ suportadong tagagawa ng kosmetiko at pabango.",
     "step2Title": "Ilagay ang Batch Code",
     "step2Body": "I-type ang batch code na naka-stamp o naka-emboss sa iyong produkto.",
     "step3Title": "Kunin ang Resulta",

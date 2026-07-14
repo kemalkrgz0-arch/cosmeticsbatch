@@ -109,6 +109,9 @@ docker run -d --name cosmeticsbatch \
   --network yerelatlas_default --restart unless-stopped \
   -e DATASET_DIR=/data \
   -e SUBMISSIONS_DIR=/data/submissions \
+  -e RESEND_API_KEY \
+  -e SUBMISSION_NOTIFY_EMAIL \
+  -e SUBMISSION_FROM_EMAIL \
   -v /opt/cosmeticsbatch-data:/data \
   cosmeticsbatch:latest
 ```
@@ -117,6 +120,13 @@ User-submitted batch-code photos are stored privately under
 `/opt/cosmeticsbatch-data/submissions`. They are never served from `public/`.
 Review `submissions/submissions.jsonl` for the pending queue and keep this volume
 in the normal server backup policy.
+
+Each submission is also sent through Resend with the photo attached. Set
+`RESEND_API_KEY`, `SUBMISSION_NOTIFY_EMAIL` (your inbox), and
+`SUBMISSION_FROM_EMAIL` (a sender on a Resend-verified domain) in `.env.build`.
+The user address is set as `Reply-To`, so replying in your mail client answers
+the user directly. A mail outage does not discard the private submission; a
+`notification` event with `failed` or `not_configured` remains in the JSONL queue.
 
 Inspect the data on the host (no need to enter the container):
 
