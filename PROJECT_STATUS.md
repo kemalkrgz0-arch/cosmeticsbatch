@@ -1,12 +1,231 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-14
-Current version: **0.5.0**
-Current phase: **Phase 3 in progress — primary UX and accessibility**
+Current version: **0.5.2**
+Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
 work and update it after every logical change group. Detailed audit evidence and
 priorities live in `AUDIT.md`.
+
+## Current production snapshot — read before changing anything
+
+- Production branch: `main`; deployment is triggered by GitHub Actions and
+  rebuilds/restarts the VPS container over SSH.
+- Current production baseline: commit `a771f0c`; GitHub Actions deploy run
+  `29330602612` completed successfully. Package/document version is `0.5.2`.
+- Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 44
+  active locale routes. English is prefix-free; other locales use `/{locale}`.
+- Public indexing policy: the owner explicitly chose indexability for all public
+  locale pages while AdSense reapplication is paused. Do not silently restore a
+  broad `noindex` policy. Content-review flags still control structured data and
+  ad eligibility where implemented.
+- Decoder policy: never invent or silently broaden a brand algorithm. Unknown or
+  weakly sourced formats must remain conservative; manufacture date, typical
+  unopened shelf life and PAO are separate concepts. A decoded code cannot prove
+  authenticity.
+- Query data: real-user checks can be sent to the server and appended to the
+  private dataset with code, brand, result, locale, time and coarse country. IP,
+  name and account identifiers are not written to this dataset. Any UI or SEO
+  copy claiming “browser-only”, “never sent” or “nothing stored” is incorrect.
+- Photo data: users can select 1–3 camera/gallery images. The browser resizes and
+  re-encodes them, then the server validates and stores them outside `public/` in
+  the private bind-mounted submission store. Email and explicit consent are
+  required. Records and reply events are append-only.
+- Review operations: `/review/*` is protected by Cloudflare Access and origin JWT
+  verification. The panel shows private submissions and recent query records,
+  streams protected images and sends professional English replies through
+  Resend. Never weaken the Access check or publish uploaded images directly.
+- Mail: Resend is live using `contact@cosmeticsbatch.com` for sender/recipient.
+  Runtime secrets live only in encrypted GitHub Actions/VPS configuration. The
+  key exposed earlier in chat should eventually be rotated; never copy it into
+  code, documentation, commits or logs.
+- Logo behavior: official-domain favicon sources are mapped for 206/212 public
+  brands. Version 0.5.2 removed DuckDuckGo/Google favicon proxies because their
+  HTTP-200 grey arrow placeholders were displayed as brand logos. Missing or
+  blocked official favicons must fall back to controlled tiles/monograms.
+- Verification baseline: 21 regression tests cover decoder invariants, data
+  integrity, locale photo-copy completeness, logo-source safety and public
+  index policy. Use local binaries if the `pnpm` wrapper tries a registry check
+  in a restricted/TTY-less environment.
+
+## Active findings / next dependency-ordered work
+
+1. P0 truthfulness: replace the homepage `expiry date` / `help check
+   authenticity` meta promise with estimated manufacture-date, product-age,
+   typical unopened shelf-life and PAO language.
+2. P0 privacy consistency: audit all 44 locale message files and remove stale
+   claims that decoding is browser-only or that codes are never sent/stored.
+   English/privacy pages already describe the current server dataset correctly.
+3. P1 structured data: align Organization/HowTo descriptions with the same
+   cautious language; do not describe an estimated shelf-life date as a
+   manufacturer expiry date.
+4. P1 locale directory: `/[locale]/brands` currently hard-codes English title,
+   description, breadcrumb, H1 and ItemList labels. Its JSON-LD item URLs also
+   point to prefix-free English brand URLs. Localize the visible/metadata copy
+   and generate locale-aware structured-data URLs.
+5. P1 count accuracy: the directory currently says listed example brands “and
+   {BRANDS.length}+ more”, which overstates the total. Use one central total and
+   wording such as “Browse 212 supported brands, including …”.
+6. P1 content quality: Google still shows cached legacy `Expiry Date &
+   Authenticity` titles for several brand pages. Current English metadata is
+   safer, but recrawl should be requested only after the remaining global claims
+   are fixed. Do not mass-submit thousands of URLs.
+7. P1/P2 localization: live search evidence shows mixed-language and awkward
+   long-tail pages (for example Italian English fallback blocks and Korean
+   guide fragments). Strengthen existing high-impression URLs before creating
+   new programmatic pages.
+8. P2 brand uniqueness: prioritize verified examples, packaging location,
+   provenance and limitations for high-impression brands. Do not manufacture
+   “unique” filler or repeat one template with only a brand-name substitution.
+
+## Complete phase ledger and remaining roadmap
+
+The original audit defined 20 work areas. “Phase” below is the implementation
+sequence used by this repository, not permission to skip unresolved audit areas.
+
+### Phase 1 — correctness, security baseline and submissions — COMPLETE
+
+- Completed: repository/audit baseline, decoder registry/provenance levels,
+  impossible/future-date checks, EAN rejection, decoder fixtures, calculated
+  brand counts, submission validation, private image storage, consent, Resend
+  notification and privacy documentation.
+- Still operational, not a code blocker: rotate the Resend key exposed in chat;
+  approve a retention/deletion duration for photos, emails, query logs and
+  backups; document deletion-request handling.
+- Acceptance already met: lint/typecheck/build and decoder regression coverage;
+  production Resend delivery was live-verified.
+
+### Phase 2 — technical SEO and content integrity — PARTIAL
+
+- Completed: canonical/hreflang helpers, locale-aware article/breadcrumb schema,
+  stable sitemap timestamps, FAQ DOM/JSON-LD source unification, editorial review
+  manifest, cautious English brand metadata, L'Oréal priority-locale foundation
+  and public-index regression checks.
+- Owner decision retained: all public pages are indexable for now. This increased
+  exposure before all translations/content passed editorial review.
+- Remaining P0/P1: homepage claim correction; privacy-copy parity in all locales;
+  `/[locale]/brands` localization and locale-aware ItemList URLs; accurate total
+  wording; schema claim correction; canonical/hreflang live sample matrix; URL
+  slash/redirect-chain audit; sitemap size/index coverage review; broken/orphan
+  internal-link crawl; duplicate titles/descriptions report.
+- Remaining content work: repair mixed-language/awkward translations; review
+  high-impression brand pages first; eliminate unsupported “manufacturer-
+  specific”, “accurate”, “expiry” and authenticity claims; add primary-source
+  provenance without fabricating brand facts.
+- Acceptance: priority pages render one self-canonical, reciprocal reviewed
+  hreflang, locale-correct metadata/schema, no conflicting privacy claims and no
+  stale hard-coded totals; regression crawl and production samples pass.
+
+### Phase 3 — primary UX, accessibility and review operations — PARTIAL
+
+- Completed: accessible searchable brand combobox, keyboard behavior, recent
+  brand continuity, input/error semantics, mobile targets, separated result
+  concepts, invalid-code guidance, 1–3 photo selection, 44-locale photo form,
+  protected review panel, query list, workflow events, Resend replies and the
+  compact How It Works redesign.
+- Completed with limitation: official-domain logo mapping covers 206/212 public
+  brands; only a favicon/controlled fallback is used, not a licensed local
+  wordmark asset library. Six discontinued licensed lines have no trusted active
+  official site.
+- Remaining UX: test the complete checker/result/photo flow on real iOS Safari
+  and Android Chrome; verify RTL layout; add safe photo thumbnails/removal before
+  submit if user testing shows need; improve ambiguous/unsupported states in all
+  locales; audit long translated strings, focus order, screen-reader announcements,
+  color contrast, reduced motion and zoom/overflow.
+- Remaining review operations: retention/deletion controls, search/filter/paging
+  for large queues, explicit resend/failure recovery, audit export and backup
+  restore test. Any panel expansion must preserve Cloudflare Access plus origin
+  JWT enforcement.
+- Acceptance: keyboard-only and screen-reader flow passes; mobile has no
+  horizontal overflow/input zoom; every submission/reply state is recoverable;
+  private content never appears in sitemap, public assets or search results.
+
+### Phase 4 — decoder reliability and data integrity expansion — PARTIAL
+
+- Completed: 18 decoder profiles are registered conservatively, every registered
+  decoder has a known fixture, unsupported brands do not use a generic date
+  fallback, normalization/leap/future/decade baseline tests exist, and brand/
+  decoder reference integrity is tested.
+- Remaining decoder audit: verify each algorithm against primary manufacturer or
+  independently corroborated examples; store source reference, source type,
+  decoder version, verified date, supported formats, examples and limitations;
+  review overlapping regex matches, serial-number handling and decade ambiguity;
+  expand malformed/too-short/too-long/case/Unicode/invisible-character fixtures.
+- Remaining data audit: primary-source parent-company validation, acquisitions
+  and historical packaging variants; shelf-life/category review; alias/old-name
+  handling; locale slug collision report; orphaned/inactive decoder/page report.
+- Rule: uncertain algorithms remain findings. Never “improve” a decode rule from
+  intuition or SEO copy.
+- Acceptance: every public decoder claim maps to stored evidence and tests; no
+  impossible/future date or unsupported generic fallback can be returned.
+
+### Phase 5 — performance and Core Web Vitals — NOT YET COMPLETED
+
+- Measure production mobile LCP, CLS and INP by template: home, brand, guide,
+  decoder, result and review panel. Targets are LCP <2.5s, CLS <0.1, INP <200ms,
+  not guarantees.
+- Analyze client/server component boundaries, hydration cost, brand dataset sent
+  to the browser, third-party scripts, AdSense impact, font/image loading,
+  caching/static generation, bundle composition and repeated serialization.
+- Validate the new official-domain logo requests for latency/privacy; consider a
+  curated locally hosted asset set only after trademark/source/licensing review.
+- Fix the existing Next.js NFT warning caused by filesystem tracing around the
+  photo route without breaking bind-mounted private storage.
+- Acceptance: before/after lab and field evidence, no checker regression, stable
+  ad/image slots and documented cache behavior.
+
+### Phase 6 — security/privacy hardening — PARTIAL
+
+- Completed: same-origin submission checks, signature/size limits, EXIF-removing
+  client re-encode, rate limit, private paths, containment checks, Cloudflare
+  Access plus origin JWT verification, no-store/noindex panel responses and
+  encrypted deployment secrets.
+- Remaining: CSP and full security-header audit; dependency vulnerability review;
+  analytics/error/log payload inspection; durable distributed rate limiting if
+  replicas increase; upload decompression/resource-exhaustion tests; retention
+  jobs; backup encryption/access/restore audit; reviewer session/MFA policy;
+  secret rotation and incident procedure.
+- Acceptance: documented threat model, header scan, dependency report, abuse
+  tests and verified deletion/restore procedures.
+
+### Phase 7 — international editorial quality — NOT YET COMPLETED
+
+- Ten demand-priority locales received partial focused work, but this is not a
+  native-editor sign-off for every page. Long-tail locales still contain mixed
+  language, literal machine phrasing and stale behavior claims.
+- Build a page/key review matrix for home, brands directory, priority brand
+  pages, guides, decoder pages, legal/privacy and photo flow. Record reviewer,
+  date and reviewed source version; do not label machine drafts “human reviewed”.
+- Keep brand names untranslated and normalize Batch code, barcode/EAN, PAO,
+  manufacture date, estimated unopened shelf life and authenticity terminology.
+- Acceptance: priority locale pages pass native editorial review, visible DOM and
+  metadata/schema agree, and fallback English is intentional and disclosed or
+  the locale URL is withheld from promotion.
+
+### Phase 8 — AdSense readiness and content value — NOT YET COMPLETED
+
+- Do not reapply until P0 truth/privacy issues, mixed-language pages and priority
+  thin-content clusters are fixed. Indexability alone is not content quality.
+- Strengthen high-impression pages with verified brand-specific code examples,
+  provenance, packaging location, limitations and useful related guides. Photo
+  submissions may improve evidence only after review/permission; user uploads
+  are never automatically published.
+- Audit ad placements for CLS, accidental-click proximity and mobile content
+  interruption. Keep checker interaction and results clear of aggressive ads.
+- Acceptance: manual sample audit shows substantial unique value, About/Contact/
+  Privacy/Terms are accurate, navigation works, and ad slots preserve CWV/UX.
+
+### Phase 9 — observability, maintenance and release discipline — PARTIAL
+
+- Existing: GitHub Actions VPS deploy, append-only private datasets, review UI,
+  regression tests and this shared status log.
+- Remaining: automated post-deploy health/smoke checks, error monitoring without
+  code/PII leakage, dataset/mail failure alerts, backup monitoring, release tags,
+  rollback runbook, dependency update cadence and scheduled SEO/CWV reporting.
+- Every logical group must update this file with version, owner/agent, reason,
+  files, tests, deploy run and remaining risk. Never mark a phase complete only
+  because code was pushed.
 
 ## In progress / operational blockers
 
@@ -25,10 +244,10 @@ priorities live in `AUDIT.md`.
   `notification: sent`.
 - Phase 2 high-confidence technical SEO/content-integrity fixes are complete;
   manufacturer/parent-company factual claims still need primary-source review.
-- Reviewed long-form locale coverage is now enforced from
-  `messages/content/reviewed.json`; English and fully reviewed Russian content
-  remain indexable, while unreviewed article translations remain accessible but
-  are `noindex, follow` and ad-free.
+- Reviewed long-form locale coverage is tracked in
+  `messages/content/reviewed.json`. The earlier `noindex` gating was later
+  superseded by the owner's explicit full-public-index decision in 0.4.0;
+  review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
 
@@ -76,7 +295,7 @@ priorities live in `AUDIT.md`.
   environment; the same lint/type/test/build commands passed through the checked-in
   local binaries. This is an environment issue, not a code failure.
 
-## Next
+## Historical Phase 2/3 plan — superseded by the complete ledger above
 
 ### Phase 2 — technical SEO and content integrity
 
