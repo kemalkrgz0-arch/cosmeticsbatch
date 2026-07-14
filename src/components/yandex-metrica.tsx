@@ -13,15 +13,17 @@ function load(id: string) {
     ym?: (...args: unknown[]) => void;
   };
   const src = `https://mc.yandex.ru/metrika/tag.js?id=${id}`;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  type QueuedYm = ((...args: unknown[]) => void) & {
+    a?: unknown[][];
+    l?: number;
+  };
   w.ym =
     w.ym ||
     function (...args: unknown[]) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ((w.ym as any).a = (w.ym as any).a || []).push(args);
+      const queued = w.ym as QueuedYm;
+      (queued.a ??= []).push(args);
     };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (w.ym as any).l = Number(new Date());
+  (w.ym as QueuedYm).l = Date.now();
   for (const s of Array.from(document.scripts)) {
     if (s.src === src) return;
   }

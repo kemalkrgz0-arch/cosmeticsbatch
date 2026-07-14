@@ -28,8 +28,9 @@ export function GET() {
 
 ${site.name} is a free, private web tool that decodes the batch (lot) code
 printed on cosmetics and perfumes to reveal the manufacture date, current age
-and estimated expiration. No sign-up; decoding runs server-side and codes are
-never stored. Available in ${LOCALE_CODES.length} languages.
+and estimated expiration. No sign-up; decoding runs server-side. Human checks
+may be recorded without an IP address to improve decoder quality, as described
+in the privacy policy. Available in ${LOCALE_CODES.length} languages.
 
 ## How it works
 1. Pick your brand.

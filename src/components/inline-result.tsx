@@ -7,6 +7,11 @@ import type { Brand } from "@/lib/brands";
 import { ResultCard } from "@/components/result-card";
 import { AdSlot } from "@/components/ui/ad-slot";
 
+type LoadState =
+  | { status: "loading"; result: null }
+  | { status: "success"; result: CheckResult }
+  | { status: "error"; result: null };
+
 /**
  * Renders the decode result for the `?code=` query param. The decode itself
  * happens server-side (`/api/decode`) so the batch-code ciphers never reach the
@@ -15,34 +20,41 @@ import { AdSlot } from "@/components/ui/ad-slot";
 export function InlineResult({ brand }: { brand: Brand }) {
   const code = useSearchParams().get("code")?.trim();
   const ref = useRef<HTMLDivElement>(null);
-  const [result, setResult] = useState<CheckResult | null>(null);
+  const [load, setLoad] = useState<LoadState>({ status: "loading", result: null });
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
-    if (!code) {
-      setResult(null);
-      return;
-    }
-    let active = true;
-    fetch(
-      `/api/decode?slug=${encodeURIComponent(brand.slug)}&code=${encodeURIComponent(code)}`,
-    )
-      .then((r) => r.json())
+    if (!code) return;
+    const controller = new AbortController();
+    fetch("/api/decode", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug: brand.slug, code }),
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Decode failed (${response.status})`);
+        return response.json();
+      })
       .then((data) => {
-        if (!active || !data?.result) return;
+        if (!data?.result) throw new Error("Decode response is missing a result");
         const r = data.result;
-        setResult({
-          ...r,
-          manufactureDate: r.manufactureDate ? new Date(r.manufactureDate) : null,
-          expirationDate: r.expirationDate ? new Date(r.expirationDate) : null,
+        setLoad({
+          status: "success",
+          result: {
+            ...r,
+            manufactureDate: r.manufactureDate ? new Date(r.manufactureDate) : null,
+            expirationDate: r.expirationDate ? new Date(r.expirationDate) : null,
+          },
         });
       })
-      .catch(() => {
-        if (active) setResult(null);
+      .catch((error: unknown) => {
+        if (!(error instanceof DOMException && error.name === "AbortError")) {
+          setLoad({ status: "error", result: null });
+        }
       });
-    return () => {
-      active = false;
-    };
-  }, [code, brand.slug]);
+    return () => controller.abort();
+  }, [code, brand.slug, attempt]);
 
   // Scroll to the result block as soon as a code is being checked — not after
   // the decode resolves. The block leads with the ad (fixed height, so no
@@ -59,7 +71,37 @@ export function InlineResult({ brand }: { brand: Brand }) {
     <div id="result" ref={ref} className="mt-8 scroll-mt-24">
       {/* On search, show an ad first, then the decode result below it. */}
       <AdSlot placement="result" className="mb-6" height={250} />
-      {result ? <ResultCard result={result} brand={brand} /> : <ResultSkeleton />}
+      <ResultContent
+        key={`${brand.slug}:${code}:${attempt}`}
+        load={load}
+        brand={brand}
+        retry={() => {
+          setLoad({ status: "loading", result: null });
+          setAttempt((value) => value + 1);
+        }}
+      />
+    </div>
+  );
+}
+
+function ResultContent({
+  load,
+  brand,
+  retry,
+}: {
+  load: LoadState;
+  brand: Brand;
+  retry: () => void;
+}) {
+  if (load.status === "success") return <ResultCard result={load.result} brand={brand} />;
+  if (load.status === "loading") return <ResultSkeleton />;
+  return (
+    <div role="alert" className="rounded-2xl border border-danger/30 bg-danger-bg p-6 text-center">
+      <p className="font-semibold">We couldn&apos;t load this result.</p>
+      <p className="mt-1 text-sm text-fg-muted">Check your connection and try again.</p>
+      <button type="button" onClick={retry} className="mt-4 rounded-xl bg-cta px-4 py-2 text-sm font-semibold text-cta-fg">
+        Try again
+      </button>
     </div>
   );
 }

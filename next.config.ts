@@ -23,6 +23,8 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
+          { key: "Origin-Agent-Cluster", value: "?1" },
           // Force HTTPS for 2 years (incl. subdomains); eligible for preload list.
           {
             key: "Strict-Transport-Security",

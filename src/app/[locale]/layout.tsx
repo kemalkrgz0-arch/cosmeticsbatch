@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { notFound } from "next/navigation";
-import { Inter } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import "../globals.css";
@@ -18,12 +17,6 @@ import { BottomNav } from "@/components/layout/bottom-nav";
 import { JsonLd } from "@/components/json-ld";
 import { CookieConsent } from "@/components/cookie-consent";
 import { YandexMetrica } from "@/components/yandex-metrica";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -108,7 +101,7 @@ export default async function RootLayout({
       lang={locale}
       dir={isRtl(locale) ? "rtl" : "ltr"}
       suppressHydrationWarning
-      className={`${inter.variable} h-full`}
+      className="h-full"
     >
       <body className="flex min-h-full flex-col antialiased">
         {(adsenseEnabled || gaEnabled) && (
@@ -117,7 +110,6 @@ export default async function RootLayout({
           // already accepted in a previous session. The CookieConsent banner
           // flips these on "Accept".
           <script
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html:
                 "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}" +

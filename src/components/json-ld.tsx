@@ -7,7 +7,11 @@ export function JsonLd({ data }: { data: object | object[] }) {
         <script
           key={i}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(d) }}
+          // Escaping '<' prevents a future CMS/user-authored value containing
+          // </script> from terminating the JSON-LD element early.
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(d).replace(/</g, "\\u003c"),
+          }}
         />
       ))}
     </>
