@@ -17,12 +17,17 @@ jobs:
     steps:
       - name: SSH build & restart on the VPS
         uses: appleboy/ssh-action@v1.2.0
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SUBMISSION_NOTIFY_EMAIL: contact@cosmeticsbatch.com
+          SUBMISSION_FROM_EMAIL: Cosmetics Batch <contact@cosmeticsbatch.com>
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           command_timeout: 30m
+          envs: RESEND_API_KEY,SUBMISSION_NOTIFY_EMAIL,SUBMISSION_FROM_EMAIL
           script: |
             set -e
             cd /opt/cosmeticsbatch

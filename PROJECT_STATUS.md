@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-14
-Current version: **0.2.2**
+Current version: **0.2.3**
 Current phase: **Phase 2 in progress — production email configuration pending**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -23,6 +23,14 @@ priorities live in `AUDIT.md`.
   transfer/deployment and must be rotated because it was shared in chat.
 - Sender and recipient are both `contact@cosmeticsbatch.com`; no nonexistent
   `submissions@` mailbox is assumed.
+- Version 0.2.2 commit `658d117` was pushed and GitHub Actions run `29317859558`
+  deployed successfully on 2026-07-14. Live page/sitemap/API checks passed.
+- A controlled production photo submission returned HTTP 201 and persisted, but
+  reported `notification: not_configured`, proving the Resend variables are not
+  yet present in the VPS `.env.build`. No real mail was sent.
+- The repository owner reports that `RESEND_API_KEY` is now configured as a
+  GitHub Actions repository secret. Deployment wiring and live delivery
+  verification are in progress.
 - Phase 2 technical SEO/content integrity audit and fixes are in progress.
 - Reviewed long-form locale coverage is now enforced from
   `messages/content/reviewed.json`; English and fully reviewed Russian content
@@ -168,6 +176,20 @@ files, reason, verification and known risk. Never include secrets or personal da
   code regression.
 - Risk / needs verification: HowTo can return to reviewed locales after its
   schema strings are translated from the same source as the visible steps.
+
+### 2026-07-14 — 0.2.3 — Codex / Resend production wiring
+
+- Changed: passed the encrypted GitHub Actions `RESEND_API_KEY` through the SSH
+  action into the container runtime; configured sender/recipient as
+  `contact@cosmeticsbatch.com`; deployment now fails loudly when mail variables
+  are missing instead of silently shipping a disabled notification channel.
+- Files: `.github/workflows/deploy.yml`, `deploy.sh`, `package.json`.
+- Why: local git-ignored environment files are not transferred to the VPS by a
+  Git push. The Actions secret must cross the SSH boundary explicitly.
+- Verification: pending workflow validation, deployment and controlled live
+  attachment/Reply-To delivery test.
+- Risk / needs verification: inbox placement and Reply-To behavior require the
+  recipient-side check after the API reports `sent`.
 
 <!-- Example:
 ### 2026-07-15 — 0.2.1 — agent/name

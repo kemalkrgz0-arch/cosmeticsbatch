@@ -27,14 +27,32 @@ main() {
     echo "✗ $env_file not found. Copy .env.build.example to $env_file and fill it in." >&2
     exit 1
   fi
+  # GitHub Actions injects runtime secrets into the SSH environment. Preserve
+  # those values across sourcing the VPS file, whose older copies may not have
+  # these keys (or may contain blank placeholders).
+  local injected_resend_api_key="${RESEND_API_KEY-}"
+  local injected_notify_email="${SUBMISSION_NOTIFY_EMAIL-}"
+  local injected_from_email="${SUBMISSION_FROM_EMAIL-}"
   set -a
   # shellcheck disable=SC1090
   . "./$env_file"
   set +a
+  if [ -n "$injected_resend_api_key" ]; then
+    RESEND_API_KEY="$injected_resend_api_key"
+  fi
+  if [ -n "$injected_notify_email" ]; then
+    SUBMISSION_NOTIFY_EMAIL="$injected_notify_email"
+  fi
+  if [ -n "$injected_from_email" ]; then
+    SUBMISSION_FROM_EMAIL="$injected_from_email"
+  fi
 
   # Blank optional vars degrade gracefully (no analytics, ad placeholders), but a
   # blank site URL breaks canonicals/sitemap — fail loudly on that one.
   : "${NEXT_PUBLIC_SITE_URL:?must be set in $env_file}"
+  : "${RESEND_API_KEY:?must be set through GitHub Actions or $env_file}"
+  : "${SUBMISSION_NOTIFY_EMAIL:?must be set through GitHub Actions or $env_file}"
+  : "${SUBMISSION_FROM_EMAIL:?must be set through GitHub Actions or $env_file}"
 
   local build_args=()
   local v
