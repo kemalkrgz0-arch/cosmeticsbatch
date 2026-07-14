@@ -10,11 +10,24 @@ function redirect(request: Request, suffix: string) {
   return NextResponse.redirect(new URL(`/review/dashboard?${suffix}`, request.url), 303);
 }
 
+function isSameOriginBrowserRequest(request: Request) {
+  const expectedHost = (request.headers.get("x-forwarded-host") ?? request.headers.get("host"))?.split(",")[0]?.trim();
+  const origin = request.headers.get("origin");
+  const referer = request.headers.get("referer");
+  if (!expectedHost) return false;
+  try {
+    if (origin && new URL(origin).host !== expectedHost) return false;
+    if (!origin && referer && new URL(referer).host !== expectedHost) return false;
+  } catch {
+    return false;
+  }
+  return Boolean(origin || referer) && request.headers.get("sec-fetch-site") === "same-origin";
+}
+
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   let reviewer: { email: string };
   try { reviewer = await requireReviewer(); } catch { return new NextResponse("Forbidden", { status: 403 }); }
-  const origin = request.headers.get("origin");
-  if (!origin || new URL(request.url).origin !== origin) return new NextResponse("Forbidden", { status: 403 });
+  if (!isSameOriginBrowserRequest(request)) return new NextResponse("Forbidden", { status: 403 });
 
   const { id } = await params;
   const form = await request.formData();

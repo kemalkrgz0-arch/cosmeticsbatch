@@ -127,6 +127,9 @@ priorities live in `AUDIT.md`.
   single submission. Every image is independently re-encoded client-side,
   signature/size checked server-side, stored privately and displayed together
   in the review panel. Legacy one-photo records remain readable.
+- Hotfix: review form POST origin validation now compares the browser origin to
+  the forwarded public host instead of the container's internal request URL.
+  Cloudflare JWT validation and same-origin browser requirements remain active.
 
 ### Phase 4 — performance and security hardening
 
