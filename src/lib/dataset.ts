@@ -1,4 +1,4 @@
-import { appendFile, mkdir } from "node:fs/promises";
+import { appendFile, mkdir, readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { CheckResult } from "@/lib/decoder";
 
@@ -80,4 +80,35 @@ export async function logCheck(entry: CheckLog): Promise<void> {
       );
     }
   }
+}
+
+/** Read newest successful human check events for the private owner dashboard. */
+export async function readRecentChecks(limit = 250): Promise<CheckLog[]> {
+  const safeLimit = Math.max(1, Math.min(limit, 1_000));
+  let files: string[];
+  try {
+    files = (await readdir(DIR))
+      .filter((name) => /^checks-\d{4}-\d{2}\.jsonl$/.test(name))
+      .sort()
+      .reverse();
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+  const rows: CheckLog[] = [];
+  for (const file of files) {
+    const lines = (await readFile(join(DIR, file), "utf8")).split("\n").reverse();
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      try {
+        const entry = JSON.parse(line) as CheckLog;
+        if (entry.ts && entry.brand && typeof entry.code === "string") rows.push(entry);
+      } catch {
+        // A process interruption can truncate one append. The dashboard skips
+        // that row; writes remain append-only and decode behavior is unaffected.
+      }
+      if (rows.length >= safeLimit) return rows;
+    }
+  }
+  return rows;
 }

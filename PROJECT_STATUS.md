@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-14
-Current version: **0.4.0**
+Current version: **0.5.0**
 Current phase: **Phase 3 in progress — primary UX and accessibility**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -95,6 +95,28 @@ priorities live in `AUDIT.md`.
   confidence and limitations in result UX.
 - Improve invalid, ambiguous and unsupported-code guidance.
 - Add a review workflow/status process for photo submissions.
+
+### 2026-07-14 — 0.5.0 — Codex / Private submission review panel
+
+- Added: a Cloudflare Access-protected `/review` workspace for private photo
+  review, protected image streaming, workflow status updates, recent batch-code
+  query records and professional English replies through Resend.
+- Security: the origin independently validates the Access JWT signature,
+  issuer, application audience, expiry and reviewer email allowlist; all panel
+  responses are dynamic/no-store and the page is `noindex, nofollow`.
+- Storage: the existing append-only submission ledger and private bind-mounted
+  image directory remain the source of truth; images are never copied under
+  `public/` and paths are containment-checked before reading.
+- Deployment: Cloudflare Access values are encrypted GitHub Actions secrets and
+  are passed to the VPS container at runtime. No AUD or reviewer address is
+  committed.
+- Files: review routes, `src/lib/review-auth.ts`, submission store/reply modules,
+  workflow/deploy configuration and review documentation.
+- Verification: ESLint, TypeScript, 19/19 regression tests, deployment shell
+  syntax, diff checks and the 266-page production build passed. Live Access
+  challenge and authenticated panel checks remain for post-deploy verification.
+- Risk: Resend sends a new message rather than preserving the original provider
+  thread; the submission ID and append-only reply event provide traceability.
 
 ### Phase 4 — performance and security hardening
 
