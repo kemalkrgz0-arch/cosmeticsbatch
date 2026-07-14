@@ -149,7 +149,7 @@
     "a10": "No. Els codis es descodifiquen al vostre navegador i no necessitem un compte. Res del que escriviu es desa en un servidor, de manera que comprovar un codi és completament privat."
   },
   "result": {
-    "statusFresh": "Fresc",
+    "statusFresh": "Fresh",
     "statusExpired": "Vida útil passada",
     "statusUseSoon": "Utilitzeu aviat",
     "statusGood": "Encara bé",
@@ -273,10 +273,10 @@
     },
     "creed": {
       "faq1q": "Com puc llegir un codi per lots de Creed?",
-      "faq3q": "Un credo més antic significa un credo millor?",
+      "faq3q": "Un Creed més antic significa un Creed millor?",
       "where1": "A la base de l'ampolla i a la part inferior de la caixa, normalment imprès en negre a l'adhesiu de la base blanca.",
       "where2": "En els flacons més antics i pesats, el codi es pot estampar en lloc d'imprimir; angle contra la llum.",
-      "faq2q": "El codi em pot dir si el meu Tweed irlandès verd és autèntic?",
+      "faq2q": "El codi em pot dir si el meu Green Irish Tweed és autèntic?",
       "faq1a": "Només importa la primera lletra. Codifica l'any de producció, comptant des de A = 2010 i saltant I i O: N = 2022, P = 2023, Q = 2024, R = 2025. Tot després és una sèrie de lots interna. Creed no codifica el mes, de manera que el codi us ofereix un any i res més fi.",
       "faq3a": "Per a les composicions més pesades i resinoses, una ampolla més antiga pot ser realment preferible, perquè les reformulacions han canviat diversos clàssics, i el codi del lot és l'única manera d'establir quina fórmula esteu comprant. Per als Creeds més lleugers i dirigits per cítrics, l'edat és principalment oxidació i no té cap benefici.",
       "faq2a": "En part. Creed es troba entre les cases de fragància més falsificades, i una primera lletra que no està en absolut al cicle és una explicació senzilla. Però un codi copiat es descodifica netament, de manera que un codi vàlid no és una prova: peseu l'ampolla, mireu l'esprai i la impressió de la caixa i compreu a un minorista autoritzat."
@@ -388,7 +388,7 @@
       "faq1q": "Com comprobo la vida útil de la crema per als ulls de Kiehl's?",
       "where2": "Tubs i cremes d'ulls: pressionats a la crimpada.",
       "faq1a": "Descodifica el codi a la base: Kiehl's és L'Oréal, de manera que la primera lletra és l'any i el caràcter posterior al mes. Sense obrir, compteu amb uns 36 mesos; un cop obert, el símbol de pot obert, normalment 12M per a una crema per als ulls, que és el número que s'unirà primer.",
-      "faq2q": "El codi del meu pot de Kiehl és invisible."
+      "faq2q": "El codi del meu Kiehl's jar és invisible."
     },
     "la-roche-posay": {
       "faq1q": "On és la data de caducitat a La Roche-Posay?",
@@ -475,7 +475,7 @@
       "faq2q": "Pot el codi demostrar que el meu Paco Rabanne és genuí?",
       "where2": "Inclineu l'ampolla perquè la llum atrapi el segell des del costat; una llum directa el fa desaparèixer.",
       "faq1a": "Paco Rabanne està fet per Puig, que imprimeix la data de producció al codi en lloc de xifrar-la. La forma habitual és de quatre dígits: el primer és l'últim dígit de l'any, els tres restants són el dia d'aquest any, de manera que 4135 és el 135è dia de 2024, 14 de maig de 2024.",
-      "where1": "A la part inferior de la caixa i a la part inferior de l'ampolla. A les ampolles més pesades (el lingot d'1 milió, el trofeu Invictus), el codi sovint s'estampa al metall o al vidre en lloc d'imprimir-se en un adhesiu.",
+      "where1": "A la part inferior de la caixa i a la part inferior de l'ampolla. A les ampolles més pesades (el lingot 1 Million, el trofeu Invictus), el codi sovint s'estampa al metall o al vidre en lloc d'imprimir-se en un adhesiu.",
       "faq3a": "Sí, la casa va abandonar el seu nom \"Paco\" el 2023. L'estoc més antic porta la marca anterior i el format del codi no va canviar.",
       "faq2a": "Pot atrapar un fals i no pot certificar-ne un de real. Paco Rabanne es troba entre les fragàncies més falsificades d'Europa: un número de dia impossible, o codis que no coincideixen entre la caixa i l'ampolla, són advertències contundents, però un codi copiat d'una ampolla genuïna descodifica perfectament. Peseu l'ampolla i comproveu també el patró de polvorització.",
       "faq3q": "Rabanne és la mateixa marca que Paco Rabanne?"

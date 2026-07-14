@@ -149,7 +149,7 @@
     "a10": "Tidak. Kode didekode di browser Anda dan kami tidak memerlukan akun. Tidak ada yang Anda ketik disimpan ke server, jadi memeriksa kode sepenuhnya pribadi."
   },
   "result": {
-    "statusFresh": "Segar",
+    "statusFresh": "Fresh",
     "statusGood": "Masih Baik",
     "statusUseSoon": "Gunakan Segera",
     "statusExpired": "Melewati Masa Simpan",
@@ -279,7 +279,7 @@
       "faq1a": "Hanya huruf pertama yang penting. Ini mengkodekan tahun produksi, dihitung dari A = 2010 dan melewatkan I dan O: N = 2022, P = 2023, Q = 2024, R = 2025. Segala sesuatu setelahnya adalah seri batch internal. Creed tidak mengkodekan bulan, jadi kode tersebut memberi Anda satu tahun dan tidak ada yang lebih baik.",
       "faq3a": "Untuk komposisi resin yang lebih berat, botol yang lebih tua mungkin lebih disukai, karena reformulasi telah mengubah beberapa formula klasik — dan kode batch adalah satu-satunya cara untuk menentukan formula mana yang Anda beli. Untuk Creeds yang lebih ringan dan mengandung jeruk, usia sebagian besar merupakan oksidasi dan tidak ada manfaat sama sekali.",
       "faq2a": "Sebagian. Creed adalah salah satu rumah wewangian yang paling banyak dipalsukan, dan huruf pertama yang tidak ada dalam siklus sama sekali adalah petunjuk yang jelas. Namun kode yang disalin diterjemahkan dengan jelas, jadi kode yang valid bukanlah bukti — timbang botolnya, lihat semprotan dan cetakan kotaknya, dan beli dari pengecer resmi.",
-      "faq3q": "Apakah Pengakuan Iman yang lebih tua berarti Pengakuan Iman yang lebih baik?"
+      "faq3q": "Apakah Creed yang lebih lama berarti Creed yang lebih baik?"
     },
     "dior": {
       "where1": "Pewangi: di dasar kotak luar, dan di bagian bawah botol — stiker kecil yang dicetak, atau diukir dengan laser pada kaca pada botol yang lebih besar.",
@@ -335,7 +335,7 @@
       "where1": "Wewangian (Acqua di Giò, Armani Code): di bagian bawah kotak dan stiker dasar botol.",
       "faq2a": "Tiga sampai lima tahun adalah normal untuk sebuah eau de toilette, lebih lama untuk eau de parfum. Wewangian adalah kategori yang paling mudah dimaafkan, asalkan botolnya dijauhkan dari cahaya dan panas.",
       "faq2q": "Berapa lama Acqua di Giò bertahan belum dibuka?",
-      "faq1q": "Bagaimana cara memecahkan kode nomor batch Kode Armani?",
+      "faq1q": "Bagaimana cara memecahkan kode nomor batch Armani Code?",
       "faq1a": "Wewangian Armani dibuat oleh L'Oréal, sehingga kodenya mengikuti format grup: huruf pertama adalah tahun produksi, karakter setelahnya adalah bulan. (Wewangian yang disebut Armani Code dan kode batch yang tertera di kotaknya adalah hal-hal yang tidak berhubungan dan sayangnya tidak ada hubungannya.)"
     },
     "guerlain": {
@@ -471,9 +471,9 @@
       "faq1a": "NIVEA (Beiersdorf) mengkodekan minggu produksi, bukan hari. Digit pertama dari kode tersebut adalah digit terakhir tahun tersebut dan dua digit berikutnya adalah nomor minggu — jadi kode yang diawali dengan 815 adalah minggu ke 15 dalam tahun yang diakhiri dengan 8. Artinya, kode tersebut berada dalam waktu tujuh hari, yang cukup untuk sebuah body lotion."
     },
     "paco-rabanne": {
-      "where1": "Di bagian bawah kotak, dan di bagian bawah botol. Pada botol yang lebih berat — ingot 1 Juta, piala Invictus — kodenya sering kali dicap pada logam atau kaca daripada dicetak pada stiker.",
+      "where1": "Di bagian bawah kotak, dan di bagian bawah botol. Pada botol yang lebih berat — ingot 1 Million, piala Invictus — kode sering kali dicap pada logam atau kaca daripada dicetak pada stiker.",
       "faq1a": "Paco Rabanne dibuat oleh Puig, yang mencetak tanggal produksi dalam kode daripada mengenkripsinya. Bentuk umumnya adalah empat digit: digit pertama adalah digit terakhir tahun tersebut, tiga digit sisanya adalah hari pada tahun tersebut — jadi 4135 adalah hari ke-135 tahun 2024, 14 Mei 2024.",
-      "faq1q": "Bagaimana cara memecahkan kode kode batch Invictus atau 1 Juta?",
+      "faq1q": "Bagaimana cara memecahkan kode kode batch Invictus atau 1 Million?",
       "where2": "Miringkan botol sehingga cahaya dapat menangkap cap dari samping; cahaya langsung membuatnya menghilang.",
       "faq2q": "Bisakah kode tersebut membuktikan Paco Rabanne saya asli?",
       "faq3q": "Apakah merek Rabanne sama dengan Paco Rabanne?",
@@ -562,7 +562,7 @@
     "brandsUsingNote": "Formatnya milik produsen, bukan label pada botol — setiap merek di bawah ini dicap oleh pabrik yang sama dan dibaca dengan cara yang sama.",
     "brandsUsing": "Merek yang menggunakan kode ini ({count})",
     "whichCode": "Tidak yakin kode mana pada paket yang merupakan kode batch?",
-    "formatsIntro": "Format kode batch adalah milik siapa pun yang memproduksi produk tersebut, bukan milik nama pada botolnya. Coty mencap empat digit yang sama pada Rimmel, Gucci dan Adidas; Inter Parfums memberi cap sembilan karakter yang sama pada Montblanc, Coach dan Jimmy Choo. Pelajari sandinya sekali dan Anda dapat membaca setiap merek yang membagikannya.",
+    "formatsIntro": "Format kode batch adalah milik siapa pun yang memproduksi produk tersebut, bukan milik nama pada botolnya. Coty memberi cap empat digit yang sama pada Rimmel, Gucci dan adidas; Inter Parfums memberi cap sembilan karakter yang sama pada Montblanc, Coach dan Jimmy Choo. Pelajari sandinya sekali dan Anda dapat membaca setiap merek yang membagikannya.",
     "formatsIntro2": "Setiap halaman di bawah mendokumentasikan satu kelompok: apa yang dikodekan oleh setiap karakter, kode sebenarnya yang diterjemahkan oleh mesin yang sama yang menggerakkan pemeriksa, di mana kode tersebut dicetak pada kemasannya, dan — yang sama pentingnya — format apa yang tidak dapat memberi tahu Anda.",
     "otherFormats": "Format kode lainnya",
     "brandCount": "merek"

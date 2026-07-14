@@ -149,7 +149,7 @@
     "q10": "Bewaart u mijn batchcodes of persoonlijke gegevens?"
   },
   "result": {
-    "statusFresh": "Vers",
+    "statusFresh": "Fresh",
     "statusExpired": "Verleden houdbaarheid",
     "age": "Leeftijd",
     "shelfLife": "Houdbaarheid",
@@ -275,8 +275,8 @@
       "where1": "Op de onderkant van de fles en op de onderkant van de doos – meestal in zwart gedrukt op de witte basissticker.",
       "faq1q": "Hoe lees ik een Creed-batchcode?",
       "where2": "Op de oudere, zwaardere flacons kan de code worden gestempeld in plaats van afgedrukt; richt hem tegen het licht.",
-      "faq3q": "Betekent een ouder geloof een beter geloof?",
-      "faq2q": "Kan de code mij vertellen of mijn Groene Ierse Tweed echt is?",
+      "faq3q": "Betekent een oudere Creed een betere Creed?",
+      "faq2q": "Kan de code mij vertellen of mijn Green Irish Tweed echt is?",
       "faq1a": "Alleen de eerste letter doet ertoe. Het codeert het productiejaar, geteld vanaf A = 2010 en I en O overgeslagen: N = 2022, P = 2023, Q = 2024, R = 2025. Alles daarna is een interne batchreeks. Creed codeert de maand niet, dus de code geeft je een jaar en niets fijners.",
       "faq2a": "Gedeeltelijk. Creed is een van de meest nagemaakte parfumhuizen, en een eerste letter die helemaal niet in de cyclus voorkomt, is een duidelijke aanwijzing. Maar een gekopieerde code wordt netjes gedecodeerd, dus een geldige code is geen bewijs: weeg de fles, kijk naar de spray en de bedrukking van de doos en koop bij een geautoriseerde detailhandelaar.",
       "faq3a": "Voor de zwaardere, harsachtige composities kan een oudere fles echt de voorkeur verdienen, omdat herformuleringen verschillende klassiekers hebben veranderd – en de batchcode de enige manier is om vast te stellen welke formule je koopt. Voor de lichtere, door citrus geleide Creeds is leeftijd vooral oxidatie en helemaal geen voordeel."
@@ -563,7 +563,7 @@
     "formatsTitle": "Batchcodeformaten",
     "otherFormats": "Andere codeformaten",
     "whichCode": "Weet u niet zeker welke code op de verpakking de batchcode is?",
-    "formatsIntro": "Het formaat van een batchcode behoort toe aan degene die het product vervaardigt, niet aan de naam op de fles. Coty stempelt dezelfde vier cijfers op Rimmel, Gucci en Adidas; Inter Parfums stempelt dezelfde negen karakters op Montblanc, Coach en Jimmy Choo. Leer het cijfer één keer en je kunt elk merk lezen dat het deelt.",
+    "formatsIntro": "Het formaat van een batchcode behoort toe aan degene die het product vervaardigt, niet aan de naam op de fles. Coty stempelt dezelfde vier cijfers op Rimmel, Gucci en adidas; Inter Parfums stempelt dezelfde negen tekens op Montblanc, Coach en Jimmy Choo. Leer het cijfer één keer en je kunt elk merk lezen dat het deelt.",
     "brandsUsingNote": "Het formaat is eigendom van de fabrikant, niet van het etiket op de fles; elk merk hieronder is door dezelfde planten gestempeld en leest op dezelfde manier.",
     "brandCount": "merken"
   }

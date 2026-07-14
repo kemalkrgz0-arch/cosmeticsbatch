@@ -149,7 +149,7 @@
     "a10": "Nei. Koder dekodes i nettleseren din, og vi krever ingen konto. Ingenting du skriver lagres på en server, så det er helt privat å sjekke en kode."
   },
   "result": {
-    "statusFresh": "Fersk",
+    "statusFresh": "Fresh",
     "statusUseSoon": "Bruk snart",
     "statusGood": "Fortsatt bra",
     "statusUnknown": "Ikke dekodet",
@@ -277,7 +277,7 @@
       "faq2q": "Kan koden fortelle meg om min Green Irish Tweed er ekte?",
       "where1": "På bunnen av flasken og på bunnen av esken - vanligvis trykt i svart på det hvite klistremerket.",
       "faq1a": "Bare den første bokstaven betyr noe. Den koder for produksjonsåret, tellende fra A = 2010 og hopper over I og O: N = 2022, P = 2023, Q = 2024, R = 2025. Alt etter det er en intern batch-serie. Creed koder ikke måneden, så koden gir deg et år og ingenting finere.",
-      "faq3q": "Betyr en eldre trosbekjennelse en bedre trosbekjennelse?",
+      "faq3q": "Betyr en eldre Creed en bedre Creed?",
       "faq3a": "For de tyngre, harpiksholdige komposisjonene kan en eldre flaske virkelig være å foretrekke, fordi omformuleringer har endret flere klassikere - og batchkoden er den eneste måten å fastslå hvilken formel du kjøper. For de lettere, sitrus-ledede Creeds er alder for det meste oksidasjon og ingen fordel i det hele tatt.",
       "faq2a": "Delvis. Creed er blant de mest forfalskede husene i duft, og en første bokstav som ikke er med i syklusen i det hele tatt er en enkel fortelling. Men en kopiert kode dekoder rent, så en gyldig kode er ikke bevis – vei flasken, se på sprayen og esken, og kjøp fra en autorisert forhandler."
     },
@@ -384,10 +384,10 @@
     },
     "kiehls": {
       "where2": "Tuber og øyekremer: presset inn i krympen.",
-      "faq1q": "Hvordan sjekker jeg holdbarheten til Kiehls øyekrem?",
+      "faq1q": "Hvordan sjekker jeg holdbarheten til Kiehl's øyekrem?",
       "faq1a": "Dekod koden på basen: Kiehl's er L'Oréal, så den første bokstaven er året og tegnet etter den måneden. Uåpnet, regner med rundt 36 måneder; når den er åpnet, symbolet med åpen krukke - vanligvis 12M for en øyekrem, som er tallet som binder først.",
       "where1": "Krukker og flasker: stemplet på basen, ofte preget i stedet for trykt - vipp den under et lys.",
-      "faq2q": "Koden på min Kiehls krukke er usynlig.",
+      "faq2q": "Koden på min Kiehl's-krukke er usynlig.",
       "faq2a": "Det er vanligvis preget inn i basen i stedet for blekket. Pregede koder forsvinner under direkte lys og dukker opp når lyset river over dem fra siden – snu glasset sakte mot en lampe."
     },
     "la-roche-posay": {
@@ -471,9 +471,9 @@
       "faq1a": "NIVEA (Beiersdorf) koder produksjonsuken i stedet for dagen. Det første sifferet i koden er det siste sifferet i året og de to neste er ukenummeret - så en kode som begynner 815 er uke 15 i et år som slutter på 8. Det plasserer den innen syv dager, noe som er nok for en bodylotion."
     },
     "paco-rabanne": {
-      "where1": "På bunnen av boksen, og på undersiden av flasken. På de tyngre flaskene - 1 million barren, Invictus-trofeet - er koden ofte stemplet inn i metallet eller glasset i stedet for på et klistremerke.",
+      "where1": "På bunnen av boksen, og på undersiden av flasken. På de tyngre flaskene - 1 Million-blokken, Invictus-trofeet - er koden ofte stemplet inn i metallet eller glasset i stedet for på et klistremerke.",
       "where2": "Vipp flasken slik at lys fanger stempelet fra siden; et direkte lys gjør at den forsvinner.",
-      "faq1q": "Hvordan dekoder jeg en Invictus- eller 1 million batch-kode?",
+      "faq1q": "Hvordan dekoder jeg en Invictus- eller 1 Million-batchkode?",
       "faq1a": "Paco Rabanne er laget av Puig, som skriver ut produksjonsdatoen i koden i stedet for å kryptere den. Den vanlige formen er fire sifre: det første er det siste sifferet i året, de resterende tre er dagen i det året - så 4135 er den 135. dagen i 2024, 14. mai 2024.",
       "faq2q": "Kan koden bevise at min Paco Rabanne er ekte?",
       "faq3q": "Er Rabanne samme merke som Paco Rabanne?",

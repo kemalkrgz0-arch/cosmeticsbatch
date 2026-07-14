@@ -149,7 +149,7 @@
     "a10": "No. Los códigos se decodifican en su navegador y no requerimos una cuenta. Nada de lo que escribe se guarda en un servidor, por lo que verificar un código es completamente privado."
   },
   "result": {
-    "statusFresh": "Fresco",
+    "statusFresh": "Fresh",
     "statusUseSoon": "Usar pronto",
     "statusGood": "Sigue siendo bueno",
     "age": "Edad",
@@ -273,7 +273,7 @@
     },
     "creed": {
       "faq1q": "¿Cómo leo un código de lote de Creed?",
-      "faq3q": "¿Un Credo más antiguo significa un Credo mejor?",
+      "faq3q": "¿Un Creed más antiguo significa un Creed mejor?",
       "faq2q": "¿Puede el código decirme si mi Green Irish Tweed es genuino?",
       "where1": "En la base de la botella y en el fondo de la caja, generalmente impreso en negro sobre la etiqueta blanca de la base.",
       "where2": "En los frascos más antiguos y pesados, el código se puede estampar en lugar de imprimir; inclínelo contra la luz.",
@@ -471,7 +471,7 @@
       "faq2a": "La protección solar normalmente lleva una fecha de caducidad impresa, porque el reclamo de SPF se trata como un reclamo de seguridad. Utilice la fecha impresa en lugar de una estimación decodificada y trate una botella que pasó un verano en un automóvil caliente como terminada, independientemente de lo que diga la fecha."
     },
     "paco-rabanne": {
-      "where1": "En el fondo de la caja y en la parte inferior de la botella. En las botellas más pesadas (el lingote de 1 millón, el trofeo Invictus), el código suele estar estampado en el metal o el vidrio en lugar de imprimirse en una pegatina.",
+      "where1": "En el fondo de la caja y en la parte inferior de la botella. En las botellas más pesadas (el lingote 1 Million, el trofeo Invictus), el código suele estar estampado en el metal o el vidrio en lugar de imprimirse en una pegatina.",
       "faq2q": "¿Puede el código demostrar que mi Paco Rabanne es auténtico?",
       "faq3q": "¿Rabanne es la misma marca que Paco Rabanne?",
       "faq1q": "¿Cómo decodifico un código de lote Invictus o 1 Million?",

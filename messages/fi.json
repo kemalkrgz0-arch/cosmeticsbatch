@@ -150,7 +150,7 @@
   },
   "result": {
     "lifeLeft": "elämä jäljellä",
-    "statusFresh": "Tuore",
+    "statusFresh": "Fresh",
     "statusExpired": "Mennyt säilyvyysaika",
     "statusGood": "Edelleen Hyvä",
     "statusUnknown": "Ei dekoodattu",
@@ -279,7 +279,7 @@
       "faq1a": "Vain ensimmäisellä kirjaimella on väliä. Se koodaa tuotantovuoden, laskettuna vuodesta A = 2010 ja ohittaen I:n ja O:n: N = 2022, P = 2023, Q = 2024, R = 2025. Kaikki sen jälkeen on sisäistä eräsarjaa. Creed ei koodaa kuukautta, joten koodi antaa sinulle vuoden eikä mitään hienompaa.",
       "faq3a": "Raskaammille, hartsimaisille koostumuksille vanhempi pullo voi todellakin olla parempi, koska uudelleenformulaatiot ovat muuttaneet useita klassikoita - ja eräkoodi on ainoa tapa määrittää, mitä kaavaa olet ostamassa. Kevyemmille, sitrushedelmille johtaville Creedeille ikä on enimmäkseen hapettumista, eikä siitä ole mitään hyötyä.",
       "faq2a": "Osittain. Creed on tuoksussa väärennetyimpiä taloja, ja ensimmäinen kirjain, joka ei ole ollenkaan syklissä, on suoraselkäinen. Mutta kopioitu koodi purkaa puhtaasti, joten kelvollinen koodi ei ole todiste – punnitse pullo, katso suihketta ja laatikon tulostusta ja osta valtuutetulta jälleenmyyjältä.",
-      "faq3q": "Tarkoittaako vanhempi uskontunnustus parempaa uskontunnustusta?"
+      "faq3q": "Tarkoittaako vanhempi Creed parempaa Creed:ää?"
     },
     "dior": {
       "where2": "Meikki: Compactin pohjassa, huulipunakotelon pohjassa tai putken poimussa.",
@@ -473,7 +473,7 @@
     "paco-rabanne": {
       "faq2q": "Voiko koodi todistaa, että Paco Rabanne on aito?",
       "where2": "Kallista pulloa niin, että valo tarttuu leimaan sivulta; suora valo saa sen katoamaan.",
-      "where1": "Laatikon pohjalla ja pullon alapuolella. Raskaimmissa pulloissa – 1 miljoonan harkon, Invictus-trofeen – koodi on usein leimattu metalliin tai lasiin sen sijaan, että se olisi painettu tarraan.",
+      "where1": "Laatikon pohjalla ja pullon alapuolella. Raskaimmissa pulloissa - 1 Million-harkon, Invictus-pokaalin - koodi on usein leimattu metalliin tai lasiin sen sijaan, että se olisi painettu tarraan.",
       "faq1q": "Kuinka puran Invictus- tai 1 Million -eräkoodin?",
       "faq1a": "Paco Rabannen valmistaa Puig, joka tulostaa koodiin valmistuspäivämäärän salaamisen sijaan. Tavanomainen muoto on nelinumeroinen: ensimmäinen on vuoden viimeinen numero, loput kolme ovat kyseisen vuoden päivä - joten 4135 on vuoden 2024 135. päivä, 14. toukokuuta 2024.",
       "faq3q": "Onko Rabanne sama merkki kuin Paco Rabanne?",
@@ -562,7 +562,7 @@
     "formatsTitle": "Eräkoodimuodot",
     "brandsUsingNote": "Muoto kuuluu valmistajalle, ei pullon etiketille – jokainen alla oleva merkki on leimattu samoilla kasveilla ja lukee samalla tavalla.",
     "whichCode": "Etkö ole varma, mikä pakkauksessa oleva koodi on eräkoodi?",
-    "formatsIntro": "Eräkoodin muoto kuuluu tuotteen valmistajalle, ei pullossa olevalle nimelle. Coty leimaa samat neljä numeroa Rimmeliin, Gucciin ja Adidakseen; Inter Parfums leimaa samat yhdeksän hahmoa Montblancille, Coachille ja Jimmy Choolle. Opi salaus kerran, niin voit lukea jokaisen brändin, joka jakaa sen.",
+    "formatsIntro": "Eräkoodin muoto kuuluu tuotteen valmistajalle, ei pullossa olevalle nimelle. Coty leimaa samat neljä numeroa Rimmelissä, Guccissa ja adidas:ssä; Inter Parfums leimaa samat yhdeksän merkkiä Montblanc:ssä, Coach:ssä ja Jimmy Choo:ssä. Opi salaus kerran, niin voit lukea jokaisen brändin, joka jakaa sen.",
     "otherFormats": "Muut koodimuodot",
     "formatsIntro2": "Jokainen alla oleva sivu dokumentoi yhden perheen: mitä jokainen merkki koodaa, todelliset koodit, jotka on purettu samalla moottorilla, joka käyttää tarkistusta, mihin koodi on painettu pakkaukseen ja - mikä on aivan yhtä tärkeää - mitä muoto ei voi kertoa.",
     "brandCount": "tuotemerkit"

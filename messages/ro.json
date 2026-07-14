@@ -149,7 +149,7 @@
     "a10": "Nu. Codurile sunt decodificate în browserul dvs. și nu avem nevoie de un cont. Nimic din ceea ce tastați nu este salvat pe un server, așa că verificarea unui cod este complet privată."
   },
   "result": {
-    "statusFresh": "Proaspăt",
+    "statusFresh": "Fresh",
     "statusExpired": "Perioada de valabilitate trecută",
     "lifeLeft": "viata ramasa",
     "statusGood": "Încă bine",
@@ -237,7 +237,7 @@
     },
     "carolina-herrera": {
       "faq1q": "Cum verific un cod de lot Carolina Herrera?",
-      "faq2q": "Fata bună este adesea contrafăcută?",
+      "faq2q": "Este Good Girl des contrafăcut?",
       "where1": "Pe baza cutiei și pe partea inferioară a sticlei.",
       "faq2a": "Este unul dintre cele mai copiate parfumuri din Europa. Faceți verificările pe care un cod nu le poate face: comparați codurile cutiei și sticlei, cântăriți sticla și priviți finețea spray-ului. O decodare curată este necesară, dar deloc suficientă.",
       "faq1a": "Parfumul Carolina Herrera este produs de Puig, care tipărește data producției în cod - ca o cifră a anului plus ziua anului sau ca o dată de ambalare, cum ar fi 231122 pentru 22 noiembrie 2023.",
@@ -276,7 +276,7 @@
       "where2": "Pe flacoanele mai vechi, mai grele, codul poate fi ștampilat mai degrabă decât imprimat; înclinați-l împotriva luminii.",
       "faq1a": "Doar prima literă contează. Codifică anul de producție, numărând de la A = 2010 și sărind peste I și O: N = 2022, P = 2023, Q = 2024, R = 2025. Totul după care este o serie internă de lot. Creed nu codifică luna, așa că codul vă oferă un an și nimic mai fin.",
       "faq1q": "Cum citesc un cod de lot Creed?",
-      "faq3q": "Un crez mai vechi înseamnă un crez mai bun?",
+      "faq3q": "Un Creed mai vechi înseamnă un Creed mai bun?",
       "faq2q": "Îmi poate spune codul dacă Green Irish Tweed este autentic?",
       "faq2a": "Parţial. Creed este printre cele mai contrafăcute case în parfumuri, iar o primă literă care nu este deloc în ciclu este o poveste simplă. Dar un cod copiat decodifică curat, așa că un cod valid nu este o dovadă - cântăriți sticla, priviți spray-ul și imprimarea cutiei și cumpărați de la un comerciant autorizat.",
       "faq3a": "Pentru compozițiile mai grele, rășinoase, o sticlă mai veche poate fi cu adevărat de preferat, deoarece reformulările au schimbat mai multe clasice - iar codul lotului este singura modalitate de a stabili ce formulă cumpărați. Pentru Creedurile mai ușoare, conduse de citrice, vârsta este în mare parte oxidare și nici un beneficiu."
@@ -384,7 +384,7 @@
     },
     "kiehls": {
       "where1": "Borcane și sticle: ștanțate pe bază, adesea în relief mai degrabă decât imprimate - înclinați-l sub lumină.",
-      "faq2q": "Codul de pe borcanul meu Kiehl este invizibil.",
+      "faq2q": "Codul de pe borcanul meu Kiehl's este invizibil.",
       "where2": "Tuburi și creme de ochi: presate în sert.",
       "faq1a": "Decodificați codul de pe bază: Kiehl's este L'Oréal, deci prima literă este anul și caracterul de după ea este luna. Nedeschis, socotiți la aproximativ 36 de luni; odată deschis, simbolul borcanului deschis - de obicei 12M pentru o cremă de ochi, care este numărul care se va lega primul.",
       "faq2a": "De obicei, este imprimat în relief pe bază, mai degrabă decât cu cerneală. Codurile în relief dispar sub o lumină directă și apar atunci când lumina trece peste ele din lateral - întoarceți borcanul încet spre o lampă.",
@@ -473,8 +473,8 @@
     "paco-rabanne": {
       "where2": "Înclinați sticla astfel încât lumina să prindă ștampila din lateral; o lumină directă o face să dispară.",
       "faq2q": "Poate codul să demonstreze că Paco Rabanne al meu este autentic?",
-      "faq1q": "Cum decodez un cod de lot Invictus sau 1 milion?",
-      "where1": "Pe partea de jos a cutiei și pe partea inferioară a sticlei. Pe sticlele mai grele - lingoul de 1 milion, trofeul Invictus - codul este adesea ștanțat pe metal sau sticlă, mai degrabă decât imprimat pe un autocolant.",
+      "faq1q": "Cum decodez un cod lot Invictus sau 1 Million?",
+      "where1": "Pe partea de jos a cutiei și pe partea inferioară a sticlei. Pe sticlele mai grele - lingoul 1 Million, trofeul Invictus - codul este adesea ștanțat pe metal sau sticlă, mai degrabă decât imprimat pe un autocolant.",
       "faq1a": "Paco Rabanne este realizat de Puig, care tipărește data producției în cod, mai degrabă decât o criptează. Forma obișnuită este de patru cifre: prima este ultima cifră a anului, restul de trei sunt ziua acelui an - deci 4135 este a 135-a zi a anului 2024, 14 mai 2024.",
       "faq3a": "Da — casa a renunțat la numele său „Paco” în 2023. Stocurile mai vechi poartă marca anterioară, iar formatul codului nu s-a schimbat.",
       "faq3q": "Este Rabanne aceeași marcă cu Paco Rabanne?",

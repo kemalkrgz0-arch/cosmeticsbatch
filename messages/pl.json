@@ -149,7 +149,7 @@
     "a10": "Nie. Kody są dekodowane w Twojej przeglądarce i nie wymagamy posiadania konta. Nic, co wpiszesz, nie zostanie zapisane na serwerze, więc sprawdzenie kodu jest całkowicie prywatne."
   },
   "result": {
-    "statusFresh": "Świeży",
+    "statusFresh": "Fresh",
     "statusGood": "Nadal dobrze",
     "lifeLeft": "pozostało życie",
     "manufactureDate": "Data produkcji",
@@ -276,9 +276,9 @@
       "where2": "Na starszych, cięższych flakonach kod można wytłoczyć zamiast drukować; skieruj go pod światło.",
       "faq1q": "Jak odczytać kod partii Creed?",
       "faq1a": "Liczy się tylko pierwsza litera. Koduje rok produkcji, licząc od A=2010 z pominięciem I i O: N=2022, P=2023, Q=2024, R=2025. Wszystko po nim to wewnętrzna seria wsadowa. Creed nie koduje miesiąca, więc kod podaje rok i nic lepszego.",
-      "faq3q": "Czy starsze Credo oznacza lepsze Credo?",
+      "faq3q": "Czy starszy Creed oznacza lepszy Creed?",
       "faq2a": "Częściowo. Creed jest jednym z najczęściej podrabianych domów zapachowych, a pierwsza litera, która w ogóle nie występuje w cyklu, jest jednoznaczna. Jednak skopiowany kod dekoduje prawidłowo, więc prawidłowy kod nie jest dowodem — zważ butelkę, spójrz na spray i nadruk na pudełku i kup u autoryzowanego sprzedawcy.",
-      "faq2q": "Czy kod może mi powiedzieć, czy mój zielony irlandzki tweed jest oryginalny?",
+      "faq2q": "Czy kod może mi powiedzieć, czy mój Green Irish Tweed jest oryginalny?",
       "faq3a": "W przypadku cięższych, żywicznych kompozycji rzeczywiście lepsza będzie starsza butelka, ponieważ zmiana składu zmieniła kilka klasyków – a kod partii to jedyny sposób na ustalenie, jaką formułę kupujesz. W przypadku lżejszych Creedów z nutą cytrusów wiek wynika głównie z utleniania i nie przynosi żadnych korzyści."
     },
     "dior": {
@@ -387,7 +387,7 @@
       "where1": "Słoiki i butelki: wytłoczone na podstawie, często wytłaczane, a nie drukowane – przechyl je pod światło.",
       "faq1q": "Jak sprawdzić trwałość kremu pod oczy Kiehl's?",
       "faq1a": "Rozszyfruj kod na bazie: Kiehl's to L'Oréal, więc pierwsza litera to rok, a następna litera to miesiąc. Nieotwarte, należy liczyć na około 36 miesięcy; po otwarciu symbol otwartego słoika — zazwyczaj 12M w przypadku kremu pod oczy i jest to liczba, która zostanie zawiązana jako pierwsza.",
-      "faq2q": "Kod na słoiczku Kiehla jest niewidoczny.",
+      "faq2q": "Kod na moim słoiku Kiehl's jest niewidoczny.",
       "faq2a": "Zwykle jest wytłoczony w podstawie, a nie tuszowany. Wytłoczone kody znikają pod bezpośrednim światłem i pojawiają się, gdy pada na nie światło z boku — powoli obracaj słoiczek w stronę lampy."
     },
     "la-roche-posay": {
@@ -539,9 +539,9 @@
       "where2": "Seria Beauty drukuje go na spodniej stronie opakowania lub na zaciśnięciu tuby.",
       "where1": "Na dolnej klapce pudełka na perfumy i na podstawie butelki.",
       "faq1q": "Czy perfumy Zara mają datę ważności?",
-      "faq2q": "Kto właściwie produkuje perfumy Zary?",
+      "faq2q": "Kto właściwie produkuje perfumy Zara?",
       "faq1a": "Z reguły nie jest to wydrukowany produkt – jak większość perfum, zawiera zamiast tego kod partii. Rozszyfruj datę produkcji i oblicz trwałość nieotwartej wody od trzech do pięciu lat, co jest normalne w przypadku wody toaletowej przechowywanej z dala od światła i ciepła.",
-      "faq2a": "Puig jest producentem linii zapachów Zary i dlatego kody są zgodne z formatem Puiga — i jest to po części powód, dla którego kilka zapachów Zary zachęca do porównania z designerskimi zapachami, które również produkuje Puig."
+      "faq2a": "Puig produkuje linię zapachową Zara i dlatego kody są zgodne z formatem Puig — i po części dlatego, że kilka zapachów Zara zachęca do porównania z designerskimi zapachami, które również produkuje Puig."
     }
   },
   "contentPages": {

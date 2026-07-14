@@ -149,7 +149,7 @@
     "a10": "Hayır. Kodların kodu tarayıcınızda çözülür ve bir hesaba ihtiyacımız yoktur. Yazdığınız hiçbir şey sunucuya kaydedilmez, dolayısıyla kodu kontrol etmek tamamen gizlidir."
   },
   "result": {
-    "statusFresh": "Taze",
+    "statusFresh": "Fresh",
     "statusExpired": "Geçmiş Raf Ömrü",
     "statusUseSoon": "Yakında Kullanın",
     "statusGood": "Hala İyi",
@@ -246,7 +246,7 @@
     "cerave": {
       "faq1q": "Bir CeraVe ürününün raf ömrünü nasıl kontrol edebilirim?",
       "where1": "Tüpler ve temizleyiciler: tüpün kapalı ucundaki kıvrıma bastırılır.",
-      "where2": "Pompalı şişeler (SA Temizleyici, nemlendirici losyon): arka etikete veya tabana mürekkep püskürtmeli baskı.",
+      "where2": "Pompalı şişeler (SA Cleanser, nemlendirici losyon): arka etikete veya tabana mürekkep püskürtmeli baskı.",
       "faq1a": "CeraVe, L'Oréal tarafından üretildiğinden kod grubun formatını takip eder: ilk harf üretim yılını, sonraki karakter ise ayı gösterir. Üretim tarihi için şifreyi çözün ve ardından açılmadan yaklaşık 36 ay kalacağını hesaplayın. Bir kez açıldığında, açık kavanoz sembolü devreye girer - serinin çoğu için 12 ay.",
       "faq2q": "CeraVe'nin son kullanma tarihi var mı?",
       "faq3q": "CeraVe'nin sahte olup olmadığını nasıl anlarım?",
@@ -277,7 +277,7 @@
       "where2": "Daha eski, daha ağır şişelerde kod basılmak yerine damgalanabilir; ışığa doğru çevirin.",
       "faq3q": "Daha eski bir Creed daha iyi bir Creed anlamına mı gelir?",
       "faq1a": "Yalnızca ilk harf önemlidir. A = 2010'dan başlayarak I ve O'yu atlayarak üretim yılını kodlar: N = 2022, P = 2023, Q = 2024, R = 2025. Ondan sonraki her şey dahili bir toplu seridir. Creed ayı kodlamaz, dolayısıyla kod size bir yıl verir ve bundan daha iyi bir şey vermez.",
-      "faq2q": "Kod bana Yeşil İrlanda Tüvitimin orijinal olup olmadığını söyleyebilir mi?",
+      "faq2q": "Kod bana Green Irish Tweed cihazımın orijinal olup olmadığını söyleyebilir mi?",
       "faq2a": "Kısmen. Creed, koku alanında en çok taklit edilen markalar arasında yer alıyor ve döngüde yer almayan bir ilk harf, basit bir anlatımdır. Ancak kopyalanan kod temiz bir şekilde çözülür, bu nedenle geçerli bir kod kanıt değildir; şişeyi tartın, spreye ve kutu baskısına bakın ve yetkili bir satıcıdan satın alın.",
       "faq3a": "Daha ağır, reçineli bileşimler için eski bir şişe gerçekten tercih edilebilir, çünkü yeniden formülasyonlar birçok klasiği değiştirmiştir ve batch kodu, hangi formülü satın aldığınızı belirlemenin tek yoludur. Daha hafif, narenciye ağırlıklı Creed'ler için yaş çoğunlukla oksidasyondur ve hiçbir faydası yoktur."
     },
@@ -471,8 +471,8 @@
       "faq1a": "NIVEA (Beiersdorf) gün yerine üretim haftasını kodluyor. Kodun ilk rakamı yılın son rakamıdır ve sonraki ikisi hafta numarasıdır; yani 815 ile başlayan bir kod, 8 ile biten bir yılın 15. haftasıdır. Bu, onu yedi gün içinde yerleştirir ve bu da bir vücut losyonu için yeterlidir."
     },
     "paco-rabanne": {
-      "where1": "Kutunun alt kısmında ve şişenin alt tarafında. Daha ağır şişelerde (1 Milyon külçe, Invictus ödülü) kod genellikle bir etiket üzerine basılmak yerine metal veya cam üzerine damgalanır.",
-      "faq1q": "Invictus veya 1 Milyon batch kodunu nasıl çözerim?",
+      "where1": "Kutunun alt kısmında ve şişenin alt tarafında. Daha ağır şişelerde (1 Million külçe, Invictus kupası) kod genellikle bir etiket üzerine basılmak yerine metal veya cam üzerine damgalanır.",
+      "faq1q": "Bir Invictus veya 1 Million toplu iş kodunu nasıl çözerim?",
       "where2": "Şişeyi, damgayı yan taraftan yakalayacak kadar hafif eğin; doğrudan ışık onu yok eder.",
       "faq3a": "Evet - şirket 2023'te adından 'Paco'yu çıkardı. Daha eski stoklar önceki markayı taşıyor ve kod formatı değişmedi.",
       "faq1a": "Paco Rabanne, üretim tarihini şifrelemek yerine koda basan Puig tarafından yapılmıştır. Genel form dört rakamdır: ilki yılın son rakamıdır, geri kalan üçü o yılın günüdür - yani 4135, 2024'ün 135. günü, 14 Mayıs 2024'tür.",
@@ -509,9 +509,9 @@
     "too-faced": {
       "where2": "Sıvı ürünler: şişenin tabanında veya tüpün kıvrımında.",
       "where1": "Paletler ve kompaktlar: kasanın arkasında, bazen plastik tepsinin altında.",
-      "faq2q": "Çok Yüzlü kodum çözülmüyor.",
+      "faq2q": "Too Faced kodum çözülmüyor.",
       "faq1q": "Too Faced paletinin batch kodunu nasıl kontrol ederim?",
-      "faq2a": "Çok Yüzlü ambalajın üzerindeki bazı kodlar, tarih kodları değil, dahili satır işaretleridir ve bunların içinde çözülecek hiçbir şey yoktur. İkinci, daha kısa bir kod için kasanın tabanını ve arkasını kontrol edin; eğer gerçekten bir kod yoksa, açık kavanoz sembolü en iyi rehberinizdir.",
+      "faq2a": "Too Faced ambalajındaki bazı kodlar, tarih kodları değil, dahili satır işaretleridir ve bunların içinde çözülecek hiçbir şey yoktur. İkinci, daha kısa bir kod için kasanın tabanını ve arkasını kontrol edin; eğer gerçekten bir kod yoksa, açık kavanoz sembolü en iyi rehberinizdir.",
       "faq1a": "Too Faced, Estée Lauder grubuna aittir, dolayısıyla kod sağdan okunan üç karakterden (bitki, ay, yıl) oluşur. Paletinizdeki kod bu şekle uymuyorsa batch kodu yerine fabrika hattı işaretlemesi olabilir."
     },
     "vichy": {
@@ -562,7 +562,7 @@
     "workedExamples": "Çalışılan örnekler",
     "otherFormats": "Diğer kod formatları",
     "formatsTitle": "Batch kod formatları",
-    "formatsIntro": "Batch kodunun formatı, şişenin üzerindeki isme değil, ürünü üreten kişiye aittir. Coty, Rimmel, Gucci ve Adidas'a aynı dört rakamı damgalıyor; Inter Parfums, Montblanc, Coach ve Jimmy Choo'ya aynı dokuz karakteri damgalıyor. Şifreyi bir kere öğrendiğinizde onu paylaşan her markayı okuyabilirsiniz.",
+    "formatsIntro": "Batch kodunun formatı, şişenin üzerindeki isme değil, ürünü üreten kişiye aittir. Coty, Rimmel, Gucci ve adidas'te aynı dört rakamı damgalıyor; Inter Parfums, Montblanc, Coach ve Jimmy Choo'te aynı dokuz karakteri damgalar. Şifreyi bir kere öğrendiğinizde onu paylaşan her markayı okuyabilirsiniz.",
     "whichCode": "Paketteki hangi kodun batch kodu olduğundan emin değil misiniz?",
     "formatsIntro2": "Aşağıdaki her sayfa bir aileyi belgeliyor: her karakterin neyi kodladığı, pula güç veren aynı motor tarafından kodu çözülen gerçek kodlar, kodun paketin üzerinde nerede basıldığı ve - bir o kadar önemlisi - formatın size anlatamadığı şey.",
     "brandCount": "markalar"

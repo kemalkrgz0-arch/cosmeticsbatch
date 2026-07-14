@@ -149,7 +149,7 @@
     "a10": "Không. Mã được giải mã trong trình duyệt của bạn và chúng tôi không yêu cầu tài khoản. Không có gì bạn nhập được lưu vào máy chủ, nên việc kiểm tra một mã hoàn toàn riêng tư."
   },
   "result": {
-    "statusFresh": "Tươi mới",
+    "statusFresh": "Fresh",
     "statusGood": "Vẫn tốt",
     "statusUseSoon": "Dùng sớm",
     "statusExpired": "Quá hạn sử dụng",
@@ -275,11 +275,11 @@
       "faq1q": "Làm cách nào để đọc mã lô Creed?",
       "where2": "Trên các chai cũ hơn, nặng hơn, mã có thể được đóng dấu thay vì in; nghiêng nó về phía ánh sáng.",
       "where1": "Trên đáy chai và dưới đáy hộp - thường được in màu đen trên nhãn dán nền trắng.",
-      "faq2q": "Mã có thể cho tôi biết vải Tweed Green Irish của tôi là hàng thật không?",
+      "faq2q": "Mã có thể cho tôi biết Green Irish Tweed của tôi có phải là chính hãng không?",
       "faq3a": "Đối với các chế phẩm nặng hơn, chứa nhiều nhựa, một chai cũ thực sự có thể thích hợp hơn vì các công thức cải tiến đã thay đổi một số kiểu cổ điển - và mã lô là cách duy nhất để xác định loại sữa công thức bạn đang mua. Đối với các Creed nhẹ hơn, có nguồn gốc từ cam quýt, tuổi tác chủ yếu là quá trình oxy hóa và không có lợi ích gì cả.",
       "faq2a": "Một phần. Creed là một trong những hãng nước hoa bị làm giả nhiều nhất, và chữ cái đầu tiên hoàn toàn không nằm trong chu kỳ là một dấu hiệu rõ ràng. Nhưng mã được sao chép sẽ giải mã rõ ràng, vì vậy mã hợp lệ không phải là bằng chứng - hãy cân chai, xem xét vòi phun và in trên hộp rồi mua từ nhà bán lẻ được ủy quyền.",
       "faq1a": "Chỉ có chữ cái đầu tiên quan trọng. Nó mã hóa năm sản xuất, tính từ A = 2010 và bỏ qua I và O: N = 2022, P = 2023, Q = 2024, R = 2025. Những thứ sau đó là dãy lô nội bộ. Creed không mã hóa tháng nên mã sẽ cho bạn một năm và không có gì tốt hơn.",
-      "faq3q": "Tín điều cũ hơn có nghĩa là Tín điều tốt hơn không?"
+      "faq3q": "Creed cũ hơn có nghĩa là Creed tốt hơn không?"
     },
     "dior": {
       "where1": "Hương thơm: ở đáy hộp bên ngoài và ở mặt dưới của chai - một nhãn dán in nhỏ hoặc khắc laser vào kính trên các chai lớn hơn.",

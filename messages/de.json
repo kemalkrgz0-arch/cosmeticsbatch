@@ -149,7 +149,7 @@
     "a10": "Nein. Codes werden in Ihrem Browser entschlüsselt und wir benötigen kein Konto. Nichts, was Sie eingeben, wird auf einem Server gespeichert, sodass die Überprüfung eines Codes völlig vertraulich ist."
   },
   "result": {
-    "statusFresh": "Frisch",
+    "statusFresh": "Fresh",
     "statusGood": "Immer noch gut",
     "age": "Alter",
     "shelfLife": "Haltbarkeit",
@@ -277,7 +277,7 @@
       "faq1q": "Wie lese ich einen Creed-Batchcode?",
       "faq2q": "Kann mir der Code sagen, ob mein Green Irish Tweed echt ist?",
       "faq1a": "Nur der erste Buchstabe zählt. Es kodiert das Produktionsjahr, gezählt von A = 2010 und überspringt I und O: N = 2022, P = 2023, Q = 2024, R = 2025. Alles danach ist eine interne Chargenserie. Creed kodiert den Monat nicht, daher gibt der Code ein Jahr und nichts Feineres an.",
-      "faq3q": "Bedeutet ein älteres Glaubensbekenntnis ein besseres Glaubensbekenntnis?",
+      "faq3q": "Bedeutet ein älteres Creed ein besseres Creed?",
       "faq3a": "Für die schwereren, harzigen Zusammensetzungen kann eine ältere Flasche tatsächlich vorzuziehen sein, da durch Neuformulierungen mehrere Klassiker verändert wurden – und der Chargencode die einzige Möglichkeit ist, festzustellen, welche Formel Sie kaufen. Bei den leichteren, von Zitrusfrüchten geprägten Creeds ist das Alter hauptsächlich Oxidation und überhaupt kein Vorteil.",
       "faq2a": "Teilweise. Creed gehört zu den am häufigsten gefälschten Parfümhäusern, und ein Anfangsbuchstabe, der überhaupt nicht im Zyklus enthalten ist, lässt sich leicht erkennen. Da ein kopierter Code jedoch sauber dekodiert wird, ist ein gültiger Code kein Beweis – wiegen Sie die Flasche, sehen Sie sich das Spray und den Aufdruck auf der Verpackung an und kaufen Sie bei einem autorisierten Händler."
     },
@@ -471,9 +471,9 @@
       "faq2a": "Sonnenschutzmittel sind normalerweise mit einem aufgedruckten Verfallsdatum versehen, da die SPF-Angabe als Sicherheitsaussage behandelt wird. Verwenden Sie das aufgedruckte Datum statt einer entschlüsselten Schätzung – und behandeln Sie eine Flasche, die einen Sommer in einem heißen Auto verbracht hat, als verbraucht, unabhängig davon, was auf dem Datum steht."
     },
     "paco-rabanne": {
-      "where1": "Auf dem Boden der Schachtel und auf der Unterseite der Flasche. Auf den schwereren Flaschen – dem 1-Millionen-Barren oder der Invictus-Trophäe – ist der Code oft in das Metall oder Glas eingeprägt und nicht auf einen Aufkleber gedruckt.",
+      "where1": "Auf dem Boden der Schachtel und auf der Unterseite der Flasche. Auf den schwereren Flaschen – dem 1 Million-Barren, der Invictus-Trophäe – ist der Code oft in das Metall oder Glas eingeprägt und nicht auf einen Aufkleber gedruckt.",
       "where2": "Kippen Sie die Flasche so, dass Licht von der Seite auf den Stempel fällt. ein direktes Licht lässt es verschwinden.",
-      "faq1q": "Wie entschlüssele ich einen Invictus- oder 1-Million-Chargencode?",
+      "faq1q": "Wie dekodiere ich einen Invictus- oder 1 Million-Batchcode?",
       "faq3a": "Ja – das Haus hat „Paco“ im Jahr 2023 aus seinem Namen gestrichen. Ältere Lagerbestände tragen das vorherige Branding und das Codeformat hat sich nicht geändert.",
       "faq2q": "Kann der Code beweisen, dass mein Paco Rabanne echt ist?",
       "faq3q": "Ist Rabanne die gleiche Marke wie Paco Rabanne?",

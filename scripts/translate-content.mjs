@@ -19,6 +19,7 @@
  * TypeScript precisely so a translator can never touch them.
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { maskBrands } from "./lib/brand-names.mjs";
 
 // App locale -> Google target code. Every locale in src/i18n/locales.ts ACTIVE.
 const LANGS = {
@@ -48,15 +49,19 @@ const reviewed = existsSync(REVIEWED_PATH)
 const isReviewed = (code, key) => (reviewed[code] ?? []).includes(key);
 
 async function translate(text, tl, tries = 4) {
+  // Brand names are proper nouns and many of them are ordinary words — the engine
+  // will happily turn "The Ordinary" into «Обычный» and Coach into «тренер».
+  // Mask them, translate, put them back.
+  const { masked, restore } = maskBrands(text);
   const url =
     `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${tl}&dt=t&q=` +
-    encodeURIComponent(text);
+    encodeURIComponent(masked);
   for (let i = 0; i < tries; i++) {
     try {
       const r = await fetch(url);
       if (!r.ok) throw new Error("HTTP " + r.status);
       const j = await r.json();
-      const out = j[0].map((seg) => seg[0]).join("");
+      const out = restore(j[0].map((seg) => seg[0]).join(""));
       return out.trim() || text;
     } catch {
       await new Promise((res) => setTimeout(res, 800 * (i + 1)));

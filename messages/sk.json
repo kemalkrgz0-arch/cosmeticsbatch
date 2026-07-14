@@ -149,7 +149,7 @@
     "q9": "Prečo nie je možné dekódovať môj kód dávky?"
   },
   "result": {
-    "statusFresh": "Čerstvé",
+    "statusFresh": "Fresh",
     "statusGood": "Stále dobré",
     "statusUseSoon": "Využite čoskoro",
     "statusUnknown": "Nie je dekódované",
@@ -277,7 +277,7 @@
       "where1": "Na dne fľaše a na dne škatule - zvyčajne vytlačené čiernou farbou na bielej základnej nálepke.",
       "faq1a": "Dôležité je len prvé písmeno. Kóduje rok výroby, počíta sa od A = 2010 a vynecháva I a O: N = 2022, P = 2023, Q = 2024, R = 2025. Všetko po ňom je interná séria šarží. Creed nekóduje mesiac, takže kód vám dáva rok a nič lepšie.",
       "faq3q": "Znamená starší Creed lepší Creed?",
-      "faq2q": "Môže mi kód povedať, či je môj zelený írsky tweed pravý?",
+      "faq2q": "Môže mi kód povedať, či je môj Green Irish Tweed originálny?",
       "faq2a": "Čiastočne. Creed patrí medzi najviac falšované domy vo vôni a prvé písmeno, ktoré vôbec nie je v cykle, je jasné. Skopírovaný kód sa však dekóduje čisto, takže platný kód nie je dôkazom – odvážte si fľašu, pozrite sa na sprej a potlač škatuľky a kúpte ju u autorizovaného predajcu.",
       "faq3a": "Pre ťažšie, živicové kompozície môže byť skutočne vhodnejšia staršia fľaša, pretože preformulovanie zmenilo niekoľko klasík – a kód šarže je jediný spôsob, ako zistiť, ktorú receptúru kupujete. Pre ľahšie, citrusovo vedené Creeds je vek väčšinou oxidácia a vôbec žiadny prínos."
     },
@@ -385,7 +385,7 @@
     "kiehls": {
       "where1": "Poháre a fľaše: vyrazené na podstavci, často skôr reliéfne ako vytlačené – nakloniť pod svetlo.",
       "faq1q": "Ako skontrolujem trvanlivosť očného krému Kiehl's?",
-      "faq2q": "Kód na mojej Kiehlovej nádobe je neviditeľný.",
+      "faq2q": "Kód na mojom Kiehl's jar je neviditeľný.",
       "where2": "Tuby a očné krémy: vtlačené do lemu.",
       "faq2a": "Zvyčajne je skôr vyrazený do základne ako nafarbený. Reliéfne kódy zmiznú pod priamym svetlom a objavia sa, keď na ne zboku prenikne svetlo – pomaly otočte nádobu proti lampe.",
       "faq1a": "Dekódujte kód na základni: Kiehl's je L'Oréal, takže prvé písmeno je rok a znak za ním mesiac. Neotvorené, počítajte s približne 36 mesiacmi; po otvorení symbol otvoreného pohára – zvyčajne 12M pre očný krém, čo je číslo, ktoré bude viazané ako prvé."
@@ -471,7 +471,7 @@
       "faq1a": "NIVEA (Beiersdorf) kóduje výrobný týždeň a nie deň. Prvá číslica kódu je posledná číslica roka a ďalšie dve sú číslo týždňa – takže kód začínajúci 815 je 15. týždeň v roku končiaci číslicou 8. To znamená, že je to sedem dní, čo je dostatočné množstvo pre telové mlieko."
     },
     "paco-rabanne": {
-      "faq1q": "Ako dekódujem dávkový kód Invictus alebo 1 milión?",
+      "faq1q": "Ako dekódujem dávkový kód Invictus alebo 1 Million?",
       "where1": "Na dne škatule a na spodnej strane fľaše. Na ťažších fľašiach – ingot 1 Million, trofej Invictus – je kód často vyrazený do kovu alebo skla a nie vytlačený na nálepke.",
       "where2": "Nakloňte fľašu tak, aby svetlo zachytilo pečiatku zo strany; priamym svetlom zmizne.",
       "faq3q": "Je Rabanne rovnaká značka ako Paco Rabanne?",

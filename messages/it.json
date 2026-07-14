@@ -149,7 +149,7 @@
     "a10": "No. I codici vengono decodificati nel tuo browser e non è necessario un account. Niente di ciò che digiti viene salvato su un server, quindi il controllo di un codice è completamente privato."
   },
   "result": {
-    "statusFresh": "Fresco",
+    "statusFresh": "Fresh",
     "statusGood": "Ancora buono",
     "lifeLeft": "la vita rimasta",
     "statusExpired": "Durata di conservazione passata",
@@ -274,10 +274,10 @@
     "creed": {
       "where1": "Sulla base della bottiglia e sul fondo della scatola: solitamente stampato in nero sull'adesivo bianco della base.",
       "where2": "Sui flaconi più vecchi e pesanti il ​​codice può essere impresso invece che stampato; inclinarlo contro la luce.",
-      "faq3q": "Un Credo più antico significa un Credo migliore?",
+      "faq3q": "Un Creed più vecchio significa un Creed migliore?",
       "faq1q": "Come leggo un codice batch Creed?",
       "faq1a": "Conta solo la prima lettera. Codifica l'anno di produzione, contando da A = 2010 e saltando I e O: N = 2022, P = 2023, Q = 2024, R = 2025. Tutto ciò che segue è una serie batch interna. Creed non codifica il mese, quindi il codice ti dà un anno e niente di più preciso.",
-      "faq2q": "Il codice può dirmi se il mio tweed verde irlandese è autentico?",
+      "faq2q": "Il codice può dirmi se il mio Green Irish Tweed è autentico?",
       "faq2a": "In parte. Creed è tra le case produttrici di profumi più contraffatte e una prima lettera che non è affatto nel ciclo è un indizio semplice. Ma un codice copiato viene decodificato in modo pulito, quindi un codice valido non è una prova: pesa la bottiglia, guarda lo spray e la stampa sulla scatola e acquista da un rivenditore autorizzato.",
       "faq3a": "Per le composizioni più pesanti e resinose una bottiglia più vecchia può essere davvero preferibile, perché le riformulazioni hanno cambiato diversi classici e il codice batch è l'unico modo per stabilire quale formula stai acquistando. Per i Creed più leggeri e agrumati, l'età è per lo più ossidazione e nessun beneficio."
     },
@@ -331,7 +331,7 @@
       "faq3a": "Controlla che il codice corrisponda al formato di L'Oréal (Garnier è un marchio L'Oréal) e che venga decodificato con una data plausibile. Ciò esclude falsi grossolani. Non è possibile escluderne uno buono, perché un codice copiato si decodifica perfettamente."
     },
     "giorgio-armani-beauty": {
-      "where1": "Fragranza (Acqua di Giò, Codice Armani): sul fondo della scatola e sull'adesivo alla base della bottiglia.",
+      "where1": "Fragranza (Acqua di Giò, Armani Code): sul fondo della scatola e sull'adesivo alla base della bottiglia.",
       "where2": "Trucco: sulla base della custodia o sul retro del portacipria.",
       "faq2a": "Da tre a cinque anni sono normali per un'eau de toilette, più a lungo per l'eau de parfum. La fragranza è la categoria più indulgente che esista, a condizione che la bottiglia sia tenuta lontana dalla luce e dal calore.",
       "faq2q": "Quanto dura Acqua di Giò senza apertura?",
@@ -474,7 +474,7 @@
       "faq1q": "Come posso decodificare un codice batch Invictus o 1 Million?",
       "faq2a": "Può rilevare un falso e non può certificarne uno vero. Paco Rabanne è tra le fragranze più contraffatte in Europa: un numero del giorno impossibile o codici che non concordano tra scatola e bottiglia sono avvertimenti forti, ma un codice copiato da una bottiglia autentica si decodifica perfettamente. Pesare la bottiglia e controllare anche il ventaglio di spruzzatura.",
       "faq1a": "Paco Rabanne è prodotto da Puig, che stampa la data di produzione nel codice anziché crittografarlo. La forma usuale è di quattro cifre: la prima è l'ultima cifra dell'anno, le restanti tre sono il giorno di quell'anno, quindi 4135 è il 135° giorno del 2024, 14 maggio 2024.",
-      "where1": "Sul fondo della scatola e sul lato inferiore della bottiglia. Sulle bottiglie più pesanti – il lingotto da 1 milione, il trofeo Invictus – il codice è spesso impresso sul metallo o sul vetro anziché stampato su un adesivo.",
+      "where1": "Sul fondo della scatola e sul lato inferiore della bottiglia. Sulle bottiglie più pesanti – il lingotto 1 Million, il trofeo Invictus – il codice è spesso impresso sul metallo o sul vetro anziché stampato su un adesivo.",
       "where2": "Inclina la bottiglia in modo che la luce catturi il timbro lateralmente; una luce diretta lo fa scomparire.",
       "faq2q": "Il codice può dimostrare che il mio Paco Rabanne è autentico?",
       "faq3q": "Rabanne è la stessa marca di Paco Rabanne?",

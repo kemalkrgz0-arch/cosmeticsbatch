@@ -7,6 +7,7 @@
 // Usage: node scripts/translate-mt.mjs            # all locales below
 //        node scripts/translate-mt.mjs it nl pl   # specific locales
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { maskBrands } from "./lib/brand-names.mjs";
 
 // app locale code -> Google translate target code. Merge mode: only keys
 // missing from (or still equal to English in) an existing file get translated,
@@ -40,7 +41,10 @@ async function translate(text, tl, tries = 4) {
   // Mask placeholders with sentinels the engine leaves alone, translate, then
   // restore. If any sentinel is lost, fall back to the English source.
   const phs = text.match(/\{[^}]+\}/g) || [];
-  let masked = text;
+  // Brand names get the same protection as placeholders: they are proper nouns,
+  // and a translated brand name is a brand nobody can search for.
+  const { masked: brandMasked, restore: restoreBrands } = maskBrands(text);
+  let masked = brandMasked;
   phs.forEach((p, i) => {
     masked = masked.replace(p, ` xph${i}x `);
   });
@@ -52,7 +56,7 @@ async function translate(text, tl, tries = 4) {
       const r = await fetch(url);
       if (!r.ok) throw new Error("HTTP " + r.status);
       const j = await r.json();
-      let out = j[0].map((seg) => seg[0]).join("");
+      let out = restoreBrands(j[0].map((seg) => seg[0]).join(""));
       let ok = true;
       phs.forEach((p, k) => {
         const re = new RegExp(`\\s*x\\s*ph\\s*${k}\\s*x\\s*`, "i");

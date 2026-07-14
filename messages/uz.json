@@ -149,7 +149,7 @@
     "a10": "Yoʻq. Kodlar brauzeringizda dekodlanadi va biz hisob qaydnomasi talab qilmaymiz. Yozganingiz hech narsa serverga saqlanmaydi, shuning uchun kodni tekshirish mutlaqo maxfiy."
   },
   "result": {
-    "statusFresh": "Yangi",
+    "statusFresh": "Fresh",
     "statusGood": "Hali yaxshi",
     "statusUseSoon": "Tez orada ishlating",
     "statusExpired": "Yaroqlilik muddati oʻtgan",
@@ -238,7 +238,7 @@
     "carolina-herrera": {
       "where2": "Good Girl stiletto shishasida kod tovonning tagida joylashgan.",
       "where1": "Qutining tagida va shishaning pastki qismida.",
-      "faq2q": "Yaxshi qiz ko'pincha qalbakilashtiriladimi?",
+      "faq2q": "Good Girl ko'pincha qalbakilashtiriladimi?",
       "faq1q": "Carolina Herrera partiya kodini qanday tekshirish mumkin?",
       "faq1a": "Carolina Herrera xushbo'yligi Puig tomonidan ishlab chiqarilgan bo'lib, kodda ishlab chiqarilgan sanani - yil raqami va yil kunini yoki 2023 yil 22-noyabr uchun 231122 kabi qadoqlangan sanani bosib chiqaradi.",
       "faq2a": "Bu Evropada eng ko'p ko'chiriladigan xushbo'y hidlardan biridir. Kod qila olmaydigan tekshiruvlarni bajaring: quti va shisha kodlarini solishtiring, shishani torting va buzadigan amallar nozikligiga qarang. Toza dekodlash zarur, ammo etarli darajada emas."
@@ -279,7 +279,7 @@
       "faq3q": "Qadimgi Creed yaxshiroq e'tiqodni anglatadimi?",
       "faq2a": "Qisman. Creed xushbo'y hidda eng ko'p soxtalashtirilgan uylar qatoriga kiradi va tsiklda umuman bo'lmagan birinchi harf - bu to'g'ridan-to'g'ri. Ammo nusxa ko'chirilgan kod aniq dekodlanadi, shuning uchun haqiqiy kod isbot emas - shishani torting, buzadigan amallar va qutining chop etilishiga qarang va vakolatli sotuvchidan sotib oling.",
       "faq3a": "Og'irroq, qatronli kompozitsiyalar uchun, albatta, eski shisha afzalroq bo'lishi mumkin, chunki reformatsiyalar bir nechta klassikani o'zgartirdi - va partiya kodi qaysi formulani sotib olganingizni aniqlashning yagona yo'li. Engilroq, sitrusli Creeds uchun yosh asosan oksidlanishdir va hech qanday foyda keltirmaydi.",
-      "faq2q": "Kod mening Yashil Irish Tvidim haqiqiy yoki yo'qligini ayta oladimi?"
+      "faq2q": "Kod menga Green Irish Tweed haqiqiy ekanligini ayta oladimi?"
     },
     "dior": {
       "where1": "Xushbo'y hid: tashqi qutining tagida va shishaning pastki qismida - kichik bosilgan stiker yoki kattaroq shishadagi stakanga lazer bilan o'yib qo'yilgan.",
@@ -334,7 +334,7 @@
       "where1": "Xushbo'y hid (Acqua di Giò, Armani Code): qutining pastki qismida va shisha tagidagi stikerda.",
       "where2": "Pardoz: korpusning tagida yoki ixchamning orqa tomonida.",
       "faq1a": "Armani xushbo'yligi L'Oréal tomonidan ishlab chiqarilgan, shuning uchun kod guruh formatiga mos keladi: birinchi harf ishlab chiqarilgan yil, undan keyingi belgi - oy. (Armani Code deb nomlangan xushbo'y hid va uning qutisiga muhrlangan partiya kodi, afsuski, bir so'zni baham ko'radigan bir-biriga bog'liq bo'lmagan narsalardir.)",
-      "faq2q": "Acqua di Gio qancha vaqt ochilmaydi?",
+      "faq2q": "Acqua di Giò qancha vaqt ochilmaydi?",
       "faq1q": "Armani Code partiya raqamini qanday dekodlashim mumkin?",
       "faq2a": "Tualet suvi uchun 3-5 yil normal, parfyum uchun esa uzoqroq. Xushbo'ylik eng kechirimli toifadir, agar shisha yorug'lik va issiqlikdan saqlansa."
     },
@@ -348,7 +348,7 @@
     },
     "hugo-boss": {
       "where1": "Tashqi qutining tagida va shisha ostidagi shaffof stikerda.",
-      "faq1a": "Hugo Boss xushbo'yligi Koty tomonidan ishlab chiqariladi, u to'rt xonali koddan foydalanadi: birinchi raqam ishlab chiqarish yilining oxirgi raqami, qolgan uchtasi esa o'sha yilning kunidir. Shunday qilib, 4135 - 2024 yilning 135-kuni - 2024 yil 14 may.",
+      "faq1a": "Hugo Boss xushbo'yligi to'rt xonali koddan foydalanadigan Coty tomonidan ishlab chiqariladi: birinchi raqam ishlab chiqarish yilining oxirgi raqami, qolgan uchtasi esa o'sha yilning kunidir. Shunday qilib, 4135 - 2024 yilning 135-kuni - 2024 yil 14 may.",
       "faq1q": "Hugo Boss parfyumining partiya kodini qanday tekshirish mumkin?",
       "faq2q": "Quti va shisha kodlari boshqacha. Bu soxtami?",
       "where2": "Ikkita kod mos kelishi kerak - ular bir xil satrda bir necha daqiqa farq bilan chop etiladi.",
@@ -359,7 +359,7 @@
       "faq2a": "Metall yengli nashrlarda kod ko'pincha faqat qutida bo'ladi yoki poydevorga shu qadar zaif muhrlanadiki, uni ko'rish uchun yorug'lik kerak. Avval kartonni tekshiring - va agar sizda ikkalangiz ham bo'lsa, ularning mos kelishini tasdiqlang.",
       "where2": "Metall korpusli nashrlarda kod ko'pincha faqat qutida bo'ladi yoki qutining tagiga ozgina muhrlanadi.",
       "faq2q": "Mening Le Male shishamda kod yo'q.",
-      "faq1q": "Jan Pol Gaultierning ommaviy kodini qanday o'qiyman?",
+      "faq1q": "Jean Paul Gaultier ommaviy ish kodini qanday o'qiyman?",
       "faq1a": "JPG xushbo'yligi Puig tomonidan ishlab chiqarilgan bo'lib, u ishlab chiqarish sanasini kodga bosib chiqaradi. To'rtta raqam yil raqamini va yil kunini bildiradi; besh ikki yil raqamlari va kunni bildiradi; olti - qadoqlangan kalendar sanasi."
     },
     "kenzo-parfums": {
@@ -387,7 +387,7 @@
       "faq1q": "Kiehl's ko'z kremining yaroqlilik muddatini qanday tekshirish mumkin?",
       "where2": "Naychalar va ko'z kremlari: burmaga bosiladi.",
       "faq2a": "Odatda siyoh bilan emas, balki asosga bo'rttiriladi. Naqshli kodlar to'g'ridan-to'g'ri yorug'lik ostida yo'qoladi va yorug'lik yon tomondan ular bo'ylab o'tganda paydo bo'ladi - bankani asta-sekin chiroqqa burang.",
-      "faq2q": "Kiehl bankamdagi kod ko'rinmas.",
+      "faq2q": "Mening Kiehl's jarimdagi kod ko'rinmas.",
       "faq1a": "Bazadagi kodni dekodlang: Kiehl's - L'Oréal, shuning uchun birinchi harf yil va undan keyingi belgi oydir. Ochilmagan, taxminan 36 oyni hisoblash; ochilgandan so'ng, ochiq banka belgisi - odatda ko'z kremi uchun 12M, bu birinchi bo'lib bog'lanadigan raqam."
     },
     "la-roche-posay": {
@@ -404,15 +404,15 @@
       "where1": "Xushbo'y hid: qutining tagida va shishaning pastki qismida.",
       "where2": "Terini parvarish qilish va poydevor: kavanoz tagida, trubkada yoki shishada bo'rttirma yoki bosilgan.",
       "faq2a": "Ishlab chiqarishdan taxminan uch yil, barqaror bo'lmagan faol moddalarga asoslangan mahsulotlar uchun kamroq. Discounterdan sotib olishdan oldin dekodlash - eski aktsiya haqiqiy, ammo uning ochilmagan muddati juda oz bo'lishi mumkin.",
-      "faq2q": "Ochilmagan Lancome terini parvarishi qancha davom etadi?",
-      "faq1q": "Lancome ommaviy kodini qanday o'qiyman?",
-      "faq1a": "Lancom - L'Oréal: birinchi harf ishlab chiqarish yili (o'tkazib yuborilgan V, shuning uchun U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) va undan keyingi belgi to'g'ridan-to'g'ri oy, O, N va D oktyabr, noyabr va dekabr uchun turadi."
+      "faq2q": "Ochilmagan Lancôme terini parvarishlash qancha vaqt davom etadi?",
+      "faq1q": "Lancôme ommaviy ish kodini qanday o'qiyman?",
+      "faq1a": "Lancôme - L'Oréal: birinchi harf ishlab chiqarish yili (o'tkazib yuborilgan V, shuning uchun U = 2021, Vt = 2022, X = 2023, Y = 2024, Z = 2025) va undan keyingi belgi to'g'ridan-to'g'ri oy bo'lib, O, N va D oktyabr, noyabr va dekabr uchun turadi."
     },
     "loreal": {
       "where1": "Guruh mahsulotlari har qanday joyda muhrlangan: trubka burmalari, shisha tagliklari, kavanoz tagliklari va karton qopqoqlar.",
       "where2": "Agar subbrend alohida roʻyxatda boʻlmasa, bu sahifadan foydalaning — butun guruh bitta kod formatini baham koʻradi.",
       "faq2a": "Odatda oltita belgi, masalan, 40X200: zavod raqamlari, keyin yil harfi, keyin oy belgisi, keyin ommaviy seriya. Yil harfi va undan keyingi belgi sanani ko'rsatadigan yagona qismlardir.",
-      "faq1a": "Ularning barchasi: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancome, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm va boshqalar. Ular bir xil o'simliklardan chiqadilar, shuning uchun ular bir xil formatga ega.",
+      "faq1a": "Ularning barchasi: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm va qolganlari. Ular bir xil o'simliklardan chiqadilar, shuning uchun ular bir xil formatga ega.",
       "faq1q": "Qaysi brendlar L'Oréal partiya kodini baham ko'radi?",
       "faq2q": "L'Oréal kodi nimaga o'xshaydi?",
       "faq3q": "Mening kodimda harf yo'q.",
@@ -490,9 +490,9 @@
     },
     "roberto-cavalli": {
       "where1": "Qutining pastki qismida va shisha tagida - bosilgan yoki shishaga muhrlangan og'irroq flakonlarda.",
-      "faq1q": "Roberto Kavalli parfyumining haqiqiyligini qanday tekshirish mumkin?",
+      "faq1q": "Roberto Cavalli parfyumining haqiqiyligini qanday tekshirish mumkin?",
       "where2": "To'rtta raqamdan iborat qisqa kodni qidiring; shtrix-kod chiziqlari ostidagi uzunroq raqam bu emas.",
-      "faq2q": "Roberto Kavalli shishasining seriya raqami qayerda?",
+      "faq2q": "Roberto Cavalli shishasining seriya raqami qayerda?",
       "faq2a": "Har bir shisha uchun noyob seriya ma'nosida bittasi yo'q. Chop etilgan narsa paketli kod bo'lib, u bir xil ishlab chiqarishdagi har bir birlik tomonidan taqsimlanadi va u identifikatsiyani emas, sanani kodlaydi.",
       "faq1a": "Cavalli xushbo'yligi Coty tomonidan ishlab chiqarilgan, shuning uchun kod to'rt xonali ishlab chiqarish sanasi - yil raqami va yil kuni. Avval qutidagi kodni shishadagi kod bilan solishtiring: mos kelmaslik xaridor uchun mavjud bo'lgan yagona kuchli signaldir. Keyin uni dekodlash; imkonsiz kun aniq soxta. Toza dekodlanadigan kod haqiqiyligini tasdiqlamaydi - ko'chirilgan kodlar ham dekodlanadi."
     },
@@ -564,7 +564,7 @@
     "workedExamplesNote": "Tekshirgichni quvvatlaydigan bir xil dvigatel tomonidan jonli ravishda dekodlangan - qo'lda transkripsiya qilinmaydi.",
     "brandsUsingNote": "Format shishadagi yorliq emas, ishlab chiqaruvchiga tegishli - quyida joylashgan har bir brend bir xil o'simliklar tomonidan muhrlangan va xuddi shunday o'qiydi.",
     "formatsIntro2": "Quyidagi har bir sahifa bitta oilani hujjatlashtiradi: har bir belgi nimani kodlashi, tekshirgichni quvvatlaydigan bir xil dvigatel tomonidan dekodlangan haqiqiy kodlar, kod paketda chop etilgan joy va eng muhimi, format sizga nima aytolmaydi.",
-    "formatsIntro": "Partiya kodining formati shishadagi nomga emas, balki mahsulotni kim ishlab chiqarganiga tegishli. Koti Rimmel, Gucci va Adidas-da bir xil to'rtta raqamni muhrlaydi; Inter Parfums Montblanc, Coach va Jimmy Choo-da bir xil to'qqizta belgini muhrlaydi. Shifrni bir marta o'rganing va uni baham ko'radigan har bir brendni o'qishingiz mumkin.",
+    "formatsIntro": "Partiya kodining formati shishadagi nomga emas, balki mahsulotni kim ishlab chiqarganiga tegishli. Coty Rimmel, Gucci va adidas-da bir xil to'rtta raqamni muhrlaydi; Inter Parfums bir xil to'qqizta belgini Montblanc, Coach va Jimmy Choo-ga qo'yadi. Shifrni bir marta o'rganing va uni baham ko'radigan har bir brendni o'qishingiz mumkin.",
     "brandCount": "brendlar"
   }
 }

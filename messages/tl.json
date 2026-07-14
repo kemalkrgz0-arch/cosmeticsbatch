@@ -149,7 +149,7 @@
     "a10": "Hindi. Dina-decode ang mga code sa iyong browser at hindi kami nangangailangan ng account. Walang anumang itine-type mo ang naise-save sa isang server, kaya ganap na pribado ang pagsuri ng code."
   },
   "result": {
-    "statusFresh": "Sariwa",
+    "statusFresh": "Fresh",
     "statusGood": "Maganda Pa",
     "statusUseSoon": "Gamitin Agad",
     "statusExpired": "Lampas sa Shelf Life",
@@ -388,7 +388,7 @@
       "where2": "Tube at eye creams: pinindot sa crimp.",
       "faq1q": "Paano ko masusuri ang shelf life ng Kiehl's eye cream?",
       "faq2a": "Karaniwan itong naka-emboss sa base sa halip na may tinta. Ang mga embossed code ay nawawala sa ilalim ng direktang liwanag at lumilitaw kapag may liwanag na naka-rakes sa kanila mula sa gilid - dahan-dahang ipihit ang garapon sa isang lampara.",
-      "faq1a": "I-decode ang code sa base: Ang kay Kiehl ay L'Oréal, kaya ang unang titik ay ang taon at ang karakter pagkatapos nito ay buwan. Hindi nabuksan, umasa sa humigit-kumulang 36 na buwan; kapag binuksan, ang simbolo ng bukas na garapon — karaniwang 12M para sa isang cream sa mata, na siyang numero na unang magbibigkis."
+      "faq1a": "I-decode ang code sa base: Kiehl's ay L'Oréal, kaya ang unang titik ay ang taon at ang character pagkatapos nito ay buwan. Hindi nabuksan, umasa sa humigit-kumulang 36 na buwan; kapag binuksan, ang simbolo ng bukas na garapon — karaniwang 12M para sa isang cream sa mata, na siyang numero na unang magbibigkis."
     },
     "la-roche-posay": {
       "where1": "Tubes: pinindot sa crimp sa selyadong dulo.",

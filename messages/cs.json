@@ -149,7 +149,7 @@
     "a10": "Ne. Kódy jsou dekódovány ve vašem prohlížeči a nevyžadujeme účet. Nic, co zadáte, se neuloží na server, takže kontrola kódu je zcela soukromá."
   },
   "result": {
-    "statusFresh": "Čerstvý",
+    "statusFresh": "Fresh",
     "lifeLeft": "život odešel",
     "statusGood": "Stále dobré",
     "manufactureDate": "Datum výroby",
@@ -274,7 +274,7 @@
     "creed": {
       "faq1q": "Jak načtu dávkový kód Creed?",
       "where1": "Na základně láhve a na dně krabice - obvykle vytištěno černě na bílé základní nálepce.",
-      "faq2q": "Může mi kód říct, zda je můj zelený irský tweed pravý?",
+      "faq2q": "Může mi kód říct, zda je můj Green Irish Tweed pravý?",
       "where2": "Na starších, těžších flakonech může být kód spíše vyražen než vytištěn; natočte jej proti světlu.",
       "faq3q": "Znamená starší Creed lepší Creed?",
       "faq1a": "Důležité je pouze první písmeno. Kóduje rok výroby, počítá se od A = 2010 a přeskakuje I a O: N = 2022, P = 2023, Q = 2024, R = 2025. Vše po něm je interní dávková série. Creed nekóduje měsíc, takže kód vám dává rok a nic jemnějšího.",
@@ -315,7 +315,7 @@
       "where1": "Podkladové a tekuté produkty: vytištěné na základně láhve nebo tam, kde se štítek ovine kolem zadní části.",
       "faq2q": "Čárový kód na mém produktu Fenty nelze naskenovat. je to falešné?",
       "faq2a": "Ne nutně – čárový kód, který nelze naskenovat, je obvykle problém s tiskem nebo osvětlením a v každém případě čárový kód nenese žádné datum ani informace o pravosti. Je to kód šarže, krátké nepravidelné razítko, které vám řekne, kdy byl produkt vyroben.",
-      "faq1a": "Dekódujte kód šarže — Fenty je značka LVMH a do kódu vytiskne datum výroby. Kód, který vytváří nemožné nebo žádné datum, je varování. Ale zkopírovaný kód se dekóduje čistě, takže jej používejte spolu s běžnými kontrolami: kvalita tisku na obalu, pocit z aplikátoru a nákup přímo od Sephory nebo Fenty.",
+      "faq1a": "Dekódujte kód šarže — Fenty je značka LVMH a do kódu vytiskne datum výroby. Kód, který vytváří nemožné nebo žádné datum, je varování. Ale zkopírovaný kód se dekóduje čistě, takže jej používejte spolu s běžnými kontrolami: kvalita tisku na obalu, dojem z aplikátoru a nákup přímo od Sephora nebo Fenty.",
       "faq3a": "Zhruba 12 měsíců po otevření a asi 36 měsíců neotevřené od data výroby. Podle toho, co nastane dříve, je konečný termín.",
       "faq3q": "Jak dlouho Fenty podkladová báze vydrží?"
     },
@@ -472,7 +472,7 @@
     },
     "paco-rabanne": {
       "where1": "Na dně krabice a na spodní straně láhve. Na těžších lahvích – ingotu 1 Million, trofeji Invictus – je kód často vyražen do kovu nebo skla, nikoli vytištěn na nálepce.",
-      "faq1q": "Jak dekóduji dávkový kód Invictus nebo 1 milion?",
+      "faq1q": "Jak dekóduji dávkový kód Invictus nebo 1 Million?",
       "faq2a": "Může zachytit padělek a nemůže certifikovat skutečný. Paco Rabanne patří mezi nejvíce padělané vůně v Evropě: nemožné číslo dne nebo kódy, které se neshodují mezi krabičkou a lahvičkou, jsou silným varováním – ale kód zkopírovaný z pravé lahvičky se dekóduje dokonale. Zvažte láhev a zkontrolujte také vzor stříkání.",
       "faq1a": "Paco Rabanne vyrábí společnost Puig, která do kódu tiskne datum výroby, místo aby jej zašifrovala. Obvyklý tvar jsou čtyři číslice: první je poslední číslice roku, zbývající tři jsou den daného roku — takže 4135 je 135. den roku 2024, 14. května 2024.",
       "where2": "Nakloňte láhev tak, aby světlo zachytilo známku ze strany; přímé světlo to ztratí.",

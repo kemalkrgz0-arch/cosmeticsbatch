@@ -149,7 +149,7 @@
     "a10": "Xeyr. Kodlar brauzerinizdə deşifrələnir və biz hesab tələb etmirik. Yazdığınız heç nə serverə saxlanılmır, ona görə də kodun yoxlanması tamamilə məxfidir."
   },
   "result": {
-    "statusFresh": "Təzə",
+    "statusFresh": "Fresh",
     "statusGood": "Hələ yaxşı",
     "statusUseSoon": "Tezliklə istifadə edin",
     "statusExpired": "Saxlanma müddəti keçib",
@@ -239,7 +239,7 @@
       "where2": "Good Girl stiletto butulkasında kod dabanının altında oturur.",
       "where1": "Qutunun altında və şüşənin alt tərəfində.",
       "faq2a": "Avropada ən çox kopyalanan ətirlərdən biridir. Kodun edə bilmədiyi yoxlamaları edin: qutu və şüşə kodlarını müqayisə edin, şüşəni çəkin və spreyin incəliyinə baxın. Təmiz deşifrə lazımdır, lakin heç bir yerdə kifayət deyil.",
-      "faq2q": "Yaxşı Qız tez-tez saxtalaşdırılır?",
+      "faq2q": "Good Girl tez-tez saxtalaşdırılır?",
       "faq1q": "Carolina Herrera toplu kodunu necə yoxlaya bilərəm?",
       "faq1a": "Carolina Herrera ətri kodda istehsal tarixini çap edən Puig tərəfindən hazırlanır - il rəqəmi və ilin günü kimi və ya 22 noyabr 2023-cü il üçün 231122 kimi qablaşdırılmış tarix kimi."
     },
@@ -248,7 +248,7 @@
       "faq2a": "Dermatoloji xətlər tez-tez birini çap edir və günəş kremləri demək olar ki, həmişə edir. Çap edilmiş tarix varsa, ona etibar edin: bu, istehsalçının öz zəmanətidir və o, dekoderin təxmin edə biləcəyi hər şeydən üstündür.",
       "faq1q": "CeraVe məhsulunun saxlama müddətini necə yoxlaya bilərəm?",
       "where1": "Borular və təmizləyicilər: borunun möhürlənmiş ucundakı qıvrımlara sıxılır.",
-      "where2": "Pompa şüşələri (SA Təmizləyici, nəmləndirici losyon): arxa etiketdə və ya bazada mürəkkəb püskürtmə ilə çap edilmişdir.",
+      "where2": "Pompa şüşələri (SA Cleanser, nəmləndirici losyon): arxa etiketdə və ya bazada mürəkkəb püskürtmə ilə çap olunur.",
       "faq1a": "CeraVe L'Oréal tərəfindən hazırlanır, buna görə də kod qrupun formatına uyğundur: ilk hərf istehsal ili və ondan sonrakı simvol aydır. İstehsal tarixi üçün onu deşifrə edin, sonra təxminən 36 ay açılmamış hesab edin. Açıldıqdan sonra açıq jar simvolu öz yerini alır - aralığın çox hissəsi üçün 12 ay.",
       "faq3q": "CeraVe-nin saxta olub olmadığını necə müəyyən edə bilərəm?",
       "faq3a": "CeraVe bazarlarda geniş şəkildə saxtalaşdırılır. Partiya kodu ilk filtrdir - L'Oréal-ın formasına uyğun olmayan kod pis əlamətdir - lakin o, orijinal məhsulu təsdiq edə bilməz, çünki həqiqi kodu saxta boruya köçürmək olar. Plastikin teksturasını, kiçik mətnin çap keyfiyyətini müqayisə edin və aptekdən və ya səlahiyyətli satıcıdan alın."
@@ -276,7 +276,7 @@
       "faq1a": "Yalnız ilk hərf vacibdir. O, istehsal ilini kodlayır, A = 2010-dan hesablayır və I və O-nu atlayır: N = 2022, P = 2023, Q = 2024, R = 2025. Ondan sonrakı hər şey daxili toplu seriyadır. Creed ayı kodlamır, ona görə də kod sizə bir il verir və bundan gözəl heç nə yoxdur.",
       "where2": "Daha köhnə, daha ağır flakonlarda kod çap etmək əvəzinə möhürlənə bilər; onu işığa qarşı çevirin.",
       "where1": "Şüşənin alt hissəsində və qutunun altında - ağ əsas etiketdə adətən qara rənglə çap olunur.",
-      "faq2q": "Kod mənə Yaşıl İrlandiya Tvidinin orijinal olub olmadığını deyə bilərmi?",
+      "faq2q": "Kod mənə Green Irish Tweed-in orijinal olub olmadığını deyə bilərmi?",
       "faq3q": "Köhnə Creed daha yaxşı Creed deməkdirmi?",
       "faq2a": "Qismən. Creed ətirdə ən çox saxtalaşdırılan evlər arasındadır və dövriyyədə ümumiyyətlə olmayan ilk hərf sadə bir ifadədir. Lakin kopyalanmış kod təmiz şəkildə deşifrə edir, ona görə də etibarlı kod sübut deyil – şüşəni çəkin, spreyi və qutunun çapına baxın və səlahiyyətli pərakəndə satıcıdan alın.",
       "faq3a": "Daha ağır, qatran tərkibli kompozisiyalar üçün həqiqətən köhnə şüşəyə üstünlük verilə bilər, çünki reformasiyalar bir neçə klassikanı dəyişib – və partiya kodu hansı formul alacağınızı müəyyən etməyin yeganə yoludur. Daha yüngül, sitruslu Creeds üçün yaş əsasən oksidləşmədir və heç bir faydası yoxdur."
@@ -334,7 +334,7 @@
       "where2": "Makiyaj: korpusun əsasında və ya kompaktın arxa tərəfində.",
       "where1": "Ətir (Acqua di Giò, Armani Code): qutunun altında və şüşənin əsas stikerində.",
       "faq1a": "Armani ətri L'Oréal tərəfindən hazırlanır, ona görə də kod qrupun formatına uyğundur: birinci hərf istehsal ili, ondan sonrakı simvol isə aydır. (Armani Code adlanan ətir və onun qutusunda möhürlənmiş partiya kodu, təəssüf ki, bir söz paylaşan əlaqəsiz şeylərdir.)",
-      "faq2q": "Acqua di Gio açılmamış nə qədər davam edir?",
+      "faq2q": "Acqua di Giò açılmadan nə qədər davam edir?",
       "faq1q": "Armani Code toplu nömrəsini necə deşifrə edə bilərəm?",
       "faq2a": "Tualet suyu üçün 3-5 il normaldır, parfüm suyu üçün isə daha uzun müddətdir. Ətir, şüşənin işıqdan və istidən uzaq olması şərti ilə mövcud olan ən bağışlayıcı kateqoriyadır."
     },
@@ -383,7 +383,7 @@
       "faq3a": "Xeyr. Düsturun saxlama müddəti bazarın deyil, məhsulun mülkiyyətidir. İsti iqlimlə dəyişən şey onun əslində nə qədər sürətlə pisləşməsidir: istilik real dünya həyatını çap olunandan xeyli aşağı qısaldır."
     },
     "kiehls": {
-      "faq2q": "Kiehl bankamdakı kod görünməzdir.",
+      "faq2q": "Mənim Kiehl's bankamdakı kod görünməzdir.",
       "where2": "Borular və göz kremləri: qıvrımlara sıxılır.",
       "faq1a": "Baza kodunu deşifrə edin: Kiehl's L'Oréal-dır, ona görə də ilk hərf il, ondan sonrakı simvol isə aydır. Açılmamış, təxminən 36 ay hesabla; açıldıqdan sonra açıq banka simvolu - adətən göz kremi üçün 12M, bu ilk bağlanacaq rəqəmdir.",
       "faq1q": "Kiehl's göz kreminin saxlama müddətini necə yoxlaya bilərəm?",
@@ -401,11 +401,11 @@
       "faq2a": "Sərin saxlanıldıqda üç ilə qədər açılmaz və bir dəfə açıldıqda təxminən 12 aya qədər. Günəş kremi çap tarixinin həqiqətən vacib olduğu bir məhsuldur, çünki pisləşmiş filtrlər etiketdə vəd etdiyindən daha az qorunma deməkdir."
     },
     "lancome": {
-      "faq1q": "Lancome toplu kodunu necə oxuya bilərəm?",
+      "faq1q": "Lancôme toplu kodunu necə oxuya bilərəm?",
       "where1": "Ətir: qutunun altında və şüşənin alt tərəfində.",
       "where2": "Dəriyə qulluq və tonal krem: qabın, boru qıvrımının və ya butulkanın əsasında qabartma və ya çap.",
       "faq1a": "Lancôme L'Oréal-dir: ilk hərf istehsal ilidir (V atlayırıq, beləliklə, U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) və ondan sonrakı simvol O, N və D ilə oktyabr, noyabr və dekabr aylarıdır.",
-      "faq2q": "Açılmamış Lancome dəriyə qulluq nə qədər davam edir?",
+      "faq2q": "Açılmamış Lancôme dəriyə qulluq nə qədər davam edir?",
       "faq2a": "İstehsaldan təxminən üç il, qeyri-sabit aktivlər üzərində qurulmuş məhsullar üçün daha az. Endirimçidən satın almadan əvvəl kodu deşifrə edin — köhnə ehtiyat orijinaldır, lakin onun açılmamış ömrü çox az qala bilər."
     },
     "loreal": {
@@ -471,10 +471,10 @@
       "faq3a": "Çapdan daha çox metal bazaya naxışlanmışdır, bu da onu birbaşa işıq altında demək olar ki, görünməz edir. Qalayı saxlayın ki, lampa əsası yan tərəfdən tutsun və simvollar görünsün."
     },
     "paco-rabanne": {
-      "faq1q": "Invictus və ya 1 Milyon toplu kodunu necə deşifrə edə bilərəm?",
+      "faq1q": "Invictus və ya 1 Million toplu kodunu necə deşifrə edə bilərəm?",
       "faq1a": "Paco Rabanne, istehsal tarixini şifrələmək əvəzinə kodda çap edən Puig tərəfindən hazırlanmışdır. Adi forma dörd rəqəmdir: birincisi ilin son rəqəmidir, qalan üçü həmin ilin günüdür — beləliklə, 4135 2024-cü ilin 135-ci günü, 14 may 2024-cü ildir.",
       "faq2a": "Saxtanı tuta bilər və həqiqi olanı təsdiqləyə bilməz. Paco Rabanne Avropada ən çox saxtalaşdırılan ətirlər arasındadır: qeyri-mümkün bir gün nömrəsi və ya qutu ilə butulka arasında ziddiyyət təşkil edən kodlar güclü xəbərdarlıqdır – lakin orijinal şüşədən kopyalanan kod mükəmməl şəkildə deşifrə edir. Şüşəni çəkin və sprey modelini də yoxlayın.",
-      "where1": "Qutunun altında və şüşənin alt tərəfində. Daha ağır şüşələrdə - 1 Milyon külçə, Invictus kuboku - kod tez-tez stikerdə deyil, metal və ya şüşəyə möhürlənir.",
+      "where1": "Qutunun altında və şüşənin alt tərəfində. Daha ağır şüşələrdə - 1 Million külçəsi, Invictus kuboku - kod tez-tez stikerdə deyil, metal və ya şüşəyə möhürlənir.",
       "faq2q": "Kod mənim Paco Rabanne-nin orijinal olduğunu sübut edə bilərmi?",
       "where2": "Şüşəni elə əyin ki, işıq ştampı yan tərəfdən tutsun; birbaşa işıq onu yox edir.",
       "faq3q": "Rabanne Paco Rabanne ilə eyni markadır?",
@@ -507,7 +507,7 @@
       "faq3a": "Xeyr. O, kobud saxtakarlığı – formata uyğun gəlməyən və ya qeyri-mümkün bir aya deşifrə edən kodu ifşa edə bilər, lakin kopyalanmış kod təmiz şəkildə deşifrə edir. Tom Ford ətri çox saxtadır; şüşəni çəkin, atomizator spreyini yoxlayın və səlahiyyətli satıcıdan alın."
     },
     "too-faced": {
-      "faq1q": "Çox Üzlü palitranın toplu kodunu necə yoxlaya bilərəm?",
+      "faq1q": "Too Faced palitrasının toplu kodunu necə yoxlaya bilərəm?",
       "where1": "Palitralar və kompaktlar: işin arxasında, bəzən plastik qabın altında.",
       "faq1a": "Too Faced Estée Lauder qrupuna aiddir, buna görə kod üç simvoldan ibarətdir - bitki, ay, il - sağdan oxunur. Əgər palitranızdakı kod həmin formaya uyğun gəlmirsə, bu, toplu kodu deyil, zavod xəttinin işarələnməsi ola bilər.",
       "faq2a": "Too Faced qablaşdırmadakı bəzi kodlar tarix kodları deyil, daxili xətt işarələridir və onlarda şifrəni açmaq üçün heç bir şey yoxdur. İkinci, daha qısa kod üçün korpusun əsasını və arxasını yoxlayın və əgər həqiqətən kod yoxdursa, açıq banka simvolu sizin ən yaxşı bələdçinizdir.",

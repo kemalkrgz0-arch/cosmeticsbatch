@@ -149,7 +149,7 @@
     "a10": "Não. Os códigos são decodificados no seu navegador e não exigimos uma conta. Nada que você digita é salvo em um servidor, portanto, a verificação de um código é totalmente privada."
   },
   "result": {
-    "statusFresh": "Fresco",
+    "statusFresh": "Fresh",
     "statusExpired": "Prazo de validade passado",
     "statusUseSoon": "Use em breve",
     "statusGood": "Ainda bem",
@@ -274,7 +274,7 @@
     "creed": {
       "where1": "Na base do frasco e no fundo da caixa – geralmente impresso em preto no adesivo branco da base.",
       "faq2q": "O código pode me dizer se meu Green Irish Tweed é genuíno?",
-      "faq3q": "Um Credo mais antigo significa um Credo melhor?",
+      "faq3q": "Um Creed mais antigo significa um Creed melhor?",
       "faq1q": "Como leio um código de lote Creed?",
       "faq1a": "Apenas a primeira letra importa. Codifica o ano de produção, contando a partir de A = 2010 e pulando I e O: N = 2022, P = 2023, Q = 2024, R = 2025. Tudo depois é uma série de lotes internos. Creed não codifica o mês, então o código fornece um ano e nada melhor.",
       "where2": "Nos frascos mais antigos e mais pesados, o código pode ser carimbado em vez de impresso; incline-o contra a luz.",
@@ -333,7 +333,7 @@
     "giorgio-armani-beauty": {
       "faq1q": "Como decodifico um número de lote do Armani Code?",
       "faq2a": "Três a cinco anos é normal para uma eau de toilette, mais tempo para uma eau de parfum. A fragrância é a categoria mais indulgente que existe, desde que o frasco seja mantido longe da luz e do calor.",
-      "where1": "Fragrância (Acqua di Giò, Código Armani): no fundo da caixa e no adesivo da base do frasco.",
+      "where1": "Fragrância (Acqua di Giò, Armani Code): no fundo da caixa e no adesivo da base do frasco.",
       "where2": "Maquiagem: na base do case ou no verso do compacto.",
       "faq1a": "A fragrância Armani é da L'Oréal, então o código segue o formato do grupo: a primeira letra é o ano de produção, o caractere depois é o mês. (A fragrância chamada Armani Code e o código do lote estampado em sua caixa são coisas não relacionadas que infelizmente compartilham uma palavra.)",
       "faq2q": "Quanto tempo dura o Acqua di Giò fechado?"
@@ -388,7 +388,7 @@
       "where1": "Frascos e garrafas: estampados na base, geralmente em relevo em vez de impressos - incline-os sob a luz.",
       "faq2a": "Geralmente é gravado na base em vez de pintado. Os códigos em relevo desaparecem sob a luz direta e aparecem quando a luz os atinge lateralmente - vire o frasco lentamente contra uma lâmpada.",
       "faq1a": "Decodifique o código na base: Kiehl's é L'Oréal, então a primeira letra é o ano e o caractere seguinte é o mês. Fechado, calcule cerca de 36 meses; uma vez aberto, o símbolo do frasco aberto – normalmente 12M para um creme para os olhos, que é o número que será vinculado primeiro.",
-      "faq2q": "O código no meu jarro Kiehl é invisível."
+      "faq2q": "O código no meu jar Kiehl's é invisível."
     },
     "la-roche-posay": {
       "where2": "Frascos e protetor solar Anthelios: impressos no contra-rótulo, geralmente acompanhados do prazo de validade genuíno.",
@@ -472,11 +472,11 @@
     },
     "paco-rabanne": {
       "where2": "Incline a garrafa para que a luz pegue o carimbo lateralmente; uma luz direta faz com que desapareça.",
-      "where1": "No fundo da caixa e na parte inferior da garrafa. Nas garrafas mais pesadas – o lingote de 1 milhão, o troféu Invictus – o código é frequentemente estampado no metal ou no vidro, em vez de impresso em um adesivo.",
+      "where1": "No fundo da caixa e na parte inferior da garrafa. Nas garrafas mais pesadas – o lingote 1 Million, o troféu Invictus – o código costuma ser estampado no metal ou no vidro, em vez de impresso em um adesivo.",
       "faq3q": "Rabanne é a mesma marca de Paco Rabanne?",
       "faq2q": "O código pode provar que meu Paco Rabanne é genuíno?",
       "faq2a": "Ele pode detectar uma falsificação e não pode certificar uma verdadeira. Paco Rabanne está entre as fragrâncias mais falsificadas na Europa: um número de dia impossível, ou códigos que discordam entre a caixa e o frasco, são avisos fortes – mas um código copiado de um frasco genuíno descodifica perfeitamente. Pese o frasco e verifique também o padrão de pulverização.",
-      "faq1q": "Como decodifico um código de lote Invictus ou 1 milhão?",
+      "faq1q": "Como decodifico um código de lote Invictus ou 1 Million?",
       "faq1a": "Paco Rabanne é fabricado pela Puig, que imprime a data de produção no código em vez de criptografá-lo. A forma usual é de quatro dígitos: o primeiro é o último dígito do ano, os três restantes são o dia desse ano – então 4135 é o 135º dia de 2024, 14 de maio de 2024.",
       "faq3a": "Sim – a casa retirou ‘Paco’ de seu nome em 2023. O estoque mais antigo traz a marca anterior e o formato do código não mudou."
     },

@@ -149,7 +149,7 @@
     "q9": "Varför kan min batchkod inte avkodas?"
   },
   "result": {
-    "statusFresh": "Färsk",
+    "statusFresh": "Fresh",
     "statusUnknown": "Ej avkodad",
     "statusGood": "Fortfarande bra",
     "statusExpired": "Tidigare hållbarhetstid",
@@ -277,7 +277,7 @@
       "faq1q": "Hur läser jag en Creed batchkod?",
       "faq2q": "Kan koden tala om för mig om min Green Irish Tweed är äkta?",
       "faq2a": "Delvis. Creed är bland de mest förfalskade husen i doft, och en första bokstav som inte alls finns i kretsloppet är en enkel berättelse. Men en kopierad kod avkodar rent, så en giltig kod är inget bevis – väg flaskan, titta på sprayen och kartongen och köp från en auktoriserad återförsäljare.",
-      "faq3q": "Betyder en äldre trosbekännelse en bättre trosbekännelse?",
+      "faq3q": "Betyder en äldre Creed en bättre Creed?",
       "faq1a": "Bara den första bokstaven spelar roll. Den kodar produktionsåret, räknat från A = 2010 och hoppar över I och O: N = 2022, P = 2023, Q = 2024, R = 2025. Allt efter det är en intern batchserie. Creed kodar inte månaden, så koden ger dig ett år och inget finare.",
       "faq3a": "För de tyngre, hartsartade kompositionerna kan en äldre flaska verkligen vara att föredra, eftersom omformuleringar har förändrat flera klassiker - och batchkoden är det enda sättet att fastställa vilken formel du köper. För de lättare, citrusledda Creeds är ålder mestadels oxidation och ingen fördel alls."
     },
@@ -384,11 +384,11 @@
     },
     "kiehls": {
       "where2": "Tuber och ögonkrämer: pressas in i crimpen.",
-      "faq1q": "Hur kontrollerar jag hållbarheten för Kiehls ögonkräm?",
+      "faq1q": "Hur kontrollerar jag hållbarheten för Kiehl's ögonkräm?",
       "where1": "Burkar och flaskor: stämplade på basen, ofta präglade istället för tryckta - luta den under ett ljus.",
       "faq2a": "Det är vanligtvis präglat i basen snarare än färgat. Präglade koder försvinner under ett direkt ljus och dyker upp när ljuset drar över dem från sidan - vänd burken långsamt mot en lampa.",
       "faq1a": "Avkoda koden på basen: Kiehl's är L'Oréal, så den första bokstaven är året och tecknet efter månaden. Oöppnad, räkna med cirka 36 månader; när den öppnats, symbolen med öppen burk - vanligtvis 12M för en ögonkräm, vilket är det nummer som binder först.",
-      "faq2q": "Koden på min Kiehls burk är osynlig."
+      "faq2q": "Koden på min Kiehl's-burk är osynlig."
     },
     "la-roche-posay": {
       "faq1q": "Var är utgångsdatumet på La Roche-Posay?",
@@ -473,7 +473,7 @@
     "paco-rabanne": {
       "faq2q": "Kan koden bevisa att min Paco Rabanne är äkta?",
       "faq3q": "Är Rabanne samma märke som Paco Rabanne?",
-      "where1": "På botten av lådan och på undersidan av flaskan. På de tyngre flaskorna – 1 miljon götet, Invictus-trofén – är koden ofta stämplad i metallen eller glaset snarare än tryckt på ett klistermärke.",
+      "where1": "På botten av lådan och på undersidan av flaskan. På de tyngre flaskorna - 1 Million-götet, Invictus-trofén - är koden ofta stämplad i metallen eller glaset snarare än tryckt på ett klistermärke.",
       "where2": "Luta flaskan så att ljuset fångar stämpeln från sidan; ett direkt ljus gör att den försvinner.",
       "faq1q": "Hur avkodar jag en Invictus- eller 1 Million batch-kod?",
       "faq2a": "Den kan fånga en falsk och kan inte intyga en riktig. Paco Rabanne är bland de mest förfalskade dofterna i Europa: ett omöjligt dagnummer, eller koder som inte stämmer överens mellan låda och flaska, är starka varningar - men en kod kopierad från en äkta flaska avkodar perfekt. Väg flaskan och kontrollera även spraymönstret.",

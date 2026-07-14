@@ -149,7 +149,7 @@
     "q10": "Gemmer du mine batchkoder eller personlige data?"
   },
   "result": {
-    "statusFresh": "Frisk",
+    "statusFresh": "Fresh",
     "manufactureDate": "Fremstillingsdato",
     "statusGood": "Stadig god",
     "statusUseSoon": "Brug snart",
@@ -276,7 +276,7 @@
       "faq1q": "Hvordan læser jeg en Creed batchkode?",
       "where2": "On the older, heavier flacons the code can be stamped rather than printed; vinkle den mod lyset.",
       "faq1a": "Kun det første bogstav betyder noget. Den koder for produktionsåret, tæller fra A = 2010 og springer I og O over: N = 2022, P = 2023, Q = 2024, R = 2025. Alt efter det er en intern batch-serie. Creed does not encode the month, so the code gives you a year and nothing finer.",
-      "faq3q": "Betyder en ældre trosbekendelse en bedre trosbekendelse?",
+      "faq3q": "Betyder en ældre Creed en bedre Creed?",
       "faq2a": "Dels. Creed is among the most counterfeited houses in fragrance, and a first letter that is not in the cycle at all is a straightforward tell. Men en kopieret kode afkoder rent, så en gyldig kode er ikke bevis - vej flasken, se på sprayen og boksens udskrift, og køb hos en autoriseret forhandler.",
       "faq3a": "For de tungere, harpiksholdige sammensætninger kan en ældre flaske virkelig være at foretrække, fordi omformuleringer har ændret flere klassikere - og batchkoden er den eneste måde at fastslå, hvilken formel du køber. For the lighter, citrus-led Creeds, age is mostly oxidation and no benefit at all.",
       "faq2q": "Kan koden fortælle mig, om min Green Irish Tweed er ægte?"
@@ -385,10 +385,10 @@
     "kiehls": {
       "where1": "Krukker og flasker: stemplet på bunden, ofte præget i stedet for trykt - vip den under et lys.",
       "where2": "Tuber og øjencremer: presset ind i crimpen.",
-      "faq2q": "Koden på min Kiehls krukke er usynlig.",
+      "faq2q": "Koden på min Kiehl's-krukke er usynlig.",
       "faq1a": "Afkode koden på basen: Kiehl's er L'Oréal, så det første bogstav er året og tegnet efter det måneden. Uåbnet, regn med omkring 36 måneder; når den er åbnet, symbolet med åben krukke - typisk 12M for en øjencreme, som er det tal, der binder først.",
       "faq2a": "Det er normalt præget ind i bunden i stedet for sværtet. Prægede koder forsvinder under et direkte lys og vises, når lyset river hen over dem fra siden - vend krukken langsomt mod en lampe.",
-      "faq1q": "Hvordan tjekker jeg holdbarheden af ​​Kiehls øjencreme?"
+      "faq1q": "Hvordan kontrollerer jeg holdbarheden af ​​Kiehl's øjencreme?"
     },
     "la-roche-posay": {
       "where1": "Rør: presset ind i krympen i den forseglede ende.",
@@ -471,8 +471,8 @@
       "faq2a": "Solbeskyttelse har normalt en trykt udløbsdato, fordi SPF-kravet behandles som et sikkerhedskrav. Brug den udskrevne dato i stedet for et afkodet skøn - og behandl en flaske, der har tilbragt en sommer i en varm bil, som færdig, uanset hvad datoen siger."
     },
     "paco-rabanne": {
-      "faq1q": "Hvordan afkoder jeg en Invictus- eller 1 million batchkode?",
-      "where1": "På bunden af ​​æsken og på undersiden af ​​flasken. På de tungere flasker - 1 million barren, Invictus-trofæet - er koden ofte stemplet ind i metallet eller glasset i stedet for at blive trykt på et klistermærke.",
+      "faq1q": "Hvordan afkoder jeg en Invictus- eller 1 Million-batchkode?",
+      "where1": "På bunden af ​​æsken og på undersiden af ​​flasken. På de tungere flasker - 1 Million-barren, Invictus-trofæet - er koden ofte stemplet ind i metallet eller glasset i stedet for at blive trykt på et klistermærke.",
       "faq2q": "Kan koden bevise, at min Paco Rabanne er ægte?",
       "where2": "Vip flasken, så lyset fanger stemplet fra siden; et direkte lys får det til at forsvinde.",
       "faq3q": "Er Rabanne det samme mærke som Paco Rabanne?",

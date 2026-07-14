@@ -149,7 +149,7 @@
     "a10": "Tidak. Kod dinyahkod dalam pelayar anda dan kami tidak memerlukan akaun. Tiada apa yang anda taip disimpan ke pelayan, jadi menyemak kod adalah peribadi sepenuhnya."
   },
   "result": {
-    "statusFresh": "Segar",
+    "statusFresh": "Fresh",
     "statusGood": "Masih Baik",
     "statusUseSoon": "Guna Segera",
     "statusExpired": "Melepasi Jangka Hayat",
@@ -247,7 +247,7 @@
       "faq1q": "Bagaimanakah cara saya menyemak jangka hayat produk CeraVe?",
       "faq1a": "CeraVe dibuat oleh L'Oréal, jadi kod mengikut format kumpulan: huruf pertama ialah tahun pengeluaran dan watak selepasnya ialah bulan. Nyahkodkannya untuk tarikh pembuatan, kemudian kira kira-kira 36 bulan belum dibuka. Setelah dibuka, simbol balang terbuka mengambil alih — 12 bulan untuk kebanyakan julat.",
       "where1": "Tiub dan pembersih: ditekan ke dalam kelim di hujung tiub yang tertutup.",
-      "where2": "Botol pam (Pembersih SA, losyen pelembap): dicetak inkjet pada label belakang atau pada tapak.",
+      "where2": "Botol pam (SA Cleanser, losyen pelembap): dicetak inkjet pada label belakang atau pada tapak.",
       "faq3q": "Bagaimanakah saya boleh mengetahui sama ada CeraVe adalah tiruan?",
       "faq2q": "Adakah terdapat tarikh luput pada CeraVe?",
       "faq2a": "Garis dermatologi sering mencetak satu, dan pelindung matahari hampir selalu melakukannya. Jika tarikh yang dicetak wujud, percayalah: ia adalah jaminan pengilang sendiri dan ia mengatasi apa sahaja yang boleh dianggarkan oleh penyahkod.",
@@ -276,7 +276,7 @@
       "where2": "Pada flakon yang lebih lama dan lebih berat kod boleh dicop dan bukannya dicetak; sudutkannya terhadap cahaya.",
       "where1": "Di pangkal botol, dan di bahagian bawah kotak — biasanya dicetak dalam warna hitam pada pelekat asas putih.",
       "faq1q": "Bagaimanakah saya membaca kod kelompok Creed?",
-      "faq3q": "Adakah Akidah yang lebih lama bermakna Akidah yang lebih baik?",
+      "faq3q": "Adakah Creed yang lebih lama bermakna Creed yang lebih baik?",
       "faq1a": "Hanya huruf pertama yang penting. Ia mengekodkan tahun pengeluaran, mengira dari A = 2010 dan melangkau I dan O: N = 2022, P = 2023, Q = 2024, R = 2025. Semuanya selepas itu adalah siri kelompok dalaman. Creed tidak mengekod bulan, jadi kod itu memberi anda setahun dan tiada yang lebih baik.",
       "faq2a": "Sebahagiannya. Creed adalah antara rumah yang paling dipalsukan dalam wangian, dan huruf pertama yang tidak ada dalam kitaran sama sekali adalah memberitahu secara langsung. Tetapi kod yang disalin menyahkod dengan bersih, jadi kod yang sah bukan bukti — timbang botol, lihat semburan dan cetakan kotak, dan beli daripada peruncit yang sah.",
       "faq3a": "Untuk komposisi resin yang lebih berat, botol yang lebih lama boleh menjadi pilihan, kerana perumusan semula telah mengubah beberapa klasik — dan kod kelompok adalah satu-satunya cara untuk menentukan formula yang anda beli. Untuk Creeds yang lebih ringan, diterajui oleh sitrus, usia kebanyakannya adalah pengoksidaan dan tiada faedah langsung."
@@ -335,7 +335,7 @@
       "where2": "Solek: pada dasar kes atau belakang kompak.",
       "faq1a": "Haruman Armani dibuat oleh L'Oréal, jadi kodnya mengikut format kumpulan: huruf pertama ialah tahun pengeluaran, watak selepasnya ialah bulan. (Haruman yang dipanggil Armani Code dan kod kelompok yang dicop pada kotaknya adalah perkara yang tidak berkaitan yang malangnya berkongsi perkataan.)",
       "faq2q": "Berapa lamakah Acqua di Giò bertahan tanpa dibuka?",
-      "faq1q": "Bagaimanakah cara saya menyahkod nombor kumpulan Kod Armani?",
+      "faq1q": "Bagaimanakah cara saya menyahkod nombor kelompok Armani Code?",
       "faq2a": "Tiga hingga lima tahun adalah perkara biasa untuk eau de toilette, lebih lama untuk eau de parfum. Wangian adalah kategori yang paling memaafkan yang ada, dengan syarat botol itu dijauhkan daripada cahaya dan haba."
     },
     "guerlain": {
@@ -384,10 +384,10 @@
     },
     "kiehls": {
       "where1": "Balang dan botol: dicop pada tapak, selalunya timbul daripada dicetak — condongkannya di bawah lampu.",
-      "faq1q": "Bagaimanakah cara saya menyemak jangka hayat krim mata Kiehl?",
+      "faq1q": "Bagaimanakah cara saya menyemak jangka hayat krim mata Kiehl's?",
       "faq2a": "Ia biasanya timbul ke dalam pangkalan dan bukannya dakwat. Kod timbul hilang di bawah cahaya langsung dan muncul apabila cahaya menyambarnya dari sisi — pusingkan balang perlahan-lahan pada lampu.",
       "where2": "Tiub dan krim mata: ditekan ke dalam kelim.",
-      "faq2q": "Kod pada balang Kiehl saya tidak kelihatan.",
+      "faq2q": "Kod pada balang Kiehl's saya tidak kelihatan.",
       "faq1a": "Nyahkod kod pada pangkalan: Kiehl's ialah L'Oréal, jadi huruf pertama ialah tahun dan aksara selepasnya bulan. Belum dibuka, kira kira-kira 36 bulan; sebaik dibuka, simbol balang terbuka — biasanya 12M untuk krim mata, iaitu nombor yang akan diikat dahulu."
     },
     "la-roche-posay": {
@@ -471,8 +471,8 @@
       "faq2a": "Perlindungan matahari biasanya mempunyai tarikh luput yang dicetak, kerana tuntutan SPF dianggap sebagai tuntutan keselamatan. Gunakan tarikh yang dicetak dan bukannya anggaran yang dinyahkodkan — dan layan sebotol yang menghabiskan masa musim panas di dalam kereta panas sebagai siap tanpa mengira tarikh itu."
     },
     "paco-rabanne": {
-      "where1": "Di bahagian bawah kotak, dan di bahagian bawah botol. Pada botol yang lebih berat — jongkong 1 Juta, trofi Invictus — kod itu sering dicop ke dalam logam atau kaca dan bukannya dicetak pada pelekat.",
-      "faq1q": "Bagaimanakah cara saya menyahkod kod kelompok Invictus atau 1 Juta?",
+      "where1": "Di bahagian bawah kotak, dan di bahagian bawah botol. Pada botol yang lebih berat — jongkong 1 Million, trofi Invictus — kod selalunya dicop ke dalam logam atau kaca dan bukannya dicetak pada pelekat.",
+      "faq1q": "Bagaimanakah cara saya menyahkod kod kelompok Invictus atau 1 Million?",
       "faq2q": "Bolehkah kod itu membuktikan Paco Rabanne saya tulen?",
       "faq3q": "Adakah Rabanne jenama yang sama dengan Paco Rabanne?",
       "where2": "Condongkan botol supaya cahaya menangkap setem dari sisi; cahaya langsung menjadikannya hilang.",
@@ -510,7 +510,7 @@
       "faq1a": "Too Faced tergolong dalam kumpulan Estée Lauder, jadi kodnya ialah tiga aksara — tumbuhan, bulan, tahun — dibaca dari kanan. Jika kod pada palet anda tidak sesuai dengan bentuk itu, ia mungkin tanda garis kilang dan bukannya kod kelompok.",
       "where1": "Palet dan padat: di belakang sarung, kadangkala di bawah dulang plastik.",
       "where2": "Produk cecair: pada dasar botol atau kelim tiub.",
-      "faq1q": "Bagaimanakah cara saya menyemak kod kelompok palet Terlalu Dihadapi?",
+      "faq1q": "Bagaimanakah cara saya menyemak kod kelompok palet Too Faced?",
       "faq2q": "Kod My Too Faced tidak akan menyahkod.",
       "faq2a": "Sesetengah kod pada pembungkusan Too Faced ialah tanda garis dalaman, bukan kod tarikh dan tiada apa-apa di dalamnya untuk dinyahkodkan. Periksa bahagian bawah dan belakang sarung untuk kod kedua yang lebih pendek — dan jika benar-benar tidak ada, simbol balang terbuka ialah panduan terbaik anda."
     },

@@ -149,7 +149,7 @@
     "a10": "Non. Les codes sont décodés dans votre navigateur et nous n'avons pas besoin de compte. Rien de ce que vous tapez n’est enregistré sur un serveur, donc la vérification d’un code est totalement privée."
   },
   "result": {
-    "statusFresh": "Frais",
+    "statusFresh": "Fresh",
     "statusUseSoon": "Utiliser bientôt",
     "age": "Âge",
     "shelfLife": "Durée de conservation",
@@ -277,7 +277,7 @@
       "where2": "Sur les flacons plus anciens et plus lourds, le code peut être estampillé plutôt qu'imprimé ; inclinez-le à contre-jour.",
       "faq2q": "Le code peut-il me dire si mon Green Irish Tweed est authentique ?",
       "faq2a": "En partie. Creed est l'une des maisons de parfums les plus contrefaites, et une première lettre qui ne figure pas du tout dans le cycle est un révélateur simple. Mais un code copié se décode proprement, donc un code valide ne constitue pas une preuve : pesez le flacon, regardez le spray et l'impression de la boîte, et achetez auprès d'un détaillant agréé.",
-      "faq3q": "Un Credo plus ancien signifie-t-il un Credo meilleur ?",
+      "faq3q": "Un Creed plus ancien signifie-t-il un meilleur Creed ?",
       "faq1a": "Seule la première lettre compte. Il code l'année de production, en comptant à partir de A = 2010 et en sautant I et O : N = 2022, P = 2023, Q = 2024, R = 2025. Tout ce qui suit est une série de lots internes. Creed n'encode pas le mois, donc le code vous donne une année et rien de mieux.",
       "faq3a": "Pour les compositions plus lourdes et résineuses, une bouteille plus ancienne peut véritablement être préférable, car les reformulations ont modifié plusieurs classiques – et le code de lot est le seul moyen de déterminer la formule que vous achetez. Pour les Creeds plus légers et à base d'agrumes, l'âge est principalement une oxydation et aucun avantage du tout."
     },

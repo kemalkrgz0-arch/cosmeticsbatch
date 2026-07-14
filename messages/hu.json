@@ -149,7 +149,7 @@
     "q10": "Tárolja a kötegkódjaimat vagy személyes adataimat?"
   },
   "result": {
-    "statusFresh": "Friss",
+    "statusFresh": "Fresh",
     "statusUseSoon": "Hamarosan használja",
     "manufactureDate": "Gyártási dátum",
     "statusExpired": "Múltbeli eltarthatósági idő",
@@ -275,7 +275,7 @@
       "where1": "A palack alján és a doboz alján – általában feketével nyomtatva a fehér alapmatricára.",
       "where2": "A régebbi, nehezebb lapokon a kód nyomtatás helyett bélyegzhető; döntse a fény felé.",
       "faq1q": "Hogyan olvashatok ki egy Creed kötegkódot?",
-      "faq3q": "Egy régebbi hitvallás jobb hitvallást jelent?",
+      "faq3q": "Egy régebbi Creed jobb Creed-et jelent?",
       "faq2a": "Részben. A Creed az illatban a legtöbbet hamisított házak közé tartozik, és az első betű, amely egyáltalán nem szerepel a ciklusban, egyenesen jelzi. A másolt kód azonban tisztán dekódol, ezért az érvényes kód nem bizonyíték – mérje meg az üveget, nézze meg a spray-t és a doboz nyomtatását, és vásároljon egy hivatalos viszonteladótól.",
       "faq3a": "A nehezebb, gyantás kompozícióknál valóban előnyösebb lehet egy régebbi palack, mert az újraformulálások számos klasszikust megváltoztattak – és a tételkód az egyetlen módja annak, hogy megállapítsa, melyik formulát vásárolja. A világosabb, citrusfélék által vezetett Creedek esetében az öregedés többnyire oxidáció, és semmi előnye.",
       "faq1a": "Csak az első betű számít. A gyártási évet kódolja, A = 2010-től számolva, és kihagyja az I-t és az O-t: N = 2022, P = 2023, Q = 2024, R = 2025. Minden utána egy belső tétel sorozat. A Creed nem kódolja a hónapot, így a kód egy évet ad, és semmivel sem finomabb.",
@@ -312,7 +312,7 @@
     "fenty-beauty": {
       "where1": "Alapozó és folyékony termékek: a palack aljára nyomtatva, vagy ott, ahol a címke a hátára tekered.",
       "where2": "Kompaktok, púderek és fényesek: a tok hátoldalán vagy a cső alján.",
-      "faq1a": "A kötegkód dekódolása – A Fenty LVMH márka, és a gyártási dátumot nyomtatja a kódba. Az a kód, amely lehetetlen dátumot produkál, vagy egyáltalán nincs dátum, figyelmeztetés. A másolt kód azonban tisztán dekódol, ezért használja a szokásos ellenőrzések mellett: nyomtatási minőség a csomagoláson, az applikátor tapintása, és közvetlenül a Sephorától vagy a Fentytől vásároljon.",
+      "faq1a": "A kötegkód dekódolása – A Fenty egy LVMH márka, és a gyártási dátumot nyomtatja ki a kódba. Az a kód, amely lehetetlen dátumot produkál, vagy egyáltalán nincs dátum, figyelmeztetés. De a másolt kód tisztán dekódol, ezért használja a szokásos ellenőrzések mellett: nyomtatási minőség a csomagoláson, az applikátor tapintása, és közvetlenül az Sephora-től vagy a Fenty-től vásároljon.",
       "faq1q": "Hogyan ellenőrizhetem, hogy a Fenty Beauty hiteles-e?",
       "faq2a": "Nem feltétlenül – a nem szkennelhető vonalkód általában nyomtatási vagy világítási probléma, és mindenesetre a vonalkód nem tartalmaz dátumot és hitelességi információt. A tételkód, a rövid, szabálytalan bélyegző jelzi, hogy a termék mikor készült.",
       "faq2q": "A Fenty termékem vonalkódja nem szkennelhető. Ez hamis?",
@@ -471,7 +471,7 @@
       "faq3a": "Nyomtatás helyett dombornyomott a fém alapba, ami közvetlen fényben szinte láthatatlanná teszi. Tartsa az ónt úgy, hogy oldalról egy lámpa elkapja a talpat, és megjelenjenek a karakterek."
     },
     "paco-rabanne": {
-      "where1": "A doboz alján és a palack alján. A nehezebb palackokon – az 1 milliós ingot, az Invictus trófeán – a kódot gyakran a fémbe vagy az üvegbe bélyegzik, nem pedig matricára nyomtatják.",
+      "where1": "A doboz alján és a palack alján. A nehezebb palackokon – az 1 Million ingot, az Invictus trófeán – a kódot gyakran a fémbe vagy az üvegbe bélyegzik, ahelyett, hogy egy matricára nyomtatnák.",
       "faq1q": "Hogyan dekódolhatok egy Invictus vagy 1 Million kötegkódot?",
       "faq3a": "Igen – a ház nevéből 2023-ban kikerült a „Paco”. A régebbi állomány a korábbi márkajelzést viseli, és a kódformátum nem változott.",
       "where2": "Döntse meg az üveget úgy, hogy a fény oldalról elkapja a bélyeget; közvetlen fény hatására eltűnik.",
@@ -563,7 +563,7 @@
     "brandsUsing": "Ezt a kódot használó márkák ({count})",
     "confidence": "{level} bizalom",
     "otherFormats": "Egyéb kódformátumok",
-    "formatsIntro": "A tételkód formátuma a terméket gyártóé, nem pedig a palackon szereplő névé. Coty ugyanazt a négy számjegyet bélyegzi a Rimmelen, a Gucciban és az Adidasban; Az Inter Parfums ugyanazt a kilenc karaktert bélyegzi a Montblanc-on, Coach-t és Jimmy Choo-t. Tanulja meg egyszer a titkosítást, és minden olyan márkát elolvashat, amely megosztja azt.",
+    "formatsIntro": "A tételkód formátuma a terméket gyártóé, nem pedig a palackon szereplő névé. Coty ugyanazt a négy számjegyet bélyegzi a Rimmel, Gucci és adidas; Az Inter Parfums ugyanazt a kilenc karaktert bélyegzi az Montblanc, Coach és Jimmy Choo karaktereken. Tanuld meg egyszer a titkosítást, és minden olyan márkát elolvashatsz, amelyik megosztja.",
     "formatsIntro2": "Minden alábbi oldal egy családot dokumentál: amit minden karakter kódol, valódi kódokat, amelyeket ugyanaz a motor dekódol, amely az ellenőrzőt hajtja, ahol a kód a csomagra van nyomtatva, és – ami ugyanilyen fontos –, amit a formátum nem árul el.",
     "brandCount": "márkák"
   }
