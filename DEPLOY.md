@@ -108,9 +108,15 @@ chown 1001:65533 /opt/cosmeticsbatch-data
 docker run -d --name cosmeticsbatch \
   --network yerelatlas_default --restart unless-stopped \
   -e DATASET_DIR=/data \
+  -e SUBMISSIONS_DIR=/data/submissions \
   -v /opt/cosmeticsbatch-data:/data \
   cosmeticsbatch:latest
 ```
+
+User-submitted batch-code photos are stored privately under
+`/opt/cosmeticsbatch-data/submissions`. They are never served from `public/`.
+Review `submissions/submissions.jsonl` for the pending queue and keep this volume
+in the normal server backup policy.
 
 Inspect the data on the host (no need to enter the container):
 

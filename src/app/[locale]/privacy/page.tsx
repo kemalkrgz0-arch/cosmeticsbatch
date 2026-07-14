@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
-const UPDATED = "July 3, 2026";
+const UPDATED = "July 14, 2026";
 
 export async function generateMetadata({
   params,
@@ -14,7 +14,7 @@ export async function generateMetadata({
   const { locale } = await params;
   return pageMeta({
     title: "Privacy Policy",
-    description: `How ${site.name} handles data, cookies and advertising. We decode batch codes in your browser and never sell your data.`,
+    description: `How ${site.name} handles batch-code checks, cookies and advertising, and the privacy safeguards we apply.`,
     path: "/privacy",
     locale,
   });
@@ -49,21 +49,37 @@ export default async function PrivacyPage({
         <p>
           This Privacy Policy explains how {site.name} (&ldquo;we&rdquo;,
           &ldquo;us&rdquo;) handles information when you use {site.url}. We built{" "}
-          {site.name} to be private by design: batch codes are decoded directly
-          in your browser and are never sent to or stored on our servers.
+          {site.name} to minimize personal data: no account is required and our
+          batch-code dataset does not contain IP addresses or names.
         </p>
 
         <H2>Information we collect</H2>
         <p>
           <strong>Batch codes &amp; searches.</strong> The batch codes you enter
-          are processed locally in your browser to calculate a manufacture date.
-          We do not transmit, log or store them.
+          are sent securely to our server to calculate a manufacture date. For
+          checks that appear to come from real users, we may retain the batch
+          code, selected brand, result, language, time and a country-level code
+          supplied by our network provider. We use this append-only dataset to
+          measure decoder quality and investigate invalid formats. We do not
+          include your IP address, name, email address or account identifier in
+          this dataset.
         </p>
         <p>
           <strong>Local storage.</strong> To improve your experience we may store
           small items in your browser&apos;s local storage — for example your
           recently selected brands and your light/dark theme preference. This
           data stays on your device and is not sent to us.
+        </p>
+        <p>
+          <strong>Code photos you submit.</strong> If you voluntarily send a
+          packaging photo for review, we retain the image, selected brand,
+          visible code, note and submission time in a private review queue. The
+          browser resizes and re-encodes supported images before upload to remove
+          embedded EXIF data such as GPS location. Please make sure faces,
+          addresses, receipts and other personal details are not visible. We may
+          crop and publish useful portions as examples only when you grant the
+          permission shown in the submission form. These submissions are not
+          linked to an account or stored with an IP address.
         </p>
         <p>
           <strong>Server logs.</strong> Like most websites, our hosting provider
@@ -128,8 +144,11 @@ export default async function PrivacyPage({
           Depending on your location, you may have rights under the GDPR, UK GDPR
           or CCPA — including access to, correction of, or deletion of personal
           data, and objecting to certain processing. Because we do not maintain
-          personal accounts or store the codes you check, most requests can be
-          satisfied by clearing your browser storage. For advertising data,
+          personal accounts or attach batch-code checks to a direct account
+          identifier, we may need the approximate check/submission time, brand,
+          code or photo reference to locate an entry. You can also ask us to
+          remove a submitted photo before publication. Browser-only preferences
+          can be removed by clearing your browser storage. For advertising data,
           please use the opt-out links above.
         </p>
 

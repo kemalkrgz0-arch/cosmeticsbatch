@@ -647,6 +647,16 @@ export function isIndexedBrand(brand: Brand): boolean {
   return !brand.hidden && Object.hasOwn(BRAND_DETAILS, brand.slug);
 }
 
+/**
+ * AdSense inventory is deliberately narrower than the functional brand list.
+ * A page is monetizable only after it has passed the same manual editorial
+ * threshold required for indexing and has a verified manufacturer decoder.
+ * Unreviewed brands remain useful, reachable tools — simply without ads.
+ */
+export function isMonetizableBrand(brand: Brand): boolean {
+  return isIndexedBrand(brand) && Boolean(brand.decoderId);
+}
+
 const bySlug = new Map(ALL_BRANDS.map((b) => [b.slug, b]));
 export function getBrand(slug: string): Brand | undefined {
   return bySlug.get(slug);

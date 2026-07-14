@@ -136,17 +136,6 @@ export default async function RootLayout({
           {ymEnabled && <YandexMetrica />}
           {(adsenseEnabled || gaEnabled || ymEnabled) && <CookieConsent />}
         </Providers>
-        {adsenseEnabled && (
-          // Load at browser idle (after paint) so the ad script doesn't compete
-          // with the LCP content for bandwidth on mobile. The site is already
-          // AdSense-verified, and adsbygoogle.push() calls queue until it loads.
-          <Script
-            id="adsense"
-            strategy="lazyOnload"
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense.client}`}
-            crossOrigin="anonymous"
-          />
-        )}
         {gaEnabled && (
           <>
             {/* Google Analytics 4 — deferred to idle; analytics doesn't need to

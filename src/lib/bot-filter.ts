@@ -37,7 +37,9 @@ export function isSameOriginBrowser(h: {
   host?: string | null;
 }): boolean {
   const sfs = h.secFetchSite?.toLowerCase();
-  if (sfs === "same-origin" || sfs === "same-site") return true;
+  // `same-site` can be a different, compromised subdomain. This endpoint is
+  // private to this exact origin, so only the stricter browser signal passes.
+  if (sfs === "same-origin") return true;
   // Fallback for browsers that don't send Sec-Fetch-Site: referer on our host.
   if (h.referer && h.host) {
     try {

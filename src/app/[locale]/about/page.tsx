@@ -96,9 +96,10 @@ export default async function AboutPage({
       <h2 className="mt-10 text-xl font-semibold">Your privacy</h2>
       <div className="mt-4 space-y-4 leading-relaxed text-fg-muted">
         <p>
-          Decoding happens on our server and the codes you enter are never stored
-          or logged. No account is required, and nothing you type is saved — so
-          checking a code stays completely private.
+          Decoding happens on our server and no account is required. To measure
+          decoder quality, we may retain the code, selected brand, result,
+          language, time and a country-level code; IP addresses are not included
+          in that quality dataset. See the Privacy Policy for the full details.
         </p>
       </div>
 

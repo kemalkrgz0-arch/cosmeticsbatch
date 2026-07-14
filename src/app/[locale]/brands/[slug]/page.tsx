@@ -8,10 +8,12 @@ import {
   BRANDS,
   getBrand,
   isIndexedBrand,
+  isMonetizableBrand,
   POPULAR_BRANDS,
 } from "@/lib/brands";
 import {
   brandDetail,
+  BRAND_DETAILS_UPDATED,
   MAX_FAQ_ITEMS,
   MAX_WHERE_LINES,
 } from "@/lib/brand-detail";
@@ -32,6 +34,7 @@ import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { JsonLd } from "@/components/json-ld";
+import { CodePhotoSubmission } from "@/components/code-photo-submission";
 
 export function generateStaticParams() {
   return BRANDS.map((b) => ({ slug: b.slug }));
@@ -95,6 +98,7 @@ export default async function BrandPage({
   // decoder, where the code sits on its packaging, and the questions people
   // actually search for it. Only brands that have this are indexable.
   const detail = brandDetail(brand.slug);
+  const monetizable = isMonetizableBrand(brand);
   const sample = detail
     ? DECODERS[brand.decoderId ?? ""]?.decode(detail.sampleCode, {
         now: new Date(),
@@ -151,13 +155,15 @@ export default async function BrandPage({
       <JsonLd
         data={[
           breadcrumbSchema(crumbs),
-          faqSchema([...detailFaq, ...brandFaq]),
-          articleSchema({
+          ...(detail ? [
+            faqSchema([...detailFaq, ...brandFaq]),
+            articleSchema({
             title: tb("checkerTitle", { name: brand.name }),
             description: tb("blurb", { name: brand.name, category }),
             path,
-            updated: "2026-06-01",
-          }),
+            updated: BRAND_DETAILS_UPDATED,
+            }),
+          ] : []),
         ]}
       />
       <Breadcrumbs items={crumbs} />
@@ -205,6 +211,8 @@ export default async function BrandPage({
       <Suspense fallback={null}>
         <InlineResult brand={brand} />
       </Suspense>
+
+      <CodePhotoSubmission brand={brand} />
 
       {/* Quick facts */}
       <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -332,7 +340,9 @@ export default async function BrandPage({
         </section>
       )}
 
-      <AdSlot placement="brand" className="my-12" height={250} />
+      {monetizable && (
+        <AdSlot placement="brand" className="my-12" height={250} />
+      )}
 
       {/* Brand-specific questions first (they are what people actually search
           for), then the shared category questions. */}

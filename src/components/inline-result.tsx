@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import type { CheckResult } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultCard } from "@/components/result-card";
-import { AdSlot } from "@/components/ui/ad-slot";
 
 type LoadState =
   | { status: "loading"; result: null }
@@ -56,9 +55,8 @@ export function InlineResult({ brand }: { brand: Brand }) {
     return () => controller.abort();
   }, [code, brand.slug, attempt]);
 
-  // Scroll to the result block as soon as a code is being checked — not after
-  // the decode resolves. The block leads with the ad (fixed height, so no
-  // layout shift), so the user lands on the ad while the result loads in below.
+  // Scroll to the result block as soon as a code is being checked, rather than
+  // waiting for the decode to resolve.
   useEffect(() => {
     if (code && ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -69,8 +67,6 @@ export function InlineResult({ brand }: { brand: Brand }) {
 
   return (
     <div id="result" ref={ref} className="mt-8 scroll-mt-24">
-      {/* On search, show an ad first, then the decode result below it. */}
-      <AdSlot placement="result" className="mb-6" height={250} />
       <ResultContent
         key={`${brand.slug}:${code}:${attempt}`}
         load={load}

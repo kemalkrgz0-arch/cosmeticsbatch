@@ -32,6 +32,9 @@ export interface BrandDetail {
   sampleCode: string;
 }
 
+/** Last manual editorial/decoder review of the monetizable brand collection. */
+export const BRAND_DETAILS_UPDATED = "2026-07-14";
+
 /** How many where/FAQ entries a page will probe for in messages. */
 export const MAX_WHERE_LINES = 4;
 export const MAX_FAQ_ITEMS = 4;

@@ -56,10 +56,27 @@ function humanizeAge(days: number): string {
     : `${years} year${years === 1 ? "" : "s"}`;
 }
 
+/** UPC-A / EAN-13 / GTIN-14 checksum, used only to reject obvious barcodes. */
+function isRetailBarcode(value: string): boolean {
+  if (!/^\d{12,14}$/.test(value)) return false;
+  const digits = [...value].map(Number);
+  const check = digits.pop()!;
+  let sum = 0;
+  for (let i = digits.length - 1, position = 1; i >= 0; i--, position++) {
+    sum += digits[i] * (position % 2 === 1 ? 3 : 1);
+  }
+  return (10 - (sum % 10)) % 10 === check;
+}
+
 export function checkBatchCode(input: CheckInput): CheckResult {
   const now = input.now ?? new Date();
   const ctx = { now };
   const notes: string[] = [];
+  const trimmedCode = input.code.trim();
+
+  // Long retail identifiers can contain a 4–6 digit substring that resembles
+  // a Julian date. A checksum-valid UPC/EAN/GTIN is not a batch code.
+  const barcode = isRetailBarcode(trimmedCode.replace(/\s+/g, ""));
 
   // 1. Try dedicated decoder, then fallback chain.
   const tried = [getDecoder(input.decoderId), ...FALLBACK_CHAIN].filter(
@@ -69,7 +86,7 @@ export function checkBatchCode(input: CheckInput): CheckResult {
   let method = "No date could be read from this code";
   let confidence: Confidence = "none";
 
-  for (const decoder of tried) {
+  for (const decoder of barcode ? [] : tried) {
     const res = decoder.decode(input.code, ctx);
     if (res && res.manufactureDate) {
       attempt = res;
@@ -82,7 +99,7 @@ export function checkBatchCode(input: CheckInput): CheckResult {
 
   const base: CheckResult = {
     brandName: input.brandName,
-    code: input.code.trim(),
+    code: trimmedCode,
     decoded: false,
     manufactureDate: null,
     expirationDate: null,
@@ -97,8 +114,9 @@ export function checkBatchCode(input: CheckInput): CheckResult {
   };
 
   if (!attempt || !attempt.manufactureDate) {
-    base.notes.push(
-      "We couldn't automatically decode this code. Double-check it matches the code stamped on the packaging (not the barcode).",
+    base.notes.push(barcode
+      ? "This looks like a retail barcode (UPC/EAN/GTIN), not a batch code. Look for a separate short stamp on the packaging."
+      : "We couldn't automatically decode this code. Double-check it matches the code stamped on the packaging (not the barcode).",
     );
     return base;
   }

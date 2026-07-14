@@ -10,7 +10,7 @@ export const HOME_FAQ: FaqItem[] = [
   },
   {
     q: "Is this batch code checker free?",
-    a: "Yes. Cosmetics Batch is completely free, requires no account, and decodes codes directly in your browser.",
+    a: "Yes. Cosmetics Batch is completely free, requires no account, and processes codes securely on the server.",
   },
   {
     q: "How accurate are the results?",
@@ -42,6 +42,6 @@ export const HOME_FAQ: FaqItem[] = [
   },
   {
     q: "Do you store my batch codes or personal data?",
-    a: "No. Codes are decoded in your browser and we don't require an account. Nothing you type is saved to a server, so checking a code is completely private.",
+    a: "No account is required and IP addresses are not included in the batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve decoder accuracy; see the Privacy Policy for details.",
   },
 ];

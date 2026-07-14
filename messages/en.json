@@ -122,7 +122,7 @@
     "q_accuracy": "How accurate is this {name} batch code decoder?",
     "a_accuracy": "We read the manufacture date using {decoder}. Where {group} publishes a known code scheme the result is precise to the month or day; where the brand doesn't confirm a public scheme it's a best-estimate reading. The date is the manufacture date, not a guaranteed expiry — shelf-life figures are typical industry averages.",
     "q_free": "Is the {name} batch code checker free?",
-    "a_free": "Yes — decoding {name} batch codes on Cosmetics Batch is completely free, works instantly in your browser with no sign-up, and your codes are never stored or sent to a server.",
+    "a_free": "Yes — decoding {name} batch codes on Cosmetics Batch is completely free and requires no sign-up. Checks are processed securely on our server; IP addresses are not included in our batch-code quality dataset.",
     "decoderKnown": "a manufacturer-specific code scheme",
     "decoderAuto": "automatic date detection"
   },
@@ -130,7 +130,7 @@
     "q1": "What is a batch code?",
     "a1": "A batch code is a short code printed on cosmetic and perfume packaging that identifies the production run. Decoding it reveals when the product was manufactured.",
     "q2": "Is this batch code checker free?",
-    "a2": "Yes. Cosmetics Batch is completely free, requires no account, and decodes codes directly in your browser.",
+    "a2": "Yes. Cosmetics Batch is completely free, requires no account, and processes codes securely on the server.",
     "q3": "How accurate are the results?",
     "a3": "We use manufacturer-specific algorithms where available and honest confidence levels elsewhere. Shelf-life estimates are typical values, not guarantees of safety.",
     "q4": "Where do I find my batch code?",
@@ -146,7 +146,7 @@
     "q9": "Why can't my batch code be decoded?",
     "a9": "Some brands change their coding over time, use region-specific formats, or don't encode the date publicly. Double-check you entered the stamped batch code (not the barcode), or try selecting the parent company instead of the sub-brand.",
     "q10": "Do you store my batch codes or personal data?",
-    "a10": "No. Codes are decoded in your browser and we don't require an account. Nothing you type is saved to a server, so checking a code is completely private."
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve decoder accuracy; see the Privacy Policy for details."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -158,7 +158,7 @@
     "manufactureDate": "Manufacture date",
     "age": "Age",
     "shelfLife": "Shelf life",
-    "expirationDate": "Expiration date",
+    "expirationDate": "Estimated unopened shelf-life date",
     "freshness": "Freshness",
     "confidence": "Confidence",
     "pao": "After opening (PAO)",
@@ -176,7 +176,7 @@
     "shareMade": "made {date}",
     "shareLifeLeft": "{n}% life left",
     "addToCalendar": "Add expiry to calendar",
-    "calendarTitle": "{name} — replace by this date",
+    "calendarTitle": "{name} — estimated unopened shelf-life date",
     "meaningTitle": "What does this mean?",
     "meaningFresh": "This product is fresh and well within its shelf life.",
     "meaningGood": "This product is still good, with plenty of shelf life remaining.",

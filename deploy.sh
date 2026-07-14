@@ -75,6 +75,7 @@ main() {
     --network yerelatlas_default \
     --restart unless-stopped \
     -e DATASET_DIR=/data \
+    -e SUBMISSIONS_DIR=/data/submissions \
     -v /opt/cosmeticsbatch-data:/data \
     cosmeticsbatch:latest
 

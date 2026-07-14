@@ -12,7 +12,6 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { logCheck, toCheckLog } from "@/lib/dataset";
 import { isHumanUA } from "@/lib/bot-filter";
 import { BrandLogo } from "@/components/ui/brand-logo";
-import { AdSlot } from "@/components/ui/ad-slot";
 
 // Result pages are user-specific query permutations — keep them out of the index
 // but let them pass link equity. The indexable SEO targets are the brand pages.
@@ -84,9 +83,6 @@ export default async function CheckPage({
         ]}
       />
 
-      {/* Ad first, then the decode result below it. */}
-      <AdSlot placement="result" className="mb-6" height={250} />
-
       <ResultCard result={result} brand={brand} />
 
       {/* Check another */}
@@ -94,8 +90,6 @@ export default async function CheckPage({
         <h2 className="mb-3 text-lg font-semibold">Check another code</h2>
         <CheckForm initialBrand={brand} />
       </div>
-
-      <AdSlot placement="result" className="my-12" height={250} />
 
       {/* Related brands — internal linking for SEO */}
       <section className="mt-4">

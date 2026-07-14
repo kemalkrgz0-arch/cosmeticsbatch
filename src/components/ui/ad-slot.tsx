@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Script from "next/script";
 import { adsense, type AdPlacement } from "@/lib/ads";
 import { cn } from "@/lib/utils";
 
@@ -49,23 +50,35 @@ export function AdSlot({
   if (!enabled) return null;
 
   return (
-    <aside
-      aria-label={label}
-      className={cn("mx-auto w-full max-w-3xl px-4", className)}
-    >
-      <div
-        style={{ minHeight: height }}
-        className="flex items-center justify-center overflow-hidden rounded-2xl"
+    <>
+      {/* Load AdSense only on pages that render approved publisher content.
+          Keeping this out of the root layout excludes thin/noindex tools from
+          the site's monetized inventory entirely. Duplicate ids are deduped by
+          next/script when a page contains more than one reviewed placement. */}
+      <Script
+        id="adsense"
+        strategy="lazyOnload"
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`}
+        crossOrigin="anonymous"
+      />
+      <aside
+        aria-label={label}
+        className={cn("mx-auto w-full max-w-3xl px-4", className)}
       >
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block", width: "100%", minHeight: height }}
-          data-ad-client={client}
-          data-ad-slot={slot}
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        />
-      </div>
-    </aside>
+        <div
+          style={{ minHeight: height }}
+          className="flex items-center justify-center overflow-hidden rounded-2xl"
+        >
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block", width: "100%", minHeight: height }}
+            data-ad-client={client}
+            data-ad-slot={slot}
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          />
+        </div>
+      </aside>
+    </>
   );
 }

@@ -49,12 +49,11 @@ export default async function HomePage({
       <JsonLd data={[faqSchema(homeFaq), howToSchema()]} />
       <Hero />
       <FeatureGrid />
-      {/* Ads between content sections — never inside the check flow (Hero). */}
-      <AdSlot placement="home" className="my-8" />
       <PopularBrands />
-      <AdSlot placement="home" className="my-8" height={250} />
       <HowItWorks />
       <WhereIsCode />
+      {/* One placement after the substantial publisher content. Keeping the
+          tool and explanations ad-free makes content the clear page focus. */}
       <AdSlot placement="home" className="my-8" height={250} />
       <Faq items={homeFaq} subtitle={th("faqSubtitle")} />
     </>

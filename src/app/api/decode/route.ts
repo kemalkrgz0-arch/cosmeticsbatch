@@ -87,7 +87,14 @@ export async function POST(req: NextRequest) {
 
   let body: unknown;
   try {
-    body = await req.json();
+    const raw = await req.text();
+    if (raw.length > 1_024) {
+      return NextResponse.json(
+        { error: "request body too large" },
+        { status: 413, headers: rateHeaders(rate) },
+      );
+    }
+    body = JSON.parse(raw);
   } catch {
     return NextResponse.json(
       { error: "invalid JSON body" },

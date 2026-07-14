@@ -29,12 +29,18 @@ function resolveYear2(yy: number): number {
 
 /** Day-of-year (1-366) -> Date. */
 function dateFromDayOfYear(year: number, doy: number): Date {
+  // JavaScript silently rolls day 366 of a non-leap year into 1 January of the
+  // next year. Return an invalid date instead so every existing caller rejects
+  // the impossible production day through the shared inFuture guard.
+  const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  if (doy < 1 || doy > (leap ? 366 : 365)) return new Date(Number.NaN);
   const d = new Date(Date.UTC(year, 0, 1));
   d.setUTCDate(doy);
   return d;
 }
 
 function inFuture(date: Date, now: Date): boolean {
+  if (!Number.isFinite(date.getTime())) return true;
   return date.getTime() > now.getTime() + 1000 * 60 * 60 * 24;
 }
 
@@ -135,8 +141,11 @@ const loreal: Decoder = {
       if (year === null) continue;
       const month = lorealMonth(c[i + 1]);
       if (month === null) continue;
+      // The returned day is an explicit midpoint estimate. Guard with the first
+      // of the month so a valid current-month code works before day 15.
+      const guardDate = new Date(Date.UTC(year, month - 1, 1));
+      if (inFuture(guardDate, ctx.now)) continue;
       const date = new Date(Date.UTC(year, month - 1, 15));
-      if (inFuture(date, ctx.now)) continue;
       return {
         manufactureDate: date,
         confidence: "high",
@@ -935,7 +944,9 @@ export const DECODERS: Record<string, Decoder> = {
 };
 
 /** Ordered fallback chain when a brand has no dedicated decoder. */
-export const FALLBACK_CHAIN: Decoder[] = [julian];
+// Never try a different manufacturer's format after a brand decoder fails.
+// Plausible-looking false positives are worse than an honest unknown result.
+export const FALLBACK_CHAIN: Decoder[] = [];
 
 export function getDecoder(id: string | undefined): Decoder | undefined {
   return id ? DECODERS[id] : undefined;
