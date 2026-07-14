@@ -117,6 +117,9 @@ priorities live in `AUDIT.md`.
   challenge and authenticated panel checks remain for post-deploy verification.
 - Risk: Resend sends a new message rather than preserving the original provider
   thread; the submission ID and append-only reply event provide traceability.
+- Deployment note: the first `0.5.0` run stopped safely before rebuilding because
+  `CF_ACCESS_TEAM_DOMAIN` arrived blank. The public tenant URL was then pinned in
+  the workflow; AUD and reviewer addresses remain encrypted secrets.
 
 ### Phase 4 — performance and security hardening
 

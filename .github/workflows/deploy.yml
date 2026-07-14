@@ -22,7 +22,9 @@ jobs:
           SUBMISSION_NOTIFY_EMAIL: contact@cosmeticsbatch.com
           SUBMISSION_FROM_EMAIL: Cosmetics Batch <contact@cosmeticsbatch.com>
           CF_ACCESS_AUD: ${{ secrets.CF_ACCESS_AUD }}
-          CF_ACCESS_TEAM_DOMAIN: ${{ secrets.CF_ACCESS_TEAM_DOMAIN }}
+          # Public tenant URL (not a credential). Keeping it explicit prevents
+          # an accidentally blank secret from disabling origin validation.
+          CF_ACCESS_TEAM_DOMAIN: https://calm-sun-fd60.cloudflareaccess.com
           REVIEWER_EMAILS: ${{ secrets.REVIEWER_EMAILS }}
         with:
           host: ${{ secrets.SSH_HOST }}

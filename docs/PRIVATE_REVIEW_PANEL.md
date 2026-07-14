@@ -8,7 +8,8 @@ again; `noindex` is defense-in-depth for search engines, not the access control.
 ## Required production secrets
 
 - `CF_ACCESS_AUD`: Application Audience tag from the Access application.
-- `CF_ACCESS_TEAM_DOMAIN`: full HTTPS team URL, without a trailing slash.
+- `CF_ACCESS_TEAM_DOMAIN`: full HTTPS team URL, without a trailing slash. This
+  tenant identifier is public and is currently pinned in the deploy workflow.
 - `REVIEWER_EMAILS`: comma-separated, lower/upper case-insensitive allowlist.
 - Existing `RESEND_API_KEY` and `SUBMISSION_FROM_EMAIL` for user replies.
 
