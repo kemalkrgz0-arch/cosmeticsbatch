@@ -299,17 +299,12 @@ export function getBrandTile(slug: string): BrandTile | undefined {
 }
 
 /**
- * Ordered logo sources for a domain. DuckDuckGo's icon service returns the real
- * site favicon and a proper 404 when it has none (so the <img> onError chain can
- * fall through to the monogram). Google favicons are the secondary source.
- *
- * Clearbit's logo API was retired (DNS no longer resolves) and, before that,
- * served generic placeholder images with a 200 — which loaded "successfully"
- * and masked the real logo instead of failing over. It is intentionally gone.
+ * Load only from the brand's mapped official domain. Third-party favicon CDNs
+ * often return a generic arrow/globe with HTTP 200 when no logo exists, which
+ * makes an <img> error fallback impossible and misrepresents that placeholder
+ * as the brand's identity. A missing official favicon must fail visibly so the
+ * component can use its deterministic wordmark/monogram fallback instead.
  */
 export function logoSources(domain: string): string[] {
-  return [
-    `https://icons.duckduckgo.com/ip3/${domain}.ico`,
-    `https://www.google.com/s2/favicons?domain=${domain}&sz=128`,
-  ];
+  return [`https://${domain}/favicon.ico`];
 }

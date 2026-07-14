@@ -39,7 +39,7 @@ function WordmarkSvg({ label, fg }: { label: string; fg: string }) {
 }
 
 /**
- * Brand logo tile. Loads the real logo from a CDN by domain (never bundled),
+ * Brand logo tile. Loads the real favicon from the mapped official domain,
  * stepping through fallback sources, and finally shows a monogram if none load.
  * A fixed-size tile means no layout shift regardless of which source wins.
  */
@@ -80,6 +80,7 @@ export function BrandLogo({
           alt={`${name} logo`}
           loading="lazy"
           decoding="async"
+          referrerPolicy="no-referrer"
           onError={() => setIdx((i) => i + 1)}
           className="h-full w-full object-contain p-[15%]"
         />

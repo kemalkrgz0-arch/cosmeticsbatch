@@ -17,7 +17,7 @@ import {
   PHOTO_SUBMISSION_LOCALES,
   photoSubmissionCopy,
 } from "../src/lib/photo-submission-copy";
-import { getBrandDomain } from "../src/lib/brand-logos";
+import { getBrandDomain, logoSources } from "../src/lib/brand-logos";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -169,6 +169,11 @@ test("brand logo inventory only omits discontinued licensed lines without an off
     const domain = getBrandDomain(brand.slug);
     if (!domain) continue;
     assert.match(domain, /^[a-z0-9.-]+$/i, `${brand.slug} has an invalid logo domain`);
+    assert.deepEqual(
+      logoSources(domain),
+      [`https://${domain}/favicon.ico`],
+      `${brand.slug} uses a third-party or placeholder-prone logo source`,
+    );
   }
 });
 

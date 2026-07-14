@@ -481,6 +481,18 @@ files, reason, verification and known risk. Never include secrets or personal da
   remote official-site favicons can change independently and therefore retain a
   deterministic tile/monogram fallback.
 
+### 2026-07-14 — 0.5.2 — Codex / Brand-logo placeholder hotfix
+
+- Fixed: removed DuckDuckGo and Google favicon proxies after production showed
+  their generic grey arrow placeholder as if it were the real logo for Missha,
+  Espoir, Etude, Primera and Sulwhasoo.
+- Behavior: logo tiles now request only `/favicon.ico` from the mapped official
+  brand domain with no referrer; unavailable assets fall back to the existing
+  deterministic wordmark or clean brand monogram instead of a third-party icon.
+- Quality gate: regression coverage now rejects third-party/placeholder-prone
+  logo sources.
+- Files: brand-logo registry/component, quality tests and this log.
+
 <!-- Example:
 ### 2026-07-15 — 0.2.1 — agent/name
 - Changed: ...
