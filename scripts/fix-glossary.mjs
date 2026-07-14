@@ -53,6 +53,26 @@ const GLOSSARY = {
       replace: toBatchCode,
     },
   ],
+  de: [
+    {
+      // «Stapelcode» is a stack code. German for a batch code is Chargencode /
+      // Chargennummer — which is also what Search Console shows people typing.
+      pattern: /Stapelcode(s|n)?/g,
+      replace: (_m, suffix) => `Chargencode${suffix ?? ""}`,
+    },
+    {
+      pattern: /stapelcode(s|n)?/g,
+      replace: (_m, suffix) => `Chargencode${suffix ?? ""}`,
+    },
+  ],
+  sr: [
+    {
+      // «батцх» is a letter-by-letter transliteration of "batch" and means
+      // nothing. Serbian uses the Latin term.
+      pattern: /батцх\s*код/giu,
+      replace: (m) => (/^\p{Lu}/u.test(m) ? "Batch kod" : "batch kod"),
+    },
+  ],
   tr: [
     {
       // "toplu kod" means "bulk code" — wrong wherever it appears.
