@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { pageMeta } from "@/lib/seo";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
@@ -11,12 +12,15 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return pageMeta({
+  const meta = pageMeta({
     title: "About",
     description: `About ${site.name} — a free, private cosmetic and perfume batch code checker.`,
     path: "/about",
     locale,
+    availableLocales: [DEFAULT_LOCALE],
   });
+  if (locale !== DEFAULT_LOCALE) meta.robots = { index: false, follow: true };
+  return meta;
 }
 
 export default async function AboutPage({

@@ -2,15 +2,17 @@ import { ChevronRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { breadcrumbSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/json-ld";
+import { getLocale } from "next-intl/server";
 
-export function Breadcrumbs({
+export async function Breadcrumbs({
   items,
 }: {
   items: { name: string; path: string }[];
 }) {
+  const locale = await getLocale();
   return (
     <>
-      <JsonLd data={breadcrumbSchema(items)} />
+      <JsonLd data={breadcrumbSchema(items, locale)} />
       <nav aria-label="Breadcrumb" className="mb-6">
         <ol className="flex flex-wrap items-center gap-1 text-sm text-fg-muted">
           {items.map((it, i) => {

@@ -18,7 +18,6 @@ import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import {
   articleSchema,
-  breadcrumbSchema,
   faqSchema,
   pageMeta,
 } from "@/lib/seo";
@@ -27,6 +26,7 @@ import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
 import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
+import { isContentReviewed, reviewedContentLocales } from "@/lib/content-review";
 
 export function generateStaticParams() {
   return DECODER_GUIDES.map((g) => ({ slug: g.slug }));
@@ -41,13 +41,17 @@ export async function generateMetadata({
   const source = getDecoderGuide(slug);
   if (!source) return {};
   const guide = localizeDecoderGuide(source, await contentTranslator(locale));
-  return pageMeta({
+  const prefix = `dec.${source.slug}`;
+  const meta = pageMeta({
     title: guide.title,
     description: guide.description,
     path: `/decoders/${guide.slug}`,
     type: "article",
     locale,
+    availableLocales: reviewedContentLocales(prefix),
   });
+  if (!isContentReviewed(locale, prefix)) meta.robots = { index: false, follow: true };
+  return meta;
 }
 
 const DATE_FMT: Intl.DateTimeFormatOptions = {
@@ -156,6 +160,7 @@ export default async function DecoderGuidePage({
 
   const t = await contentTranslator(locale);
   const guide = localizeDecoderGuide(source, t);
+  const reviewed = isContentReviewed(locale, `dec.${source.slug}`);
   const tc = await getTranslations("contentPages");
   const nav = await getTranslations("nav");
 
@@ -175,15 +180,15 @@ export default async function DecoderGuidePage({
 
   return (
     <article className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
-      <AdsenseLoader />
+      {reviewed && <AdsenseLoader />}
       <JsonLd
         data={[
-          breadcrumbSchema(crumbs),
           articleSchema({
             title: guide.title,
             description: guide.description,
             path,
             updated: guide.updated,
+            locale,
           }),
           faqSchema(guide.faq),
         ]}
@@ -254,7 +259,7 @@ export default async function DecoderGuidePage({
         />
       </section>
 
-      <AdSlot placement="article" className="mt-10" height={250} />
+      {reviewed && <AdSlot placement="article" className="mt-10" height={250} />}
 
       <div className="mt-10 space-y-10">
         {guide.sections.map((s) => (

@@ -9,7 +9,6 @@ import { POPULAR_BRANDS } from "@/lib/brands";
 import { linkifyBrands, type TextToken } from "@/lib/internal-links";
 import {
   articleSchema,
-  breadcrumbSchema,
   faqSchema,
   pageMeta,
 } from "@/lib/seo";
@@ -18,6 +17,7 @@ import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
 import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
+import { isContentReviewed, reviewedContentLocales } from "@/lib/content-review";
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -32,13 +32,17 @@ export async function generateMetadata({
   const source = getGuide(slug);
   if (!source) return {};
   const guide = localizeGuide(source, await contentTranslator(locale));
-  return pageMeta({
+  const prefix = `guide.${source.slug}`;
+  const meta = pageMeta({
     title: guide.title,
     description: guide.description,
     path: `/guides/${guide.slug}`,
     type: "article",
     locale,
+    availableLocales: reviewedContentLocales(prefix),
   });
+  if (!isContentReviewed(locale, prefix)) meta.robots = { index: false, follow: true };
+  return meta;
 }
 
 /** Render tokenized text, turning brand tokens into internal links. */
@@ -116,6 +120,7 @@ export default async function GuidePage({
   // translation for the requested locale, falling back to English per string.
   const t = await contentTranslator(locale);
   const guide = localizeGuide(source, t);
+  const reviewed = isContentReviewed(locale, `guide.${source.slug}`);
   const tc = await getTranslations("contentPages");
   const nav = await getTranslations("nav");
 
@@ -129,19 +134,15 @@ export default async function GuidePage({
 
   return (
     <article className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
-      <AdsenseLoader />
+      {reviewed && <AdsenseLoader />}
       <JsonLd
         data={[
-          breadcrumbSchema([
-            { name: nav("home"), path: "/" },
-            { name: nav("guides"), path: "/guides" },
-            { name: guide.title, path },
-          ]),
           articleSchema({
             title: guide.title,
             description: guide.description,
             path,
             updated: guide.updated,
+            locale,
           }),
           ...(guide.faq ? [faqSchema(guide.faq)] : []),
         ]}
@@ -188,7 +189,7 @@ export default async function GuidePage({
                 />
               </figure>
             )}
-            {i === 0 && (
+            {reviewed && i === 0 && (
               <AdSlot placement="article" className="mt-10" height={250} />
             )}
           </section>

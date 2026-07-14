@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { pageMeta } from "@/lib/seo";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
@@ -12,12 +13,15 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return pageMeta({
+  const meta = pageMeta({
     title: "Privacy Policy",
     description: `How ${site.name} handles batch-code checks, cookies and advertising, and the privacy safeguards we apply.`,
     path: "/privacy",
     locale,
+    availableLocales: [DEFAULT_LOCALE],
   });
+  if (locale !== DEFAULT_LOCALE) meta.robots = { index: false, follow: true };
+  return meta;
 }
 
 function H2({ children }: { children: React.ReactNode }) {

@@ -1,6 +1,6 @@
 {
   "name": "cosmeticsbatch",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "pnpm test:decoder",
-    "test:decoder": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --skipLibCheck scripts/decoder-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/decoder-regression.test.js"
+    "test": "pnpm test:quality",
+    "test:decoder": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --resolveJsonModule --skipLibCheck scripts/decoder-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/decoder-regression.test.js",
+    "test:quality": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --resolveJsonModule --skipLibCheck scripts/decoder-regression.test.ts scripts/quality-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/*.test.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",

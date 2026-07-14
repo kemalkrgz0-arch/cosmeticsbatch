@@ -24,7 +24,6 @@ import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import {
   articleSchema,
-  breadcrumbSchema,
   faqSchema,
   pageMeta,
 } from "@/lib/seo";
@@ -156,7 +155,6 @@ export default async function BrandPage({
       {monetizable && <AdsenseLoader />}
       <JsonLd
         data={[
-          breadcrumbSchema(crumbs),
           ...(detail ? [
             faqSchema([...detailFaq, ...brandFaq]),
             articleSchema({
@@ -164,6 +162,7 @@ export default async function BrandPage({
             description: tb("blurb", { name: brand.name, category }),
             path,
             updated: BRAND_DETAILS_UPDATED,
+            locale,
             }),
           ] : []),
         ]}

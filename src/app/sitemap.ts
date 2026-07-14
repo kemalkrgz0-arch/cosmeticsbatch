@@ -5,6 +5,7 @@ import { GUIDES } from "@/lib/guides";
 import { absoluteUrl, site } from "@/lib/site";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { localizedPath, hreflangAlternates } from "@/lib/seo";
+import { reviewedContentLocales } from "@/lib/content-review";
 
 /**
  * One entry per path (at the default-locale URL), each declaring all language
@@ -23,12 +24,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: Date,
     changeFrequency: "weekly" | "monthly",
     priority: number,
+    localeCodes?: readonly string[],
   ) => ({
     url: absoluteUrl(localizedPath(DEFAULT_LOCALE, path)),
     lastModified,
     changeFrequency,
     priority,
-    alternates: { languages: hreflangAlternates(path) },
+    alternates: { languages: hreflangAlternates(path, localeCodes) },
   });
 
   const staticRoutes = [
@@ -36,11 +38,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/brands",
     "/decoders",
     "/guides",
-    "/about",
-    "/contact",
   ].map((path) => entry(path, updated, "weekly", path === "/" ? 1 : 0.8));
-  const legalRoutes = ["/privacy", "/terms"].map((path) =>
-    entry(path, updated, "monthly", 0.3),
+  // These routes currently have reviewed English copy only. Advertising them
+  // as 44 translated alternates creates mixed-language duplicate pages.
+  const englishOnlyRoutes = ["/about", "/contact", "/privacy", "/terms"].map((path) =>
+    entry(path, updated, "monthly", path === "/about" || path === "/contact" ? 0.6 : 0.3, [DEFAULT_LOCALE]),
   );
   // Only the brands carrying their own editorial material (see brand-detail.ts).
   // The other ~180 are generated from one template per decoder family, are marked
@@ -50,15 +52,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/brands/${b.slug}`, updated, "monthly", 0.8),
   );
   const decoderRoutes = DECODER_GUIDES.map((g) =>
-    entry(`/decoders/${g.slug}`, new Date(g.updated), "monthly", 0.9),
+    entry(`/decoders/${g.slug}`, new Date(g.updated), "monthly", 0.9, reviewedContentLocales(`dec.${g.slug}`)),
   );
   const guideRoutes = GUIDES.map((g) =>
-    entry(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6),
+    entry(`/guides/${g.slug}`, new Date(g.updated), "monthly", 0.6, reviewedContentLocales(`guide.${g.slug}`)),
   );
 
   return [
     ...staticRoutes,
-    ...legalRoutes,
+    ...englishOnlyRoutes,
     ...brandRoutes,
     ...decoderRoutes,
     ...guideRoutes,

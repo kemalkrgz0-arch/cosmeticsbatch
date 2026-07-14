@@ -4,9 +4,8 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { DECODER_GUIDES, brandsForGuide } from "@/lib/decoder-guides";
 import { contentTranslator, localizeDecoderGuide } from "@/lib/content-i18n";
-import { breadcrumbSchema, pageMeta } from "@/lib/seo";
+import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { JsonLd } from "@/components/json-ld";
 
 export async function generateMetadata({
   params,
@@ -46,7 +45,6 @@ export default async function DecodersIndexPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <JsonLd data={[breadcrumbSchema(crumbs)]} />
       <Breadcrumbs items={crumbs} />
 
       <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">

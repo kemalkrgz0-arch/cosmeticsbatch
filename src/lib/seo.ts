@@ -9,10 +9,13 @@ export function localizedPath(locale: string, path = "/"): string {
 }
 
 /** hreflang alternates map for a path across every active locale + x-default. */
-export function hreflangAlternates(path = "/"): Record<string, string> {
+export function hreflangAlternates(
+  path = "/",
+  localeCodes: readonly string[] = LOCALES.map((locale) => locale.code),
+): Record<string, string> {
   const languages: Record<string, string> = {};
-  for (const l of LOCALES)
-    languages[l.code] = absoluteUrl(localizedPath(l.code, path));
+  for (const locale of localeCodes)
+    languages[locale] = absoluteUrl(localizedPath(locale, path));
   // x-default points at the default locale (prefix-free) URL.
   languages["x-default"] = absoluteUrl(localizedPath(DEFAULT_LOCALE, path));
   return languages;
@@ -25,12 +28,14 @@ export function pageMeta({
   path = "/",
   type = "website",
   locale = DEFAULT_LOCALE,
+  availableLocales,
 }: {
   title: string;
   description: string;
   path?: string;
   type?: "website" | "article";
   locale?: string;
+  availableLocales?: readonly string[];
 }): Metadata {
   const url = absoluteUrl(localizedPath(locale, path));
   const fullTitle =
@@ -38,7 +43,10 @@ export function pageMeta({
   return {
     title,
     description,
-    alternates: { canonical: url, languages: hreflangAlternates(path) },
+    alternates: {
+      canonical: url,
+      languages: hreflangAlternates(path, availableLocales),
+    },
     openGraph: {
       type,
       url,
@@ -96,6 +104,7 @@ export function websiteSchema(): Json {
 
 export function breadcrumbSchema(
   items: { name: string; path: string }[],
+  locale = DEFAULT_LOCALE,
 ): Json {
   return {
     "@context": "https://schema.org",
@@ -104,7 +113,7 @@ export function breadcrumbSchema(
       "@type": "ListItem",
       position: i + 1,
       name: it.name,
-      item: absoluteUrl(it.path),
+      item: absoluteUrl(localizedPath(locale, it.path)),
     })),
   };
 }
@@ -157,11 +166,13 @@ export function articleSchema({
   description,
   path,
   updated,
+  locale = DEFAULT_LOCALE,
 }: {
   title: string;
   description: string;
   path: string;
   updated: string;
+  locale?: string;
 }): Json {
   return {
     "@context": "https://schema.org",
@@ -170,7 +181,7 @@ export function articleSchema({
     description,
     dateModified: updated,
     datePublished: updated,
-    mainEntityOfPage: absoluteUrl(path),
+    mainEntityOfPage: absoluteUrl(localizedPath(locale, path)),
     author: { "@type": "Organization", name: site.name },
     publisher: { "@type": "Organization", name: site.name },
   };

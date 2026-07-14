@@ -12,6 +12,7 @@ import { AdSlot } from "@/components/ui/ad-slot";
 import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
 import { faqSchema, howToSchema } from "@/lib/seo";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
 
 const HOME_FAQ_KEYS = Array.from({ length: 10 }, (_, i) => i + 1);
 
@@ -48,7 +49,10 @@ export default async function HomePage({
   return (
     <>
       <AdsenseLoader />
-      <JsonLd data={[faqSchema(homeFaq), howToSchema()]} />
+      <JsonLd data={[
+        faqSchema(homeFaq),
+        ...(locale === DEFAULT_LOCALE ? [howToSchema()] : []),
+      ]} />
       <Hero />
       <FeatureGrid />
       <PopularBrands />
