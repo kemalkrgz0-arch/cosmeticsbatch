@@ -1,8 +1,8 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-14
-Current version: **0.2.3**
-Current phase: **Phase 2 in progress — production email configuration pending**
+Current version: **0.2.4**
+Current phase: **Phase 2 in progress — production email active**
 
 This is the shared handoff document for maintainers and agents. Read it before
 work and update it after every logical change group. Detailed audit evidence and
@@ -10,34 +10,26 @@ priorities live in `AUDIT.md`.
 
 ## In progress / operational blockers
 
-- Resend production delivery is implemented but not live-verified.
-- `cosmeticsbatch.com` must be added and verified in Resend with its generated
-  SPF, DKIM and MX records.
-- A sending-only `RESEND_API_KEY` must be placed in the server's untracked
-  `.env.build`; never put it in this repository or chat.
+- Resend domain and production delivery are live-verified.
 - Production recipient: `contact@cosmeticsbatch.com`.
-- After configuration, submit one controlled photo and verify attachment
-  delivery, JSONL notification status, and direct reply through `Reply-To`.
-- Resend domain verification is reported complete. A temporary API key is now
-  present only in the git-ignored local `.env.build`; it still needs secure VPS
-  transfer/deployment and must be rotated because it was shared in chat.
+- The active API key is supplied as an encrypted GitHub Actions secret and must
+  never be committed. Rotation is still recommended because it was shared in
+  chat before being stored as a secret.
 - Sender and recipient are both `contact@cosmeticsbatch.com`; no nonexistent
   `submissions@` mailbox is assumed.
 - Version 0.2.2 commit `658d117` was pushed and GitHub Actions run `29317859558`
   deployed successfully on 2026-07-14. Live page/sitemap/API checks passed.
-- A controlled production photo submission returned HTTP 201 and persisted, but
-  reported `notification: not_configured`, proving the Resend variables are not
-  yet present in the VPS `.env.build`. No real mail was sent.
-- The repository owner reports that `RESEND_API_KEY` is now configured as a
-  GitHub Actions repository secret. Deployment wiring and live delivery
-  verification are in progress.
+- An initial controlled production photo persisted with `not_configured`; after
+  secret wiring, commit `fcb8268` deployed successfully in Actions run
+  `29318501863`, and a second controlled submission returned HTTP 201 with
+  `notification: sent`.
 - Phase 2 technical SEO/content integrity audit and fixes are in progress.
 - Reviewed long-form locale coverage is now enforced from
   `messages/content/reviewed.json`; English and fully reviewed Russian content
   remain indexable, while unreviewed article translations remain accessible but
   are `noindex, follow` and ad-free.
-- Brand/catalog/editorial/decoder-guide/review-manifest invariants are being
-  added to the default regression suite.
+- Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
+  by the default 16-test regression suite.
 
 ## Completed — 0.2.0 (Phase 1)
 
@@ -186,10 +178,40 @@ files, reason, verification and known risk. Never include secrets or personal da
 - Files: `.github/workflows/deploy.yml`, `deploy.sh`, `package.json`.
 - Why: local git-ignored environment files are not transferred to the VPS by a
   Git push. The Actions secret must cross the SSH boundary explicitly.
-- Verification: pending workflow validation, deployment and controlled live
-  attachment/Reply-To delivery test.
-- Risk / needs verification: inbox placement and Reply-To behavior require the
-  recipient-side check after the API reports `sent`.
+- Verification: workflow syntax and deploy shell passed; Actions run
+  `29318501863` completed successfully; controlled production upload returned
+  HTTP 201 with `notification: sent`.
+- Risk / needs verification: attachment visibility, inbox placement and the
+  mail client's Reply-To target still require recipient-side confirmation.
+
+### 2026-07-14 — 0.2.4 — Codex / User response standards
+
+- Added: professional English-only response templates for identified
+  codes, requests for clearer evidence, and unverifiable formats, plus one
+  standard institutional signature and reviewer safety rules.
+- Files: `docs/USER_REPLY_TEMPLATES.md`, `package.json`.
+- Why: replies must be consistent, traceable and helpful without overstating
+  manufacture-date confidence, authenticity, expiry, or product safety.
+- Verification: editorial review completed against decoder confidence/privacy
+  rules; recipient-side mail-client signature/snippet setup remains operational.
+- Decision: all user-review replies use one English standard; no localized reply
+  templates are maintained.
+
+### 2026-07-14 — 0.2.4 — Codex / Release gate review
+
+- Verified: no tracked Resend key, no repository secret match, clean diff
+  whitespace, valid workflow YAML and deployment shell, ESLint, TypeScript,
+  16/16 regression tests and a 264/264-page production build.
+- Live verified: home, brands, reviewed brand, robots, sitemap and ads routes;
+  non-English legal noindex; reviewed Russian Article URL; photo endpoint method
+  protection; prior controlled mail submission accepted as `sent`.
+- Corrected: stale project-status statements that still described completed
+  regression and mail deployment work as pending.
+- Known non-code verification: confirm the received Resend message contains the
+  attachment and that Reply opens the submitting user's address.
+- Environment note: the first build attempt hit the known sandbox-only
+  Turbopack worker-port restriction; the permitted production-equivalent rerun
+  passed. This is not a repository regression.
 
 <!-- Example:
 ### 2026-07-15 — 0.2.1 — agent/name
