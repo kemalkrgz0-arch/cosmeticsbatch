@@ -42,7 +42,12 @@ jobs:
             echo "Disk usage before cleanup:"
             df -h /
             docker system df || true
-            docker system prune -af
+            disk_percent="$(df --output=pcent / | tail -1 | tr -dc '0-9')"
+            if [ "$disk_percent" -ge 85 ]; then
+              docker system prune -af
+            else
+              echo "Disk usage is below 85%; keeping reusable Docker cache."
+            fi
             echo "Disk usage after cleanup:"
             df -h /
             docker system df || true

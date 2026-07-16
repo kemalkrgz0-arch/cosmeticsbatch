@@ -251,7 +251,7 @@ sequence used by this repository, not permission to skip unresolved audit areas.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
 
-## In progress — 0.8.1 (VPS disk recovery and deploy hardening)
+## Completed — 0.8.1 (VPS disk recovery and deploy hardening)
 
 - Deployment run `29484411100` for commit `c2577d5` stopped before build/restart
   because the VPS filesystem returned `No space left on device` during
@@ -260,9 +260,18 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   workflow. This removes stopped containers plus unused images, networks and
   build cache while preserving Docker volumes and the running production
   container.
+- Recovery run `29484542233` found the 72 GB root filesystem at 100%. Docker
+  build cache was the primary cause: 256 cache objects occupied 41.68 GB, with
+  37.51 GB reported reclaimable. Cleanup reclaimed 38.56 GB and reduced root
+  usage to 37 GB / 51% (36 GB available).
+- Future deploys run the cleanup only when root usage reaches 85%, retaining
+  reusable build cache under normal conditions while preventing another
+  pre-pull disk exhaustion.
 - Files: `.github/workflows/deploy.yml`, `package.json`, `PROJECT_STATUS.md`.
-- Verification pending: recovery deploy, before/after disk report, production
-  health check.
+- Verification: recovery run completed successfully, rebuilt 267 static pages,
+  restarted the `cosmeticsbatch` container and reported it running. Live home,
+  Turkish brand directory and local Dior logo requests returned HTTP 200; the
+  home HTML contains the ten deployed local brand wordmarks.
 
 ## Completed — 0.8.0 (How It Works visual redesign)
 
