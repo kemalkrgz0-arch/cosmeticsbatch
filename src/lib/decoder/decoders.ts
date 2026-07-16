@@ -361,6 +361,39 @@ const dior: Decoder = {
 };
 
 /* -------------------------------------------------------------------------- */
+/*  Acqua di Parma                                                            */
+/*  Five characters: 3-digit day-of-year + 1-digit year + plant letter.       */
+/*  Verified against query-site results: 2480Y = day 248 of 2020 (4 Sep 2020) */
+/*  and 0525S = day 052 of 2025 (21 Feb 2025).                                */
+/* -------------------------------------------------------------------------- */
+
+const acquaDiParma: Decoder = {
+  id: "acquadiparma",
+  label: "Acqua di Parma day-of-year + year + plant",
+  explanation:
+    "Acqua di Parma prints a five-character code on the box base and under the bottle: three digits for the day of the year, then one digit for the last figure of the production year, then a letter for the plant. So 2480Y is the 248th day of 2020 — 4 September 2020 — and 0525S is the 52nd day of 2025, 21 February 2025.",
+  decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/^(\d{3})(\d)([A-Z])$/);
+    if (!m) return null;
+    const doy = Number(m[1]);
+    if (doy < 1 || doy > 366) return null;
+    const year = resolveYearDigit(Number(m[2]), ctx.now);
+    const date = dateFromDayOfYear(year, doy);
+    if (inFuture(date, ctx.now)) return null;
+    return {
+      manufactureDate: date,
+      confidence: "medium",
+      method: this.label,
+      notes: [
+        "Read as day-of-year (first three digits) + year digit + plant letter. The day is precise, but the single-digit year repeats every decade, so a clearly older bottle may be from ten years earlier.",
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) governs how long the product stays good.",
+      ],
+    };
+  },
+};
+
+/* -------------------------------------------------------------------------- */
 /*  Julian / date-in-code auto-detect                                         */
 /*  Handles the most common self-describing formats used across the industry: */
 /*    YYDDD, DDDYY, YYMMDD, DDMMYY, MMDDYY, YYWW                              */
@@ -991,6 +1024,7 @@ export const DECODERS: Record<string, Decoder> = {
   [coty.id]: coty,
   [chanel.id]: chanel,
   [dior.id]: dior,
+  [acquaDiParma.id]: acquaDiParma,
   [creed.id]: creed,
   [interparfums.id]: interparfums,
   [beiersdorf.id]: beiersdorf,
@@ -1010,7 +1044,7 @@ export function getDecoder(id: string | undefined): Decoder | undefined {
   return id ? DECODERS[id] : undefined;
 }
 
-export { esteeLauder, loreal, coty, chanel, dior, creed, interparfums, embedded, julian };
+export { esteeLauder, loreal, coty, chanel, dior, acquaDiParma, creed, interparfums, embedded, julian };
 
 /** Convenience for tests. */
 export function runDecoder(decoder: Decoder, code: string, ctx: DecodeContext) {

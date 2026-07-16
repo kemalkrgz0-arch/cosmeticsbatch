@@ -78,7 +78,9 @@
     "aliasesPara": "Niekedy uvidíte tento nástroj nazývaný dekodér dávkového kódu {name} , kontrola dávkového kódu {name} alebo kalkulačka dávkového kódu {name} – všetky robia to isté: prečítajte si produkčný kód a povedia vám, aký čerstvý je váš {name} {category} .",
     "printsDateNote": "{name} tlačí dátum výroby alebo spotreby priamo na obal, takže zvyčajne nepotrebujete kód šarže.",
     "exampleHeading": "Skutočný kód {name} , dekódovaný",
-    "whereHeading": "Kde nájsť kód na obale {name}"
+    "whereHeading": "Kde nájsť kód na obale {name}",
+    "decoderGuideLink": "Pozrite si formát kódu{name}a obmedzenia",
+    "decoderGuideBody": "{name}je spojený s{group}. Ak sa jeho kód zhoduje s formátom pozorovanej skupiny, dekodér načíta vzor dátumu; regionálne alebo zmluvne vyrábané produkty môžu používať iný formát."
   },
   "categoryNoun": {
     "skincare": "starostlivosť o pleť",
@@ -231,17 +233,17 @@
       "where1": "Na dne škatule a na nálepke pod fľašou.",
       "faq2q": "Môže mi kód šarže povedať, či je moja CK skutočná?",
       "faq1q": "Ako dekódujem dávkový kód Calvin Klein?",
-      "faq1a": "Vôňu CK vyrába Coty. The code is four digits: a year digit followed by the day of the year. Divide the day by about 30.4 to get the month — day 135 is early in the fifth month, May.",
       "where2": "Na plochejších fľašiach CK One je možné kód vytlačiť priamo na sklenenú podložku.",
-      "faq2a": "Môže zachytiť zlý podvod: nemožné číslo dňa alebo kódy, ktoré sa nezhodujú medzi krabicou a fľašou. Nemôže potvrdiť dobrý, pretože kód skopírovaný z pravej fľaše sa dokonale dekóduje."
+      "faq2a": "Môže zachytiť zlý podvod: nemožné číslo dňa alebo kódy, ktoré sa nezhodujú medzi krabicou a fľašou. Nemôže potvrdiť dobrý, pretože kód skopírovaný z pravej fľaše sa dokonale dekóduje.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Calvin Klein kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "carolina-herrera": {
       "where2": "Na ihličkovej fľaši Good Girl je kód umiestnený na podrážke päty.",
       "where1": "Na základni krabice a spodnej strane fľaše.",
       "faq1q": "Ako skontrolujem kód šarže Carolina Herrera?",
       "faq2a": "Je to jedna z najviac kopírovaných vôní v Európe. Vykonajte kontroly, ktoré kód nedokáže urobiť: porovnajte kód škatuľky a fľaše, odvážte fľašu a pozrite sa na jemnosť spreja. Čisté dekódovanie je potrebné, ale ani zďaleka nestačí.",
-      "faq1a": "Vôňu Carolina Herrera vyrába Puig, ktorá v kóde vytlačí dátum výroby – ako rok plus deň v roku, alebo ako dátum balenia, napríklad 231122 pre 22. novembra 2023.",
-      "faq2q": "Je Good Girl často falšované?"
+      "faq2q": "Je Good Girl často falšované?",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Carolina Herrera kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "cerave": {
       "where1": "Rúry a čistiace prostriedky: vtlačené do obrubu na utesnenom konci tuby.",
@@ -266,20 +268,20 @@
     "clinique": {
       "faq1q": "Ako si prečítam kód šarže Clinique?",
       "where1": "Fľaštičky a tégliky na starostlivosť o pleť: vyrazené na základni.",
-      "faq1a": "Clinique je Estée Lauder, takže formát je rastlina, mesiac, rok v troch znakoch – čítajte sprava. Posledný znak je číslica roku; pred ním je mesiac, pričom A, B a C znamenajú október, november a december.",
       "where2": "Make-up: zadná strana kompaktu alebo základňa puzdra.",
       "faq2q": "Ako dlho vydrží starostlivosť o pleť Clinique?",
-      "faq2a": "Približne 36 mesiacov neotvorené od dátumu výroby a 12 mesiacov po otvorení pre väčšinu sortimentu. Symbol otvoreného pohára na obale je číslo, ktoré sa zaviaže po porušení pečate."
+      "faq2a": "Približne 36 mesiacov neotvorené od dátumu výroby a 12 mesiacov po otvorení pre väčšinu sortimentu. Symbol otvoreného pohára na obale je číslo, ktoré sa zaviaže po porušení pečate.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Clinique kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "creed": {
       "faq1q": "Ako prečítam kód šarže Creed?",
       "where2": "Na starších, ťažších flakónoch môže byť kód skôr vyrazený ako vytlačený; natočte ho proti svetlu.",
       "where1": "Na dne fľaše a na dne škatule - zvyčajne vytlačené čiernou farbou na bielej základnej nálepke.",
-      "faq1a": "Dôležité je len prvé písmeno. Kóduje rok výroby, počíta sa od A = 2010 a vynecháva I a O: N = 2022, P = 2023, Q = 2024, R = 2025. Všetko po ňom je interná séria šarží. Creed nekóduje mesiac, takže kód vám dáva rok a nič lepšie.",
       "faq3q": "Znamená starší Creed lepší Creed?",
       "faq2q": "Môže mi kód povedať, či je môj Green Irish Tweed originálny?",
       "faq2a": "Čiastočne. Creed patrí medzi najviac falšované domy vo vôni a prvé písmeno, ktoré vôbec nie je v cykle, je jasné. Skopírovaný kód sa však dekóduje čisto, takže platný kód nie je dôkazom – odvážte si fľašu, pozrite sa na sprej a potlač škatuľky a kúpte ju u autorizovaného predajcu.",
-      "faq3a": "Pre ťažšie, živicové kompozície môže byť skutočne vhodnejšia staršia fľaša, pretože preformulovanie zmenilo niekoľko klasík – a kód šarže je jediný spôsob, ako zistiť, ktorú receptúru kupujete. Pre ľahšie, citrusovo vedené Creeds je vek väčšinou oxidácia a vôbec žiadny prínos."
+      "faq3a": "Pre ťažšie, živicové kompozície môže byť skutočne vhodnejšia staršia fľaša, pretože preformulovanie zmenilo niekoľko klasík – a kód šarže je jediný spôsob, ako zistiť, ktorú receptúru kupujete. Pre ľahšie, citrusovo vedené Creeds je vek väčšinou oxidácia a vôbec žiadny prínos.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Creed kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "dior": {
       "where2": "Make-up: na základni kompaktu, spodnej časti puzdra na rúž alebo na záhybe tuby.",
@@ -294,10 +296,10 @@
     },
     "dunhill": {
       "where1": "Na základni škatuľky a spodnej strane fľaše vytlačené čiernou farbou na bielej základnej nálepke.",
-      "faq1a": "Vôňa Dunhill je vyrobená v licencii Inter Parfums. Prvé písmeno je rok výroby – cyklus preskakujúci I a O, takže J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – a posledné tri číslice predstavujú deň v danom roku.",
       "faq2q": "Ako skontrolujem, či je vôňa Dunhill autentická?",
       "faq1q": "Ako prečítam kód šarže Dunhill?",
-      "faq2a": "Porovnajte kódy krabice a fľaše a potom ich dekódujte. Ročné písmeno mimo cyklu alebo kódy, ktoré nesúhlasia, sú skutočnými varovaniami. Čisté dekódovanie nie je dôkazom – dekódujú sa aj skopírované kódy."
+      "faq2a": "Porovnajte kódy krabice a fľaše a potom ich dekódujte. Ročné písmeno mimo cyklu alebo kódy, ktoré nesúhlasia, sú skutočnými varovaniami. Čisté dekódovanie nie je dôkazom – dekódujú sa aj skopírované kódy.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Dunhill kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "estee-lauder": {
       "where1": "Starostlivosť o pleť: vyrazené na dne dózy alebo fľaše — vtlačené do materiálu, takže potrebuje skôr ostré svetlo ako priame.",
@@ -307,7 +309,7 @@
       "faq3q": "Používajú Clinique, MAC a La Mer rovnaký kód?",
       "faq1q": "Ako prečítam kód šarže Estée Lauder?",
       "faq3a": "Áno – rovnaké rastliny a rovnaký formát rastlina/mesiac/rok. Líši sa iba písmeno rastliny a nenesie žiadnu informáciu o dátume.",
-      "faq1a": "Čítajte to sprava, nie zľava. Posledný znak je číslica roku; pred ním je mesiac (1–9 pre január až september, potom A, B a C pre október, november a december); čokoľvek vľavo je rastlina. Takže v EA4 je rastlina E, mesiac je A – október – a rok končí 4. Najčastejšou chybou týchto kódov je čítanie zľava doprava."
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Estée Lauder kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "fenty-beauty": {
       "where1": "Podkladové a tekuté produkty: vytlačené na dne fľaše alebo tam, kde štítok obopína chrbát.",
@@ -333,10 +335,10 @@
     "giorgio-armani-beauty": {
       "where2": "Make-up: na základni puzdra alebo na zadnej strane kompaktu.",
       "where1": "Vôňa (Acqua di Giò, Armani Code): na dne škatuľky a spodnej nálepke fľaštičky.",
-      "faq1a": "Vôňu Armani vyrába L'Oréal, takže kód zodpovedá formátu skupiny: prvé písmeno je rok výroby, znak po ňom je mesiac. (Vôňa s názvom Armani Code a kód šarže vyrazený na jej krabici spolu nesúvisia, žiaľ, majú spoločné slovo.)",
       "faq2q": "Ako dlho vydrží Acqua di Giò neotvorená?",
       "faq1q": "Ako dekódujem číslo šarže Armani Code?",
-      "faq2a": "Tri až päť rokov je normálne pre toaletnú vodu, dlhšie pre parfumovú vodu. Vôňa je najzhovievavejšia kategória, aká existuje, za predpokladu, že fľaša je chránená pred svetlom a teplom."
+      "faq2a": "Tri až päť rokov je normálne pre toaletnú vodu, dlhšie pre parfumovú vodu. Vôňa je najzhovievavejšia kategória, aká existuje, za predpokladu, že fľaša je chránená pred svetlom a teplom.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Armaniho kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "guerlain": {
       "faq1q": "Ako skontrolujem dátum výroby vône Guerlain?",
@@ -352,7 +354,7 @@
       "faq2q": "Kódy krabice a fľaše sú odlišné. je to falošné?",
       "faq1q": "Ako skontrolujem kód šarže vône Hugo Boss?",
       "faq2a": "Znamená to, že krabica a fľaša boli spárované niekde inde ako v továrni. Stáva sa to pri falzifikátoch, ako aj pri legitímne prebalených, vrátených alebo šedých akciách. Či tak alebo onak, párovanie, ktoré držíte, nie je to, ktoré bolo odoslané z výroby.",
-      "faq1a": "Vôňu Hugo Boss vyrába Coty, ktorá používa štvorciferný kód: prvá číslica je posledná číslica roku výroby a zvyšné tri sú deň daného roku. Takže 4135 je 135. deň roku 2024 – 14. mája 2024."
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Hugo Boss kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "jean-paul-gaultier": {
       "where2": "Na vydaniach s kovovým obalom je kód často iba na krabici alebo je vyrazený slabo na dne plechovky.",
@@ -360,7 +362,7 @@
       "faq2a": "Na edíciách s kovovými rukávmi je kód často iba na škatuli alebo je vyrazený tak jemne do základne, že potrebuje ostré svetlo, aby bolo vidieť. Najprv skontrolujte škatuľu – a ak máte obe, potvrďte, že sa zhodujú.",
       "faq2q": "Na mojej fľaši Le Male nie je žiadny kód.",
       "faq1q": "Ako prečítam kód šarže Jean Paul Gaultier?",
-      "faq1a": "Vôňu JPG vyrába spoločnosť Puig, ktorá do kódu vytlačí dátum výroby. Štyri číslice znamenajú číslicu roka plus deň v roku; päť znamená dve číslice roka plus deň; šesť je plný kalendárny dátum."
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Jean Paul Gaultier kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "kenzo-parfums": {
       "where1": "Na spodnej časti vonkajšej škatuľky a na spodnej strane fľaše – vytlačené na základnej nálepke alebo vyrazené do pohára.",
@@ -369,8 +371,8 @@
       "faq3a": "Môže zachytiť falošný - nemožný deň alebo nesúlad medzi kódom škatule a kódom fľaše, ktorý žiadna pravá plniaca linka nevytvára. Nemôže certifikovať pravý kód, pretože skopírovaný kód sa dekóduje čisto.",
       "faq3q": "Môže kód dokázať, že vôňa Kenzo je autentická?",
       "faq2q": "Opakujú sa Kenzo kódy každých desať rokov?",
-      "faq1a": "Kenzo Parfums je spoločnosť LVMH a spoločnosť LVMH vytlačí dátum výroby v kóde namiesto toho, aby ho zašifrovala. Štyri číslice znamenajú číslicu roka plus deň v roku; päť alebo šesť číslic je plnší dátum. Vyberte Kenzo v kontrole a použije sa správne čítanie.",
-      "faq2a": "Áno, a toto je skôr skutočné obmedzenie ako vtip. Štvormiestny kód nesie iba jednu číslicu roku, takže 4135 je 14. máj 2024 na presne tých istých dôkazoch, ako je 14. máj 2014. Dekodér predpokladá nedávne načítanie; ak fľaša a obal vyzerajú ako zo staršej doby, pravdepodobne áno."
+      "faq2a": "Áno, a toto je skôr skutočné obmedzenie ako vtip. Štvormiestny kód nesie iba jednu číslicu roku, takže 4135 je 14. máj 2024 na presne tých istých dôkazoch, ako je 14. máj 2014. Dekodér predpokladá nedávne načítanie; ak fľaša a obal vyzerajú ako zo staršej doby, pravdepodobne áno.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Kenzo kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "kerastase": {
       "where1": "Fľaše a masky: vytlačené atramentovou tlačiarňou na zadnej strane fľaše, v blízkosti základne alebo vyrazené na dne nádoby.",
@@ -405,8 +407,8 @@
       "where1": "Vôňa: na dne krabičky a na spodnej strane fľaštičky.",
       "faq1q": "Ako prečítam kód šarže Lancôme?",
       "faq2q": "Ako dlho vydrží neotvorená starostlivosť o pleť Lancôme?",
-      "faq1a": "Lancôme je L'Oréal: prvé písmeno je rok výroby (vynecháva sa V, takže U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) a znak hneď za ním je mesiac, pričom O, N a D znamenajú október, november a december.",
-      "faq2a": "Približne tri roky od výroby, menej pre produkty postavené na nestabilných aktívnych látkach. Pred nákupom v diskonte dekódujte – staré zásoby sú pravé, ale môže na nich zostať len veľmi málo neotvorených vecí."
+      "faq2a": "Približne tri roky od výroby, menej pre produkty postavené na nestabilných aktívnych látkach. Pred nákupom v diskonte dekódujte – staré zásoby sú pravé, ale môže na nich zostať len veľmi málo neotvorených vecí.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Lancôme kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "loreal": {
       "where2": "Túto stránku použite, ak podznačka nie je uvedená samostatne – celá skupina zdieľa jeden formát kódu.",
@@ -457,7 +459,7 @@
       "faq1q": "Ako skontrolujem Montblanc Legend podľa jeho kódu?",
       "faq3a": "Na menšine kódov Inter Parfums sú tieto číslice skôr výrobným riadkom ako dňom. Ak sa dátum pre fľašu zdá nepravdepodobný, dôverujte písmenu s rokom a berte deň ako približný.",
       "faq2a": "Nie. Kód šarže identifikuje výrobnú sériu, nie individuálnu fľašu, a neexistuje žiadna verejná databáza, v ktorej by sa to dalo vyhľadať. Poskytuje vám dátum – čo je užitočná časť.",
-      "faq1a": "Vôňa Montblanc je vyrobená v licencii Inter Parfums. Prvé písmeno v kóde je rok výroby v cykle, ktorý preskočí I a O — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – a posledné tri číslice predstavujú deň v danom roku."
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Montblanc kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "nivea": {
       "where1": "Tuby (krém na ruky, umývanie tváre): vyrazené do lemu – plochý zapečatený koniec oproti uzáveru.",
@@ -477,8 +479,8 @@
       "faq3q": "Je Rabanne rovnaká značka ako Paco Rabanne?",
       "faq2q": "Môže kód dokázať, že môj Paco Rabanne je pravý?",
       "faq3a": "Áno – v roku 2023 dom vypustil „Paco“ zo svojho názvu. Staršie akcie nesú predchádzajúcu značku a formát kódu sa nezmenil.",
-      "faq1a": "Paco Rabanne je vyrobený spoločnosťou Puig, ktorá namiesto šifrovania vytlačí dátum výroby v kóde. Zvyčajný tvar sú štyri číslice: prvá je posledná číslica roka, zvyšné tri sú deň daného roku — takže 4135 je 135. deň roku 2024, 14. mája 2024.",
-      "faq2a": "Môže zachytiť falošný a nemôže overiť skutočný. Paco Rabanne patrí medzi najviac falšované vône v Európe: nemožné číslo dňa alebo kódy, ktoré sa nezhodujú medzi škatuľkou a flakónom, sú silné varovania – ale kód skopírovaný z pravého flakónu sa dekóduje dokonale. Odvážte fľašu a skontrolujte aj vzor striekania."
+      "faq2a": "Môže zachytiť falošný a nemôže overiť skutočný. Paco Rabanne patrí medzi najviac falšované vône v Európe: nemožné číslo dňa alebo kódy, ktoré sa nezhodujú medzi škatuľkou a flakónom, sú silné varovania – ale kód skopírovaný z pravého flakónu sa dekóduje dokonale. Odvážte fľašu a skontrolujte aj vzor striekania.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Paco Rabanne kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "redken": {
       "where2": "Prášky a aerosóly: vyrazené na dne plechovky.",
@@ -504,15 +506,15 @@
       "faq3q": "Je kód šarže dôkazom pravosti?",
       "faq2a": "Kód je na základni kompaktu. Dekódujte ho na dátum výroby; Lisovaný prášok vydrží po otvorení približne 24 mesiacov a neotvorený podstatne dlhšie, pretože suché zloženie nedáva baktériám takmer nič na rast.",
       "faq3a": "Nie. Môže odhaliť hrubý falošný kód – kód, ktorý nezodpovedá formátu alebo sa dekóduje na nemožný mesiac – ale skopírovaný kód sa dekóduje čisto. Vôňa Tom Ford je silne falšovaná; odvážte fľaštičku, skontrolujte rozprašovač a kúpte ju u autorizovaného predajcu.",
-      "faq1a": "Tom Ford Beauty vyrába skupina Estée Lauder, takže používa trojmiestny kód skupiny: závod, mesiac, rok – čítajte sprava. Mesiac je 1–9 od januára do septembra, potom A, B a C od októbra do decembra."
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho kódu Tom Ford – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "too-faced": {
       "faq1q": "Ako skontrolujem kód šarže palety Too Faced?",
-      "faq1a": "Too Faced patrí do skupiny Estée Lauder, takže kód pozostáva z troch znakov — rastlina, mesiac, rok — čítané sprava. Ak kód na vašej palete nezodpovedá tomuto tvaru, môže to byť skôr označenie výrobného riadku než kód šarže.",
       "where1": "Palety a kompakty: na zadnej strane puzdra, niekedy pod plastovým zásobníkom.",
       "where2": "Tekuté produkty: na dne fľaše alebo na objímke tuby.",
       "faq2a": "Niektoré kódy na obaloch Too Faced sú interné čiarové označenia, nie dátumové kódy, a nie je v nich nič na dekódovanie. Skontrolujte základňu a zadnú časť puzdra, či neobsahuje druhý kratší kód – a ak tam skutočne nie je, najlepším sprievodcom je symbol otvoreného pohára.",
-      "faq2q": "Kód My Too Faced sa nedá dekódovať."
+      "faq2q": "Kód My Too Faced sa nedá dekódovať.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Too Faced kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "vichy": {
       "where1": "Tuby a opaľovací krém Capital Soleil: vtlačené do obruby – plochý zapečatený koniec oproti uzáveru.",
@@ -521,19 +523,19 @@
       "where3": "Kartóny: na koncovej chlopni, zvyčajne vedľa symbolu otvoreného pohára. Vzorky a vrecúška často nenesú žiadny kód – iba kartón, v ktorom prišli.",
       "faq1a": "Väčšina produktov Vichy nevytlačí ani jeden. Lekárne linky často obsahujú skutočný dátum exspirácie a tam, kde existuje, prekonáva akýkoľvek dekódovaný odhad – ale ak všetko, čo môžete nájsť, je krátky kód, je to kód šarže, ktorý obsahuje dátum výroby a nie dátum exspirácie. Dekódujte ho a potom pridajte trvanlivosť: približne 36 mesiacov neotvorený na starostlivosť o pleť a po otvorení postupujte podľa symbolu otvoreného pohára.",
       "faq4a": "Áno, a na tom záleží viac ako na čomkoľvek inom v tomto sortimente: znehodnotené UV filtre prepúšťajú viac žiarenia, takže zastaraný SPF 50 neposkytuje SPF 50. Opaľovací krém má zvyčajne vytlačený dátum spotreby presne z tohto dôvodu – používajte ho. A fľašu, ktorá strávila leto v rozpálenom aute, považujte za hotovú bez ohľadu na dátum.",
-      "faq2a": "Vichy vyrába L'Oréal a používa formát skupiny. Nájdite prvé písmeno v kóde: to je rok výroby v cykle, ktorý preskočí V, takže U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Hneď za ním je znak mesiac – 1 až 9 pre január až september, potom O, N a D pre október, november a december. To O je písmeno O, nie nula.",
       "faq4q": "Exspiruje opaľovací krém Capital Soleil?",
       "faq3q": "Môže kód dokázať, že môj Vichy je pravý?",
       "faq2q": "Ako si prečítam kód na produkte Vichy?",
-      "faq3a": "Len čiastočne. Kód, ktorý sa nezhoduje s tvarom L'Oréal, alebo ktorý sa dekóduje na dátum predtým, ako produktový rad existoval, je skutočným varovaním. Ale falšovateľ, ktorý skopíruje kód z originálnej tuby, vytvorí kód, ktorý sa dokonale dekóduje – takže čistý dekód dokazuje, že kód je dobre vytvorený, nie krém. Pre lekárenskú starostlivosť o pleť zostáva silnejšou ochranou nákup v lekárni."
+      "faq3a": "Len čiastočne. Kód, ktorý sa nezhoduje s tvarom L'Oréal, alebo ktorý sa dekóduje na dátum predtým, ako produktový rad existoval, je skutočným varovaním. Ale falšovateľ, ktorý skopíruje kód z originálnej tuby, vytvorí kód, ktorý sa dokonale dekóduje – takže čistý dekód dokazuje, že kód je dobre vytvorený, nie krém. Pre lekárenskú starostlivosť o pleť zostáva silnejšou ochranou nákup v lekárni.",
+      "faq2a": "Cosmetics Batch za vás načíta dátum výroby z vášho Vichy kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "ysl-beauty": {
       "where1": "Rúž a make-up: vyrazené na spodnej časti puzdra alebo na zadnej strane kompaktu.",
       "where2": "Vôňa: na dne krabičky a spodnej strane fľaštičky.",
       "faq2q": "Prečo môj YSL kód vyzerá ako Maybelline?",
       "faq1q": "Ako skontrolujem kód šarže Yves Saint Laurent?",
-      "faq1a": "YSL Beauty vyrába L'Oréal, takže nesie kód skupiny: výrobné číslice, písmeno roka a potom znak mesiaca. Vyberte YSL Beauty v kontrole a motor použije pravidlo L'Oréal.",
-      "faq2a": "Pretože obe vyrába tá istá spoločnosť. Formát sa riadi továrňou, nie cenou – rúž YSL a maskara Maybelline pochádzajú z liniek L'Oréal a nesú rovnaký štýl kódu."
+      "faq2a": "Pretože obe vyrába tá istá spoločnosť. Formát sa riadi továrňou, nie cenou – rúž YSL a maskara Maybelline pochádzajú z liniek L'Oréal a nesú rovnaký štýl kódu.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Yves Saint Laurent kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO)."
     },
     "zara": {
       "where2": "Sortiment krásy ho vytlačí na spodnú stranu puzdra alebo obrubu tuby.",
@@ -542,6 +544,19 @@
       "faq1a": "Spravidla nie vytlačený – ako väčšina vôní má namiesto toho kód šarže. Dekódujte ho na dátum výroby a počítajte s tromi až piatimi rokmi životnosti v neotvorenom stave, čo je normálne pre toaletnú vodu, ktorá je chránená pred svetlom a teplom.",
       "faq1q": "Má parfém Zara dátum spotreby?",
       "faq2q": "Kto vlastne vyrába parfum Zara?"
+    },
+    "escada": {
+      "faq1q": "Ako si prečítam kód šarže parfumu Escada?",
+      "where1": "Moderná parfumová a toaletná voda: na priehľadnej nálepke pod sklenenou fľašou, vytlačené ako štvormiestne číslo na rovnakom riadku ako text „EAU DE PARFUM VAPORISATEUR“.",
+      "where3": "Staršie Escada parfum mini (obdobie Margaretha Ley, distribuované Escada Beauté) namiesto toho vyrazia na kovovú základnú dosku krátku sériu písmen a číslic. Tento vintage formát nie je štvormiestny Coty kód a nebude sa tu dekódovať.",
+      "faq1a": "Cosmetics Batch za vás načíta dátum výroby z vášho Escada kódu – zadajte ho do kontroléra v hornej časti tejto stránky bez manuálneho dekódovania. Kód obsahuje dátum výroby, nie exspiráciu: pridajte typickú neotvorenú trvanlivosť na posúdenie čerstvosti a po otvorení postupujte podľa symbolu otvoreného pohára (PAO).",
+      "where2": "Vonkajší kartón: na koncovej chlopni. Kódy nálepky a škatule sú vytlačené spolu v továrni a mali by znieť rovnako – ak nie, fľaša a škatuľa boli spárované niekde inde.",
+      "faq2q": "Moja fľaša Escada má na základni vyrazený kód ako „H 0100“ – prečo sa nedá dekódovať?",
+      "faq2a": "To je starší Escada parfum z obdobia pred súčasným kódovaním Coty; Minis z éry Margarethy Ley vytlačí do kovovej základne množstvo písmen a číslic namiesto tlače štvormiestneho kódu dňa v roku. Tieto staré položky nezodpovedajú formátu, ktorý tento nástroj číta, takže ich nemôže datovať. Nie je to znak toho, že fľaša je falošná – továreň jednoducho použila iný systém.",
+      "faq3a": "Vôňa nemá tvrdú expiráciu, ale mení sa. Neotvorená Escada fľaša uchovávaná v chlade a tme si zachováva svoj charakter približne päť rokov; po otvorení najskôr vyblednú svetlé ovocné vrchné tóny. Fľaša, ktorá stmavla alebo sa zmenila na ostrú a kyslú, zoxidovala bez ohľadu na to, čo hovorí kód.",
+      "faq3q": "Vyprší platnosť Escada parfumu?",
+      "faq4q": "Môže kód šarže dokázať, že moja Escada je pravá?",
+      "faq4a": "Nie. Kód, ktorý nezodpovedá štvorcifernému tvaru Coty alebo ktorý pochádza z doby pred uvedením vône na trh, je skutočným varovným signálom. Ale dobre vytvorený kód skopírovaný na falzifikát sa dekóduje rovnako čisto, takže platný dátum dokazuje, že kód je skutočný, nie parfum. Nákup od autorizovaného predajcu zostáva prísnejšou kontrolou."
     }
   },
   "contentPages": {
@@ -560,11 +575,23 @@
     "confidence": "{level} sebavedomie",
     "formatsTitle": "Formáty dávkového kódu",
     "workedExamplesNote": "Dekódované naživo tým istým motorom, ktorý poháňa kontrolku – neprepísané ručne.",
-    "brandsUsingNote": "Formát patrí výrobcovi, nie štítok na fľaši – každá značka nižšie je vyrazená rovnakými závodmi a číta sa rovnakým spôsobom.",
     "otherFormats": "Iné formáty kódov",
     "whichCode": "Nie ste si istí, ktorý kód na balení je kód šarže?",
-    "formatsIntro": "Formát kódu šarže patrí tomu, kto vyrába produkt, nie názvu na fľaši. Coty razí rovnaké štvorčíslie na Rimmel, Gucci a adidas; Inter Parfums vytlačí rovnakých deväť postáv na Montblanc, Coach a Jimmy Choo. Naučte sa šifru raz a môžete si prečítať každú značku, ktorá ju zdieľa.",
-    "formatsIntro2": "Každá nižšie uvedená stránka dokumentuje jednu rodinu: čo každý znak zakóduje, skutočné kódy dekódované tým istým motorom, ktorý poháňa kontrolu, kde je kód vytlačený na obale, a čo je rovnako dôležité, čo vám formát nemôže povedať.",
-    "brandCount": "značky"
+    "brandCount": "značky",
+    "checkYourCodeTitle": "Skontrolujte kód šarže",
+    "checkYourCodeCta": "Otvorte kontrolu",
+    "brandsUsingNote": "Kód šarže patrí výrobcovi, nie štítok na fľaši – nižšie uvedené značky majú rovnaké výrobné kódovanie, takže kontrolór ich všetky prečíta.",
+    "formatsIntro": "Kód šarže patrí tomu, kto vyrába produkt, nie názvu na fľaši – ten istý výrobca razí rovnaký štýl kódu v mnohých značkách. Nižšie vyberte skupinu výrobcov a zistite, ktoré značky pokrýva, a potom skontrolujte ľubovoľný kód v nástroji.",
+    "checkYourCodeBody": "Zadajte kód šarže z vášho produktu do kontroléra a prečíta dátum výroby za vás – nie je potrebné manuálne dekódovanie. Kód obsahuje dátum výroby, nie expiráciu.",
+    "formatsIntro2": "Každá nižšie uvedená stránka pokrýva jednu skupinu výrobcov: ktoré značky zahŕňa, kde nájdete kód šarže na balení a čo vám kód môže a čo nemôže povedať o dátume výroby a čerstvosti."
+  },
+  "lorealFamily": {
+    "format": "Ak sa zadaný kód zhoduje s kódovaním pozorovanej skupiny L'Oréal, kontrolór za vás prečíta mesiac a rok výroby. Zadajte kód uvedený vyššie a získajte dátum – nie sú potrebné žiadne manuálne kroky.",
+    "precision": "Tento formát identifikuje mesiac, nie presný deň. Ktorýkoľvek deň zobrazený vo výsledku je odhad v polovici mesiaca. Vytlačený dátum exspirácie alebo dátum minimálnej trvanlivosti na produkte má vždy prednosť.",
+    "portfolio": "{name}je uvedený v portfóliu značiek L'Oréal Groupe. Vlastníctvo skupiny nezaručuje, že každá továreň, trh alebo starší produkt používa rovnaký formát kódu šarže.",
+    "heading": "Čo treba vedieť o{name}a L'Oréal dávkových kódoch",
+    "authenticity": "Kód, ktorý sa úspešne dekóduje, nemôže dokázať pravosť produktu, pretože kód je možné skopírovať. Použite výsledok ako jednu kontrolu konzistencie spolu s predajcom, balením, pečaťami a kvalitou tlače.",
+    "officialSource": "Potvrďte značku v oficiálnom portfóliu L'Oréal Groupe",
+    "decoderLabel": "Formát pozorovanej skupiny (presnosť na mesiac)"
   }
 }

@@ -39,6 +39,12 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
     supportedCodeFormats: ["YDDD", "YYDDD", "YYMMDD"],
     knownLimitations: ["No primary source stored", "Numeric codes can have multiple interpretations"],
   },
+  acquadiparma: {
+    decoderId: "acquadiparma", version: "1.0.0", verificationStatus: "ESTIMATED",
+    datePrecision: "day", sourceType: "observed-samples", sourceReferences: [], verifiedAt: null,
+    supportedCodeFormats: ["DDDY with plant letter"],
+    knownLimitations: ["Single-digit year repeats every decade", "Day-of-year > 366 or non-conforming codes do not decode"],
+  },
   julian: {
     decoderId: "julian", version: "1.0.0", verificationStatus: "FORMAT_ONLY",
     datePrecision: "variable", sourceType: "documented-industry", sourceReferences: [], verifiedAt: null,

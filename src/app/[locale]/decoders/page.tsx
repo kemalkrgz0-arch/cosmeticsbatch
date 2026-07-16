@@ -77,9 +77,6 @@ export default async function DecodersIndexPage({
                   {g.description}
                 </p>
                 <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-fg-muted">
-                  <code className="rounded bg-bg-subtle px-1.5 py-0.5 font-mono font-semibold text-fg">
-                    {g.anatomy.code}
-                  </code>
                   {count > 0 && (
                     <span>
                       {count} {tc("brandCount")}

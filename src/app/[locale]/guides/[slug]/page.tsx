@@ -17,7 +17,11 @@ import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
 import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
-import { isContentReviewed } from "@/lib/content-review";
+import {
+  isContentReviewed,
+  reviewedContentLocales,
+} from "@/lib/content-review";
+import { indexableContentLocales } from "@/lib/publishing-policy";
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -32,12 +36,17 @@ export async function generateMetadata({
   const source = getGuide(slug);
   if (!source) return {};
   const guide = localizeGuide(source, await contentTranslator(locale));
+  const availableLocales = indexableContentLocales(
+    reviewedContentLocales(`guide.${source.slug}`),
+  );
   const meta = pageMeta({
     title: guide.title,
     description: guide.description,
     path: `/guides/${guide.slug}`,
     type: "article",
     locale,
+    availableLocales,
+    indexable: availableLocales.includes(locale),
   });
   return meta;
 }

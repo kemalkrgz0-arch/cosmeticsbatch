@@ -21,7 +21,7 @@ import {
 import { InlineResult } from "@/components/inline-result";
 import { buildBrandFaqs, brandIntroSections } from "@/lib/brand-faq";
 import { guideForBrand } from "@/lib/decoder-guides";
-import { DECODERS, getDecoderProfile } from "@/lib/decoder";
+import { DECODERS } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import { contentTranslator, localizeGuide } from "@/lib/content-i18n";
 import { isEditorialLocaleReviewed } from "@/lib/content-review";
@@ -43,6 +43,10 @@ import {
   isLorealGroupBrand,
   isLorealPriorityLocale,
 } from "@/lib/loreal";
+import {
+  indexableBrandLocales,
+  isIndexableBrandPage,
+} from "@/lib/publishing-policy";
 
 export function generateStaticParams() {
   return ALL_BRANDS.filter(
@@ -67,6 +71,8 @@ export async function generateMetadata({
     path: `/brands/${brand.slug}`,
     type: "article",
     locale,
+    availableLocales: indexableBrandLocales(brand.slug),
+    indexable: isIndexableBrandPage(brand.slug, locale),
   });
   return meta;
 }
@@ -114,14 +120,6 @@ export default async function BrandPage({
   const helpfulGuides = GUIDES.slice(0, 4).map((guide) =>
     localizeGuide(guide, contentT),
   );
-  const sample = detail
-    ? DECODERS[brand.decoderId ?? ""]?.decode(detail.sampleCode, {
-        now: new Date(),
-      })
-    : null;
-  // Match the checker: hide the placeholder day for month/year-precision codes.
-  const samplePrecision =
-    getDecoderProfile(brand.decoderId ?? "")?.datePrecision ?? "day";
   const has = (key: string) => t.has(`brandDetail.${brand.slug}.${key}`);
   const whereLines = detail
     ? Array.from({ length: MAX_WHERE_LINES }, (_, i) => `where${i + 1}`)
@@ -347,37 +345,6 @@ export default async function BrandPage({
       {/* Brand-specific material. A worked example run through this brand's own
           decoder — decoded here by the live engine, not transcribed — plus where
           the code sits on its packaging. */}
-      {detail && sample?.manufactureDate && (
-        <section className="mt-10">
-          <h2 className="text-xl font-semibold">
-            {tb("exampleHeading", { name: brand.name })}
-          </h2>
-          <div className="mt-4 rounded-xl border border-border bg-card p-4">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <code className="rounded-lg bg-bg-subtle px-2 py-1 font-mono text-sm font-semibold">
-                {detail.sampleCode}
-              </code>
-              <ArrowRight className="h-4 w-4 shrink-0 text-fg-muted" />
-              <span className="font-medium">
-                {sample.manufactureDate.toLocaleDateString(locale, {
-                  year: "numeric",
-                  ...(samplePrecision === "year"
-                    ? {}
-                    : { month: "long" }),
-                  ...(samplePrecision === "month" ||
-                  samplePrecision === "year"
-                    ? {}
-                    : { day: "numeric" }),
-                  timeZone: "UTC",
-                })}
-              </span>
-            </div>
-            <p className="mt-2 text-sm leading-relaxed text-fg-muted">
-              {sample.method}
-            </p>
-          </div>
-        </section>
-      )}
 
       {whereLines.length > 0 && (
         <section className="mt-10">

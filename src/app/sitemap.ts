@@ -3,15 +3,17 @@ import { ALL_BRANDS } from "@/lib/brands";
 import { DECODER_GUIDES } from "@/lib/decoder-guides";
 import { GUIDES } from "@/lib/guides";
 import { absoluteUrl, site } from "@/lib/site";
-import { LOCALE_CODES } from "@/i18n/locales";
 import { localizedPath } from "@/lib/seo";
-import { isLorealGroupBrand } from "@/lib/loreal";
+import {
+  INDEXABLE_LOCALES,
+  indexableBrandLocales,
+  indexableContentLocales,
+} from "@/lib/publishing-policy";
+import { reviewedContentLocales } from "@/lib/content-review";
 
-/**
- * Every public locale URL gets its own sitemap entry. Reciprocal hreflang stays
- * in page metadata; repeating the full 45-link set on every sitemap row would
- * create more than 500,000 XML links and exceed response/cache size limits.
- */
+/** Search exposure follows the central publishing policy. Functional routes
+ * outside the approved locale/content matrix remain available but do not
+ * appear here and carry page-level noindex metadata. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const updated = new Date(site.contentUpdated);
 
@@ -20,8 +22,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: Date,
     changeFrequency: "weekly" | "monthly",
     priority: number,
+    localeCodes: readonly string[] = INDEXABLE_LOCALES,
   ): MetadataRoute.Sitemap =>
-    LOCALE_CODES.map((locale) => ({
+    localeCodes.map((locale) => ({
       url: absoluteUrl(localizedPath(locale, path)),
       lastModified,
       changeFrequency,
@@ -40,16 +43,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...entries("/terms", updated, "monthly", 0.3),
   ];
   const publicBrands = ALL_BRANDS.filter(
-    (brand) => !brand.hidden || isLorealGroupBrand(brand),
+    (brand) => !brand.hidden && indexableBrandLocales(brand.slug).length > 0,
   );
   const brandEntries = publicBrands.flatMap((brand) =>
-    entries(`/brands/${brand.slug}`, updated, "monthly", 0.8),
+    entries(
+      `/brands/${brand.slug}`,
+      updated,
+      "monthly",
+      0.8,
+      indexableBrandLocales(brand.slug),
+    ),
   );
   const decoderEntries = DECODER_GUIDES.flatMap((guide) =>
-    entries(`/decoders/${guide.slug}`, new Date(guide.updated), "monthly", 0.9),
+    entries(
+      `/decoders/${guide.slug}`,
+      new Date(guide.updated),
+      "monthly",
+      0.9,
+      indexableContentLocales(reviewedContentLocales(`dec.${guide.slug}`)),
+    ),
   );
   const guideEntries = GUIDES.flatMap((guide) =>
-    entries(`/guides/${guide.slug}`, new Date(guide.updated), "monthly", 0.6),
+    entries(
+      `/guides/${guide.slug}`,
+      new Date(guide.updated),
+      "monthly",
+      0.6,
+      indexableContentLocales(reviewedContentLocales(`guide.${guide.slug}`)),
+    ),
   );
 
   return [...routeEntries, ...brandEntries, ...decoderEntries, ...guideEntries];

@@ -47,9 +47,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "coty-batch-code-format",
     decoderIds: ["coty"],
-    title: "Coty Batch Codes (YDDD): How to Read Them",
+    title: "Coty Batch Codes: Find & Check Yours",
     description:
-      "Coty stamps a 4-digit code — one year digit plus the day of the year — on Rimmel, Bourjois, Hugo Boss, Gucci, Calvin Klein and 35 other brands. Here is the full format, worked examples and its blind spots.",
+      "Find the batch code on Rimmel, Bourjois, Hugo Boss, Gucci, Calvin Klein and 35+ other Coty brands, and check the production date and estimated shelf life in seconds — free, no manual decoding.",
     updated: "2026-07-12",
     readMinutes: 5,
     anatomy: {
@@ -120,9 +120,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "loreal-batch-code-format",
     decoderIds: ["loreal"],
-    title: "L'Oréal Batch Codes: The Year-Letter System Explained",
+    title: "L'Oréal Batch Codes: Find & Check Yours",
     description:
-      "L'Oréal's 6-character code hides the year in a letter and the month in the character after it. It reads Maybelline, Lancôme, Kiehl's, CeraVe, La Roche-Posay, YSL and 30 more brands.",
+      "Check the batch code on Maybelline, Lancôme, Kiehl's, CeraVe, La Roche-Posay, YSL and 30+ more L'Oréal brands — get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-12",
     readMinutes: 6,
     anatomy: {
@@ -193,9 +193,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "estee-lauder-batch-code-format",
     decoderIds: ["estee-lauder"],
-    title: "Estée Lauder Batch Codes: Plant, Month, Year in 3 Characters",
+    title: "Estée Lauder Batch Codes: Find & Check Yours",
     description:
-      "The Estée Lauder group packs a plant letter, a month and a year into three characters. The same code reads Clinique, MAC, La Mer, Jo Malone, Tom Ford and Bobbi Brown.",
+      "Check the batch code on Estée Lauder, Clinique, MAC, La Mer, Jo Malone, Tom Ford and Bobbi Brown — get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-12",
     readMinutes: 5,
     anatomy: {
@@ -263,10 +263,10 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   /* ------------------------------------------------- Dior / LVMH houses -- */
   {
     slug: "dior-lvmh-batch-code-format",
-    decoderIds: ["dior", "chanel"],
-    title: "Dior, Chanel and LVMH Batch Codes: Reading the Date",
+    decoderIds: ["dior", "chanel", "acquadiparma"],
+    title: "Dior, Chanel & LVMH Batch Codes: Find & Check Yours",
     description:
-      "Modern Dior uses a year-digit + month-letter code (5H03 = August 2015/2025). Its LVMH siblings and Chanel print a production date straight into the code. Here's how to read both.",
+      "Check the batch code on Dior, Chanel, Guerlain and other LVMH beauty houses — enter it and get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-16",
     readMinutes: 5,
     anatomy: {
@@ -294,7 +294,8 @@ export const DECODER_GUIDES: DecoderGuide[] = [
       {
         heading: "Siblings and Chanel: the date in the digits",
         body: [
-          "The other LVMH beauty houses — Guerlain, Givenchy, Kenzo, Loewe, Acqua di Parma, Maison Francis Kurkdjian — and Chanel, which publishes no scheme at all, tend to print a production date straight into an all-digit code instead. That can be two year digits followed by the day of the year (24045), or a packed calendar date in YYMMDD form (231122 = 22 November 2023). The decoder reads those directly.",
+          "The other LVMH beauty houses — Guerlain, Givenchy, Kenzo, Loewe, Maison Francis Kurkdjian — and Chanel, which publishes no scheme at all, tend to print a production date straight into an all-digit code instead. That can be two year digits followed by the day of the year (24045), or a packed calendar date in YYMMDD form (231122 = 22 November 2023). The decoder reads those directly.",
+          "Acqua di Parma uses its own five-character code: three digits for the day of the year, then one digit for the year, then a plant letter. So 2480Y is the 248th day of 2020 (4 September 2020) and 0525S is the 52nd day of 2025 (21 February 2025).",
           "Reading one by hand: for Dior, take the first digit as the year and the letter as the month (A=1 … M=12, no I). For the all-digit houses, a run of day-of-year digits divided by about 30.4 gives the month. If two readings both look valid, prefer the one that produces a date the product could plausibly have.",
         ],
       },
@@ -337,7 +338,7 @@ export const DECODER_GUIDES: DecoderGuide[] = [
     decoderIds: ["embedded"],
     title: "Paco Rabanne, Jean Paul Gaultier and Zara Batch Codes (Puig)",
     description:
-      "Puig — the house behind Paco Rabanne, Jean Paul Gaultier, Carolina Herrera, Nina Ricci and Zara fragrance — prints the production date straight into the code. Here's how to read it.",
+      "Check the batch code on Paco Rabanne, Jean Paul Gaultier, Carolina Herrera, Nina Ricci and Zara fragrance (Puig) — get the production date and estimated shelf life free.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -411,9 +412,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "inter-parfums-batch-code-format",
     decoderIds: ["interparfums"],
-    title: "Inter Parfums Batch Codes: Year Letter + Julian Day",
+    title: "Inter Parfums Batch Codes: Find & Check Yours",
     description:
-      "Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron and Karl Lagerfeld fragrances share one licensed manufacturer — and one 9-character code.",
+      "Check the batch code on Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron and Karl Lagerfeld fragrances — get the production date and estimated shelf life free.",
     updated: "2026-07-12",
     readMinutes: 5,
     anatomy: {
@@ -475,9 +476,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "creed-batch-code-format",
     decoderIds: ["creed"],
-    title: "Creed Batch Codes: Two Systems, Year Only",
+    title: "Creed Batch Codes: Find & Check Yours",
     description:
-      "Creed has used two batch-code systems — a classic code (2013–2022) whose middle digits are the year, and a newer F-series (2023 on). Neither encodes the month. Here's how to read both.",
+      "Check the batch code on any Creed fragrance — enter it and get the production year and estimated shelf life in seconds, free. See where the code is printed on the bottle and box.",
     updated: "2026-07-16",
     readMinutes: 4,
     anatomy: {
@@ -534,9 +535,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "procter-gamble-batch-code-format",
     decoderIds: ["pg"],
-    title: "Procter & Gamble Batch Codes: The Julian Date",
+    title: "Procter & Gamble Batch Codes: Find & Check Yours",
     description:
-      "Olay, Pantene, Head & Shoulders, Old Spice and Herbal Essences all carry a Julian production date. Three code lengths, one rule.",
+      "Check the batch code on Olay, Pantene, Head & Shoulders, Old Spice and Herbal Essences — get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-12",
     readMinutes: 5,
     anatomy: {
@@ -592,9 +593,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "kenvue-batch-code-format",
     decoderIds: ["kenvue"],
-    title: "Neutrogena, Aveeno and RoC Batch Codes: The Day Comes First",
+    title: "Neutrogena, Aveeno & RoC Batch Codes: Find & Check Yours",
     description:
-      "Kenvue (formerly Johnson & Johnson consumer health) prints a Julian date backwards compared with most of the industry — day first, then year.",
+      "Check the batch code on Neutrogena, Aveeno and RoC (Kenvue) — enter it and get the production date and estimated shelf life free.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -651,9 +652,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "unilever-batch-code-format",
     decoderIds: ["unilever"],
-    title: "Unilever Batch Codes (YDDD): Dove, Axe, Rexona, Vaseline",
+    title: "Unilever Batch Codes: Dove, Axe, Rexona, Vaseline",
     description:
-      "Unilever's personal-care lines use a 4–5 character code: year digit, day of the year, and an optional plant letter.",
+      "Check the batch code on Dove, Axe, Rexona, Vaseline and other Unilever personal-care lines — get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -708,9 +709,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "korean-batch-code-format",
     decoderIds: ["kbeauty"],
-    title: "Korean Beauty Batch Codes: The Manufacture Date, Printed Plainly",
+    title: "Korean Beauty Batch Codes: Find & Check Yours",
     description:
-      "K-beauty barely uses ciphers. Korean law requires the manufacture date on the pack, and the batch code usually starts with it — COSRX, Laneige, Innisfree, Beauty of Joseon and 40 more.",
+      "Check the code on COSRX, Laneige, Innisfree, Beauty of Joseon and 40+ more K-beauty brands — most print the manufacture date, and our checker reads it for you.",
     updated: "2026-07-12",
     readMinutes: 5,
     anatomy: {
@@ -770,9 +771,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "beiersdorf-batch-code-format",
     decoderIds: ["beiersdorf"],
-    title: "NIVEA, Eucerin and Labello Batch Codes: Year + Week",
+    title: "NIVEA, Eucerin & Labello Batch Codes: Find & Check Yours",
     description:
-      "Beiersdorf is one of the few manufacturers to encode the production week rather than the day. Here's how its 8-digit code works.",
+      "Check the batch code on NIVEA, Eucerin and Labello — enter it and get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -826,9 +827,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "bioderma-batch-code-format",
     decoderIds: ["naos"],
-    title: "Bioderma Batch Codes (DDDY): Day First, Year Last",
+    title: "Bioderma Batch Codes: Find & Check Yours",
     description:
-      "Bioderma's code puts the day of the year before the year digit — the mirror image of Coty's. And most Bioderma packs print an expiry date anyway.",
+      "Check the batch code on Bioderma — enter it and get the production date and estimated shelf life free. Most Bioderma packs also print an expiry date.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -872,9 +873,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "the-ordinary-batch-code-format",
     decoderIds: ["deciem"],
-    title: "The Ordinary Batch Codes: Year Digit + Month Letter",
+    title: "The Ordinary Batch Codes: Find & Check Yours",
     description:
-      "Deciem's newer codes encode a year and a month letter — and its older four-character codes cannot be decoded by anyone. Here's how to tell them apart.",
+      "Check the batch code on The Ordinary and other Deciem lines — enter it and get the production date and estimated shelf life free where the code supports it.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -923,9 +924,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "shiseido-batch-code-format",
     decoderIds: ["shiseido"],
-    title: "Shiseido Batch Codes (YDDD): Year Digit + Julian Day",
+    title: "Shiseido Batch Codes: Find & Check Yours",
     description:
-      "Shiseido and its houses print the year digit first and the day of the year second, followed by plant letters.",
+      "Check the batch code on Shiseido and its houses — enter it and get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -969,9 +970,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "rohto-batch-code-format",
     decoderIds: ["rohto"],
-    title: "Rohto Batch Codes: Year Digit + Month Letter (Unofficial)",
+    title: "Rohto Batch Codes: Find & Check Yours",
     description:
-      "Hada Labo, Melano CC, OXY and Sunplay follow an observed year-digit-plus-month-letter pattern that Rohto has never confirmed. We decode it, and we say so.",
+      "Check the batch code on Hada Labo, Melano CC, OXY and Sunplay (Rohto) — get an estimated production date and shelf life free; the format is unofficial, so we flag the estimate.",
     updated: "2026-07-12",
     readMinutes: 4,
     anatomy: {
@@ -1015,9 +1016,9 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "julian-date-codes",
     decoderIds: ["julian"],
-    title: "Julian Date Codes: The Industry's Default",
+    title: "Batch Date Codes: Find & Check Yours",
     description:
-      "Most manufacturers with no proprietary cipher simply print the date — as a Julian day number or a packed calendar date. This is the fallback our decoder uses when a brand has no scheme of its own.",
+      "Check batch codes that print the date directly — enter the code from your product and get the production date and estimated shelf life in seconds, free.",
     updated: "2026-07-12",
     readMinutes: 5,
     anatomy: {

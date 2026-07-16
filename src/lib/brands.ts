@@ -166,7 +166,7 @@ const ROWS: Row[] = [
   ["Givenchy Beauty", "LVMH", "dior", "makeup", 36, 24],
   ["Kenzo Parfums", "LVMH", "dior", "perfume", 60, 36],
   ["Loewe Perfumes", "LVMH", "dior", "perfume", 60, 36],
-  ["Acqua di Parma", "LVMH", "dior", "perfume", 60, 36],
+  ["Acqua di Parma", "LVMH", "acquadiparma", "perfume", 60, 36],
   ["Maison Francis Kurkdjian", "LVMH", "dior", "perfume", 60, 36],
   ["Fresh", "LVMH", "dior", "skincare", 36, 12],
   ["Benefit Cosmetics", "LVMH", "dior", "makeup", 36, 24],
@@ -624,11 +624,6 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
     { src: "/brands/examples/chanel-1.jpg", width: 900, height: 416 },
     { src: "/brands/examples/chanel-2.jpg", width: 900, height: 416 },
     { src: "/brands/examples/chanel-3.jpg", width: 900, height: 416 },
-  ],
-  "chanel-beauty": [
-    { src: "/brands/examples/chanel-beauty-1.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/chanel-beauty-2.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/chanel-beauty-3.jpg", width: 900, height: 416 },
   ],
   creed: [
     { src: "/brands/examples/creed-1.jpg", width: 900, height: 416 },

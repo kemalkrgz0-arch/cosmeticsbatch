@@ -11,7 +11,7 @@
     "language": "Language"
   },
   "footer": {
-    "tagline": "The most trusted and easiest way to check cosmetic & perfume batch codes. Free, instant and private.",
+    "tagline": "Estimate cosmetic and perfume manufacture dates from supported batch-code formats, with clear shelf-life guidance and limitations.",
     "company": "Company",
     "resources": "Resources",
     "aboutUs": "About Us",
@@ -29,10 +29,10 @@
   "hero": {
     "badge": "Trusted by beauty lovers worldwide",
     "title": "Check Cosmetic & Perfume Batch Codes",
-    "subtitle": "Find the manufacture date, age, and expiration date of your cosmetics in seconds — free, instant and private.",
+    "subtitle": "Estimate the manufacture date and age of supported cosmetics, then review typical unopened shelf life and PAO guidance.",
     "trustFree": "100% Free",
     "trustNoSignup": "No sign-up required",
-    "trustPrivate": "Private & Secure"
+    "trustPrivate": "Clear limitations"
   },
   "home": {
     "faqSubtitle": "Everything you need to know about decoding cosmetic and perfume batch codes."
@@ -85,7 +85,7 @@
   "lorealFamily": {
     "heading": "What to know about {name} and L'Oréal batch codes",
     "portfolio": "{name} is listed in L'Oréal Groupe's brand portfolio. Group ownership does not guarantee that every factory, market or older product uses the same batch-code format.",
-    "format": "A commonly observed L'Oréal format combines a factory prefix, a year letter and the following month character. The decoder only applies this reading when the entered code matches that pattern.",
+    "format": "Where the entered code matches L'Oréal's observed group coding, the checker reads its production month and year for you. Enter the code above to get the date — there are no manual steps to follow.",
     "precision": "This format identifies a month, not an exact day. Any day displayed in the result is a mid-month estimate. A printed expiry or best-before date on the product always takes priority.",
     "authenticity": "A code that decodes successfully cannot prove the product is genuine because a code can be copied. Use the result as one consistency check alongside the seller, packaging, seals and print quality.",
     "officialSource": "Confirm the brand in L'Oréal Groupe's official portfolio",
@@ -204,7 +204,7 @@
     "step2Title": "Enter Batch Code",
     "step2Body": "Type the batch code stamped or embossed on your product.",
     "step3Title": "Get Results",
-    "step3Body": "See the manufacture date, age, freshness and expiration instantly."
+    "step3Body": "See the estimated manufacture date and age, with separate shelf-life and PAO guidance."
   },
   "popularBrands": {
     "title": "Popular Brands",
@@ -212,12 +212,12 @@
     "viewAll": "View all brands"
   },
   "features": {
-    "accurateTitle": "Accurate & Reliable",
-    "accurateBody": "Manufacturer-specific algorithms for precise results.",
+    "accurateTitle": "Evidence-aware results",
+    "accurateBody": "Supported formats show their precision, assumptions and known limitations.",
     "fastTitle": "Fast & Easy",
     "fastBody": "Get results in just a few seconds — no sign-up.",
-    "privateTitle": "Private & Secure",
-    "privateBody": "Codes are decoded privately. Your privacy comes first.",
+    "privateTitle": "Privacy explained",
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
     "freeTitle": "Always Free",
     "freeBody": "Every feature is 100% free, forever."
   },
@@ -242,7 +242,7 @@
       "where1": "On the bottom of the box, and on the sticker under the bottle.",
       "where2": "On the flatter CK One bottles the code can be printed directly on the glass base.",
       "faq1q": "How do I decode a Calvin Klein batch code?",
-      "faq1a": "CK fragrance is manufactured by Coty. The code is four digits: a year digit followed by the day of the year. Divide the day by about 30.4 to get the month — day 135 is early in the fifth month, May.",
+      "faq1a": "Cosmetics Batch reads the production date from your Calvin Klein code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "Can the batch code tell me if my CK is real?",
       "faq2a": "It can catch a bad fake: an impossible day number, or codes that disagree between box and bottle. It cannot confirm a good one, because a code copied from a genuine bottle decodes perfectly."
     },
@@ -250,7 +250,7 @@
       "where1": "On the base of the box, and the underside of the bottle.",
       "where2": "On the Good Girl stiletto bottle the code sits on the sole of the heel.",
       "faq1q": "How do I check a Carolina Herrera batch code?",
-      "faq1a": "Carolina Herrera fragrance is made by Puig, which prints the production date in the code — as a year digit plus the day of the year, or as a packed date such as 231122 for 22 November 2023.",
+      "faq1a": "Cosmetics Batch reads the production date from your Carolina Herrera code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "Is Good Girl often counterfeited?",
       "faq2a": "It is one of the most copied fragrances in Europe. Do the checks a code cannot do: compare the box and bottle codes, weigh the bottle, and look at the fineness of the spray. A clean decode is necessary but nowhere near sufficient."
     },
@@ -278,7 +278,7 @@
       "where1": "Skincare bottles and jars: embossed on the base.",
       "where2": "Makeup: the back of the compact or the base of the case.",
       "faq1q": "How do I read a Clinique batch code?",
-      "faq1a": "Clinique is Estée Lauder, so the format is plant, month, year in three characters — read from the right. The last character is the year digit; the one before it is the month, with A, B and C standing for October, November and December.",
+      "faq1a": "Cosmetics Batch reads the production date from your Clinique code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "How long does Clinique skincare last?",
       "faq2a": "Around 36 months unopened from the manufacture date, and 12 months after opening for most of the range. The open-jar symbol on the pack is the number that binds once you break the seal."
     },
@@ -286,7 +286,7 @@
       "where1": "On the base of the bottle, and on the bottom of the box — usually printed in black on the white base sticker.",
       "where2": "On the older, heavier flacons the code can be stamped rather than printed; angle it against the light.",
       "faq1q": "How do I read a Creed batch code?",
-      "faq1a": "Creed uses two systems, and both give the year, never the month. Older bottles (2013–2022) carry a longer code: a three-character product id, then the two-digit production year, then the batch series — in A4221N01 the 21 means 2021, and in L6622A01B the 22 means 2022. From 2023 the code was simplified to an F followed by a sequence number, such as F001704; here the F marks the newer generation, so you know it is 2023 or later but not the exact year.",
+      "faq1a": "Cosmetics Batch reads the production date from your Creed code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "Can the code tell me if my Green Irish Tweed is genuine?",
       "faq2a": "Partly. Creed is among the most counterfeited houses in fragrance, and a first letter that is not in the cycle at all is a straightforward tell. But a copied code decodes cleanly, so a valid code is not proof — weigh the bottle, look at the spray and the box printing, and buy from an authorised retailer.",
       "faq3q": "Does an older Creed mean a better Creed?",
@@ -306,7 +306,7 @@
     "dunhill": {
       "where1": "On the base of the box and the underside of the bottle, printed in black on the white base sticker.",
       "faq1q": "How do I read a Dunhill batch code?",
-      "faq1a": "Dunhill fragrance is made under licence by Inter Parfums. The first letter is the production year — a cycle skipping I and O, so J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — and the last three digits are the day of that year.",
+      "faq1a": "Cosmetics Batch reads the production date from your Dunhill code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "How do I check a Dunhill fragrance is authentic?",
       "faq2a": "Compare the box and bottle codes, then decode. A year letter outside the cycle, or codes that disagree, are real warnings. A clean decode is not proof — copied codes decode too."
     },
@@ -315,7 +315,7 @@
       "where2": "Outer carton: on an end flap. The sticker and carton codes are printed together at the factory and should read the same — if they don't, the bottle and box were paired somewhere else.",
       "where3": "Older Escada parfum minis (the Margaretha Ley era, distributed by Escada Beauté) stamp a short letter-plus-number lot into the metal base plate instead. That vintage format is not the four-digit Coty code and won't decode here.",
       "faq1q": "How do I read the batch code on an Escada perfume?",
-      "faq1a": "Escada fragrance is produced by Coty, which uses a four-digit code: the first digit is the last digit of the production year, and the remaining three are the day of that year. So 0175 is the 175th day of 2020 — 23 June 2020. Add the unopened shelf life to estimate how long it stays at its best.",
+      "faq1a": "Cosmetics Batch reads the production date from your Escada code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "My Escada bottle has a code like \"H 0100\" stamped on the base — why won't it decode?",
       "faq2a": "That is an older Escada parfum from before the current Coty coding; the Margaretha Ley-era minis stamp a letter-and-number lot into the metal base rather than printing a four-digit day-of-year code. Those vintage lots don't follow the format this tool reads, so it can't date them. It is not a sign the bottle is fake — the factory simply used a different system.",
       "faq3q": "Does Escada perfume expire?",
@@ -327,7 +327,7 @@
       "where1": "Skincare: embossed on the base of the jar or bottle — pressed into the material, so it needs a raking light rather than a direct one.",
       "where2": "Fragrance and makeup: on the base of the box, and on the underside of the product.",
       "faq1q": "How do I read an Estée Lauder batch code?",
-      "faq1a": "Read it from the right, not the left. The last character is the year digit; the one before it is the month (1–9 for January to September, then A, B and C for October, November and December); anything to the left is the plant. So in EA4 the plant is E, the month is A — October — and the year ends in 4. Reading left to right is the most common mistake with these codes.",
+      "faq1a": "Cosmetics Batch reads the production date from your Estée Lauder code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "How do I check the shelf life if I threw away the box?",
       "faq2a": "The code is on the product itself, not only the carton — on the base of the jar or bottle, usually embossed. Decode it for the manufacture date, then apply the open-jar symbol from the day you opened it. Whichever deadline comes first is the real one.",
       "faq3q": "Do Clinique, MAC and La Mer use the same code?",
@@ -358,7 +358,7 @@
       "where1": "Fragrance (Acqua di Giò, Armani Code): on the bottom of the box and the base sticker of the bottle.",
       "where2": "Makeup: on the base of the case or the back of the compact.",
       "faq1q": "How do I decode an Armani Code batch number?",
-      "faq1a": "Armani fragrance is made by L'Oréal, so the code follows the group's format: the first letter is the production year, the character after it is the month. (The fragrance called Armani Code and the batch code stamped on its box are unrelated things that unfortunately share a word.)",
+      "faq1a": "Cosmetics Batch reads the production date from your Armani code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "How long does Acqua di Giò last unopened?",
       "faq2a": "Three to five years is normal for an eau de toilette, longer for the eau de parfum. Fragrance is the most forgiving category there is, provided the bottle is kept out of light and heat."
     },
@@ -374,7 +374,7 @@
       "where1": "On the base of the outer box, and on the clear sticker under the bottle.",
       "where2": "The two codes should match — they are printed minutes apart on the same line.",
       "faq1q": "How do I check a Hugo Boss fragrance batch code?",
-      "faq1a": "Hugo Boss fragrance is made by Coty, which uses a four-digit code: the first digit is the last digit of the production year and the remaining three are the day of that year. So 4135 is the 135th day of 2024 — 14 May 2024.",
+      "faq1a": "Cosmetics Batch reads the production date from your Hugo Boss code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "The box and bottle codes are different. Is it fake?",
       "faq2a": "It means the box and the bottle were paired somewhere other than the factory. That happens with counterfeits, and also with legitimately repackaged, returned or grey-market stock. Either way, the pairing you are holding is not the one the factory shipped."
     },
@@ -382,7 +382,7 @@
       "where1": "On the base of the box, and on the underside of the torso-shaped bottle.",
       "where2": "On the metal-cased editions the code is frequently on the box only, or stamped faintly into the base of the can.",
       "faq1q": "How do I read a Jean Paul Gaultier batch code?",
-      "faq1a": "JPG fragrance is manufactured by Puig, which prints the production date into the code. Four digits means a year digit plus the day of the year; five means two year digits plus the day; six is a packed calendar date.",
+      "faq1a": "Cosmetics Batch reads the production date from your Jean Paul Gaultier code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "There is no code on my Le Male bottle.",
       "faq2a": "On the metal-sleeved editions the code is often only on the box, or stamped so faintly into the base that it needs raking light to see. Check the carton first — and if you have both, confirm that they match."
     },
@@ -390,7 +390,7 @@
       "where1": "On the base of the outer box, and on the underside of the bottle — printed on the base sticker or stamped into the glass.",
       "where2": "On the Kenzo World and Flower bottles the code can sit on the flat underside where the label folds under.",
       "faq1q": "How do I check a Kenzo fragrance by its batch code?",
-      "faq1a": "Kenzo Parfums is an LVMH house, and LVMH prints the production date in the code rather than encrypting it. Four digits means a year digit plus the day of the year; five or six digits is a fuller date. Select Kenzo in the checker and it applies the right reading.",
+      "faq1a": "Cosmetics Batch reads the production date from your Kenzo code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "Do Kenzo codes repeat every ten years?",
       "faq2a": "Yes, and this is a genuine limitation rather than a quirk. A four-digit code carries only one digit of year, so 4135 is 14 May 2024 on exactly the same evidence that makes it 14 May 2014. The decoder assumes the recent reading; if the bottle and packaging look like they belong to an earlier era, they probably do.",
       "faq3q": "Can the code prove a Kenzo fragrance is authentic?",
@@ -428,7 +428,7 @@
       "where1": "Fragrance: on the base of the box, and on the underside of the bottle.",
       "where2": "Skincare and foundation: embossed or printed on the base of the jar, the tube crimp, or the bottle.",
       "faq1q": "How do I read a Lancôme batch code?",
-      "faq1a": "Lancôme is L'Oréal: the first letter is the production year (skipping V, so U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) and the character straight after it is the month, with O, N and D standing for October, November and December.",
+      "faq1a": "Cosmetics Batch reads the production date from your Lancôme code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "How long does unopened Lancôme skincare last?",
       "faq2a": "Around three years from manufacture, less for products built on unstable actives. Decode before buying from a discounter — old stock is genuine, but it may have very little unopened life left."
     },
@@ -477,7 +477,7 @@
       "where1": "On the base of the box, and on the underside of the bottle — printed in black on the white base sticker.",
       "where2": "Montblanc codes are among the easier fragrance codes to read without a magnifier.",
       "faq1q": "How do I check a Montblanc Legend by its code?",
-      "faq1a": "Montblanc fragrance is made under licence by Inter Parfums. The first letter in the code is the production year, on a cycle that skips I and O — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — and the last three digits are the day of that year.",
+      "faq1a": "Cosmetics Batch reads the production date from your Montblanc code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "Is there a serial number I can look up?",
       "faq2a": "No. A batch code identifies a production run, not an individual bottle, and there is no public database to look it up in. What it gives you is the date — which is the useful part.",
       "faq3q": "The last three digits produce a strange date.",
@@ -498,7 +498,7 @@
       "where1": "On the bottom of the box, and on the underside of the bottle. On the heavier bottles — the 1 Million ingot, the Invictus trophy — the code is often stamped into the metal or glass rather than printed on a sticker.",
       "where2": "Tilt the bottle so light catches the stamp from the side; a direct light makes it disappear.",
       "faq1q": "How do I decode an Invictus or 1 Million batch code?",
-      "faq1a": "Paco Rabanne is made by Puig, which prints the production date in the code rather than encrypting it. The usual form is four digits: the first is the last digit of the year, the remaining three are the day of that year — so 4135 is the 135th day of 2024, 14 May 2024.",
+      "faq1a": "Cosmetics Batch reads the production date from your Paco Rabanne code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "Can the code prove my Paco Rabanne is genuine?",
       "faq2a": "It can catch a fake and cannot certify a real one. Paco Rabanne is among the most counterfeited fragrances in Europe: an impossible day number, or codes that disagree between box and bottle, are strong warnings — but a code copied from a genuine bottle decodes perfectly. Weigh the bottle and check the spray pattern too.",
       "faq3q": "Is Rabanne the same brand as Paco Rabanne?",
@@ -524,7 +524,7 @@
       "where1": "Fragrance: on the base of the box, and etched or printed on the underside of the bottle.",
       "where2": "Foundation and eyeshadow palettes: stamped on the base of the compact or the bottle.",
       "faq1q": "How do I check a Tom Ford batch code?",
-      "faq1a": "Tom Ford Beauty is manufactured by the Estée Lauder group, so it uses the group's three-character code: plant, month, year — read from the right. The month is 1–9 for January to September, then A, B and C for October to December.",
+      "faq1a": "Cosmetics Batch reads the production date from your Tom Ford code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "How do I date a Tom Ford eyeshadow palette?",
       "faq2a": "The code is on the base of the compact. Decode it for the manufacture date; a pressed powder is good for around 24 months after opening and considerably longer unopened, because a dry formula gives bacteria almost nothing to grow in.",
       "faq3q": "Is the batch code proof of authenticity?",
@@ -534,7 +534,7 @@
       "where1": "Palettes and compacts: on the back of the case, sometimes under the plastic tray.",
       "where2": "Liquid products: on the base of the bottle or the tube crimp.",
       "faq1q": "How do I check a Too Faced palette's batch code?",
-      "faq1a": "Too Faced belongs to the Estée Lauder group, so the code is three characters — plant, month, year — read from the right. If the code on your palette does not fit that shape, it may be a factory line marking rather than the batch code.",
+      "faq1a": "Cosmetics Batch reads the production date from your Too Faced code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "My Too Faced code won't decode.",
       "faq2a": "Some codes on Too Faced packaging are internal line markings, not date codes, and there is nothing in them to decode. Check the base and the back of the case for a second, shorter code — and if there genuinely isn't one, the open-jar symbol is your best guide."
     },
@@ -545,7 +545,7 @@
       "faq1q": "Where is the expiry date on Vichy products?",
       "faq1a": "Most Vichy products don't print one. Pharmacy lines often carry a genuine expiry date, and where it exists it beats any decoded estimate — but if all you can find is a short code, that is the batch code, and it holds the manufacture date rather than the expiry. Decode it, then add the shelf life: roughly 36 months unopened for skincare, and follow the open-jar symbol once opened.",
       "faq2q": "How do I read the code on a Vichy product?",
-      "faq2a": "Vichy is manufactured by L'Oréal and uses the group's format. Find the first letter in the code: that is the production year, on a cycle that skips V, so U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. The character straight after it is the month — 1 to 9 for January to September, then O, N and D for October, November and December. That O is the letter O, not a zero.",
+      "faq2a": "Cosmetics Batch reads the production date from your Vichy code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq3q": "Can the code prove my Vichy is genuine?",
       "faq3a": "Only partly. A code that doesn't fit L'Oréal's shape, or that decodes to a date before the product line existed, is a real warning. But a counterfeiter copying a code from a genuine tube produces a code that decodes perfectly — so a clean decode proves the code is well-formed, not that the cream is. For pharmacy skincare, buying from a pharmacy remains the stronger protection.",
       "faq4q": "Does Capital Soleil sunscreen expire?",
@@ -555,7 +555,7 @@
       "where1": "Lipstick and makeup: stamped on the base of the case or the back of the compact.",
       "where2": "Fragrance: on the base of the box and the underside of the bottle.",
       "faq1q": "How do I check an Yves Saint Laurent batch code?",
-      "faq1a": "YSL Beauty is manufactured by L'Oréal, so it carries the group's code: factory digits, a year letter, then a month character. Select YSL Beauty in the checker and the engine applies L'Oréal's rule.",
+      "faq1a": "Cosmetics Batch reads the production date from your Yves Saint Laurent code for you — enter it in the checker at the top of this page, with no manual decoding. The code holds the manufacture date, not an expiry: add the typical unopened shelf life to judge freshness, and once opened follow the open-jar (PAO) symbol.",
       "faq2q": "Why does my YSL code look like a Maybelline one?",
       "faq2a": "Because the same company makes both. The format follows the factory, not the price — a YSL lipstick and a Maybelline mascara come off L'Oréal lines and carry the same style of code."
     },
@@ -575,6 +575,9 @@
     "readNext": "Read next",
     "moreGuides": "More guides",
     "checkBrand": "Check a brand's batch code",
+    "checkYourCodeTitle": "Check your batch code",
+    "checkYourCodeBody": "Enter the batch code from your product in the checker and it reads the manufacture date for you — no manual decoding needed. The code holds the production date, not the expiry.",
+    "checkYourCodeCta": "Open the checker",
     "anatomy": "Anatomy of the code",
     "characters": "Characters",
     "encodes": "What they encode",
@@ -583,12 +586,12 @@
     "doesNotDecode": "does not decode",
     "confidence": "{level} confidence",
     "brandsUsing": "Brands that use this code ({count})",
-    "brandsUsingNote": "The format belongs to the manufacturer, not the label on the bottle — every brand below is stamped by the same plants and reads the same way.",
+    "brandsUsingNote": "The batch code belongs to the manufacturer, not the label on the bottle — the brands below share the same production coding, so the checker reads them all.",
     "otherFormats": "Other code formats",
     "whichCode": "Not sure which code on the pack is the batch code?",
     "formatsTitle": "Batch code formats",
-    "formatsIntro": "A batch code's format belongs to whoever manufactures the product, not to the name on the bottle. Coty stamps the same four digits on Rimmel, Gucci and adidas; Inter Parfums stamps the same nine characters on Montblanc, Coach and Jimmy Choo. Learn the cipher once and you can read every brand that shares it.",
-    "formatsIntro2": "Each page below documents one family: what every character encodes, real codes decoded by the same engine that powers the checker, where the code is printed on the pack, and — just as importantly — what the format cannot tell you.",
+    "formatsIntro": "A batch code belongs to whoever manufactures the product, not to the name on the bottle — the same maker stamps the same style of code across many brands. Pick a manufacturer group below to see which brands it covers, then check any code in the tool.",
+    "formatsIntro2": "Each page below covers one manufacturer group: which brands it includes, where to find the batch code on the pack, and what the code can and can't tell you about production date and freshness.",
     "brandCount": "brands"
   }
 }

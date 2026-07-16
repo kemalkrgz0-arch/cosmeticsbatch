@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-16
-Current version: **0.9.1**
+Current version: **0.10.2**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -251,7 +251,110 @@ sequence used by this repository, not permission to skip unresolved audit areas.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
 
-## In progress — 0.9.1 (source and private-data backup)
+## Completed — 0.10.2 (Chanel Beauty image quarantine)
+
+- Visual review found that the three active Chanel Beauty gallery assets were
+  not defensible as original site evidence: they contain third-party retail
+  imagery and visible watermarks. Removed the brand-to-gallery references so
+  the public brand page no longer presents them as CosmeticsBatch evidence.
+- The underlying files remain in the local repository pending a deliberate
+  provenance/licensing decision; they were not destructively deleted during a
+  dirty multi-contributor session. They must not be reactivated without owner
+  authorship, explicit permission or a documented compatible license.
+- Corrected the priority-50 matrix: an image count means an active local asset,
+  not proof of rights or originality. Chanel Beauty now requires replacement
+  owner-created/licensed photos as well as a verified sample/editorial record.
+- Files: `src/lib/brands.ts`, `docs/BRAND_QUALITY_MATRIX.md`, `package.json`,
+  `PROJECT_STATUS.md`.
+- Added an owner-facing 39-brand completion checklist to the external iCloud
+  `Cosmetics batch` folder. It records current/required image counts, a three-shot
+  capture plan and originality, privacy and watermark restrictions. The copied
+  TXT and its `/tmp` source have identical SHA-256 hashes.
+- Verification: TypeScript compilation and 26/26 regressions passed; the
+  compiled catalog reports zero active Chanel Beauty images; diff check passed.
+  No deployment performed.
+
+## Completed — 0.10.1 (priority-brand evidence matrix)
+
+- Audited all 50 brands in the controlled publishing queue against the live
+  catalog, assigned decoder, sample/editorial registry, local image inventory
+  and current index policy. Added the operational matrix at
+  `docs/BRAND_QUALITY_MATRIX.md`.
+- Findings: 26/50 pass the current sample/editorial gate and expose English plus
+  Russian; 24/50 remain noindex. Ten passing brands have local batch images and
+  sixteen passing brands still have none. Four blocked brands already have
+  images but lack sufficient sample/editorial or brand-applicability evidence.
+- Evidence warning: none of the decoder profiles currently stores a primary or
+  reference URL. Fixture tests support conservative runtime behavior but do not
+  justify calling the full set “50 proven brands.” The matrix records this
+  limitation and forbids unlocking pages solely from parent-company ownership.
+- Prioritized work: strengthen already exposed pages first, then review Chanel
+  Beauty and Shiseido as the clearest evidence-backed candidates; treat Aesop
+  and Anua cautiously because images do not prove decoder applicability.
+- Files: `docs/BRAND_QUALITY_MATRIX.md`, `package.json`, `PROJECT_STATUS.md`.
+- Verification: matrix rows were generated from the compiled catalog and policy;
+  all 50 slugs resolve, counts reconcile to 26 passing / 24 blocked, and package
+  plus status versions are synchronized. No index policy or deployment changed.
+
+## Completed — 0.10.0 (controlled 50-brand / 15-locale publishing policy)
+
+- Added one central search-publishing policy containing the audit-approved 15
+  locales and 50 demand-led brands. The 50-brand list is a quality work queue,
+  not automatic permission to index 750 locale-brand template combinations.
+- Reduced general sitemap and default hreflang exposure from all 44 active
+  locales to English, Russian, Spanish, Italian, Japanese, Turkish, Vietnamese,
+  German, Indonesian, French, Dutch, Polish, Portuguese, Swedish and Chinese.
+  Other locale routes remain functional but now emit `noindex, follow`, no
+  locale alternates and no sitemap entry.
+- Brand pages require all three gates: inclusion in the priority-50 list, an
+  existing sample-code/brand-specific editorial record, and an approved locale.
+  Initial brand exposure is English and Russian only. Priority brands without
+  current evidence (for example Dove) remain useful tools but stay noindex.
+- Long-form guide and decoder entries now require their locale-specific content
+  review record as well as membership in the 15-locale maximum. Their metadata,
+  hreflang and sitemap eligibility use the same review source.
+- Result: the local production sitemap dropped from 11,352 to 242 URLs. The
+  homepage emits 15 locale alternates plus x-default; an approved brand page
+  emits English/Russian plus x-default. Local samples confirmed Arabic Dior and
+  English Dove as `noindex, follow`, and Russian Dior as `index, follow`.
+- Files: `src/lib/publishing-policy.ts`, `src/lib/seo.ts`, `src/app/sitemap.ts`,
+  brand/guide/decoder metadata routes, `src/lib/site.ts`, quality regressions,
+  `package.json` and this log.
+- Verification: scoped ESLint, TypeScript and 26/26 regression tests passed;
+  production build completed all 267 static pages; rendered localhost metadata,
+  sitemap membership and alternate counts passed. The existing private photo
+  route NFT tracing warning remains non-fatal.
+- Deployment: not performed. Existing search URLs will remain known to Google
+  after sitemap removal until crawlers revisit and process their noindex tags.
+
+## Completed — 0.9.2 (homepage truthfulness and export hardening)
+
+- Corrected the English homepage metadata, hero, trust indicators, feature
+  claims, How It Works copy and HowTo structured data. The homepage now
+  distinguishes an estimated manufacture date and age from typical unopened
+  shelf-life and PAO guidance; it no longer promises a manufacturer expiry
+  date, authenticity checking, browser-only/private processing or universally
+  precise manufacturer algorithms.
+- Hardened authenticated review CSV downloads against spreadsheet-formula
+  injection in user-controlled fields while retaining quoted UTF-8 CSV output.
+  Added regression coverage for all common formula prefixes and quote escaping.
+- Forced the vulnerable transitive PostCSS 8.4.31 dependency to the patched
+  8.5.16 release. The production dependency audit now reports zero known
+  vulnerabilities at every severity.
+- Files: `package.json`, `pnpm-workspace.yaml`, `pnpm-lock.yaml`,
+  `messages/en.json`, `src/lib/site.ts`, `src/lib/seo.ts`,
+  `src/components/home/hero.tsx`, `src/lib/csv.ts`, review export route,
+  quality regressions and this log.
+- Verification: scoped ESLint and TypeScript passed; decoder/quality regressions
+  passed 25/25; `pnpm audit --prod` reports 0 vulnerabilities; production build
+  completed all 267 static pages. The known private photo-route NFT tracing
+  warning remains non-fatal.
+- Remaining: equivalent truth/privacy wording still requires a controlled audit
+  across the other active locales. Mobile overflow from the audit screenshot is
+  still `needs verification` under real device emulation before changing global
+  layout CSS. No deployment was performed; owner requested local review first.
+
+## Completed — 0.9.1 (source and private-data backup)
 
 - Created a local `backups/2026-07-16-system-backup` directory containing a
   compressed working-tree snapshot (including uncommitted project work), a
@@ -267,7 +370,9 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   enter the public repository or GitHub artifacts.
 - Files: `.github/workflows/backup-vps-data.yml`, `.gitignore`, `package.json`,
   `PROJECT_STATUS.md`; local ignored `backups/2026-07-16-system-backup/*`.
-- Verification pending: first VPS private-data backup run.
+- Verification: GitHub Actions backup run `29492761231` completed successfully
+  and created `cosmeticsbatch-data-20260716T105914Z.tar.gz`; the server-side
+  SHA-256 verification returned `OK`.
 
 ## Completed — 0.9.0 (review operations workspace and mail routing)
 

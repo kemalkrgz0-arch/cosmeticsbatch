@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { site, absoluteUrl } from "./site";
-import { LOCALES, DEFAULT_LOCALE, ogLocale } from "@/i18n/locales";
+import { DEFAULT_LOCALE, ogLocale } from "@/i18n/locales";
+import { INDEXABLE_LOCALES, isIndexableLocale } from "./publishing-policy";
 
 /** Localized URL path. Default locale is prefix-free (/, /brands/…); others prefixed. */
 export function localizedPath(locale: string, path = "/"): string {
@@ -11,7 +12,7 @@ export function localizedPath(locale: string, path = "/"): string {
 /** hreflang alternates map for a path across every active locale + x-default. */
 export function hreflangAlternates(
   path = "/",
-  localeCodes: readonly string[] = LOCALES.map((locale) => locale.code),
+  localeCodes: readonly string[] = INDEXABLE_LOCALES,
 ): Record<string, string> {
   const languages: Record<string, string> = {};
   for (const locale of localeCodes)
@@ -29,6 +30,7 @@ export function pageMeta({
   type = "website",
   locale = DEFAULT_LOCALE,
   availableLocales,
+  indexable,
 }: {
   title: string;
   description: string;
@@ -36,17 +38,23 @@ export function pageMeta({
   type?: "website" | "article";
   locale?: string;
   availableLocales?: readonly string[];
+  indexable?: boolean;
 }): Metadata {
   const url = absoluteUrl(localizedPath(locale, path));
   const fullTitle =
     path === "/" ? `${site.name} — ${site.tagline}` : `${title} | ${site.name}`;
+  const canIndex = indexable ?? isIndexableLocale(locale);
   return {
     title,
     description,
     alternates: {
       canonical: url,
-      languages: hreflangAlternates(path, availableLocales),
+      languages: hreflangAlternates(
+        path,
+        availableLocales ?? (canIndex ? INDEXABLE_LOCALES : []),
+      ),
     },
+    robots: canIndex ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
       type,
       url,
@@ -136,7 +144,7 @@ export function howToSchema(): Json {
     "@type": "HowTo",
     name: "How to check a cosmetic or perfume batch code",
     description:
-      "Decode the batch code on your cosmetics or perfume to find its manufacture date, age and expiration date.",
+      "Use a supported cosmetic or perfume batch code to estimate its manufacture date and product age, then review typical shelf-life guidance.",
     totalTime: "PT10S",
     step: [
       {
@@ -155,7 +163,7 @@ export function howToSchema(): Json {
         "@type": "HowToStep",
         position: 3,
         name: "Get the result",
-        text: "See the manufacture date, product age, freshness and estimated expiration instantly.",
+        text: "See the estimated manufacture date and product age, with separate typical unopened shelf-life and PAO guidance.",
       },
     ],
   };

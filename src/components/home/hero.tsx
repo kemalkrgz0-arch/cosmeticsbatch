@@ -1,4 +1,4 @@
-import { Lock, ShieldCheck, Sparkles } from "lucide-react";
+import { CircleHelp, ShieldCheck, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { CheckForm } from "@/components/check-form";
 
@@ -7,7 +7,7 @@ export function Hero() {
   const trust = [
     { icon: Sparkles, label: t("trustFree") },
     { icon: ShieldCheck, label: t("trustNoSignup") },
-    { icon: Lock, label: t("trustPrivate") },
+    { icon: CircleHelp, label: t("trustPrivate") },
   ];
   return (
     <section id="check" className="relative">

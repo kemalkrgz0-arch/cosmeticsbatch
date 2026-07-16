@@ -85,11 +85,11 @@
   "lorealFamily": {
     "heading": "Yang perlu diketahui tentang kode {name} dan L'Oréal",
     "portfolio": "{name} tercantum dalam portofolio merek resmi L'Oréal Groupe. Kepemilikan grup tidak menjamin setiap pabrik, pasar, atau produk lama memakai format yang sama.",
-    "format": "Format L'Oréal yang umum diamati menggabungkan awalan pabrik, huruf tahun, dan karakter bulan sesudahnya. Pembacaan ini hanya digunakan jika kode yang dimasukkan cocok dengan pola tersebut.",
     "precision": "Format ini menunjukkan bulan, bukan hari tepat. Hari yang ditampilkan adalah perkiraan pertengahan bulan. Tanggal kedaluwarsa atau baik digunakan sebelum yang tercetak selalu lebih utama.",
     "authenticity": "Kode yang berhasil dibaca tidak membuktikan produk asli karena kode dapat disalin. Periksa juga penjual, kemasan, segel, dan kualitas cetak.",
     "officialSource": "Konfirmasi merek di portofolio resmi L'Oréal Groupe",
-    "decoderLabel": "Format grup yang diamati (ketelitian bulan)"
+    "decoderLabel": "Format grup yang diamati (ketelitian bulan)",
+    "format": "Jika kode yang dimasukkan cocok dengan pengkodean grup yang diamati L'Oréal, pemeriksa akan membacakan bulan dan tahun produksinya untuk Anda. Masukkan kode di atas untuk mendapatkan tanggal — tidak ada langkah manual yang harus diikuti."
   },
   "faqUi": {
     "title": "Pertanyaan yang Sering Diajukan",
@@ -244,15 +244,15 @@
       "faq2q": "Bisakah kode batch memberi tahu saya apakah CK saya asli?",
       "faq1q": "Bagaimana cara memecahkan kode kode batch Calvin Klein?",
       "faq2a": "Ini dapat menangkap palsu yang buruk: nomor hari yang mustahil, atau kode yang tidak sesuai antara kotak dan botol. Itu tidak dapat memastikan yang bagus, karena kode yang disalin dari botol asli diterjemahkan dengan sempurna.",
-      "faq1a": "Wewangian CK diproduksi oleh Coty. Kodenya terdiri dari empat digit: digit tahun diikuti hari dalam setahun. Bagilah hari dengan sekitar 30,4 untuk mendapatkan bulannya — hari ke-135 adalah awal bulan kelima, Mei."
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Calvin Klein untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "carolina-herrera": {
       "where2": "Pada botol stiletto Good Girl, kodenya terletak di telapak tumit.",
       "where1": "Di dasar kotak, dan di bagian bawah botol.",
       "faq2q": "Apakah Good Girl sering dipalsukan?",
       "faq1q": "Bagaimana cara memeriksa kode batch Carolina Herrera?",
-      "faq1a": "Wewangian Carolina Herrera dibuat oleh Puig, yang mencetak tanggal produksi dalam kode — sebagai angka tahun ditambah hari dalam setahun, atau sebagai tanggal pengemasan seperti 231122 untuk 22 November 2023.",
-      "faq2a": "Ini adalah salah satu wewangian yang paling banyak ditiru di Eropa. Lakukan pemeriksaan yang tidak dapat dilakukan oleh kode: bandingkan kode kotak dan botol, timbang botol, dan lihat kehalusan semprotan. Dekode yang bersih diperlukan tetapi tidak cukup."
+      "faq2a": "Ini adalah salah satu wewangian yang paling banyak ditiru di Eropa. Lakukan pemeriksaan yang tidak dapat dilakukan oleh kode: bandingkan kode kotak dan botol, timbang botol, dan lihat kehalusan semprotan. Dekode yang bersih diperlukan tetapi tidak cukup.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Carolina Herrera untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "cerave": {
       "faq1q": "Bagaimana cara memeriksa umur simpan produk CeraVe?",
@@ -278,19 +278,19 @@
       "where1": "Botol dan stoples perawatan kulit: timbul di bagian dasarnya.",
       "where2": "Riasan : bagian belakang compact atau alas case.",
       "faq1q": "Bagaimana cara membaca kode batch Clinique?",
-      "faq1a": "Clinique adalah Estée Lauder, jadi formatnya adalah tanaman, bulan, tahun dalam tiga karakter — baca dari kanan. Karakter terakhir adalah angka tahun; yang sebelumnya adalah bulan, dengan A, B, dan C berarti Oktober, November, dan Desember.",
       "faq2q": "Berapa lama perawatan kulit Clinique bertahan?",
-      "faq2a": "Sekitar 36 bulan belum dibuka sejak tanggal pembuatan, dan 12 bulan setelah pembukaan untuk sebagian besar produk. Simbol toples terbuka pada kemasannya adalah nomor yang mengikat setelah Anda membuka segelnya."
+      "faq2a": "Sekitar 36 bulan belum dibuka sejak tanggal pembuatan, dan 12 bulan setelah pembukaan untuk sebagian besar produk. Simbol toples terbuka pada kemasannya adalah nomor yang mengikat setelah Anda membuka segelnya.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Clinique untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "creed": {
       "faq1q": "Bagaimana cara membaca kode batch Creed?",
       "where2": "Pada flacon yang lebih tua dan lebih berat, kodenya dapat dicap daripada dicetak; miringkan ke arah cahaya.",
       "where1": "Pada bagian dasar botol dan bagian bawah kotak — biasanya dicetak dengan warna hitam pada stiker dasar berwarna putih.",
       "faq2q": "Dapatkah kode tersebut memberi tahu saya apakah Green Irish Tweed saya asli?",
-      "faq1a": "Hanya huruf pertama yang penting. Ini mengkodekan tahun produksi, dihitung dari A = 2010 dan melewatkan I dan O: N = 2022, P = 2023, Q = 2024, R = 2025. Segala sesuatu setelahnya adalah seri batch internal. Creed tidak mengkodekan bulan, jadi kode tersebut memberi Anda satu tahun dan tidak ada yang lebih baik.",
       "faq3a": "Untuk komposisi resin yang lebih berat, botol yang lebih tua mungkin lebih disukai, karena reformulasi telah mengubah beberapa formula klasik — dan kode batch adalah satu-satunya cara untuk menentukan formula mana yang Anda beli. Untuk Creeds yang lebih ringan dan mengandung jeruk, usia sebagian besar merupakan oksidasi dan tidak ada manfaat sama sekali.",
       "faq2a": "Sebagian. Creed adalah salah satu rumah wewangian yang paling banyak dipalsukan, dan huruf pertama yang tidak ada dalam siklus sama sekali adalah petunjuk yang jelas. Namun kode yang disalin diterjemahkan dengan jelas, jadi kode yang valid bukanlah bukti — timbang botolnya, lihat semprotan dan cetakan kotaknya, dan beli dari pengecer resmi.",
-      "faq3q": "Apakah Creed yang lebih lama berarti Creed yang lebih baik?"
+      "faq3q": "Apakah Creed yang lebih lama berarti Creed yang lebih baik?",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Creed untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "dior": {
       "where1": "Pewangi: di dasar kotak luar, dan di bagian bawah botol — stiker kecil yang dicetak, atau diukir dengan laser pada kaca pada botol yang lebih besar.",
@@ -307,8 +307,8 @@
       "faq1q": "Bagaimana cara membaca kode batch Dunhill?",
       "faq2q": "Bagaimana cara memeriksa keaslian wewangian Dunhill?",
       "where1": "Pada bagian dasar kotak dan bagian bawah botol, dicetak stiker berwarna hitam dengan dasar putih.",
-      "faq1a": "Wewangian Dunhill dibuat di bawah lisensi oleh Inter Parfums. Huruf pertama adalah tahun produksi — siklus yang melewatkan I dan O, jadi J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — dan tiga digit terakhir adalah hari pada tahun tersebut.",
-      "faq2a": "Bandingkan kode kotak dan botol, lalu pecahkan kodenya. Surat tahun di luar siklus, atau kode yang tidak sesuai, adalah peringatan nyata. Dekode yang bersih bukanlah bukti — kode yang disalin juga didekode."
+      "faq2a": "Bandingkan kode kotak dan botol, lalu pecahkan kodenya. Surat tahun di luar siklus, atau kode yang tidak sesuai, adalah peringatan nyata. Dekode yang bersih bukanlah bukti — kode yang disalin juga didekode.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Dunhill untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "estee-lauder": {
       "where1": "Perawatan Kulit: dicetak timbul pada dasar toples atau botol — ditekan ke dalam bahan, sehingga memerlukan lampu penggaruk, bukan lampu penggaruk langsung.",
@@ -317,8 +317,8 @@
       "faq3q": "Apakah Clinique, MAC dan La Mer menggunakan kode yang sama?",
       "faq2a": "Kode ada pada produk itu sendiri, tidak hanya pada kartonnya — pada dasar toples atau botol, biasanya diberi emboss. Pecahkan kode tanggal pembuatannya, lalu terapkan simbol stoples terbuka sejak Anda membukanya. Batas waktu mana pun yang lebih dulu adalah tenggat waktu yang sebenarnya.",
       "faq2q": "Bagaimana cara memeriksa umur simpan jika saya membuang kotaknya?",
-      "faq1a": "Bacalah dari kanan, bukan kiri. Karakter terakhir adalah angka tahun; yang sebelumnya adalah bulan (1–9 untuk Januari hingga September, lalu A, B, dan C untuk Oktober, November, dan Desember); apa pun di sebelah kiri adalah tanaman. Jadi di EA4 tanamannya adalah E, bulannya adalah A — Oktober — dan tahunnya berakhir di angka 4. Membaca dari kiri ke kanan adalah kesalahan paling umum dalam kode-kode ini.",
-      "faq3a": "Ya — tanaman yang sama dan format tanaman/bulan/tahun yang sama. Hanya surat pabriknya yang berbeda, dan tidak memuat informasi tanggal."
+      "faq3a": "Ya — tanaman yang sama dan format tanaman/bulan/tahun yang sama. Hanya surat pabriknya yang berbeda, dan tidak memuat informasi tanggal.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Estée Lauder untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "fenty-beauty": {
       "faq1q": "Bagaimana cara memeriksa keaslian Fenty Beauty?",
@@ -347,7 +347,7 @@
       "faq2a": "Tiga sampai lima tahun adalah normal untuk sebuah eau de toilette, lebih lama untuk eau de parfum. Wewangian adalah kategori yang paling mudah dimaafkan, asalkan botolnya dijauhkan dari cahaya dan panas.",
       "faq2q": "Berapa lama Acqua di Giò bertahan belum dibuka?",
       "faq1q": "Bagaimana cara memecahkan kode nomor batch Armani Code?",
-      "faq1a": "Wewangian Armani dibuat oleh L'Oréal, sehingga kodenya mengikuti format grup: huruf pertama adalah tahun produksi, karakter setelahnya adalah bulan. (Wewangian yang disebut Armani Code dan kode batch yang tertera di kotaknya adalah hal-hal yang tidak berhubungan dan sayangnya tidak ada hubungannya.)"
+      "faq1a": "Cosmetics Batch membacakan tanggal produksi dari kode Armani untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "guerlain": {
       "where1": "Wewangian: di dasar kotak, dan di bagian bawah botol — sering kali dicetak pada stiker kecil.",
@@ -363,7 +363,7 @@
       "faq1q": "Bagaimana cara memeriksa kode batch wewangian Hugo Boss?",
       "where2": "Kedua kode tersebut harus cocok — keduanya dicetak dengan selang waktu beberapa menit pada baris yang sama.",
       "faq2a": "Artinya kotak dan botolnya dipasangkan di tempat lain selain pabrik. Hal ini terjadi pada produk palsu, dan juga pada produk yang dikemas ulang secara sah, dikembalikan, atau di pasar abu-abu. Apa pun yang terjadi, pasangan yang Anda pegang bukanlah pasangan yang dikirimkan oleh pabrik.",
-      "faq1a": "Wewangian Hugo Boss dibuat oleh Coty, yang menggunakan kode empat digit: digit pertama adalah digit terakhir tahun produksi dan tiga digit sisanya adalah hari pada tahun tersebut. Jadi 4135 adalah hari ke 135 tahun 2024 — 14 Mei 2024."
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Hugo Boss untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "jean-paul-gaultier": {
       "where1": "Di dasar kotak, dan di bagian bawah badan botol berbentuk.",
@@ -371,7 +371,7 @@
       "faq2q": "Tidak ada kode di botol Le Male saya.",
       "faq1q": "Bagaimana cara membaca kode batch Jean Paul Gaultier?",
       "faq2a": "Pada edisi berlengan logam, kodenya sering kali hanya tertera di kotaknya, atau dicap sangat samar di bagian dasarnya sehingga perlu digaruk agar mudah dilihat. Periksa kartonnya terlebih dahulu — dan jika Anda memiliki keduanya, pastikan keduanya cocok.",
-      "faq1a": "Wewangian JPG diproduksi oleh Puig, yang mencetak tanggal produksi ke dalam kode. Empat digit berarti satu digit tahun ditambah hari dalam setahun; lima berarti dua angka tahun ditambah hari; enam adalah tanggal kalender yang penuh sesak."
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Jean Paul Gaultier untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "kenzo-parfums": {
       "where2": "Pada botol Kenzo World dan Flower, kodenya dapat diletakkan di bagian bawah yang rata tempat label terlipat ke bawah.",
@@ -379,9 +379,9 @@
       "faq1q": "Bagaimana cara memeriksa wewangian Kenzo berdasarkan kode batchnya?",
       "faq3a": "Ini dapat menangkap palsu - hari yang mustahil, atau ketidakcocokan antara kode kotak dan kode botol, yang tidak dihasilkan oleh saluran pengisian asli. Itu tidak dapat mengesahkan kode yang asli, karena kode yang disalin diterjemahkan dengan rapi.",
       "faq3q": "Bisakah kode tersebut membuktikan wewangian Kenzo asli?",
-      "faq1a": "Kenzo Parfums adalah rumah LVMH, dan LVMH mencetak tanggal produksi dalam kode daripada mengenkripsinya. Empat digit berarti satu digit tahun ditambah hari dalam setahun; lima atau enam digit adalah tanggal yang lebih lengkap. Pilih Kenzo di pemeriksa dan itu menerapkan pembacaan yang benar.",
       "faq2q": "Apakah kode Kenzo berulang setiap sepuluh tahun?",
-      "faq2a": "Ya, dan ini adalah batasan yang sebenarnya, bukan suatu keanehan. Kode empat digit hanya memuat satu digit tahun, jadi 4135 adalah 14 Mei 2024 dengan bukti yang sama persis dengan 14 Mei 2014. Dekoder mengasumsikan pembacaan terkini; jika botol dan kemasannya tampak seperti milik zaman sebelumnya, mungkin memang demikian."
+      "faq2a": "Ya, dan ini adalah batasan yang sebenarnya, bukan suatu keanehan. Kode empat digit hanya memuat satu digit tahun, jadi 4135 adalah 14 Mei 2024 dengan bukti yang sama persis dengan 14 Mei 2014. Dekoder mengasumsikan pembacaan terkini; jika botol dan kemasannya tampak seperti milik zaman sebelumnya, mungkin memang demikian.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Kenzo untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "kerastase": {
       "where1": "Botol dan masker: dicetak dengan inkjet di bagian belakang botol, dekat alasnya, atau dicap di bagian bawah botol.",
@@ -417,7 +417,7 @@
       "where1": "Wewangian: di dasar kotak, dan di bagian bawah botol.",
       "faq2a": "Sekitar tiga tahun sejak produksi, lebih sedikit untuk produk yang dibuat dengan bahan aktif yang tidak stabil. Dekode sebelum membeli dari toko diskon — stok lama adalah asli, tetapi mungkin masih ada sedikit sisa masa pakai yang belum dibuka.",
       "faq2q": "Berapa lama perawatan kulit Lancôme yang belum dibuka bertahan?",
-      "faq1a": "Lancôme adalah L'Oréal: huruf pertama adalah tahun produksi (melewati V, jadi U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) dan karakter setelahnya adalah bulan, dengan O, N, dan D berarti Oktober, November, dan Desember."
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Lancôme untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "loreal": {
       "where2": "Gunakan halaman ini ketika sub-merek tidak dicantumkan secara terpisah — seluruh grup berbagi satu format kode.",
@@ -468,7 +468,7 @@
       "faq3q": "Tiga digit terakhir menghasilkan tanggal yang aneh.",
       "faq2q": "Apakah ada nomor seri yang bisa saya cari?",
       "faq2a": "Tidak. Kode batch mengidentifikasi proses produksi, bukan botol individual, dan tidak ada database publik untuk mencarinya. Kode ini memberi Anda tanggal — yang merupakan bagian yang berguna.",
-      "faq1a": "Wewangian Montblanc dibuat di bawah lisensi oleh Inter Parfums. Huruf pertama pada kode tersebut adalah tahun produksi, pada siklus yang melewati I dan O — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — dan tiga digit terakhir adalah hari pada tahun tersebut."
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Montblanc untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "nivea": {
       "where1": "Tabung (krim tangan, pembersih wajah): dicap ke dalam crimp — ujung datar yang tertutup rapat di seberang tutupnya.",
@@ -483,13 +483,13 @@
     },
     "paco-rabanne": {
       "where1": "Di bagian bawah kotak, dan di bagian bawah botol. Pada botol yang lebih berat — ingot 1 Million, piala Invictus — kode sering kali dicap pada logam atau kaca daripada dicetak pada stiker.",
-      "faq1a": "Paco Rabanne dibuat oleh Puig, yang mencetak tanggal produksi dalam kode daripada mengenkripsinya. Bentuk umumnya adalah empat digit: digit pertama adalah digit terakhir tahun tersebut, tiga digit sisanya adalah hari pada tahun tersebut — jadi 4135 adalah hari ke-135 tahun 2024, 14 Mei 2024.",
       "faq1q": "Bagaimana cara memecahkan kode kode batch Invictus atau 1 Million?",
       "where2": "Miringkan botol sehingga cahaya dapat menangkap cap dari samping; cahaya langsung membuatnya menghilang.",
       "faq2q": "Bisakah kode tersebut membuktikan Paco Rabanne saya asli?",
       "faq3q": "Apakah merek Rabanne sama dengan Paco Rabanne?",
       "faq2a": "Itu dapat menangkap yang palsu dan tidak dapat mensertifikasi yang asli. Paco Rabanne adalah salah satu wewangian yang paling banyak dipalsukan di Eropa: angka hari yang tidak masuk akal, atau kode yang tidak sesuai antara kotak dan botol, merupakan peringatan keras — namun kode yang disalin dari botol asli dapat diterjemahkan dengan sempurna. Timbang botolnya dan periksa juga pola semprotannya.",
-      "faq3a": "Ya — perusahaan tersebut menghapus 'Paco' dari namanya pada tahun 2023. Stok lama memiliki merek sebelumnya, dan format kode tidak berubah."
+      "faq3a": "Ya — perusahaan tersebut menghapus 'Paco' dari namanya pada tahun 2023. Stok lama memiliki merek sebelumnya, dan format kode tidak berubah.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Paco Rabanne untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "redken": {
       "faq1q": "Bagaimana cara memeriksa umur simpan produk Redken?",
@@ -511,19 +511,19 @@
       "faq1q": "Bagaimana cara memeriksa kode batch Tom Ford?",
       "where2": "Palet alas bedak dan eyeshadow: dicap di dasar bedak tabur atau botol.",
       "where1": "Pewangi: di dasar kotak, dan diukir atau dicetak di bagian bawah botol.",
-      "faq1a": "Tom Ford Beauty diproduksi oleh grup Estée Lauder, sehingga menggunakan kode tiga karakter grup: pabrik, bulan, tahun — dibaca dari kanan. Bulannya adalah 1–9 untuk Januari hingga September, lalu A, B, dan C untuk Oktober hingga Desember.",
       "faq3a": "Tidak. Ini dapat mengungkap kepalsuan yang kasar — ​​kode yang tidak sesuai dengan formatnya, atau menerjemahkan ke bulan yang mustahil — namun kode yang disalin diterjemahkan dengan rapi. Wewangian Tom Ford banyak dipalsukan; timbang botolnya, periksa semprotan alat penyemprotnya, dan beli dari pengecer resmi.",
       "faq2q": "Bagaimana cara saya mengencani palet eyeshadow Tom Ford?",
       "faq2a": "Kodenya ada di dasar compact. Pecahkan kodenya untuk tanggal pembuatan; bedak padat dapat bertahan sekitar 24 bulan setelah dibuka dan lebih lama jika belum dibuka, karena formula kering hampir tidak memberikan bakteri untuk tumbuh.",
-      "faq3q": "Apakah kode batch merupakan bukti keasliannya?"
+      "faq3q": "Apakah kode batch merupakan bukti keasliannya?",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Tom Ford untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "too-faced": {
       "where1": "Palet dan compacts: di bagian belakang casing, terkadang di bawah baki plastik.",
       "where2": "Produk cair: pada dasar botol atau tabung crimp.",
-      "faq1a": "Too Faced termasuk dalam grup Estée Lauder, jadi kodenya terdiri dari tiga karakter — tanaman, bulan, tahun — dibaca dari kanan. Jika kode pada palet Anda tidak sesuai dengan bentuk tersebut, mungkin itu adalah tanda garis pabrik, bukan kode batch.",
       "faq1q": "Bagaimana cara memeriksa kode batch palet Too Faced?",
       "faq2q": "Kode Too Faced saya tidak dapat didekode.",
-      "faq2a": "Beberapa kode pada kemasan Too Faced adalah tanda garis internal, bukan kode tanggal, dan tidak ada apa pun di dalamnya yang dapat diuraikan. Periksa bagian bawah dan belakang casing untuk melihat kode yang lebih pendek dan kedua — dan jika memang tidak ada, simbol stoples terbuka adalah panduan terbaik Anda."
+      "faq2a": "Beberapa kode pada kemasan Too Faced adalah tanda garis internal, bukan kode tanggal, dan tidak ada apa pun di dalamnya yang dapat diuraikan. Periksa bagian bawah dan belakang casing untuk melihat kode yang lebih pendek dan kedua — dan jika memang tidak ada, simbol stoples terbuka adalah panduan terbaik Anda.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Too Faced untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "vichy": {
       "where2": "Botol dan pompa (Mineral 89, Liftactiv): dicetak secara inkjet pada alasnya, atau pada label belakang dekat kode batang.",
@@ -532,19 +532,19 @@
       "faq3q": "Bisakah kode tersebut membuktikan Vichy saya asli?",
       "faq2q": "Bagaimana cara membaca kode pada produk Vichy?",
       "faq1q": "Dimana tanggal kadaluwarsa produk Vichy?",
-      "faq2a": "Vichy diproduksi oleh L'Oréal dan menggunakan format grup. Carilah huruf pertama pada kode tersebut: yaitu tahun produksi, pada siklus yang melewatkan V, jadi U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Karakter setelahnya adalah bulan — 1 hingga 9 untuk Januari hingga September, lalu O, N, dan D untuk Oktober, November, dan Desember. O itu huruf O, bukan angka nol.",
       "faq1a": "Kebanyakan produk Vichy tidak mencetaknya. Jalur apotek sering kali mencantumkan tanggal kedaluwarsa yang asli, dan jika ada, tanggal tersebut mengalahkan perkiraan apa pun yang didekodekan — tetapi jika yang dapat Anda temukan hanyalah kode pendek, itu adalah kode batch, dan kode tersebut berisi tanggal pembuatan, bukan tanggal kedaluwarsa. Pecahkan kodenya, lalu tambahkan umur simpan: kira-kira 36 bulan belum dibuka untuk perawatan kulit, dan ikuti simbol toples terbuka setelah dibuka.",
       "faq3a": "Hanya sebagian. Kode yang tidak sesuai dengan bentuk L'Oréal, atau yang diterjemahkan ke tanggal sebelum lini produk ada, adalah peringatan nyata. Namun pemalsu yang menyalin kode dari tabung asli akan menghasilkan kode yang dapat diterjemahkan dengan sempurna — sehingga hasil yang jelas akan membuktikan bahwa kode tersebut berbentuk baik, bukan krimnya. Untuk perawatan kulit di apotek, membeli dari apotek tetap memberikan perlindungan yang lebih kuat.",
       "faq4q": "Apakah tabir surya Capital Soleil kadaluwarsa?",
-      "faq4a": "Ya, dan ini lebih penting daripada produk lain dalam rentang tersebut: filter UV yang terdegradasi membiarkan lebih banyak radiasi, sehingga SPF 50 yang kadaluarsa tidak menghasilkan SPF 50. Tabir surya biasanya mencantumkan tanggal kedaluwarsa yang tercetak karena alasan ini — gunakanlah. Dan perlakukan botol yang menghabiskan musim panas di dalam mobil yang panas sebagai barang jadi, berapa pun tanggalnya."
+      "faq4a": "Ya, dan ini lebih penting daripada produk lain dalam rentang tersebut: filter UV yang terdegradasi membiarkan lebih banyak radiasi, sehingga SPF 50 yang kadaluarsa tidak menghasilkan SPF 50. Tabir surya biasanya mencantumkan tanggal kedaluwarsa yang tercetak karena alasan ini — gunakanlah. Dan perlakukan botol yang menghabiskan musim panas di dalam mobil yang panas sebagai barang jadi, berapa pun tanggalnya.",
+      "faq2a": "Cosmetics Batch membaca tanggal produksi dari kode Vichy untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "ysl-beauty": {
       "where2": "Wewangian: di dasar kotak dan di bagian bawah botol.",
       "where1": "Lipstik dan riasan: dicap pada dasar wadah atau bagian belakang bedak padat.",
       "faq1q": "Bagaimana cara memeriksa kode batch Yves Saint Laurent?",
       "faq2q": "Mengapa kode YSL saya terlihat seperti kode Maybelline?",
-      "faq1a": "YSL Beauty diproduksi oleh L'Oréal, sehingga membawa kode grup: angka pabrik, huruf tahun, lalu karakter bulan. Pilih YSL Beauty di checker dan mesin akan menerapkan aturan L'Oréal.",
-      "faq2a": "Karena perusahaan yang sama membuat keduanya. Formatnya mengikuti pabrikan, bukan harga — lipstik YSL dan maskara Maybelline berasal dari lini L'Oréal dan memiliki gaya kode yang sama."
+      "faq2a": "Karena perusahaan yang sama membuat keduanya. Formatnya mengikuti pabrikan, bukan harga — lipstik YSL dan maskara Maybelline berasal dari lini L'Oréal dan memiliki gaya kode yang sama.",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Yves Saint Laurent untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO)."
     },
     "zara": {
       "where1": "Di tutup bawah kotak wewangian, dan di dasar botol.",
@@ -553,6 +553,19 @@
       "faq2q": "Siapa sebenarnya pembuat parfum Zara?",
       "faq1a": "Biasanya bukan wewangian yang dicetak — seperti kebanyakan wewangian, wewangian ini membawa kode batch. Pecahkan kodenya untuk tanggal pembuatan dan perhitungkan tiga hingga lima tahun masa pakai yang belum dibuka, yang merupakan hal normal untuk eau de toilette yang dijauhkan dari cahaya dan panas.",
       "faq2a": "Puig memproduksi lini wewangian Zara, itulah sebabnya kodenya mengikuti format Puig — dan itulah sebabnya beberapa wewangian Zara mengundang perbandingan dengan wewangian desainer yang juga dibuat oleh Puig."
+    },
+    "escada": {
+      "where1": "Eau de parfum dan eau de toilette modern: pada stiker bening di bawah botol kaca, dicetak empat digit angka pada baris yang sama dengan teks \"EAU DE PARFUM VAPORISATEUR\".",
+      "faq1a": "Cosmetics Batch membaca tanggal produksi dari kode Escada untuk Anda — masukkan di kotak centang di bagian atas halaman ini, tanpa decoding manual. Kode tersebut mencantumkan tanggal pembuatan, bukan masa kadaluwarsa: tambahkan umur simpan yang belum dibuka untuk menilai kesegarannya, dan setelah dibuka ikuti simbol toples terbuka (PAO).",
+      "faq1q": "Bagaimana cara membaca kode batch pada parfum Escada?",
+      "faq2q": "Botol Escada saya memiliki kode seperti \"H 0100\" yang tertera di alasnya — mengapa botol tersebut tidak dapat dipecahkan kodenya?",
+      "faq2a": "Itu adalah parfum Escada lama sebelum kode Coty saat ini; mini era Margaretha Ley mencap banyak huruf dan angka pada dasar logam daripada mencetak empat digit kode hari dalam setahun. Lot antik tersebut tidak mengikuti format yang dibaca oleh alat ini, sehingga tidak dapat diberi tanggal. Ini bukan tanda bahwa botol tersebut palsu — pabriknya hanya menggunakan sistem yang berbeda.",
+      "faq3q": "Apakah parfum Escada kedaluwarsa?",
+      "faq4q": "Bisakah kode batch membuktikan Escada saya asli?",
+      "where2": "Karton luar: pada penutup ujung. Stiker dan kode karton dicetak bersama di pabrik dan seharusnya terbaca sama — jika tidak, botol dan kotaknya dipasangkan di tempat lain.",
+      "where3": "Parfum mini Escada lama (era Margaretha Ley, didistribusikan oleh Escada Beauté) mencap lot huruf-plus-angka pendek pada pelat dasar logam. Format vintage tersebut bukanlah kode empat digit Coty dan tidak akan didekodekan di sini.",
+      "faq3a": "Wewangian tidak memiliki masa kadaluwarsa yang pasti, namun dapat berubah. Botol Escada yang belum dibuka, disimpan dalam suhu dingin dan gelap, mempertahankan karakternya selama sekitar lima tahun; setelah dibuka, nada atas buah yang cerah memudar terlebih dahulu. Botol yang menjadi gelap atau berubah menjadi tajam dan asam telah teroksidasi terlepas dari apa yang tertulis dalam kodenya.",
+      "faq4a": "Tidak. Kode yang tidak sesuai dengan bentuk empat digit Coty, atau yang berasal dari sebelum wewangian diluncurkan, adalah tanda peringatan yang sebenarnya. Namun kode yang dibuat dengan baik disalin ke kode palsu dengan sama rapinya, sehingga tanggal yang valid membuktikan bahwa kode tersebut asli, bukan parfumnya. Membeli dari pengecer resmi tetap merupakan pemeriksaan yang lebih kuat."
     }
   },
   "contentPages": {
@@ -570,12 +583,15 @@
     "confidence": "kepercayaan diri{level}",
     "workedExamplesNote": "Didekodekan secara langsung oleh mesin yang sama yang menggerakkan pemeriksa — tidak ditranskripsikan dengan tangan.",
     "formatsTitle": "Format kode batch",
-    "brandsUsingNote": "Formatnya milik produsen, bukan label pada botol — setiap merek di bawah ini dicap oleh pabrik yang sama dan dibaca dengan cara yang sama.",
     "brandsUsing": "Merek yang menggunakan kode ini ({count})",
     "whichCode": "Tidak yakin kode mana pada paket yang merupakan kode batch?",
-    "formatsIntro": "Format kode batch adalah milik siapa pun yang memproduksi produk tersebut, bukan milik nama pada botolnya. Coty memberi cap empat digit yang sama pada Rimmel, Gucci dan adidas; Inter Parfums memberi cap sembilan karakter yang sama pada Montblanc, Coach dan Jimmy Choo. Pelajari sandinya sekali dan Anda dapat membaca setiap merek yang membagikannya.",
-    "formatsIntro2": "Setiap halaman di bawah mendokumentasikan satu kelompok: apa yang dikodekan oleh setiap karakter, kode sebenarnya yang diterjemahkan oleh mesin yang sama yang menggerakkan pemeriksa, di mana kode tersebut dicetak pada kemasannya, dan — yang sama pentingnya — format apa yang tidak dapat memberi tahu Anda.",
     "otherFormats": "Format kode lainnya",
-    "brandCount": "merek"
+    "brandCount": "merek",
+    "checkYourCodeTitle": "Periksa kode batch Anda",
+    "checkYourCodeCta": "Buka pemeriksa",
+    "brandsUsingNote": "Kode batch adalah milik produsen, bukan label pada botol — merek di bawah memiliki kode produksi yang sama, sehingga pemeriksa membaca semuanya.",
+    "checkYourCodeBody": "Masukkan kode batch dari produk Anda di pemeriksa dan kode tersebut akan membacakan tanggal pembuatan untuk Anda — tidak perlu penguraian kode manual. Kode tersebut berisi tanggal produksi, bukan kadaluwarsa.",
+    "formatsIntro": "Kode batch adalah milik siapa pun yang memproduksi produk tersebut, bukan milik nama pada botolnya — pembuat yang sama memberikan stempel gaya kode yang sama di banyak merek. Pilih grup produsen di bawah untuk melihat merek mana yang dicakupnya, lalu periksa kode apa pun di alat tersebut.",
+    "formatsIntro2": "Setiap halaman di bawah ini mencakup satu grup produsen: merek mana yang disertakan, di mana menemukan kode batch pada kemasan, dan kode apa yang dapat dan tidak dapat diberitahukan kepada Anda tentang tanggal produksi dan kesegaran."
   }
 }

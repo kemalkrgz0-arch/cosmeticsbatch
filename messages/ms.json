@@ -78,7 +78,9 @@
     "faqTitle": "{name} — Soalan Lazim",
     "printsDateNote": "{name} mencetak tarikh pembuatan atau luput terus pada pembungkusan, jadi anda biasanya tidak memerlukan kod kelompok.",
     "whereHeading": "Di mana untuk mencari kod pada pembungkusan {name}",
-    "exampleHeading": "Kod {name} sebenar, dinyahkod"
+    "exampleHeading": "Kod {name} sebenar, dinyahkod",
+    "decoderGuideLink": "Semak format dan had kod{name}",
+    "decoderGuideBody": "{name}dikaitkan dengan{group}. Apabila kodnya sepadan dengan format kumpulan yang diperhatikan, penyahkod membaca corak tarikh; produk serantau atau keluaran kontrak boleh menggunakan format lain."
   },
   "faqUi": {
     "title": "Soalan Lazim",
@@ -232,16 +234,16 @@
       "faq1q": "Bagaimanakah cara saya menyahkod kod kelompok Calvin Klein?",
       "where2": "Pada botol CK One yang lebih rata, kod boleh dicetak terus pada tapak kaca.",
       "where1": "Di bahagian bawah kotak, dan pada pelekat di bawah botol.",
-      "faq1a": "Wangian CK dihasilkan oleh Coty. Kodnya ialah empat digit: digit tahun diikuti dengan hari dalam setahun. Bahagikan hari dengan kira-kira 30.4 untuk mendapatkan bulan — hari 135 adalah awal bulan kelima, Mei.",
-      "faq2a": "Ia boleh menangkap palsu yang teruk: nombor hari yang mustahil, atau kod yang tidak bersetuju antara kotak dan botol. Ia tidak dapat mengesahkan yang baik, kerana kod yang disalin daripada botol tulen menyahkod dengan sempurna."
+      "faq2a": "Ia boleh menangkap palsu yang teruk: nombor hari yang mustahil, atau kod yang tidak bersetuju antara kotak dan botol. Ia tidak dapat mengesahkan yang baik, kerana kod yang disalin daripada botol tulen menyahkod dengan sempurna.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Calvin Klein anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "carolina-herrera": {
       "where2": "Pada botol stiletto Good Girl kod terletak pada tapak tumit.",
       "where1": "Pada dasar kotak, dan bahagian bawah botol.",
       "faq1q": "Bagaimanakah cara saya menyemak kod kelompok Carolina Herrera?",
       "faq2q": "Adakah Good Girl sering dipalsukan?",
-      "faq1a": "Haruman Carolina Herrera dihasilkan oleh Puig, yang mencetak tarikh pengeluaran dalam kod — sebagai digit tahun ditambah hari dalam setahun, atau sebagai tarikh pembungkusan seperti 231122 untuk 22 November 2023.",
-      "faq2a": "Ia adalah salah satu wangian yang paling banyak disalin di Eropah. Lakukan pemeriksaan yang tidak boleh dilakukan oleh kod: bandingkan kotak dan kod botol, timbang botol dan lihat kehalusan semburan. Penyahkod yang bersih diperlukan tetapi tidak mencukupi."
+      "faq2a": "Ia adalah salah satu wangian yang paling banyak disalin di Eropah. Lakukan pemeriksaan yang tidak boleh dilakukan oleh kod: bandingkan kotak dan kod botol, timbang botol dan lihat kehalusan semburan. Penyahkod yang bersih diperlukan tetapi tidak mencukupi.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Carolina Herrera anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "cerave": {
       "faq1q": "Bagaimanakah cara saya menyemak jangka hayat produk CeraVe?",
@@ -266,10 +268,10 @@
     "clinique": {
       "where1": "Botol dan balang penjagaan kulit: timbul pada tapaknya.",
       "where2": "Solek: bahagian belakang kompak atau pangkal kes.",
-      "faq1a": "Clinique ialah Estée Lauder, jadi formatnya ialah tumbuhan, bulan, tahun dalam tiga aksara — baca dari kanan. Aksara terakhir ialah digit tahun; yang sebelum itu ialah bulan, dengan A, B dan C berdiri untuk Oktober, November dan Disember.",
       "faq2q": "Berapa lama Clinique skincare tahan?",
       "faq1q": "Bagaimanakah cara saya membaca kod kelompok Clinique?",
-      "faq2a": "Sekitar 36 bulan belum dibuka dari tarikh pembuatan, dan 12 bulan selepas dibuka untuk kebanyakan julat. Simbol balang terbuka pada pek ialah nombor yang mengikat sebaik sahaja anda memecahkan meterai."
+      "faq2a": "Sekitar 36 bulan belum dibuka dari tarikh pembuatan, dan 12 bulan selepas dibuka untuk kebanyakan julat. Simbol balang terbuka pada pek ialah nombor yang mengikat sebaik sahaja anda memecahkan meterai.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Clinique anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "creed": {
       "faq2q": "Bolehkah kod memberitahu saya jika Green Irish Tweed saya tulen?",
@@ -277,9 +279,9 @@
       "where1": "Di pangkal botol, dan di bahagian bawah kotak — biasanya dicetak dalam warna hitam pada pelekat asas putih.",
       "faq1q": "Bagaimanakah saya membaca kod kelompok Creed?",
       "faq3q": "Adakah Creed yang lebih lama bermakna Creed yang lebih baik?",
-      "faq1a": "Hanya huruf pertama yang penting. Ia mengekodkan tahun pengeluaran, mengira dari A = 2010 dan melangkau I dan O: N = 2022, P = 2023, Q = 2024, R = 2025. Semuanya selepas itu adalah siri kelompok dalaman. Creed tidak mengekod bulan, jadi kod itu memberi anda setahun dan tiada yang lebih baik.",
       "faq2a": "Sebahagiannya. Creed adalah antara rumah yang paling dipalsukan dalam wangian, dan huruf pertama yang tidak ada dalam kitaran sama sekali adalah memberitahu secara langsung. Tetapi kod yang disalin menyahkod dengan bersih, jadi kod yang sah bukan bukti — timbang botol, lihat semburan dan cetakan kotak, dan beli daripada peruncit yang sah.",
-      "faq3a": "Untuk komposisi resin yang lebih berat, botol yang lebih lama boleh menjadi pilihan, kerana perumusan semula telah mengubah beberapa klasik — dan kod kelompok adalah satu-satunya cara untuk menentukan formula yang anda beli. Untuk Creeds yang lebih ringan, diterajui oleh sitrus, usia kebanyakannya adalah pengoksidaan dan tiada faedah langsung."
+      "faq3a": "Untuk komposisi resin yang lebih berat, botol yang lebih lama boleh menjadi pilihan, kerana perumusan semula telah mengubah beberapa klasik — dan kod kelompok adalah satu-satunya cara untuk menentukan formula yang anda beli. Untuk Creeds yang lebih ringan, diterajui oleh sitrus, usia kebanyakannya adalah pengoksidaan dan tiada faedah langsung.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Creed anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "dior": {
       "where1": "Wangian: pada dasar kotak luar, dan pada bahagian bawah botol — pelekat bercetak kecil, atau terukir laser ke dalam kaca pada botol yang lebih besar.",
@@ -293,11 +295,11 @@
       "faq3a": "Pada asas rata kes itu. Putar peluru sepenuhnya ke bawah terlebih dahulu — kod dicop ke pangkalan dan mudah terlepas terhadap kemasan logam."
     },
     "dunhill": {
-      "faq1a": "Wangian Dunhill dibuat di bawah lesen oleh Inter Parfums. Huruf pertama ialah tahun pengeluaran — kitaran melangkau I dan O, jadi J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — dan tiga digit terakhir ialah hari tahun itu.",
       "where1": "Pada bahagian bawah kotak dan bahagian bawah botol, dicetak dalam warna hitam pada pelekat asas putih.",
       "faq2q": "Bagaimanakah cara saya menyemak wangian Dunhill adalah tulen?",
       "faq1q": "Bagaimanakah cara saya membaca kod kelompok Dunhill?",
-      "faq2a": "Bandingkan kod kotak dan botol, kemudian nyahkod. Surat tahun di luar kitaran, atau kod yang tidak bersetuju, adalah amaran sebenar. Penyahkod yang bersih bukan bukti — kod yang disalin juga dinyahkod."
+      "faq2a": "Bandingkan kod kotak dan botol, kemudian nyahkod. Surat tahun di luar kitaran, atau kod yang tidak bersetuju, adalah amaran sebenar. Penyahkod yang bersih bukan bukti — kod yang disalin juga dinyahkod.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Dunhill anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "estee-lauder": {
       "faq2q": "Bagaimanakah saya boleh menyemak jangka hayat jika saya membuang kotak itu?",
@@ -305,9 +307,9 @@
       "where1": "Penjagaan kulit: timbul pada dasar balang atau botol — ditekan ke dalam bahan, jadi ia memerlukan lampu raking dan bukannya langsung.",
       "faq1q": "Bagaimanakah cara saya membaca kod kelompok Estée Lauder?",
       "faq3q": "Adakah Clinique, MAC dan La Mer menggunakan kod yang sama?",
-      "faq1a": "Baca dari kanan, bukan kiri. Aksara terakhir ialah digit tahun; yang sebelum itu ialah bulan (1–9 untuk Januari hingga September, kemudian A, B dan C untuk Oktober, November dan Disember); apa-apa di sebelah kiri adalah tumbuhan. Jadi dalam EA4 lojinya ialah E, bulannya ialah A — Oktober — dan tahun berakhir pada 4. Membaca dari kiri ke kanan ialah kesilapan yang paling biasa dengan kod ini.",
       "faq3a": "Ya — tumbuhan yang sama dan format tumbuhan/bulan/tahun yang sama. Hanya surat tumbuhan yang berbeza, dan ia tidak membawa maklumat tarikh.",
-      "faq2a": "Kod itu ada pada produk itu sendiri, bukan sahaja karton — pada dasar balang atau botol, biasanya timbul. Nyahkodkannya untuk tarikh pembuatan, kemudian gunakan simbol balang terbuka dari hari anda membukanya. Mana-mana tarikh akhir yang datang dahulu adalah yang sebenar."
+      "faq2a": "Kod itu ada pada produk itu sendiri, bukan sahaja karton — pada dasar balang atau botol, biasanya timbul. Nyahkodkannya untuk tarikh pembuatan, kemudian gunakan simbol balang terbuka dari hari anda membukanya. Mana-mana tarikh akhir yang datang dahulu adalah yang sebenar.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Estée Lauder anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "fenty-beauty": {
       "where1": "Asas dan produk cecair: dicetak pada pangkal botol, atau tempat label melilit di belakang.",
@@ -333,10 +335,10 @@
     "giorgio-armani-beauty": {
       "where1": "Wangian (Acqua di Giò, Armani Code): di bahagian bawah kotak dan pelekat asas botol.",
       "where2": "Solek: pada dasar kes atau belakang kompak.",
-      "faq1a": "Haruman Armani dibuat oleh L'Oréal, jadi kodnya mengikut format kumpulan: huruf pertama ialah tahun pengeluaran, watak selepasnya ialah bulan. (Haruman yang dipanggil Armani Code dan kod kelompok yang dicop pada kotaknya adalah perkara yang tidak berkaitan yang malangnya berkongsi perkataan.)",
       "faq2q": "Berapa lamakah Acqua di Giò bertahan tanpa dibuka?",
       "faq1q": "Bagaimanakah cara saya menyahkod nombor kelompok Armani Code?",
-      "faq2a": "Tiga hingga lima tahun adalah perkara biasa untuk eau de toilette, lebih lama untuk eau de parfum. Wangian adalah kategori yang paling memaafkan yang ada, dengan syarat botol itu dijauhkan daripada cahaya dan haba."
+      "faq2a": "Tiga hingga lima tahun adalah perkara biasa untuk eau de toilette, lebih lama untuk eau de parfum. Wangian adalah kategori yang paling memaafkan yang ada, dengan syarat botol itu dijauhkan daripada cahaya dan haba.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Armani anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "guerlain": {
       "faq1q": "Bagaimanakah cara saya menyemak tarikh pengeluaran wangian Guerlain?",
@@ -349,28 +351,28 @@
     "hugo-boss": {
       "where2": "Kedua-dua kod harus sepadan — ia dicetak selang beberapa minit pada baris yang sama.",
       "where1": "Pada dasar kotak luar, dan pada pelekat jelas di bawah botol.",
-      "faq1a": "Wangian Hugo Boss dihasilkan oleh Coty, yang menggunakan kod empat digit: digit pertama ialah digit terakhir tahun pengeluaran dan baki tiga adalah hari tahun itu. Jadi 4135 ialah hari ke-135 2024 — 14 Mei 2024.",
       "faq2q": "Kod kotak dan botol berbeza. Adakah ia palsu?",
       "faq1q": "Bagaimanakah cara saya menyemak kod kelompok wangian Hugo Boss?",
-      "faq2a": "Ini bermakna kotak dan botol itu dipasangkan di tempat lain selain kilang. Itu berlaku dengan pemalsuan, dan juga dengan pembungkusan semula yang sah, dikembalikan atau stok pasaran kelabu. Walau apa pun, gandingan yang anda pegang bukanlah yang dihantar oleh kilang."
+      "faq2a": "Ini bermakna kotak dan botol itu dipasangkan di tempat lain selain kilang. Itu berlaku dengan pemalsuan, dan juga dengan pembungkusan semula yang sah, dikembalikan atau stok pasaran kelabu. Walau apa pun, gandingan yang anda pegang bukanlah yang dihantar oleh kilang.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Hugo Boss anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "jean-paul-gaultier": {
       "where1": "Di dasar kotak, dan di bahagian bawah botol berbentuk batang tubuh.",
       "where2": "Pada edisi bersarung logam, kod selalunya ada pada kotak sahaja, atau dicap samar-samar pada dasar tin.",
       "faq2q": "Tiada kod pada botol Le Male saya.",
       "faq1q": "Bagaimanakah cara saya membaca kod kelompok Jean Paul Gaultier?",
-      "faq1a": "Wangian JPG dihasilkan oleh Puig, yang mencetak tarikh pengeluaran ke dalam kod. Empat digit bermaksud digit tahun campur hari dalam setahun; lima bermakna dua digit tahun campur hari; enam ialah tarikh kalendar yang padat.",
-      "faq2a": "Pada edisi berlengan logam, kod selalunya hanya pada kotak, atau dicop dengan sangat lemah ke dalam pangkalan sehingga ia memerlukan cahaya merapu untuk dilihat. Semak karton dahulu — dan jika anda mempunyai kedua-duanya, sahkan bahawa ia sepadan."
+      "faq2a": "Pada edisi berlengan logam, kod selalunya hanya pada kotak, atau dicop dengan sangat lemah ke dalam pangkalan sehingga ia memerlukan cahaya merapu untuk dilihat. Semak karton dahulu — dan jika anda mempunyai kedua-duanya, sahkan bahawa ia sepadan.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Jean Paul Gaultier anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "kenzo-parfums": {
       "faq2q": "Adakah kod Kenzo berulang setiap sepuluh tahun?",
       "faq1q": "Bagaimanakah cara saya menyemak wangian Kenzo dengan kod kelompoknya?",
-      "faq1a": "Kenzo Parfums ialah rumah LVMH, dan LVMH mencetak tarikh pengeluaran dalam kod dan bukannya menyulitkannya. Empat digit bermaksud digit tahun campur hari dalam setahun; lima atau enam digit adalah tarikh yang lebih lengkap. Pilih Kenzo dalam penyemak dan ia menggunakan bacaan yang betul.",
       "where2": "Pada botol Kenzo World dan Flower, kod boleh diletakkan di bahagian bawah rata di mana label terlipat di bawah.",
       "where1": "Di pangkal kotak luar, dan di bahagian bawah botol — dicetak pada pelekat asas atau dicop ke dalam kaca.",
       "faq3a": "Ia boleh menangkap palsu — hari yang mustahil, atau ketidakpadanan antara kod kotak dan kod botol, yang tidak dihasilkan oleh garisan pengisian tulen. Ia tidak boleh mengesahkan yang tulen, kerana kod yang disalin menyahkod dengan bersih.",
       "faq3q": "Bolehkah kod itu membuktikan wangian Kenzo adalah asli?",
-      "faq2a": "Ya, dan ini adalah batasan yang tulen dan bukannya keanehan. Kod empat digit hanya membawa satu digit tahun, jadi 4135 ialah 14 Mei 2024 pada bukti yang sama yang menjadikannya 14 Mei 2014. Penyahkod menganggap bacaan terkini; jika botol dan pembungkusan kelihatan seperti mereka milik era yang lebih awal, mereka mungkin melakukannya."
+      "faq2a": "Ya, dan ini adalah batasan yang tulen dan bukannya keanehan. Kod empat digit hanya membawa satu digit tahun, jadi 4135 ialah 14 Mei 2024 pada bukti yang sama yang menjadikannya 14 Mei 2014. Penyahkod menganggap bacaan terkini; jika botol dan pembungkusan kelihatan seperti mereka milik era yang lebih awal, mereka mungkin melakukannya.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Kenzo anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "kerastase": {
       "where2": "Tiub dan saiz perjalanan: ditekan ke dalam kelim.",
@@ -405,8 +407,8 @@
       "faq2q": "Berapa lama penjagaan kulit Lancôme yang belum dibuka bertahan?",
       "where1": "Wangian: di dasar kotak, dan di bahagian bawah botol.",
       "where2": "Penjagaan kulit dan asas: timbul atau dicetak pada dasar balang, kelim tiub atau botol.",
-      "faq1a": "Lancôme ialah L'Oréal: huruf pertama ialah tahun pengeluaran (langkau V, jadi U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) dan watak terus selepas itu ialah bulan, dengan O, N dan D berdiri untuk Oktober, November dan Disember.",
-      "faq2a": "Sekitar tiga tahun dari pengilangan, kurang untuk produk yang dibina pada bahan aktif yang tidak stabil. Nyahkod sebelum membeli daripada pemberi diskaun — stok lama adalah tulen, tetapi ia mungkin mempunyai sedikit hayat yang belum dibuka."
+      "faq2a": "Sekitar tiga tahun dari pengilangan, kurang untuk produk yang dibina pada bahan aktif yang tidak stabil. Nyahkod sebelum membeli daripada pemberi diskaun — stok lama adalah tulen, tetapi ia mungkin mempunyai sedikit hayat yang belum dibuka.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Lancôme anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "loreal": {
       "where2": "Gunakan halaman ini apabila sub-jenama tidak disenaraikan secara berasingan — seluruh kumpulan berkongsi satu format kod.",
@@ -450,14 +452,14 @@
       "faq2a": "Pada dasar tiub atau botol, atau belakang palet. Ia adalah kod pendek tidak teratur — bukan nombor kod bar yang panjang."
     },
     "montblanc": {
-      "faq1a": "Wangian Montblanc dibuat di bawah lesen oleh Inter Parfums. Huruf pertama dalam kod ialah tahun pengeluaran, pada kitaran yang melangkau I dan O — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — dan tiga digit terakhir ialah hari tahun itu.",
       "where2": "Kod Montblanc adalah antara kod wangian yang lebih mudah dibaca tanpa pembesar.",
       "where1": "Di bahagian bawah kotak, dan di bahagian bawah botol — dicetak dalam warna hitam pada pelekat asas putih.",
       "faq3q": "Tiga digit terakhir menghasilkan tarikh yang pelik.",
       "faq2q": "Adakah terdapat nombor siri yang boleh saya cari?",
       "faq1q": "Bagaimanakah cara saya menyemak Legenda Montblanc dengan kodnya?",
       "faq2a": "Tidak. Kod kelompok mengenal pasti masa pengeluaran, bukan botol individu, dan tiada pangkalan data awam untuk mencarinya. Apa yang diberikan kepada anda ialah tarikh — yang merupakan bahagian yang berguna.",
-      "faq3a": "Pada minoriti kod Inter Parfums, angka tersebut adalah barisan kilang dan bukannya sehari. Jika tarikh itu kelihatan tidak masuk akal untuk botol, percayai huruf tahun dan anggap hari itu sebagai anggaran."
+      "faq3a": "Pada minoriti kod Inter Parfums, angka tersebut adalah barisan kilang dan bukannya sehari. Jika tarikh itu kelihatan tidak masuk akal untuk botol, percayai huruf tahun dan anggap hari itu sebagai anggaran.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Montblanc anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "nivea": {
       "where1": "Tiub (krim tangan, pencuci muka): dicop ke dalam kelim — hujung bertutup rata bertentangan dengan penutup.",
@@ -478,7 +480,7 @@
       "where2": "Condongkan botol supaya cahaya menangkap setem dari sisi; cahaya langsung menjadikannya hilang.",
       "faq2a": "Ia boleh menangkap yang palsu dan tidak boleh mengesahkan yang asli. Paco Rabanne ialah antara wangian yang paling dipalsukan di Eropah: nombor hari yang mustahil, atau kod yang tidak bersetuju antara kotak dan botol, adalah amaran yang kuat — tetapi kod yang disalin daripada botol tulen didekod dengan sempurna. Timbang botol dan semak corak semburan juga.",
       "faq3a": "Ya — rumah itu menggugurkan 'Paco' daripada namanya pada tahun 2023. Stok lama membawa penjenamaan sebelumnya, dan format kod tidak berubah.",
-      "faq1a": "Paco Rabanne dibuat oleh Puig, yang mencetak tarikh pengeluaran dalam kod dan bukannya menyulitkannya. Bentuk biasa ialah empat digit: yang pertama ialah digit terakhir tahun, baki tiga adalah hari tahun itu — jadi 4135 ialah hari ke-135 pada 2024, 14 Mei 2024."
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Paco Rabanne anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "redken": {
       "where1": "Botol: inkjet-dicetak pada label belakang atau pangkal botol.",
@@ -500,19 +502,19 @@
       "faq1q": "Bagaimanakah cara saya menyemak kod kelompok Tom Ford?",
       "where2": "Palet asas dan pembayang mata: dicop pada dasar padat atau botol.",
       "where1": "Wangian: pada dasar kotak, dan terukir atau dicetak pada bahagian bawah botol.",
-      "faq1a": "Tom Ford Beauty dihasilkan oleh kumpulan Estée Lauder, jadi ia menggunakan kod tiga aksara kumpulan: tumbuhan, bulan, tahun — dibaca dari kanan. Bulannya ialah 1–9 untuk Januari hingga September, kemudian A, B dan C untuk Oktober hingga Disember.",
       "faq2a": "Kod itu terdapat pada dasar padat. Nyahkodkannya untuk tarikh pembuatan; serbuk yang ditekan adalah baik untuk kira-kira 24 bulan selepas dibuka dan jauh lebih lama tidak dibuka, kerana formula kering tidak memberikan bakteria untuk tumbuh di dalamnya.",
       "faq2q": "Bagaimanakah saya boleh bertarikh dengan palet pembayang mata Tom Ford?",
       "faq3q": "Adakah kod kelompok bukti keaslian?",
-      "faq3a": "Tidak. Ia boleh mendedahkan palsu mentah — kod yang tidak sesuai dengan format, atau menyahkod kepada bulan yang mustahil — tetapi kod yang disalin menyahkod dengan bersih. Wangian Tom Ford banyak dipalsukan; timbang botol, periksa semburan pengabut, dan beli daripada peruncit sah."
+      "faq3a": "Tidak. Ia boleh mendedahkan palsu mentah — kod yang tidak sesuai dengan format, atau menyahkod kepada bulan yang mustahil — tetapi kod yang disalin menyahkod dengan bersih. Wangian Tom Ford banyak dipalsukan; timbang botol, periksa semburan pengabut, dan beli daripada peruncit sah.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Tom Ford anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "too-faced": {
-      "faq1a": "Too Faced tergolong dalam kumpulan Estée Lauder, jadi kodnya ialah tiga aksara — tumbuhan, bulan, tahun — dibaca dari kanan. Jika kod pada palet anda tidak sesuai dengan bentuk itu, ia mungkin tanda garis kilang dan bukannya kod kelompok.",
       "where1": "Palet dan padat: di belakang sarung, kadangkala di bawah dulang plastik.",
       "where2": "Produk cecair: pada dasar botol atau kelim tiub.",
       "faq1q": "Bagaimanakah cara saya menyemak kod kelompok palet Too Faced?",
       "faq2q": "Kod My Too Faced tidak akan menyahkod.",
-      "faq2a": "Sesetengah kod pada pembungkusan Too Faced ialah tanda garis dalaman, bukan kod tarikh dan tiada apa-apa di dalamnya untuk dinyahkodkan. Periksa bahagian bawah dan belakang sarung untuk kod kedua yang lebih pendek — dan jika benar-benar tidak ada, simbol balang terbuka ialah panduan terbaik anda."
+      "faq2a": "Sesetengah kod pada pembungkusan Too Faced ialah tanda garis dalaman, bukan kod tarikh dan tiada apa-apa di dalamnya untuk dinyahkodkan. Periksa bahagian bawah dan belakang sarung untuk kod kedua yang lebih pendek — dan jika benar-benar tidak ada, simbol balang terbuka ialah panduan terbaik anda.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Too Faced anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "vichy": {
       "where1": "Tiub dan pelindung matahari Capital Soleil: ditekan ke dalam kelim — hujung rata yang dimeterai bertentangan dengan penutup.",
@@ -523,17 +525,17 @@
       "faq3q": "Bolehkah kod itu membuktikan Vichy saya tulen?",
       "faq2q": "Bagaimanakah saya membaca kod pada produk Vichy?",
       "faq4q": "Adakah pelindung matahari Capital Soleil tamat tempoh?",
-      "faq2a": "Vichy dihasilkan oleh L'Oréal dan menggunakan format kumpulan. Cari huruf pertama dalam kod: iaitu tahun pengeluaran, pada kitaran yang melangkau V, jadi U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Watak terus selepas itu ialah bulan — 1 hingga 9 untuk Januari hingga September, kemudian O, N dan D untuk Oktober, November dan Disember. Itu O ialah huruf O, bukan sifar.",
       "faq3a": "Hanya sebahagian. Kod yang tidak sesuai dengan bentuk L'Oréal, atau yang menyahkod kepada tarikh sebelum barisan produk wujud, adalah amaran sebenar. Tetapi pemalsu menyalin kod daripada tiub tulen menghasilkan kod yang menyahkod dengan sempurna — jadi penyahkod yang bersih membuktikan kod itu terbentuk dengan baik, bukannya krim itu. Untuk penjagaan kulit farmasi, membeli dari farmasi kekal sebagai perlindungan yang lebih kukuh.",
-      "faq4a": "Ya, dan ia lebih penting daripada apa-apa lagi dalam julat: penapis UV terdegradasi membiarkan lebih banyak sinaran, jadi SPF 50 yang lapuk tidak memberikan SPF 50. Pelindung matahari biasanya membawa tarikh luput bercetak untuk sebab ini — gunakannya. Dan anggap sebotol yang menghabiskan musim panas di dalam kereta panas sebagai siap tanpa mengira tarikhnya."
+      "faq4a": "Ya, dan ia lebih penting daripada apa-apa lagi dalam julat: penapis UV terdegradasi membiarkan lebih banyak sinaran, jadi SPF 50 yang lapuk tidak memberikan SPF 50. Pelindung matahari biasanya membawa tarikh luput bercetak untuk sebab ini — gunakannya. Dan anggap sebotol yang menghabiskan musim panas di dalam kereta panas sebagai siap tanpa mengira tarikhnya.",
+      "faq2a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Vichy anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "ysl-beauty": {
       "where1": "Gincu dan solek: dicap pada pangkal sarung atau belakang sarung.",
       "where2": "Wangian: pada dasar kotak dan bahagian bawah botol.",
-      "faq1a": "YSL Beauty dihasilkan oleh L'Oréal, jadi ia membawa kod kumpulan: digit kilang, huruf tahun, kemudian aksara bulan. Pilih YSL Beauty dalam pemeriksa dan enjin menggunakan peraturan L'Oréal.",
       "faq1q": "Bagaimanakah cara saya menyemak kod kelompok Yves Saint Laurent?",
       "faq2q": "Mengapakah kod YSL saya kelihatan seperti kod Maybelline?",
-      "faq2a": "Kerana syarikat yang sama membuat kedua-duanya. Format mengikut kilang, bukan harga — gincu YSL dan maskara Maybelline keluar dari garisan L'Oréal dan membawa gaya kod yang sama."
+      "faq2a": "Kerana syarikat yang sama membuat kedua-duanya. Format mengikut kilang, bukan harga — gincu YSL dan maskara Maybelline keluar dari garisan L'Oréal dan membawa gaya kod yang sama.",
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Yves Saint Laurent anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO)."
     },
     "zara": {
       "where1": "Pada kepak bawah kotak wangian, dan pada pangkal botol.",
@@ -542,6 +544,19 @@
       "faq1q": "Adakah perfume Zara mempunyai tarikh luput?",
       "faq2a": "Puig mengeluarkan barisan wangian Zara, itulah sebabnya kod mengikut format Puig — dan sebahagian daripada sebab beberapa bauan Zara mengundang perbandingan dengan wangian berjenama yang juga dibuat oleh Puig.",
       "faq1a": "Bukan yang dicetak, sebagai peraturan — seperti kebanyakan wangian ia membawa kod kelompok sebaliknya. Nyahkodkannya untuk tarikh pembuatan dan mengira tiga hingga lima tahun kehidupan yang belum dibuka, yang merupakan perkara biasa bagi eau de toilette yang dijauhkan daripada cahaya dan haba."
+    },
+    "escada": {
+      "faq1a": "Cosmetics Batch membaca tarikh pengeluaran daripada kod Escada anda untuk anda — masukkannya dalam penyemak di bahagian atas halaman ini, tanpa penyahkodan manual. Kod ini memegang tarikh pembuatan, bukan tamat tempoh: tambahkan jangka hayat biasa yang belum dibuka untuk menilai kesegaran dan sebaik dibuka ikut simbol balang terbuka (PAO).",
+      "where1": "Eau de parfum dan eau de toilette moden: pada pelekat jernih di bawah botol kaca, dicetak sebagai nombor empat digit pada baris yang sama dengan teks \"EAU DE PARFUM VAPORISATEUR\".",
+      "where2": "Karton luar: pada kepak hujung. Kod pelekat dan kadbod dicetak bersama di kilang dan harus dibaca sama — jika tidak, botol dan kotak itu dipasangkan di tempat lain.",
+      "faq1q": "Bagaimanakah cara saya membaca kod kelompok pada minyak wangi Escada?",
+      "where3": "Parfum minis Escada lama (zaman Margaretha Ley, diedarkan oleh Escada Beauté) mengecop lot huruf-tambah-nombor pendek ke dalam plat asas logam. Format vintaj itu bukan kod Coty empat digit dan tidak akan menyahkod di sini.",
+      "faq2a": "Itu adalah minyak wangi Escada yang lebih lama daripada sebelum pengekodan Coty semasa; mini era Margaretha Ley mengecop lot huruf dan nombor ke dalam pangkalan logam daripada mencetak kod hari tahun empat digit. Lot vintaj itu tidak mengikut format yang dibaca oleh alat ini, jadi ia tidak boleh membuat tarikh dengannya. Ia bukan tanda botol itu palsu — kilang hanya menggunakan sistem yang berbeza.",
+      "faq2q": "Botol Escada saya mempunyai kod seperti \"H 0100\" yang dicap pada pangkalan — mengapa ia tidak menyahkod?",
+      "faq4q": "Bolehkah kod kelompok membuktikan Escada saya adalah tulen?",
+      "faq3q": "Adakah Escada minyak wangi tamat tempoh?",
+      "faq3a": "Wangian tidak mempunyai luput keras, tetapi ia berubah. Botol Escada yang belum dibuka disimpan sejuk dan gelap mengekalkan wataknya selama kira-kira lima tahun; sebaik dibuka, nota atas buah-buahan yang cerah pudar terlebih dahulu. Botol yang telah gelap atau bertukar tajam dan masam telah teroksida tanpa mengira apa yang dinyatakan oleh kod.",
+      "faq4a": "Tidak. Kod yang tidak sesuai dengan bentuk empat digit Coty, atau tarikh sebelum bauan dilancarkan, ialah tanda amaran sebenar. Tetapi kod yang dibentuk dengan baik yang disalin ke palsu menyahkod sama bersihnya, jadi tarikh yang sah membuktikan kod itu nyata, bukan minyak wangi. Membeli daripada peruncit sah kekal sebagai cek yang lebih kuat."
     }
   },
   "contentPages": {
@@ -559,12 +574,24 @@
     "doesNotDecode": "tidak menyahkod",
     "workedExamples": "Contoh yang dikerjakan",
     "brandsUsing": "Jenama yang menggunakan kod ini ({count})",
-    "formatsIntro": "Format kod kelompok adalah milik sesiapa sahaja yang mengeluarkan produk, bukan nama pada botol. Coty mengecap empat digit yang sama pada Rimmel, Gucci dan adidas; Inter Parfums menyetem sembilan watak yang sama pada Montblanc, Coach dan Jimmy Choo. Ketahui sifir sekali dan anda boleh membaca setiap jenama yang berkongsinya.",
-    "brandsUsingNote": "Format kepunyaan pengilang, bukan label pada botol — setiap jenama di bawah dicop oleh tumbuhan yang sama dan dibaca dengan cara yang sama.",
     "whichCode": "Tidak pasti kod yang mana pada pek adalah kod kelompok?",
     "otherFormats": "Format kod lain",
     "formatsTitle": "Format kod kelompok",
-    "formatsIntro2": "Setiap halaman di bawah mendokumenkan satu keluarga: perkara yang dikodkan oleh setiap aksara, kod sebenar yang dinyahkod oleh enjin yang sama yang memberi kuasa kepada penyemak, tempat kod dicetak pada pek, dan — sama pentingnya — perkara yang tidak dapat diberitahu oleh format kepada anda.",
-    "brandCount": "jenama"
+    "brandCount": "jenama",
+    "checkYourCodeCta": "Buka penyemak",
+    "checkYourCodeTitle": "Semak kod kelompok anda",
+    "checkYourCodeBody": "Masukkan kod kelompok daripada produk anda dalam penyemak dan ia membaca tarikh pembuatan untuk anda — tiada penyahkodan manual diperlukan. Kod memegang tarikh pengeluaran, bukan tamat tempoh.",
+    "formatsIntro": "Kod kelompok adalah milik sesiapa sahaja yang mengeluarkan produk, bukan nama pada botol — pembuat yang sama mengecap gaya kod yang sama merentas banyak jenama. Pilih kumpulan pengilang di bawah untuk melihat jenama yang dilindunginya, kemudian semak sebarang kod dalam alat.",
+    "brandsUsingNote": "Kod kelompok adalah milik pengilang, bukan label pada botol — jenama di bawah berkongsi pengekodan pengeluaran yang sama, jadi penyemak membaca semuanya.",
+    "formatsIntro2": "Setiap halaman di bawah merangkumi satu kumpulan pengeluar: jenama yang disertakan, tempat untuk mencari kod kelompok pada pek dan perkara yang boleh dan tidak boleh diberitahu oleh kod tentang tarikh pengeluaran dan kesegaran."
+  },
+  "lorealFamily": {
+    "portfolio": "{name}disenaraikan dalam L'Oréal portfolio jenama Groupe. Pemilikan kumpulan tidak menjamin bahawa setiap kilang, pasaran atau produk lama menggunakan format kod kelompok yang sama.",
+    "format": "Apabila kod yang dimasukkan sepadan dengan pengekodan kumpulan yang diperhatikan L'Oréal, penyemak membaca bulan dan tahun pengeluarannya untuk anda. Masukkan kod di atas untuk mendapatkan tarikh — tiada langkah manual untuk diikuti.",
+    "precision": "Format ini mengenal pasti sebulan, bukan hari yang tepat. Mana-mana hari yang dipaparkan dalam keputusan adalah anggaran pertengahan bulan. Tarikh tamat tempoh bercetak atau tarikh terbaik sebelum pada produk sentiasa diutamakan.",
+    "heading": "Perkara yang perlu diketahui tentang kod kelompok{name}dan L'Oréal.",
+    "authenticity": "Kod yang berjaya menyahkod tidak dapat membuktikan produk itu tulen kerana kod boleh disalin. Gunakan hasilnya sebagai satu semakan konsistensi bersama penjual, pembungkusan, pengedap dan kualiti cetakan.",
+    "officialSource": "Sahkan jenama dalam L'Oréal portfolio rasmi Groupe",
+    "decoderLabel": "Format kumpulan yang diperhatikan (ketepatan bulan)"
   }
 }

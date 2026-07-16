@@ -1,22 +1,12 @@
 import { NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
+import { asCsv } from "@/lib/csv";
 import { readRecentChecks } from "@/lib/dataset";
 import { requireReviewer } from "@/lib/review-auth";
 import { listSubmissions } from "@/lib/submission-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-function csvCell(value: unknown) {
-  const text = value == null ? "" : String(value);
-  return `"${text.replaceAll('"', '""')}"`;
-}
-
-function asCsv(rows: Array<Record<string, unknown>>) {
-  if (rows.length === 0) return "";
-  const columns = Object.keys(rows[0]);
-  return [columns.map(csvCell).join(","), ...rows.map((row) => columns.map((column) => csvCell(row[column])).join(","))].join("\n");
-}
 
 export async function GET(request: Request) {
   try {

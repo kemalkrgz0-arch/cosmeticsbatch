@@ -85,11 +85,11 @@
   "lorealFamily": {
     "heading": "{name} ve L'Oréal batch kodları hakkında bilinmesi gerekenler",
     "portfolio": "{name}, L'Oréal Groupe'un resmi marka portföyünde yer alır. Grup üyeliği her fabrikanın, pazarın veya eski ürünün aynı batch kodu formatını kullandığını garanti etmez.",
-    "format": "Yaygın olarak gözlemlenen L'Oréal formatı fabrika ön eki, yıl harfi ve hemen arkasındaki ay karakterinden oluşur. Kod çözücü bu yorumu yalnızca girilen kod bu desene uyduğunda uygular.",
     "precision": "Bu format ayı belirler, kesin günü değil. Sonuçta görünen gün ay ortası tahminidir. Ürün üzerinde basılı son kullanma veya tavsiye edilen tüketim tarihi her zaman önceliklidir.",
     "authenticity": "Kodun başarıyla çözülmesi ürünün orijinal olduğunu kanıtlamaz; kod kopyalanabilir. Satıcıyı, ambalajı, mühürleri ve baskı kalitesini de kontrol edin.",
     "officialSource": "Markayı L'Oréal Groupe resmi portföyünde doğrulayın",
-    "decoderLabel": "Gözlemlenen grup formatı (ay hassasiyeti)"
+    "decoderLabel": "Gözlemlenen grup formatı (ay hassasiyeti)",
+    "format": "Girilen kodun L'Oréal'un gözlemlenen grup kodlamasıyla eşleştiği yerde denetleyici sizin için üretim ayını ve yılını okur. Tarihi almak için yukarıdaki kodu girin; izlenecek manuel adım yoktur."
   },
   "faqUi": {
     "title": "Sıkça Sorulan Sorular",
@@ -241,10 +241,10 @@
     "calvin-klein": {
       "faq1q": "Calvin Klein toplu iş kodunu nasıl çözerim?",
       "faq2q": "batch kodu bana CK'mın gerçek olup olmadığını söyleyebilir mi?",
-      "faq1a": "CK kokusu Coty tarafından üretilmektedir. Kod dört basamaklıdır: bir yıl basamağı ve onu takip eden yılın günü. Ayı bulmak için günü yaklaşık 30,4'e bölün; 135. gün beşinci ayın başı, Mayıs.",
       "where2": "Daha düz olan CK One şişelerinde kod doğrudan cam taban üzerine basılabilir.",
       "where1": "Kutunun altında ve şişenin altındaki etikette.",
-      "faq2a": "Kötü bir sahtekarlığı yakalayabilir: imkansız bir gün numarası veya kutu ile şişe arasında uyuşmayan kodlar. İyi bir kodu doğrulayamaz çünkü orijinal bir şişeden kopyalanan kod mükemmel bir şekilde çözülür."
+      "faq2a": "Kötü bir sahtekarlığı yakalayabilir: imkansız bir gün numarası veya kutu ile şişe arasında uyuşmayan kodlar. İyi bir kodu doğrulayamaz çünkü orijinal bir şişeden kopyalanan kod mükemmel bir şekilde çözülür.",
+      "faq1a": "Cosmetics Batch sizin için Calvin Klein kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "carolina-herrera": {
       "faq1q": "Carolina Herrera batch kodunu nasıl kontrol ederim?",
@@ -252,7 +252,7 @@
       "where1": "Kutunun tabanında ve şişenin alt tarafında.",
       "where2": "Good Girl stiletto şişesinde kod, topuğun tabanında bulunur.",
       "faq2a": "Avrupa'da en çok kopyalanan kokulardan biridir. Bir kodun yapamayacağı kontrolleri yapın: kutu ve şişe kodlarını karşılaştırın, şişeyi tartın ve spreyin inceliğine bakın. Temiz bir kod çözme gereklidir ancak yeterli değildir.",
-      "faq1a": "Carolina Herrera kokusu Puig tarafından üretildi ve kodda üretim tarihini yıl rakamı artı yılın günü olarak veya 22 Kasım 2023 için 231122 gibi paketlenmiş bir tarih olarak basıyor."
+      "faq1a": "Cosmetics Batch sizin için Carolina Herrera kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "cerave": {
       "faq1q": "Bir CeraVe ürününün raf ömrünü nasıl kontrol edebilirim?",
@@ -279,8 +279,8 @@
       "faq1q": "Clinique batch kodunu nasıl okurum?",
       "where2": "Makyaj: kompaktın arkası veya kasanın tabanı.",
       "faq2a": "Serinin çoğu için üretim tarihinden itibaren yaklaşık 36 ay açılmadan ve açıldıktan sonra 12 ay. Paketin üzerindeki açık kavanoz sembolü, mührü kırdığınızda geçerli olan numaradır.",
-      "faq1a": "Clinique, Estée Lauder'dir, yani format bitki, ay, yıl olup üç karakterden oluşur - sağdan okunur. Son karakter yıl rakamıdır; ondan önceki aydır; A, B ve C Ekim, Kasım ve Aralık'ı temsil eder.",
-      "faq2q": "Clinique cilt bakımı ne kadar sürer?"
+      "faq2q": "Clinique cilt bakımı ne kadar sürer?",
+      "faq1a": "Cosmetics Batch sizin için Clinique kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "creed": {
       "faq1q": "Creed batch kodunu nasıl okurum?",
@@ -290,7 +290,7 @@
       "faq2q": "Kod bana Green Irish Tweed cihazımın orijinal olup olmadığını söyleyebilir mi?",
       "faq2a": "Kısmen. Creed, koku alanında en çok taklit edilen markalar arasında yer alıyor ve döngüde yer almayan bir ilk harf, basit bir anlatımdır. Ancak kopyalanan kod temiz bir şekilde çözülür, bu nedenle geçerli bir kod kanıt değildir; şişeyi tartın, spreye ve kutu baskısına bakın ve yetkili bir satıcıdan satın alın.",
       "faq3a": "Daha ağır, reçineli bileşimler için eski bir şişe gerçekten tercih edilebilir, çünkü yeniden formülasyonlar birçok klasiği değiştirmiştir ve batch kodu, hangi formülü satın aldığınızı belirlemenin tek yoludur. Daha hafif, narenciye ağırlıklı Creed'ler için yaş çoğunlukla oksidasyondur ve hiçbir faydası yoktur.",
-      "faq1a": "Creed iki sistem kullanır ve her ikisi de ayı değil yılı verir. Daha eski şişeler (2013–2022) daha uzun bir kod taşır: üç karakterli bir ürün kimliği, ardından iki basamaklı üretim yılı, ardından parti serisi - A4221N01'de 21, 2021, L6622A01B'de 22, 2022 anlamına gelir. 2023'ten itibaren kod, F001704 gibi bir sıra numarasıyla basitleştirildi; burada F yeni nesli işaret ediyor, yani 2023 veya sonrası olduğunu biliyorsunuz ancak tam yılı değil."
+      "faq1a": "Cosmetics Batch sizin için Creed kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "dior": {
       "where1": "Koku: Dış kutunun tabanında ve şişenin alt tarafında - küçük baskılı bir etiket veya daha büyük şişelerin camına lazerle kazınmış.",
@@ -307,8 +307,8 @@
       "where1": "Kutunun tabanında ve şişenin alt tarafında, beyaz taban etiketinin üzerine siyah basılmıştır.",
       "faq1q": "Dunhill batch kodunu nasıl okurum?",
       "faq2q": "Bir Dunhill kokusunun orijinal olup olmadığını nasıl kontrol edebilirim?",
-      "faq1a": "Dunhill kokusu Inter Parfums lisansı altında üretilmektedir. İlk harf üretim yılıdır - I ve O'yu atlayan bir döngü, yani J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 - ve son üç rakam o yılın günüdür.",
-      "faq2a": "Kutu ve şişe kodlarını karşılaştırın, ardından kodu çözün. Döngünün dışındaki bir yıl mektubu veya aynı fikirde olmayan kodlar gerçek uyarılardır. Temiz bir kod çözme kanıt değildir; kopyalanan kodların da kodu çözülür."
+      "faq2a": "Kutu ve şişe kodlarını karşılaştırın, ardından kodu çözün. Döngünün dışındaki bir yıl mektubu veya aynı fikirde olmayan kodlar gerçek uyarılardır. Temiz bir kod çözme kanıt değildir; kopyalanan kodların da kodu çözülür.",
+      "faq1a": "Cosmetics Batch sizin için Dunhill kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "estee-lauder": {
       "where1": "Cilt bakımı: Kavanozun veya şişenin tabanına kabartma yapılır; malzemeye bastırılır, bu nedenle doğrudan ışık yerine yan yatan bir ışığa ihtiyaç duyar.",
@@ -318,7 +318,7 @@
       "faq1q": "Estée Lauder batch kodunu nasıl okurum?",
       "faq2a": "Kod, yalnızca kartonun üzerinde değil, kavanozun veya şişenin tabanında da genellikle kabartmalı olarak ürünün üzerinde bulunur. Üretim tarihini kodlayın ve ardından açtığınız günden itibaren açık kavanoz sembolünü uygulayın. Hangi son tarih önce gelirse o gerçek olandır.",
       "faq3a": "Evet — aynı bitkiler ve aynı bitki/ay/yıl formatı. Sadece bitki harfi farklıdır ve tarih bilgisi taşımamaktadır.",
-      "faq1a": "Soldan değil sağdan okuyun. Son karakter yıl rakamıdır; ondan önceki aydır (Ocak'tan Eylül'e kadar 1-9, ardından Ekim, Kasım ve Aralık için A, B ve C); soldaki herhangi bir şey bitkidir. Yani EA4'te tesis E'dir, ay A - Ekim - ve yıl 4'te biter. Soldan sağa okumak bu kodlarda en sık yapılan hatadır."
+      "faq1a": "Cosmetics Batch sizin için Estée Lauder kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "fenty-beauty": {
       "where1": "Fondöten ve likit ürünler: şişenin tabanına veya etiketin arka tarafa sarıldığı yere basılmıştır.",
@@ -347,7 +347,7 @@
       "faq2q": "Acqua di Giò açılmadan ne kadar dayanır?",
       "where2": "Makyaj: çantanın tabanında veya kompaktın arkasında.",
       "faq2a": "Eau de Toilette için üç ila beş yıl normaldir, Eau de Parfum için ise daha uzun bir süre. Koku, şişenin ışıktan ve ısıdan uzak tutulması koşuluyla, mevcut en bağışlayıcı kategoridir.",
-      "faq1a": "Armani kokusu L'Oréal tarafından üretildiğinden kod grubun formatını takip ediyor: ilk harf üretim yılını, sonraki karakter ise ayı gösteriyor. (Armani Code adı verilen koku ve kutusuna basılan batch kodu maalesef birbiriyle alakasız ve aynı kelimeyi paylaşan şeyler.)"
+      "faq1a": "Cosmetics Batch sizin için Armani kodunuzdaki üretim tarihini okur; manuel kod çözme işlemine gerek kalmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "guerlain": {
       "faq1a": "Guerlain bir LVMH şirketidir ve üretim tarihini batch kodunun içine basar; çoğunlukla yıl rakamı ve ardından yılın günü gelir. Üretim tarihi için şifresini çözün, ardından ışıktan ve ısıdan uzak tutulan bir parfümün açılmadan üç ila beş yıllık ömrünü hesaplayın.",
@@ -363,15 +363,15 @@
       "faq2q": "Kutu ve şişe kodları farklıdır. Sahte mi?",
       "faq1q": "Hugo Boss parfümünün batch kodunu nasıl kontrol edebilirim?",
       "faq2a": "Bu, kutu ve şişenin fabrika dışında bir yerde eşleştirildiği anlamına geliyor. Bu, sahte ürünlerde ve aynı zamanda yasal olarak yeniden paketlenen, iade edilen veya gri pazar stoklarında da olur. Her iki durumda da, elinizdeki eşleştirme fabrikanın gönderdiği eşleştirme değil.",
-      "faq1a": "Hugo Boss kokusu Coty tarafından dört haneli bir kod kullanılarak üretilmiştir: ilk rakam üretim yılının son rakamıdır ve geri kalan üç rakam o yılın günüdür. Yani 4135, 2024 yılının 135. günü — 14 Mayıs 2024."
+      "faq1a": "Cosmetics Batch sizin için Hugo Boss kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "jean-paul-gaultier": {
       "where1": "Kutunun tabanında ve gövde şeklindeki şişenin alt tarafında.",
       "where2": "Metal kasalı versiyonlarda kod genellikle yalnızca kutunun üzerinde bulunur veya kutunun tabanına hafifçe damgalanmıştır.",
       "faq2q": "Le Male şişemin üzerinde kod yok.",
       "faq1q": "Jean Paul Gaultier batch kodunu nasıl okurum?",
-      "faq1a": "JPG kokusu, üretim tarihini koda basan Puig tarafından üretilmiştir. Dört rakam, bir yıl rakamı artı yılın günü anlamına gelir; beş, iki yıllık rakam artı gün anlamına gelir; altı dolu bir takvim tarihidir.",
-      "faq2a": "Metal kollu versiyonlarda kod genellikle yalnızca kutunun üzerinde bulunur veya tabana o kadar belirsiz bir şekilde basılmıştır ki görebilmek için ışığın yanması gerekir. Önce kartonu kontrol edin ve her ikisi de varsa eşleşip eşleşmediğini onaylayın."
+      "faq2a": "Metal kollu versiyonlarda kod genellikle yalnızca kutunun üzerinde bulunur veya tabana o kadar belirsiz bir şekilde basılmıştır ki görebilmek için ışığın yanması gerekir. Önce kartonu kontrol edin ve her ikisi de varsa eşleşip eşleşmediğini onaylayın.",
+      "faq1a": "Cosmetics Batch sizin için Jean Paul Gaultier kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "kenzo-parfums": {
       "faq1q": "Bir Kenzo kokusunu batch koduna göre nasıl kontrol edebilirim?",
@@ -380,8 +380,8 @@
       "faq3a": "Sahte bir imkansız günü veya kutu kodu ile şişe kodu arasındaki hiçbir gerçek dolum hattının üretmediği bir uyumsuzluğu yakalayabilir. Kopyalanan bir kodun kodu temiz bir şekilde çözüldüğü için orijinal olanı onaylayamaz.",
       "faq3q": "Kod, Kenzo kokusunun orijinal olduğunu kanıtlayabilir mi?",
       "faq2q": "Kenzo kodları her on yılda bir tekrarlanır mı?",
-      "faq1a": "Kenzo Parfums bir LVMH şirketidir ve LVMH, üretim tarihini şifrelemek yerine koda yazdırır. Dört rakam, bir yıl rakamı artı yılın günü anlamına gelir; beş veya altı rakam daha dolu bir tarihtir. Denetleyicide Kenzo'yu seçtiğinizde doğru okumayı uygular.",
-      "faq2a": "Evet ve bu bir tuhaflıktan ziyade gerçek bir sınırlamadır. Dört basamaklı bir kod, yılın yalnızca bir basamağını taşır; dolayısıyla 4135, onu 14 Mayıs 2014 yapanla tamamen aynı kanıta göre 14 Mayıs 2024'tür. Kod çözücü, son okumayı varsayar; Şişe ve ambalaj daha eski bir döneme aitmiş gibi görünüyorsa muhtemelen öyledir."
+      "faq2a": "Evet ve bu bir tuhaflıktan ziyade gerçek bir sınırlamadır. Dört basamaklı bir kod, yılın yalnızca bir basamağını taşır; dolayısıyla 4135, onu 14 Mayıs 2014 yapanla tamamen aynı kanıta göre 14 Mayıs 2024'tür. Kod çözücü, son okumayı varsayar; Şişe ve ambalaj daha eski bir döneme aitmiş gibi görünüyorsa muhtemelen öyledir.",
+      "faq1a": "Cosmetics Batch sizin için Kenzo kodunuzdaki üretim tarihini okur; manuel kod çözme işlemine gerek kalmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "kerastase": {
       "where1": "Şişeler ve maskeler: Şişenin arka kısmına, tabanın yakınına mürekkep püskürtmeli baskıyla basılmış veya kavanozun tabanına damga basılmıştır.",
@@ -414,10 +414,10 @@
     "lancome": {
       "where2": "Cilt bakımı ve fondöten: Kavanozun tabanına, tüp kıvrımına veya şişeye kabartmalı veya baskılı.",
       "where1": "Koku: Kutunun tabanında ve şişenin alt tarafında.",
-      "faq1a": "Lancôme, L'Oréal'dir: İlk harf üretim yılını belirtir (V atlanır, dolayısıyla U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) ve hemen ardından gelen karakter ise aydır; O, N ve D Ekim, Kasım ve Aralık anlamına gelir.",
       "faq1q": "Lancôme batch kodunu nasıl okurum?",
       "faq2q": "Açılmamış Lancôme cilt bakımı ne kadar dayanır?",
-      "faq2a": "Üretimden itibaren yaklaşık üç yıl; kararsız aktif maddeler üzerine inşa edilen ürünler için bu süre daha az. Bir indirimciden satın almadan önce şifresini çözün; eski hisse senedi orijinaldir ancak açılmamış ömrü çok az kalmış olabilir."
+      "faq2a": "Üretimden itibaren yaklaşık üç yıl; kararsız aktif maddeler üzerine inşa edilen ürünler için bu süre daha az. Bir indirimciden satın almadan önce şifresini çözün; eski hisse senedi orijinaldir ancak açılmamış ömrü çok az kalmış olabilir.",
+      "faq1a": "Cosmetics Batch sizin için Lancôme kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "loreal": {
       "where1": "Grubun ürünlerinin damgalandığı her yer: tüp kıvrımları, şişe tabanları, kavanoz tabanları ve karton kapaklar.",
@@ -467,8 +467,8 @@
       "faq2q": "Bakabileceğim bir seri numarası var mı?",
       "faq3q": "Son üç rakam garip bir tarih veriyor.",
       "faq3a": "Inter Parfums kodlarının azınlığında bu rakamlar bir gün yerine fabrika satırıdır. Tarih şişe için mantıksız görünüyorsa yıl harfine güvenin ve günü yaklaşık olarak değerlendirin.",
-      "faq1a": "Montblanc parfümü Inter Parfums lisansı altında üretilmektedir. Koddaki ilk harf, I ve O'yu atlayan bir döngüdeki üretim yılıdır — J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — ve son üç rakam o yılın günüdür.",
-      "faq2a": "Hayır. batch kodu, tek bir şişeyi değil, bir üretim çalışmasını tanımlar ve aranacak genel bir veri tabanı yoktur. Size verdiği şey tarihtir; bu da işin yararlı kısmıdır."
+      "faq2a": "Hayır. batch kodu, tek bir şişeyi değil, bir üretim çalışmasını tanımlar ve aranacak genel bir veri tabanı yoktur. Size verdiği şey tarihtir; bu da işin yararlı kısmıdır.",
+      "faq1a": "Cosmetics Batch sizin için Montblanc kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "nivea": {
       "where3": "Şişeler ve güneş bakımı: Şişenin arka etiketine veya omzuna mürekkep püskürtmeli baskı yapılmıştır.",
@@ -486,10 +486,10 @@
       "faq1q": "Bir Invictus veya 1 Million toplu iş kodunu nasıl çözerim?",
       "where2": "Şişeyi, damgayı yan taraftan yakalayacak kadar hafif eğin; doğrudan ışık onu yok eder.",
       "faq3a": "Evet - şirket 2023'te adından 'Paco'yu çıkardı. Daha eski stoklar önceki markayı taşıyor ve kod formatı değişmedi.",
-      "faq1a": "Paco Rabanne, üretim tarihini şifrelemek yerine koda basan Puig tarafından yapılmıştır. Genel form dört rakamdır: ilki yılın son rakamıdır, geri kalan üçü o yılın günüdür - yani 4135, 2024'ün 135. günü, 14 Mayıs 2024'tür.",
       "faq2q": "Kod Paco Rabanne'imin gerçek olduğunu kanıtlayabilir mi?",
       "faq3q": "Rabanne Paco Rabanne ile aynı marka mı?",
-      "faq2a": "Sahte olanı yakalayabilir ve gerçek olanı onaylayamaz. Paco Rabanne, Avrupa'da en çok taklit edilen kokulardan biridir: imkansız bir gün sayısı veya kutu ile şişe arasında uyuşmayan kodlar güçlü uyarılardır - ancak orijinal bir şişeden kopyalanan kod mükemmel bir şekilde çözülür. Şişeyi tartın ve püskürtme şeklini de kontrol edin."
+      "faq2a": "Sahte olanı yakalayabilir ve gerçek olanı onaylayamaz. Paco Rabanne, Avrupa'da en çok taklit edilen kokulardan biridir: imkansız bir gün sayısı veya kutu ile şişe arasında uyuşmayan kodlar güçlü uyarılardır - ancak orijinal bir şişeden kopyalanan kod mükemmel bir şekilde çözülür. Şişeyi tartın ve püskürtme şeklini de kontrol edin.",
+      "faq1a": "Cosmetics Batch sizin için Paco Rabanne kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "redken": {
       "where1": "Şişeler: Şişenin arka etiketine veya tabanına mürekkep püskürtmeli baskı yapılmıştır.",
@@ -515,7 +515,7 @@
       "faq3a": "Hayır. Biçime uymayan veya imkansız bir aya kadar çözülen bir kod gibi kaba bir sahtekarlığı ortaya çıkarabilir, ancak kopyalanan bir kod temiz bir şekilde çözülür. Tom Ford kokusu büyük ölçüde sahtedir; şişeyi tartın, atomizör spreyini kontrol edin ve yetkili bir satıcıdan satın alın.",
       "faq3q": "batch kodu orijinalliğin kanıtı mıdır?",
       "faq2a": "Kod kompaktın tabanındadır. Üretim tarihi için kodunu çözün; Preslenmiş toz, açıldıktan sonra yaklaşık 24 ay boyunca kullanılabilir ve açılmadan çok daha uzun süre dayanır, çünkü kuru formül, bakterilere neredeyse hiçbir şeyin büyümesine izin vermez.",
-      "faq1a": "Tom Ford Beauty, Estée Lauder grubu tarafından üretildiğinden grubun üç karakterli kodunu kullanır: fabrika, ay, yıl - sağdan okuyun. Ay, Ocak'tan Eylül'e kadar 1-9, ardından Ekim'den Aralık'a kadar A, B ve C'dir."
+      "faq1a": "Cosmetics Batch sizin için Tom Ford kodunuzdaki üretim tarihini okur; manuel kod çözme işlemine gerek kalmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "too-faced": {
       "where2": "Sıvı ürünler: şişenin tabanında veya tüpün kıvrımında.",
@@ -523,7 +523,7 @@
       "faq2q": "Too Faced kodum çözülmüyor.",
       "faq1q": "Too Faced paletinin batch kodunu nasıl kontrol ederim?",
       "faq2a": "Too Faced ambalajındaki bazı kodlar, tarih kodları değil, dahili satır işaretleridir ve bunların içinde çözülecek hiçbir şey yoktur. İkinci, daha kısa bir kod için kasanın tabanını ve arkasını kontrol edin; eğer gerçekten bir kod yoksa, açık kavanoz sembolü en iyi rehberinizdir.",
-      "faq1a": "Too Faced, Estée Lauder grubuna aittir, dolayısıyla kod sağdan okunan üç karakterden (bitki, ay, yıl) oluşur. Paletinizdeki kod bu şekle uymuyorsa batch kodu yerine fabrika hattı işaretlemesi olabilir."
+      "faq1a": "Cosmetics Batch sizin için Too Faced kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "vichy": {
       "where1": "Tüpler ve Capital Soleil güneş kremi: kıvrımın içine bastırılır - kapağın karşısındaki düz, mühürlü uç.",
@@ -532,19 +532,19 @@
       "faq1q": "Vichy ürünlerinin son kullanma tarihi nerede?",
       "where3": "Kartonlar: genellikle açık kavanoz sembolünün yanında, uç kapakta. Numuneler ve poşetler genellikle hiçbir kod taşımaz; yalnızca geldikleri karton kutuda kod bulunur.",
       "faq1a": "Çoğu Vichy ürünü bir tane basmaz. Eczane satırlarında genellikle gerçek bir son kullanma tarihi bulunur ve bu tarihin mevcut olduğu yerde, kodu çözülmüş tüm tahminleri geride bırakır; ancak bulabildiğiniz tek şey kısa bir kodsa, bu batch kodudur ve son kullanma tarihi yerine üretim tarihini tutar. Kodunu çözün, ardından raf ömrünü ekleyin: cilt bakımı için açılmadan yaklaşık 36 ay ve açıldıktan sonra açık kavanoz sembolünü takip edin.",
-      "faq2a": "Vichy, L'Oréal tarafından üretilmektedir ve grubun formatını kullanmaktadır. Koddaki ilk harfi bulun: bu, V'yi atlayan bir döngüdeki üretim yılıdır, yani U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Ondan hemen sonraki karakter aydır - Ocak'tan Eylül'e kadar 1'den 9'a, ardından Ekim, Kasım ve Aralık için O, N ve D. O, O harfidir, sıfır değil.",
       "faq3q": "Kod Vichy'min orijinal olduğunu kanıtlayabilir mi?",
       "faq4q": "Capital Soleil güneş koruyucusunun son kullanma tarihi var mı?",
       "faq4a": "Evet ve bu, ürün yelpazesindeki diğer her şeyden daha önemlidir: Bozulmuş UV filtreleri daha fazla radyasyonun geçmesine izin verir, bu nedenle güncelliğini yitirmiş bir SPF 50, SPF 50 sağlamaz. Güneş koruyucularında normalde tam da bu nedenle basılı bir son kullanma tarihi bulunur; onu kullanın. Ve tarihi ne olursa olsun, bir yazı sıcak bir arabada geçirmiş bir şişeye bitmiş muamelesi yapın.",
-      "faq3a": "Sadece kısmen. L'Oréal'in şekline uymayan veya ürün serisinin ortaya çıkışından önceki bir tarihe dönüşen kod, gerçek bir uyarıdır. Ancak orijinal bir tüpten kod kopyalayan bir sahteci, kodu mükemmel şekilde çözen bir kod üretir; dolayısıyla temiz bir kod çözme, kremin değil, kodun iyi biçimlendirilmiş olduğunu kanıtlar. Eczane cilt bakımı için eczaneden satın almak daha güçlü bir koruma olmaya devam ediyor."
+      "faq3a": "Sadece kısmen. L'Oréal'in şekline uymayan veya ürün serisinin ortaya çıkışından önceki bir tarihe dönüşen kod, gerçek bir uyarıdır. Ancak orijinal bir tüpten kod kopyalayan bir sahteci, kodu mükemmel şekilde çözen bir kod üretir; dolayısıyla temiz bir kod çözme, kremin değil, kodun iyi biçimlendirilmiş olduğunu kanıtlar. Eczane cilt bakımı için eczaneden satın almak daha güçlü bir koruma olmaya devam ediyor.",
+      "faq2a": "Cosmetics Batch sizin için Vichy kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "ysl-beauty": {
       "where2": "Koku: Kutunun tabanında ve şişenin alt tarafında.",
-      "faq1a": "YSL Beauty, L'Oréal tarafından üretildiğinden grubun kodunu taşır: fabrika rakamları, bir yıl harfi ve ardından bir ay karakteri. Kontrol kutusunda YSL Beauty'yi seçtiğinizde motor L'Oréal kuralını uygular.",
       "where1": "Ruj ve makyaj: Kutunun tabanına veya kompaktın arkasına damgalanmıştır.",
       "faq1q": "Yves Saint Laurent batch kodunu nasıl kontrol ederim?",
       "faq2q": "YSL kodum neden Maybelline koduna benziyor?",
-      "faq2a": "Çünkü ikisini de aynı şirket yapıyor. Format, fiyatı değil fabrikayı takip eder; YSL ruju ve Maybelline maskara, L'Oréal serisinden çıkar ve aynı kod stilini taşır."
+      "faq2a": "Çünkü ikisini de aynı şirket yapıyor. Format, fiyatı değil fabrikayı takip eder; YSL ruju ve Maybelline maskara, L'Oréal serisinden çıkar ve aynı kod stilini taşır.",
+      "faq1a": "Cosmetics Batch sizin için Yves Saint Laurent kodunuzdaki üretim tarihini okur; kodu, manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     },
     "zara": {
       "where2": "Beauty serisi bunu kasanın alt kısmına veya tüpün kıvrımına yazdırır.",
@@ -558,14 +558,14 @@
       "faq2q": "Escada şişemin tabanında \"H 0100\" damgalı bir kod var — neden kodu çözmüyor?",
       "faq1q": "Escada parfümün parti kodunu nasıl okurum?",
       "where1": "Modern eau de parfum ve eau de Toilette: Cam şişenin altındaki şeffaf etikette, \"EAU DE PARFUM VAPORISATEUR\" metniyle aynı satırda dört haneli bir sayı olarak basılmıştır.",
-      "faq1a": "Escada koku, dört haneli bir kod kullanan Coty tarafından üretilir: ilk rakam üretim yılının son rakamıdır ve geri kalan üç rakam o yılın günüdür. Yani 0175, 2020'nin 175. günü — 23 Haziran 2020. En iyi durumda ne kadar süre kalacağını tahmin etmek için açılmamış raf ömrünü ekleyin.",
       "where2": "Dış karton: uç kapakta. Etiket ve karton kodları fabrikada birlikte basılmıştır ve aynı şekilde yazılmalıdır; eğer öyle değilse şişe ve kutu başka bir yerde eşleştirilmiştir.",
       "where3": "Daha eski Escada parfüm minileri (Margaretha Ley dönemi, Escada Beauté tarafından dağıtılır), bunun yerine metal taban plakasına kısa bir harf artı rakam lotu damgalanır. Bu eski format dört haneli Coty kod değildir ve burada kodu çözülmeyecektir.",
       "faq4q": "Parti kodu Escada cihazımın orijinal olduğunu kanıtlayabilir mi?",
       "faq3q": "Escada parfümün son kullanma tarihi geçer mi?",
       "faq3a": "Kokunun zor bir son kullanma tarihi yoktur, ancak değişir. Serin ve karanlık saklanan açılmamış bir Escada şişe, karakterini yaklaşık beş yıl boyunca korur; Bir kez açıldığında, önce parlak meyveli üst notalar kaybolur. Kararmış veya keskinleşmiş ve ekşimiş bir şişe, kodda ne söylenirse söylensin oksitlenmiştir.",
       "faq2a": "Bu, mevcut Coty kodlamasından önceki eski bir Escada parfümüdür; Margaretha Ley dönemi minileri, dört haneli yılın günü kodunu yazdırmak yerine metal tabana bir harf ve rakam lotu damgalıyor. Bu vintage lotlar, bu aracın okuduğu formata uymadığından, bunların tarihlendirilmesi de mümkün değil. Bu şişenin sahte olduğuna dair bir işaret değil; fabrika sadece farklı bir sistem kullanmış.",
-      "faq4a": "Hayır. Coty'ın dört haneli şekline uymayan veya kokunun ortaya çıkışından öncesine ait olan bir kod, gerçek bir uyarı işaretidir. Ancak sahte bir ürüne kopyalanan iyi biçimlendirilmiş bir kod da aynı şekilde temiz bir şekilde çözülür; dolayısıyla geçerli bir tarih, kodun parfüm değil, gerçek olduğunu kanıtlar. Yetkili bir satıcıdan satın almak daha güçlü bir kontrol olmaya devam ediyor."
+      "faq4a": "Hayır. Coty'ın dört haneli şekline uymayan veya kokunun ortaya çıkışından öncesine ait olan bir kod, gerçek bir uyarı işaretidir. Ancak sahte bir ürüne kopyalanan iyi biçimlendirilmiş bir kod da aynı şekilde temiz bir şekilde çözülür; dolayısıyla geçerli bir tarih, kodun parfüm değil, gerçek olduğunu kanıtlar. Yetkili bir satıcıdan satın almak daha güçlü bir kontrol olmaya devam ediyor.",
+      "faq1a": "Cosmetics Batch sizin için Escada kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin."
     }
   },
   "contentPages": {
@@ -579,16 +579,19 @@
     "minRead": "{n} dk okuma",
     "updated": "{date}güncellendi",
     "brandsUsing": "Bu kodu kullanan markalar ({count})",
-    "brandsUsingNote": "Format, şişe üzerindeki etikete değil üreticiye aittir; aşağıdaki her marka aynı bitkiler tarafından damgalanmıştır ve aynı şekilde okunur.",
     "workedExamplesNote": "Şifre, denetleyiciye güç veren aynı motor tarafından canlı olarak çözülür; elle yazıya geçirilmez.",
     "doesNotDecode": "kodu çözmüyor",
     "confidence": "{level} güveni",
     "workedExamples": "Çalışılan örnekler",
     "otherFormats": "Diğer kod formatları",
     "formatsTitle": "Batch kod formatları",
-    "formatsIntro": "Batch kodunun formatı, şişenin üzerindeki isme değil, ürünü üreten kişiye aittir. Coty, Rimmel, Gucci ve adidas'te aynı dört rakamı damgalıyor; Inter Parfums, Montblanc, Coach ve Jimmy Choo'te aynı dokuz karakteri damgalar. Şifreyi bir kere öğrendiğinizde onu paylaşan her markayı okuyabilirsiniz.",
     "whichCode": "Paketteki hangi kodun batch kodu olduğundan emin değil misiniz?",
-    "formatsIntro2": "Aşağıdaki her sayfa bir aileyi belgeliyor: her karakterin neyi kodladığı, pula güç veren aynı motor tarafından kodu çözülen gerçek kodlar, kodun paketin üzerinde nerede basıldığı ve - bir o kadar önemlisi - formatın size anlatamadığı şey.",
-    "brandCount": "markalar"
+    "brandCount": "markalar",
+    "brandsUsingNote": "Parti kodu, şişe üzerindeki etikete değil, üreticiye aittir; aşağıdaki markalar aynı üretim kodunu paylaştığından kontrolör hepsini okur.",
+    "checkYourCodeCta": "Denetleyiciyi aç",
+    "checkYourCodeTitle": "Toplu kodunuzu kontrol edin",
+    "checkYourCodeBody": "Ürününüzün parti kodunu kontrol cihazına girin; cihaz sizin için üretim tarihini okuyacaktır; manuel kod çözmeye gerek yoktur. Kod, son kullanma tarihini değil, üretim tarihini tutar.",
+    "formatsIntro2": "Aşağıdaki her sayfa bir üretici grubunu kapsamaktadır: hangi markaları içerir, paket üzerinde parti kodunu nerede bulabilirsiniz ve kodun size üretim tarihi ve tazelik hakkında neleri söyleyip söyleyemediği.",
+    "formatsIntro": "Parti kodu, şişenin üzerindeki isme değil, ürünü üreten kişiye aittir; aynı üretici, birçok markaya aynı stilde kod basar. Hangi markaları kapsadığını görmek için aşağıdan bir üretici grubu seçin ve ardından araçtaki herhangi bir kodu kontrol edin."
   }
 }

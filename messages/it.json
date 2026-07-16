@@ -85,11 +85,11 @@
   "lorealFamily": {
     "heading": "Cosa sapere sui codici {name} e L'Oréal",
     "portfolio": "{name} compare nel portafoglio ufficiale di L'Oréal Groupe. L'appartenenza al gruppo non garantisce che ogni stabilimento, mercato o prodotto meno recente usi lo stesso formato.",
-    "format": "Un formato L'Oréal comunemente osservato combina prefisso dello stabilimento, lettera dell'anno e carattere del mese successivo. Viene applicato solo quando il codice inserito coincide con questo schema.",
     "precision": "Il formato identifica il mese, non il giorno esatto. Il giorno mostrato è una stima di metà mese. Una data di scadenza o preferibile consumo stampata sul prodotto ha sempre la precedenza.",
     "authenticity": "Un codice decodificato correttamente non prova l'autenticità perché può essere copiato. Controlla anche venditore, confezione, sigilli e qualità di stampa.",
     "officialSource": "Verifica il marchio nel portafoglio ufficiale L'Oréal Groupe",
-    "decoderLabel": "Formato di gruppo osservato (precisione mensile)"
+    "decoderLabel": "Formato di gruppo osservato (precisione mensile)",
+    "format": "Laddove il codice inserito corrisponde alla codifica del gruppo osservato di L'Oréal, il controllore legge per te il mese e l'anno di produzione. Inserisci il codice qui sopra per ottenere la data: non ci sono passaggi manuali da seguire."
   },
   "faqUi": {
     "title": "Domande frequenti",
@@ -243,16 +243,16 @@
       "where2": "Sulle bottiglie CK One più piatte il codice può essere stampato direttamente sulla base in vetro.",
       "faq1q": "Come posso decodificare un codice batch Calvin Klein?",
       "faq2q": "Il codice batch può dirmi se il mio CK è reale?",
-      "faq1a": "La fragranza CK è prodotta da Coty. Il codice è composto da quattro cifre: la cifra dell'anno seguita dal giorno dell'anno. Dividi il giorno per circa 30,4 per ottenere il mese: il giorno 135 è l'inizio del quinto mese, maggio.",
-      "faq2a": "Può catturare un brutto falso: un numero di giorno impossibile, o codici che non sono d'accordo tra scatola e bottiglia. Non può confermarne uno buono, perché un codice copiato da una bottiglia autentica si decodifica perfettamente."
+      "faq2a": "Può catturare un brutto falso: un numero di giorno impossibile, o codici che non sono d'accordo tra scatola e bottiglia. Non può confermarne uno buono, perché un codice copiato da una bottiglia autentica si decodifica perfettamente.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Calvin Klein: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "carolina-herrera": {
       "where2": "Sulla bottiglia con stiletto Good Girl il codice si trova sulla suola del tacco.",
       "where1": "Sulla base della scatola e sul lato inferiore della bottiglia.",
       "faq1q": "Come posso verificare un codice batch Carolina Herrera?",
       "faq2q": "Good Girl è spesso contraffatto?",
-      "faq1a": "La fragranza Carolina Herrera è prodotta da Puig, che stampa la data di produzione nel codice - come cifra dell'anno più il giorno dell'anno, o come data confezionata come 231122 per il 22 novembre 2023.",
-      "faq2a": "È una delle fragranze più copiate in Europa. Esegui i controlli che un codice non può eseguire: confronta i codici della scatola e del flacone, pesa il flacone e osserva la finezza dello spray. Una decodifica pulita è necessaria ma non è affatto sufficiente."
+      "faq2a": "È una delle fragranze più copiate in Europa. Esegui i controlli che un codice non può eseguire: confronta i codici della scatola e del flacone, pesa il flacone e osserva la finezza dello spray. Una decodifica pulita è necessaria ma non è affatto sufficiente.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Carolina Herrera: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "cerave": {
       "where2": "Flaconi dosatori (SA Cleanser, lozione idratante): stampati a getto d'inchiostro sull'etichetta posteriore o sulla base.",
@@ -279,8 +279,8 @@
       "faq1q": "Come leggo un codice batch Clinique?",
       "faq2q": "Quanto dura la cura della pelle Clinique?",
       "where1": "Flaconi e vasetti per la cura della pelle: goffrato sulla base.",
-      "faq1a": "Clinique è Estée Lauder, quindi il formato è pianta, mese, anno in tre caratteri – leggi da destra. L'ultimo carattere è la cifra dell'anno; quello precedente è il mese, dove A, B e C stanno per ottobre, novembre e dicembre.",
-      "faq2a": "Circa 36 mesi di chiusura dalla data di produzione e 12 mesi dall'apertura per la maggior parte della gamma. Il simbolo del barattolo aperto sulla confezione è il numero che vincola una volta rotto il sigillo."
+      "faq2a": "Circa 36 mesi di chiusura dalla data di produzione e 12 mesi dall'apertura per la maggior parte della gamma. Il simbolo del barattolo aperto sulla confezione è il numero che vincola una volta rotto il sigillo.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Clinique: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "creed": {
       "where1": "Sulla base della bottiglia e sul fondo della scatola: solitamente stampato in nero sull'adesivo bianco della base.",
@@ -290,7 +290,7 @@
       "faq2q": "Il codice può dirmi se il mio Green Irish Tweed è autentico?",
       "faq2a": "In parte. Creed è tra le case produttrici di profumi più contraffatte e una prima lettera che non è affatto nel ciclo è un indizio semplice. Ma un codice copiato viene decodificato in modo pulito, quindi un codice valido non è una prova: pesa la bottiglia, guarda lo spray e la stampa sulla scatola e acquista da un rivenditore autorizzato.",
       "faq3a": "Per le composizioni più pesanti e resinose una bottiglia più vecchia può essere davvero preferibile, perché le riformulazioni hanno cambiato diversi classici e il codice batch è l'unico modo per stabilire quale formula stai acquistando. Per i Creed più leggeri e agrumati, l'età è per lo più ossidazione e nessun beneficio.",
-      "faq1a": "Creed utilizza due sistemi ed entrambi riportano l'anno, mai il mese. Le bottiglie più vecchie (2013-2022) portano un codice più lungo: un ID prodotto a tre caratteri, poi l'anno di produzione a due cifre, quindi la serie del lotto: in A4221N01 il 21 significa 2021 e in L6622A01B il 22 significa 2022. Dal 2023 il codice è stato semplificato in una F seguita da un numero progressivo, come F001704; qui la F indica la nuova generazione, quindi sai che è il 2023 o successivo ma non l'anno esatto."
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Creed: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "dior": {
       "where3": "Cura della pelle: stampigliato sulla base del barattolo, accanto al simbolo del barattolo aperto.",
@@ -308,17 +308,17 @@
       "faq2q": "Come posso verificare che una fragranza Dunhill sia autentica?",
       "faq1q": "Come leggo un codice batch Dunhill?",
       "faq2a": "Confronta i codici della scatola e della bottiglia, quindi decodifica. Una lettera annuale fuori ciclo, o codici in disaccordo, sono veri e propri avvertimenti. Una decodifica pulita non è una prova: anche i codici copiati vengono decodificati.",
-      "faq1a": "La fragranza Dunhill è prodotta su licenza da Inter Parfums. La prima lettera è l’anno di produzione – un ciclo che salta I e O, quindi J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – e le ultime tre cifre sono il giorno di quell’anno."
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Dunhill: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "estee-lauder": {
       "where1": "Cura della pelle: impresso sulla base del barattolo o della bottiglia – pressato nel materiale, quindi necessita di una luce radente piuttosto che diretta.",
       "where2": "Fragranza e trucco: sulla base della scatola e sul lato inferiore del prodotto.",
       "faq1q": "Come faccio a leggere un codice batch Estée Lauder?",
       "faq3q": "Clinique, MAC e La Mer utilizzano lo stesso codice?",
-      "faq1a": "Leggilo da destra, non da sinistra. L'ultimo carattere è la cifra dell'anno; quello precedente è il mese (1–9 da gennaio a settembre, poi A, B e C per ottobre, novembre e dicembre); qualsiasi cosa a sinistra è la pianta. Quindi in EA4 la pianta è E, il mese è A — ottobre — e l'anno termina con 4. Leggere da sinistra a destra è l'errore più comune con questi codici.",
       "faq3a": "Sì, le stesse piante e lo stesso formato pianta/mese/anno. È diversa solo la lettera della pianta e non contiene informazioni sulla data.",
       "faq2a": "Il codice si trova sul prodotto stesso, non solo sul cartone, ma sulla base del barattolo o della bottiglia, solitamente in rilievo. Decodificalo per la data di produzione, quindi applica il simbolo del barattolo aperto dal giorno in cui lo hai aperto. Qualunque sia la scadenza che arriva per prima, è quella vera.",
-      "faq2q": "Come posso verificare la durata di conservazione se ho buttato via la scatola?"
+      "faq2q": "Come posso verificare la durata di conservazione se ho buttato via la scatola?",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Estée Lauder: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "fenty-beauty": {
       "where1": "Fondotinta e prodotti liquidi: stampati sulla base del flacone, o dove l'etichetta avvolge il retro.",
@@ -347,7 +347,7 @@
       "faq2a": "Da tre a cinque anni sono normali per un'eau de toilette, più a lungo per l'eau de parfum. La fragranza è la categoria più indulgente che esista, a condizione che la bottiglia sia tenuta lontana dalla luce e dal calore.",
       "faq2q": "Quanto dura Acqua di Giò senza apertura?",
       "faq1q": "Come decodifica un numero di lotto Armani Code?",
-      "faq1a": "La fragranza Armani è prodotta da L'Oréal, quindi il codice segue il formato del gruppo: la prima lettera è l'anno di produzione, il carattere successivo è il mese. (La fragranza chiamata Armani Code e il codice lotto stampigliato sulla sua scatola sono cose non correlate che sfortunatamente condividono una parola.)"
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Armani: inseriscila nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "guerlain": {
       "where1": "Fragranza: sulla base della scatola e sul lato inferiore della bottiglia, spesso stampata su un piccolo adesivo.",
@@ -363,15 +363,15 @@
       "faq2a": "Significa che la scatola e la bottiglia sono state accoppiate in un luogo diverso dalla fabbrica. Ciò accade con le contraffazioni e anche con le scorte legittimamente riconfezionate, restituite o del mercato grigio. In ogni caso, l'accoppiamento che hai in mano non è quello spedito dalla fabbrica.",
       "faq1q": "Come posso verificare il codice batch di una fragranza Hugo Boss?",
       "faq2q": "I codici della scatola e della bottiglia sono diversi. È falso?",
-      "faq1a": "La fragranza Hugo Boss è prodotta da Coty, che utilizza un codice a quattro cifre: la prima cifra è l'ultima cifra dell'anno di produzione e le restanti tre sono il giorno di quell'anno. Quindi 4135 è il 135° giorno del 2024 — 14 maggio 2024."
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Hugo Boss: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "jean-paul-gaultier": {
       "where2": "Nelle edizioni con custodia in metallo il codice è spesso solo sulla scatola o stampato leggermente sulla base della lattina.",
       "where1": "Sulla base della scatola e sul lato inferiore della bottiglia a forma di torso.",
       "faq1q": "Come leggo un codice batch Jean Paul Gaultier?",
       "faq2q": "Non c'è nessun codice sulla mia bottiglia Le Male.",
-      "faq1a": "La fragranza JPG è prodotta da Puig, che stampa la data di produzione nel codice. Quattro cifre indicano la cifra dell'anno più il giorno dell'anno; cinque significa due cifre dell'anno più il giorno; il sei è una data di calendario fitta.",
-      "faq2a": "Nelle edizioni con custodia in metallo il codice è spesso solo sulla scatola, o impresso così debolmente sulla base che necessita di luce radente per essere visto. Controlla prima la confezione e, se le hai entrambe, verifica che corrispondano."
+      "faq2a": "Nelle edizioni con custodia in metallo il codice è spesso solo sulla scatola, o impresso così debolmente sulla base che necessita di luce radente per essere visto. Controlla prima la confezione e, se le hai entrambe, verifica che corrispondano.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Jean Paul Gaultier: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "kenzo-parfums": {
       "where2": "Sulle bottiglie Kenzo World e Flower il codice può trovarsi sul lato inferiore piatto dove l'etichetta si piega sotto.",
@@ -380,8 +380,8 @@
       "faq3q": "Il codice può dimostrare che una fragranza Kenzo è autentica?",
       "faq1q": "Come posso controllare una fragranza Kenzo tramite il suo codice batch?",
       "faq2q": "I codici Kenzo si ripetono ogni dieci anni?",
-      "faq1a": "Kenzo Parfums è una casa LVMH e LVMH stampa la data di produzione nel codice anziché crittografarlo. Quattro cifre indicano la cifra dell'anno più il giorno dell'anno; cinque o sei cifre indicano una data più completa. Seleziona Kenzo nel correttore e applicherà la lettura corretta.",
-      "faq2a": "Sì, e questa è una vera limitazione più che una stranezza. Un codice a quattro cifre contiene solo una cifra dell'anno, quindi 4135 è 14 maggio 2024 esattamente sulla stessa evidenza che lo rende 14 maggio 2014. Il decodificatore presuppone la lettura recente; se la bottiglia e la confezione sembrano appartenere a un'epoca precedente, probabilmente è così."
+      "faq2a": "Sì, e questa è una vera limitazione più che una stranezza. Un codice a quattro cifre contiene solo una cifra dell'anno, quindi 4135 è 14 maggio 2024 esattamente sulla stessa evidenza che lo rende 14 maggio 2014. Il decodificatore presuppone la lettura recente; se la bottiglia e la confezione sembrano appartenere a un'epoca precedente, probabilmente è così.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Kenzo: inseriscila nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "kerastase": {
       "where2": "Tubi e misure di corsa: pressati nella crimpatura.",
@@ -417,7 +417,7 @@
       "where2": "Cura della pelle e fondotinta: goffrati o stampati sulla base del barattolo, sulla chiusura del tubo o sulla bottiglia.",
       "faq2a": "Circa tre anni dalla produzione, meno per i prodotti costituiti da principi attivi instabili. Decodifica prima di acquistare da un discount: le vecchie scorte sono autentiche, ma potrebbe avere pochissima vita rimasta non aperta.",
       "faq1q": "Come leggo un codice batch Lancôme?",
-      "faq1a": "Lancôme è L'Oréal: la prima lettera è l'anno di produzione (saltando la V, quindi U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025) e il carattere subito dopo è il mese, con O, N e D che stanno per ottobre, novembre e dicembre."
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Lancôme: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "loreal": {
       "faq1q": "Quali marchi condividono il codice lotto L'Oréal?",
@@ -467,8 +467,8 @@
       "faq1q": "Come posso controllare una Montblanc Legend tramite il suo codice?",
       "faq3q": "Le ultime tre cifre producono una data strana.",
       "faq2a": "No. Un codice batch identifica un ciclo di produzione, non una singola bottiglia, e non esiste un database pubblico in cui cercarlo. Ciò che ti dà è la data, che è la parte utile.",
-      "faq1a": "La fragranza Montblanc è prodotta su licenza da Inter Parfums. La prima lettera nel codice è l’anno di produzione, in un ciclo che salta I e O – J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 – e le ultime tre cifre sono il giorno di quell’anno.",
-      "faq3a": "Su una minoranza di codici Inter Parfums tali cifre rappresentano una linea di fabbrica anziché un giorno. Se la data sembra non plausibile per la bottiglia, fidati della lettera dell'anno e considera il giorno come approssimativo."
+      "faq3a": "Su una minoranza di codici Inter Parfums tali cifre rappresentano una linea di fabbrica anziché un giorno. Se la data sembra non plausibile per la bottiglia, fidati della lettera dell'anno e considera il giorno come approssimativo.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Montblanc: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "nivea": {
       "where3": "Bottiglie e prodotti solari: stampa a getto d'inchiostro sulla retroetichetta o sulla spalla della bottiglia.",
@@ -484,12 +484,12 @@
     "paco-rabanne": {
       "faq1q": "Come posso decodificare un codice batch Invictus o 1 Million?",
       "faq2a": "Può rilevare un falso e non può certificarne uno vero. Paco Rabanne è tra le fragranze più contraffatte in Europa: un numero del giorno impossibile o codici che non concordano tra scatola e bottiglia sono avvertimenti forti, ma un codice copiato da una bottiglia autentica si decodifica perfettamente. Pesare la bottiglia e controllare anche il ventaglio di spruzzatura.",
-      "faq1a": "Paco Rabanne è prodotto da Puig, che stampa la data di produzione nel codice anziché crittografarlo. La forma usuale è di quattro cifre: la prima è l'ultima cifra dell'anno, le restanti tre sono il giorno di quell'anno, quindi 4135 è il 135° giorno del 2024, 14 maggio 2024.",
       "where1": "Sul fondo della scatola e sul lato inferiore della bottiglia. Sulle bottiglie più pesanti – il lingotto 1 Million, il trofeo Invictus – il codice è spesso impresso sul metallo o sul vetro anziché stampato su un adesivo.",
       "where2": "Inclina la bottiglia in modo che la luce catturi il timbro lateralmente; una luce diretta lo fa scomparire.",
       "faq2q": "Il codice può dimostrare che il mio Paco Rabanne è autentico?",
       "faq3q": "Rabanne è la stessa marca di Paco Rabanne?",
-      "faq3a": "Sì, la casa ha eliminato \"Paco\" dal suo nome nel 2023. Le scorte più vecchie portano il marchio precedente e il formato del codice non è cambiato."
+      "faq3a": "Sì, la casa ha eliminato \"Paco\" dal suo nome nel 2023. Le scorte più vecchie portano il marchio precedente e il formato del codice non è cambiato.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Paco Rabanne: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "redken": {
       "faq1q": "Come posso verificare la durata di conservazione di un prodotto Redken?",
@@ -513,9 +513,9 @@
       "faq3q": "Il codice lotto è una prova di autenticità?",
       "faq2a": "Il codice è sulla base del compact. Decodificarlo per la data di produzione; una polvere pressata è valida per circa 24 mesi dopo l'apertura e molto più a lungo se non aperta, perché una formula secca non dà ai batteri quasi nulla in cui crescere.",
       "where1": "Fragranza: sulla base della scatola e incisa o stampata sul fondo della bottiglia.",
-      "faq1a": "Tom Ford Beauty è prodotto dal gruppo Estée Lauder, quindi utilizza il codice di tre caratteri del gruppo: pianta, mese, anno - letto da destra. Il mese va da 1 a 9 da gennaio a settembre, quindi A, B e C da ottobre a dicembre.",
       "where2": "Palette di fondotinta e ombretti: stampigliati sulla base del portacipria o del flacone.",
-      "faq3a": "No. Può smascherare un falso grossolano (un codice che non si adatta al formato o che viene decodificato in un mese impossibile), ma un codice copiato viene decodificato in modo pulito. La fragranza Tom Ford è pesantemente contraffatta; pesare la bottiglia, controllare il nebulizzatore e acquistare da un rivenditore autorizzato."
+      "faq3a": "No. Può smascherare un falso grossolano (un codice che non si adatta al formato o che viene decodificato in un mese impossibile), ma un codice copiato viene decodificato in modo pulito. La fragranza Tom Ford è pesantemente contraffatta; pesare la bottiglia, controllare il nebulizzatore e acquistare da un rivenditore autorizzato.",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal codice Tom Ford: inseriscila nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "too-faced": {
       "where1": "Tavolozze e contenitori: sul retro della custodia, a volte sotto il vassoio di plastica.",
@@ -523,7 +523,7 @@
       "faq2q": "Il mio codice Too Faced non viene decodificato.",
       "faq2a": "Alcuni codici sulla confezione di Too Faced sono contrassegni di linea interni, non codici di data, e non contengono nulla da decodificare. Controlla la base e il retro della custodia per un secondo codice più breve e, se davvero non ce n'è uno, il simbolo del barattolo aperto è la tua migliore guida.",
       "where2": "Prodotti liquidi: sulla base della bottiglia o sulla chiusura del tubo.",
-      "faq1a": "Too Faced appartiene al gruppo Estée Lauder, quindi il codice è composto da tre caratteri – pianta, mese, anno – letti da destra. Se il codice sulla tavolozza non si adatta a quella forma, potrebbe trattarsi di un contrassegno della linea di fabbrica anziché del codice batch."
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Too Faced: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "vichy": {
       "where2": "Flaconi e pompette (Mineral 89, Liftactiv): stampati a getto d'inchiostro sulla base o sull'etichetta posteriore vicino al codice a barre.",
@@ -535,16 +535,16 @@
       "faq2q": "Come leggo il codice su un prodotto Vichy?",
       "faq4q": "La protezione solare Capital Soleil scade?",
       "faq3a": "Solo in parte. Un codice che non si adatta alla forma di L'Oréal o che decodifica con una data precedente all'esistenza della linea di prodotti è un vero avvertimento. Ma un contraffattore che copia un codice da un tubo originale produce un codice che lo decodifica perfettamente, quindi una decodifica pulita dimostra che il codice è ben formato, non che la crema lo sia. Per la cura della pelle in farmacia, l'acquisto in farmacia rimane la protezione più forte.",
-      "faq2a": "Vichy è prodotto da L'Oréal e utilizza il formato del gruppo. Trova la prima lettera nel codice: cioè l'anno di produzione, in un ciclo che salta V, quindi U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025. Il carattere subito dopo è il mese: da 1 a 9 per gennaio a settembre, quindi O, N e D per ottobre, novembre e dicembre. Quella O è la lettera O, non uno zero.",
-      "faq4a": "Sì, ed è più importante di qualsiasi altra cosa nella gamma: i filtri UV degradati lasciano passare più radiazioni, quindi un SPF 50 scaduto non fornisce SPF 50. La protezione solare normalmente riporta una data di scadenza stampata esattamente per questo motivo: usala. E considera finita una bottiglia che ha trascorso un'estate in un'auto calda, indipendentemente dalla data."
+      "faq4a": "Sì, ed è più importante di qualsiasi altra cosa nella gamma: i filtri UV degradati lasciano passare più radiazioni, quindi un SPF 50 scaduto non fornisce SPF 50. La protezione solare normalmente riporta una data di scadenza stampata esattamente per questo motivo: usala. E considera finita una bottiglia che ha trascorso un'estate in un'auto calda, indipendentemente dalla data.",
+      "faq2a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Vichy: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "ysl-beauty": {
       "faq1q": "Come posso verificare un codice batch Yves Saint Laurent?",
       "where1": "Rossetto e trucco: stampato sulla base della custodia o sul retro del portacipria.",
       "where2": "Fragranza: sulla base della scatola e sul fondo della bottiglia.",
-      "faq1a": "YSL Beauty è prodotto da L'Oréal, quindi porta il codice del gruppo: cifre di fabbrica, una lettera dell'anno, quindi il carattere del mese. Seleziona YSL Beauty nel controllo e il motore applicherà la regola di L'Oréal.",
       "faq2a": "Perché la stessa azienda li produce entrambi. Il formato segue la fabbrica, non il prezzo: un rossetto YSL e un mascara Maybelline escono dalle linee L'Oréal e portano lo stesso stile di codice.",
-      "faq2q": "Perché il mio codice YSL assomiglia a quello di Maybelline?"
+      "faq2q": "Perché il mio codice YSL assomiglia a quello di Maybelline?",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Yves Saint Laurent: inseriscila nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
     "zara": {
       "where2": "La gamma Beauty lo stampa sul lato inferiore della custodia o sulla piegatura del tubo.",
@@ -560,12 +560,12 @@
       "faq3q": "Il profumo Escada scade?",
       "faq2a": "Questo è un profumo Escada più vecchio precedente all'attuale codifica Coty; i mini dell'era Margaretha Ley stampano un lotto di lettere e numeri sulla base metallica invece di stampare un codice del giorno dell'anno a quattro cifre. Quei lotti vintage non seguono il formato letto da questo strumento, quindi non è possibile datarli. Non è un segno che la bottiglia sia falsa: la fabbrica ha semplicemente utilizzato un sistema diverso.",
       "where3": "I mini profumi Escada più vecchi (l'era Margaretha Ley, distribuiti da Escada Beauté) stampano invece un breve lotto di lettere più numeri sulla piastra di base in metallo. Quel formato vintage non è il codice Coty a quattro cifre e non verrà decodificato qui.",
-      "faq1a": "La fragranza Escada è prodotta da Coty, che utilizza un codice a quattro cifre: la prima cifra è l'ultima cifra dell'anno di produzione e le restanti tre rappresentano il giorno di quell'anno. Quindi 0175 è il 175° giorno del 2020 – 23 giugno 2020. Aggiungi la durata di conservazione non aperta per stimare quanto tempo rimarrà al suo meglio.",
       "where1": "Eau de parfum e eau de toilette moderne: sull'adesivo trasparente sotto la bottiglia di vetro, stampato come numero di quattro cifre sulla stessa riga del testo \"EAU DE PARFUM VAPORISATEUR\".",
       "where2": "Cartone esterno: su un lembo terminale. I codici dell'adesivo e della scatola sono stampati insieme in fabbrica e dovrebbero essere uguali: in caso contrario, la bottiglia e la scatola sono state accoppiate da qualche altra parte.",
       "faq4a": "No. Un codice che non si adatta alla forma a quattro cifre di Coty o che risale a prima del lancio del profumo è un vero segnale di avvertimento. Ma un codice ben formato copiato su un prodotto contraffatto viene decodificato in modo altrettanto pulito, quindi una data valida dimostra che il codice è reale, non il profumo. Acquistare da un rivenditore autorizzato rimane il controllo più forte.",
       "faq3a": "La fragranza non ha una scadenza fissa, ma cambia. Una bottiglia Escada non aperta, mantenuta fresca e buia, mantiene il suo carattere per circa cinque anni; una volta aperto, le luminose note di testa fruttate svaniscono per prime. Una bottiglia che si è scurita o è diventata tagliente e acida si è ossidata indipendentemente da ciò che dice il codice.",
-      "faq4q": "Il codice batch può dimostrare che il mio Escada è autentico?"
+      "faq4q": "Il codice batch può dimostrare che il mio Escada è autentico?",
+      "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Escada: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     }
   },
   "contentPages": {
@@ -581,14 +581,17 @@
     "encodes": "Cosa codificano",
     "confidence": "confidenza{level}",
     "workedExamplesNote": "Decodificato in tempo reale dallo stesso motore che alimenta la pedina, non trascritto a mano.",
-    "brandsUsingNote": "Il formato appartiene al produttore, non l'etichetta sulla bottiglia: ogni marchio riportato di seguito è stampato dalle stesse piante e si legge allo stesso modo.",
     "doesNotDecode": "non decodifica",
     "otherFormats": "Altri formati di codice",
     "whichCode": "Non sei sicuro di quale codice sulla confezione sia il codice batch?",
-    "formatsIntro": "Il formato di un codice lotto appartiene a chi fabbrica il prodotto, non al nome sulla bottiglia. Coty timbra le stesse quattro cifre su Rimmel, Gucci e adidas; Inter Parfums imprime gli stessi nove caratteri su Montblanc, Coach e Jimmy Choo. Impara la cifra una volta e potrai leggere ogni marchio che la condivide.",
-    "formatsIntro2": "Ogni pagina sottostante documenta una famiglia: ciò che ogni carattere codifica, i codici reali decodificati dallo stesso motore che alimenta la pedina, dove il codice è stampato sulla confezione e, cosa altrettanto importante, ciò che il formato non può dirti.",
     "formatsTitle": "Formati di codici batch",
     "brandsUsing": "Marchi che utilizzano questo codice ({count})",
-    "brandCount": "marchi"
+    "brandCount": "marchi",
+    "checkYourCodeBody": "Inserisci il codice lotto del tuo prodotto nello strumento di controllo e leggerà la data di produzione per te, senza bisogno di decodifica manuale. Il codice contiene la data di produzione, non la scadenza.",
+    "checkYourCodeTitle": "Controlla il tuo codice batch",
+    "checkYourCodeCta": "Apri la pedina",
+    "formatsIntro": "Un codice batch appartiene a chi fabbrica il prodotto, non al nome sulla bottiglia: lo stesso produttore stampa lo stesso stile di codice su molti marchi. Scegli un gruppo di produttori di seguito per vedere quali marchi copre, quindi controlla l'eventuale codice nello strumento.",
+    "brandsUsingNote": "Il codice lotto appartiene al produttore, non l'etichetta sulla bottiglia: i marchi riportati di seguito condividono lo stesso codice di produzione, quindi il controllore li legge tutti.",
+    "formatsIntro2": "Ogni pagina seguente copre un gruppo di produttori: quali marchi include, dove trovare il codice lotto sulla confezione e cosa può o non può dirti il ​​codice sulla data di produzione e sulla freschezza."
   }
 }

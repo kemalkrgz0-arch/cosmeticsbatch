@@ -18,6 +18,12 @@ import {
   photoSubmissionCopy,
 } from "../src/lib/photo-submission-copy";
 import { getBrandLogoInventory } from "../src/lib/brand-logos";
+import { asCsv, csvCell } from "../src/lib/csv";
+import {
+  INDEXABLE_LOCALES,
+  PRIORITY_BRAND_SLUGS,
+  indexableBrandLocales,
+} from "../src/lib/publishing-policy";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -28,6 +34,32 @@ const englishContent = JSON.parse(
 const reviewedContent = JSON.parse(
   readFileSync("messages/content/reviewed.json", "utf8"),
 ) as Record<string, string[]>;
+
+test("review CSV exports neutralize spreadsheet formulas", () => {
+  for (const value of ["=1+1", "+SUM(A1:A2)", "-2+3", "@cmd", "\t=1", "\r=1"]) {
+    assert.equal(csvCell(value).startsWith("\"'"), true, value);
+  }
+  assert.equal(csvCell('safe "text"'), '"safe ""text"""');
+  assert.match(
+    asCsv([{ note: "=HYPERLINK(\"https://example.test\")", status: "pending" }]),
+    /^"note","status"\n"'=HYPERLINK/,
+  );
+});
+
+test("publishing policy limits search exposure to 15 locales and 50 brands", () => {
+  assert.equal(INDEXABLE_LOCALES.length, 15);
+  assert.equal(new Set(INDEXABLE_LOCALES).size, 15);
+  assert.ok(INDEXABLE_LOCALES.includes("en"));
+  assert.equal(PRIORITY_BRAND_SLUGS.length, 50);
+  assert.equal(new Set(PRIORITY_BRAND_SLUGS).size, 50);
+  for (const slug of PRIORITY_BRAND_SLUGS) {
+    assert.ok(ALL_BRANDS.some((brand) => brand.slug === slug), `${slug} is not a catalog brand`);
+    for (const locale of indexableBrandLocales(slug)) {
+      assert.ok(INDEXABLE_LOCALES.includes(locale as typeof INDEXABLE_LOCALES[number]));
+      assert.ok(Object.hasOwn(BRAND_DETAILS, slug), `${slug} lacks editorial evidence`);
+    }
+  }
+});
 
 test("brand catalog has unique identities and valid core fields", () => {
   assert.equal(new Set(ALL_BRANDS.map((brand) => brand.slug)).size, ALL_BRANDS.length);
@@ -104,12 +136,14 @@ test("content review manifest contains only known, current source keys", () => {
     assert.equal(new Set(keys).size, keys.length, `${locale} review manifest has duplicate keys`);
     for (const key of keys) assert.ok(sourceKeys.has(key), `${locale} reviewed unknown key ${key}`);
   }
-  // Russian is the fully hand-reviewed locale, with one documented exception:
-  // the 2026-07-16 decoder-format correction rewrote the Creed and Dior guides
-  // (their old ciphers were factually wrong), so those strings were re-translated
-  // by machine and un-reviewed pending native re-review. Russian must still cover
-  // the entire corpus apart from those Creed/Dior guide keys.
-  const pendingReReview = /^dec\.(creed-batch-code-format|dior-lvmh-batch-code-format)\./;
+  // Russian is the fully hand-reviewed locale, with documented exceptions from
+  // the 2026-07-16 work: (a) the Creed and Dior guides were rewritten after their
+  // old ciphers proved wrong, and (b) every decoder-guide title/description was
+  // neutralised to stop publishing the proprietary decode method. Those strings
+  // were re-translated by machine and un-reviewed pending native re-review.
+  // Russian must still cover the rest of the corpus.
+  const pendingReReview =
+    /^dec\.(creed-batch-code-format|dior-lvmh-batch-code-format)\.|^dec\..*\.(title|desc)$/;
   const ruReviewed = new Set(reviewedContent.ru ?? []);
   for (const key of sourceKeys) {
     if (ruReviewed.has(key)) continue;
