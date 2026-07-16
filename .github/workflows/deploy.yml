@@ -36,6 +36,16 @@ jobs:
           script: |
             set -e
             cd /opt/cosmeticsbatch
+            # A full Docker store can prevent even git fetch from writing. Log
+            # the cause, then reclaim only unused Docker objects. Volumes and
+            # the running production container remain untouched.
+            echo "Disk usage before cleanup:"
+            df -h /
+            docker system df || true
+            docker system prune -af
+            echo "Disk usage after cleanup:"
+            df -h /
+            docker system df || true
             git pull --ff-only
             # deploy.sh owns the build args (read from .env.build on the VPS) and
             # the run flags. Inlining a partial `docker build` here once shipped a

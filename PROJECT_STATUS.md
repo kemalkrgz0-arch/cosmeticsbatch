@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-16
-Current version: **0.8.0**
+Current version: **0.8.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,19 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## In progress — 0.8.1 (VPS disk recovery and deploy hardening)
+
+- Deployment run `29484411100` for commit `c2577d5` stopped before build/restart
+  because the VPS filesystem returned `No space left on device` during
+  `git pull`; production was not assumed updated.
+- Added pre-pull disk diagnostics and `docker system prune -af` to the deploy
+  workflow. This removes stopped containers plus unused images, networks and
+  build cache while preserving Docker volumes and the running production
+  container.
+- Files: `.github/workflows/deploy.yml`, `package.json`, `PROJECT_STATUS.md`.
+- Verification pending: recovery deploy, before/after disk report, production
+  health check.
 
 ## Completed — 0.8.0 (How It Works visual redesign)
 
