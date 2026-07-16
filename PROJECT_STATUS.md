@@ -272,7 +272,7 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   TXT and its `/tmp` source have identical SHA-256 hashes.
 - Verification: TypeScript compilation and 26/26 regressions passed; the
   compiled catalog reports zero active Chanel Beauty images; diff check passed.
-  No deployment performed.
+  Included in commit `43cd660` and production deploy run `29495776323`.
 
 ## Completed — 0.10.1 (priority-brand evidence matrix)
 
@@ -324,8 +324,14 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   production build completed all 267 static pages; rendered localhost metadata,
   sitemap membership and alternate counts passed. The existing private photo
   route NFT tracing warning remains non-fatal.
-- Deployment: not performed. Existing search URLs will remain known to Google
-  after sitemap removal until crawlers revisit and process their noindex tags.
+- Deployment: commit `43cd660` deployed successfully in GitHub Actions run
+  `29495776323` (5m34s). Live verification returned HTTP 200 for home, sitemap
+  and robots; sitemap contains 242 URLs; home emits 15 locales plus x-default;
+  Arabic Dior and English Dove emit `noindex, follow`; Russian Dior emits
+  `index, follow`; English Dior exposes EN/RU plus x-default. The corrected home
+  copy is live and sampled legacy authenticity/private/precision promises have
+  zero matches. Existing search URLs will remain known to Google after sitemap
+  removal until crawlers revisit and process their noindex tags.
 
 ## Completed — 0.9.2 (homepage truthfulness and export hardening)
 
