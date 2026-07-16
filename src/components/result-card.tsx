@@ -186,6 +186,10 @@ export function ResultCard({
   const t = useTranslations("result");
   const locale = useLocale();
   const photoCopy = photoSubmissionCopy(locale);
+  // The public decode API deliberately omits decoder implementation details.
+  // Server-rendered results still include notes, so normalize the API shape
+  // before any render branch reads the collection.
+  const notes = result.notes ?? [];
   const meta = statusMeta[result.freshness];
   const color = meta.color;
   const StatusIcon = meta.icon;
@@ -210,9 +214,9 @@ export function ResultCard({
             <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
               {showDetailedHelp && (
                 <>
-                  {result.notes.length > 0 && (
+                  {notes.length > 0 && (
                     <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-fg-muted">
-                      {result.notes.map((note, index) => (
+                      {notes.map((note, index) => (
                         <li key={`${index}:${note}`}>{note}</li>
                       ))}
                     </ul>
@@ -319,12 +323,12 @@ export function ResultCard({
           </section>
           <section aria-label={t("confidence")}>
             <DataCell icon={ShieldCheck} color={color} label={t("confidence")} value={t(CONF_KEY[result.confidence])} />
-            {locale.startsWith("en") && (result.method || result.notes.length > 0) && (
+            {locale.startsWith("en") && (result.method || notes.length > 0) && (
               <div className="border-t border-border px-5 py-4 text-sm leading-relaxed text-fg-muted">
                 {result.method && <p>{result.method}</p>}
-                {result.notes.length > 0 && (
+                {notes.length > 0 && (
                   <ul className="mt-2 list-disc space-y-1 pl-5">
-                    {result.notes.map((note) => <li key={note}>{note}</li>)}
+                    {notes.map((note) => <li key={note}>{note}</li>)}
                   </ul>
                 )}
               </div>

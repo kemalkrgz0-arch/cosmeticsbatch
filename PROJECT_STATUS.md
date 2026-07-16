@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-16
-Current version: **0.10.3**
+Current version: **0.10.4**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,27 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.10.4 (decode result render crash hotfix)
+
+- Reproduced the reported production failure through an instrumented real
+  Chrome form submission. The result route and `/api/decode` both returned HTTP
+  200, then `ResultCard` threw `TypeError: Cannot read properties of undefined
+  (reading 'length')`, activating Next.js's “This page couldn't load” boundary.
+- Root cause: the public API intentionally strips decoder `method` and `notes`
+  to avoid exposing implementation details, while the successful English result
+  branch still assumed `notes` was always present. The card now normalizes a
+  redacted/missing notes collection before rendering.
+- Added a regression that locks the API redaction and prevents result cards from
+  directly reading `result.notes.length` again.
+- Files: `src/components/result-card.tsx`, quality regression tests,
+  `package.json`, `PROJECT_STATUS.md`.
+- Verification: scoped ESLint, TypeScript, 27/27 regressions and the 267-page
+  production build passed. An instrumented iPhone-Safari-identified Chrome flow
+  submitted Dior code `1K01`; the decode API returned HTTP 200 and the complete
+  result card rendered without an exception. The build retains the pre-existing
+  NFT tracing warning for private photo storage.
+- Deployment: not yet deployed.
 
 ## Completed — 0.10.3 (mobile result navigation reliability)
 
