@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-16
-Current version: **0.9.0**
+Current version: **0.9.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,24 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## In progress — 0.9.1 (source and private-data backup)
+
+- Created a local `backups/2026-07-16-system-backup` directory containing a
+  compressed working-tree snapshot (including uncommitted project work), a
+  complete Git bundle and the supplied GSC/Yandex XLSX exports. Reproducible
+  build output, dependency caches, Codex artifacts and secret environment files
+  are intentionally excluded.
+- Generated SHA-256 checksums; archive listing, bundle verification and all
+  checksum validations passed. The verified local backup occupies 30 MB and is
+  excluded from Git.
+- Added a manual GitHub Actions workflow that creates a mode-0600 SHA-256
+  verified archive of `/opt/cosmeticsbatch-data` under the root-only VPS folder
+  `/opt/cosmeticsbatch-backups`. Private submissions and email addresses never
+  enter the public repository or GitHub artifacts.
+- Files: `.github/workflows/backup-vps-data.yml`, `.gitignore`, `package.json`,
+  `PROJECT_STATUS.md`; local ignored `backups/2026-07-16-system-backup/*`.
+- Verification pending: first VPS private-data backup run.
 
 ## Completed — 0.9.0 (review operations workspace and mail routing)
 

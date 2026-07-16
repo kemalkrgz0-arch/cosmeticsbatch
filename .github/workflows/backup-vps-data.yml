@@ -1,0 +1,37 @@
+name: Backup VPS private data
+
+on:
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Archive the private production dataset
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          command_timeout: 30m
+          script: |
+            set -euo pipefail
+            source_dir=/opt/cosmeticsbatch-data
+            backup_dir=/opt/cosmeticsbatch-backups
+            stamp="$(date -u +%Y%m%dT%H%M%SZ)"
+            archive="$backup_dir/cosmeticsbatch-data-$stamp.tar.gz"
+            temporary="$archive.tmp"
+
+            test -d "$source_dir"
+            umask 077
+            mkdir -p "$backup_dir"
+            chmod 700 "$backup_dir"
+            tar -C /opt -czf "$temporary" cosmeticsbatch-data
+            mv "$temporary" "$archive"
+            sha256sum "$archive" > "$archive.sha256"
+            chmod 600 "$archive" "$archive.sha256"
+
+            echo "Backup created: $(basename "$archive")"
+            du -h "$archive"
+            sha256sum -c "$archive.sha256"

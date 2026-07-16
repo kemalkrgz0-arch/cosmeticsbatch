@@ -46,3 +46,6 @@ next-env.d.ts
 
 # User-check dataset (JSONL, written at runtime; prod uses a mounted volume)
 .data/
+
+# Local operational backups are never committed.
+/backups/
