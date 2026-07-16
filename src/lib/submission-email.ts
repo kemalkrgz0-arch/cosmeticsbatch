@@ -15,9 +15,13 @@ export type NotificationResult =
 
 export async function sendSubmissionEmail(data: SubmissionEmail): Promise<NotificationResult> {
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.SUBMISSION_NOTIFY_EMAIL;
+  const configuredRecipients = [
+    process.env.SUBMISSION_NOTIFY_EMAIL,
+    ...(process.env.REVIEWER_EMAILS ?? "").split(","),
+  ];
+  const recipients = [...new Set(configuredRecipients.map((email) => email?.trim().toLowerCase()).filter((email): email is string => Boolean(email)))];
   const from = process.env.SUBMISSION_FROM_EMAIL;
-  if (!apiKey || !to || !from) return { status: "not_configured" };
+  if (!apiKey || recipients.length === 0 || !from) return { status: "not_configured" };
 
   const text = [
     "A new batch-code photo is ready for review.",
@@ -42,7 +46,7 @@ export async function sendSubmissionEmail(data: SubmissionEmail): Promise<Notifi
       },
       body: JSON.stringify({
         from,
-        to: [to],
+        to: recipients,
         reply_to: data.userEmail,
         subject: `[Code photo] ${data.brandName} — ${data.id.slice(0, 19)}`,
         text,

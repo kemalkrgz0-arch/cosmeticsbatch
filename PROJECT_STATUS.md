@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-16
-Current version: **0.8.1**
+Current version: **0.9.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,27 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.9.0 (review operations workspace and mail routing)
+
+- New photo-submission notifications now go to the configured notification
+  mailbox and every authorized address in `REVIEWER_EMAILS`, with normalized
+  duplicate removal. This fixes the prior behavior where notifications only
+  targeted the hard-coded `contact@cosmeticsbatch.com` mailbox.
+- Expanded the private review dashboard with queue KPI cards, status-aware
+  search, direct user-email access, reviewer-notification state and reply
+  provider-acceptance state.
+- Added authenticated CSV and JSON downloads for submissions and the newest
+  1,000 batch-code checks. Submission exports include operational metadata but
+  exclude private photo paths and image contents; check exports retain the
+  existing no-IP/no-user-email data model.
+- Files: `package.json`, `PROJECT_STATUS.md`, `src/lib/submission-email.ts`,
+  `src/lib/submission-store.ts`, `src/app/[locale]/review/page.tsx`,
+  `src/app/[locale]/review/api/export/route.ts`.
+- Verification: TypeScript, scoped ESLint, diff check, 24/24 decoder/quality
+  regressions and the production build (267 static pages) passed. The known
+  private photo-route NFT tracing warning remains non-fatal. Production
+  notification delivery remains pending local owner review and deployment.
 
 ## Completed — 0.8.1 (VPS disk recovery and deploy hardening)
 

@@ -25,6 +25,8 @@ export type Submission = {
   reviewNote?: string;
   reviewedAt?: string;
   replyStatus?: string;
+  notificationStatus?: string;
+  notificationReason?: string;
 };
 
 async function events() {
@@ -62,6 +64,10 @@ export async function listSubmissions() {
         record.revision += 1;
       }
       if (event.type === "reply") record.replyStatus = event.status as string;
+      if (event.type === "notification") {
+        record.notificationStatus = event.status as string;
+        record.notificationReason = event.reason as string | undefined;
+      }
     }
   }
   return [...records.values()].sort((a, b) => b.ts.localeCompare(a.ts));

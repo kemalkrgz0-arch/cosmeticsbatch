@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Activity, CheckCircle2, Clock3, Download, Inbox, Search } from "lucide-react";
 import { getBrand } from "@/lib/brands";
 import { readRecentChecks } from "@/lib/dataset";
 import { requireReviewer } from "@/lib/review-auth";
@@ -23,14 +24,19 @@ const statusLabels: Record<string, string> = {
   discarded: "Archived",
 };
 
-export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; updated?: string; error?: string }> }) {
+export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; q?: string; updated?: string; error?: string }> }) {
   const reviewer = await requireReviewer();
   const query = await searchParams;
   const selectedStatus = REVIEW_STATUSES.includes(query.status as never) ? query.status : "pending";
   const view = query.view === "checks" ? "checks" : "submissions";
+  const search = query.q?.trim().toLowerCase() ?? "";
   const all = await listSubmissions();
-  const submissions = all.filter((item) => item.status === selectedStatus);
-  const checks = view === "checks" ? await readRecentChecks(500) : [];
+  const submissions = all.filter((item) => item.status === selectedStatus && (!search || [item.id, item.brand, item.code, item.email, item.note].some((value) => value?.toLowerCase().includes(search))));
+  const allChecks = view === "checks" ? await readRecentChecks(500) : [];
+  const checks = allChecks.filter((item) => !search || [item.brand, item.code, item.locale, item.country, item.mfg].some((value) => value?.toLowerCase().includes(search)));
+  const completed = all.filter((item) => item.status === "completed").length;
+  const awaiting = all.filter((item) => item.status === "awaiting_user").length;
+  const open = all.filter((item) => item.status === "pending" || item.status === "in_review").length;
 
   return (
     <main className="min-h-screen bg-bg-subtle px-4 py-8 text-fg sm:px-6">
@@ -47,10 +53,32 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
         {query.updated && <p role="status" className="mb-4 rounded-xl bg-success-bg p-3 text-sm text-success">Submission updated successfully.</p>}
         {query.error && <p role="alert" className="mb-4 rounded-xl bg-danger-bg p-3 text-sm text-danger">The update could not be completed. No reply was recorded as sent.</p>}
 
+        <section aria-label="Workspace summary" className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { label: "Total submissions", value: all.length, icon: Inbox },
+            { label: "Open queue", value: open, icon: Clock3 },
+            { label: "Awaiting user", value: awaiting, icon: Activity },
+            { label: "Completed", value: completed, icon: CheckCircle2 },
+          ].map(({ label, value, icon: Icon }) => <div key={label} className="rounded-2xl border bg-card p-4 shadow-sm"><div className="flex items-center justify-between"><p className="text-sm font-medium text-fg-muted">{label}</p><Icon aria-hidden="true" className="size-5 text-accent" /></div><p className="mt-2 text-3xl font-bold">{value}</p></div>)}
+        </section>
+
         <nav aria-label="Review workspace" className="mb-5 flex gap-2 border-b pb-4">
           <Link href="/review/dashboard" aria-current={view === "submissions" ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === "submissions" ? "bg-cta text-cta-fg" : "bg-card"}`}>Photo submissions</Link>
           <Link href="/review/dashboard?view=checks" aria-current={view === "checks" ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === "checks" ? "bg-cta text-cta-fg" : "bg-card"}`}>Batch-code checks</Link>
         </nav>
+
+        <section className="mb-5 flex flex-col gap-3 rounded-2xl border bg-card p-4 shadow-sm sm:flex-row sm:items-end sm:justify-between">
+          <form method="get" action="/review/dashboard" className="flex flex-1 gap-2">
+            <input type="hidden" name="view" value={view} />
+            {view === "submissions" && <input type="hidden" name="status" value={selectedStatus} />}
+            <label className="relative flex-1"><span className="sr-only">Search review data</span><Search aria-hidden="true" className="absolute left-3 top-3 size-5 text-fg-muted" /><input name="q" defaultValue={query.q} placeholder={view === "checks" ? "Search brand, code, locale or country" : "Search ID, brand, code, email or note"} className="min-h-11 w-full rounded-xl border bg-bg pl-10 pr-3" /></label>
+            <button className="min-h-11 rounded-xl bg-cta px-5 font-semibold text-cta-fg">Search</button>
+          </form>
+          <div className="flex flex-wrap gap-2">
+            <a href={`/review/api/export?kind=${view}&format=csv`} className="inline-flex min-h-11 items-center gap-2 rounded-xl border bg-bg px-4 text-sm font-semibold"><Download aria-hidden="true" className="size-4" />CSV</a>
+            <a href={`/review/api/export?kind=${view}&format=json`} className="inline-flex min-h-11 items-center gap-2 rounded-xl border bg-bg px-4 text-sm font-semibold"><Download aria-hidden="true" className="size-4" />JSON</a>
+          </div>
+        </section>
 
         {view === "submissions" && <nav aria-label="Submission status" className="mb-6 flex gap-2 overflow-x-auto pb-2">
           {REVIEW_STATUSES.map((status) => {
@@ -62,7 +90,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
         {view === "checks" ? (
           <section className="overflow-hidden rounded-2xl border bg-card shadow-sm">
-            <div className="border-b p-5"><h2 className="text-xl font-bold">Recent batch-code checks</h2><p className="mt-1 text-sm text-fg-muted">Newest {checks.length} successful human requests. IP addresses and user emails are not logged.</p></div>
+            <div className="border-b p-5"><h2 className="text-xl font-bold">Recent batch-code checks</h2><p className="mt-1 text-sm text-fg-muted">Showing {checks.length} of {allChecks.length} recent successful human requests. IP addresses and user emails are not logged.</p></div>
             {checks.length === 0 ? <p className="p-8 text-center text-fg-muted">No check records are available.</p> : (
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[880px] text-left text-sm">
@@ -96,6 +124,9 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                         <div><dt className="font-semibold text-fg-muted">Visible code</dt><dd className="mt-1 font-mono text-base">{submission.code || "Not supplied"}</dd></div>
                         <div><dt className="font-semibold text-fg-muted">Submitted</dt><dd className="mt-1">{new Date(submission.ts).toLocaleString("en-GB", { timeZone: "Europe/Istanbul" })}</dd></div>
                         <div className="sm:col-span-2"><dt className="font-semibold text-fg-muted">User note</dt><dd className="mt-1 whitespace-pre-wrap">{submission.note || "Not supplied"}</dd></div>
+                        <div><dt className="font-semibold text-fg-muted">Reply email</dt><dd className="mt-1 break-all"><a className="underline" href={`mailto:${submission.email}`}>{submission.email}</a></dd></div>
+                        <div><dt className="font-semibold text-fg-muted">Reply delivery</dt><dd className="mt-1">{submission.replyStatus === "sent" ? "Accepted by email provider" : submission.replyStatus === "failed" ? "Failed" : "Not sent yet"}</dd></div>
+                        <div><dt className="font-semibold text-fg-muted">Reviewer notification</dt><dd className="mt-1">{submission.notificationStatus === "sent" ? "Accepted by email provider" : submission.notificationStatus === "failed" ? `Failed${submission.notificationReason ? ` (${submission.notificationReason})` : ""}` : submission.notificationStatus === "not_configured" ? "Not configured" : "No delivery record"}</dd></div>
                       </dl>
 
                       <form action={`/review/api/submissions/${encodeURIComponent(submission.id)}`} method="post" className="mt-6 flex flex-wrap items-end gap-3 rounded-xl bg-bg-subtle p-4">
