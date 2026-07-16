@@ -172,6 +172,38 @@ body {
   animation: ring-dot 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Continuous wordmark rail used by the homepage brand section. The two groups
+   contain the same curated local assets, making the half-width loop seamless. */
+@keyframes brand-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-marquee {
+  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+}
+
+.brand-marquee-track,
+.brand-marquee-group {
+  display: flex;
+  width: max-content;
+}
+
+.brand-marquee-track {
+  animation: brand-marquee 34s linear infinite;
+}
+
+.brand-marquee-group {
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.brand-marquee:hover .brand-marquee-track,
+.brand-marquee:focus-within .brand-marquee-track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -179,6 +211,15 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .brand-marquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+
+  .brand-marquee-group[aria-hidden="true"] {
+    display: none;
   }
 }
 

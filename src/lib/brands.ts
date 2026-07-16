@@ -600,9 +600,82 @@ const PRINTS_DATE_SLUGS = new Set<string>([
 
 /** Real product photos of where the batch code is, keyed by slug. */
 const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
+  "acqua-di-parma": [
+    { src: "/brands/examples/acqua-di-parma-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/acqua-di-parma-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/acqua-di-parma-3.jpg", width: 900, height: 416 },
+  ],
+  aesop: [
+    { src: "/brands/examples/aesop-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/aesop-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/aesop-3.jpg", width: 900, height: 416 },
+  ],
+  anua: [
+    { src: "/brands/examples/anua-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/anua-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/anua-3.jpg", width: 900, height: 416 },
+  ],
+  "carolina-herrera": [
+    { src: "/brands/examples/carolina-herrera-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/carolina-herrera-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/carolina-herrera-3.jpg", width: 900, height: 416 },
+  ],
+  chanel: [
+    { src: "/brands/examples/chanel-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/chanel-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/chanel-3.jpg", width: 900, height: 416 },
+  ],
+  "chanel-beauty": [
+    { src: "/brands/examples/chanel-beauty-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/chanel-beauty-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/chanel-beauty-3.jpg", width: 900, height: 416 },
+  ],
+  creed: [
+    { src: "/brands/examples/creed-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/creed-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/creed-3.jpg", width: 900, height: 416 },
+  ],
+  escada: [
+    { src: "/brands/examples/escada-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/escada-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/escada-3.jpg", width: 900, height: 416 },
+  ],
+  "estee-lauder": [
+    { src: "/brands/examples/estee-lauder-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/estee-lauder-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/estee-lauder-3.jpg", width: 900, height: 416 },
+  ],
+  "jean-paul-gaultier": [
+    { src: "/brands/examples/jean-paul-gaultier-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/jean-paul-gaultier-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/jean-paul-gaultier-3.jpg", width: 900, height: 416 },
+  ],
+  lancome: [
+    { src: "/brands/examples/lancome-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/lancome-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/lancome-3.jpg", width: 900, height: 416 },
+  ],
+  "mac-cosmetics": [
+    { src: "/brands/examples/mac-cosmetics-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/mac-cosmetics-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/mac-cosmetics-3.jpg", width: 900, height: 416 },
+  ],
   shiseido: [
     { src: "/brands/shiseido-batch-1.jpg", width: 707, height: 720 },
     { src: "/brands/shiseido-batch-2.jpg", width: 720, height: 507 },
+  ],
+  "tom-ford-beauty": [
+    { src: "/brands/examples/tom-ford-beauty-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/tom-ford-beauty-2.jpg", width: 900, height: 416 },
+  ],
+  vichy: [
+    { src: "/brands/examples/vichy-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/vichy-2.jpg", width: 900, height: 416 },
+  ],
+  zara: [
+    { src: "/brands/examples/zara-1.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/zara-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/zara-3.jpg", width: 900, height: 416 },
   ],
 };
 

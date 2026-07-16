@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -8,15 +7,13 @@ import { routing } from "@/i18n/routing";
 import { isRtl, DEFAULT_LOCALE } from "@/i18n/locales";
 import { site } from "@/lib/site";
 import { adsense, adsenseEnabled } from "@/lib/ads";
-import { ga, gaEnabled, ymEnabled } from "@/lib/analytics";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { JsonLd } from "@/components/json-ld";
-import { CookieConsent } from "@/components/cookie-consent";
-import { YandexMetrica } from "@/components/yandex-metrica";
+import { TrackingBoundary } from "@/components/tracking-boundary";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -104,20 +101,6 @@ export default async function RootLayout({
       className="h-full"
     >
       <body className="flex min-h-full flex-col antialiased">
-        {(adsenseEnabled || gaEnabled) && (
-          // Google Consent Mode v2: default everything to denied *before* the
-          // gtag/AdSense loaders run, then immediately re-grant if the visitor
-          // already accepted in a previous session. The CookieConsent banner
-          // flips these on "Accept".
-          <script
-            dangerouslySetInnerHTML={{
-              __html:
-                "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}" +
-                "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});" +
-                "try{if(localStorage.getItem('cb:consent')==='granted'){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted'});}}catch(e){}",
-            }}
-          />
-        )}
         <NextIntlClientProvider>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Providers>
@@ -133,23 +116,8 @@ export default async function RootLayout({
           </main>
           <SiteFooter />
           <BottomNav />
-          {ymEnabled && <YandexMetrica />}
-          {(adsenseEnabled || gaEnabled || ymEnabled) && <CookieConsent />}
+          <TrackingBoundary />
         </Providers>
-        {gaEnabled && (
-          <>
-            {/* Google Analytics 4 — deferred to idle; analytics doesn't need to
-                run during the critical render path. */}
-            <Script
-              id="ga-loader"
-              strategy="lazyOnload"
-              src={`https://www.googletagmanager.com/gtag/js?id=${ga.id}`}
-            />
-            <Script id="ga-config" strategy="lazyOnload">
-              {`gtag('js',new Date());gtag('config','${ga.id}');`}
-            </Script>
-          </>
-        )}
         </NextIntlClientProvider>
       </body>
     </html>

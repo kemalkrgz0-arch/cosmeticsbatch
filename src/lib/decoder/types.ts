@@ -50,6 +50,12 @@ export interface DecodeAttempt {
   confidence: Confidence;
   /** Human label for how we read the code, e.g. "Estée Lauder plant/month/year". */
   method: string;
+  /**
+   * Precision of this specific read, overriding the decoder's profile default.
+   * Used when one decoder handles formats of differing precision (e.g. Dior's
+   * modern year+month code vs. a vintage day-precise date).
+   */
+  datePrecision?: DatePrecision;
   /** Extra notes shown to the user (assumptions, ambiguity). */
   notes?: string[];
 }

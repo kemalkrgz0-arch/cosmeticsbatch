@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CalendarPlus, Check, Share2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import type { DatePrecision } from "@/lib/decoder";
 
 /**
  * Share + "add expiry to calendar" actions on a decode result. Turns the result
@@ -15,20 +16,31 @@ export function ResultActions({
   manufactureDate,
   expirationDate,
   percent,
+  datePrecision = "day",
 }: {
   brandName: string;
   code: string;
   manufactureDate: Date | null;
   expirationDate: Date | null;
   percent: number | null;
+  datePrecision?: DatePrecision;
 }) {
   const t = useTranslations("result");
   const [copied, setCopied] = useState(false);
 
+  const shareDate = (d: Date) =>
+    d.toLocaleDateString(undefined, {
+      year: "numeric",
+      ...(datePrecision === "year" ? {} : { month: "long" }),
+      ...(datePrecision === "month" || datePrecision === "year"
+        ? {}
+        : { day: "numeric" }),
+    });
+
   const shareText = [
     `${brandName} · ${code}`,
     manufactureDate
-      ? t("shareMade", { date: manufactureDate.toLocaleDateString() })
+      ? t("shareMade", { date: shareDate(manufactureDate) })
       : null,
     percent !== null ? t("shareLifeLeft", { n: percent }) : null,
   ]

@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
-Last updated: 2026-07-14
-Current version: **0.5.2**
+Last updated: 2026-07-16
+Current version: **0.8.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,170 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.8.0 (How It Works visual redesign)
+
+- Replaced the sparse icon-only How It Works cards with three code-native mini
+  illustrations: a brand picker using verified local Chanel/Dior/Lancôme logos,
+  a product-and-batch-code scanning scene, and a manufacture-year/freshness
+  result panel.
+- Tightened card hierarchy with contained visual stages, numbered dividers,
+  integrated connector arrows, subtle ambient color and hover elevation. The
+  illustrations are decorative and reuse the existing localized titles/body
+  copy, so no untranslated visible strings were introduced.
+- Used HTML/CSS and the existing Lucide/logo asset system instead of additional
+  raster downloads, preserving sharp rendering, dark-mode compatibility and
+  low transfer cost.
+- Files: `package.json`, `PROJECT_STATUS.md`,
+  `src/components/home/how-it-works.tsx`.
+- Verification: local `tsc --noEmit`, targeted ESLint, `git diff --check` and
+  the complete compiled decoder/quality suite passed (24/24). A 1440 px-wide
+  local Chrome screenshot visually confirmed the desktop layout. The Next.js
+  production build completed all 267 static pages; the known photo-route NFT
+  whole-project tracing warning remains and did not fail the build.
+- Production publication remains pending local owner review; no commit, push or
+  deployment was performed.
+
+## Completed — 0.7.1 (review analytics exclusion)
+
+- Confirmed the review page itself had no analytics code, but the shared locale
+  layout injected Google consent/GA4 and Yandex Metrica on review routes.
+- Moved consent, GA4 and Metrica rendering into one pathname-aware client
+  boundary. It returns no tracking or consent markup for both `/review/*` and
+  `/{locale}/review/*`, while preserving the existing consent-gated behavior on
+  public pages.
+- Files: `package.json`, `PROJECT_STATUS.md`, `src/app/[locale]/layout.tsx`,
+  `src/components/tracking-boundary.tsx`, `scripts/quality-regression.test.ts`.
+- Production publication remains pending local owner review; no commit, push or
+  deployment was performed.
+- Verification: `tsc --noEmit`, targeted ESLint and the complete local compiled
+  decoder/quality suite passed (24/24). The regression asserts that the shared
+  layout contains no direct tracker injection and that the boundary returns
+  `null` for any pathname segment named `review`.
+
+## Completed — 0.7.0 (Wikidata brand-logo migration, local preview)
+
+- Removed runtime brand-favicon loading from the shared `BrandLogo` component
+  used by the directory, picker, check page, brand headers and related cards.
+- Added a reproducible Wikidata importer. It accepts only `P154` records whose
+  entity `P856` official website host matches the existing official-domain
+  registry, then stores the Wikimedia Commons file locally.
+- Strict generation produced 71 domain-verified logos across the complete
+  331-entry catalog. Wikidata had no domain-verifiable `P154` for the other 260;
+  these retain controlled wordmark/monogram fallbacks instead of receiving an
+  unrelated image mislabeled as a real logo.
+- The manifest records local path, Wikidata QID, Commons filename and domain
+  verification. `public/brand-logos/missing.json` records every unresolved entry
+  and reason.
+- Added regression coverage for the verified baseline, local assets, QIDs,
+  domain verification, safe SVG content and removal of favicon/external loading.
+- Files: `package.json`, `PROJECT_STATUS.md`, `src/components/ui/brand-logo.tsx`,
+  `src/lib/brand-logos.ts`, `src/lib/wikidata-brand-logos.json`,
+  `scripts/fetch-wikidata-brand-logos.mjs`, `scripts/quality-regression.test.ts`,
+  `public/brand-logos/*`.
+- Production publication remains pending local owner review; no commit, push or
+  deployment was performed.
+- Verification: `tsc --noEmit`, targeted ESLint and the complete local compiled
+  decoder/quality suite passed (23/23). The Turkish `/brands` local render
+  contained 25 `/brand-logos/` asset instances in its initial HTML; its only
+  `favicon.ico` reference is the site's own document icon from the root layout,
+  not a brand image request. `git diff --check` passed after the change.
+
+## Completed — 0.6.1 (decoder correctness vs real product photos)
+
+Audited the decode engine against 84 owner-supplied product photos and
+user-supplied manufacturer specs. Found and fixed real errors; confirmed others.
+
+- **Creed — rewrote.** The old rule ("first letter = production year, A = 2010")
+  was invented and returned dates up to ~9 years wrong (it read the modern lot
+  code F001704 as 2015). Real systems: classic 2013–2022 codes carry the year in
+  the two digits after a 3-char product id (A4221N01 → 2021); the 2023+ F-series
+  encodes only "2023 or later", reported at low confidence. Sample code, decoder
+  guide, brand FAQ and fixtures updated.
+- **Dior — rewrote.** Modern Dior codes are year-digit + month-letter (A = Jan …
+  M = Dec, skipping I) + day/batch: 5H03 → August 2025, 9K44 → October 2019. The
+  previous decoder implemented none of this and returned nothing for every real
+  modern Dior code. Vintage all-digit and sibling LVMH/Chanel codes still read
+  through the embedded-date reader (kenzo 24045, guerlain 3245, fenty 231122).
+- **L'Oréal group — precision fix.** Codes encode only year + month (54YN00 →
+  November 2024, confirmed against the pack's printed 11-2027 expiry). The UI was
+  formatting a mid-month placeholder day as if real. Added a `datePrecision`
+  field to the decode result (from the decoder profile, with a per-read
+  override) and taught the result card, brand page and share text to hide the day
+  for month/year-precision codes. Now covers L'Oréal, Estée Lauder and Creed.
+- **Confirmed correct:** Estée Lauder / MAC / Tom Ford 3-char code
+  (batch-month-year: A54 → May 2024, BC5 → December 2025) and Coty/Escada YDDD.
+- **Known gaps (safe — return "couldn't read", never a wrong date):** Acqua di
+  Parma (real codes like 2480Y) and Aesop (29N0624) do not match their assigned
+  parent-group decoders; both currently show that parent's format explanation on
+  their brand page, which is misleading and should be revisited. Chanel's soap
+  code 8401 does not decode (no ground-truth Chanel spec yet).
+- **Still pending:** a real audit of the user check dataset (which live searches
+  failed or mis-decoded) needs the production `.jsonl` exported off the VPS — it
+  is a private bind mount with no local copy.
+- Files: `src/lib/decoder/{decoders,index,types}.ts`, `src/lib/decoder-guides.ts`,
+  `src/lib/brand-detail.ts`, `src/components/{result-card,result-actions}.tsx`,
+  `src/app/[locale]/brands/[slug]/page.tsx`, `messages/en.json` +
+  `messages/{ru,de,es,tr,uk,pl,ro,ja,it}.json` (Creed/Dior/Escada prose),
+  `scripts/decoder-regression.test.ts`, `package.json`.
+- Verification: `tsc --noEmit`, decoder-example guard (all examples decode),
+  23/23 combined regression + quality suite. Not committed or deployed pending
+  owner review.
+
+## Completed — 0.6.0 (homepage wordmark marquee, local preview)
+
+- Replaced the homepage's favicon-based popular-brand cards with a continuous,
+  edge-faded wordmark rail modeled on the owner-supplied mobile reference.
+- Curated ten locally served SVG wordmarks linking to the matching brand pages:
+  Estée Lauder, Maybelline, Lancôme, YSL Beauty, Dior, Chanel, Creed, Jean Paul
+  Gaultier, Paco Rabanne and Carolina Herrera. The homepage no longer makes
+  runtime favicon requests for this section.
+- The marquee pauses on hover and keyboard focus. It becomes a manually
+  scrollable single row with no duplicated content when the user requests
+  reduced motion.
+- Added source URLs and trademark/non-affiliation notes in
+  `public/brand-wordmarks/README.md`. Current brand presentation and production
+  reuse rights remain **needs verification** before publication.
+- Added a regression that requires every curated asset to exist, verifies it is
+  SVG, rejects scripts/event handlers/external embedded images, and prevents the
+  homepage component from returning to `BrandLogo`/favicon loading.
+- Files: `package.json`, `PROJECT_STATUS.md`, `src/app/globals.css`,
+  `src/components/home/popular-brands.tsx`, `scripts/quality-regression.test.ts`,
+  `public/brand-wordmarks/*`.
+- Local preview: a 390 px-wide Turkish homepage screenshot rendered the new
+  borderless grey wordmark rail. Production publication is intentionally
+  pending owner review; no commit, push or deployment was performed.
+- Verification: local `tsc --noEmit` passed; targeted ESLint passed; the local
+  compiled decoder/quality suite passed 23/23, including the new wordmark asset
+  safety regression; `git diff --check` passed after the change.
+
+## Completed — 0.5.3 (brand packaging photo examples)
+
+- Added 43 owner-supplied packaging examples to 15 matching brand pages. Images
+  are center-cropped out of the supplied phone captures, converted to JPEG and
+  resized to 900 px for web delivery.
+- Reused the existing brand `codeImages` presentation directly below each
+  localized code-location explanation; no new unlocalized visible copy was
+  introduced.
+- Enforced the requested maximum of three images per brand in the registry and
+  in a regression test. Galleries contain one to three examples depending on
+  which source files were available for that brand.
+- Six representative outputs were visually spot-checked for brand/context and
+  code-location usefulness. Full editorial review of all 43 images and the
+  right to publish/reuse every supplied source remain **needs verification**;
+  the pages do not claim that the photos prove product authenticity.
+- Files: `package.json`, `PROJECT_STATUS.md`, `src/lib/brands.ts`,
+  `src/app/[locale]/brands/[slug]/page.tsx`,
+  `scripts/quality-regression.test.ts`, `public/brands/examples/*.jpg`.
+- Verification: local `tsc --noEmit` passed; targeted ESLint passed; local
+  compiled quality/decoder suite passed 22/22; `git diff --check` passed before
+  this status update. The `pnpm test:quality` wrapper itself failed before tests
+  because it attempted a registry metadata fetch and then refused a non-TTY
+  modules purge; the equivalent repository-local binaries passed.
+- Local preview: the Turkish Chanel route rendered all three registered image
+  paths at `http://127.0.0.1:3100/tr/brands/chanel`. Production publication is
+  intentionally pending owner review of the local preview; no commit, push or
+  deployment was performed in this change group.
 
 ## Completed — 0.2.0 (Phase 1)
 

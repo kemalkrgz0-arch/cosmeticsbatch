@@ -287,10 +287,10 @@
       "where2": "Sui flaconi più vecchi e pesanti il ​​codice può essere impresso invece che stampato; inclinarlo contro la luce.",
       "faq3q": "Un Creed più vecchio significa un Creed migliore?",
       "faq1q": "Come leggo un codice batch Creed?",
-      "faq1a": "Conta solo la prima lettera. Codifica l'anno di produzione, contando da A = 2010 e saltando I e O: N = 2022, P = 2023, Q = 2024, R = 2025. Tutto ciò che segue è una serie batch interna. Creed non codifica il mese, quindi il codice ti dà un anno e niente di più preciso.",
       "faq2q": "Il codice può dirmi se il mio Green Irish Tweed è autentico?",
       "faq2a": "In parte. Creed è tra le case produttrici di profumi più contraffatte e una prima lettera che non è affatto nel ciclo è un indizio semplice. Ma un codice copiato viene decodificato in modo pulito, quindi un codice valido non è una prova: pesa la bottiglia, guarda lo spray e la stampa sulla scatola e acquista da un rivenditore autorizzato.",
-      "faq3a": "Per le composizioni più pesanti e resinose una bottiglia più vecchia può essere davvero preferibile, perché le riformulazioni hanno cambiato diversi classici e il codice batch è l'unico modo per stabilire quale formula stai acquistando. Per i Creed più leggeri e agrumati, l'età è per lo più ossidazione e nessun beneficio."
+      "faq3a": "Per le composizioni più pesanti e resinose una bottiglia più vecchia può essere davvero preferibile, perché le riformulazioni hanno cambiato diversi classici e il codice batch è l'unico modo per stabilire quale formula stai acquistando. Per i Creed più leggeri e agrumati, l'età è per lo più ossidazione e nessun beneficio.",
+      "faq1a": "Creed utilizza due sistemi ed entrambi riportano l'anno, mai il mese. Le bottiglie più vecchie (2013-2022) portano un codice più lungo: un ID prodotto a tre caratteri, poi l'anno di produzione a due cifre, quindi la serie del lotto: in A4221N01 il 21 significa 2021 e in L6622A01B il 22 significa 2022. Dal 2023 il codice è stato semplificato in una F seguita da un numero progressivo, come F001704; qui la F indica la nuova generazione, quindi sai che è il 2023 o successivo ma non l'anno esatto."
     },
     "dior": {
       "where3": "Cura della pelle: stampigliato sulla base del barattolo, accanto al simbolo del barattolo aperto.",
@@ -299,9 +299,9 @@
       "faq3q": "Dov'è il codice lotto del rossetto Dior?",
       "faq2q": "Che aspetto ha un codice batch Dior?",
       "faq1q": "Come posso verificare se il mio profumo Dior è autentico?",
-      "faq2a": "Solitamente quattro cifre, come 3245. Dior non utilizza alcun codice segreto: come le altre case LVMH, stampa la data di produzione nel codice, come cifra dell'anno seguita dal giorno dell'anno. Alcuni codici riportano invece una data più lunga di 5 o 6 cifre.",
       "faq3a": "Sulla base piatta della custodia. Per prima cosa ruota completamente il proiettile verso il basso: il codice è stampato sulla base ed è facile non notarlo rispetto alla finitura metallica.",
-      "faq1a": "Cominciamo dai codici: quello sulla scatola e quello sulla bottiglia devono corrispondere, perché entrambi vengono applicati sulla stessa linea di riempimento a distanza di pochi minuti. Quindi decodifica: un numero di un giorno impossibile, o una data prima del lancio della fragranza, è un vero avvertimento. Ma comprendi il limite: un contraffattore che copia un codice autentico produce un codice che lo decodifica perfettamente. Il codice batch può smascherare un falso; non può certificarne uno reale."
+      "faq2a": "Inizia con una singola cifra per l'anno di produzione, quindi una lettera per il mese (da A è gennaio a M è dicembre, saltando la I) quindi un numero del giorno o del lotto. Quindi 5H03 è un lotto di agosto 2015 o 2025 e 9K44 è ottobre 2019. Poiché l'anno è una cifra, si ripete ogni decennio, quindi lo stile della bottiglia e la data di lancio della fragranza ti dicono quale decennio. Alcuni Dior vintage riportano invece una semplice data a 5 o 6 cifre.",
+      "faq1a": "Cominciamo dai codici: quello sulla scatola e quello sulla bottiglia devono corrispondere, perché entrambi vengono applicati sulla stessa linea di riempimento a distanza di pochi minuti. Quindi decodifica: un mese o un anno antecedente al lancio della fragranza è un vero avvertimento. Ma comprendi il limite: un contraffattore che copia un codice autentico produce un codice che lo decodifica perfettamente. Il codice batch può smascherare un falso; non può certificarne uno reale."
     },
     "dunhill": {
       "where1": "Sulla base della scatola e sul lato inferiore della bottiglia, stampato in nero sull'adesivo della base bianca.",
@@ -553,6 +553,19 @@
       "faq1a": "Di regola non è stampato: come la maggior parte delle fragranze porta invece un codice batch. Decodificatelo per la data di produzione e calcolate dai tre ai cinque anni di vita non aperta, il che è normale per un'eau de toilette conservata al riparo dalla luce e dal calore.",
       "faq2q": "Chi produce realmente il profumo Zara?",
       "faq2a": "Puig produce la linea di fragranze di Zara, motivo per cui i codici seguono il formato di Puig - e parte del motivo per cui diversi profumi di Zara invitano al confronto con le fragranze firmate prodotte anche da Puig."
+    },
+    "escada": {
+      "faq1q": "Come faccio a leggere il codice lotto su un profumo Escada?",
+      "faq2q": "La mia bottiglia Escada ha un codice come \"H 0100\" stampato sulla base: perché non viene decodificato?",
+      "faq3q": "Il profumo Escada scade?",
+      "faq2a": "Questo è un profumo Escada più vecchio precedente all'attuale codifica Coty; i mini dell'era Margaretha Ley stampano un lotto di lettere e numeri sulla base metallica invece di stampare un codice del giorno dell'anno a quattro cifre. Quei lotti vintage non seguono il formato letto da questo strumento, quindi non è possibile datarli. Non è un segno che la bottiglia sia falsa: la fabbrica ha semplicemente utilizzato un sistema diverso.",
+      "where3": "I mini profumi Escada più vecchi (l'era Margaretha Ley, distribuiti da Escada Beauté) stampano invece un breve lotto di lettere più numeri sulla piastra di base in metallo. Quel formato vintage non è il codice Coty a quattro cifre e non verrà decodificato qui.",
+      "faq1a": "La fragranza Escada è prodotta da Coty, che utilizza un codice a quattro cifre: la prima cifra è l'ultima cifra dell'anno di produzione e le restanti tre rappresentano il giorno di quell'anno. Quindi 0175 è il 175° giorno del 2020 – 23 giugno 2020. Aggiungi la durata di conservazione non aperta per stimare quanto tempo rimarrà al suo meglio.",
+      "where1": "Eau de parfum e eau de toilette moderne: sull'adesivo trasparente sotto la bottiglia di vetro, stampato come numero di quattro cifre sulla stessa riga del testo \"EAU DE PARFUM VAPORISATEUR\".",
+      "where2": "Cartone esterno: su un lembo terminale. I codici dell'adesivo e della scatola sono stampati insieme in fabbrica e dovrebbero essere uguali: in caso contrario, la bottiglia e la scatola sono state accoppiate da qualche altra parte.",
+      "faq4a": "No. Un codice che non si adatta alla forma a quattro cifre di Coty o che risale a prima del lancio del profumo è un vero segnale di avvertimento. Ma un codice ben formato copiato su un prodotto contraffatto viene decodificato in modo altrettanto pulito, quindi una data valida dimostra che il codice è reale, non il profumo. Acquistare da un rivenditore autorizzato rimane il controllo più forte.",
+      "faq3a": "La fragranza non ha una scadenza fissa, ma cambia. Una bottiglia Escada non aperta, mantenuta fresca e buia, mantiene il suo carattere per circa cinque anni; una volta aperto, le luminose note di testa fruttate svaniscono per prime. Una bottiglia che si è scurita o è diventata tagliente e acida si è ossidata indipendentemente da ciò che dice il codice.",
+      "faq4q": "Il codice batch può dimostrare che il mio Escada è autentico?"
     }
   },
   "contentPages": {

@@ -78,7 +78,9 @@
     "faqTitle": "{name} — Întrebări frecvente",
     "printsDateNote": "{name} imprimă data de fabricație sau de expirare direct pe ambalaj, așa că de obicei nu ai nevoie de un cod de lot.",
     "whereHeading": "Unde găsiți codul pe ambalajul {name}",
-    "exampleHeading": "Un cod {name} real, decodat"
+    "exampleHeading": "Un cod {name} real, decodat",
+    "decoderGuideLink": "Examinați formatul codului{name}și limitările",
+    "decoderGuideBody": "{name}este asociat cu{group}. Acolo unde codul său se potrivește cu formatul de grup observat, decodorul citește modelul de dată; Produsele regionale sau fabricate prin contract pot folosi un alt format."
   },
   "faqUi": {
     "title": "Întrebări frecvente",
@@ -274,23 +276,23 @@
     "creed": {
       "where1": "Pe baza sticlei și pe partea inferioară a cutiei - de obicei imprimate cu negru pe autocolantul de bază alb.",
       "where2": "Pe flacoanele mai vechi, mai grele, codul poate fi ștampilat mai degrabă decât imprimat; înclinați-l împotriva luminii.",
-      "faq1a": "Doar prima literă contează. Codifică anul de producție, numărând de la A = 2010 și sărind peste I și O: N = 2022, P = 2023, Q = 2024, R = 2025. Totul după care este o serie internă de lot. Creed nu codifică luna, așa că codul vă oferă un an și nimic mai fin.",
       "faq1q": "Cum citesc un cod de lot Creed?",
       "faq3q": "Un Creed mai vechi înseamnă un Creed mai bun?",
       "faq2q": "Îmi poate spune codul dacă Green Irish Tweed este autentic?",
       "faq2a": "Parţial. Creed este printre cele mai contrafăcute case în parfumuri, iar o primă literă care nu este deloc în ciclu este o poveste simplă. Dar un cod copiat decodifică curat, așa că un cod valid nu este o dovadă - cântăriți sticla, priviți spray-ul și imprimarea cutiei și cumpărați de la un comerciant autorizat.",
-      "faq3a": "Pentru compozițiile mai grele, rășinoase, o sticlă mai veche poate fi cu adevărat de preferat, deoarece reformulările au schimbat mai multe clasice - iar codul lotului este singura modalitate de a stabili ce formulă cumpărați. Pentru Creedurile mai ușoare, conduse de citrice, vârsta este în mare parte oxidare și nici un beneficiu."
+      "faq3a": "Pentru compozițiile mai grele, rășinoase, o sticlă mai veche poate fi cu adevărat de preferat, deoarece reformulările au schimbat mai multe clasice - iar codul lotului este singura modalitate de a stabili ce formulă cumpărați. Pentru Creedurile mai ușoare, conduse de citrice, vârsta este în mare parte oxidare și nici un beneficiu.",
+      "faq1a": "Creed folosește două sisteme și ambele indică anul, niciodată luna. Sticlele mai vechi (2013–2022) poartă un cod mai lung: un ID de produs cu trei caractere, apoi anul de producție cu două cifre, apoi seria lotului - în A4221N01, 21 înseamnă 2021, iar în L6622A01B, 22 înseamnă 2022. Din 2023, codul a fost simplificat astfel, după o secvență F. F001704; aici F marchează noua generație, așa că știi că este 2023 sau mai târziu, dar nu anul exact."
     },
     "dior": {
       "where3": "Îngrijirea pielii: ștampilat pe baza borcanului, lângă simbolul borcanului deschis.",
       "where2": "Machiaj: pe baza compactei, fundul carcasei de ruj, sau sertizarea unui tub.",
       "where1": "Parfum: pe baza cutiei exterioare și pe partea inferioară a sticlei - un mic autocolant imprimat sau gravat cu laser în sticla pe sticlele mai mari.",
-      "faq2a": "În mod obișnuit, patru cifre, cum ar fi 3245. Dior nu rulează niciun cifru secret - ca și celelalte case LVMH, imprimă data producției în cod, ca o cifră a anului urmată de ziua anului. Unele coduri au în schimb o dată mai lungă de 5 sau 6 cifre.",
       "faq1q": "Cum verific dacă parfumul meu Dior este autentic?",
-      "faq1a": "Începeți cu codurile: cel de pe cutie și cel de pe sticlă ar trebui să se potrivească, deoarece ambele sunt aplicate pe aceeași linie de umplere la câteva minute distanță. Apoi decodați - un număr imposibil de zi sau o dată înainte de lansarea parfumului, este un adevărat avertisment. Dar înțelegeți limita: un falsificator care copiază un cod autentic produce un cod care decodifică perfect. Codul lotului poate expune un fals; nu poate certifica unul real.",
       "faq3a": "Pe baza plată a carcasei. Răsuciți glonțul complet în jos mai întâi - codul este ștanțat în bază și este ușor de ratat împotriva finisajului metalic.",
       "faq2q": "Cum arată un cod de lot Dior?",
-      "faq3q": "Unde este codul lotului pe ruj Dior?"
+      "faq3q": "Unde este codul lotului pe ruj Dior?",
+      "faq2a": "Începe cu o singură cifră pentru anul de producție, apoi o literă pentru lună - A este ianuarie până la M este decembrie, sărind I - apoi un număr de zi sau de lot. Deci 5H03 este un lot din august 2015 sau 2025, iar 9K44 este octombrie 2019. Deoarece anul este o cifră, se repetă la fiecare deceniu, așa că stilul sticlei și data lansării parfumului vă spun în ce deceniu. Unele Diors vintage poartă în schimb o dată simplă de 5 sau 6 cifre.",
+      "faq1a": "Începeți cu codurile: cel de pe cutie și cel de pe sticlă ar trebui să se potrivească, deoarece ambele sunt aplicate pe aceeași linie de umplere la câteva minute distanță. Apoi decodați - o lună sau un an care precede lansarea parfumului este un adevărat avertisment. Dar înțelegeți limita: un falsificator care copiază un cod autentic produce un cod care decodifică perfect. Codul lotului poate expune un fals; nu poate certifica unul real."
     },
     "estee-lauder": {
       "where1": "Îngrijirea pielii: în relief pe baza borcanului sau a sticlei - presat în material, așa că are nevoie de o lumină de greblare mai degrabă decât de una directă.",
@@ -542,6 +544,19 @@
       "faq2q": "Cine face de fapt parfumul Zara?",
       "faq1q": "Parfumul Zara are data de expirare?",
       "faq2a": "Puig produce linia de parfumuri Zara, motiv pentru care codurile urmează formatul lui Puig - și o parte din motivul pentru care mai multe arome Zara invită la comparație cu parfumurile de designer pe care Puig le produce."
+    },
+    "escada": {
+      "where1": "Apă de parfum și apă de toaletă moderne: pe autocolantul transparent de sub sticla de sticlă, imprimat ca un număr din patru cifre pe aceeași linie cu textul „EAU DE PARFUM VAPORISATEUR”.",
+      "faq1q": "Cum citesc codul lotului pe un parfum Escada?",
+      "where2": "Cutie exterioară: pe o clapă de capăt. Autocolantul și codurile de carton sunt imprimate împreună din fabrică și ar trebui să citească la fel - dacă nu, sticla și cutia au fost împerecheate în altă parte.",
+      "faq1a": "Parfumul Escada este produs de Coty, care folosește un cod din patru cifre: prima cifră este ultima cifră a anului de producție, iar restul de trei sunt ziua acelui an. Deci 0175 este a 175-a zi a anului 2020 — 23 iunie 2020. Adăugați termenul de valabilitate nedeschis pentru a estima cât de mult rămâne în stare optimă.",
+      "where3": "Parfumurile mai vechi Escada (era Margaretha Ley, distribuită de Escada Beauté) ștampiază în schimb un lot scurt cu litere plus numere pe placa de bază metalică. Formatul de epocă nu este codul din patru cifre Coty și nu va decoda aici.",
+      "faq3q": "Parfumul Escada expiră?",
+      "faq2q": "Sticla mea Escada are un cod ca „H 0100” ștampilat pe bază – de ce nu va decoda?",
+      "faq2a": "Acesta este un parfum Escada mai vechi dinainte de codificarea actuală Coty; mini-urile din epoca Margaretha Ley ștampiază un lot cu litere și numere pe baza metalică, în loc să imprime un cod de patru cifre pentru ziua anului. Acele loturi de epocă nu respectă formatul pe care îl citește acest instrument, așa că nu le poate data. Nu este un semn că sticla este falsă - fabrica pur și simplu a folosit un alt sistem.",
+      "faq3a": "Parfumul nu are o durată de expirare, dar se schimbă. O sticlă nedeschisă de Escada păstrată rece și întunecată își păstrează caracterul timp de aproximativ cinci ani; odată deschis, notele de vârf fructate strălucitoare se estompează mai întâi. O sticlă care s-a întunecat sau a devenit ascuțit și acrișor s-a oxidat, indiferent de ceea ce spune codul.",
+      "faq4q": "Codul lotului poate dovedi că Escada meu este autentic?",
+      "faq4a": "Nu. Un cod care nu se potrivește cu forma de patru cifre a lui Coty sau care datează înainte de lansarea parfumului, este un adevărat semn de avertizare. Dar un cod bine format copiat pe un contrafăcut decodifică la fel de curat, așa că o dată validă dovedește că codul este real, nu parfumul. Cumpărarea de la un comerciant autorizat rămâne cea mai puternică verificare."
     }
   },
   "contentPages": {
@@ -566,5 +581,14 @@
     "whichCode": "Nu sunteți sigur ce cod de pe pachet este codul lotului?",
     "formatsIntro": "Formatul unui cod de lot aparține celui care produce produsul, nu numelui de pe sticla. Coty imprimă aceleași patru cifre pe Rimmel, Gucci și adidas; Inter Parfums imprimă aceleași nouă personaje pe Montblanc, Coach și Jimmy Choo. Învață cifrul o dată și poți citi fiecare marcă care îl împărtășește.",
     "brandCount": "mărci"
+  },
+  "lorealFamily": {
+    "heading": "Ce trebuie să știți despre codurile lot{name}și L'Oréal.",
+    "portfolio": "{name}este listat în portofoliul de mărci L'Oréal Groupe. Proprietatea grupului nu garantează că fiecare fabrică, piață sau produs mai vechi utilizează același format de cod de lot.",
+    "authenticity": "Un cod care decodifică cu succes nu poate dovedi că produsul este autentic, deoarece un cod poate fi copiat. Utilizați rezultatul ca o singură verificare a coerenței alături de vânzător, ambalaj, sigilii și calitatea imprimării.",
+    "format": "Un format L'Oréal observat în mod obișnuit combină un prefix din fabrică, o literă de an și caracterul lunii următoare. Decodorul aplică această citire numai atunci când codul introdus se potrivește cu modelul respectiv.",
+    "officialSource": "Confirmați marca în portofoliul oficial al L'Oréal Groupe",
+    "precision": "Acest format identifică o lună, nu o zi exactă. Orice zi afișată în rezultat este o estimare la mijlocul lunii. O dată tipărită de expirare sau de consumul maxim înainte de pe produs are întotdeauna prioritate.",
+    "decoderLabel": "Format de grup observat (precizia lunii)"
   }
 }

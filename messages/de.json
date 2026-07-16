@@ -287,21 +287,21 @@
       "where2": "Bei den älteren, schwereren Flakons kann der Code eingestanzt statt aufgedruckt werden; Richten Sie es gegen das Licht aus.",
       "faq1q": "Wie lese ich einen Creed-Batchcode?",
       "faq2q": "Kann mir der Code sagen, ob mein Green Irish Tweed echt ist?",
-      "faq1a": "Nur der erste Buchstabe zählt. Es kodiert das Produktionsjahr, gezählt von A = 2010 und überspringt I und O: N = 2022, P = 2023, Q = 2024, R = 2025. Alles danach ist eine interne Chargenserie. Creed kodiert den Monat nicht, daher gibt der Code ein Jahr und nichts Feineres an.",
       "faq3q": "Bedeutet ein älteres Creed ein besseres Creed?",
       "faq3a": "Für die schwereren, harzigen Zusammensetzungen kann eine ältere Flasche tatsächlich vorzuziehen sein, da durch Neuformulierungen mehrere Klassiker verändert wurden – und der Chargencode die einzige Möglichkeit ist, festzustellen, welche Formel Sie kaufen. Bei den leichteren, von Zitrusfrüchten geprägten Creeds ist das Alter hauptsächlich Oxidation und überhaupt kein Vorteil.",
-      "faq2a": "Teilweise. Creed gehört zu den am häufigsten gefälschten Parfümhäusern, und ein Anfangsbuchstabe, der überhaupt nicht im Zyklus enthalten ist, lässt sich leicht erkennen. Da ein kopierter Code jedoch sauber dekodiert wird, ist ein gültiger Code kein Beweis – wiegen Sie die Flasche, sehen Sie sich das Spray und den Aufdruck auf der Verpackung an und kaufen Sie bei einem autorisierten Händler."
+      "faq2a": "Teilweise. Creed gehört zu den am häufigsten gefälschten Parfümhäusern, und ein Anfangsbuchstabe, der überhaupt nicht im Zyklus enthalten ist, lässt sich leicht erkennen. Da ein kopierter Code jedoch sauber dekodiert wird, ist ein gültiger Code kein Beweis – wiegen Sie die Flasche, sehen Sie sich das Spray und den Aufdruck auf der Verpackung an und kaufen Sie bei einem autorisierten Händler.",
+      "faq1a": "Creed verwendet zwei Systeme und beide geben das Jahr an, niemals den Monat. Ältere Flaschen (2013–2022) tragen einen längeren Code: eine dreistellige Produkt-ID, dann das zweistellige Produktionsjahr, dann die Chargenserie – in A4221N01 bedeutet 21 das Jahr 2021 und in L6622A01B bedeutet die 22 2022. Ab 2023 wurde der Code zu einem F, gefolgt von einer Sequenznummer, wie F001704, vereinfacht; Hier markiert das F die neuere Generation, Sie wissen also, dass es 2023 oder später ist, aber nicht das genaue Jahr."
     },
     "dior": {
       "where2": "Make-up: auf dem Boden der Dose, auf dem Boden des Lippenstiftetuis oder auf dem Rand einer Tube.",
       "where3": "Hautpflege: Auf dem Boden des Tiegels neben dem Symbol „Geöffnetes Tiegel“ eingeprägt.",
       "faq1q": "Wie überprüfe ich, ob mein Dior-Parfüm echt ist?",
       "faq2q": "Wie sieht ein Dior-Chargencode aus?",
-      "faq1a": "Beginnen Sie mit den Codes: Der Code auf der Schachtel und der auf der Flasche sollten übereinstimmen, da beide im Abstand von Minuten auf derselben Fülllinie angebracht sind. Dann entschlüsseln Sie: Eine unmögliche Tageszahl oder ein Datum vor der Markteinführung des Duftes ist eine echte Warnung. Aber verstehen Sie die Grenze: Ein Fälscher, der einen echten Code kopiert, produziert einen Code, der perfekt entschlüsselt werden kann. Der Batch-Code kann eine Fälschung aufdecken; es kann keinen echten Nachweis erbringen.",
       "faq3q": "Wo ist der Chargencode des Dior-Lippenstifts?",
       "where1": "Duft: auf dem Boden der Umverpackung und auf der Unterseite der Flasche – ein kleiner gedruckter Aufkleber oder bei den größeren Flaschen per Laser in das Glas geätzt.",
-      "faq2a": "Typischerweise vier Ziffern, wie zum Beispiel 3245. Dior verwendet keine geheime Chiffre – wie die anderen LVMH-Häuser druckt es das Produktionsdatum in den Code ein, als Jahreszahl, gefolgt vom Tag des Jahres. Einige Codes tragen stattdessen ein längeres 5- oder 6-stelliges Datum.",
-      "faq3a": "Auf dem flachen Gehäuseboden. Drehen Sie das Geschoss zuerst ganz nach unten – der Code ist in die Basis eingestanzt und kann aufgrund der metallischen Oberfläche leicht übersehen werden."
+      "faq3a": "Auf dem flachen Gehäuseboden. Drehen Sie das Geschoss zuerst ganz nach unten – der Code ist in die Basis eingestanzt und kann aufgrund der metallischen Oberfläche leicht übersehen werden.",
+      "faq2a": "Es beginnt mit einer einzelnen Ziffer für das Produktionsjahr, dann einem Buchstaben für den Monat – A steht für Januar bis M für Dezember, wobei I ausgelassen wird – und dann einer Tages- oder Chargennummer. 5H03 ist also eine Charge vom August 2015 oder 2025 und 9K44 ist Oktober 2019. Da die Jahreszahl einstellig ist, wiederholt sie sich jedes Jahrzehnt, sodass Sie anhand des Flakonstils und des Startdatums des Dufts erkennen können, welches Jahrzehnt es ist. Einige Vintage-Diors tragen stattdessen ein einfaches 5- oder 6-stelliges Datum.",
+      "faq1a": "Beginnen Sie mit den Codes: Der Code auf der Schachtel und der auf der Flasche sollten übereinstimmen, da beide im Abstand von Minuten auf derselben Fülllinie angebracht sind. Dann dekodieren Sie: Ein Monat oder ein Jahr vor der Markteinführung des Duftes ist eine echte Warnung. Aber verstehen Sie die Grenze: Ein Fälscher, der einen echten Code kopiert, produziert einen Code, der perfekt entschlüsselt werden kann. Der Batch-Code kann eine Fälschung aufdecken; es kann keinen echten Nachweis erbringen."
     },
     "dunhill": {
       "where1": "Auf dem Boden der Schachtel und der Unterseite der Flasche, in Schwarz aufgedruckt, auf dem weißen Bodenaufkleber.",
@@ -553,6 +553,19 @@
       "faq1q": "Hat Zara-Parfüm ein Verfallsdatum?",
       "faq1a": "In der Regel nicht aufgedruckt – wie die meisten Düfte trägt es stattdessen einen Chargencode. Entschlüsseln Sie das Herstellungsdatum und rechnen Sie mit einer ungeöffneten Lebensdauer von drei bis fünf Jahren, was für ein Eau de Toilette, das vor Licht und Hitze geschützt aufbewahrt wird, normal ist.",
       "faq2a": "Puig stellt die Duftlinie von Zara her, weshalb die Codes dem Format von Puig folgen – und einer der Gründe, warum mehrere Düfte von Zara zum Vergleich mit Designerdüften einladen, die auch Puig herstellt."
+    },
+    "escada": {
+      "where1": "Modernes Eau de Parfum und Eau de Toilette: Auf dem durchsichtigen Aufkleber unter der Glasflasche, gedruckt als vierstellige Zahl in derselben Zeile wie der Text „EAU DE PARFUM VAPORISATEUR“.",
+      "faq1q": "Wie lese ich den Chargencode auf einem Escada-Parfüm?",
+      "faq2q": "Auf dem Boden meiner Escada-Flasche ist ein Code wie „H 0100“ eingeprägt – warum lässt er sich nicht entschlüsseln?",
+      "where2": "Umkarton: auf einer Endklappe. Die Aufkleber- und Kartoncodes werden im Werk zusammen gedruckt und sollten gleich lauten – ist dies nicht der Fall, wurden Flasche und Karton woanders gepaart.",
+      "faq2a": "Das ist ein älteres Escada-Parfüm aus der Zeit vor der aktuellen Coty-Kodierung; Die Minis aus der Margaretha-Ley-Ära stempeln ein Los mit Buchstaben und Zahlen in den Metallsockel, anstatt einen vierstelligen Tages-des-Jahres-Codes aufzudrucken. Diese Vintage-Lose folgen nicht dem Format, das dieses Tool liest, daher kann es sie nicht datieren. Das ist kein Zeichen dafür, dass es sich bei der Flasche um eine Fälschung handelt – die Fabrik hat einfach ein anderes System verwendet.",
+      "faq3q": "Läuft Escada Parfüm ab?",
+      "faq1a": "Der Duft Escada wird von Coty hergestellt, der einen vierstelligen Code verwendet: Die erste Ziffer ist die letzte Ziffer des Produktionsjahres und die restlichen drei sind der Tag dieses Jahres. 0175 ist also der 175. Tag des Jahres 2020 – 23. Juni 2020. Addieren Sie die ungeöffnete Haltbarkeitsdauer, um abzuschätzen, wie lange es am besten haltbar ist.",
+      "where3": "Ältere Escada Parfüm-Minis (aus der Margaretha-Ley-Ära, vertrieben von Escada Beauté) stempeln stattdessen eine kurze Buchstaben-plus-Zahlen-Charge in die Metallgrundplatte. Dieses Vintage-Format ist nicht der vierstellige Coty-Code und wird hier nicht dekodiert.",
+      "faq4q": "Kann der Chargencode beweisen, dass mein Escada echt ist?",
+      "faq3a": "Der Duft hat kein festes Ablaufdatum, aber er verändert sich. Eine ungeöffnete Escada-Flasche, kühl und dunkel gelagert, behält ihren Charakter etwa fünf Jahre lang; Nach dem Öffnen verblassen zunächst die hellen, fruchtigen Kopfnoten. Eine Flasche, die dunkel geworden oder scharf und sauer geworden ist, ist oxidiert, unabhängig davon, was im Code steht.",
+      "faq4a": "Nein. Ein Code, der nicht zur vierstelligen Form von Coty passt oder aus der Zeit vor der Markteinführung des Dufts stammt, ist ein echtes Warnzeichen. Aber ein wohlgeformter Code, der auf eine Fälschung kopiert wurde, entschlüsselt genauso sauber, sodass ein gültiges Datum beweist, dass der Code echt ist und nicht das Parfüm. Der Kauf bei einem autorisierten Händler bleibt die stärkere Prüfung."
     }
   },
   "contentPages": {

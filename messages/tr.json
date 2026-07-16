@@ -287,10 +287,10 @@
       "where1": "Şişenin tabanında ve kutunun alt kısmında - genellikle beyaz taban etiketinin üzerine siyah renkte basılmıştır.",
       "where2": "Daha eski, daha ağır şişelerde kod basılmak yerine damgalanabilir; ışığa doğru çevirin.",
       "faq3q": "Daha eski bir Creed daha iyi bir Creed anlamına mı gelir?",
-      "faq1a": "Yalnızca ilk harf önemlidir. A = 2010'dan başlayarak I ve O'yu atlayarak üretim yılını kodlar: N = 2022, P = 2023, Q = 2024, R = 2025. Ondan sonraki her şey dahili bir toplu seridir. Creed ayı kodlamaz, dolayısıyla kod size bir yıl verir ve bundan daha iyi bir şey vermez.",
       "faq2q": "Kod bana Green Irish Tweed cihazımın orijinal olup olmadığını söyleyebilir mi?",
       "faq2a": "Kısmen. Creed, koku alanında en çok taklit edilen markalar arasında yer alıyor ve döngüde yer almayan bir ilk harf, basit bir anlatımdır. Ancak kopyalanan kod temiz bir şekilde çözülür, bu nedenle geçerli bir kod kanıt değildir; şişeyi tartın, spreye ve kutu baskısına bakın ve yetkili bir satıcıdan satın alın.",
-      "faq3a": "Daha ağır, reçineli bileşimler için eski bir şişe gerçekten tercih edilebilir, çünkü yeniden formülasyonlar birçok klasiği değiştirmiştir ve batch kodu, hangi formülü satın aldığınızı belirlemenin tek yoludur. Daha hafif, narenciye ağırlıklı Creed'ler için yaş çoğunlukla oksidasyondur ve hiçbir faydası yoktur."
+      "faq3a": "Daha ağır, reçineli bileşimler için eski bir şişe gerçekten tercih edilebilir, çünkü yeniden formülasyonlar birçok klasiği değiştirmiştir ve batch kodu, hangi formülü satın aldığınızı belirlemenin tek yoludur. Daha hafif, narenciye ağırlıklı Creed'ler için yaş çoğunlukla oksidasyondur ve hiçbir faydası yoktur.",
+      "faq1a": "Creed iki sistem kullanır ve her ikisi de ayı değil yılı verir. Daha eski şişeler (2013–2022) daha uzun bir kod taşır: üç karakterli bir ürün kimliği, ardından iki basamaklı üretim yılı, ardından parti serisi - A4221N01'de 21, 2021, L6622A01B'de 22, 2022 anlamına gelir. 2023'ten itibaren kod, F001704 gibi bir sıra numarasıyla basitleştirildi; burada F yeni nesli işaret ediyor, yani 2023 veya sonrası olduğunu biliyorsunuz ancak tam yılı değil."
     },
     "dior": {
       "where1": "Koku: Dış kutunun tabanında ve şişenin alt tarafında - küçük baskılı bir etiket veya daha büyük şişelerin camına lazerle kazınmış.",
@@ -300,8 +300,8 @@
       "faq1q": "Dior parfümümün orijinal olup olmadığını nasıl kontrol ederim?",
       "faq3q": "Dior rujunun batch kodu nerede?",
       "faq3a": "Kasanın düz tabanında. İlk önce mermiyi tamamen aşağı çevirin; kod tabana damgalanmıştır ve metalik kaplama nedeniyle gözden kaçırılması kolaydır.",
-      "faq1a": "Kodlarla başlayın: Kutunun üzerindeki kod ile şişenin üzerindeki kod eşleşmelidir çünkü her ikisi de aynı dolum hattında birkaç dakika arayla uygulanır. Daha sonra şifreyi çözün; imkansız bir gün sayısı veya kokunun piyasaya sürülmesinden önceki bir tarih gerçek bir uyarıdır. Ancak sınırı anlayın: Orijinal bir kodu kopyalayan bir sahteci, kodu mükemmel şekilde çözen bir kod üretir. Toplu iş kodu bir sahtekarlığı ortaya çıkarabilir; gerçek olanı onaylayamaz.",
-      "faq2a": "Tipik olarak dört rakam, örneğin 3245. Dior, gizli bir şifre kullanmaz; diğer LVMH evleri gibi, üretim tarihini koda, yıl rakamı ve ardından yılın günü gelecek şekilde yazdırır. Bazı kodlar bunun yerine 5 veya 6 haneli daha uzun bir tarih taşır."
+      "faq2a": "Üretim yılı için tek bir rakamla başlar, ardından ay için bir harfle başlar - A, Ocak'tan M'ye, Aralık'tır, I atlanır - ve ardından bir gün veya parti numarası. Yani 5H03, Ağustos 2015 veya 2025 tarihli bir partidir ve 9K44, Ekim 2019'dur. Yıl tek basamaklı olduğundan her on yılda bir tekrarlanır, dolayısıyla şişe stili ve kokunun piyasaya çıkış tarihi size hangi on yılda olduğunu gösterir. Bazı vintage Dior'lar bunun yerine 5 veya 6 haneli sade bir tarih taşır.",
+      "faq1a": "Kodlarla başlayın: Kutunun üzerindeki kod ile şişenin üzerindeki kod eşleşmelidir çünkü her ikisi de aynı dolum hattında birkaç dakika arayla uygulanır. Sonra şifreyi çözün; kokunun piyasaya sürülmesinden önceki bir ay veya yıl gerçek bir uyarıdır. Ancak sınırı anlayın: Orijinal bir kodu kopyalayan bir sahteci, kodu mükemmel şekilde çözen bir kod üretir. Toplu iş kodu bir sahtekarlığı ortaya çıkarabilir; gerçek olanı onaylayamaz."
     },
     "dunhill": {
       "where1": "Kutunun tabanında ve şişenin alt tarafında, beyaz taban etiketinin üzerine siyah basılmıştır.",
@@ -553,6 +553,19 @@
       "faq1q": "Zara parfümünün son kullanma tarihi var mı?",
       "where1": "Koku kutusunun alt kapağında ve şişenin tabanında.",
       "faq1a": "Kural olarak basılı değil; çoğu koku gibi bunun yerine batch kodu taşıyor. Üretim tarihine göre kodunu çözün ve ışıktan ve ısıdan uzak tutulan bir eau de Toilette için normal olan üç ila beş yıllık açılmamış ömrünü hesaba katın."
+    },
+    "escada": {
+      "faq2q": "Escada şişemin tabanında \"H 0100\" damgalı bir kod var — neden kodu çözmüyor?",
+      "faq1q": "Escada parfümün parti kodunu nasıl okurum?",
+      "where1": "Modern eau de parfum ve eau de Toilette: Cam şişenin altındaki şeffaf etikette, \"EAU DE PARFUM VAPORISATEUR\" metniyle aynı satırda dört haneli bir sayı olarak basılmıştır.",
+      "faq1a": "Escada koku, dört haneli bir kod kullanan Coty tarafından üretilir: ilk rakam üretim yılının son rakamıdır ve geri kalan üç rakam o yılın günüdür. Yani 0175, 2020'nin 175. günü — 23 Haziran 2020. En iyi durumda ne kadar süre kalacağını tahmin etmek için açılmamış raf ömrünü ekleyin.",
+      "where2": "Dış karton: uç kapakta. Etiket ve karton kodları fabrikada birlikte basılmıştır ve aynı şekilde yazılmalıdır; eğer öyle değilse şişe ve kutu başka bir yerde eşleştirilmiştir.",
+      "where3": "Daha eski Escada parfüm minileri (Margaretha Ley dönemi, Escada Beauté tarafından dağıtılır), bunun yerine metal taban plakasına kısa bir harf artı rakam lotu damgalanır. Bu eski format dört haneli Coty kod değildir ve burada kodu çözülmeyecektir.",
+      "faq4q": "Parti kodu Escada cihazımın orijinal olduğunu kanıtlayabilir mi?",
+      "faq3q": "Escada parfümün son kullanma tarihi geçer mi?",
+      "faq3a": "Kokunun zor bir son kullanma tarihi yoktur, ancak değişir. Serin ve karanlık saklanan açılmamış bir Escada şişe, karakterini yaklaşık beş yıl boyunca korur; Bir kez açıldığında, önce parlak meyveli üst notalar kaybolur. Kararmış veya keskinleşmiş ve ekşimiş bir şişe, kodda ne söylenirse söylensin oksitlenmiştir.",
+      "faq2a": "Bu, mevcut Coty kodlamasından önceki eski bir Escada parfümüdür; Margaretha Ley dönemi minileri, dört haneli yılın günü kodunu yazdırmak yerine metal tabana bir harf ve rakam lotu damgalıyor. Bu vintage lotlar, bu aracın okuduğu formata uymadığından, bunların tarihlendirilmesi de mümkün değil. Bu şişenin sahte olduğuna dair bir işaret değil; fabrika sadece farklı bir sistem kullanmış.",
+      "faq4a": "Hayır. Coty'ın dört haneli şekline uymayan veya kokunun ortaya çıkışından öncesine ait olan bir kod, gerçek bir uyarı işaretidir. Ancak sahte bir ürüne kopyalanan iyi biçimlendirilmiş bir kod da aynı şekilde temiz bir şekilde çözülür; dolayısıyla geçerli bir tarih, kodun parfüm değil, gerçek olduğunu kanıtlar. Yetkili bir satıcıdan satın almak daha güçlü bir kontrol olmaya devam ediyor."
     }
   },
   "contentPages": {

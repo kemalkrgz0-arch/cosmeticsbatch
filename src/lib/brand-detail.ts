@@ -62,7 +62,7 @@ export const BRAND_DETAILS: Record<string, BrandDetail> = {
   "too-faced": { sampleCode: "B23" },
 
   // ---- LVMH + Chanel ------------------------------------------------------
-  dior: { sampleCode: "3245" },
+  dior: { sampleCode: "5H03" },
   chanel: { sampleCode: "3245" },
   "kenzo-parfums": { sampleCode: "24045" },
   guerlain: { sampleCode: "3245" },
@@ -72,6 +72,9 @@ export const BRAND_DETAILS: Record<string, BrandDetail> = {
   "hugo-boss": { sampleCode: "4135" },
   "calvin-klein": { sampleCode: "4135" },
   "roberto-cavalli": { sampleCode: "4135" },
+  // Real modern-EDP sticker code read off an owner photo; the vintage
+  // Margaretha Ley parfum minis use an older non-Coty base stamp (see FAQ).
+  escada: { sampleCode: "0175" },
 
   // ---- Puig ---------------------------------------------------------------
   "paco-rabanne": { sampleCode: "4135" },
@@ -84,7 +87,7 @@ export const BRAND_DETAILS: Record<string, BrandDetail> = {
   dunhill: { sampleCode: "08J38J169" },
 
   // ---- Independents -------------------------------------------------------
-  creed: { sampleCode: "Q5501" },
+  creed: { sampleCode: "A4221N01" },
   nivea: { sampleCode: "8153554" },
 };
 

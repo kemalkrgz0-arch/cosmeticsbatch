@@ -290,7 +290,7 @@
       "where2": "En los frascos más antiguos y pesados, el código se puede estampar en lugar de imprimir; inclínelo contra la luz.",
       "faq2a": "En parte. Creed se encuentra entre las casas de fragancias más falsificadas, y una primera letra que no está en absoluto en el ciclo es una señal clara. Pero un código copiado se decodifica limpiamente, por lo que un código válido no es una prueba: pesa la botella, observa el spray y la impresión de la caja y cómpralo en un minorista autorizado.",
       "faq3a": "Para las composiciones más pesadas y resinosas, una botella más antigua puede ser realmente preferible, porque las reformulaciones han cambiado varios clásicos, y el código de lote es la única forma de establecer qué fórmula está comprando. Para los Creeds más ligeros y cítricos, la edad es principalmente oxidación y ningún beneficio en absoluto.",
-      "faq1a": "Sólo importa la primera letra. Codifica el año de producción, contando desde A = 2010 y omitiendo I y O: N = 2022, P = 2023, Q = 2024, R = 2025. Todo lo que sigue es una serie de lotes internos. Creed no codifica el mes, por lo que el código te da un año y nada mejor."
+      "faq1a": "Creed utiliza dos sistemas y ambos dan el año, nunca el mes. Las botellas más antiguas (2013-2022) llevan un código más largo: una identificación de producto de tres caracteres, luego el año de producción de dos dígitos y luego la serie del lote; en A4221N01, el 21 significa 2021 y en L6622A01B, el 22 significa 2022. A partir de 2023, el código se simplificó a una F seguida de un número de secuencia, como F001704; aquí la F marca la generación más nueva, por lo que sabes que es 2023 o después, pero no el año exacto."
     },
     "dior": {
       "faq1q": "¿Cómo compruebo si mi perfume Dior es genuino?",
@@ -298,10 +298,10 @@
       "where3": "Cuidado de la piel: estampado en la base del frasco, junto al símbolo del frasco abierto.",
       "faq2q": "¿Cómo es un código de lote de Dior?",
       "faq3q": "¿Dónde está el código de lote del lápiz labial Dior?",
-      "faq1a": "Comienza con los códigos: el de la caja y el de la botella deben coincidir, porque ambos se aplican en la misma línea de llenado con minutos de diferencia. Luego, decodifica: un número de día imposible o una fecha anterior al lanzamiento de la fragancia es una verdadera advertencia. Pero comprenda el límite: un falsificador que copia un código genuino produce un código que se decodifica perfectamente. El código por lotes puede exponer una falsificación; no puede certificar uno real.",
       "where1": "Fragancia: en la base de la caja exterior y en la parte inferior de la botella, una pequeña pegatina impresa o grabada con láser en el cristal de las botellas más grandes.",
-      "faq2a": "Por lo general, cuatro dígitos, como 3245. Dior no utiliza ningún cifrado secreto; al igual que las otras casas de LVMH, imprime la fecha de producción en el código, como un dígito del año seguido del día del año. En su lugar, algunos códigos llevan una fecha más larga de 5 o 6 dígitos.",
-      "faq3a": "En la base plana del estuche. Primero, gire la bala completamente hacia abajo: el código está estampado en la base y es fácil pasarlo por alto en el acabado metálico."
+      "faq3a": "En la base plana del estuche. Primero, gire la bala completamente hacia abajo: el código está estampado en la base y es fácil pasarlo por alto en el acabado metálico.",
+      "faq1a": "Comienza con los códigos: el de la caja y el de la botella deben coincidir, porque ambos se aplican en la misma línea de llenado con minutos de diferencia. Luego decodifica: un mes o año anterior al lanzamiento de la fragancia es una verdadera advertencia. Pero comprenda el límite: un falsificador que copia un código genuino produce un código que se decodifica perfectamente. El código por lotes puede exponer una falsificación; no puede certificar uno real.",
+      "faq2a": "Comienza con un solo dígito para el año de producción, luego una letra para el mes (A es enero hasta M es diciembre, omitiendo I) y luego un número de día o lote. Entonces, 5H03 es un lote de agosto de 2015 o 2025 y 9K44 es de octubre de 2019. Debido a que el año es un dígito, se repite cada década, por lo que el estilo de la botella y la fecha de lanzamiento de la fragancia le indican en qué década. En su lugar, algunos Diors antiguos llevan una fecha simple de 5 o 6 dígitos."
     },
     "dunhill": {
       "faq1q": "¿Cómo leo un código de lote de Dunhill?",
@@ -553,6 +553,19 @@
       "faq1a": "Por regla general, no está impreso; como la mayoría de las fragancias, lleva un código de lote. Descodifica la fecha de fabricación y calcula entre tres y cinco años de vida sin abrir, lo que es normal para un eau de toilette mantenido alejado de la luz y el calor.",
       "faq2q": "¿Quién fabrica realmente el perfume de Zara?",
       "faq2a": "Puig fabrica la línea de fragancias de Zara, razón por la cual los códigos siguen el formato de Puig y parte de por qué varias fragancias de Zara invitan a compararse con fragancias de diseñador que también fabrica Puig."
+    },
+    "escada": {
+      "faq1q": "¿Cómo leo el código de lote de un perfume Escada?",
+      "where1": "Eau de parfum y eau de toilette modernos: en la etiqueta transparente debajo del frasco de vidrio, impreso como un número de cuatro dígitos en la misma línea que el texto \"EAU DE PARFUM VAPORISATEUR\".",
+      "where3": "Los mini perfumes Escada más antiguos (la era de Margaretha Ley, distribuidos por Escada Beauté) estampan un lote corto de letras y números en la placa base de metal. Ese formato antiguo no es el código Coty de cuatro dígitos y no se decodificará aquí.",
+      "faq1a": "La fragancia Escada es producida por Coty, que utiliza un código de cuatro dígitos: el primer dígito es el último dígito del año de producción y los tres restantes son el día de ese año. Entonces, 0175 es el día 175 de 2020: 23 de junio de 2020. Agregue la vida útil sin abrir para estimar cuánto tiempo permanece en su mejor momento.",
+      "where2": "Caja exterior: en una solapa final. La etiqueta y los códigos de la caja se imprimen juntos en la fábrica y deben leerse igual; si no es así, la botella y la caja se combinaron en otro lugar.",
+      "faq2q": "Mi botella Escada tiene un código como \"H 0100\" estampado en la base. ¿Por qué no se decodifica?",
+      "faq3q": "¿El perfume de Escada caduca?",
+      "faq4q": "¿Puede el código de lote demostrar que mi Escada es genuino?",
+      "faq4a": "No. Un código que no se ajusta a la forma de cuatro dígitos de Coty, o que data de antes del lanzamiento de la fragancia, es una verdadera señal de advertencia. Pero un código bien formado copiado en una falsificación se decodifica con la misma claridad, por lo que una fecha válida demuestra que el código es real, no el perfume. Comprar en un minorista autorizado sigue siendo el control más sólido.",
+      "faq3a": "La fragancia no tiene una caducidad definitiva, pero sí cambia. Una botella Escada sin abrir, mantenida fría y oscura, conserva su carácter durante unos cinco años; una vez abierta, las brillantes notas frutales de cabeza se desvanecen primero. Una botella que se ha oscurecido o se ha vuelto agria se ha oxidado independientemente de lo que diga el código.",
+      "faq2a": "Ese es un perfume Escada más antiguo, anterior a la codificación Coty actual; Las minis de la era Margaretha Ley estampan un lote de letras y números en la base de metal en lugar de imprimir un código de día del año de cuatro dígitos. Esos lotes antiguos no siguen el formato que lee esta herramienta, por lo que no puede fecharlos. No es una señal de que la botella sea falsa: la fábrica simplemente utilizó un sistema diferente."
     }
   },
   "contentPages": {

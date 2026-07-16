@@ -15,17 +15,27 @@ import {
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import type { CheckResult, FreshnessStatus } from "@/lib/decoder";
+import type { CheckResult, DatePrecision, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
 import { photoSubmissionCopy } from "@/lib/photo-submission-copy";
 
-const fmt = (d: Date | null, locale: string) =>
+// Some code families (L'Oréal, Estée Lauder) encode only year+month; the day in
+// `manufactureDate` is a mid-month placeholder, so we hide it rather than imply a
+// precision the code doesn't carry. "year"-precision codes (e.g. Creed) show only
+// the year; "day"/"variable" keep the full date.
+const fmt = (
+  d: Date | null,
+  locale: string,
+  precision: DatePrecision = "day",
+) =>
   d
     ? d.toLocaleDateString(locale, {
         year: "numeric",
-        month: "long",
-        day: "numeric",
+        ...(precision === "year" ? {} : { month: "long" }),
+        ...(precision === "month" || precision === "year"
+          ? {}
+          : { day: "numeric" }),
       })
     : "—";
 
@@ -282,7 +292,7 @@ export function ResultCard({
       <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-card">
         <div className="divide-y divide-border">
           <div className={pairedCells}>
-            <DataCell icon={CalendarDays} color={color} label={t("manufactureDate")} value={fmt(result.manufactureDate, locale)} />
+            <DataCell icon={CalendarDays} color={color} label={t("manufactureDate")} value={fmt(result.manufactureDate, locale, result.datePrecision)} />
             <DataCell icon={Clock} color={color} label={t("age")} value={result.ageLabel ?? "—"} />
           </div>
           <section
@@ -291,7 +301,7 @@ export function ResultCard({
           >
             <div className={pairedCells}>
               <DataCell icon={Hourglass} color={color} label={t("shelfLife")} value={months(result.shelfLifeMonths)} />
-              <DataCell icon={CalendarCheck} color={color} label={t("expirationDate")} value={fmt(result.expirationDate, locale)} />
+              <DataCell icon={CalendarCheck} color={color} label={t("expirationDate")} value={fmt(result.expirationDate, locale, result.datePrecision)} />
             </div>
             <div className="border-t border-border">
               <DataCell
@@ -353,6 +363,7 @@ export function ResultCard({
         manufactureDate={result.manufactureDate}
         expirationDate={result.expirationDate}
         percent={result.percentRemaining}
+        datePrecision={result.datePrecision}
       />
     </div>
   );

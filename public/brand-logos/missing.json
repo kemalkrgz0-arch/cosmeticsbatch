@@ -1,0 +1,1302 @@
+[
+  {
+    "slug": "estee-lauder",
+    "name": "Estée Lauder",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "la-mer",
+    "name": "La Mer",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "tom-ford-beauty",
+    "name": "Tom Ford Beauty",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "origins",
+    "name": "Origins",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "smashbox",
+    "name": "Smashbox",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "too-faced",
+    "name": "Too Faced",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "drjart",
+    "name": "Dr.Jart+",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "lab-series",
+    "name": "Lab Series",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "le-labo",
+    "name": "Le Labo",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "kilian-paris",
+    "name": "Kilian Paris",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "frederic-malle",
+    "name": "Frédéric Malle",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "bumble-and-bumble",
+    "name": "Bumble and bumble",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "bourjois",
+    "name": "Bourjois",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sally-hansen",
+    "name": "Sally Hansen",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "manhattan",
+    "name": "Manhattan",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "miss-sporty",
+    "name": "Miss Sporty",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "kylie-skin",
+    "name": "Kylie Skin",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "younique",
+    "name": "Younique",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "lancaster",
+    "name": "Lancaster",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "david-beckham",
+    "name": "David Beckham",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "bruno-banani",
+    "name": "Bruno Banani",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "jovan",
+    "name": "Jovan",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "nautica",
+    "name": "Nautica",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "enrique-iglesias",
+    "name": "Enrique Iglesias",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "beyonce",
+    "name": "Beyoncé",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "katy-perry",
+    "name": "Katy Perry",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "gucci-beauty",
+    "name": "Gucci Beauty",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "burberry-beauty",
+    "name": "Burberry Beauty",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "marc-jacobs-fragrances",
+    "name": "Marc Jacobs Fragrances",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "vera-wang",
+    "name": "Vera Wang",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "chopard",
+    "name": "Chopard",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "nikos",
+    "name": "Nikos",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sjp",
+    "name": "SJP",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "loreal-paris",
+    "name": "L'Oréal Paris",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "garnier",
+    "name": "Garnier",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "essie",
+    "name": "Essie",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "mixa",
+    "name": "Mixa",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "3ce",
+    "name": "3CE",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "la-roche-posay",
+    "name": "La Roche-Posay",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "cerave",
+    "name": "CeraVe",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "skinceuticals",
+    "name": "SkinCeuticals",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "skinbetter-science",
+    "name": "Skinbetter Science",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "lancome",
+    "name": "Lancôme",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ysl-beauty",
+    "name": "YSL Beauty",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "giorgio-armani-beauty",
+    "name": "Giorgio Armani Beauty",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "prada-beauty",
+    "name": "Prada Beauty",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "valentino-beauty",
+    "name": "Valentino Beauty",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "biotherm",
+    "name": "Biotherm",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "mugler",
+    "name": "Mugler",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "azzaro",
+    "name": "Azzaro",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ralph-lauren-fragrances",
+    "name": "Ralph Lauren Fragrances",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "cacharel",
+    "name": "Cacharel",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "helena-rubinstein",
+    "name": "Helena Rubinstein",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "it-cosmetics",
+    "name": "IT Cosmetics",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "shu-uemura",
+    "name": "Shu Uemura",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "loreal-professionnel",
+    "name": "L'Oréal Professionnel",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "matrix",
+    "name": "Matrix",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "pureology",
+    "name": "Pureology",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "mizani",
+    "name": "Mizani",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "color-wow",
+    "name": "Color Wow",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "givenchy-beauty",
+    "name": "Givenchy Beauty",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "kenzo-parfums",
+    "name": "Kenzo Parfums",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "loewe-perfumes",
+    "name": "Loewe Perfumes",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "acqua-di-parma",
+    "name": "Acqua di Parma",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "maison-francis-kurkdjian",
+    "name": "Maison Francis Kurkdjian",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "fresh",
+    "name": "Fresh",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "make-up-for-ever",
+    "name": "Make Up For Ever",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "fenty-beauty",
+    "name": "Fenty Beauty",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "fenty-skin",
+    "name": "Fenty Skin",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "chanel-beauty",
+    "name": "Chanel Beauty",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "michael-kors",
+    "name": "Michael Kors",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "maison-margiela",
+    "name": "Maison Margiela",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "creed",
+    "name": "Creed",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "zara",
+    "name": "Zara",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "van-cleef-arpels",
+    "name": "Van Cleef & Arpels",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "karl-lagerfeld",
+    "name": "Karl Lagerfeld",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "nivea",
+    "name": "Nivea",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "the-ordinary",
+    "name": "The Ordinary",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "niod",
+    "name": "NIOD",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "nars",
+    "name": "NARS",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "drunk-elephant",
+    "name": "Drunk Elephant",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "paulas-choice",
+    "name": "Paula's Choice",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "clarins",
+    "name": "Clarins",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sephora-collection",
+    "name": "Sephora Collection",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "dove",
+    "name": "Dove",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "axe",
+    "name": "Axe",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sunsilk",
+    "name": "Sunsilk",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "simple",
+    "name": "Simple",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ponds",
+    "name": "Pond's",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "st-ives",
+    "name": "St. Ives",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "dermalogica",
+    "name": "Dermalogica",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "murad",
+    "name": "Murad",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "hourglass",
+    "name": "Hourglass",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "living-proof",
+    "name": "Living Proof",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "tatcha",
+    "name": "Tatcha",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ren-clean-skincare",
+    "name": "REN Clean Skincare",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "nexxus",
+    "name": "Nexxus",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "herbal-essences",
+    "name": "Herbal Essences",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "secret",
+    "name": "Secret",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "native",
+    "name": "Native",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "aussie",
+    "name": "Aussie",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "first-aid-beauty",
+    "name": "First Aid Beauty",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "ouai",
+    "name": "Ouai",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "la-prairie",
+    "name": "La Prairie",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "coppertone",
+    "name": "Coppertone",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "aquaphor",
+    "name": "Aquaphor",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "chantecaille",
+    "name": "Chantecaille",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "clean-clear",
+    "name": "Clean & Clear",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "roc",
+    "name": "RoC",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "le-petit-marseillais",
+    "name": "Le Petit Marseillais",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ogx",
+    "name": "OGX",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "maui-moisture",
+    "name": "Maui Moisture",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "palmolive",
+    "name": "Palmolive",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sanex",
+    "name": "Sanex",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "eltamd",
+    "name": "EltaMD",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "pca-skin",
+    "name": "PCA Skin",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "filorga",
+    "name": "Filorga",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "schwarzkopf",
+    "name": "Schwarzkopf",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "syoss",
+    "name": "Syoss",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "got2b",
+    "name": "got2b",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "diadermine",
+    "name": "Diadermine",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "fa",
+    "name": "Fa",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "laneige",
+    "name": "Laneige",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sulwhasoo",
+    "name": "Sulwhasoo",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "etude",
+    "name": "Etude",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "mamonde",
+    "name": "Mamonde",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "hera",
+    "name": "Hera",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "iope",
+    "name": "Iope",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "primera",
+    "name": "Primera",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "espoir",
+    "name": "Espoir",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "illiyoon",
+    "name": "Illiyoon",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "the-face-shop",
+    "name": "The Face Shop",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "belif",
+    "name": "Belif",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "cnp-laboratory",
+    "name": "CNP Laboratory",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "su-m37",
+    "name": "Su:m37",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "o-hui",
+    "name": "O HUI",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "the-history-of-whoo",
+    "name": "The History of Whoo",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "physiogel",
+    "name": "Physiogel",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "vdl",
+    "name": "VDL",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "biore",
+    "name": "Bioré",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sensai",
+    "name": "Sensai",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "kanebo",
+    "name": "Kanebo",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "curel",
+    "name": "Curél",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "jergens",
+    "name": "Jergens",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "john-frieda",
+    "name": "John Frieda",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "molton-brown",
+    "name": "Molton Brown",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "guhl",
+    "name": "Guhl",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "cle-de-peau-beaute",
+    "name": "Clé de Peau Beauté",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "anessa",
+    "name": "Anessa",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "elixir",
+    "name": "Elixir",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "bareminerals",
+    "name": "bareMinerals",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "laura-mercier",
+    "name": "Laura Mercier",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ipsa",
+    "name": "Ipsa",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sekkisei",
+    "name": "Sekkisei",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "cosme-decorte",
+    "name": "Cosme Decorte",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "jill-stuart",
+    "name": "Jill Stuart",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "tarte",
+    "name": "Tarte",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "awake",
+    "name": "Awake",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "visee",
+    "name": "Visée",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "hada-labo",
+    "name": "Hada Labo",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "melano-cc",
+    "name": "Melano CC",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "oxy",
+    "name": "OXY",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sunplay",
+    "name": "Sunplay",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "gatsby",
+    "name": "Gatsby",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "bifesta",
+    "name": "Bifesta",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "lucido",
+    "name": "Lucido",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "pola",
+    "name": "POLA",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "orbis",
+    "name": "Orbis",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "jurlique",
+    "name": "Jurlique",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "three",
+    "name": "THREE",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "yves-rocher",
+    "name": "Yves Rocher",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sabon",
+    "name": "Sabon",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "arbonne",
+    "name": "Arbonne",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "flormar",
+    "name": "Flormar",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "natura",
+    "name": "Natura",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "avon",
+    "name": "Avon",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "the-body-shop",
+    "name": "The Body Shop",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "revlon",
+    "name": "Revlon",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "almay",
+    "name": "Almay",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "elizabeth-arden",
+    "name": "Elizabeth Arden",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "american-crew",
+    "name": "American Crew",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "cnd",
+    "name": "CND",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "elf-cosmetics",
+    "name": "e.l.f. Cosmetics",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "naturium",
+    "name": "Naturium",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "well-people",
+    "name": "Well People",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "keys-soulcare",
+    "name": "Keys Soulcare",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "wella-professionals",
+    "name": "Wella Professionals",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "nioxin",
+    "name": "Nioxin",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "sebastian-professional",
+    "name": "Sebastian Professional",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "opi",
+    "name": "OPI",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "clairol",
+    "name": "Clairol",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "byredo",
+    "name": "Byredo",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "penhaligons",
+    "name": "Penhaligon's",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "lartisan-parfumeur",
+    "name": "L'Artisan Parfumeur",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "dries-van-noten",
+    "name": "Dries Van Noten",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "avene",
+    "name": "Avène",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "klorane",
+    "name": "Klorane",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ducray",
+    "name": "Ducray",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "a-derma",
+    "name": "A-Derma",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "rene-furterer",
+    "name": "René Furterer",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "institut-esthederm",
+    "name": "Institut Esthederm",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "cetaphil",
+    "name": "Cetaphil",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "alastin",
+    "name": "Alastin",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "uriage",
+    "name": "Uriage",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "embryolisse",
+    "name": "Embryolisse",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "weleda",
+    "name": "Weleda",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "dr-hauschka",
+    "name": "Dr. Hauschka",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "burts-bees",
+    "name": "Burt's Bees",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "fancl",
+    "name": "FANCL",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "dhc",
+    "name": "DHC",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "albion",
+    "name": "Albion",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "canmake",
+    "name": "Canmake",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "cezanne",
+    "name": "Cezanne",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "kiss-me",
+    "name": "Kiss Me",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "glossier",
+    "name": "Glossier",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "the-inkey-list",
+    "name": "The Inkey List",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "kosas",
+    "name": "Kosas",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "ilia",
+    "name": "ILIA",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "merit",
+    "name": "Merit",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "rare-beauty",
+    "name": "Rare Beauty",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "tower-28",
+    "name": "Tower 28",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "summer-fridays",
+    "name": "Summer Fridays",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "glow-recipe",
+    "name": "Glow Recipe",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "farmacy",
+    "name": "Farmacy",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "sunday-riley",
+    "name": "Sunday Riley",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "milk-makeup",
+    "name": "Milk Makeup",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "westman-atelier",
+    "name": "Westman Atelier",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "augustinus-bader",
+    "name": "Augustinus Bader",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "medik8",
+    "name": "Medik8",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "obagi",
+    "name": "Obagi",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "cosrx",
+    "name": "COSRX",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "beauty-of-joseon",
+    "name": "Beauty of Joseon",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "anua",
+    "name": "Anua",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "some-by-mi",
+    "name": "Some By Mi",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "torriden",
+    "name": "Torriden",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "round-lab",
+    "name": "Round Lab",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "isntree",
+    "name": "Isntree",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "purito",
+    "name": "Purito",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "klairs",
+    "name": "Klairs",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "mixsoon",
+    "name": "Mixsoon",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "medicube",
+    "name": "Medicube",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "numbuzin",
+    "name": "Numbuzin",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "skin1004",
+    "name": "SKIN1004",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "axis-y",
+    "name": "Axis-Y",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "pyunkang-yul",
+    "name": "Pyunkang Yul",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "missha",
+    "name": "Missha",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "tony-moly",
+    "name": "Tony Moly",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "nature-republic",
+    "name": "Nature Republic",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "holika-holika",
+    "name": "Holika Holika",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "banila-co",
+    "name": "Banila Co",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "rom-nd",
+    "name": "rom&nd",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "clio",
+    "name": "Clio",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "peripera",
+    "name": "Peripera",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "abib",
+    "name": "Abib",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "goodal",
+    "name": "Goodal",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "vt-cosmetics",
+    "name": "VT Cosmetics",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "skinfood",
+    "name": "Skinfood",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "dalba",
+    "name": "d'Alba",
+    "reason": "no P154 logo with matching official site or label"
+  },
+  {
+    "slug": "dr-ceuracle",
+    "name": "Dr. Ceuracle",
+    "reason": "no Wikidata search result"
+  },
+  {
+    "slug": "ma-nyo",
+    "name": "Ma:nyo",
+    "reason": "no Wikidata search result"
+  }
+]

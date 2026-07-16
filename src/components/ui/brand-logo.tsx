@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { getBrandDomain, getBrandTile, logoSources } from "@/lib/brand-logos";
+import { getBrandLogo, getBrandTile } from "@/lib/brand-logos";
 import { cn } from "@/lib/utils";
 
 function monogram(name: string) {
@@ -39,9 +36,8 @@ function WordmarkSvg({ label, fg }: { label: string; fg: string }) {
 }
 
 /**
- * Brand logo tile. Loads the real favicon from the mapped official domain,
- * stepping through fallback sources, and finally shows a monogram if none load.
- * A fixed-size tile means no layout shift regardless of which source wins.
+ * Uses a local Wikidata P154 logo only when the entity's P856 official website
+ * matched our domain registry. Missing records retain an honest wordmark.
  */
 export function BrandLogo({
   name,
@@ -53,10 +49,7 @@ export function BrandLogo({
   className?: string;
 }) {
   const tile = getBrandTile(slug);
-  const domain = getBrandDomain(slug);
-  const sources = domain ? logoSources(domain) : [];
-  const [idx, setIdx] = useState(0);
-  const failed = idx >= sources.length;
+  const logo = getBrandLogo(slug);
 
   return (
     <span
@@ -65,25 +58,23 @@ export function BrandLogo({
         className,
       )}
     >
-      {failed && tile ? (
-        <span className="h-full w-full" style={{ backgroundColor: tile.bg }}>
-          <WordmarkSvg label={tile.label} fg={tile.fg ?? "#ffffff"} />
-        </span>
-      ) : failed ? (
-        <span className="font-semibold tracking-tight text-[#0a0a0a]">
-          {monogram(name)}
-        </span>
-      ) : (
+      {logo ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={sources[idx]}
+          src={logo.src}
           alt={`${name} logo`}
           loading="lazy"
           decoding="async"
-          referrerPolicy="no-referrer"
-          onError={() => setIdx((i) => i + 1)}
-          className="h-full w-full object-contain p-[15%]"
+          className="h-full w-full object-contain p-[10%]"
         />
+      ) : tile ? (
+        <span className="h-full w-full" style={{ backgroundColor: tile.bg }}>
+          <WordmarkSvg label={tile.label} fg={tile.fg ?? "#ffffff"} />
+        </span>
+      ) : (
+        <span className="font-semibold tracking-tight text-[#0a0a0a]">
+          {monogram(name)}
+        </span>
       )}
     </span>
   );

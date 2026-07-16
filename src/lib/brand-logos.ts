@@ -1,9 +1,6 @@
-/**
- * Brand → primary web domain. Logos are fetched at runtime from a logo CDN by
- * domain (never bundled into the repo), so no trademarked image files are
- * stored here. Anything without a mapping — or whose logo fails to load — falls
- * back to a neutral monogram.
- */
+import wikidataLogos from "./wikidata-brand-logos.json";
+
+/** Brand → primary official web domain, used to verify Wikidata entities. */
 const DOMAINS: Record<string, string> = {
   // Estée Lauder Companies
   "estee-lauder": "esteelauder.com",
@@ -235,9 +232,27 @@ export function getBrandDomain(slug: string): string | undefined {
   return DOMAINS[slug];
 }
 
+export interface WikidataBrandLogo {
+  src: string;
+  qid: string;
+  commonsFile: string;
+  domainVerified: boolean;
+}
+
+const WIKIDATA_LOGOS = wikidataLogos as Record<string, WikidataBrandLogo>;
+
+/** A local logo sourced from Wikidata P154 and verified against P856. */
+export function getBrandLogo(slug: string): WikidataBrandLogo | undefined {
+  return WIKIDATA_LOGOS[slug];
+}
+
+export function getBrandLogoInventory(): Readonly<Record<string, WikidataBrandLogo>> {
+  return WIKIDATA_LOGOS;
+}
+
 /**
- * Last-resort brand tiles used only after both real official-domain favicon
- * sources fail. They must never mask an available real brand asset.
+ * Last-resort brand tiles used only when Wikidata has no domain-verified P154
+ * logo. They must never mask an available real brand asset.
  */
 export interface BrandTile {
   label: string;
@@ -296,15 +311,4 @@ const BRAND_TILES: Record<string, BrandTile> = {
 
 export function getBrandTile(slug: string): BrandTile | undefined {
   return BRAND_TILES[slug];
-}
-
-/**
- * Load only from the brand's mapped official domain. Third-party favicon CDNs
- * often return a generic arrow/globe with HTTP 200 when no logo exists, which
- * makes an <img> error fallback impossible and misrepresents that placeholder
- * as the brand's identity. A missing official favicon must fail visibly so the
- * component can use its deterministic wordmark/monogram fallback instead.
- */
-export function logoSources(domain: string): string[] {
-  return [`https://${domain}/favicon.ico`];
 }

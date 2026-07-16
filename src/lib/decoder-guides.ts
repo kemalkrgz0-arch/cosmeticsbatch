@@ -264,37 +264,38 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "dior-lvmh-batch-code-format",
     decoderIds: ["dior", "chanel"],
-    title: "Dior, Chanel and LVMH Batch Codes: The Date Is in the Code",
+    title: "Dior, Chanel and LVMH Batch Codes: Reading the Date",
     description:
-      "Luxury houses don't run a secret cipher — Dior, Guerlain, Givenchy, Chanel and their siblings print the production date straight into the batch code. Here's how to see it.",
-    updated: "2026-07-12",
+      "Modern Dior uses a year-digit + month-letter code (5H03 = August 2015/2025). Its LVMH siblings and Chanel print a production date straight into the code. Here's how to read both.",
+    updated: "2026-07-16",
     readMinutes: 5,
     anatomy: {
-      code: "3245",
+      code: "5H03",
       parts: [
-        { chars: "3", means: "Last digit of the production year — 2023" },
-        { chars: "245", means: "Day of that year — day 245 is 2 September" },
+        { chars: "5", means: "Last digit of the production year — 2025 (or 2015; the digit repeats each decade)" },
+        { chars: "H", means: "Month letter — A = January … M = December, skipping I, so H = August" },
+        { chars: "03", means: "Day-or-batch number within that month — not certain, so only the month is read" },
       ],
     },
     examples: [
-      { code: "3245", note: "Year digit + day of year — the most common luxury pattern." },
-      { code: "24045", note: "A 5-digit variant: two year digits, then the day." },
-      { code: "231122", note: "A 6-digit packed calendar date: 22 November 2023." },
+      { code: "5H03", note: "Modern Dior: year digit 5, month letter H (August)." },
+      { code: "9K44", note: "Modern Dior: year digit 9 (2019), month letter K (October)." },
+      { code: "24045", note: "A sister house / vintage form: two year digits, then day-of-year." },
+      { code: "231122", note: "A packed calendar date: 22 November 2023." },
     ],
     sections: [
       {
-        heading: "There is no cipher to crack",
+        heading: "Dior's own code: year digit, month letter",
         body: [
-          "The persistent myth about luxury fragrance is that the houses encrypt the date and that decoding it requires insider knowledge. They don't. Dior, Guerlain, Givenchy, Kenzo, Loewe, Acqua di Parma and Maison Francis Kurkdjian — the LVMH beauty houses — print the production date directly into the batch code. So, in practice, does Chanel, which publishes no scheme at all but stamps a readable date anyway.",
-          "What varies is the packing. The date can appear as a year digit followed by the day of the year (4 characters), as two year digits followed by the day (5 characters), or as a packed calendar date in YYMMDD form (6 characters). Our decoder tries each shape and takes the most plausible reading.",
+          "Since 1998, Christian Dior fragrance and cosmetics have used a compact code that starts with the last digit of the production year, then a letter for the month. The month letters run A = January, B = February, on through M = December, skipping I to avoid confusion with the digit 1. So 5H03 is an August 2015-or-2025 batch and 9K44 is October 2019.",
+          "The two digits after the month letter are a day-or-batch number — Dior is not consistent about which — so the reliable read is the year and month, not a precise day. And because the year is a single digit, it repeats every ten years; the decade is inferred from the bottle itself.",
         ],
       },
       {
-        heading: "Reading one by hand",
+        heading: "Siblings and Chanel: the date in the digits",
         body: [
-          "- Count the digits. Four means year-digit plus day-of-year. Five means two year digits plus day-of-year. Six means year, month, day.",
-          "- For day-of-year forms, convert the day number to a month by dividing by about 30.4. Day 245 ÷ 30.4 ≈ 8.1 — early in the 9th month, September.",
-          "- If two readings both look valid, prefer the one that produces a date the product could plausibly have: a 2023 bottle of a fragrance launched in 2024 is telling you the reading is wrong.",
+          "The other LVMH beauty houses — Guerlain, Givenchy, Kenzo, Loewe, Acqua di Parma, Maison Francis Kurkdjian — and Chanel, which publishes no scheme at all, tend to print a production date straight into an all-digit code instead. That can be two year digits followed by the day of the year (24045), or a packed calendar date in YYMMDD form (231122 = 22 November 2023). The decoder reads those directly.",
+          "Reading one by hand: for Dior, take the first digit as the year and the letter as the month (A=1 … M=12, no I). For the all-digit houses, a run of day-of-year digits divided by about 30.4 gives the month. If two readings both look valid, prefer the one that produces a date the product could plausibly have.",
         ],
       },
       {
@@ -320,8 +321,8 @@ export const DECODER_GUIDES: DecoderGuide[] = [
         a: "Chanel has never published one. What is verifiable is that current Chanel products carry a readable production date in the code, and that is what we decode — labelled as a medium-confidence read, because there is no official scheme to check it against.",
       },
       {
-        q: "My Dior code has letters and won't decode.",
-        a: "The decoder needs a run of 4 to 6 digits. Some older Dior codes are alphanumeric internal references with no date. Those genuinely cannot be decoded — check for a printed expiry date instead.",
+        q: "My Dior code is a digit, a letter, then numbers (like 5H03).",
+        a: "That is the standard modern Dior code: the first digit is the year, the letter is the month (A = January to M = December, skipping I), and the rest is a day-or-batch number. We read the year and month from it. Codes with an unusual letter (R, S, U…) come from some vintage or special-import runs where the month letter shifts, and may not decode.",
       },
       {
         q: "Which brands does this cover?",
@@ -474,54 +475,57 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   {
     slug: "creed-batch-code-format",
     decoderIds: ["creed"],
-    title: "Creed Batch Codes: One Letter, One Year",
+    title: "Creed Batch Codes: Two Systems, Year Only",
     description:
-      "A Creed batch code encodes the production year in its first letter and nothing else. Here's the full letter table and what the code cannot tell you.",
-    updated: "2026-07-12",
+      "Creed has used two batch-code systems — a classic code (2013–2022) whose middle digits are the year, and a newer F-series (2023 on). Neither encodes the month. Here's how to read both.",
+    updated: "2026-07-16",
     readMinutes: 4,
     anatomy: {
-      code: "N1234",
+      code: "A4221N01",
       parts: [
-        { chars: "N", means: "Production year — the letter cycle starts at A = 2010 and skips I and O, so N = 2022" },
-        { chars: "1234", means: "Internal batch series — no date information" },
+        { chars: "A42", means: "Product code — identifies the fragrance line (A42 is a classic men's line), not a date" },
+        { chars: "21", means: "Production year — the two digits after the product code, so 21 = 2021" },
+        { chars: "N01", means: "Batch series within that year — no date information" },
       ],
     },
     examples: [
-      { code: "N1234", note: "Year letter N — 2022." },
-      { code: "Q5501", note: "Year letter Q — two years later." },
+      { code: "A4221N01", note: "Classic code — the middle 21 is 2021." },
+      { code: "L6622A01B", note: "Classic code — the middle 22 is 2022." },
+      { code: "F001704", note: "New F-series — F means 2023 or later; the exact year is not encoded." },
     ],
     sections: [
       {
         heading: "How the code is built",
         body: [
-          "Creed's code is the simplest in this reference and the least informative. The first letter is the production year, counting from A = 2010, skipping I and O to avoid confusion with 1 and 0. That makes N = 2022, P = 2023, Q = 2024, R = 2025.",
-          "Nothing else in the code is a date. The month is not encoded at all. A Creed code tells you the year the juice was bottled and stops there.",
+          "Creed has run two different systems, and neither encodes the month — a Creed code gives you a year at best.",
+          "The classic code (roughly 2013–2022) is the longer one: a three-character product code, then the two-digit production year, then a batch series. In A4221N01, A42 is the product line, 21 is 2021, and N01 is the batch. In L6622A01B, the 22 is 2022.",
+          "From 2023, Creed switched to a much simpler code that begins with F followed by a sequence number — F001704, F003235. The F marks the newer generation; the digits are a production-line sequence, not a date. So an F code tells you the fragrance was made in 2023 or later, but not exactly which year.",
         ],
       },
       {
         heading: "Reading one by hand",
         body: [
-          "- Take the first letter of the code.",
-          "- Count from A = 2010, skipping I and O: A 2010, B 2011, C 2012, D 2013, E 2014, F 2015, G 2016, H 2017, J 2018, K 2019, L 2020, M 2021, N 2022, P 2023, Q 2024, R 2025.",
-          "- That's it. There is no month to extract.",
+          "- If the code starts with a letter then two digits (A42…, L66…), it is a classic code: read the two digits that come straight after the product code — that pair is the year (21 = 2021).",
+          "- If the code starts with F followed by digits, it is the new series: you know it is 2023 or later, and higher sequence numbers (F003… over F001…) are later batches.",
+          "- Either way, there is no month to extract.",
         ],
       },
       {
         heading: "Why the year alone is usually enough",
         body: [
           "Fragrance is the one cosmetic category where a year of imprecision barely matters. A sealed Creed, stored away from sunlight and radiators, is typically fine for years — and the house's own reputation rests on juice that matures rather than spoils.",
-          "Where the year does matter is provenance. Creed is among the most counterfeited fragrance houses in the world, and a batch code whose first letter is not in the cycle at all is a straightforward tell.",
+          "Where the year does matter is provenance. Creed is among the most counterfeited fragrance houses in the world, and a code whose shape fits neither system is a straightforward tell.",
         ],
       },
     ],
     faq: [
       {
-        q: "My Creed code starts with a number.",
-        a: "The decoder looks for the first letter anywhere in the code, so a leading digit is not a problem. If there is no letter at all, the code is not a Creed year code.",
+        q: "My Creed code is just an F and some numbers.",
+        a: "That is the current F-series, used from 2023 onward. It confirms the bottle is from the newer generation but does not spell out the year, so the most anyone can say from an F code alone is 2023 or later.",
       },
       {
         q: "Can I get the month from the rest of the code?",
-        a: "No. The remaining characters are an internal batch series. Anyone claiming to derive a month from them is guessing.",
+        a: "No. Neither Creed system encodes the month — the classic code gives a year, the F-series gives only 2023-or-later. Anyone claiming to derive a month is guessing.",
       },
     ],
   },

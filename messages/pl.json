@@ -78,7 +78,9 @@
     "freshnessPara": "Once we read the manufacture date, we estimate freshness using {name}'s typical {shelf}-month shelf life for {category} products. Remember that the period-after-opening (about {pao} months) becomes the limit once you start using the product.",
     "printsDateNote": "{name} drukuje datę produkcji lub ważności bezpośrednio na opakowaniu, więc zwykle nie potrzebujesz kodu partii.",
     "exampleHeading": "Prawdziwy kod {name} , zdekodowany",
-    "whereHeading": "Gdzie znaleźć kod na opakowaniu {name}"
+    "whereHeading": "Gdzie znaleźć kod na opakowaniu {name}",
+    "decoderGuideLink": "Przejrzyj format i ograniczenia kodu{name}",
+    "decoderGuideBody": "{name}jest powiązany z{group}. Tam, gdzie jego kod pasuje do obserwowanego formatu grupy, dekoder odczytuje wzór daty; produkty regionalne lub wytwarzane na zlecenie mogą mieć inny format."
   },
   "faqUi": {
     "title": "Często zadawane pytania",
@@ -275,11 +277,11 @@
       "where1": "Na podstawie butelki i na spodzie pudełka — zwykle drukowane w kolorze czarnym na białej naklejce na podstawie.",
       "where2": "Na starszych, cięższych flakonach kod można wytłoczyć zamiast drukować; skieruj go pod światło.",
       "faq1q": "Jak odczytać kod partii Creed?",
-      "faq1a": "Liczy się tylko pierwsza litera. Koduje rok produkcji, licząc od A=2010 z pominięciem I i O: N=2022, P=2023, Q=2024, R=2025. Wszystko po nim to wewnętrzna seria wsadowa. Creed nie koduje miesiąca, więc kod podaje rok i nic lepszego.",
       "faq3q": "Czy starszy Creed oznacza lepszy Creed?",
       "faq2a": "Częściowo. Creed jest jednym z najczęściej podrabianych domów zapachowych, a pierwsza litera, która w ogóle nie występuje w cyklu, jest jednoznaczna. Jednak skopiowany kod dekoduje prawidłowo, więc prawidłowy kod nie jest dowodem — zważ butelkę, spójrz na spray i nadruk na pudełku i kup u autoryzowanego sprzedawcy.",
       "faq2q": "Czy kod może mi powiedzieć, czy mój Green Irish Tweed jest oryginalny?",
-      "faq3a": "W przypadku cięższych, żywicznych kompozycji rzeczywiście lepsza będzie starsza butelka, ponieważ zmiana składu zmieniła kilka klasyków – a kod partii to jedyny sposób na ustalenie, jaką formułę kupujesz. W przypadku lżejszych Creedów z nutą cytrusów wiek wynika głównie z utleniania i nie przynosi żadnych korzyści."
+      "faq3a": "W przypadku cięższych, żywicznych kompozycji rzeczywiście lepsza będzie starsza butelka, ponieważ zmiana składu zmieniła kilka klasyków – a kod partii to jedyny sposób na ustalenie, jaką formułę kupujesz. W przypadku lżejszych Creedów z nutą cytrusów wiek wynika głównie z utleniania i nie przynosi żadnych korzyści.",
+      "faq1a": "Creed używa dwóch systemów i oba podają rok, nigdy miesiąc. Starsze butelki (2013–2022) mają dłuższy kod: trzyznakowy identyfikator produktu, następnie dwucyfrowy rok produkcji, a następnie serię serii – w A4221N01 21 oznacza rok 2021, a w L6622A01B 22 oznacza rok 2022. Od 2023 r. kod został uproszczony do litery F, po której następuje numer kolejny, np. F001704; tutaj F oznacza nowszą generację, więc wiesz, że jest rok 2023 lub później, ale nie jest to dokładny rok."
     },
     "dior": {
       "where3": "Pielęgnacja skóry: wytłoczony na dnie słoiczka, obok symbolu otwartego słoiczka.",
@@ -287,10 +289,10 @@
       "faq1q": "Jak sprawdzić, czy moje perfumy Dior są oryginalne?",
       "where1": "Zapach: na podstawie zewnętrznego pudełka i na spodzie butelki – mała drukowana naklejka lub wytrawiona laserowo w szkle w przypadku większych butelek.",
       "faq2q": "Jak wygląda kod partii Dior?",
-      "faq2a": "Zwykle cztery cyfry, np. 3245. Dior nie używa żadnego tajnego szyfru — podobnie jak inne firmy LVMH wpisuje w kodzie datę produkcji, jako cyfrę roku, po której następuje dzień roku. Niektóre kody zawierają zamiast tego dłuższą 5- lub 6-cyfrową datę.",
-      "faq1a": "Zacznij od kodów: ten na pudełku i ten na butelce powinny pasować, ponieważ oba są nakładane na tę samą linię rozlewniczą w odstępie kilku minut. Następnie rozszyfruj — niemożliwa liczba dni lub data poprzedzająca premierę zapachu jest prawdziwym ostrzeżeniem. Ale zrozum granicę: fałszerz, który kopiuje prawdziwy kod, tworzy kod, który doskonale dekoduje. Kod partii może ujawnić podróbkę; nie może poświadczyć prawdziwego.",
       "faq3q": "Gdzie jest kod partii szminki Dior?",
-      "faq3a": "Na płaskiej podstawie obudowy. Najpierw przekręć kulę całkowicie w dół — kod jest wybity w podstawie i łatwo go przeoczyć na tle metalicznego wykończenia."
+      "faq3a": "Na płaskiej podstawie obudowy. Najpierw przekręć kulę całkowicie w dół — kod jest wybity w podstawie i łatwo go przeoczyć na tle metalicznego wykończenia.",
+      "faq2a": "Zaczyna się od pojedynczej cyfry oznaczającej rok produkcji, następnie litery oznaczającej miesiąc – A to styczeń do M to grudzień, z pominięciem I – a następnie numeru dnia lub partii. Zatem 5H03 to seria z sierpnia 2015 lub 2025 r., a 9K44 to październik 2019 r. Ponieważ rok ma jedną cyfrę, powtarza się co dekadę, więc styl butelki i data premiery zapachu wskazują, która dekada. Zamiast tego na niektórych zabytkowych Diorach widnieje zwykła 5- lub 6-cyfrowa data.",
+      "faq1a": "Zacznij od kodów: ten na pudełku i ten na butelce powinny pasować, ponieważ oba są nakładane na tę samą linię rozlewniczą w odstępie kilku minut. Następnie rozszyfruj — miesiąc lub rok poprzedzający premierę zapachu jest prawdziwym ostrzeżeniem. Ale zrozum granicę: fałszerz, który kopiuje prawdziwy kod, tworzy kod, który doskonale dekoduje. Kod partii może ujawnić podróbkę; nie może poświadczyć prawdziwego."
     },
     "dunhill": {
       "where1": "Na podstawie pudełka i na spodzie butelki nadruk w kolorze czarnym na białej naklejce na podstawie.",
@@ -542,6 +544,19 @@
       "faq2q": "Kto właściwie produkuje perfumy Zara?",
       "faq1a": "Z reguły nie jest to wydrukowany produkt – jak większość perfum, zawiera zamiast tego kod partii. Rozszyfruj datę produkcji i oblicz trwałość nieotwartej wody od trzech do pięciu lat, co jest normalne w przypadku wody toaletowej przechowywanej z dala od światła i ciepła.",
       "faq2a": "Puig produkuje linię zapachową Zara i dlatego kody są zgodne z formatem Puig — i po części dlatego, że kilka zapachów Zara zachęca do porównania z designerskimi zapachami, które również produkuje Puig."
+    },
+    "escada": {
+      "where1": "Nowoczesne wody perfumowane i toaletowe: na przezroczystej naklejce pod szklaną butelką, wydrukowane jako czterocyfrowa liczba w tym samym wierszu, co tekst „EAU DE PARFUM VAPORISATEUR”.",
+      "where2": "Karton zewnętrzny: na klapce końcowej. Kody na naklejce i na kartoniku są drukowane razem w fabryce i powinny brzmieć tak samo – jeśli tak nie jest, butelka i pudełko zostały sparowane gdzie indziej.",
+      "faq2q": "Moja butelka Escada ma na podstawie wybity kod „H 0100” — dlaczego nie można go rozszyfrować?",
+      "faq1q": "Jak odczytać kod partii perfum Escada?",
+      "where3": "Starsze Escada mini perfumy (z epoki Margaretha Ley, dystrybuowane przez Escada Beauté) zamiast tego stemplują krótką serię liter i cyfr na metalowej płycie podstawy. Ten format vintage nie jest czterocyfrowym kodem Coty i nie zostanie tutaj zdekodowany.",
+      "faq1a": "Escada zapach jest produkowany przez firmę Coty, która posługuje się czterocyfrowym kodem: pierwsza cyfra to ostatnia cyfra roku produkcji, a pozostałe trzy to dzień tego roku. Zatem 0175 to 175. dzień 2020 r. — 23 czerwca 2020 r. Dodaj okres przydatności do spożycia po nieotwartym opakowaniu, aby oszacować, jak długo pozostaje w najlepszym stanie.",
+      "faq3a": "Zapach nie ma twardego terminu ważności, ale się zmienia. Nieotwarta butelka Escada, przechowywana w chłodnym i ciemnym miejscu, zachowuje swój charakter przez około pięć lat; po otwarciu, jasne owocowe nuty głowy najpierw zanikają. Butelka, która pociemniała lub stała się ostra i kwaśna, utleniła się niezależnie od tego, co mówi kod.",
+      "faq2a": "To starsze Escada perfumy sprzed obecnego kodowania Coty; Miniatury z epoki Margarethy Ley stemplują partię liter i cyfr na metalowej podstawie, zamiast drukować czterocyfrowy kod dnia roku. Te zabytkowe partie nie mają formatu odczytywanego przez to narzędzie, więc nie może ich datować. Nie oznacza to, że butelka jest fałszywa — fabryka po prostu zastosowała inny system.",
+      "faq3q": "Czy Escada perfumy tracą ważność?",
+      "faq4q": "Czy kod partii może potwierdzić, że mój Escada jest autentyczny?",
+      "faq4a": "Nie. Kod, który nie pasuje do czterocyfrowego kształtu Coty lub który pochodzi sprzed premiery zapachu, jest prawdziwym znakiem ostrzegawczym. Ale dobrze sformułowany kod skopiowany na podróbkę dekoduje równie czysto, więc ważna data potwierdza, że ​​kod jest prawdziwy, a nie perfumy. Kupowanie u autoryzowanego sprzedawcy pozostaje silniejszym zabezpieczeniem."
     }
   },
   "contentPages": {
@@ -566,5 +581,14 @@
     "formatsTitle": "Formaty kodu wsadowego",
     "formatsIntro2": "Każda strona poniżej dokumentuje jedną rodzinę: to, co koduje każdy znak, prawdziwe kody dekodowane przez ten sam silnik, który napędza moduł sprawdzający, gdzie kod jest wydrukowany na opakowaniu i – co równie ważne – czego format nie może ci powiedzieć.",
     "brandCount": "marki"
+  },
+  "lorealFamily": {
+    "portfolio": "{name}jest wymieniony w portfolio marek L'Oréal Groupe. Własność grupowa nie gwarantuje, że każda fabryka, rynek lub starszy produkt używa tego samego formatu kodu partii.",
+    "heading": "Co warto wiedzieć o kodach partii{name}i L'Oréal.",
+    "format": "Powszechnie stosowany format L'Oréal łączy przedrostek fabryczny, literę roku i znak kolejnego miesiąca. Dekoder stosuje ten odczyt tylko wtedy, gdy wprowadzony kod pasuje do tego wzorca.",
+    "precision": "Ten format określa miesiąc, a nie dokładny dzień. Każdy dzień wyświetlony w wyniku jest szacunkowy w połowie miesiąca. Wydrukowana data ważności lub przydatności do spożycia na produkcie zawsze ma pierwszeństwo.",
+    "officialSource": "Potwierdź markę w L'Oréal oficjalnym portfolio Groupe",
+    "authenticity": "Kod, który pomyślnie odszyfruje, nie może udowodnić autentyczności produktu, ponieważ można go skopiować. Wykorzystaj wynik jako jedną kontrolę spójności obok sprzedawcy, opakowania, plomb i jakości druku.",
+    "decoderLabel": "Obserwowany format grupy (z dokładnością do miesiąca)"
   }
 }

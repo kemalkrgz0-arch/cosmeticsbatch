@@ -274,12 +274,15 @@ const chanel: Decoder = {
     const r = readEmbeddedDate(code, ctx.now);
     if (!r) return null;
     return {
+      // Chanel publishes no scheme and real Chanel codes often do NOT fit a
+      // year+day pattern (many return nothing at all). When a code happens to
+      // parse as a date it may still be coincidental, so this stays low.
       manufactureDate: r.date,
-      confidence: "medium",
+      confidence: "low",
       method: `${this.label} — ${r.method}`,
       notes: [
-        "Chanel does not confirm a public code scheme; this reads the production date embedded in the code.",
-        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the product stays good.",
+        "Chanel does not publish a batch-code scheme, and many genuine Chanel codes do not encode a readable date. This is a best-effort reading of the digits and may not be the true production date — treat it as an estimate only.",
+        "This is an estimated manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the product stays good.",
       ],
     };
   },
@@ -287,26 +290,71 @@ const chanel: Decoder = {
 
 /* -------------------------------------------------------------------------- */
 /*  Dior / LVMH beauty                                                        */
-/*  Parfums Christian Dior and sister LVMH houses (Guerlain, Givenchy, Kenzo,  */
-/*  Loewe, Acqua di Parma, MFK…) print a production date on the box base /      */
-/*  bottle sticker — year digit + Julian day, or a 5/6-digit date.             */
+/*  Modern Dior (since 1998): [year digit][month letter][day/batch], e.g.      */
+/*  5H03 = Aug 2015/2025, 9K44 = Oct 2019. The month letter runs A=Jan…M=Dec   */
+/*  skipping I. The year digit repeats each decade, so the decade is inferred  */
+/*  as the most recent non-future one. The trailing digits are a day OR batch  */
+/*  number, so we report month precision. Older/vintage all-digit codes fall   */
+/*  through to the embedded-date reader.                                       */
 /* -------------------------------------------------------------------------- */
+
+// A=Jan, B=Feb … H=Aug, J=Sep (I skipped), K=Oct, L=Nov, M=Dec.
+const DIOR_MONTH_LETTERS = "ABCDEFGHJKLM";
 
 const dior: Decoder = {
   id: "dior",
-  label: "Dior / LVMH production date",
+  label: "Dior / LVMH production code",
   explanation:
-    "Dior and its sister LVMH houses print the production date in the batch code — usually the last digit of the year followed by the day of the year (e.g. 4135 = the 135th day of 2024), sometimes as a 5- or 6-digit date. There is no separate month/plant cipher to memorise.",
+    "Modern Dior fragrances and cosmetics (since 1998) use a short code that starts with the last digit of the production year, followed by a letter for the month — A = January through M = December, skipping I. So 5H03 is an August 2015 or 2025 batch and 9K44 is October 2019. The two digits after the month are a day-or-batch number, and because the year is a single digit it repeats every decade, so the exact decade is read from the product itself. Some vintage bottles use a plain 5- or 6-digit date instead.",
   decode(code, ctx): DecodeAttempt | null {
-    const r = readEmbeddedDate(code, ctx.now);
+    const c = clean(code);
+    const now = ctx.now;
+
+    // Modern letter-month code: year digit + month letter + 1-3 day/batch digits.
+    const m = c.match(/^(\d)([A-Z])(\d{1,3})$/);
+    if (m) {
+      const monthIdx = DIOR_MONTH_LETTERS.indexOf(m[2]);
+      if (monthIdx !== -1) {
+        const month = monthIdx + 1;
+        const digit = Number(m[1]);
+        // Most recent non-future decade for this year digit.
+        let year = -1;
+        for (
+          let y = Math.floor(now.getUTCFullYear() / 10) * 10 + digit;
+          y >= 1990;
+          y -= 10
+        ) {
+          if (!inFuture(new Date(Date.UTC(y, month - 1, 1)), now)) {
+            year = y;
+            break;
+          }
+        }
+        if (year !== -1) {
+          return {
+            manufactureDate: new Date(Date.UTC(year, month - 1, 15)),
+            confidence: "medium",
+            datePrecision: "month",
+            method: `${this.label} (year ${year}, month ${month})`,
+            notes: [
+              "Dior's code gives the year and month; the trailing digits are a day-or-batch number, so only the month is certain.",
+              "The year digit repeats every decade — if this bottle is clearly older, subtract ten years.",
+              "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) governs how long the product stays good.",
+            ],
+          };
+        }
+      }
+    }
+
+    // Vintage / all-digit codes: fall back to an embedded production date.
+    const r = readEmbeddedDate(code, now);
     if (!r) return null;
     return {
       manufactureDate: r.date,
       confidence: "medium",
       method: `${this.label} — ${r.method}`,
       notes: [
-        "LVMH houses don't publish a fixed cipher; this reads the production date embedded in the code.",
-        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the product stays good.",
+        "This older Dior code carries a production date embedded in the digits.",
+        "This is the manufacture date. Once opened, the PAO symbol (open-jar icon) governs how long the product stays good.",
       ],
     };
   },
@@ -403,45 +451,55 @@ const julian: Decoder = {
 
 /* -------------------------------------------------------------------------- */
 /*  Creed                                                                     */
-/*  Modern Creed codes begin with a single letter encoding the production      */
-/*  year: A = 2010, B = 2011 … skipping I and O, so N = 2022, P = 2023,         */
-/*  Q = 2024, R = 2025. The month is not encoded, only the year.               */
+/*  Two real systems, year-precision only:                                     */
+/*   • Classic (2013–2022): [product][YY year][batch], e.g. A4221N01 → 2021,   */
+/*     L6622A01B → 2022. The year is the two digits after the 3-char product.  */
+/*   • New "F" series (2023+): F + sequence, e.g. F001704, F003235. The F only */
+/*     marks the post-2023 generation; the exact year is NOT encoded, so we    */
+/*     report 2023 as the earliest bound with a caveat.                        */
 /* -------------------------------------------------------------------------- */
-
-// A=2010, incrementing, with I and O removed to avoid confusion with 1 / 0.
-const CREED_YEAR_LETTERS = "ABCDEFGHJKLMNPQRSTUVWXYZ";
-
-function creedYear(letter: string): number | null {
-  const i = CREED_YEAR_LETTERS.indexOf(letter);
-  return i === -1 ? null : 2010 + i;
-}
 
 const creed: Decoder = {
   id: "creed",
-  label: "Creed year letter",
+  label: "Creed production code",
   explanation:
-    "Creed batch codes begin with a single letter that encodes the production year: A = 2010, B = 2011, and so on, skipping the letters I and O — so N = 2022, P = 2023, Q = 2024 and R = 2025. The remaining characters are the internal batch series. Creed does not encode the month, so only the manufacture year is certain.",
+    "Creed uses two batch-code systems, and both give the year only — never the month. Classic codes (2013–2022) read as a three-character product id, then the two-digit production year, then the batch series: A4221N01 is a 2021 batch, L6622A01B a 2022 one. From 2023, Creed switched to a simpler code that begins with F followed by a sequence number (F001704, F003235); the F marks the new generation but does not spell out the exact year, so only “2023 or later” is certain.",
   decode(code, ctx): DecodeAttempt | null {
     const c = clean(code);
-    const m = c.match(/[A-Z]/); // year is the first letter in the code
-    if (!m) return null;
-    const year = creedYear(m[0]);
-    if (year === null) return null;
-    // Year only — estimate mid-year, clamping to January if that lands ahead.
-    let date = new Date(Date.UTC(year, 6, 1));
-    if (inFuture(date, ctx.now)) {
-      date = new Date(Date.UTC(year, 0, 1));
-      if (inFuture(date, ctx.now)) return null;
+
+    // Classic 2013–2022: 3-char product ([A-Z]NN) + 2-digit year + letter-led batch.
+    const classic = c.match(/^[A-Z]\d{2}(\d{2})[A-Z][A-Z0-9]*$/);
+    if (classic) {
+      const year = 2000 + Number(classic[1]);
+      const date = new Date(Date.UTC(year, 6, 1));
+      if (year < 2010 || inFuture(date, ctx.now)) return null;
+      return {
+        manufactureDate: date,
+        confidence: "medium",
+        method: `${this.label} (classic ${year})`,
+        notes: [
+          "Creed's classic code carries the production year (the two digits after the product id) but not the month, so the day shown is a mid-year placeholder.",
+          "This is the manufacture year. Once opened, the open-jar (PAO) symbol governs how long the fragrance stays good.",
+        ],
+      };
     }
-    return {
-      manufactureDate: date,
-      confidence: "medium",
-      method: this.label,
-      notes: [
-        "Creed encodes only the production year (the first letter); the month is not in the code, so the day is estimated as mid-year.",
-        "This is the manufacture year. Once opened, the PAO symbol (open-jar icon) governs how long the fragrance stays good.",
-      ],
-    };
+
+    // New F-series (2023+): F + sequence. Year not encoded — report the 2023 floor.
+    if (/^F\d{3,6}$/.test(c)) {
+      const date = new Date(Date.UTC(2023, 0, 1));
+      if (inFuture(date, ctx.now)) return null;
+      return {
+        manufactureDate: date,
+        confidence: "low",
+        method: `${this.label} (F-series, 2023+)`,
+        notes: [
+          "This is Creed's newer F-series code. The F marks the 2023-or-later generation, but the exact year is not encoded — so this is the earliest possible production year, not a precise date. Higher sequence numbers (F003… vs F001…) are later batches.",
+          "Once opened, the open-jar (PAO) symbol governs how long the fragrance stays good.",
+        ],
+      };
+    }
+
+    return null;
   },
 };
 

@@ -1,5 +1,6 @@
-import type { Confidence, ProductCategory } from "./types";
+import type { Confidence, DatePrecision, ProductCategory } from "./types";
 import { FALLBACK_CHAIN, getDecoder } from "./decoders";
+import { getDecoderProfile } from "./profiles";
 
 export * from "./types";
 export { DECODERS, getDecoder } from "./decoders";
@@ -36,6 +37,12 @@ export interface CheckResult {
   /** 0–100 percent of shelf life remaining. */
   percentRemaining: number | null;
   confidence: Confidence;
+  /**
+   * Precision of the decoded date, from the winning decoder's profile. Codes
+   * like L'Oréal's encode only year+month — the day component of
+   * `manufactureDate` is a mid-month placeholder and must not be shown.
+   */
+  datePrecision: DatePrecision;
   method: string;
   notes: string[];
 }
@@ -86,6 +93,7 @@ export function checkBatchCode(input: CheckInput): CheckResult {
   let attempt = null as ReturnType<(typeof tried)[number]["decode"]> | null;
   let method = "No date could be read from this code";
   let confidence: Confidence = "none";
+  let datePrecision: DatePrecision = "day";
 
   for (const decoder of barcode ? [] : tried) {
     const res = decoder.decode(input.code, ctx);
@@ -93,6 +101,10 @@ export function checkBatchCode(input: CheckInput): CheckResult {
       attempt = res;
       method = res.method;
       confidence = res.confidence;
+      datePrecision =
+        res.datePrecision ??
+        getDecoderProfile(decoder.id)?.datePrecision ??
+        "day";
       if (res.notes) notes.push(...res.notes);
       break;
     }
@@ -110,6 +122,7 @@ export function checkBatchCode(input: CheckInput): CheckResult {
     freshness: "unknown",
     percentRemaining: null,
     confidence: "none",
+    datePrecision: "day",
     method,
     notes,
   };
@@ -150,6 +163,7 @@ export function checkBatchCode(input: CheckInput): CheckResult {
     freshness,
     percentRemaining,
     confidence,
+    datePrecision,
     method,
     notes: base.notes,
   };

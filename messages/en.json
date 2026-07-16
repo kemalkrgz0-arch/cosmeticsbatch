@@ -286,7 +286,7 @@
       "where1": "On the base of the bottle, and on the bottom of the box — usually printed in black on the white base sticker.",
       "where2": "On the older, heavier flacons the code can be stamped rather than printed; angle it against the light.",
       "faq1q": "How do I read a Creed batch code?",
-      "faq1a": "Only the first letter matters. It encodes the production year, counting from A = 2010 and skipping I and O: N = 2022, P = 2023, Q = 2024, R = 2025. Everything after it is an internal batch series. Creed does not encode the month, so the code gives you a year and nothing finer.",
+      "faq1a": "Creed uses two systems, and both give the year, never the month. Older bottles (2013–2022) carry a longer code: a three-character product id, then the two-digit production year, then the batch series — in A4221N01 the 21 means 2021, and in L6622A01B the 22 means 2022. From 2023 the code was simplified to an F followed by a sequence number, such as F001704; here the F marks the newer generation, so you know it is 2023 or later but not the exact year.",
       "faq2q": "Can the code tell me if my Green Irish Tweed is genuine?",
       "faq2a": "Partly. Creed is among the most counterfeited houses in fragrance, and a first letter that is not in the cycle at all is a straightforward tell. But a copied code decodes cleanly, so a valid code is not proof — weigh the bottle, look at the spray and the box printing, and buy from an authorised retailer.",
       "faq3q": "Does an older Creed mean a better Creed?",
@@ -297,9 +297,9 @@
       "where2": "Makeup: on the base of the compact, the bottom of the lipstick case, or the crimp of a tube.",
       "where3": "Skincare: stamped on the base of the jar, next to the open-jar symbol.",
       "faq1q": "How do I check whether my Dior perfume is genuine?",
-      "faq1a": "Start with the codes: the one on the box and the one on the bottle should match, because both are applied on the same filling line minutes apart. Then decode — an impossible day number, or a date before the fragrance launched, is a real warning. But understand the limit: a counterfeiter who copies a genuine code produces a code that decodes perfectly. The batch code can expose a fake; it cannot certify a real one.",
+      "faq1a": "Start with the codes: the one on the box and the one on the bottle should match, because both are applied on the same filling line minutes apart. Then decode — a month or year that predates the fragrance's launch is a real warning. But understand the limit: a counterfeiter who copies a genuine code produces a code that decodes perfectly. The batch code can expose a fake; it cannot certify a real one.",
       "faq2q": "What does a Dior batch code look like?",
-      "faq2a": "Typically four digits, such as 3245. Dior runs no secret cipher — like the other LVMH houses it prints the production date into the code, as a year digit followed by the day of the year. Some codes carry a longer 5- or 6-digit date instead.",
+      "faq2a": "It begins with a single digit for the production year, then a letter for the month — A is January through M is December, skipping I — then a day-or-batch number. So 5H03 is an August 2015 or 2025 batch and 9K44 is October 2019. Because the year is one digit it repeats every decade, so the bottle style and the fragrance's launch date tell you which decade. Some vintage Diors carry a plain 5- or 6-digit date instead.",
       "faq3q": "Where is the batch code on Dior lipstick?",
       "faq3a": "On the flat base of the case. Twist the bullet fully down first — the code is stamped into the base and is easy to miss against the metallic finish."
     },
@@ -309,6 +309,19 @@
       "faq1a": "Dunhill fragrance is made under licence by Inter Parfums. The first letter is the production year — a cycle skipping I and O, so J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 — and the last three digits are the day of that year.",
       "faq2q": "How do I check a Dunhill fragrance is authentic?",
       "faq2a": "Compare the box and bottle codes, then decode. A year letter outside the cycle, or codes that disagree, are real warnings. A clean decode is not proof — copied codes decode too."
+    },
+    "escada": {
+      "where1": "Modern eau de parfum and eau de toilette: on the clear sticker under the glass bottle, printed as a four-digit number on the same line as the \"EAU DE PARFUM VAPORISATEUR\" text.",
+      "where2": "Outer carton: on an end flap. The sticker and carton codes are printed together at the factory and should read the same — if they don't, the bottle and box were paired somewhere else.",
+      "where3": "Older Escada parfum minis (the Margaretha Ley era, distributed by Escada Beauté) stamp a short letter-plus-number lot into the metal base plate instead. That vintage format is not the four-digit Coty code and won't decode here.",
+      "faq1q": "How do I read the batch code on an Escada perfume?",
+      "faq1a": "Escada fragrance is produced by Coty, which uses a four-digit code: the first digit is the last digit of the production year, and the remaining three are the day of that year. So 0175 is the 175th day of 2020 — 23 June 2020. Add the unopened shelf life to estimate how long it stays at its best.",
+      "faq2q": "My Escada bottle has a code like \"H 0100\" stamped on the base — why won't it decode?",
+      "faq2a": "That is an older Escada parfum from before the current Coty coding; the Margaretha Ley-era minis stamp a letter-and-number lot into the metal base rather than printing a four-digit day-of-year code. Those vintage lots don't follow the format this tool reads, so it can't date them. It is not a sign the bottle is fake — the factory simply used a different system.",
+      "faq3q": "Does Escada perfume expire?",
+      "faq3a": "Fragrance has no hard expiry, but it does change. An unopened Escada bottle kept cool and dark holds its character for around five years; once opened, the bright fruity top notes fade first. A bottle that has darkened or turned sharp and sour has oxidised regardless of what the code says.",
+      "faq4q": "Can the batch code prove my Escada is genuine?",
+      "faq4a": "No. A code that doesn't fit Coty's four-digit shape, or that dates to before the scent launched, is a real warning sign. But a well-formed code copied onto a counterfeit decodes just as cleanly, so a valid date proves the code is real, not the perfume. Buying from an authorised retailer remains the stronger check."
     },
     "estee-lauder": {
       "where1": "Skincare: embossed on the base of the jar or bottle — pressed into the material, so it needs a raking light rather than a direct one.",

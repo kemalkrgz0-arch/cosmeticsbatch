@@ -21,7 +21,7 @@ import {
 import { InlineResult } from "@/components/inline-result";
 import { buildBrandFaqs, brandIntroSections } from "@/lib/brand-faq";
 import { guideForBrand } from "@/lib/decoder-guides";
-import { DECODERS } from "@/lib/decoder";
+import { DECODERS, getDecoderProfile } from "@/lib/decoder";
 import { GUIDES } from "@/lib/guides";
 import { contentTranslator, localizeGuide } from "@/lib/content-i18n";
 import { isEditorialLocaleReviewed } from "@/lib/content-review";
@@ -119,6 +119,9 @@ export default async function BrandPage({
         now: new Date(),
       })
     : null;
+  // Match the checker: hide the placeholder day for month/year-precision codes.
+  const samplePrecision =
+    getDecoderProfile(brand.decoderId ?? "")?.datePrecision ?? "day";
   const has = (key: string) => t.has(`brandDetail.${brand.slug}.${key}`);
   const whereLines = detail
     ? Array.from({ length: MAX_WHERE_LINES }, (_, i) => `where${i + 1}`)
@@ -320,17 +323,21 @@ export default async function BrandPage({
           {i === 0 && brand.codeImages && brand.codeImages.length > 0 && (
             <figure className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {brand.codeImages.map((img) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <div
                   key={img.src}
-                  src={img.src}
-                  alt={`Where to find the batch code on ${brand.name} packaging`}
-                  width={img.width}
-                  height={img.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-auto w-full rounded-xl border border-border bg-card"
-                />
+                  className="relative overflow-hidden rounded-xl border border-border bg-card"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={img.src}
+                    alt={`Where to find the batch code on ${brand.name} packaging`}
+                    width={img.width}
+                    height={img.height}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-auto w-full"
+                  />
+                </div>
               ))}
             </figure>
           )}
@@ -354,8 +361,13 @@ export default async function BrandPage({
               <span className="font-medium">
                 {sample.manufactureDate.toLocaleDateString(locale, {
                   year: "numeric",
-                  month: "long",
-                  day: "numeric",
+                  ...(samplePrecision === "year"
+                    ? {}
+                    : { month: "long" }),
+                  ...(samplePrecision === "month" ||
+                  samplePrecision === "year"
+                    ? {}
+                    : { day: "numeric" }),
                   timeZone: "UTC",
                 })}
               </span>

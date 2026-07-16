@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import test from "node:test";
 import { BRAND_DETAILS } from "../src/lib/brand-detail";
 import {
@@ -17,7 +17,7 @@ import {
   PHOTO_SUBMISSION_LOCALES,
   photoSubmissionCopy,
 } from "../src/lib/photo-submission-copy";
-import { getBrandDomain, logoSources } from "../src/lib/brand-logos";
+import { getBrandLogoInventory } from "../src/lib/brand-logos";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -45,6 +45,24 @@ test("brand catalog has unique identities and valid core fields", () => {
     }
   }
 });
+
+test("brand batch-code galleries are bounded and reference public assets", () => {
+  for (const brand of ALL_BRANDS) {
+    assert.ok(
+      (brand.codeImages?.length ?? 0) <= 3,
+      `${brand.slug} exposes more than three batch-code photos`,
+    );
+    for (const image of brand.codeImages ?? []) {
+      assert.match(image.src, /^\/brands\//, `${brand.slug} has a non-brand image path`);
+      assert.ok(
+        existsSync(`public${image.src}`),
+        `${brand.slug} references missing image ${image.src}`,
+      );
+      assert.ok(image.width > 0 && image.height > 0, `${image.src} has invalid dimensions`);
+    }
+  }
+});
+
 test("every indexable brand meets the editorial and decoder threshold", () => {
   assert.deepEqual(
     INDEXED_BRANDS.map((brand) => brand.slug).sort(),
@@ -86,11 +104,20 @@ test("content review manifest contains only known, current source keys", () => {
     assert.equal(new Set(keys).size, keys.length, `${locale} review manifest has duplicate keys`);
     for (const key of keys) assert.ok(sourceKeys.has(key), `${locale} reviewed unknown key ${key}`);
   }
-  assert.deepEqual(
-    new Set(reviewedContent.ru ?? []),
-    sourceKeys,
-    "Russian is declared reviewed but does not cover the complete source corpus",
-  );
+  // Russian is the fully hand-reviewed locale, with one documented exception:
+  // the 2026-07-16 decoder-format correction rewrote the Creed and Dior guides
+  // (their old ciphers were factually wrong), so those strings were re-translated
+  // by machine and un-reviewed pending native re-review. Russian must still cover
+  // the entire corpus apart from those Creed/Dior guide keys.
+  const pendingReReview = /^dec\.(creed-batch-code-format|dior-lvmh-batch-code-format)\./;
+  const ruReviewed = new Set(reviewedContent.ru ?? []);
+  for (const key of sourceKeys) {
+    if (ruReviewed.has(key)) continue;
+    assert.ok(
+      pendingReReview.test(key),
+      `Russian reviewed corpus is missing ${key}; only Creed/Dior guide strings may be pending re-review`,
+    );
+  }
 });
 
 test("priority L'Oréal locales contain complete cautious editorial copy", () => {
@@ -152,27 +179,52 @@ test("photo review flow has complete copy for every active locale", () => {
   }
 });
 
-test("brand logo inventory only omits discontinued licensed lines without an official site", () => {
-  const intentionallyUnmapped = new Set([
-    "beyonce",
-    "enrique-iglesias",
-    "jovan",
-    "katy-perry",
-    "nikos",
-    "sjp",
-  ]);
-  const unmapped = BRANDS.filter((brand) => !getBrandDomain(brand.slug)).map(
-    (brand) => brand.slug,
-  );
-  assert.deepEqual(unmapped.sort(), [...intentionallyUnmapped].sort());
-  for (const brand of BRANDS) {
-    const domain = getBrandDomain(brand.slug);
-    if (!domain) continue;
-    assert.match(domain, /^[a-z0-9.-]+$/i, `${brand.slug} has an invalid logo domain`);
-    assert.deepEqual(
-      logoSources(domain),
-      [`https://${domain}/favicon.ico`],
-      `${brand.slug} uses a third-party or placeholder-prone logo source`,
+test("brand logo inventory contains only verified local Wikidata assets", () => {
+  const inventory = getBrandLogoInventory();
+  assert.ok(Object.keys(inventory).length >= 70, "Wikidata logo coverage regressed below baseline");
+  for (const [slug, logo] of Object.entries(inventory)) {
+    assert.ok(ALL_BRANDS.some((brand) => brand.slug === slug), `${slug} is not a catalog brand`);
+    assert.match(logo.qid, /^Q\d+$/, `${slug} has an invalid Wikidata entity`);
+    assert.equal(logo.domainVerified, true, `${slug} was not verified by official domain`);
+    assert.match(logo.src, /^\/brand-logos\//, `${slug} has a non-local logo`);
+    assert.ok(existsSync(`public${logo.src}`), `${slug} references missing ${logo.src}`);
+    if (logo.src.endsWith(".svg")) {
+      const svg = readFileSync(`public${logo.src}`, "utf8");
+      assert.doesNotMatch(
+        svg,
+        /<script|javascript:|onload=|onerror=|<image|<foreignObject/i,
+        `${slug} logo contains active or externally embedded SVG content`,
+      );
+    }
+  }
+  const component = readFileSync("src/components/ui/brand-logo.tsx", "utf8");
+  assert.doesNotMatch(component, /favicon|logoSources|https?:\/\//i);
+});
+
+test("homepage marquee uses curated local wordmarks instead of favicons", () => {
+  const component = readFileSync("src/components/home/popular-brands.tsx", "utf8");
+  assert.doesNotMatch(component, /from\s+["'].*brand-logo|<BrandLogo|getBrandDomain/);
+  const assets = [
+    "carolina-herrera.svg",
+    "chanel.svg",
+    "creed.svg",
+    "dior.svg",
+    "estee-lauder.svg",
+    "jean-paul-gaultier.svg",
+    "lancome.svg",
+    "maybelline.svg",
+    "paco-rabanne.svg",
+    "ysl-beauty.svg",
+  ];
+  for (const asset of assets) {
+    const path = `public/brand-wordmarks/${asset}`;
+    assert.ok(existsSync(path), `missing homepage wordmark ${asset}`);
+    const svg = readFileSync(path, "utf8");
+    assert.match(svg, /<svg\b/i, `${asset} is not SVG`);
+    assert.doesNotMatch(
+      svg,
+      /<script|javascript:|onload=|onerror=|<image|<foreignObject/i,
+      `${asset} contains active or externally embedded SVG content`,
     );
   }
 });
@@ -202,4 +254,17 @@ test("public page routes do not reintroduce a noindex directive", () => {
     /disallow:/i,
     "robots.ts blocks a public route",
   );
+});
+
+test("private review routes are excluded from analytics and consent rendering", () => {
+  const layout = readFileSync("src/app/[locale]/layout.tsx", "utf8");
+  const boundary = readFileSync("src/components/tracking-boundary.tsx", "utf8");
+  assert.doesNotMatch(
+    layout,
+    /googletagmanager|YandexMetrica|CookieConsent|dangerouslySetInnerHTML/,
+    "root locale layout still injects tracking directly",
+  );
+  assert.match(boundary, /pathname\.split\("\/"\)\.includes\("review"\)/);
+  assert.match(boundary, /if \(isPrivateReviewPath\(pathname\)\) return null/);
+  assert.match(boundary, /googletagmanager\.com|YandexMetrica|CookieConsent/);
 });
