@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-16
-Current version: **0.10.2**
+Current version: **0.10.3**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,25 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.10.3 (mobile result navigation reliability)
+
+- Fixed the batch-check form so submitting a code uses locale-aware in-app
+  navigation instead of replacing the entire document. A transient mobile
+  network failure can therefore no longer replace CosmeticsBatch with the
+  browser's terminal “page couldn't load” screen before the inline result and
+  its retry state can render.
+- Production diagnosis: the English Dior result document and same-origin decode
+  API both returned HTTP 200; the API produced a valid decoded result. Repeated
+  English page checks completed in about 0.46 seconds and the Turkish sample in
+  about 1.12 seconds. The reported failure is therefore consistent with an
+  intermittent full-navigation failure rather than a decoder outage.
+- Files: `src/components/check-form.tsx`, `package.json`, `PROJECT_STATUS.md`.
+- Verification: scoped ESLint, TypeScript, 26/26 regression tests and the
+  267-page production build passed. The build retains the pre-existing NFT
+  tracing warning for private photo storage; no new warning was introduced.
+- Deployment: not yet deployed. Real iOS Chrome/Safari verification remains
+  required after deployment.
 
 ## Completed — 0.10.2 (Chanel Beauty image quarantine)
 

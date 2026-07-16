@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { Check, ChevronDown, ScanLine, Search, X } from "lucide-react";
 import { BRANDS, searchBrands, type Brand } from "@/lib/brands";
 import { BrandLogo } from "@/components/ui/brand-logo";
@@ -47,7 +46,6 @@ export function CheckForm({
   className?: string;
 }) {
   const router = useRouter();
-  const locale = useLocale();
   const t = useTranslations();
   const [brand, setBrand] = useState<Brand | undefined>(initialBrand);
   const [code, setCode] = useState("");
@@ -185,15 +183,12 @@ export function CheckForm({
       codeRef.current?.focus();
       return;
     }
-    // Decode on the brand's own page: SEO-friendly path + ad slots present.
-    // Hard navigation (full page load) so a genuine new search reloads the ads.
-    // No forced reload for an identical code — that would inflate impressions
-    // without user value and risks AdSense invalid-traffic flags.
-    const prefix = locale === DEFAULT_LOCALE ? "" : `/${locale}`;
-    window.location.assign(
-      `${prefix}/brands/${brand.slug}?code=${encodeURIComponent(
-        code.trim(),
-      )}#result`,
+    // Keep result navigation inside the app. A full document reload made the
+    // result flow unnecessarily vulnerable to transient mobile-network errors:
+    // if that navigation failed, the browser replaced the whole app with its
+    // own "page couldn't load" screen and the inline retry UI never rendered.
+    router.push(
+      `/brands/${brand.slug}?code=${encodeURIComponent(code.trim())}#result`,
     );
   }
 
