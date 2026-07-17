@@ -242,15 +242,12 @@
       "faq2q": "Good Girl é frequentemente falsificado?",
       "faq1q": "Como verifico um código de lote da Carolina Herrera?",
       "where1": "Na base da caixa e na parte inferior da garrafa.",
-      "faq2a": "É uma das fragrâncias mais copiadas na Europa. Faça as verificações que um código não pode fazer: compare os códigos da caixa e do frasco, pese o frasco e observe a finura do spray. Uma decodificação limpa é necessária, mas nem de longe suficiente.",
       "faq1a": "Cosmetics Batch lê a data de produção do seu código Carolina Herrera para você - insira-o no verificador no topo desta página, sem decodificação manual. O código contém a data de fabricação, não o prazo de validade: adicione o prazo de validade típico fechado para avaliar o frescor e, uma vez aberto, siga o símbolo de frasco aberto (PAO)."
     },
     "cerave": {
       "faq1q": "Como verifico o prazo de validade de um produto CeraVe?",
       "where1": "Tubos e produtos de limpeza: pressionados na crimpagem na extremidade selada do tubo.",
       "where2": "Frascos bomba (SA Cleanser, loção hidratante): impressos em jato de tinta no contra-rótulo ou na base.",
-      "faq1a": "CeraVe é fabricado pela L'Oréal, então o código segue o formato do grupo: a primeira letra é o ano de produção e o caractere seguinte é o mês. Decodifique-o para a data de fabricação e calcule cerca de 36 meses sem abrir. Depois de aberto, o símbolo do frasco aberto assume o controle – 12 meses para a maior parte da linha.",
-      "faq2a": "As linhas dermatológicas costumam imprimir um, e os protetores solares quase sempre o fazem. Onde existir uma data impressa, confie nela: é a garantia do próprio fabricante e supera qualquer coisa que um decodificador possa estimar.",
       "faq3q": "Como posso saber se o CeraVe é falsificado?",
       "faq2q": "Existe uma data de validade no CeraVe?",
       "faq3a": "CeraVe é amplamente falsificado nos mercados. O código do lote é um primeiro filtro – um código que não se ajusta ao formato da L'Oréal é um mau sinal – mas não pode confirmar um produto genuíno, uma vez que um código real pode ser copiado num tubo falso. Compare a textura do plástico, a qualidade de impressão do texto pequeno e compre em uma farmácia ou vendedor autorizado."
@@ -280,7 +277,6 @@
       "faq1q": "Como leio um código de lote Creed?",
       "where2": "Nos frascos mais antigos e mais pesados, o código pode ser carimbado em vez de impresso; incline-o contra a luz.",
       "faq3a": "Para as composições mais pesadas e resinosas, um frasco mais antigo pode ser genuinamente preferível, pois as reformulações mudaram vários clássicos – e o código do lote é a única forma de estabelecer qual fórmula você está comprando. Para os Creeds mais leves e cítricos, a idade é principalmente oxidação e nenhum benefício.",
-      "faq2a": "Parcialmente. Creed está entre as casas de fragrâncias mais falsificadas, e uma primeira letra que não está no ciclo é clara. Mas um código copiado é decodificado de forma limpa, então um código válido não é uma prova – pese o frasco, observe o spray e a impressão da caixa e compre de um revendedor autorizado.",
       "faq1a": "Cosmetics Batch lê a data de produção do seu código Creed para você — insira-a no verificador no topo desta página, sem decodificação manual. O código contém a data de fabricação, não o prazo de validade: adicione o prazo de validade típico fechado para avaliar o frescor e, uma vez aberto, siga o símbolo de frasco aberto (PAO)."
     },
     "dior": {
@@ -290,7 +286,6 @@
       "faq1a": "Comece pelos códigos: o da caixa e o do frasco devem corresponder, pois ambos são aplicados na mesma linha de enchimento com minutos de intervalo. Então decodifique – um número de dia impossível, ou uma data anterior ao lançamento da fragrância, é um verdadeiro aviso. Mas entenda o limite: um falsificador que copia um código genuíno produz um código que decodifica perfeitamente. O código do lote pode expor uma falsificação; não pode certificar um verdadeiro.",
       "where2": "Maquiagem: na base do compacto, no fundo do estojo do batom ou na dobra de um tubo.",
       "where3": "Cuidados com a pele: estampado na base do frasco, próximo ao símbolo do frasco aberto.",
-      "faq2a": "Normalmente quatro dígitos, como 3245. A Dior não utiliza nenhuma cifra secreta – como as outras casas LVMH, ela imprime a data de produção no código, como um dígito do ano seguido pelo dia do ano. Alguns códigos carregam uma data mais longa com 5 ou 6 dígitos.",
       "faq3q": "Onde está o código do lote do batom Dior?",
       "faq3a": "Na base plana da caixa. Primeiro gire a bala totalmente para baixo - o código está estampado na base e é fácil de perder no acabamento metálico."
     },
@@ -298,7 +293,6 @@
       "faq1q": "Como leio um código de lote Dunhill?",
       "where1": "Na base da caixa e na parte inferior do frasco, impresso em preto no adesivo branco da base.",
       "faq2q": "Como posso verificar se uma fragrância Dunhill é autêntica?",
-      "faq2a": "Compare os códigos da caixa e do frasco e decodifique. Uma carta de ano fora do ciclo, ou códigos que discordam, são verdadeiros avisos. Uma decodificação limpa não é uma prova – os códigos copiados também são decodificados.",
       "faq1a": "Cosmetics Batch lê a data de produção do seu código Dunhill para você — insira-a no verificador no topo desta página, sem decodificação manual. O código contém a data de fabricação, não o prazo de validade: adicione o prazo de validade típico fechado para avaliar o frescor e, uma vez aberto, siga o símbolo de frasco aberto (PAO)."
     },
     "estee-lauder": {
@@ -323,7 +317,6 @@
     },
     "garnier": {
       "faq1q": "Onde encontro o prazo de validade de um creme ou soro Garnier?",
-      "faq1a": "Garnier raramente imprime um. O código curto na crimpagem do tubo ou na base do frasco é o código do lote e contém a data de fabricação: a primeira letra é o ano, o caractere depois é o mês. Conte cerca de 36 meses para um produto fechado e use o símbolo do frasco aberto depois de aberto.",
       "where1": "Séruns e cremes de dia: na base do frasco ou na dobra do tubo.",
       "where3": "Sachês e máscaras descartáveis: no verso do sachê, em tipo bem pequeno próximo à costura.",
       "where2": "FPS e Ambre Solaire: impressos no contra-rótulo, geralmente com prazo de validade explícito também.",
@@ -345,8 +338,7 @@
       "where1": "Fragrância: na base da caixa e na parte inferior do frasco — geralmente impressa em um pequeno adesivo.",
       "faq2q": "Meu antigo código Guerlain não decodifica.",
       "faq1q": "Como verifico a data de produção de uma fragrância Guerlain?",
-      "faq2a": "Os códigos mais antigos e específicos da região são, às vezes, referências alfanuméricas internas sem nenhuma data. Eles não podem ser decodificados por ninguém. Julgue a garrafa pelo seu estado e pelo cheiro do suco.",
-      "faq1a": "A Guerlain é uma casa LVMH e imprime a data de produção dentro do código do lote – mais comumente um dígito do ano seguido do dia do ano. Decodifique-o para a data de fabricação e conte com três a cinco anos de vida fechada para um eau de parfum mantido longe da luz e do calor."
+      "faq2a": "Os códigos mais antigos e específicos da região são, às vezes, referências alfanuméricas internas sem nenhuma data. Eles não podem ser decodificados por ninguém. Julgue a garrafa pelo seu estado e pelo cheiro do suco."
     },
     "hugo-boss": {
       "where2": "Os dois códigos devem corresponder – eles são impressos com minutos de diferença na mesma linha.",
@@ -371,13 +363,11 @@
       "where1": "Na base da caixa externa e na parte inferior do frasco - impresso no adesivo da base ou estampado no vidro.",
       "faq3q": "O código pode provar que uma fragrância Kenzo é autêntica?",
       "faq3a": "Ele pode detectar uma falsificação – um dia impossível ou uma incompatibilidade entre o código da caixa e o código da garrafa, o que nenhuma linha de envase genuína produz. Ele não pode certificar um código genuíno, porque um código copiado é decodificado de forma limpa.",
-      "faq2a": "Sim, e esta é uma limitação genuína e não uma peculiaridade. Um código de quatro dígitos carrega apenas um dígito do ano, então 4135 é 14 de maio de 2024 exatamente na mesma evidência que indica 14 de maio de 2014. O decodificador assume a leitura recente; se a garrafa e a embalagem parecerem pertencer a uma época anterior, provavelmente pertencem.",
       "faq1a": "Cosmetics Batch lê a data de produção do seu código Kenzo para você - insira-a no verificador no topo desta página, sem decodificação manual. O código contém a data de fabricação, não o prazo de validade: adicione o prazo de validade típico fechado para avaliar o frescor e, uma vez aberto, siga o símbolo de frasco aberto (PAO)."
     },
     "kerastase": {
       "where2": "Tubos e tamanhos de viagem: pressionados na crimpagem.",
       "faq2q": "Como posso verificar se um produto Kérastase é autêntico?",
-      "faq1a": "Kérastase é L'Oréal Professionnel, por isso carrega o código do grupo: a primeira letra é o ano, o caractere depois é o mês. Uma máscara fechada normalmente dura cerca de 30 a 36 meses a partir dessa data; uma vez aberto, o símbolo de frasco aberto se aplica – geralmente 12M.",
       "where1": "Frascos e máscaras: impressos em jato de tinta no verso do frasco, próximo à base, ou estampados no fundo do frasco.",
       "faq1q": "Como descubro o prazo de validade de uma máscara Kérastase?",
       "faq3q": "O produto foi comprado no exterior — o prazo de validade muda?",
@@ -389,7 +379,6 @@
       "faq1q": "Como posso verificar o prazo de validade do creme para os olhos Kiehl's?",
       "where1": "Frascos e garrafas: estampados na base, geralmente em relevo em vez de impressos - incline-os sob a luz.",
       "faq2a": "Geralmente é gravado na base em vez de pintado. Os códigos em relevo desaparecem sob a luz direta e aparecem quando a luz os atinge lateralmente - vire o frasco lentamente contra uma lâmpada.",
-      "faq1a": "Decodifique o código na base: Kiehl's é L'Oréal, então a primeira letra é o ano e o caractere seguinte é o mês. Fechado, calcule cerca de 36 meses; uma vez aberto, o símbolo do frasco aberto – normalmente 12M para um creme para os olhos, que é o número que será vinculado primeiro.",
       "faq2q": "O código no meu jar Kiehl's é invisível."
     },
     "la-roche-posay": {
@@ -398,7 +387,6 @@
       "faq1q": "Qual é o prazo de validade do La Roche-Posay?",
       "faq2q": "Quanto tempo dura o protetor solar Anthelios?",
       "faq3q": "O meu La Roche-Posay é genuíno?",
-      "faq1a": "As filas de farmácia geralmente imprimem um prazo de validade real na embalagem ou no tubo – use-o. O código curto ao lado é o código do lote e contém a data de fabricação: a primeira letra é o ano, o caractere depois é o mês.",
       "faq3a": "Um código que se ajuste ao formato da L'Oréal e seja decodificado em uma data plausível exclui falsificações grosseiras. Não pode certificar uma boa. A compra na farmácia continua a ser a garantia mais forte para esta gama.",
       "faq2a": "Até três anos fechado se for mantido fresco e cerca de 12 meses depois de aberto. O protetor solar é o único produto onde a data impressa realmente importa, porque filtros degradados significam menos proteção do que o rótulo promete."
     },
@@ -413,7 +401,6 @@
     "loreal": {
       "where1": "Em todos os lugares os produtos do grupo são estampados: crimpagens de tubos, bases de garrafas, fundos de potes e abas de caixas de papelão.",
       "where2": "Use esta página quando uma submarca não estiver listada separadamente — todo o grupo compartilha um formato de código.",
-      "faq2a": "Geralmente seis caracteres, como 40X200: dígitos de fábrica, depois a letra do ano, depois o caractere do mês e, por fim, uma série de lotes. A letra do ano e o caractere seguinte são as únicas partes que carregam uma data.",
       "faq3a": "Então não é este formato. Algumas marcas recentemente adquiridas e alguns fabricantes terceirizados regionais imprimem uma data juliana simples – o verificador volta a ler uma data embutida nos dígitos.",
       "faq3q": "Meu código não contém nenhuma letra.",
       "faq2q": "Qual é a aparência de um código L'Oréal?",
@@ -426,10 +413,8 @@
       "where3": "Frascos (shampoo, sérum, base): impressos em jato de tinta no contra-rótulo ou na base.",
       "faq1q": "Como verifico o prazo de validade de um creme L'Oréal Paris?",
       "faq2q": "Onde está impressa a data de fabricação nos produtos L'Oréal?",
-      "faq1a": "Não há prazo de validade no frasco – o que está impresso é um código de lote contendo a data de fabricação. Leia a primeira letra como o ano (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; V é ignorado) e o caractere seguinte como o mês. A partir dessa data, um creme fechado normalmente dura cerca de 36 meses, e o símbolo do frasco aberto determina quanto tempo ele dura quando você começa a usá-lo.",
       "faq3q": "Como posso verificar se um produto L'Oréal é autêntico?",
-      "faq2a": "Não é impresso como data - é codificado no código do lote, que é o carimbo curto e irregular na crimpagem, na base ou no contra-rótulo. O número longo sob as faixas do código de barras é o EAN e não contém nenhuma data.",
-      "faq3a": "Decodifique o código e veja se ele se ajusta ao formato da L'Oréal - um código sem letra de ano, ou uma decodificação para uma data impossível, é um verdadeiro sinal de alerta. Mas um código copiado é decodificado de forma limpa, então este teste pode detectar uma falsificação e não pode certificar uma verdadeira. Compare a qualidade de impressão do pequeno texto na embalagem e compre em um revendedor autorizado."
+      "faq2a": "Não é impresso como data - é codificado no código do lote, que é o carimbo curto e irregular na crimpagem, na base ou no contra-rótulo. O número longo sob as faixas do código de barras é o EAN e não contém nenhuma data."
     },
     "mac-cosmetics": {
       "where2": "Compactos, blushes e paletas: no verso do case — e em alguns produtos impressos na panela de metal, visíveis apenas à medida que o pó vai acabando.",
@@ -439,15 +424,13 @@
       "faq2q": "Qual é a aparência de um código de lote MAC?",
       "faq3q": "Como posso saber se meu batom MAC é genuíno?",
       "faq2a": "Três caracteres, como B23. MAC pertence ao grupo Estée Lauder, então o último caractere é o dígito do ano e o do meio é o mês — onde A, B e C significam outubro, novembro e dezembro.",
-      "faq3a": "O código deverá ter três ou quatro caracteres e ser decodificado para uma data plausível; um código que não se ajusta a esse formato é um aviso. Mas um código copiado decodifica perfeitamente, então julgue também o peso da caixa, o clique do fechamento e a impressão do pequeno texto — e compre em um balcão autorizado.",
-      "faq1a": "A MAC não imprime uma data de validade – quase nenhuma maquiagem imprime. Imprime um código de lote de três caracteres informando a planta, o mês e o ano. Decodifique isso para a data de fabricação e, em seguida, aplique o símbolo do frasco aberto: a base líquida normalmente leva de 6 a 12 meses depois de aberta e cerca de 36 meses sem abrir. O prazo anterior vence."
+      "faq3a": "O código deverá ter três ou quatro caracteres e ser decodificado para uma data plausível; um código que não se ajusta a esse formato é um aviso. Mas um código copiado decodifica perfeitamente, então julgue também o peso da caixa, o clique do fechamento e a impressão do pequeno texto — e compre em um balcão autorizado."
     },
     "maybelline": {
       "where1": "Rímel: impresso na base do tubo ou verticalmente onde a etiqueta envolve.",
       "where3": "Paletas e compactos: na parte de trás do case.",
       "faq1q": "Quantos anos tem o meu rímel Maybelline?",
       "faq2q": "Onde está o código do lote nos produtos Maybelline?",
-      "faq1a": "Decodifique o código da base - Maybelline usa o formato da L'Oréal, onde a primeira letra é o ano e o próximo caractere é o mês. Mas para o rímel, a data de fabricação raramente é válida: o relógio de três a seis meses que começa no dia em que você abre o tubo quase sempre acaba primeiro.",
       "where2": "Frascos de base: na base ou no contra-rótulo.",
       "faq2a": "Na base do tubo ou frasco, ou no verso de uma paleta. É o código irregular curto – não o número longo do código de barras."
     },
@@ -457,8 +440,6 @@
       "faq1q": "Como verifico uma Montblanc Legend pelo seu código?",
       "faq2q": "Existe um número de série que eu possa procurar?",
       "faq2a": "Não. Um código de lote identifica uma produção, não uma garrafa individual, e não existe um banco de dados público para consultá-lo. O que ele fornece é a data – que é a parte útil.",
-      "faq3a": "Numa minoria dos códigos da Inter Parfums, esses dígitos são uma linha de fábrica e não um dia. Se a data parecer implausível para a garrafa, confie na letra do ano e trate o dia como aproximado.",
-      "faq3q": "Os últimos três dígitos produzem uma data estranha.",
       "faq1a": "Cosmetics Batch lê a data de produção do seu código Montblanc para você — insira-a no verificador no topo desta página, sem decodificação manual. O código contém a data de fabricação, não o prazo de validade: adicione o prazo de validade típico fechado para avaliar o frescor e, uma vez aberto, siga o símbolo de frasco aberto (PAO)."
     },
     "nivea": {
@@ -469,15 +450,13 @@
       "faq3q": "Não há nenhum código visível na minha lata de NIVEA.",
       "faq2q": "O protetor solar NIVEA tem prazo de validade?",
       "faq2a": "A proteção solar normalmente traz uma data de validade impressa, porque a alegação de FPS é tratada como uma alegação de segurança. Use a data impressa em vez de uma estimativa decodificada – e trate uma garrafa que passou o verão em um carro quente como terminada, independentemente do que a data diz.",
-      "faq3a": "Está gravado na base de metal em vez de impresso, o que o torna quase invisível sob luz direta. Segure a lata de forma que uma lâmpada pegue a base pela lateral e os personagens apareçam.",
-      "faq1a": "NIVEA (Beiersdorf) codifica a semana de produção em vez do dia. O primeiro dígito do código é o último dígito do ano e os próximos dois são o número da semana – portanto, um código que começa com 815 é a semana 15 de um ano que termina em 8. Isso o coloca dentro de sete dias, o que é suficiente para uma loção corporal."
+      "faq3a": "Está gravado na base de metal em vez de impresso, o que o torna quase invisível sob luz direta. Segure a lata de forma que uma lâmpada pegue a base pela lateral e os personagens apareçam."
     },
     "paco-rabanne": {
       "where2": "Incline a garrafa para que a luz pegue o carimbo lateralmente; uma luz direta faz com que desapareça.",
       "where1": "No fundo da caixa e na parte inferior da garrafa. Nas garrafas mais pesadas – o lingote 1 Million, o troféu Invictus – o código costuma ser estampado no metal ou no vidro, em vez de impresso em um adesivo.",
       "faq3q": "Rabanne é a mesma marca de Paco Rabanne?",
       "faq2q": "O código pode provar que meu Paco Rabanne é genuíno?",
-      "faq2a": "Ele pode detectar uma falsificação e não pode certificar uma verdadeira. Paco Rabanne está entre as fragrâncias mais falsificadas na Europa: um número de dia impossível, ou códigos que discordam entre a caixa e o frasco, são avisos fortes – mas um código copiado de um frasco genuíno descodifica perfeitamente. Pese o frasco e verifique também o padrão de pulverização.",
       "faq1q": "Como decodifico um código de lote Invictus ou 1 Million?",
       "faq3a": "Sim – a casa retirou ‘Paco’ de seu nome em 2023. O estoque mais antigo traz a marca anterior e o formato do código não mudou.",
       "faq1a": "Cosmetics Batch lê a data de produção do seu código Paco Rabanne para você — insira-a no verificador no topo desta página, sem decodificação manual. O código contém a data de fabricação, não o prazo de validade: adicione o prazo de validade típico fechado para avaliar o frescor e, uma vez aberto, siga o símbolo de frasco aberto (PAO)."
@@ -487,14 +466,12 @@
       "where1": "Frascos: impressos em jato de tinta no contra-rótulo ou na base do frasco.",
       "where2": "Pós e aerossóis: estampados no fundo da lata.",
       "faq2q": "O código de barras me diz o prazo de validade?",
-      "faq1a": "Redken é uma marca da L'Oréal e utiliza o formato do grupo - a primeira letra é o ano de produção, o caractere depois é o mês. Os cuidados com os cabelos normalmente duram cerca de 36 meses sem serem abertos e 12 meses após a abertura.",
       "faq2a": "Não. O código de barras é o EAN — identifica o produto à venda e é idêntico em cada frasco. Apenas o código do lote, o carimbo curto e irregular, traz uma data."
     },
     "roberto-cavalli": {
       "faq1q": "Como posso verificar a autenticidade do perfume Roberto Cavalli?",
       "where2": "Procure um código curto de quatro dígitos; o número mais longo sob as listras do código de barras não é esse.",
       "where1": "No fundo da caixa e no fundo do frasco — impresso, ou nos frascos mais pesados ​​estampados no vidro.",
-      "faq1a": "A fragrância Cavalli é feita pela Coty, então o código é uma data de produção de quatro dígitos – um dígito do ano mais o dia do ano. Compare primeiro o código na caixa com o código na garrafa: uma incompatibilidade é o sinal mais forte disponível para um comprador. Em seguida, decodifique-o; um dia impossível é uma farsa clara. Um código que é decodificado de forma limpa, porém, não é prova de autenticidade – os códigos copiados também são decodificados.",
       "faq2a": "Não existe um no sentido de uma série única por garrafa. O que é impresso é um código de lote – compartilhado por todas as unidades da mesma produção – e codifica a data, não uma identidade.",
       "faq2q": "Onde está o número de série da garrafa de Roberto Cavalli?"
     },
@@ -522,7 +499,6 @@
       "where1": "Tubos e protetor solar Capital Soleil: pressionados na crimpagem – a extremidade plana selada oposta à tampa.",
       "where2": "Frascos e bombas (Mineral 89, Liftactiv): impressos em jato de tinta na base ou no contra-rótulo próximo ao código de barras.",
       "faq2q": "Como leio o código de um produto Vichy?",
-      "faq1a": "A maioria dos produtos Vichy não imprime um. As linhas de farmácia geralmente trazem uma data de validade genuína e, quando existe, supera qualquer estimativa decodificada - mas se tudo o que você encontrar for um código curto, esse é o código do lote e contém a data de fabricação e não a data de validade. Decodifique-o e adicione o prazo de validade: aproximadamente 36 meses fechado para cuidados com a pele e siga o símbolo do frasco aberto depois de aberto.",
       "faq4a": "Sim, e isso é mais importante do que qualquer outra coisa na faixa: filtros UV degradados deixam passar mais radiação, então um FPS 50 desatualizado não fornece FPS 50. O protetor solar normalmente tem uma data de validade impressa exatamente por esse motivo – use-o. E trate como terminada uma garrafa que passou o verão em um carro quente, independentemente da data.",
       "faq3q": "O código pode provar que meu Vichy é genuíno?",
       "faq4q": "O protetor solar Capital Soleil expira?",
@@ -546,14 +522,10 @@
       "faq2a": "A Puig fabrica a linha de fragrâncias da Zara, e é por isso que os códigos seguem o formato da Puig - e é em parte por isso que vários aromas da Zara convidam à comparação com fragrâncias de grife que a Puig também fabrica."
     },
     "escada": {
-      "where1": "Eau de parfum e eau de toilette modernas: no adesivo transparente sob o frasco de vidro, impresso como um número de quatro dígitos na mesma linha do texto \"EAU DE PARFUM VAPORISATEUR\".",
       "faq1a": "Cosmetics Batch lê a data de produção do seu código Escada para você — insira-a no verificador no topo desta página, sem decodificação manual. O código contém a data de fabricação, não o prazo de validade: adicione o prazo de validade típico fechado para avaliar o frescor e, uma vez aberto, siga o símbolo de frasco aberto (PAO).",
       "faq2q": "Minha garrafa Escada tem um código como \"H 0100\" estampado na base - por que não decodifica?",
       "faq1q": "Como leio o código do lote em um perfume Escada?",
-      "faq2a": "Esse é um perfume Escada mais antigo, anterior à codificação Coty atual; os minis da era Margaretha Ley carimbam um lote de letras e números na base de metal, em vez de imprimir um código do dia do ano de quatro dígitos. Esses lotes antigos não seguem o formato que esta ferramenta lê, por isso não pode datá-los. Não é sinal de que a garrafa seja falsa – a fábrica simplesmente usou um sistema diferente.",
-      "where3": "Os Escada perfumes minis mais antigos (da era Margaretha Ley, distribuídos pela Escada Beauté) carimbam um pequeno lote de letras e números na placa de base de metal. Esse formato vintage não é o código de quatro dígitos Coty e não será decodificado aqui.",
       "where2": "Embalagem exterior: numa aba final. Os códigos do adesivo e da caixa são impressos juntos na fábrica e devem ser iguais - caso contrário, a garrafa e a caixa foram combinadas em outro lugar.",
-      "faq4a": "Não. Um código que não se encaixe no formato de quatro dígitos de Coty, ou que seja anterior ao lançamento do perfume, é um verdadeiro sinal de alerta. Mas um código bem formado copiado em uma falsificação é decodificado de forma igualmente limpa, então uma data válida prova que o código é real, e não o perfume. Comprar de um revendedor autorizado continua sendo a verificação mais forte.",
       "faq3a": "A fragrância não tem prazo de validade rígido, mas muda. Uma garrafa fechada Escada mantida fresca e escura mantém seu caráter por cerca de cinco anos; uma vez aberto, as notas de saída frutadas brilhantes desaparecem primeiro. Uma garrafa que escureceu ou ficou forte e azeda oxidou independentemente do que diz o código.",
       "faq4q": "O código do lote pode provar que meu Escada é genuíno?",
       "faq3q": "O Escada perfume expira?"

@@ -239,7 +239,6 @@
     },
     "carolina-herrera": {
       "where1": "Sa base ng kahon, at sa ilalim ng bote.",
-      "faq2a": "Ito ay isa sa mga pinakakopyang pabango sa Europa. Gawin ang mga pagsusuri na hindi maaaring gawin ng isang code: ihambing ang mga code ng kahon at bote, timbangin ang bote, at tingnan ang kalinisan ng spray. Ang isang malinis na decode ay kinakailangan ngunit kahit saan malapit sa sapat.",
       "where2": "Sa bote ng Good Girl stiletto ang code ay nakapatong sa talampakan ng sakong.",
       "faq1q": "Paano ko titingnan ang isang batch code ng Carolina Herrera?",
       "faq2q": "Madalas bang peke ang Good Girl?",
@@ -247,10 +246,8 @@
     },
     "cerave": {
       "where2": "Mga pump bottle (SA Cleanser, moisturizing lotion): inkjet-printed sa likod na label o sa base.",
-      "faq2a": "Ang mga dermatological na linya ay madalas na nagpi-print ng isa, at ang mga sunscreen ay halos palaging ginagawa. Kung saan umiiral ang isang naka-print na petsa, magtiwala ito: ito ay sariling garantiya ng tagagawa at natalo nito ang anumang matantya ng isang decoder.",
       "faq1q": "Paano ko titingnan ang shelf life ng isang produkto ng CeraVe?",
       "where1": "Mga tubo at panlinis: pinindot sa crimp sa selyadong dulo ng tubo.",
-      "faq1a": "Ang CeraVe ay ginawa ng L'Oréal, kaya ang code ay sumusunod sa format ng grupo: ang unang titik ay ang taon ng produksyon at ang karakter pagkatapos nito ay ang buwan. I-decode ito para sa petsa ng paggawa, pagkatapos ay magbilang sa humigit-kumulang 36 na buwang hindi pa nabubuksan. Kapag nabuksan, ang simbolo ng open-jar ay tumatagal — 12 buwan para sa karamihan ng saklaw.",
       "faq2q": "May expiry date ba ang CeraVe?",
       "faq3q": "Paano ko malalaman kung peke ang CeraVe?",
       "faq3a": "Ang CeraVe ay malawakang pinamemeke sa mga pamilihan. Ang batch code ay isang unang filter — isang code na hindi akma sa hugis ng L'Oréal ay isang masamang palatandaan — ngunit hindi nito makumpirma ang isang tunay na produkto, dahil ang isang tunay na code ay maaaring kopyahin sa isang pekeng tubo. Ihambing ang texture ng plastic, ang kalidad ng pag-print ng maliit na text, at bumili mula sa isang parmasya o isang awtorisadong nagbebenta."
@@ -280,7 +277,6 @@
       "faq3q": "Nangangahulugan ba ang isang mas lumang Creed ng isang mas mahusay na Creed?",
       "faq1q": "Paano ako magbabasa ng isang batch code ng Creed?",
       "faq3a": "Para sa mas mabibigat, resinous na komposisyon, maaaring maging mas kanais-nais ang mas lumang bote, dahil binago ng mga reformulation ang ilang classic — at ang batch code ay ang tanging paraan upang matukoy kung aling formula ang bibilhin mo. Para sa mas magaan, citrus-led Creeds, ang edad ay kadalasang oksihenasyon at walang pakinabang.",
-      "faq2a": "Bahagyang. Ang Creed ay isa sa mga pinakapekeng bahay sa halimuyak, at ang unang titik na wala sa cycle ay isang tuwirang sasabihin. Ngunit ang isang kinopyang code ay malinis na nagde-decode, kaya ang isang wastong code ay hindi patunay — timbangin ang bote, tingnan ang spray at ang box printing, at bumili mula sa isang awtorisadong retailer.",
       "faq1a": "Binabasa ng Cosmetics Batch ang petsa ng produksyon mula sa iyong Creed code para sa iyo — ilagay ito sa checker sa tuktok ng pahinang ito, nang walang manu-manong pag-decode. Ang code ay nagtataglay ng petsa ng paggawa, hindi isang expiration: idagdag ang karaniwang hindi pa nabubuksang shelf life upang hatulan ang pagiging bago, at kapag nabuksan ay sundin ang open-jar (PAO) na simbolo."
     },
     "dior": {
@@ -290,7 +286,6 @@
       "faq1q": "Paano ko malalaman kung ang aking Dior perfume ay tunay?",
       "where2": "Makeup: sa base ng compact, sa ilalim ng lipstick case, o sa crimp ng tube.",
       "where3": "Pangangalaga sa Balat: nakatatak sa base ng garapon, sa tabi ng simbolong bukas na garapon.",
-      "faq2a": "Karaniwang apat na digit, gaya ng 3245. Walang lihim na cipher ang Dior — tulad ng ibang mga bahay ng LVMH, ini-print nito ang petsa ng produksyon sa code, bilang digit ng taon na sinusundan ng araw ng taon. Ang ilang mga code ay may mas mahabang 5- o 6 na digit na petsa sa halip.",
       "faq3a": "Sa patag na base ng kaso. I-twist muna ang bala nang buo — ang code ay nakatatak sa base at madaling makaligtaan laban sa metal na finish.",
       "faq3q": "Nasaan ang batch code sa Dior lipstick?"
     },
@@ -298,7 +293,6 @@
       "where1": "Sa base ng kahon at sa ilalim ng bote, naka-print sa itim sa puting base sticker.",
       "faq1q": "Paano ako magbabasa ng Dunhill batch code?",
       "faq2q": "Paano ko malalaman kung authentic ang Dunhill fragrance?",
-      "faq2a": "Ihambing ang mga code ng kahon at bote, pagkatapos ay mag-decode. Ang isang taon na liham sa labas ng cycle, o mga code na hindi sumasang-ayon, ay tunay na mga babala. Ang malinis na decode ay hindi patunay — ang mga kinopyang code ay nagde-decode din.",
       "faq1a": "Binabasa ng Cosmetics Batch ang petsa ng produksyon mula sa iyong Dunhill code para sa iyo — ilagay ito sa checker sa tuktok ng pahinang ito, nang walang manu-manong pag-decode. Ang code ay nagtataglay ng petsa ng paggawa, hindi isang expiration: idagdag ang karaniwang hindi pa nabubuksang shelf life upang hatulan ang pagiging bago, at kapag nabuksan ay sundin ang open-jar (PAO) na simbolo."
     },
     "estee-lauder": {
@@ -326,7 +320,6 @@
       "faq1q": "Saan ko mahahanap ang petsa ng pag-expire sa isang Garnier cream o serum?",
       "where1": "Mga serum at day cream: sa base ng bote o sa crimp ng tubo.",
       "where2": "SPF at Ambre Solaire: naka-print sa likod na label, kadalasang may tahasang expiration date din.",
-      "faq1a": "Si Garnier ay bihirang mag-print ng isa. Ang maikling code sa tube crimp o bottle base ay ang batch code, at hawak nito ang petsa ng paggawa: ang unang titik ay ang taon, ang karakter pagkatapos nito ay ang buwan. Bilangin pasulong ang tungkol sa 36 na buwan para sa isang hindi pa nabubuksang produkto, at gamitin ang simbolong bukas na garapon kapag nabuksan na ito.",
       "where3": "Mga sachet at single-use mask: sa likod ng sachet, sa napakaliit na uri malapit sa tahi.",
       "faq2a": "Ang proteksyon sa araw ay ang pagbubukod - ito ay karaniwang may naka-print na petsa ng pag-expire, dahil ang SPF claim ay isang safety claim. Gamitin ang naka-print na petsa sa halip na isang na-decode, at palitan ang anumang bote na gumugol ng tag-araw sa init.",
       "faq3q": "Paano ko malalaman na totoo ang aking produkto ng Garnier?",
@@ -342,7 +335,6 @@
     },
     "guerlain": {
       "faq2q": "Ang aking lumang Guerlain code ay hindi magde-decode.",
-      "faq1a": "Ang Guerlain ay isang LVMH house at ini-print ang petsa ng produksyon sa loob ng batch code — kadalasan ay isang digit ng taon na sinusundan ng araw ng taon. I-decode ito para sa petsa ng paggawa, pagkatapos ay magbilang sa tatlo hanggang limang taon ng hindi pa nabubuksang buhay para sa isang eau de parfum na iniiwasan sa liwanag at init.",
       "where2": "Makeup at skincare: nakatatak sa base ng compact o jar.",
       "faq1q": "Paano ko titingnan ang petsa ng paggawa ng isang Guerlain fragrance?",
       "where1": "Halimuyak: sa base ng kahon, at sa ilalim ng bote — madalas na naka-print sa isang maliit na sticker.",
@@ -371,7 +363,6 @@
       "faq2q": "Nauulit ba ang mga code ng Kenzo tuwing sampung taon?",
       "faq3q": "Mapapatunayan ba ng code na authentic ang isang Kenzo fragrance?",
       "faq3a": "Maaari itong makahuli ng pekeng — isang imposibleng araw, o isang mismatch sa pagitan ng box code at ng bottle code, na walang tunay na linya ng pagpuno. Hindi nito mapapatunayan ang isang tunay, dahil ang isang kinopyang code ay malinis na nagde-decode.",
-      "faq2a": "Oo, at ito ay isang tunay na limitasyon sa halip na isang quirk. Ang isang apat na digit na code ay nagdadala lamang ng isang digit ng taon, kaya ang 4135 ay 14 Mayo 2024 sa eksaktong kaparehong katibayan na ginagawa itong 14 Mayo 2014. Ipinapalagay ng decoder ang kamakailang pagbabasa; kung ang bote at packaging ay mukhang sila ay kabilang sa isang mas maagang panahon, sila ay malamang.",
       "faq1a": "Binabasa ng Cosmetics Batch ang petsa ng produksyon mula sa iyong Kenzo code para sa iyo — ilagay ito sa checker sa tuktok ng pahinang ito, nang walang manu-manong pag-decode. Ang code ay nagtataglay ng petsa ng paggawa, hindi isang expiration: idagdag ang karaniwang hindi pa nabubuksang shelf life upang hatulan ang pagiging bago, at kapag nabuksan ay sundin ang open-jar (PAO) na simbolo."
     },
     "kerastase": {
@@ -380,7 +371,6 @@
       "where2": "Mga tubo at sukat ng paglalakbay: pinindot sa crimp.",
       "faq3q": "Ang produkto ay binili sa ibang bansa — nagbabago ba ang shelf life?",
       "faq3a": "Hindi. Ang shelf life ng formula ay pag-aari ng produkto, hindi ang market. Ano ang nagbabago sa isang mainit na klima ay kung gaano ito kabilis na bumababa: ang init ay nagpapaikli sa totoong buhay na mas mababa sa nakalimbag.",
-      "faq1a": "Ang Kérastase ay L'Oréal Professionnel, kaya dala nito ang code ng grupo: ang unang titik ay ang taon, ang karakter pagkatapos nito ay ang buwan. Ang isang hindi pa nabubuksang maskara ay karaniwang mabuti para sa humigit-kumulang 30–36 na buwan mula sa petsang iyon; sa sandaling mabuksan, ang simbolong bukas na garapon ay nalalapat — karaniwang 12M.",
       "faq2q": "Paano ko malalaman kung authentic ang produktong Kérastase?",
       "faq2a": "Ang Kérastase ay isang karaniwang target para sa mga pekeng at para sa inilihis na stock ng salon. I-decode ang code: dapat itong magkasya sa format ng L'Oréal at makagawa ng isang kapani-paniwalang petsa. Hindi ito makakakuha ng kinopyang code, kaya tingnan din ang kalidad ng pag-print, ang bigat at pagtatapos ng takip, at kung ang nagbebenta ay isang awtorisadong salon o retailer."
     },
@@ -389,15 +379,13 @@
       "faq2q": "Ang code sa aking Kiehl's jar ay hindi nakikita.",
       "where2": "Tube at eye creams: pinindot sa crimp.",
       "faq1q": "Paano ko masusuri ang shelf life ng Kiehl's eye cream?",
-      "faq2a": "Karaniwan itong naka-emboss sa base sa halip na may tinta. Ang mga embossed code ay nawawala sa ilalim ng direktang liwanag at lumilitaw kapag may liwanag na naka-rakes sa kanila mula sa gilid - dahan-dahang ipihit ang garapon sa isang lampara.",
-      "faq1a": "I-decode ang code sa base: Kiehl's ay L'Oréal, kaya ang unang titik ay ang taon at ang character pagkatapos nito ay buwan. Hindi nabuksan, umasa sa humigit-kumulang 36 na buwan; kapag binuksan, ang simbolo ng bukas na garapon — karaniwang 12M para sa isang cream sa mata, na siyang numero na unang magbibigkis."
+      "faq2a": "Karaniwan itong naka-emboss sa base sa halip na may tinta. Ang mga embossed code ay nawawala sa ilalim ng direktang liwanag at lumilitaw kapag may liwanag na naka-rakes sa kanila mula sa gilid - dahan-dahang ipihit ang garapon sa isang lampara."
     },
     "la-roche-posay": {
       "where1": "Tubes: pinindot sa crimp sa selyadong dulo.",
       "faq1q": "Nasaan ang expiry date sa La Roche-Posay?",
       "faq3q": "Ang aking La Roche-Posay ay tunay?",
       "faq2q": "Gaano katagal ang sunscreen ng Anthelios?",
-      "faq1a": "Ang mga linya ng parmasya ay karaniwang nagpi-print ng totoong petsa ng pag-expire sa karton o sa tubo - gamitin ito. Ang maikling code sa tabi nito ay ang batch code, at nasa halip ang petsa ng paggawa: ang unang titik ay ang taon, ang karakter pagkatapos nito ay ang buwan.",
       "faq2a": "Hanggang tatlong taon na hindi nabubuksan kung ito ay pinananatiling cool, at mga 12 buwan kapag nabuksan. Ang sunscreen ay ang isang produkto kung saan ang naka-print na petsa ay tunay na mahalaga, dahil ang mga nasira na filter ay nangangahulugan ng mas kaunting proteksyon kaysa sa ipinangako ng label.",
       "where2": "Mga Bote at Anthelios na sunscreen: naka-print sa likod na label, kadalasang kasama ng isang tunay na petsa ng pag-expire.",
       "faq3a": "Ang isang code na akma sa format ng L'Oréal at nagde-decode sa isang kapani-paniwalang petsa ay nag-aalis ng mga krudo na peke. Hindi nito mapapatunayan ang isang mahusay. Ang pagbili ng botika ay nananatiling pinakamatibay na garantiya para sa hanay na ito."
@@ -417,26 +405,22 @@
       "where1": "Kahit saan ang mga produkto ng grupo ay nakatatak: tube crimps, bote base, jar bottom at carton flaps.",
       "faq1a": "Lahat sila: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm at iba pa. Ang mga ito ay nagmula sa parehong mga halaman, kaya nagdadala sila ng parehong format.",
       "faq3q": "Walang letter ang code ko.",
-      "faq3a": "Kung gayon hindi ito ang format na ito. Ang ilang kamakailang nakuhang brand, at ilang regional contract manufacturer, ay nagpi-print na lang ng plain Julian date — ang checker ay bumabalik sa pagbabasa ng petsa na naka-embed sa mga digit.",
-      "faq2a": "Karaniwan anim na character, gaya ng 40X200: factory digit, pagkatapos ay ang year letter, pagkatapos ay ang buwan na character, pagkatapos ay isang batch series. Ang liham ng taon at ang karakter pagkatapos nito ay ang tanging mga bahagi na naglalaman ng petsa."
+      "faq3a": "Kung gayon hindi ito ang format na ito. Ang ilang kamakailang nakuhang brand, at ilang regional contract manufacturer, ay nagpi-print na lang ng plain Julian date — ang checker ay bumabalik sa pagbabasa ng petsa na naka-embed sa mga digit."
     },
     "loreal-paris": {
       "where2": "Tubes: pinindot sa crimp sa selyadong dulo.",
-      "faq1a": "Walang expiry date sa garapon — ang naka-print ay isang batch code na may hawak na petsa ng paggawa. Basahin ang unang titik bilang taon (U = 2021, W = 2022, X = 2023, Y = 2024, Z = 2025; Nilaktawan ang V) at ang karakter pagkatapos nito bilang buwan. Mula sa petsang iyon, ang isang hindi pa nabubuksang cream ay karaniwang maganda sa loob ng humigit-kumulang 36 na buwan, at ang simbolong open-jar ay namamahala sa kung gaano ito katagal kapag sinimulan mo itong gamitin.",
       "where3": "Mga bote (shampoo, serum, foundation): naka-print na inkjet sa likod na label o sa base.",
       "where1": "Mga cream at garapon: nakatatak sa base ng garapon, o sa ilalim ng takip.",
       "faq1q": "Paano ko masusuri ang shelf life ng isang L'Oréal Paris cream?",
       "faq2q": "Saan naka-print ang petsa ng paggawa sa mga produkto ng L'Oréal?",
       "faq3q": "Paano ko malalaman kung authentic ang isang produkto ng L'Oréal?",
-      "faq2a": "Hindi ito naka-print bilang petsa — naka-encode ito sa batch code, na siyang maikling irregular na stamp sa crimp, base o back label. Ang mahabang numero sa ilalim ng barcode stripes ay ang EAN at walang anumang petsa.",
-      "faq3a": "I-decode ang code at tingnan kung ito ay akma sa format ng L'Oréal — isang code na walang taon na letra, o isang decoding sa imposibleng petsa, ay isang tunay na babala. Ngunit ang isang kinopyang code ay malinis na nagde-decode, kaya ang pagsubok na ito ay maaaring makahuli ng isang pekeng at hindi makapagpapatunay ng isang tunay. Ihambing ang kalidad ng pag-print ng maliit na teksto sa packaging, at bumili mula sa isang awtorisadong retailer."
+      "faq2a": "Hindi ito naka-print bilang petsa — naka-encode ito sa batch code, na siyang maikling irregular na stamp sa crimp, base o back label. Ang mahabang numero sa ilalim ng barcode stripes ay ang EAN at walang anumang petsa."
     },
     "mac-cosmetics": {
       "where1": "Lipstick: nakatatak sa patag na base ng kaha ng bala. I-twist ang bala nang lubusan pababa upang ang kaso ay umupo nang patag.",
       "faq1q": "Paano ko masusuri ang petsa ng pag-expire ng MAC foundation?",
       "where3": "Mga bote ng pundasyon: sa base, o kung saan nakabalot ang label sa likod.",
       "where2": "Mga compact, blushes at palettes: sa likod ng case — at sa ilang produktong naka-print sa metal pan, makikita lang kapag naubos na ang powder.",
-      "faq1a": "Ang MAC ay hindi nagpi-print ng expiry date — halos walang makeup. Nag-print ito ng tatlong-character na batch code na nagbibigay sa planta, buwan at taon. I-decode iyon para sa petsa ng paggawa, pagkatapos ay ilapat ang simbolong bukas na garapon: ang likidong pundasyon ay karaniwang 6–12 buwan kapag binuksan, at humigit-kumulang 36 na buwang hindi nabuksan. Panalo ang naunang deadline.",
       "faq2q": "Ano ang hitsura ng MAC batch code?",
       "faq3q": "Paano ko malalaman kung ang aking MAC lipstick ay tunay?",
       "faq2a": "Tatlong character, tulad ng B23. Ang MAC ay kabilang sa pangkat ng Estée Lauder, kaya ang huling character ay ang digit ng taon at ang gitna ay ang buwan — kung saan ang ibig sabihin ng A, B at C ay Oktubre, Nobyembre at Disyembre.",
@@ -448,8 +432,7 @@
       "faq2q": "Nasaan ang batch code sa mga produkto ng Maybelline?",
       "where3": "Mga palette at compact: sa likod ng case.",
       "faq1q": "Ilang taon na ang aking Maybelline mascara?",
-      "faq2a": "Sa base ng tubo o bote, o sa likod ng isang palette. Ito ang maikling irregular code — hindi ang mahabang barcode number.",
-      "faq1a": "I-decode ang code sa base — Gumagamit ang Maybelline ng format ng L'Oréal, kung saan ang unang titik ay ang taon at ang susunod na karakter ay ang buwan. Ngunit para sa mascara ang petsa ng paggawa ay bihirang nagbubuklod: ang tatlo hanggang anim na buwang orasan na nagsisimula sa araw na binuksan mo ang tubo ay halos palaging mauubos muna."
+      "faq2a": "Sa base ng tubo o bote, o sa likod ng isang palette. Ito ang maikling irregular code — hindi ang mahabang barcode number."
     },
     "montblanc": {
       "where1": "Sa base ng kahon, at sa ilalim ng bote - naka-print sa itim sa puting base sticker.",
@@ -457,8 +440,6 @@
       "faq2q": "Mayroon bang serial number na maaari kong hanapin?",
       "faq1q": "Paano ko susuriin ang isang Montblanc Legend sa pamamagitan ng code nito?",
       "faq2a": "Hindi. Tinutukoy ng isang batch code ang isang production run, hindi isang indibidwal na bote, at walang pampublikong database upang hanapin ito. Ang ibinibigay nito sa iyo ay ang petsa — na siyang kapaki-pakinabang na bahagi.",
-      "faq3a": "Sa isang minorya ng Inter Parfums code ang mga digit na iyon ay isang factory line sa halip na isang araw. Kung ang petsa ay mukhang hindi kapani-paniwala para sa bote, magtiwala sa sulat ng taon at ituring ang araw bilang tinatayang.",
-      "faq3q": "Ang huling tatlong digit ay gumagawa ng kakaibang petsa.",
       "faq1a": "Binabasa ng Cosmetics Batch ang petsa ng produksyon mula sa iyong Montblanc code para sa iyo — ilagay ito sa checker sa tuktok ng pahinang ito, nang walang manu-manong pag-decode. Ang code ay nagtataglay ng petsa ng paggawa, hindi isang expiration: idagdag ang karaniwang hindi pa nabubuksang shelf life upang hatulan ang pagiging bago, at kapag nabuksan ay sundin ang open-jar (PAO) na simbolo."
     },
     "nivea": {
@@ -468,7 +449,6 @@
       "faq2q": "May expiry date ba ang NIVEA sun cream?",
       "faq3q": "Walang code na makikita sa aking NIVEA tin.",
       "faq2a": "Ang proteksyon sa araw ay karaniwang may naka-print na expiry date, dahil ang SPF claim ay itinuturing bilang isang safety claim. Gamitin ang naka-print na petsa sa halip na isang na-decode na pagtatantya — at ituring ang isang bote na gumugol ng tag-araw sa isang mainit na kotse bilang tapos na anuman ang sinasabi ng petsa.",
-      "faq1a": "Ni-encode ng NIVEA (Beiersdorf) ang linggo ng produksyon sa halip na ang araw. Ang unang digit ng code ay ang huling digit ng taon at ang susunod na dalawa ay ang numero ng linggo — kaya ang code na nagsisimula sa 815 ay linggo 15 ng isang taon na nagtatapos sa 8. Ilalagay ito sa loob ng pitong araw, na sapat para sa body lotion.",
       "where2": "Ang klasikong asul na lata ng Creme: pinindot sa metal na base, na walang anumang tinta. Ikiling ito sa ilalim ng ilaw; ang isang tuwid na ilaw ay nagpapawala nito.",
       "faq3a": "Ito ay naka-emboss sa metal na base sa halip na naka-print, na ginagawang halos hindi nakikita sa ilalim ng direktang liwanag. Hawakan ang lata upang mahuli ng lampara ang base mula sa gilid at lilitaw ang mga character."
     },
@@ -479,12 +459,10 @@
       "where1": "Sa ilalim ng kahon, at sa ilalim ng bote. Sa mas mabibigat na bote — ang 1 Million ingot, ang Invictus trophy — kadalasang nakatatak ang code sa metal o salamin sa halip na naka-print sa isang sticker.",
       "faq3q": "Ang Rabanne ba ay kapareho ng tatak ng Paco Rabanne?",
       "faq3a": "Oo — inalis ng bahay ang 'Paco' mula sa pangalan nito noong 2023. Ang mas lumang stock ay nagdadala ng dating branding, at hindi nagbago ang format ng code.",
-      "faq2a": "Maaari itong makahuli ng peke at hindi makapagpapatunay ng totoo. Si Paco Rabanne ay kabilang sa mga pinakapekeng pabango sa Europe: ang isang imposibleng numero ng araw, o mga code na hindi sumasang-ayon sa pagitan ng kahon at bote, ay matitinding babala — ngunit ang isang code na kinopya mula sa isang tunay na bote ay perpektong nade-decode. Timbangin ang bote at suriin din ang pattern ng spray.",
       "faq1a": "Binabasa ng Cosmetics Batch ang petsa ng produksyon mula sa iyong Paco Rabanne code para sa iyo — ilagay ito sa checker sa tuktok ng pahinang ito, nang walang manu-manong pag-decode. Ang code ay nagtataglay ng petsa ng paggawa, hindi isang expiration: idagdag ang karaniwang hindi pa nabubuksang shelf life upang hatulan ang pagiging bago, at kapag nabuksan ay sundin ang open-jar (PAO) na simbolo."
     },
     "redken": {
       "where1": "Mga Bote: naka-print na inkjet sa likod na label o sa base ng bote.",
-      "faq1a": "Ang Redken ay isang tatak ng L'Oréal at gumagamit ng format ng grupo — ang unang titik ay ang taon ng produksyon, ang karakter pagkatapos nito ay ang buwan. Karaniwang maganda ang pangangalaga sa buhok sa loob ng humigit-kumulang 36 na buwang hindi pa nabubuksan at 12 buwan pagkatapos ng pagbubukas.",
       "faq1q": "Paano ko titingnan ang shelf life ng isang produkto ng Redken?",
       "where2": "Mga pulbos at aerosol: nakatatak sa base ng lata.",
       "faq2q": "Sinasabi ba sa akin ng barcode ang buhay ng istante?",
@@ -494,7 +472,6 @@
       "faq1q": "Paano ko masusuri ang pagiging tunay ng pabango ni Roberto Cavalli?",
       "where2": "Maghanap ng maikling code ng apat na digit; ang mas mahabang numero sa ilalim ng barcode stripes ay hindi ito.",
       "where1": "Sa ilalim ng kahon at sa base ng bote - naka-print, o sa mas mabibigat na flacon na nakatatak sa salamin.",
-      "faq1a": "Ang pabango ng Cavalli ay ginawa ni Coty, kaya ang code ay isang apat na digit na petsa ng produksyon — isang taon na digit kasama ang araw ng taon. Ihambing muna ang code sa kahon sa code sa bote: ang mismatch ay ang nag-iisang pinakamalakas na signal na magagamit ng isang mamimili. Pagkatapos ay i-decode ito; ang isang imposibleng araw ay isang malinaw na peke. Ang isang code na malinis na nagde-decode, gayunpaman, ay hindi patunay ng pagiging tunay — ang mga kinopyang code ay nagde-decode din.",
       "faq2q": "Nasaan ang serial number sa bote ng Roberto Cavalli?",
       "faq2a": "Walang isa sa kahulugan ng isang natatanging serial bawat bote. Ang naka-print ay isang batch code — ibinahagi ng bawat unit mula sa parehong production run — at ine-encode nito ang petsa, hindi isang pagkakakilanlan."
     },
@@ -523,7 +500,6 @@
       "faq3q": "Mapapatunayan ba ng code na tunay ang aking Vichy?",
       "faq1q": "Nasaan ang petsa ng pag-expire sa mga produkto ng Vichy?",
       "faq2q": "Paano ko babasahin ang code sa isang produkto ng Vichy?",
-      "faq1a": "Karamihan sa mga produkto ng Vichy ay hindi nagpi-print ng isa. Ang mga linya ng parmasya ay kadalasang nagtataglay ng tunay na petsa ng pag-expire, at kung saan ito naroroon ay nalampasan nito ang anumang na-decode na pagtatantya — ngunit kung ang mahahanap mo lang ay isang maikling code, iyon ay ang batch code, at ito ang nagtataglay ng petsa ng paggawa sa halip na ang pag-expire. I-decode ito, pagkatapos ay idagdag ang shelf life: humigit-kumulang 36 na buwang hindi nabuksan para sa skincare, at sundin ang open-jar na simbolo kapag nabuksan na.",
       "faq3a": "Bahagyang lamang. Ang isang code na hindi akma sa hugis ng L'Oréal, o na nagde-decode sa isang petsa bago umiral ang linya ng produkto, ay isang tunay na babala. Ngunit ang isang pekeng kumokopya ng isang code mula sa isang tunay na tubo ay gumagawa ng isang code na perpektong nagde-decode — kaya ang isang malinis na decode ay nagpapatunay na ang code ay mahusay na nabuo, hindi na ang cream ay. Para sa skincare ng parmasya, ang pagbili mula sa isang parmasya ay nananatiling mas malakas na proteksyon.",
       "faq4q": "Nag-e-expire ba ang Capital Soleil sunscreen?",
       "faq4a": "Oo, at ito ay higit na mahalaga kaysa sa anupamang nasa hanay: ang mga degradong UV filter ay dumaan sa mas maraming radiation, kaya ang isang luma na SPF 50 ay hindi naghahatid ng SPF 50. Ang sunscreen ay karaniwang may naka-print na petsa ng pag-expire para sa eksaktong kadahilanang ito - gamitin ito. At ituring ang isang bote na gumugol ng tag-init sa isang mainit na kotse bilang tapos na anuman ang petsa.",
@@ -547,14 +523,10 @@
     },
     "escada": {
       "faq1q": "Paano ko babasahin ang batch code sa isang Escada pabango?",
-      "where3": "Ang mas lumang Escada parfum minis (ang panahon ng Margaretha Ley, na ipinamahagi ni Escada Beauté) ay nagtatak ng maikling letter-plus-number lot sa metal na base plate. Ang vintage format na iyon ay hindi ang apat na digit na Coty code at hindi magde-decode dito.",
-      "where1": "Modernong eau de parfum at eau de toilette: sa malinaw na sticker sa ilalim ng bote ng salamin, na naka-print bilang apat na digit na numero sa parehong linya ng text na \"EAU DE PARFUM VAPORISATEUR.\"",
       "faq1a": "Binabasa ng Cosmetics Batch ang petsa ng produksyon mula sa iyong Escada code para sa iyo — ilagay ito sa checker sa tuktok ng pahinang ito, nang walang manu-manong pag-decode. Ang code ay nagtataglay ng petsa ng paggawa, hindi isang expiration: idagdag ang karaniwang hindi pa nabubuksang shelf life upang hatulan ang pagiging bago, at kapag nabuksan ay sundin ang open-jar (PAO) na simbolo.",
       "faq3q": "Nag-e-expire ba ang Escada pabango?",
       "where2": "Panlabas na karton: sa isang dulo flap. Ang mga sticker at carton code ay naka-print nang magkasama sa pabrika at dapat pareho ang nabasa — kung hindi, ang bote at kahon ay ipinares sa ibang lugar.",
       "faq3a": "Ang halimuyak ay walang mahirap na pag-expire, ngunit nagbabago ito. Ang isang hindi pa nabubuksang Escada na bote ay pinananatiling malamig at madilim ang katangian nito sa loob ng humigit-kumulang limang taon; sa sandaling binuksan, ang matingkad na fruity top notes ay kumukupas muna. Ang isang bote na umitim o naging matalim at umasim ay na-oxidize anuman ang sinasabi ng code.",
-      "faq4a": "Hindi. Ang isang code na hindi akma sa apat na digit na hugis ni Coty, o na petsa bago ang pabango ay inilunsad, ay isang tunay na babala. Ngunit ang isang mahusay na nabuong code na kinopya sa isang pekeng ay nagde-decode nang kasinglinis, kaya ang isang wastong petsa ay nagpapatunay na ang code ay totoo, hindi ang pabango. Ang pagbili mula sa isang awtorisadong retailer ay nananatiling mas malakas na tseke.",
-      "faq2a": "Iyon ay isang mas lumang Escada pabango mula sa bago ang kasalukuyang Coty coding; ang Margaretha Ley-era minis stamp ng letter-and-number lot sa metal base sa halip na mag-print ng apat na digit na day-of-year code. Ang mga vintage lot na iyon ay hindi sumusunod sa format na binabasa ng tool na ito, kaya hindi nito maaaring i-date ang mga ito. Hindi ito senyales na peke ang bote — gumamit lang ng ibang sistema ang pabrika.",
       "faq2q": "Ang aking Escada bote ay may code na tulad ng \"H 0100\" na nakatatak sa base — bakit hindi ito magde-decode?",
       "faq4q": "Mapapatunayan ba ng batch code na ang aking Escada ay totoo?"
     }
