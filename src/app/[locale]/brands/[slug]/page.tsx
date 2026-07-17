@@ -219,7 +219,7 @@ export default async function BrandPage({
         </div>
       )}
 
-      <CheckForm initialBrand={brand} presentation="brand" />
+      <CheckForm initialBrand={brand} presentation="brand" navigateOnBrandChange />
 
       {/* Inline decode result (client-rendered from ?code= so the page stays SSG) */}
       <Suspense fallback={null}>

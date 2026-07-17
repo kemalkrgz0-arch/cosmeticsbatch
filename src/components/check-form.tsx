@@ -37,6 +37,7 @@ export function CheckForm({
   initialBrand,
   autoFocusCode = false,
   navigateOnSelect = false,
+  navigateOnBrandChange = false,
   className,
   presentation = "default",
 }: {
@@ -44,6 +45,8 @@ export function CheckForm({
   autoFocusCode?: boolean;
   /** Homepage mode: picking a brand routes to its page instead of decoding here. */
   navigateOnSelect?: boolean;
+  /** Brand-page mode: choosing another brand opens that brand's full page. */
+  navigateOnBrandChange?: boolean;
   className?: string;
   presentation?: "default" | "brand";
 }) {
@@ -141,6 +144,10 @@ export function CheckForm({
     // Homepage: don't decode here — send the user to the brand's own page
     // (indexable + ad-supported) where the decode happens.
     if (navigateOnSelect) {
+      router.push(`/brands/${b.slug}`);
+      return;
+    }
+    if (navigateOnBrandChange && b.slug !== brand?.slug) {
       router.push(`/brands/${b.slug}`);
       return;
     }

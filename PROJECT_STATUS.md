@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-17
-Current version: **0.12.0**
+Current version: **0.13.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,40 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.13.1 (brand picker page-transition fix)
+
+- Fixed the brand-detail checker retaining the previous brand's hero/content
+  after another brand was selected. Brand-page picker changes now navigate to
+  the selected brand's canonical route, refreshing the complete server-rendered
+  brand experience while preserving homepage picker and decode behavior.
+- Files: checker component, shared brand route, regression test,
+  `package.json`, `PROJECT_STATUS.md`.
+- Verification: scoped ESLint and TypeScript passed; 37/37 regressions,
+  `git diff --check` and the 267-page production build passed. The build retains
+  the pre-existing NFT tracing warning for private photo storage.
+- Deployment: local only; not committed or deployed.
+
+## Completed — 0.13.0 (brand hero rapid-onboarding foundation)
+
+- Split owner-approved hero artwork/crop configuration into one typed manifest
+  while continuing to merge it into the existing `Brand.theme` model. Adding a
+  new delivery no longer requires editing the route or shared components.
+- Established deterministic desktop/mobile filenames, dimensions, text-safe
+  areas, compression targets, legal/brand-isolation rules and fallback behavior
+  in `docs/BRAND_HERO_ASSET_GUIDE.md`.
+- Added `npm run hero:inventory`, which reports public-brand coverage, missing
+  slugs and hero files above the 700 KB review threshold. Current preparation
+  baseline is 1/212 public brands with approved hero artwork (Vichy); every
+  missing brand already renders the premium category fallback without a broken
+  request or borrowed product image.
+- Files: hero asset manifest, brand catalog merge, inventory script, handoff
+  guide, package scripts/version and `PROJECT_STATUS.md`.
+- Verification: repository ESLint and TypeScript passed; 36/36 regressions,
+  hero inventory, `git diff --check` and the 267-page production build passed.
+  The build retains the pre-existing NFT tracing warning for private photo
+  storage.
+- Deployment: local only; not committed or deployed.
 
 ## Completed — 0.12.0 (premium data-driven brand page)
 

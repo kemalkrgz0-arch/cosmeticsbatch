@@ -132,6 +132,14 @@ test("brand-page themes stay data-driven and hero assets remain local", () => {
   assert.doesNotMatch(page, /brand\.slug\s*===\s*["']vichy/);
 });
 
+test("changing the picker on a brand page navigates to the selected brand page", () => {
+  const form = readFileSync("src/components/check-form.tsx", "utf8");
+  const page = readFileSync("src/app/[locale]/brands/[slug]/page.tsx", "utf8");
+  assert.match(form, /navigateOnBrandChange && b\.slug !== brand\?\.slug/);
+  assert.match(form, /router\.push\(`\/brands\/\$\{b\.slug\}`\)/);
+  assert.match(page, /navigateOnBrandChange/);
+});
+
 test("every indexable brand meets the editorial and decoder threshold", () => {
   assert.deepEqual(
     INDEXED_BRANDS.map((brand) => brand.slug).sort(),
