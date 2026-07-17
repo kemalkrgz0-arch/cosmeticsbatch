@@ -364,23 +364,73 @@ function readEmbeddedDate(
 /*  which is what we read. Older/opaque codes may not be decodable.            */
 /* -------------------------------------------------------------------------- */
 
+/* -------------------------------------------------------------------------- */
+/*  Chanel                                                                    */
+/*                                                                            */
+/*  The leading pair of a 4-digit Chanel code is a running month counter on a */
+/*  96-month (8-year) wheel, anchored at 72 = January 2022; the trailing pair */
+/*  carries no date. The wheel is why the same code comes back around every   */
+/*  eight years, so a reading can only ever be the most recent non-future     */
+/*  turn of it.                                                               */
+/*                                                                            */
+/*  Derived from observed code -> date pairs, not from a Chanel publication:  */
+/*  Chanel publishes no scheme. It reproduces every pair we have (72xx=Jan    */
+/*  2022 through 27xx=Apr 2026) and dates every Chanel code real users have   */
+/*  entered, where the previous year+day-of-year reading failed on most of    */
+/*  them. Still unverified against a product of independently known date, so  */
+/*  the read stays low confidence — see PROJECT_STATUS for the check to run.  */
+/* -------------------------------------------------------------------------- */
+
+/** Counter value that means January 2022, and the length of the wheel. */
+const CHANEL_EPOCH_COUNTER = 72;
+const CHANEL_EPOCH_YEAR = 2022;
+const CHANEL_WHEEL_MONTHS = 96;
+
 const chanel: Decoder = {
   id: "chanel",
   label: "Chanel production date",
   explanation:
-    "Chanel does not publish a fixed batch-code cipher, but current Chanel fragrances, makeup and skincare print the production date in the code — typically the last digit of the year followed by the day of the year (e.g. 4135 = day 135 of 2024). Some older or region-specific codes cannot be decoded automatically.",
+    "Chanel does not publish a batch-code scheme. Current Chanel fragrances, makeup and skincare carry the production month in the leading digits of a short code, on a cycle that repeats every eight years. Some older or region-specific codes cannot be read automatically.",
   decode(code, ctx): DecodeAttempt | null {
+    const c = clean(code);
+    const m = c.match(/^(\d{2})(\d{2})$/);
+    if (m) {
+      const counter = Number(m[1]);
+      // The wheel only ever prints 00-95; anything above is not this format.
+      if (counter < CHANEL_WHEEL_MONTHS) {
+        const offset =
+          (((counter - CHANEL_EPOCH_COUNTER) % CHANEL_WHEEL_MONTHS) +
+            CHANEL_WHEEL_MONTHS) %
+          CHANEL_WHEEL_MONTHS;
+        let year = CHANEL_EPOCH_YEAR + Math.floor(offset / 12);
+        const month = (offset % 12) + 1;
+        // Walk back a whole wheel at a time until the reading isn't ahead of us.
+        while (inFuture(new Date(Date.UTC(year, month - 1, 1)), ctx.now)) {
+          year -= CHANEL_WHEEL_MONTHS / 12;
+        }
+        return {
+          manufactureDate: new Date(Date.UTC(year, month - 1, 15)),
+          confidence: "low",
+          datePrecision: "month",
+          method: `${this.label} (month wheel, ${year}-${String(month).padStart(2, "0")})`,
+          notes: [
+            "Chanel's code repeats every eight years, so an older product can read the same as a recent one. We report the most recent match — if the bottle or packaging clearly belongs to an earlier era, subtract eight years.",
+            "Chanel publishes no batch-code scheme, so this reading is a best effort rather than a manufacturer figure.",
+            "This is the manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the product stays good.",
+          ],
+        };
+      }
+    }
+
+    // Longer or non-numeric codes: fall back to a date embedded in the digits.
     const r = readEmbeddedDate(code, ctx.now);
     if (!r) return null;
     return {
-      // Chanel publishes no scheme and real Chanel codes often do NOT fit a
-      // year+day pattern (many return nothing at all). When a code happens to
-      // parse as a date it may still be coincidental, so this stays low.
       manufactureDate: r.date,
       confidence: "low",
       method: `${this.label} — ${r.method}`,
       notes: [
-        "Chanel does not publish a batch-code scheme, and many genuine Chanel codes do not encode a readable date. This is a best-effort reading of the digits and may not be the true production date — treat it as an estimate only.",
+        "This code doesn't fit Chanel's usual shape, so the date was read from the digits themselves and may be coincidental — treat it as an estimate only.",
         "This is an estimated manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the product stays good.",
       ],
     };

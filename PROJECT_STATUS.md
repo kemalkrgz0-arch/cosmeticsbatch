@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-17
-Current version: **0.17.0**
+Current version: **0.18.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,42 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.18.0 (Chanel month wheel)
+
+- Chanel codes users actually enter mostly failed to decode: `1802`, `2601`,
+  `2721`, `2501` all returned nothing, and the ones that did read came out
+  years off. The old reader treated the code as a year digit plus a day of the
+  year, which needs an arbitrary day number to land and rarely did.
+- The leading pair is a running month counter on a 96-month (8-year) wheel,
+  anchored at 72 = January 2022; the trailing pair carries no date. Derived
+  from observed code -> date pairs, not from a Chanel publication — Chanel
+  publishes no scheme. It reproduces every pair we have (72xx = Jan 2022
+  through 27xx = Apr 2026) and dates every Chanel code in the user dataset.
+- Counters above 95 are rejected rather than dated: the wheel only prints
+  00-95, so this keeps the reader from putting a date on any 4-digit string.
+  A reading ahead of today falls back one whole wheel.
+- Kept at low confidence with month precision. The 8-year repeat is real —
+  an older product reads the same as a recent one — and the scheme is not
+  manufacturer-published. This is not hedging; it is the reader being right
+  about its own uncertainty, and it matches how Dior/Kenzo cycle codes behave.
+- `brandDetail.chanel.sampleCode` was `3245` — the same placeholder Guerlain
+  uses, and it reads eight years back on the wheel. Replaced with `2721`, a
+  code real users entered, which reads April 2026.
+- Files: `src/lib/decoder/decoders.ts`, `src/lib/brand-detail.ts`,
+  `scripts/decoder-regression.test.ts`.
+- Verification: ESLint 0, TypeScript clean, 43/43 regressions, all decoder
+  examples decode, production build passed. The old fixture asserting
+  `3245 -> 2023-09-02` was updated to `2018-09-15`; that assertion was locking
+  in the previous reading and correctly failed first.
+- Risk / needs verification: **the wheel is unverified against a product of
+  independently known date.** Matching the readings the batch-code community
+  publishes proves we reproduce their algorithm, not that it is correct — if
+  it is wrong, we are now wrong identically. The check to run: collect Chanel
+  code + "when did you buy this new" through the existing photo/submission
+  flow. A product bought new was made within roughly the preceding year, which
+  is enough to separate this reading from the old one (they disagree by 3+
+  years on the same codes). Until then the read stays low confidence.
 
 ## Completed — 0.17.0 (search snippets and the untranslated checker)
 

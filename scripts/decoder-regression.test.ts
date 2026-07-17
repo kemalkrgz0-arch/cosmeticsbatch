@@ -13,7 +13,9 @@ const fixtures = [
   ["estee-lauder", "A56", "2026-05-15"],
   ["loreal", "22U401", "2021-04-15"],
   ["coty", "4135", "2024-05-14"],
-  ["chanel", "3245", "2023-09-02"],
+  // 32 on the month wheel is September; the current turn is ahead of `now`,
+  // so the reading is the previous turn of the 8-year wheel.
+  ["chanel", "3245", "2018-09-15"],
   ["dior", "5H03", "2025-08-15"],
   ["acquadiparma", "2480Y", "2020-09-04"],
   ["julian", "24045", "2024-02-14"],
@@ -242,4 +244,49 @@ test("a flagged postcode could never have decoded anyway", () => {
       assert.equal(result.decoded, false, `${brandName} ${code} unexpectedly decoded`);
     }
   }
+});
+
+/*
+ * Chanel's month wheel. Every pair below is an observed code -> date reading;
+ * the previous year+day-of-year reader failed on most of them.
+ */
+const chanelCode = (code: string) =>
+  checkBatchCode({
+    brandName: "Chanel",
+    code,
+    decoderId: "chanel",
+    shelfLifeMonths: 60,
+    category: "perfume",
+    now,
+  });
+
+test("Chanel codes read off the 8-year month wheel", () => {
+  for (const [code, month] of [
+    ["7201", "2022-01"], ["7301", "2022-02"], ["7501", "2022-04"],
+    ["7704", "2022-06"], ["9303", "2023-10"],
+  ] as const) {
+    const result = chanelCode(code);
+    assert.equal(result.manufactureDate?.toISOString().slice(0, 7), month, code);
+    assert.equal(result.datePrecision, "month", code);
+  }
+});
+
+test("a Chanel reading ahead of today falls back a whole wheel", () => {
+  // 32 -> September on the wheel; the current turn is 2026-09, still ahead of
+  // `now`, so the honest answer is the previous turn rather than a future date.
+  const result = chanelCode("3245");
+  assert.equal(result.manufactureDate?.toISOString().slice(0, 7), "2018-09");
+});
+
+test("a counter the Chanel wheel cannot print is not read as a date", () => {
+  // The wheel only prints 00-95. Refusing 96-99 keeps the reader from dating
+  // arbitrary 4-digit strings that merely look like a code.
+  for (const code of ["9601", "9999"]) {
+    assert.equal(chanelCode(code).decoded, false, code);
+  }
+});
+
+test("the Chanel reading is never reported as certain", () => {
+  // Chanel publishes no scheme and the wheel repeats every 8 years.
+  assert.equal(chanelCode("7704").confidence, "low");
 });

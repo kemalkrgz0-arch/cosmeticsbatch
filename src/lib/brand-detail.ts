@@ -63,7 +63,10 @@ export const BRAND_DETAILS: Record<string, BrandDetail> = {
 
   // ---- LVMH + Chanel ------------------------------------------------------
   dior: { sampleCode: "5H03" },
-  chanel: { sampleCode: "3245" },
+  // A code real users entered, not the shared Julian-format placeholder that
+  // was here: 3245 is Guerlain's example and reads eight years back on Chanel's
+  // wheel, which is a poor thing to show as representative.
+  chanel: { sampleCode: "2721" },
   "kenzo-parfums": { sampleCode: "24045" },
   guerlain: { sampleCode: "3245" },
   "fenty-beauty": { sampleCode: "231122" },
