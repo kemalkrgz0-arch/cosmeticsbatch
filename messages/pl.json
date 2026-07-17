@@ -59,11 +59,11 @@
   },
   "brandPage": {
     "blurb": "Odkoduj kody serii {name} , aby znaleźć datę produkcji, wiek i datę ważności produktów {category} . Bezpłatne, natychmiastowe i prywatne.",
-    "metaTitle": "Dekoder i moduł sprawdzający kody partii {name} — data produkcji i data ważności",
+    "metaTitle": "{name} — sprawdź kod partii i datę produkcji",
     "intro": "Wpisz poniżej kod partii {name} , aby natychmiast odszyfrować datę produkcji, wiek produktu i szacowaną datę ważności — bezpłatnie i prywatnie.",
     "howHeading": "Jak działają kody wsadowe {name}",
     "checkerTitle": "{name} Kontroler kodu wsadowego",
-    "metaDescription": "Darmowy dekoder kodu wsadowego {name} . Sprawdź datę produkcji, wiek produktu i datę ważności swoich produktów {name} w ciągu kilku sekund — bez rejestracji.",
+    "metaDescription": "Wpisz kod partii produktu {name} i odczytaj datę produkcji w kilka sekund. Zobacz, ile ma lat i ile przydatności zostało.",
     "factPao": "Po otwarciu (PAO)",
     "factManufacturer": "Producent",
     "factShelfLife": "Typowy okres trwałości",
@@ -565,5 +565,15 @@
     "authenticity": "Kod, który pomyślnie odszyfruje, nie może udowodnić autentyczności produktu, ponieważ można go skopiować. Wykorzystaj wynik jako jedną kontrolę spójności obok sprzedawcy, opakowania, plomb i jakości druku.",
     "decoderLabel": "Obserwowany format grupy (z dokładnością do miesiąca)",
     "format": "Jeżeli wprowadzony kod pasuje do obserwowanego kodowania grupy L'Oréal, moduł sprawdzający odczytuje dla Ciebie miesiąc i rok produkcji. Wpisz powyższy kod, aby uzyskać datę — nie trzeba wykonywać żadnych ręcznych czynności."
+  },
+  "checkPage": {
+    "metaTitle": "Sprawdź kod partii — data produkcji kosmetyku",
+    "metaDescription": "Wybierz markę i wpisz kod partii, aby w kilka sekund odczytać datę produkcji. Zobacz, ile kosmetyk lub perfumy mają lat i ile zostało przydatności.",
+    "h1": "Sprawdź kod partii",
+    "intro": "Wybierz markę i wpisz jej kod partii, aby odczytać datę produkcji.",
+    "checkAnother": "Sprawdź inny kod",
+    "relatedBrands": "Podobne marki",
+    "resultCrumb": "Wynik",
+    "learnHow": "Jak działają kody partii marki {name}"
   }
 }

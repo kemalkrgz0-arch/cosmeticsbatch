@@ -58,11 +58,11 @@
     "eanRightSub": "Zadejte tento — krátké datumové označení"
   },
   "brandPage": {
-    "metaTitle": "{name} dekodér a kontrola dávkového kódu – datum výroby a expirace",
+    "metaTitle": "{name} kód šarže — jak starý je váš výrobek?",
     "blurb": "Dekódujte kódy šarží {name} , abyste zjistili datum výroby, stáří a datum expirace vašich produktů {category} . Zdarma, okamžité a soukromé.",
     "checkerTitle": "{name} Kontrola dávkových kódů",
     "howHeading": "Jak fungují dávkové kódy {name}",
-    "metaDescription": "Zdarma {name} dávkový dekodér kódu. Zkontrolujte datum výroby, stáří produktu a datum vypršení platnosti vašich produktů {name} během několika sekund – bez registrace.",
+    "metaDescription": "Zadejte kód šarže výrobku {name} a zjistěte datum výroby během několika sekund. Uvidíte, jak je starý a kolik trvanlivosti zbývá.",
     "by": "od {group}",
     "factManufacturer": "Výrobce",
     "factShelfLife": "Typická trvanlivost",
@@ -565,5 +565,15 @@
     "authenticity": "Kód, který se úspěšně dekóduje, nemůže prokázat pravost produktu, protože kód lze zkopírovat. Použijte výsledek jako jednu kontrolu konzistence vedle prodejce, balení, těsnění a kvality tisku.",
     "decoderLabel": "Formát sledované skupiny (přesnost na měsíc)",
     "officialSource": "Potvrďte značku v L'Oréal oficiálním portfoliu Groupe"
+  },
+  "checkPage": {
+    "metaTitle": "Ověřit kód šarže — datum výroby",
+    "metaDescription": "Vyberte značku a zadejte kód šarže, během několika sekund zjistíte datum výroby. Uvidíte, jak je výrobek starý a kolik trvanlivosti zbývá.",
+    "h1": "Ověřit kód šarže",
+    "intro": "Vyberte značku a zadejte její kód šarže pro zjištění data výroby.",
+    "checkAnother": "Ověřit jiný kód",
+    "relatedBrands": "Podobné značky",
+    "resultCrumb": "Výsledek",
+    "learnHow": "Jak fungují kódy šarží značky {name}"
   }
 }

@@ -74,8 +74,8 @@
     "helpfulGuides": "Guías útiles",
     "faqTitle": "{name} — Preguntas frecuentes",
     "blurb": "Lee el código de lote de {name} para estimar la fecha de fabricación y la antigüedad. La vida útil es orientativa y el código no demuestra por sí solo la autenticidad.",
-    "metaTitle": "Comprobar código de lote {name} — fecha de fabricación estimada",
-    "metaDescription": "Comprueba el código de lote de {name} para estimar la fecha de fabricación y la antigüedad. Consulta los límites, la vida útil sin abrir y el PAO.",
+    "metaTitle": "Código de lote {name} — ¿Qué antigüedad tiene tu producto?",
+    "metaDescription": "Introduce el código de lote de tu producto {name} y lee su fecha de fabricación en segundos. Descubre qué antigüedad tiene y cuánta vida útil típica le queda.",
     "printsDateNote": "{name} imprime la fecha de fabricación o caducidad directamente en el envase, por lo que normalmente no necesitas un código de lote.",
     "whereHeading": "Dónde encontrar el código en el paquete {name}",
     "exampleHeading": "Un código {name} real, decodificado",
@@ -565,5 +565,15 @@
     "checkYourCodeCta": "abre el verificador",
     "checkYourCodeTitle": "Verifique su código de lote",
     "formatsIntro": "Un código de lote pertenece a quien fabrica el producto, no al nombre que aparece en la botella: el mismo fabricante imprime el mismo estilo de código en muchas marcas. Elija un grupo de fabricantes a continuación para ver qué marcas cubre y luego verifique cualquier código en la herramienta."
+  },
+  "checkPage": {
+    "metaTitle": "Comprobar código de lote — fecha de fabricación",
+    "metaDescription": "Elige tu marca e introduce el código de lote para leer la fecha de fabricación en segundos. Descubre qué antigüedad tiene tu cosmético o perfume.",
+    "h1": "Comprobar un código de lote",
+    "intro": "Selecciona una marca e introduce su código de lote para leer la fecha de fabricación.",
+    "checkAnother": "Comprobar otro código",
+    "relatedBrands": "Marcas relacionadas",
+    "resultCrumb": "Resultado",
+    "learnHow": "Cómo funcionan los códigos de lote de {name}"
   }
 }

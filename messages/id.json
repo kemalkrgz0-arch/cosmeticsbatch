@@ -58,8 +58,8 @@
     "eanRightSub": "Masukkan ini — stempel tanggal pendek"
   },
   "brandPage": {
-    "metaTitle": "Periksa Kode Batch {name} — Perkiraan Tanggal Produksi",
-    "metaDescription": "Periksa kode batch {name} untuk memperkirakan tanggal produksi dan usia produk. Lihat batas dekoder, masa simpan belum dibuka, dan PAO.",
+    "metaTitle": "Kode batch {name} — berapa umur produkmu?",
+    "metaDescription": "Masukkan kode batch produk {name} dan baca tanggal produksinya dalam hitungan detik. Lihat berapa umurnya dan sisa masa simpannya.",
     "blurb": "Baca kode batch {name} untuk memperkirakan tanggal produksi dan usia. Masa simpan adalah perkiraan; kode saja tidak membuktikan keaslian.",
     "checkerTitle": "Pemeriksa Kode Batch {name}",
     "by": "oleh {group}",
@@ -565,5 +565,15 @@
     "checkYourCodeBody": "Masukkan kode batch dari produk Anda di pemeriksa dan kode tersebut akan membacakan tanggal pembuatan untuk Anda — tidak perlu penguraian kode manual. Kode tersebut berisi tanggal produksi, bukan kadaluwarsa.",
     "formatsIntro": "Kode batch adalah milik siapa pun yang memproduksi produk tersebut, bukan milik nama pada botolnya — pembuat yang sama memberikan stempel gaya kode yang sama di banyak merek. Pilih grup produsen di bawah untuk melihat merek mana yang dicakupnya, lalu periksa kode apa pun di alat tersebut.",
     "formatsIntro2": "Setiap halaman di bawah ini mencakup satu grup produsen: merek mana yang disertakan, di mana menemukan kode batch pada kemasan, dan kode apa yang dapat dan tidak dapat diberitahukan kepada Anda tentang tanggal produksi dan kesegaran."
+  },
+  "checkPage": {
+    "metaTitle": "Cek kode batch — tanggal produksi",
+    "metaDescription": "Pilih merek dan masukkan kode batch untuk membaca tanggal produksi dalam hitungan detik. Lihat berapa umur produk dan sisa masa simpannya.",
+    "h1": "Cek kode batch",
+    "intro": "Pilih merek dan masukkan kode batch-nya untuk membaca tanggal produksi.",
+    "checkAnother": "Cek kode lain",
+    "relatedBrands": "Merek terkait",
+    "resultCrumb": "Hasil",
+    "learnHow": "Cara kerja kode batch {name}"
   }
 }

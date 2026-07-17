@@ -1,4 +1,6 @@
-import type { DecodeFailureReason } from "@/lib/decoder";
+// Relative, not "@/": the regression suite compiles this file directly with
+// tsc and no path mapping, the same way the rest of src/lib does it.
+import type { DecodeFailureReason } from "./decoder";
 
 type FailureCopy = {
   title: string;
@@ -65,4 +67,27 @@ const tr: Record<DecodeFailureReason, FailureCopy> = {
 
 export function resultFailureCopy(locale: string, reason: DecodeFailureReason): FailureCopy {
   return locale.toLowerCase().startsWith("tr") ? tr[reason] : en[reason];
+}
+
+/**
+ * Paris postcodes (75001–75020, plus 75116) printed in the address block that
+ * cosmetics packaging carries for its EU responsible person.
+ *
+ * People type them into the checker as batch codes: "75008" arrived for two
+ * different brands and "75116" for a third, from three different countries, so
+ * this is a pattern rather than a one-off. None of them can ever decode — there
+ * is no 500th day of a year — so recognising the shape here cannot mask a real
+ * read; it just stops the user hunting for a code they have already walked past.
+ */
+const PARIS_POSTCODE = /^75(0(0[1-9]|1\d|20)|116)$/;
+
+const addressHint = {
+  en: "That number looks like a Paris postcode from the manufacturer's address on the pack, rather than a batch code. The batch code is a separate, shorter stamp — usually on the base of the bottle or on an end flap of the box.",
+  tr: "Bu numara, ambalajdaki üretici adresinde geçen bir Paris posta koduna benziyor; batch kod değil. Batch kod ayrı ve daha kısa bir damgadır — genelde şişenin altında ya da kutunun yan kapağında bulunur.",
+};
+
+/** Extra nudge when the entered code is an address line, not a batch code. */
+export function addressLookalikeHint(locale: string, code: string): string | null {
+  if (!PARIS_POSTCODE.test(code.trim())) return null;
+  return locale.toLowerCase().startsWith("tr") ? addressHint.tr : addressHint.en;
 }

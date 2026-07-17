@@ -59,9 +59,9 @@
   },
   "brandPage": {
     "checkerTitle": "{name}Batch Code Checker",
-    "metaDescription": "Gratis {name} batch kode dekoder. Tjek fremstillingsdatoen, produktalderen og udløbsdatoen for dine {name} -produkter på få sekunder – ingen tilmelding.",
+    "metaDescription": "Indtast batchkoden på dit {name}-produkt og aflæs fremstillingsdatoen på sekunder. Se hvor gammelt det er, og hvor meget holdbarhed der er tilbage.",
     "blurb": "Afkode {name} batchkoder for at finde fremstillingsdatoen, alderen og udløbsdatoen for dine {category} -produkter. Gratis, øjeblikkelig og privat.",
-    "metaTitle": "{name} Batch Code Decoder & Checker — Fremstilling og udløbsdato",
+    "metaTitle": "{name} batchkode — hvor gammelt er dit produkt?",
     "by": "af {group}",
     "factManufacturer": "Fabrikant",
     "factShelfLife": "Typisk holdbarhed",
@@ -565,5 +565,15 @@
     "decoderLabel": "Observeret gruppeformat (månedspræcision)",
     "officialSource": "Bekræft mærket i L'Oréal Groupes officielle portefølje",
     "authenticity": "En kode, der afkoder med succes, kan ikke bevise, at produktet er ægte, fordi en kode kan kopieres. Brug resultatet som ét konsistenstjek sammen med sælger, emballage, forseglinger og printkvalitet."
+  },
+  "checkPage": {
+    "metaTitle": "Tjek batchkode — fremstillingsdato",
+    "metaDescription": "Vælg mærke og indtast batchkoden for at aflæse fremstillingsdatoen på sekunder. Se hvor gammelt produktet er, og hvor meget holdbarhed der er tilbage.",
+    "h1": "Tjek en batchkode",
+    "intro": "Vælg et mærke, og indtast batchkoden for at aflæse fremstillingsdatoen.",
+    "checkAnother": "Tjek en anden kode",
+    "relatedBrands": "Lignende mærker",
+    "resultCrumb": "Resultat",
+    "learnHow": "Sådan fungerer batchkoder fra {name}"
   }
 }

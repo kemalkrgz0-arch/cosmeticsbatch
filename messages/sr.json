@@ -60,8 +60,8 @@
   "brandPage": {
     "checkerTitle": "{name} provera batch koda",
     "blurb": "Dekodirajte {name} batch kodove da biste saznali datum proizvodnje, starost i rok trajanja svojih {category} proizvoda. Besplatno, trenutno i privatno.",
-    "metaTitle": "{name} dekoder i provera batch koda — datum proizvodnje i rok trajanja",
-    "metaDescription": "Besplatan {name} dekoder batch koda. Proverite datum proizvodnje, starost i rok trajanja svojih {name} proizvoda za nekoliko sekundi — bez registracije.",
+    "metaTitle": "{name} серијски код — колико је производ стар?",
+    "metaDescription": "Унесите серијски код производа {name} и сазнајте датум производње за неколико секунди. Погледајте колико је стар и колико рока остаје.",
     "by": "od {group}",
     "factManufacturer": "Произвођач",
     "factShelfLife": "Типичан рок трајања",
@@ -565,5 +565,15 @@
     "authenticity": "Код који се успешно декодира не може доказати да је производ оригиналан јер се код може копирати. Користите резултат као једну проверу доследности поред продавца, паковања, печата и квалитета штампе.",
     "format": "Тамо где се унети код поклапа са посматраним групним кодирањем L'Oréal, уређај за проверу чита месец и годину производње за вас. Унесите код изнад да бисте добили датум — нема ручних корака које треба пратити.",
     "decoderLabel": "Формат посматране групе (прецизност месеца)"
+  },
+  "checkPage": {
+    "metaTitle": "Провера серијског кода — датум производње",
+    "metaDescription": "Изаберите бренд и унесите серијски код да за неколико секунди сазнате датум производње. Погледајте колико је производ стар.",
+    "h1": "Провера серијског кода",
+    "intro": "Изаберите бренд и унесите његов серијски код да видите датум производње.",
+    "checkAnother": "Провери други код",
+    "relatedBrands": "Слични брендови",
+    "resultCrumb": "Резултат",
+    "learnHow": "Како функционишу серијски кодови бренда {name}"
   }
 }

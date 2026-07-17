@@ -58,13 +58,13 @@
     "eanRightSub": "Introdueix aquest — una marca de data curta"
   },
   "brandPage": {
-    "metaTitle": "Decodificador i verificador de codi de lot {name} - Data de fabricació i caducitat",
+    "metaTitle": "Codi de lot {name} — quina antiguitat té?",
     "blurb": "Descodifiqueu els codis de lot {name} per trobar la data de fabricació, l'edat i la data de caducitat dels vostres productes {category} . Gratuït, instantani i privat.",
     "by": "per {group}",
     "intro": "Introduïu el vostre codi de lot {name} a continuació per descodificar a l'instant la data de fabricació, l'edat del producte i la data de caducitat estimada, de manera gratuïta i privada.",
     "checkerTitle": "Verificador de codi de lot {name}",
     "howHeading": "Com funcionen els codis de lot {name}",
-    "metaDescription": "Descodificador de codi de lot {name} gratuït. Comproveu la data de fabricació, l'edat del producte i la data de caducitat dels vostres productes {name} en segons, sense registrar-vos.",
+    "metaDescription": "Introdueix el codi de lot del teu producte {name} i llegeix la data de fabricació en segons. Descobreix quina antiguitat té i quanta vida útil li queda.",
     "factShelfLife": "Vida útil típica",
     "factDecoder": "Descodificador",
     "factPao": "Després de l'obertura (PAO)",
@@ -565,5 +565,15 @@
     "authenticity": "Un codi que es descodifica correctament no pot demostrar que el producte és autèntic perquè es pot copiar un codi. Utilitzeu el resultat com una comprovació de coherència juntament amb el venedor, l'embalatge, els segells i la qualitat d'impressió.",
     "precision": "Aquest format identifica un mes, no un dia exacte. Qualsevol dia que es mostra al resultat és una estimació de mig mes. Sempre té prioritat una data de caducitat o caducitat impresa al producte.",
     "decoderLabel": "Format de grup observat (precisió mensual)"
+  },
+  "checkPage": {
+    "metaTitle": "Comprovar codi de lot — data de fabricació",
+    "metaDescription": "Tria la marca i introdueix el codi de lot per llegir la data de fabricació en segons. Descobreix quina antiguitat té el producte.",
+    "h1": "Comprovar un codi de lot",
+    "intro": "Selecciona una marca i introdueix el seu codi de lot per llegir la data de fabricació.",
+    "checkAnother": "Comprovar un altre codi",
+    "relatedBrands": "Marques relacionades",
+    "resultCrumb": "Resultat",
+    "learnHow": "Com funcionen els codis de lot de {name}"
   }
 }

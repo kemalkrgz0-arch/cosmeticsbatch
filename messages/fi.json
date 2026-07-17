@@ -58,10 +58,10 @@
     "eanRightSub": "Syötä tämä — lyhyt päiväysmerkintä"
   },
   "brandPage": {
-    "metaTitle": "{name} Eräkoodin dekooderi ja tarkistus - valmistus- ja viimeinen voimassaolopäivä",
+    "metaTitle": "{name} eräkoodi — kuinka vanha tuotteesi on?",
     "blurb": "Pura {name} -eräkoodit löytääksesi {category} -tuotteidesi valmistuspäivän, iän ja viimeinen käyttöpäivä. Ilmainen, välitön ja yksityinen.",
     "checkerTitle": "{name} Eräkoodin tarkistus",
-    "metaDescription": "Ilmainen {name} eräkoodin dekooderi. Tarkista {name} -tuotteidesi valmistuspäivä, tuotteen ikä ja viimeinen käyttöpäivä sekunneissa – ei kirjautumista.",
+    "metaDescription": "Syötä {name}-tuotteesi eräkoodi ja lue valmistuspäivä sekunneissa. Näet, kuinka vanha se on ja paljonko säilyvyyttä on jäljellä.",
     "howHeading": "Kuinka {name} eräkoodit toimivat",
     "factManufacturer": "Valmistaja",
     "intro": "Syötä {name} -eräkoodisi alle purkaaksesi välittömästi valmistuspäivän, tuotteen iän ja arvioidun viimeinen käyttöpäivämäärän – ilmainen ja yksityinen.",
@@ -565,5 +565,15 @@
     "authenticity": "Koodi, joka purkaa onnistuneesti, ei voi todistaa tuotteen aitoa, koska koodi voidaan kopioida. Käytä tulosta yhtenä yhtenäisyystarkistuksena myyjän, pakkauksen, sinettien ja painolaadun ohella.",
     "officialSource": "Vahvista tuotemerkki L'Oréal Groupen virallisessa portfoliossa",
     "portfolio": "{name}on lueteltu L'Oréal Groupen tuotemerkkiportfoliossa. Konsernin omistus ei takaa, että jokainen tehdas, markkina tai vanhempi tuote käyttää samaa eräkoodimuotoa."
+  },
+  "checkPage": {
+    "metaTitle": "Tarkista eräkoodi — valmistuspäivä",
+    "metaDescription": "Valitse merkki ja syötä eräkoodi, niin luet valmistuspäivän sekunneissa. Näet, kuinka vanha tuote on ja paljonko säilyvyyttä on jäljellä.",
+    "h1": "Tarkista eräkoodi",
+    "intro": "Valitse merkki ja syötä sen eräkoodi lukeaksesi valmistuspäivän.",
+    "checkAnother": "Tarkista toinen koodi",
+    "relatedBrands": "Samankaltaiset merkit",
+    "resultCrumb": "Tulos",
+    "learnHow": "Näin {name}-eräkoodit toimivat"
   }
 }

@@ -58,8 +58,8 @@
     "eanRightSub": "Masukkan ini — cap tarikh pendek"
   },
   "brandPage": {
-    "metaTitle": "Penyahkod & Penyemak Kod Kelompok {name} — Tarikh Pembuatan & Luput",
-    "metaDescription": "Penyahkod kod kelompok {name} percuma. Semak tarikh pembuatan, usia produk dan tarikh luput produk {name} anda dalam beberapa saat — tanpa pendaftaran.",
+    "metaTitle": "Kod kelompok {name} — berapa usia produk anda?",
+    "metaDescription": "Masukkan kod kelompok produk {name} dan baca tarikh pengeluaran dalam beberapa saat. Lihat usianya dan baki jangka hayatnya.",
     "blurb": "Nyahkod kod kelompok {name} untuk mencari tarikh pembuatan, usia dan tarikh luput produk {category} anda. Percuma, segera dan peribadi.",
     "checkerTitle": "Penyemak Kod Kelompok {name}",
     "by": "oleh {group}",
@@ -565,5 +565,15 @@
     "authenticity": "Kod yang berjaya menyahkod tidak dapat membuktikan produk itu tulen kerana kod boleh disalin. Gunakan hasilnya sebagai satu semakan konsistensi bersama penjual, pembungkusan, pengedap dan kualiti cetakan.",
     "officialSource": "Sahkan jenama dalam L'Oréal portfolio rasmi Groupe",
     "decoderLabel": "Format kumpulan yang diperhatikan (ketepatan bulan)"
+  },
+  "checkPage": {
+    "metaTitle": "Semak kod kelompok — tarikh pengeluaran",
+    "metaDescription": "Pilih jenama dan masukkan kod kelompok untuk membaca tarikh pengeluaran dalam beberapa saat. Lihat usia produk dan baki jangka hayatnya.",
+    "h1": "Semak kod kelompok",
+    "intro": "Pilih jenama dan masukkan kod kelompoknya untuk membaca tarikh pengeluaran.",
+    "checkAnother": "Semak kod lain",
+    "relatedBrands": "Jenama berkaitan",
+    "resultCrumb": "Keputusan",
+    "learnHow": "Cara kod kelompok {name} berfungsi"
   }
 }

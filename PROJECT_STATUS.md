@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-17
-Current version: **0.16.0**
+Current version: **0.17.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,56 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.17.0 (search snippets and the untranslated checker)
+
+- Root cause found in the 2026-07-17 Yandex export, which carries a `demand`
+  column (total searches per query) alongside our impressions. Reading capture
+  rate rather than impressions exposed the gap: `/ru/brands/loreal-paris` was
+  capturing 75% of its demand at position 6.8, while `/ru/check` captured
+  **1 impression out of 498 demand** for "проверить батч код" — 24% of all
+  Yandex demand, and zero impressions on 13 of 14 days.
+- The cause was a bug, not ranking difficulty: `/check` was hard-coded English
+  in every locale. It took `locale` and never used it — meta title, H1, intro,
+  breadcrumbs, "Related brands" and the brand link were all literal English, so
+  Yandex was offered an English page for a Russian query. A page cannot rank in
+  a language it is not written in.
+- Added a `checkPage` namespace and wired the route to it. Three head queries
+  (498 + 114 + 23 = 635 demand, 31% of the Yandex total) resolve to this page.
+- Rewrote the brand-page snippet around what people actually search. The old
+  line led with caveats ("estimated manufacture date… see the decoder limits") —
+  nobody clicks to read limits. The dominant intent across both engines is
+  "срок годности" / "herstellungsdatum": *is my product still good?*
+  Accuracy improved rather than dropped: the manufacture date is **decoded**,
+  not estimated — the shelf life is the estimate, and the copy now says so.
+- Titles were being truncated. The layout appends "| Cosmetics Batch" (18 of the
+  ~60-character budget), so the differentiating tail never rendered. `pageMeta`
+  gained `standaloneTitle` for pages whose title already carries the brand.
+- All 44 locales hand-written, no machine translation. Each language uses the
+  term its own users type — DE `Chargennummer`/`Herstellungsdatum` (query at
+  position 18.6), RU `батч-код`/`срок годности`, TR `batch kodu sorgulama`.
+  Fixed two pre-existing MT defects found on the way: Serbian `form.batchCode`
+  was "Батцх Цоде" (a letter-by-letter transliteration of "Batch Code", not a
+  word), and Hungarian was left untranslated as "Batch Code".
+- Also landed: Paris postcodes (75001–75020, 75116) entered as batch codes now
+  get an explicit hint. Users type the manufacturer's address block — `75008`
+  arrived for two brands and `75116` for a third, from three countries. Guarded
+  by a test proving the hint cannot mask a real read.
+- Files: all 44 `messages/*.json`, `src/app/[locale]/check/page.tsx`,
+  `src/app/[locale]/brands/[slug]/page.tsx`, `src/lib/seo.ts`,
+  `src/lib/result-failure-copy.ts`, `src/components/result-card.tsx`,
+  `scripts/decoder-regression.test.ts`.
+- Verification: ESLint 0, TypeScript clean, 39/39 regressions, production build
+  passed. Rendered and checked the real HTML rather than trusting the code:
+  `/ru/check` → `<title>Проверить батч код косметики и парфюма — дата выпуска</title>`,
+  `<h1>Проверить батч код</h1>`; `/ja`, `/zh`, `/pl`, `/uk`, `/ar` all in their
+  own language; `/brands` still keeps the site-name suffix.
+- Risk / needs verification: ranking does not follow from translation alone —
+  indexing and competition still apply. The claim proven here is narrower: an
+  English page could not rank for a Russian query, and now it can compete.
+  Measure over 28 days, not on the single 2026-07-15 impression. Of the 44
+  locales, only EN and TR have a speaker who can vouch for them; DE has a
+  reviewer available. The other 41 are unverified and should be treated as such.
 
 ## Completed — 0.16.0 (Lancôme and Nivea heroes)
 

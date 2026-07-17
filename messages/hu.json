@@ -59,8 +59,8 @@
   },
   "brandPage": {
     "checkerTitle": "{name}Batch Code Checker",
-    "metaDescription": "Ingyenes {name} kötegelt kód dekóder. Másodpercek alatt ellenőrizheti {name} termékei gyártási dátumát, korát és lejárati idejét – regisztráció nélkül.",
-    "metaTitle": "{name} Batch Code Dekóder és Ellenőrző — Gyártási és lejárati dátum",
+    "metaDescription": "Add meg a(z) {name} terméked tételszámát, és olvasd le a gyártási dátumot másodpercek alatt. Nézd meg, milyen régi és mennyi szavatosság maradt.",
+    "metaTitle": "{name} tételszám — milyen régi a terméked?",
     "blurb": "Az {name} kötegkódok dekódolása az {category} termékek gyártási dátumának, korának és lejárati dátumának megállapításához. Ingyenes, azonnali és privát.",
     "factManufacturer": "Gyártó",
     "factShelfLife": "Tipikus eltarthatósági idő",
@@ -565,5 +565,15 @@
     "officialSource": "Erősítse meg a márkát a L'Oréal Groupe hivatalos portfóliójában",
     "authenticity": "A sikeresen dekódoló kód nem tudja bizonyítani a termék eredetiségét, mert a kód lemásolható. Az eredményt egyetlen konzisztencia-ellenőrzésként használja az eladó, a csomagolás, a pecsétek és a nyomtatási minőség mellett.",
     "decoderLabel": "Megfigyelt csoportformátum (havi pontossággal)"
+  },
+  "checkPage": {
+    "metaTitle": "Tételszám ellenőrzése — gyártási dátum",
+    "metaDescription": "Válassz márkát, add meg a tételszámot, és másodpercek alatt leolvashatod a gyártási dátumot. Nézd meg, milyen régi a termék és mennyi szavatosság maradt.",
+    "h1": "Tételszám ellenőrzése",
+    "intro": "Válassz egy márkát, és add meg a tételszámát a gyártási dátum leolvasásához.",
+    "checkAnother": "Másik kód ellenőrzése",
+    "relatedBrands": "Hasonló márkák",
+    "resultCrumb": "Eredmény",
+    "learnHow": "Így működnek a(z) {name} tételszámok"
   }
 }

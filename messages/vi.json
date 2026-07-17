@@ -58,8 +58,8 @@
     "eanRightSub": "Nhập mã này — dấu in ngày ngắn"
   },
   "brandPage": {
-    "metaTitle": "Kiểm tra mã lô {name} — Ước tính ngày sản xuất",
-    "metaDescription": "Kiểm tra mã lô {name} để ước tính ngày sản xuất và tuổi sản phẩm. Xem giới hạn giải mã, thời hạn khi chưa mở và PAO.",
+    "metaTitle": "Mã lô {name} — sản phẩm của bạn bao nhiêu tuổi?",
+    "metaDescription": "Nhập mã lô sản phẩm {name} để đọc ngày sản xuất trong vài giây. Xem sản phẩm đã sản xuất bao lâu và còn lại bao nhiêu hạn dùng.",
     "blurb": "Đọc mã lô {name} để ước tính ngày sản xuất và tuổi sản phẩm. Thời hạn chỉ là ước tính; mã lô không tự chứng minh hàng chính hãng.",
     "checkerTitle": "Trình kiểm tra mã lô {name}",
     "by": "bởi {group}",
@@ -565,5 +565,15 @@
     "formatsIntro2": "Mỗi trang bên dưới bao gồm một nhóm nhà sản xuất: bao gồm những thương hiệu nào, tìm mã lô trên bao bì ở đâu và mã nào có thể và không thể cho bạn biết về ngày sản xuất và độ tươi.",
     "brandsUsingNote": "Mã lô thuộc về nhà sản xuất chứ không phải nhãn trên chai - các nhãn hiệu bên dưới có chung mã sản xuất nên người kiểm tra sẽ đọc tất cả.",
     "formatsIntro": "Mã lô thuộc về nhà sản xuất sản phẩm chứ không thuộc về tên trên chai - cùng một nhà sản xuất đóng dấu cùng một kiểu mã trên nhiều nhãn hiệu. Chọn nhóm nhà sản xuất bên dưới để xem nhóm đó bao gồm những thương hiệu nào, sau đó kiểm tra bất kỳ mã nào trong công cụ."
+  },
+  "checkPage": {
+    "metaTitle": "Kiểm tra mã lô — ngày sản xuất mỹ phẩm",
+    "metaDescription": "Chọn thương hiệu và nhập mã lô để đọc ngày sản xuất trong vài giây. Xem sản phẩm đã sản xuất bao lâu và còn lại bao nhiêu hạn dùng.",
+    "h1": "Kiểm tra mã lô",
+    "intro": "Chọn thương hiệu và nhập mã lô để đọc ngày sản xuất.",
+    "checkAnother": "Kiểm tra mã khác",
+    "relatedBrands": "Thương hiệu liên quan",
+    "resultCrumb": "Kết quả",
+    "learnHow": "Mã lô {name} hoạt động thế nào"
   }
 }

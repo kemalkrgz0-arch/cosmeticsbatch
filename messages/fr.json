@@ -73,9 +73,9 @@
     "relatedBrands": "Marques associées",
     "helpfulGuides": "Guides utiles",
     "faqTitle": "{name}— FAQ",
-    "metaTitle": "Décodeur et vérificateur de codes de lot {name} — Date de fabrication et d'expiration",
+    "metaTitle": "Code de lot {name} — Quel âge a votre produit ?",
     "blurb": "Décodez les codes de lot {name} pour connaître la date de fabrication, l'âge et la date de péremption de vos produits {category} . Gratuit, instantané et privé.",
-    "metaDescription": "Décodeur de code de lot {name} gratuit. Vérifiez la date de fabrication, l'âge du produit et la date d'expiration de vos produits {name} en quelques secondes, sans inscription.",
+    "metaDescription": "Saisissez le code de lot de votre produit {name} et lisez sa date de fabrication en quelques secondes. Voyez son âge et la durée de vie type qu'il lui reste.",
     "printsDateNote": "{name} imprime la date de fabrication ou de péremption directement sur l'emballage, vous n'avez donc généralement pas besoin d'un code de lot.",
     "exampleHeading": "Un vrai code {name} , décodé",
     "whereHeading": "Où trouver le code sur l'emballage {name}",
@@ -565,5 +565,15 @@
     "officialSource": "Confirmer la marque dans le portfolio officiel de L'Oréal Groupe",
     "authenticity": "Un code qui décode avec succès ne peut pas prouver que le produit est authentique car un code peut être copié. Utilisez le résultat comme un contrôle de cohérence aux côtés du vendeur, de l’emballage, des sceaux et de la qualité d’impression.",
     "decoderLabel": "Format de groupe observé (précision mensuelle)"
+  },
+  "checkPage": {
+    "metaTitle": "Vérifier un code de lot — date de fabrication",
+    "metaDescription": "Choisissez votre marque et saisissez le code de lot pour lire la date de fabrication en quelques secondes. Voyez l'âge de votre cosmétique ou parfum.",
+    "h1": "Vérifier un code de lot",
+    "intro": "Sélectionnez une marque et saisissez son code de lot pour lire la date de fabrication.",
+    "checkAnother": "Vérifier un autre code",
+    "relatedBrands": "Marques similaires",
+    "resultCrumb": "Résultat",
+    "learnHow": "Comment fonctionnent les codes de lot {name}"
   }
 }

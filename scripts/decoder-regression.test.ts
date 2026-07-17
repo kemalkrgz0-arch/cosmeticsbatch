@@ -5,6 +5,7 @@ import {
   DECODER_PROFILES,
   DECODERS,
 } from "../src/lib/decoder";
+import { addressLookalikeHint } from "../src/lib/result-failure-copy";
 
 const now = new Date("2025-07-14T12:00:00Z");
 
@@ -217,4 +218,28 @@ test("the canonical L'Oréal shape still reads at high confidence", () => {
   const result = loreal("22U401");
   assert.equal(result.confidence, "high");
   assert.equal(result.manufactureDate?.toISOString().slice(0, 10), "2021-04-15");
+});
+
+test("Paris postcodes from the address block are flagged, batch codes are not", () => {
+  // Real entries: "75008" for two brands, "75116" for a third, all unresolved.
+  assert.ok(addressLookalikeHint("en", "75008"));
+  assert.ok(addressLookalikeHint("en", "75116"));
+  assert.ok(addressLookalikeHint("tr", "75001"));
+  // Not Paris, and shapes a real code can take.
+  assert.equal(addressLookalikeHint("en", "75021"), null);
+  assert.equal(addressLookalikeHint("en", "22U401"), null);
+  assert.equal(addressLookalikeHint("en", "52911"), null);
+});
+
+test("a flagged postcode could never have decoded anyway", () => {
+  // The hint must not be able to mask a real read: check it against the brands
+  // whose users actually entered one.
+  for (const [brandName, decoderId] of [["Dior", "dior"], ["Jean Paul Gaultier", "embedded"]] as const) {
+    for (const code of ["75008", "75116"]) {
+      const result = checkBatchCode({
+        brandName, code, decoderId, shelfLifeMonths: 60, category: "perfume", now,
+      });
+      assert.equal(result.decoded, false, `${brandName} ${code} unexpectedly decoded`);
+    }
+  }
 });

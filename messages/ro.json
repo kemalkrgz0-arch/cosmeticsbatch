@@ -59,10 +59,10 @@
   },
   "brandPage": {
     "blurb": "Decodificați codurile lot {name} pentru a găsi data de fabricație, vârsta și data de expirare a produselor dvs. {category} . Gratuit, instant și privat.",
-    "metaTitle": "{name} Batch Code Decoder & Checker — Data de fabricație și expirare",
+    "metaTitle": "Cod de lot {name} — ce vechime are produsul?",
     "by": "de {group}",
     "checkerTitle": "Verificator cod lot {name}",
-    "metaDescription": "Decodor de cod lot gratuit {name} . Verificați data de fabricație, vârsta produsului și data de expirare a produselor dvs. {name} în câteva secunde - fără înregistrare.",
+    "metaDescription": "Introdu codul de lot al produsului {name} și citește data fabricației în câteva secunde. Vezi ce vechime are și cât timp de valabilitate a rămas.",
     "howHeading": "Cum funcționează codurile lot {name}",
     "factPao": "După deschidere (PAO)",
     "factShelfLife": "Perioada de valabilitate tipică",
@@ -565,5 +565,15 @@
     "precision": "Acest format identifică o lună, nu o zi exactă. Orice zi afișată în rezultat este o estimare la mijlocul lunii. O dată tipărită de expirare sau de consumul maxim înainte de pe produs are întotdeauna prioritate.",
     "decoderLabel": "Format de grup observat (precizia lunii)",
     "format": "Acolo unde codul introdus se potrivește cu codificarea grupului observat de L'Oréal, verificatorul citește luna și anul de producție pentru dvs. Introdu codul de mai sus pentru a obține data — nu există pași manuali de urmat."
+  },
+  "checkPage": {
+    "metaTitle": "Verifică codul de lot — data fabricației",
+    "metaDescription": "Alege marca și introdu codul de lot pentru a citi data fabricației în câteva secunde. Vezi ce vechime are produsul și cât timp de valabilitate a rămas.",
+    "h1": "Verifică un cod de lot",
+    "intro": "Alege o marcă și introdu codul de lot pentru a citi data fabricației.",
+    "checkAnother": "Verifică alt cod",
+    "relatedBrands": "Mărci similare",
+    "resultCrumb": "Rezultat",
+    "learnHow": "Cum funcționează codurile de lot {name}"
   }
 }

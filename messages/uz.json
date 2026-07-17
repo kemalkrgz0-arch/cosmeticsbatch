@@ -58,8 +58,8 @@
     "eanRightSub": "Buni kiriting — qisqa sana belgisi"
   },
   "brandPage": {
-    "metaTitle": "{name} partiya kodi dekoderi va tekshiruvchisi — Ishlab chiqarilgan va yaroqlilik sanasi",
-    "metaDescription": "Bepul {name} partiya kodi dekoderi. {name} mahsulotlaringizning ishlab chiqarilgan sanasi, yoshi va yaroqlilik muddatini bir necha soniyada tekshiring — roʻyxatdan oʻtishsiz.",
+    "metaTitle": "{name} partiya kodi — mahsulot necha yoshda?",
+    "metaDescription": "{name} mahsulotingiz partiya kodini kiriting va ishlab chiqarilgan sanani soniyalarda o'qing. Necha yoshda ekanini ko'ring.",
     "blurb": "{name} partiya kodlarini dekodlab, {category} mahsulotlaringizning ishlab chiqarilgan sanasi, yoshi va yaroqlilik muddatini aniqlang. Bepul, tezkor va maxfiy.",
     "checkerTitle": "{name} partiya kodi tekshiruvchisi",
     "by": "{group} tomonidan",
@@ -565,5 +565,15 @@
     "authenticity": "Muvaffaqiyatli dekodlangan kod mahsulotning haqiqiyligini isbotlay olmaydi, chunki koddan nusxa olish mumkin. Natijani sotuvchi, qadoqlash, muhrlar va bosib chiqarish sifati bilan bir qatorda bitta mustahkamlik tekshiruvi sifatida foydalaning.",
     "officialSource": "Brendni L'Oréal Groupe rasmiy portfelida tasdiqlang",
     "decoderLabel": "Kuzatilgan guruh formati (oylik aniqligi)"
+  },
+  "checkPage": {
+    "metaTitle": "Partiya kodini tekshirish — ishlab chiqarilgan sana",
+    "metaDescription": "Brendni tanlang va partiya kodini kiriting, ishlab chiqarilgan sanani soniyalarda bilib oling. Mahsulot necha yoshda ekanini ko'ring.",
+    "h1": "Partiya kodini tekshirish",
+    "intro": "Brendni tanlang va ishlab chiqarilgan sanani bilish uchun partiya kodini kiriting.",
+    "checkAnother": "Boshqa kodni tekshirish",
+    "relatedBrands": "O'xshash brendlar",
+    "resultCrumb": "Natija",
+    "learnHow": "{name} partiya kodlari qanday ishlaydi"
   }
 }

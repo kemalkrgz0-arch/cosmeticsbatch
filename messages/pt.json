@@ -73,8 +73,8 @@
     "relatedBrands": "Marcas relacionadas",
     "helpfulGuides": "Guias úteis",
     "faqTitle": "{name} — Perguntas frequentes",
-    "metaTitle": "Decodificador e verificador de código de lote {name} — Data de fabricação e validade",
-    "metaDescription": "Decodificador de código de lote {name} gratuito. Verifique a data de fabricação, a idade do produto e a data de validade de seus produtos {name} em segundos - sem inscrição.",
+    "metaTitle": "Código de lote {name} — Qual a idade do seu produto?",
+    "metaDescription": "Digite o código de lote do seu produto {name} e leia a data de fabricação em segundos. Veja quantos anos ele tem e quanto resta da validade típica.",
     "blurb": "Decodifique os códigos de lote {name} para encontrar a data de fabricação, idade e data de validade de seus produtos {category} . Gratuito, instantâneo e privado.",
     "printsDateNote": "{name} imprime a data de fabricação ou validade diretamente na embalagem, então geralmente você não precisa de um código de lote.",
     "exampleHeading": "Um código {name} real, decodificado",
@@ -565,5 +565,15 @@
     "officialSource": "Confirme a marca no L'Oréal portfólio oficial do Groupe",
     "heading": "O que saber sobre os códigos de lote{name}e L'Oréal",
     "decoderLabel": "Formato do grupo observado (precisão do mês)"
+  },
+  "checkPage": {
+    "metaTitle": "Verificar código de lote — data de fabricação",
+    "metaDescription": "Escolha a marca e digite o código de lote para ler a data de fabricação em segundos. Veja quantos anos tem o seu cosmético ou perfume.",
+    "h1": "Verificar um código de lote",
+    "intro": "Selecione uma marca e digite o código de lote para ler a data de fabricação.",
+    "checkAnother": "Verificar outro código",
+    "relatedBrands": "Marcas relacionadas",
+    "resultCrumb": "Resultado",
+    "learnHow": "Como funcionam os códigos de lote da {name}"
   }
 }

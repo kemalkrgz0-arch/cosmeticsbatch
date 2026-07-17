@@ -18,7 +18,7 @@ import { Link } from "@/i18n/navigation";
 import type { CheckResult, DatePrecision, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
-import { resultFailureCopy } from "@/lib/result-failure-copy";
+import { addressLookalikeHint, resultFailureCopy } from "@/lib/result-failure-copy";
 import { site } from "@/lib/site";
 
 // Some code families (L'Oréal, Estée Lauder) encode only year+month; the day in
@@ -199,6 +199,7 @@ export function ResultCard({
   if (!result.decoded) {
     const reason = result.failureReason ?? "unresolved";
     const failure = resultFailureCopy(locale, reason);
+    const addressHint = addressLookalikeHint(locale, result.code);
     const inviteEvidence = reason === "unresolved" || reason === "barcode";
     return (
       <div className="overflow-hidden rounded-3xl border border-warning/40 bg-warning-bg shadow-card">
@@ -212,6 +213,9 @@ export function ResultCard({
               {failure.body(result.code, brand.name)}
             </p>
             <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
+              {addressHint && (
+                <p className="mb-3 text-sm font-medium leading-relaxed text-fg">{addressHint}</p>
+              )}
               <p className="text-sm leading-relaxed text-fg-muted">{failure.detail}</p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                 <a href="#batch-checker" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong">{failure.retry}</a>

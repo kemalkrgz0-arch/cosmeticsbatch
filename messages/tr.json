@@ -58,9 +58,9 @@
     "faqSubtitle": "Kozmetik ve parfüm batch kodlarının kodunu çözme hakkında bilmeniz gereken her şey."
   },
   "brandPage": {
-    "metaTitle": "{name} batch kodu sorgulama — tahmini üretim tarihi",
+    "metaTitle": "{name} batch kodu sorgulama — Ürününüz kaç yaşında?",
     "blurb": "{name} batch kodunu okuyarak üretim tarihini ve ürün yaşını tahmin edin. Raf ömrü tahminidir; batch kodu tek başına orijinalliği kanıtlamaz.",
-    "metaDescription": "{name} batch koduyla tahmini üretim tarihini ve ürün yaşını kontrol edin. Kod çözücü sınırlarını, açılmamış raf ömrünü ve PAO bilgisini görün.",
+    "metaDescription": "{name} ürününüzün batch kodunu girin, üretim tarihini saniyeler içinde okuyun. Ürünün kaç yaşında olduğunu ve tipik raf ömründen ne kadar kaldığını görün.",
     "freshnessPara": "Üretim tarihini okuduktan sonra, {name}'in {category} ürünleri için tipik {shelf} aylık raf ömrünü kullanarak tazeliği tahmin ediyoruz. Ürünü kullanmaya başladığınızda açıldıktan sonraki sürenin (yaklaşık {pao} ay) sınır haline geldiğini unutmayın.",
     "intro": "Tahmini üretim tarihini ve ürün yaşını görmek için kısa {name} batch kodunu girin. Bu sonuç üreticinin verdiği son kullanma tarihi veya orijinallik doğrulaması değildir.",
     "aliasesPara": "Bazen {name} batch kod çözücü, {name} batch kod denetleyici veya {name} batch kod hesaplayıcı olarak adlandırılan bu aracı görürsünüz; bunların hepsi aynı şeyi yapar: üretim kodunu okuyun ve size {name} {category} 'inizin ne kadar yeni olduğunu söyleyin.",
@@ -565,5 +565,15 @@
     "checkYourCodeBody": "Ürününüzün parti kodunu kontrol cihazına girin; cihaz sizin için üretim tarihini okuyacaktır; manuel kod çözmeye gerek yoktur. Kod, son kullanma tarihini değil, üretim tarihini tutar.",
     "formatsIntro2": "Aşağıdaki her sayfa bir üretici grubunu kapsamaktadır: hangi markaları içerir, paket üzerinde parti kodunu nerede bulabilirsiniz ve kodun size üretim tarihi ve tazelik hakkında neleri söyleyip söyleyemediği.",
     "formatsIntro": "Parti kodu, şişenin üzerindeki isme değil, ürünü üreten kişiye aittir; aynı üretici, birçok markaya aynı stilde kod basar. Hangi markaları kapsadığını görmek için aşağıdan bir üretici grubu seçin ve ardından araçtaki herhangi bir kodu kontrol edin."
+  },
+  "checkPage": {
+    "metaTitle": "Batch kodu sorgulama — kozmetik ve parfüm üretim tarihi",
+    "metaDescription": "Markanızı seçin, batch kodunu girin, üretim tarihini saniyeler içinde okuyun. Ürünün kaç yaşında olduğunu ve raf ömründen ne kaldığını görün.",
+    "h1": "Batch kodu sorgulama",
+    "intro": "Bir marka seçin ve üretim tarihini okumak için batch kodunu girin.",
+    "checkAnother": "Başka bir kod sorgula",
+    "relatedBrands": "Benzer markalar",
+    "resultCrumb": "Sonuç",
+    "learnHow": "{name} batch kodları nasıl çalışır"
   }
 }

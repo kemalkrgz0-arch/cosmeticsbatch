@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { getBrand, POPULAR_BRANDS } from "@/lib/brands";
@@ -22,12 +22,15 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "checkPage" });
   return pageMeta({
-    title: "Batch Code Checker",
-    description:
-      "Select a cosmetic or perfume brand and enter its batch code to estimate the manufacture date and product age.",
+    title: t("metaTitle"),
+    description: t("metaDescription"),
     path: "/check",
     locale,
+    // The title is the search term itself ("Проверить батч код"); the layout's
+    // site-name suffix would only crowd it out of the 60-character cut.
+    standaloneTitle: true,
   });
 }
 
@@ -42,14 +45,14 @@ export default async function CheckPage({
   setRequestLocale(locale);
   const { brand: brandSlug, code } = await searchParams;
   const brand = brandSlug ? getBrand(brandSlug) : undefined;
+  const t = await getTranslations({ locale, namespace: "checkPage" });
+  const nav = await getTranslations({ locale, namespace: "nav" });
 
   if (!brand || !code) {
     return (
       <div className="reading-frame py-16">
-        <h1 className="text-2xl font-semibold">Check a batch code</h1>
-        <p className="mt-2 text-fg-muted">
-          Select a brand and enter its batch code to decode the manufacture date.
-        </p>
+        <h1 className="text-2xl font-semibold">{t("h1")}</h1>
+        <p className="mt-2 text-fg-muted">{t("intro")}</p>
         <CheckForm className="mt-8" />
         <EanVsBatch className="mt-8" />
       </div>
@@ -87,10 +90,10 @@ export default async function CheckPage({
     <div className="page-frame py-10">
       <Breadcrumbs
         items={[
-          { name: "Home", path: "/" },
-          { name: "Brands", path: "/brands" },
+          { name: nav("home"), path: "/" },
+          { name: nav("brands"), path: "/brands" },
           { name: brand.name, path: `/brands/${brand.slug}` },
-          { name: "Result", path: `/check?brand=${brand.slug}` },
+          { name: t("resultCrumb"), path: `/check?brand=${brand.slug}` },
         ]}
       />
 
@@ -98,13 +101,13 @@ export default async function CheckPage({
 
       {/* Check another */}
       <div className="mt-10">
-        <h2 className="mb-3 text-lg font-semibold">Check another code</h2>
+        <h2 className="mb-3 text-lg font-semibold">{t("checkAnother")}</h2>
         <CheckForm initialBrand={brand} />
       </div>
 
       {/* Related brands — internal linking for SEO */}
       <section className="mt-4">
-        <h2 className="mb-4 text-lg font-semibold">Related brands</h2>
+        <h2 className="mb-4 text-lg font-semibold">{t("relatedBrands")}</h2>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {related.map((b) => (
             <Link
@@ -121,7 +124,7 @@ export default async function CheckPage({
           href={`/brands/${brand.slug}`}
           className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
         >
-          Learn how {brand.name} batch codes work
+          {t("learnHow", { name: brand.name })}
           <ArrowRight className="h-4 w-4" />
         </Link>
       </section>

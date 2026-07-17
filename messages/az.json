@@ -58,8 +58,8 @@
     "eanRightSub": "Bunu daxil edin — qısa tarix işarəsi"
   },
   "brandPage": {
-    "metaTitle": "{name} partiya kodu deşifrələyici və yoxlayıcı — istehsal və son istifadə tarixi",
-    "metaDescription": "Pulsuz {name} partiya kodu deşifrələyici. {name} məhsullarınızın istehsal tarixini, məhsulun yaşını və son istifadə tarixini saniyələr içində yoxlayın — qeydiyyatsız.",
+    "metaTitle": "{name} partiya kodu — məhsulunuz neçə yaşındadır?",
+    "metaDescription": "{name} məhsulunuzun partiya kodunu daxil edin və istehsal tarixini saniyələr içində oxuyun. Neçə yaşında olduğunu görün.",
     "blurb": "{name} partiya kodlarını deşifrələyərək {category} məhsullarınızın istehsal tarixini, yaşını və son istifadə tarixini tapın. Pulsuz, ani və məxfi.",
     "checkerTitle": "{name} partiya kodu yoxlayıcısı",
     "by": "{group} tərəfindən",
@@ -565,5 +565,15 @@
     "officialSource": "Brendi L'Oréal Groupe-un rəsmi portfelində təsdiqləyin",
     "format": "Daxil edilmiş kod L'Oréal-un müşahidə edilən qrup kodlaşdırmasına uyğun gələrsə, yoxlayıcı sizin üçün istehsal ayını və ilini oxuyur. Tarixi əldə etmək üçün yuxarıdakı kodu daxil edin - izləmək üçün heç bir manuel addım yoxdur.",
     "authenticity": "Uğurla deşifrə edən kod məhsulun orijinal olduğunu sübut edə bilməz, çünki kodun kopyalanması mümkündür. Nəticəni satıcı, qablaşdırma, möhür və çap keyfiyyəti ilə birlikdə bir tutarlılıq yoxlaması kimi istifadə edin."
+  },
+  "checkPage": {
+    "metaTitle": "Partiya kodunu yoxla — istehsal tarixi",
+    "metaDescription": "Marka seçin və partiya kodunu daxil edin, istehsal tarixini saniyələr içində oxuyun. Məhsulun neçə yaşında olduğunu görün.",
+    "h1": "Partiya kodunu yoxla",
+    "intro": "Marka seçin və istehsal tarixini oxumaq üçün partiya kodunu daxil edin.",
+    "checkAnother": "Başqa kod yoxla",
+    "relatedBrands": "Oxşar markalar",
+    "resultCrumb": "Nəticə",
+    "learnHow": "{name} partiya kodları necə işləyir"
   }
 }

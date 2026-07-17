@@ -58,8 +58,8 @@
     "errorNoCode": "Enter the batch code from your product."
   },
   "brandPage": {
-    "metaTitle": "{name} Batch Code Checker — Estimate the Manufacture Date",
-    "metaDescription": "Check a {name} batch code for an estimated manufacture date and product age. See the decoder limits, typical unopened shelf life and PAO guidance.",
+    "metaTitle": "{name} Batch Code Checker — How Old Is Your Product?",
+    "metaDescription": "Enter your {name} batch code to read its manufacture date in seconds. See how old the product is and how much of its typical shelf life is left.",
     "blurb": "Read a {name} batch code to estimate its manufacture date and age. Shelf-life guidance is an estimate, and a batch code alone cannot prove authenticity.",
     "checkerTitle": "{name} Batch Code Checker",
     "by": "by {group}",
@@ -593,5 +593,15 @@
     "formatsIntro": "A batch code belongs to whoever manufactures the product, not to the name on the bottle — the same maker stamps the same style of code across many brands. Pick a manufacturer group below to see which brands it covers, then check any code in the tool.",
     "formatsIntro2": "Each page below covers one manufacturer group: which brands it includes, where to find the batch code on the pack, and what the code can and can't tell you about production date and freshness.",
     "brandCount": "brands"
+  },
+  "checkPage": {
+    "metaTitle": "Batch Code Checker — How Old Is Your Product?",
+    "metaDescription": "Pick your brand and enter the batch code to read the manufacture date in seconds. See how old your cosmetic or perfume is and how much shelf life is left.",
+    "h1": "Check a batch code",
+    "intro": "Select a brand and enter its batch code to read the manufacture date.",
+    "checkAnother": "Check another code",
+    "relatedBrands": "Related brands",
+    "resultCrumb": "Result",
+    "learnHow": "Learn how {name} batch codes work"
   }
 }

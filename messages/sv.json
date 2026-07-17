@@ -59,8 +59,8 @@
   },
   "brandPage": {
     "blurb": "Läs batchkoden för {name} för att uppskatta tillverkningsmånad och produktens ålder. Hållbarheten är en uppskattning och koden bevisar inte äkthet.",
-    "metaTitle": "Kontrollera batchkod för {name} — uppskatta tillverkningsdatum",
-    "metaDescription": "Kontrollera batchkoden för {name} för ett uppskattat tillverkningsdatum och produktålder. Se avkodarens gränser, oöppnad hållbarhet och PAO.",
+    "metaTitle": "{name} batchkod — hur gammal är din produkt?",
+    "metaDescription": "Ange batchkoden på din {name}-produkt och läs av tillverkningsdatumet på sekunder. Se hur gammal den är och hur mycket hållbarhet som återstår.",
     "checkerTitle": "Batchkodskontroll för {name}",
     "factManufacturer": "Tillverkare",
     "factShelfLife": "Typisk hållbarhet",
@@ -565,5 +565,15 @@
     "formatsIntro2": "Varje sida nedan täcker en tillverkargrupp: vilka märken den innehåller, var man hittar batchkoden på förpackningen och vad koden kan och inte kan berätta om produktionsdatum och färskhet.",
     "formatsIntro": "En batchkod tillhör den som tillverkar produkten, inte namnet på flaskan – samma tillverkare stämplar samma kodstil över många märken. Välj en tillverkargrupp nedan för att se vilka märken den täcker, kontrollera sedan eventuell kod i verktyget.",
     "brandsUsingNote": "Batchkoden tillhör tillverkaren, inte etiketten på flaskan - märkena nedan delar samma produktionskodning, så kontrollören läser dem alla."
+  },
+  "checkPage": {
+    "metaTitle": "Kontrollera batchkod — tillverkningsdatum",
+    "metaDescription": "Välj märke och ange batchkoden för att läsa av tillverkningsdatumet på sekunder. Se hur gammal produkten är och hur mycket hållbarhet som återstår.",
+    "h1": "Kontrollera en batchkod",
+    "intro": "Välj ett märke och ange batchkoden för att läsa av tillverkningsdatumet.",
+    "checkAnother": "Kontrollera en annan kod",
+    "relatedBrands": "Liknande märken",
+    "resultCrumb": "Resultat",
+    "learnHow": "Så fungerar batchkoder från {name}"
   }
 }

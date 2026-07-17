@@ -61,8 +61,8 @@
     "checkerTitle": "{name} Controllo codice batch",
     "by": "di {group}",
     "blurb": "Leggi il codice lotto {name} per stimare data di produzione ed età. La durata è indicativa e il codice da solo non prova l'autenticità.",
-    "metaDescription": "Controlla il codice lotto {name} per stimare data di produzione ed età. Consulta limiti del decoder, durata da chiuso e PAO.",
-    "metaTitle": "Controllo codice lotto {name} — data di produzione stimata",
+    "metaDescription": "Inserisci il codice lotto del tuo prodotto {name} e leggi la data di produzione in pochi secondi. Scopri quanto è vecchio e quanta durata tipica gli resta.",
+    "metaTitle": "Codice lotto {name} — Quanti anni ha il tuo prodotto?",
     "factShelfLife": "Durata di conservazione tipica",
     "factManufacturer": "Produttore",
     "factPao": "Dopo l'apertura (PAO)",
@@ -565,5 +565,15 @@
     "formatsIntro": "Un codice batch appartiene a chi fabbrica il prodotto, non al nome sulla bottiglia: lo stesso produttore stampa lo stesso stile di codice su molti marchi. Scegli un gruppo di produttori di seguito per vedere quali marchi copre, quindi controlla l'eventuale codice nello strumento.",
     "brandsUsingNote": "Il codice lotto appartiene al produttore, non l'etichetta sulla bottiglia: i marchi riportati di seguito condividono lo stesso codice di produzione, quindi il controllore li legge tutti.",
     "formatsIntro2": "Ogni pagina seguente copre un gruppo di produttori: quali marchi include, dove trovare il codice lotto sulla confezione e cosa può o non può dirti il ​​codice sulla data di produzione e sulla freschezza."
+  },
+  "checkPage": {
+    "metaTitle": "Verifica codice lotto — data di produzione",
+    "metaDescription": "Scegli la marca e inserisci il codice lotto per leggere la data di produzione in pochi secondi. Scopri quanti anni ha il tuo cosmetico o profumo.",
+    "h1": "Verifica un codice lotto",
+    "intro": "Seleziona una marca e inserisci il codice lotto per leggere la data di produzione.",
+    "checkAnother": "Verifica un altro codice",
+    "relatedBrands": "Marche correlate",
+    "resultCrumb": "Risultato",
+    "learnHow": "Come funzionano i codici lotto di {name}"
   }
 }

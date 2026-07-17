@@ -78,6 +78,9 @@ export async function generateMetadata({
     locale,
     availableLocales: indexableBrandLocales(brand.slug),
     indexable: isIndexableBrandPage(brand.slug, locale),
+    // The title already opens with the brand name; the layout's site-name suffix
+    // would only push the rest past where search engines cut it off.
+    standaloneTitle: true,
   });
   return meta;
 }

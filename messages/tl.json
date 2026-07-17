@@ -58,8 +58,8 @@
     "eanRightSub": "Ilagay ito — maikling tatak ng petsa"
   },
   "brandPage": {
-    "metaTitle": "Decoder at Checker ng Batch Code ng {name} — Petsa ng Paggawa at Pag-expire",
-    "metaDescription": "Libreng decoder ng batch code ng {name} . Suriin ang petsa ng paggawa, edad ng produkto at petsa ng pag-expire ng iyong mga produktong {name} sa loob ng ilang segundo — walang sign-up.",
+    "metaTitle": "Batch code ng {name} — gaano na katagal?",
+    "metaDescription": "Ilagay ang batch code ng iyong produktong {name} at basahin ang petsa ng paggawa sa ilang segundo. Tingnan kung gaano na ito katagal.",
     "blurb": "I-decode ang batch code ng {name} para malaman ang petsa ng paggawa, edad at petsa ng pag-expire ng iyong mga produktong {category} . Libre, agad at pribado.",
     "checkerTitle": "Checker ng Batch Code ng {name}",
     "by": "ng {group}",
@@ -565,5 +565,15 @@
     "decoderLabel": "Naobserbahang format ng pangkat (katumpakan ng buwan)",
     "authenticity": "Ang isang code na matagumpay na nagde-decode ay hindi makapagpapatunay na ang produkto ay tunay dahil ang isang code ay maaaring kopyahin. Gamitin ang resulta bilang isang pare-parehong pagsusuri sa tabi ng nagbebenta, packaging, seal at kalidad ng pag-print.",
     "officialSource": "Kumpirmahin ang brand sa L'Oréal opisyal na portfolio ng Groupe"
+  },
+  "checkPage": {
+    "metaTitle": "Suriin ang batch code — petsa ng paggawa",
+    "metaDescription": "Piliin ang brand at ilagay ang batch code para mabasa ang petsa ng paggawa sa ilang segundo. Tingnan kung gaano na katagal ang produkto.",
+    "h1": "Suriin ang batch code",
+    "intro": "Pumili ng brand at ilagay ang batch code nito para mabasa ang petsa ng paggawa.",
+    "checkAnother": "Suriin ang ibang code",
+    "relatedBrands": "Kaugnay na brand",
+    "resultCrumb": "Resulta",
+    "learnHow": "Paano gumagana ang batch code ng {name}"
   }
 }

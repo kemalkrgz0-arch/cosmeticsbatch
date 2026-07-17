@@ -73,9 +73,9 @@
     "relatedBrands": "Verwandte Marken",
     "helpfulGuides": "Hilfreiche Ratgeber",
     "faqTitle": "{name} – FAQ",
-    "metaTitle": "{name} Chargennummer prüfen — Herstellungsdatum schätzen",
+    "metaTitle": "{name} Chargennummer prüfen — Herstellungsdatum finden",
     "blurb": "Lies die Chargennummer von {name}, um Herstellungsdatum und Alter zu schätzen. Die Haltbarkeit ist eine Orientierung; der Code allein beweist keine Echtheit.",
-    "metaDescription": "Prüfe die {name} Chargennummer für ein geschätztes Herstellungsdatum und Produktalter. Sieh Decoder-Grenzen, ungeöffnete Haltbarkeit und PAO.",
+    "metaDescription": "Gib die Chargennummer deines {name}-Produkts ein und lies das Herstellungsdatum in Sekunden ab. Sieh, wie alt es ist und wie viel Haltbarkeit bleibt.",
     "printsDateNote": "{name} druckt das Herstellungs- oder Ablaufdatum direkt auf die Verpackung, daher brauchst du meist keinen Chargencode.",
     "whereHeading": "Wo finde ich den Code auf der {name} -Verpackung?",
     "exampleHeading": "Ein echter {name} -Code, dekodiert",
@@ -565,5 +565,15 @@
     "brandsUsingNote": "Der Chargencode gehört dem Hersteller, nicht das Etikett auf der Flasche – die folgenden Marken haben denselben Produktionscode, sodass der Prüfer sie alle liest.",
     "checkYourCodeCta": "Öffnen Sie den Checker",
     "formatsIntro": "Ein Chargencode gehört dem Hersteller des Produkts, nicht dem Namen auf der Flasche – derselbe Hersteller prägt bei vielen Marken den gleichen Codestil. Wählen Sie unten eine Herstellergruppe aus, um zu sehen, welche Marken sie abdeckt, und überprüfen Sie dann etwaige Codes im Tool."
+  },
+  "checkPage": {
+    "metaTitle": "Chargennummer prüfen — Herstellungsdatum finden",
+    "metaDescription": "Marke wählen, Chargennummer eingeben und das Herstellungsdatum in Sekunden ablesen. Sieh, wie alt deine Kosmetik oder dein Parfum ist.",
+    "h1": "Chargennummer prüfen",
+    "intro": "Wähle eine Marke und gib die Chargennummer ein, um das Herstellungsdatum abzulesen.",
+    "checkAnother": "Weiteren Code prüfen",
+    "relatedBrands": "Ähnliche Marken",
+    "resultCrumb": "Ergebnis",
+    "learnHow": "So funktionieren die Chargennummern von {name}"
   }
 }

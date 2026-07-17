@@ -58,9 +58,9 @@
     "faqSubtitle": "Alles wat u moet weten over het decoderen van batchcodes voor cosmetica en parfums."
   },
   "brandPage": {
-    "metaTitle": "{name} Batchcodedecoder en -controle - Fabricage- en vervaldatum",
+    "metaTitle": "{name} batchcode checken — Hoe oud is je product?",
     "blurb": "Decodeer {name} -batchcodes om de fabricagedatum, leeftijd en vervaldatum van uw {category} -producten te vinden. Gratis, direct en privé.",
-    "metaDescription": "Gratis {name} batchcodedecoder. Controleer binnen enkele seconden de productiedatum, productleeftijd en vervaldatum van uw {name} -producten - geen aanmelding.",
+    "metaDescription": "Voer de batchcode van je {name}-product in en lees direct de productiedatum af. Zie hoe oud het is en hoeveel van de houdbaarheid nog over is.",
     "checkerTitle": "{name} Batchcodecontrole",
     "by": "door {group}",
     "factShelfLife": "Typische houdbaarheid",
@@ -565,5 +565,15 @@
     "officialSource": "Bevestig het merk in de officiële portfolio van L'Oréal Groupe",
     "authenticity": "Een code die succesvol wordt gedecodeerd, kan niet bewijzen dat het product echt is, omdat een code kan worden gekopieerd. Gebruik het resultaat als één consistentiecontrole naast de verkoper, verpakking, zegels en drukkwaliteit.",
     "decoderLabel": "Waargenomen groepsindeling (maandprecisie)"
+  },
+  "checkPage": {
+    "metaTitle": "Batchcode checken — productiedatum vinden",
+    "metaDescription": "Kies je merk en voer de batchcode in om direct de productiedatum af te lezen. Zie hoe oud je cosmetica of parfum is en hoeveel houdbaarheid er over is.",
+    "h1": "Batchcode checken",
+    "intro": "Selecteer een merk en voer de batchcode in om de productiedatum af te lezen.",
+    "checkAnother": "Nog een code checken",
+    "relatedBrands": "Vergelijkbare merken",
+    "resultCrumb": "Resultaat",
+    "learnHow": "Zo werken de batchcodes van {name}"
   }
 }

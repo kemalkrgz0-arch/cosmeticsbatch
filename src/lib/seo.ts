@@ -31,6 +31,7 @@ export function pageMeta({
   locale = DEFAULT_LOCALE,
   availableLocales,
   indexable,
+  standaloneTitle = false,
 }: {
   title: string;
   description: string;
@@ -39,13 +40,22 @@ export function pageMeta({
   locale?: string;
   availableLocales?: readonly string[];
   indexable?: boolean;
+  /**
+   * Drop the "| Cosmetics Batch" suffix the root layout appends.
+   *
+   * Search engines cut a title around 60 characters, and the suffix costs 18 of
+   * them. On a page whose title already carries the brand name, that spends the
+   * budget twice and truncates the part that earns the click. Social cards keep
+   * the site name either way — only the search title is freed up.
+   */
+  standaloneTitle?: boolean;
 }): Metadata {
   const url = absoluteUrl(localizedPath(locale, path));
   const fullTitle =
     path === "/" ? `${site.name} — ${site.tagline}` : `${title} | ${site.name}`;
   const canIndex = indexable ?? isIndexableLocale(locale);
   return {
-    title,
+    title: standaloneTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical: url,

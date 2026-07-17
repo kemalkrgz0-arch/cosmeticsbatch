@@ -73,8 +73,8 @@
     "relatedBrands": "相关品牌",
     "helpfulGuides": "实用指南",
     "faqTitle": "{name} — 常见问题",
-    "metaTitle": "{name} 批号解码器和查询器 — 制造日期和到期日期",
-    "metaDescription": "免费的 {name} 批号解码器。只需几秒钟即可查看 {name} 产品的生产日期、产品使用年限和失效日期 - 无需注册。",
+    "metaTitle": "{name} 批号查询 — 生产日期和保质期",
+    "metaDescription": "输入你的 {name} 产品批号，几秒钟即可读出生产日期。查看产品已生产多久，以及大致还剩多少保质期。",
     "blurb": "解码 {name} 批号以查找 {category} 产品的制造日期、使用期限和到期日期。免费、即时且私密。",
     "printsDateNote": "{name} 直接在包装上印有生产日期或有效期，因此通常无需批号。",
     "whereHeading": "在 {name} 包装上哪里可以找到代码",
@@ -565,5 +565,15 @@
     "decoderLabel": "观察组格式（月精度）",
     "officialSource": "确认 L'Oréal Groupe 官方产品组合中的品牌",
     "authenticity": "成功解码的代码不能证明产品是正品，因为代码可以复制。将结果与卖家、包装、密封和印刷质量一起用作一致性检查。"
+  },
+  "checkPage": {
+    "metaTitle": "查询批号 — 化妆品和香水的生产日期",
+    "metaDescription": "选择品牌并输入批号，几秒钟即可读出生产日期。查看产品已生产多久，以及大致还剩多少保质期。",
+    "h1": "查询批号",
+    "intro": "选择品牌并输入批号，即可读出生产日期。",
+    "checkAnother": "查询另一个批号",
+    "relatedBrands": "相关品牌",
+    "resultCrumb": "结果",
+    "learnHow": "{name} 批号的含义"
   }
 }
