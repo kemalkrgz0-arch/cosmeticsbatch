@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-17
-Current version: **0.13.1**
+Current version: **0.15.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,50 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.15.0 (premium homepage hero)
+
+- Replaced the abstract homepage backdrop with the owner-supplied multi-brand
+  composition, optimized locally from PNG to a 337 KB, 1774×887 JPEG.
+- Rebuilt the existing homepage hero presentation around a wide responsive
+  image stage, warm readability gradient, premium serif headline and floating
+  checker card. The existing localized copy, checker behavior, brand navigation
+  and trust labels remain connected to their original components.
+- Added a demand-led hero production queue for the remaining Priority-50 brands
+  to the owner's iCloud handoff folder, including dimensions, text-safe area,
+  brand-isolation requirements and the distinction between banner artwork and
+  batch-code evidence photos.
+- Files: homepage hero component and local homepage hero asset; package/status
+  versions. The handoff list is external to the repository and contains no
+  private submission data.
+- Verification: repository/scoped ESLint and TypeScript passed; 37/37
+  regressions, `git diff --check`, 6/212 hero inventory and the 267-page
+  production build passed. Headless Chrome renders covered 320, 390 and 1440 px;
+  DOM measurements confirmed document width equals viewport width at each size.
+  Mobile headline min-sizing/readability overlay was corrected after visual
+  review. The build retains the pre-existing NFT tracing warning for private
+  photo storage.
+- Deployment: requested; pending commit/push and GitHub Actions verification.
+
+## Completed — 0.14.0 (Estée Lauder, L'Oréal, Kérastase and Dior heroes)
+
+- Added four owner-supplied, brand-isolated product compositions as optimized
+  local hero assets: Estée Lauder, L'Oréal (shared intentionally by L'Oréal and
+  L'Oréal Paris), Kérastase and Dior. The original 1.6–1.8 MB PNG files were
+  converted to 276–321 KB JPEGs without upscaling.
+- Registered desktop and mobile focal positions in the typed hero manifest and
+  added restrained brand palettes: burgundy for L'Oréal, coral-red for
+  Kérastase, black/rose for Dior, and navy/gold for Estée Lauder. No route or
+  component fork was added.
+- Updated hero inventory to count manifest aliases correctly, so one physical
+  L'Oréal asset can cover two verified brand pages without duplication.
+- Files: four hero assets, hero manifest, brand palette data, inventory script,
+  package/status versions.
+- Verification: repository ESLint and TypeScript passed; 37/37 regressions,
+  6/212 hero inventory, `git diff --check`, four desktop Chrome renders and the
+  267-page production build passed. The build retains the pre-existing NFT
+  tracing warning for private photo storage.
+- Deployment: requested; pending commit/push and GitHub Actions verification.
 
 ## Completed — 0.13.1 (brand picker page-transition fix)
 

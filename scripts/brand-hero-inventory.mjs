@@ -2,6 +2,7 @@ import { readdir, readFile, stat } from "node:fs/promises";
 import { join } from "node:path";
 
 const source = await readFile("src/lib/brands.ts", "utf8");
+const manifest = await readFile("src/lib/brand-hero-assets.ts", "utf8");
 const rows = source.slice(source.indexOf("const ROWS"), source.indexOf("const HIDDEN_SLUGS"));
 const names = [...rows.matchAll(/^\s*\["([^"]+)"/gm)].map((match) => match[1]);
 const hiddenStart = source.indexOf("const HIDDEN_SLUGS");
@@ -11,9 +12,9 @@ const slug = (name) => name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toL
 const publicBrands = names.map((name) => ({ name, slug: slug(name) })).filter((brand) => !hidden.has(brand.slug));
 const dir = "public/brands/heroes";
 const files = await readdir(dir).catch(() => []);
-const fileSlugs = new Set(files.map((file) => file.replace(/-(desktop|mobile|hero)\.(avif|webp|jpe?g|png)$/i, "")));
-const ready = publicBrands.filter((brand) => fileSlugs.has(brand.slug));
-const missing = publicBrands.filter((brand) => !fileSlugs.has(brand.slug));
+const configured = new Set([...manifest.matchAll(/^\s{2}(?:"([a-z0-9-]+)"|([a-z0-9-]+)):\s*\{/gm)].map((match) => match[1] ?? match[2]));
+const ready = publicBrands.filter((brand) => configured.has(brand.slug));
+const missing = publicBrands.filter((brand) => !configured.has(brand.slug));
 const oversized = [];
 for (const file of files) {
   const bytes = (await stat(join(dir, file))).size;

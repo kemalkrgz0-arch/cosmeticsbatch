@@ -687,6 +687,31 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
 };
 
 const BRAND_THEMES: Record<string, Partial<BrandTheme>> = {
+  "estee-lauder": {
+    primary: "#1d315b", primaryDark: "#101f3f", accent: "#b18745",
+    cta: "#1d315b", ctaHover: "#101f3f", background: "#f4ede3",
+    surface: "#fffaf3", border: "#e4d6c5",
+  },
+  loreal: {
+    primary: "#8f1d2c", primaryDark: "#67131e", accent: "#b65b68",
+    cta: "#8f1d2c", ctaHover: "#67131e", background: "#f6eee6",
+    surface: "#fffaf5", border: "#e7d9cd",
+  },
+  "loreal-paris": {
+    primary: "#8f1d2c", primaryDark: "#67131e", accent: "#b65b68",
+    cta: "#8f1d2c", ctaHover: "#67131e", background: "#f6eee6",
+    surface: "#fffaf5", border: "#e7d9cd",
+  },
+  kerastase: {
+    primary: "#b7433e", primaryDark: "#82302c", accent: "#d07c69",
+    cta: "#b7433e", ctaHover: "#82302c", background: "#f3eee8",
+    surface: "#fffaf6", border: "#e2d8cd",
+  },
+  dior: {
+    primary: "#27262a", primaryDark: "#111114", accent: "#b77d82",
+    cta: "#27262a", ctaHover: "#111114", background: "#f5efea",
+    surface: "#fffaf7", border: "#e4d9d2",
+  },
   vichy: {
     primary: "#b51e27",
     primaryDark: "#7f1219",
