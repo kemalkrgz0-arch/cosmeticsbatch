@@ -270,7 +270,10 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   submitted Dior code `1K01`; the decode API returned HTTP 200 and the complete
   result card rendered without an exception. The build retains the pre-existing
   NFT tracing warning for private photo storage.
-- Deployment: not yet deployed.
+- Deployment: commit `2651b5d`, Actions run `29527024075`, completed
+  successfully. The same instrumented iPhone Safari flow passed against live
+  production: `/api/decode` returned HTTP 200 and the complete result card
+  rendered without activating the error boundary.
 
 ## Completed — 0.10.3 (mobile result navigation reliability)
 
