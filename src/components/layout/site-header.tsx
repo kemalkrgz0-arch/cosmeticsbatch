@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -19,8 +20,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 bg-transparent px-2 pt-2 sm:px-4 sm:pt-3">
       <div className="site-frame flex h-[4.5rem] items-center gap-3 rounded-[1.35rem] border border-border/80 bg-bg/88 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:gap-6">
         <Link href="/" className="flex min-w-0 items-center gap-2 font-semibold">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/logo.png"
             alt={site.name}
             width={32}

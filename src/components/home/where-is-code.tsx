@@ -1,4 +1,5 @@
 import { SprayCan, Droplet, Wand2, ArrowRight, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -30,13 +31,13 @@ export function WhereIsCode() {
             className="group min-w-[78%] snap-start overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-border-strong sm:min-w-0"
           >
             <div className="relative flex aspect-[4/3] items-center justify-center bg-bg-subtle p-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={`/where/${key}.jpg`}
                 alt={t(`alt.${key}`)}
+                fill
+                sizes="(max-width: 639px) 78vw, 33vw"
                 loading="lazy"
-                decoding="async"
-                className="max-h-full max-w-full object-contain"
+                className="object-contain p-3"
               />
               <span className="pointer-events-none absolute right-2.5 top-2.5 flex h-7 w-7 items-center justify-center rounded-full bg-card/90 text-fg-muted opacity-0 shadow-soft backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100">
                 <ArrowUpRight className="h-4 w-4" />

@@ -19,6 +19,7 @@ export function Hero() {
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="(max-width: 640px) 100vw, 1536px"
             className="object-cover object-[64%_center] sm:object-center"
           />

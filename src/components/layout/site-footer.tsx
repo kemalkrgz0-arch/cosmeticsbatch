@@ -1,4 +1,5 @@
 import { ShieldCheck, Sparkles, Lock } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
@@ -40,8 +41,7 @@ export function SiteFooter() {
         {/* Brand block — full width on mobile, first column on desktop */}
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="inline-flex items-center gap-2 font-semibold">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/logo.png"
               alt={site.name}
               width={32}

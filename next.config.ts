@@ -14,9 +14,24 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: __dirname,
   images: {
     formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 31_536_000,
   },
   async headers() {
     return [
+      ...["/home/:path*", "/where/:path*", "/brands/heroes/:path*"].map(
+        (source) => ({
+          source,
+          headers: [
+            { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          ],
+        }),
+      ),
+      {
+        source: "/logo.png",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
       {
         source: "/:path*",
         headers: [

@@ -1,11 +1,11 @@
 "use client";
 
-import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { adsenseEnabled } from "@/lib/ads";
-import { ga, gaEnabled, ymEnabled } from "@/lib/analytics";
+import { gaEnabled, ymEnabled } from "@/lib/analytics";
 import { CookieConsent } from "@/components/cookie-consent";
 import { YandexMetrica } from "@/components/yandex-metrica";
+import { GoogleAnalytics } from "@/components/google-analytics";
 
 function isPrivateReviewPath(pathname: string) {
   return pathname.split("/").includes("review");
@@ -30,18 +30,7 @@ export function TrackingBoundary() {
       )}
       {ymEnabled && <YandexMetrica />}
       {(adsenseEnabled || gaEnabled || ymEnabled) && <CookieConsent />}
-      {gaEnabled && (
-        <>
-          <Script
-            id="ga-loader"
-            strategy="lazyOnload"
-            src={`https://www.googletagmanager.com/gtag/js?id=${ga.id}`}
-          />
-          <Script id="ga-config" strategy="lazyOnload">
-            {`gtag('js',new Date());gtag('config','${ga.id}');`}
-          </Script>
-        </>
-      )}
+      {gaEnabled && <GoogleAnalytics />}
     </>
   );
 }

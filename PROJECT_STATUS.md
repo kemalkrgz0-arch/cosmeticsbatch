@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-17
-Current version: **0.15.0**
+Current version: **0.15.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,32 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.15.1 (PageSpeed image and consent performance)
+
+- Audited both owner-supplied PageSpeed HTML exports. They contain the same
+  2026-07-17 mobile/desktop Lighthouse session: mobile performance 85 with FCP
+  1.1s, LCP 4.4s, TBT 30ms, CLS 0 and Speed Index 2.6s; desktop performance 95
+  with FCP 0.3s, LCP 1.2s, TBT 10ms and CLS 0.
+- Marked the homepage LCP image explicitly high priority and retained responsive
+  Next Image delivery. Replaced the three oversized below-fold homepage example
+  images and repeated header/footer logo with responsive optimized images.
+- Added one-year immutable cache headers for version-controlled homepage,
+  evidence, hero and logo assets plus a one-year Next Image minimum cache TTL.
+- Changed Google Analytics from unconditional denied-mode loading to explicit
+  consent-gated loading, avoiding roughly 179 KB and 116ms main-thread work for
+  first-time/rejected visitors. The Google Consent Mode bootstrap and AdSense
+  loader remain intact; advertising behavior was not removed.
+- Files: homepage hero/location components, header/footer image rendering,
+  consent-gated Google Analytics component and tracking boundary, Next image/
+  cache configuration, package/status versions.
+- Verification: repository ESLint and TypeScript passed; 37/37 regressions,
+  `git diff --check` and the 267-page production build passed. Local standalone
+  HTML/network checks confirmed `fetchPriority=high`, no pre-consent GA request,
+  one-year public-asset caching and a 384px WebP example response of 15.4 KB
+  (down from the report's 145.4 KB source transfer). The build retains the
+  pre-existing NFT tracing warning for private photo storage.
+- Deployment: local only; not committed or deployed.
 
 ## Completed — 0.15.0 (premium homepage hero)
 
