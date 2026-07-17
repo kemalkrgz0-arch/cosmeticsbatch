@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-17
-Current version: **0.15.1**
+Current version: **0.16.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -251,6 +251,29 @@ sequence used by this repository, not permission to skip unresolved audit areas.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
 
+## Completed — 0.16.0 (Lancôme and Nivea heroes)
+
+- Added owner-supplied, brand-isolated Lancôme and Nivea hero compositions to
+  the shared data-driven brand template. Both 1774×887 PNG sources were encoded
+  locally as 282 KB and 324 KB JPEGs without upscaling.
+- Registered responsive focal positions in the typed hero manifest and added
+  restrained Lancôme plum/rose and Nivea blue brand palettes. They inherit the
+  0.15.1 Next Image responsive delivery, AVIF/WebP negotiation and immutable
+  cache policy without route/component duplication.
+- Included the owner-approved 44-locale brand-content cleanup already present in
+  the workspace: detailed manual decoder recipes/code-position disclosures were
+  replaced with cautious checker-led guidance while preserving shelf-life,
+  authenticity limitations and visible packaging-location help.
+- Files: two local hero assets, hero manifest, brand theme data, 44 locale
+  message catalogs and package/status versions.
+- Verification: hero inventory reports 8/212; repository ESLint and TypeScript
+  passed; 37/37 regressions, `git diff --check` and the 267-page production build
+  passed. Chrome renders at 1440×1200 and 390×1200 verified both brand pages,
+  focal positions, readable overlays, floating forms and palette-specific CTAs.
+  The build retains the pre-existing NFT tracing warning for private photo
+  storage.
+- Deployment: requested; pending commit/push and GitHub Actions verification.
+
 ## Completed — 0.15.1 (PageSpeed image and consent performance)
 
 - Audited both owner-supplied PageSpeed HTML exports. They contain the same
@@ -275,7 +298,9 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   one-year public-asset caching and a 384px WebP example response of 15.4 KB
   (down from the report's 145.4 KB source transfer). The build retains the
   pre-existing NFT tracing warning for private photo storage.
-- Deployment: local only; not committed or deployed.
+- Deployment: performance commit `c91554e`; GitHub Actions run `29576107901`
+  completed successfully. Production verification is recorded separately from
+  the pending 0.16.0 content/hero release.
 
 ## Completed — 0.15.0 (premium homepage hero)
 

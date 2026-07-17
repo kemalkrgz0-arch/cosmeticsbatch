@@ -712,6 +712,16 @@ const BRAND_THEMES: Record<string, Partial<BrandTheme>> = {
     cta: "#27262a", ctaHover: "#111114", background: "#f5efea",
     surface: "#fffaf7", border: "#e4d9d2",
   },
+  lancome: {
+    primary: "#7b344f", primaryDark: "#542036", accent: "#c88d9f",
+    cta: "#7b344f", ctaHover: "#542036", background: "#f6eee9",
+    surface: "#fffaf7", border: "#e8d8d3",
+  },
+  nivea: {
+    primary: "#123d91", primaryDark: "#082967", accent: "#3769c5",
+    cta: "#123d91", ctaHover: "#082967", background: "#f2eee7",
+    surface: "#fffaf5", border: "#ddd8d0",
+  },
   vichy: {
     primary: "#b51e27",
     primaryDark: "#7f1219",

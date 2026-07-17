@@ -44,6 +44,18 @@ export const BRAND_HERO_ASSETS: Record<string, Pick<BrandTheme,
     focalPosition: "50% 50%",
     mobileFocalPosition: "76% 50%",
   },
+  lancome: {
+    heroImage: "/brands/heroes/lancome-hero.jpg",
+    mobileHeroImage: undefined,
+    focalPosition: "50% 50%",
+    mobileFocalPosition: "76% 50%",
+  },
+  nivea: {
+    heroImage: "/brands/heroes/nivea-hero.jpg",
+    mobileHeroImage: undefined,
+    focalPosition: "50% 50%",
+    mobileFocalPosition: "76% 50%",
+  },
 };
 
 export function brandHeroAsset(slug: string) {
