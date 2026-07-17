@@ -54,6 +54,21 @@ test("result card tolerates redacted decoder details", () => {
   assert.doesNotMatch(resultCard, /result\.notes\.length/);
 });
 
+test("failed-code intelligence stays privacy-minimal and reviewable", () => {
+  const dataset = readFileSync("src/lib/dataset.ts", "utf8");
+  const activity = readFileSync("src/app/api/activity/route.ts", "utf8");
+  const review = readFileSync("src/app/[locale]/review/page.tsx", "utf8");
+  const photoForm = readFileSync("src/components/code-photo-submission.tsx", "utf8");
+  assert.match(dataset, /failed-codes/);
+  assert.match(dataset, /type: "visit" \| "page_view"/);
+  assert.doesNotMatch(dataset, /interface ActivityLog[\s\S]{0,250}(email|cookie|ip:)/i);
+  assert.match(activity, /!rawPath\.includes\("\?"\)/);
+  assert.match(review, /Failed-code queue/);
+  assert.match(review, /Approximate visits are anonymous browser sessions/);
+  assert.match(photoForm, /focus\(\{ preventScroll: true \}\)/);
+  assert.doesNotMatch(photoForm, /unresolved-code[\s\S]{0,500}scrollIntoView/);
+});
+
 test("publishing policy limits search exposure to 15 locales and 50 brands", () => {
   assert.equal(INDEXABLE_LOCALES.length, 15);
   assert.equal(new Set(INDEXABLE_LOCALES).size, 15);
@@ -101,6 +116,20 @@ test("brand batch-code galleries are bounded and reference public assets", () =>
       assert.ok(image.width > 0 && image.height > 0, `${image.src} has invalid dimensions`);
     }
   }
+});
+
+test("brand-page themes stay data-driven and hero assets remain local", () => {
+  for (const brand of ALL_BRANDS) {
+    if (!brand.theme) continue;
+    for (const source of [brand.theme.heroImage, brand.theme.mobileHeroImage]) {
+      if (!source) continue;
+      assert.match(source, /^\/brands\//, `${brand.slug} has a non-local hero image`);
+      assert.ok(existsSync(`public${source}`), `${brand.slug} references missing hero ${source}`);
+    }
+  }
+  const page = readFileSync("src/app/[locale]/brands/[slug]/page.tsx", "utf8");
+  assert.match(page, /getBrandTheme\(brand\.category, brand\.theme\)/);
+  assert.doesNotMatch(page, /brand\.slug\s*===\s*["']vichy/);
 });
 
 test("every indexable brand meets the editorial and decoder threshold", () => {

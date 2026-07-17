@@ -38,12 +38,14 @@ export function CheckForm({
   autoFocusCode = false,
   navigateOnSelect = false,
   className,
+  presentation = "default",
 }: {
   initialBrand?: Brand;
   autoFocusCode?: boolean;
   /** Homepage mode: picking a brand routes to its page instead of decoding here. */
   navigateOnSelect?: boolean;
   className?: string;
+  presentation?: "default" | "brand";
 }) {
   const router = useRouter();
   const t = useTranslations();
@@ -197,14 +199,16 @@ export function CheckForm({
       id="batch-checker"
       onSubmit={submit}
       className={cn(
-        "rounded-2xl border border-border bg-card p-3 shadow-card sm:p-4",
+        presentation === "brand"
+          ? "brand-checker rounded-[1.65rem] border border-[var(--brand-border)] bg-[color-mix(in_srgb,var(--brand-surface)_94%,transparent)] p-5 shadow-[0_24px_70px_rgba(39,50,35,.14)] backdrop-blur-xl sm:p-6"
+          : "rounded-2xl border border-border bg-card p-3 shadow-card sm:p-4",
         className,
       )}
     >
       <div
         className={cn(
-          "grid gap-3 sm:items-end sm:gap-3",
-          !navigateOnSelect && "sm:grid-cols-[1fr_1fr_auto]",
+          "grid gap-4 sm:items-start",
+          !navigateOnSelect && (presentation === "brand" ? "lg:grid-cols-[minmax(15rem,.8fr)_minmax(20rem,1.25fr)_auto]" : "sm:grid-cols-[1fr_1fr_auto]"),
         )}
       >
         {/* Brand picker */}
@@ -229,7 +233,7 @@ export function CheckForm({
             aria-expanded={open}
             aria-controls={brandListId}
             aria-describedby={error ? errorId : undefined}
-            className="flex h-12 w-full items-center gap-2.5 rounded-xl border border-border bg-bg px-3 text-left transition-colors duration-200 hover:border-border-strong focus-visible:border-accent"
+            className={cn("flex w-full items-center gap-2.5 border bg-bg px-3 text-left transition-colors duration-200 hover:border-border-strong focus-visible:border-accent", presentation === "brand" ? "h-14 rounded-2xl" : "h-12 rounded-xl")}
           >
             {brand ? (
               <>
@@ -383,7 +387,7 @@ export function CheckForm({
               aria-describedby={`${codeHintId}${error ? ` ${errorId}` : ""}`}
               aria-invalid={Boolean(error && brand)}
               placeholder={t("form.batchCodePlaceholder")}
-              className="h-12 w-full rounded-xl border border-border bg-bg px-3 pr-10 font-medium tracking-wide outline-none transition-colors duration-200 hover:border-border-strong focus-visible:border-accent placeholder:font-normal placeholder:text-fg-muted"
+              className={cn("w-full border bg-bg px-4 pr-11 font-medium tracking-wide outline-none transition-colors duration-200 hover:border-border-strong focus-visible:border-[var(--brand-primary)] placeholder:font-normal placeholder:text-fg-muted", presentation === "brand" ? "h-14 rounded-2xl" : "h-12 rounded-xl")}
             />
             <ScanLine className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-muted" />
           </div>
@@ -398,7 +402,7 @@ export function CheckForm({
         <button
           type={navigateOnSelect ? "button" : "submit"}
           onClick={navigateOnSelect ? openPicker : undefined}
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-cta px-6 font-semibold text-cta-fg transition-[background-color,transform] duration-200 hover:bg-cta-hover active:scale-[0.98] sm:px-7"
+          className={cn("inline-flex items-center justify-center gap-2 px-6 font-semibold transition-[background-color,transform] duration-200 active:scale-[0.98] sm:px-7", presentation === "brand" ? "h-14 rounded-full bg-[var(--brand-cta)] text-white hover:bg-[var(--brand-cta-hover)] lg:mt-[1.375rem] lg:min-w-44" : "h-12 rounded-xl bg-cta text-cta-fg hover:bg-cta-hover")}
         >
           {navigateOnSelect ? t("form.chooseBrand") : t("nav.checkNow")}
         </button>

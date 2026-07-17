@@ -56,7 +56,7 @@ export default async function BrandsPage({
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+    <div className="site-frame py-10">
       <JsonLd data={itemList} />
       <Breadcrumbs
         items={[

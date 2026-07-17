@@ -14,6 +14,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { JsonLd } from "@/components/json-ld";
 import { TrackingBoundary } from "@/components/tracking-boundary";
+import { ProductActivity } from "@/components/product-activity";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -116,6 +117,7 @@ export default async function RootLayout({
           </main>
           <SiteFooter />
           <BottomNav />
+          <ProductActivity />
           <TrackingBoundary />
         </Providers>
         </NextIntlClientProvider>

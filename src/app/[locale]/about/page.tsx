@@ -28,7 +28,7 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   return (
-    <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <div className="reading-frame py-10">
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },

@@ -22,7 +22,7 @@ export function Hero() {
         <div className="absolute -top-24 left-1/4 h-64 w-64 -translate-x-1/2 rounded-full bg-success/10 blur-3xl" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,color-mix(in_srgb,var(--accent)_8%,transparent),transparent_60%)]" />
       </div>
-      <div className="mx-auto max-w-3xl px-4 pb-8 pt-14 text-center sm:px-6 sm:pt-20">
+      <div className="page-frame pb-8 pt-14 text-center sm:pt-20">
         <p className="animate-fade-up mb-5 inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-fg-muted shadow-soft">
           <Sparkles className="h-3.5 w-3.5 text-accent" />
           {t("badge")}

@@ -87,7 +87,7 @@ export default async function DecoderGuidePage({
   ];
 
   return (
-    <article className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <article className="reading-frame py-10">
       {reviewed && <AdsenseLoader />}
       <JsonLd
         data={reviewed ? [

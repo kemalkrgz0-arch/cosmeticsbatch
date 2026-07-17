@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
 import { checkBatchCode } from "@/lib/decoder";
-import { logCheck, toCheckLog } from "@/lib/dataset";
+import { logCheck, logFailedCode, toCheckLog } from "@/lib/dataset";
 import { isRealApiUser } from "@/lib/bot-filter";
 import { checkRateLimit } from "@/lib/rate-limit";
 
@@ -146,6 +146,18 @@ export async function POST(req: NextRequest) {
         result,
       }),
     );
+
+  if (!result.decoded && result.failureReason) {
+    await logFailedCode({
+      ts: new Date().toISOString(),
+      brand: brand.slug,
+      code,
+      reason: result.failureReason,
+      decoderId: brand.decoderId,
+      locale: localeFromReferer(referer),
+      country: req.headers.get("cf-ipcountry") ?? undefined,
+    });
+  }
 
   // Never expose how the code was read.
   const { method: _method, notes: _notes, ...safe } = result;

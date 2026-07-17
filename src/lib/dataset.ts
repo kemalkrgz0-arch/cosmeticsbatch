@@ -1,6 +1,6 @@
 import { appendFile, mkdir, readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { CheckResult } from "@/lib/decoder";
+import type { CheckResult, DecodeFailureReason } from "@/lib/decoder";
 
 /**
  * Append-only dataset of the batch codes users check. Every decode writes one
@@ -12,6 +12,7 @@ import type { CheckResult } from "@/lib/decoder";
  * needed. Logging is fire-and-forget: a failed write must never break a decode.
  */
 const DIR = process.env.DATASET_DIR || join(process.cwd(), ".data");
+const FAILED_DIR = join(DIR, "failed-codes");
 
 export type CheckSource = "brand" | "check" | "api";
 
@@ -26,6 +27,23 @@ export interface CheckLog {
   confidence: string;
   freshness: string;
   mfg: string | null; // manufacture date, YYYY-MM-DD (null if undecodable)
+}
+
+export interface FailedCodeLog {
+  ts: string;
+  brand: string;
+  code: string;
+  reason: DecodeFailureReason;
+  decoderId?: string;
+  locale?: string;
+  country?: string;
+}
+
+export interface ActivityLog {
+  ts: string;
+  type: "visit" | "page_view";
+  path: string;
+  locale?: string;
 }
 
 /** Build a log row from a decode result. */
@@ -82,6 +100,38 @@ export async function logCheck(entry: CheckLog): Promise<void> {
   }
 }
 
+/** Store every failed human decode in a separate append-only file per brand. */
+export async function logFailedCode(entry: FailedCodeLog): Promise<void> {
+  try {
+    await mkdir(FAILED_DIR, { recursive: true });
+    const brandFile = entry.brand.replace(/[^a-z0-9-]/gi, "-").toLowerCase();
+    await appendFile(
+      join(FAILED_DIR, `${brandFile}.jsonl`),
+      `${JSON.stringify(entry)}\n`,
+      { encoding: "utf8", mode: 0o600 },
+    );
+  } catch (err) {
+    if (!warned) {
+      warned = true;
+      console.warn(`[dataset] cannot write failed-code queue: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  }
+}
+
+/** Privacy-minimal product analytics: no IP, cookie id, email or query string. */
+export async function logActivity(entry: ActivityLog): Promise<void> {
+  try {
+    await mkdir(DIR, { recursive: true });
+    const file = join(DIR, `activity-${entry.ts.slice(0, 7)}.jsonl`);
+    await appendFile(file, `${JSON.stringify(entry)}\n`, "utf8");
+  } catch (err) {
+    if (!warned) {
+      warned = true;
+      console.warn(`[dataset] cannot write activity log: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  }
+}
+
 /** Read newest successful human check events for the private owner dashboard. */
 export async function readRecentChecks(limit = 250): Promise<CheckLog[]> {
   const safeLimit = Math.max(1, Math.min(limit, 1_000));
@@ -106,6 +156,59 @@ export async function readRecentChecks(limit = 250): Promise<CheckLog[]> {
       } catch {
         // A process interruption can truncate one append. The dashboard skips
         // that row; writes remain append-only and decode behavior is unaffected.
+      }
+      if (rows.length >= safeLimit) return rows;
+    }
+  }
+  return rows;
+}
+
+export async function readRecentFailedCodes(limit = 1_000): Promise<FailedCodeLog[]> {
+  const safeLimit = Math.max(1, Math.min(limit, 5_000));
+  let files: string[];
+  try {
+    files = (await readdir(FAILED_DIR)).filter((name) => name.endsWith(".jsonl")).sort();
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+  const rows: FailedCodeLog[] = [];
+  for (const file of files) {
+    for (const line of (await readFile(join(FAILED_DIR, file), "utf8")).split("\n")) {
+      if (!line.trim()) continue;
+      try {
+        const entry = JSON.parse(line) as FailedCodeLog;
+        if (entry.ts && entry.brand && entry.code && entry.reason) rows.push(entry);
+      } catch {
+        // Ignore an interrupted final append; other brand files remain readable.
+      }
+    }
+  }
+  return rows.sort((a, b) => b.ts.localeCompare(a.ts)).slice(0, safeLimit);
+}
+
+export async function readRecentActivity(limit = 10_000): Promise<ActivityLog[]> {
+  const safeLimit = Math.max(1, Math.min(limit, 50_000));
+  let files: string[];
+  try {
+    files = (await readdir(DIR))
+      .filter((name) => /^activity-\d{4}-\d{2}\.jsonl$/.test(name))
+      .sort()
+      .reverse();
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+    throw error;
+  }
+  const rows: ActivityLog[] = [];
+  for (const file of files) {
+    const lines = (await readFile(join(DIR, file), "utf8")).split("\n").reverse();
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      try {
+        const entry = JSON.parse(line) as ActivityLog;
+        if (entry.ts && entry.path && (entry.type === "visit" || entry.type === "page_view")) rows.push(entry);
+      } catch {
+        // Ignore a truncated append.
       }
       if (rows.length >= safeLimit) return rows;
     }

@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
-Last updated: 2026-07-16
-Current version: **0.10.4**
+Last updated: 2026-07-17
+Current version: **0.12.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,188 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.12.0 (premium data-driven brand page)
+
+- Reworked the shared brand-detail template around a premium, responsive hero,
+  overlapping checker, evidence help, quick facts, location gallery, decoder
+  explanation, FAQ, related brands and visible service limitations without
+  changing route URLs, decoder/API behavior, SEO metadata or structured data.
+- Extended the existing `Brand` model with optional visual theme tokens and
+  local desktop/mobile hero asset slots. Vichy supplies mineral cream/green
+  tokens; every other brand resolves through category-aware safe fallbacks.
+  Missing hero artwork renders a controlled abstract gradient and never borrows
+  another brand's product imagery or invents a logo.
+- Added reusable server components for the brand hero, quick facts and trust
+  notice. The existing checker gained a presentation variant while preserving
+  its accessible combobox, localized labels, URL-based submit and API flow.
+- The global header now uses a light floating surface. Mobile navigation has an
+  accessible menu with Escape handling, keyboard focus containment and body
+  scroll locking. Batch-location evidence becomes a native scroll-snap rail on
+  small screens and retains the equal desktop grid.
+- Files: brand route/model/theme resolver, brand-page components, checker,
+  header/mobile menu, photo-help/gallery presentation, global tokens/styles,
+  regression tests, `package.json`, `PROJECT_STATUS.md`.
+- The owner-supplied Vichy-only product composition is stored locally as an
+  optimized 1920×822 JPEG (304 KB) and connected through the brand theme. Its
+  wide source keeps text clear on desktop; brand-specific mobile focal position
+  preserves the product group on narrow screens. Vichy's full accent/CTA system
+  now uses a controlled red palette over the warm mineral surface.
+- Verification: repository ESLint and TypeScript passed; 36/36 decoder and
+  quality regressions passed; `git diff --check` passed; the final 267-page
+  production build passed. Chrome DevTools device emulation measured exact
+  320, 360, 390, 430, 768, 1024, 1280, 1440 and 1920px viewports with no page
+  horizontal overflow. Final 1440px Chrome render verified hero, form, help CTA,
+  quick facts and three-image evidence layout. The build retains the pre-existing
+  NFT tracing warning for private photo storage.
+- Deployment: local only; not committed or deployed.
+
+## Completed — 0.11.0 (failed-code intelligence and private analytics)
+
+- Decode failures now have explicit `barcode`, `invalid-format` and
+  `unresolved` classifications. Every failed human attempt, including EAN,
+  UPC and GTIN-like input, is retained in a private append-only file for its
+  selected brand with the classification, time, locale and coarse country.
+- The result UI explains retail barcodes separately from unsupported batch-code
+  formats, avoids implying that a product is invalid, and invites packaging
+  evidence where it can help. The photo form opens automatically and prefills
+  the entered code for unresolved/barcode results; users can also contact the
+  public mailbox directly.
+- Added privacy-minimal first-party product analytics: anonymous page path,
+  locale, time, page-view event and one approximate visit event per browser tab
+  session. IPs, cookie/browser identifiers, emails and URL query strings are not
+  written to the activity dataset. The privacy policy documents this behavior.
+- The protected review workspace now includes seven-day visit, page-view,
+  decode-check and failed-code totals, plus all-time photo form totals. A new
+  failed-code queue groups repeated codes under each brand and shows type,
+  frequency, latest occurrence, locales and countries. Raw failed records can
+  be exported as CSV or JSON.
+- Files: decoder result model, decode/activity APIs, dataset store, result and
+  photo-submission UI, product-activity client, review dashboard/export,
+  privacy policy, regression tests, `package.json`, `PROJECT_STATUS.md`.
+- Verification: scoped and repository ESLint passed; TypeScript passed; 30/30
+  decoder and quality regressions passed; the 267-page production build passed.
+  The build retains the pre-existing NFT tracing warning for private photo
+  storage. Final authenticated review-dashboard visual review remains needs
+  verification because local Cloudflare Access credentials are unavailable.
+- Debug follow-up: real Chrome testing caught and fixed an automatic-focus
+  scroll jump that hid the failure warning by moving directly to the opened
+  evidence form. The form now opens and prefills without stealing the result
+  position; focused controls use `preventScroll`. A rebuilt production preview
+  confirmed the warning, open form and prefilled code remain visible together.
+- Deployment: local only; not committed or deployed.
+
+## Completed — 0.10.7 (responsive wide-screen layout frames)
+
+- Introduced shared responsive `site-frame`, `page-frame` and `reading-frame`
+  primitives and applied them across public navigation, footer, home sections,
+  directories, brand/check pages, guides, decoders, legal/company pages and the
+  private review workspace.
+- Wide screens now use a 96rem site canvas and 72rem product/tool canvas instead
+  of leaving primary pages trapped at 42–48rem. Long-form copy remains capped at
+  56rem for readable line lengths; mobile and tablet retain 1rem/1.5rem gutters.
+- The 24rem difference between the broad site frame and central page frame
+  deliberately reserves two 12rem side rails for future advertising. Content
+  does not stretch edge-to-edge on 2560px displays, so ad integration can be
+  added later without another disruptive page-width migration.
+- Files: global layout CSS; header/footer; home, public route and review page
+  shells; `package.json`; `PROJECT_STATUS.md`.
+- Verification: ESLint, TypeScript, 27/27 regressions and the 267-page
+  production build passed. Representative 390px, 1440px and 2560×1600 renders
+  were captured; final horizontal-overflow measurement remains needs
+  verification before deployment.
+- Deployment: local preview only; not committed or deployed.
+
+## Completed — 0.10.6 (scalable brand visual-guide layout)
+
+- Added a reusable brand visual-guide component and moved packaging evidence to
+  a stable, prominent position directly after the checker facts instead of
+  appending raw images deep in the article copy. This establishes one consistent
+  page slot as image coverage expands across the catalog.
+- Differing source aspect ratios no longer create uneven card heights or leave a
+  third image stranded on its own row. Three-image galleries use three equal
+  desktop columns, two-image galleries use two, and a single image keeps a
+  bounded width.
+- Every gallery card now has a consistent 4:3 frame. Images use `object-contain`
+  with internal spacing, preserving the full annotated batch-code evidence
+  without cropping; mobile remains a one-column stack.
+- Files: reusable brand-code gallery component, brand detail route,
+  `package.json`, `PROJECT_STATUS.md`.
+- Verification: scoped ESLint and TypeScript passed; the existing 27/27
+  regressions remained green; the 267-page production build passed. Refreshed
+  Vichy desktop and 390px mobile renders confirmed the stable section placement,
+  equal desktop cards, one-column mobile flow, preserved image content and no
+  broken assets. The build retains the pre-existing NFT tracing warning for
+  private photo storage.
+- Deployment: local preview only; not committed or deployed.
+
+## Completed — 0.10.5 (Vichy, L'Oréal Paris and Dior image preview)
+
+- Added six owner-supplied, annotated batch-location images to the local brand
+  galleries: three for Vichy, two for Dior and one for L'Oréal Paris. The Vichy
+  pair previously shown was replaced by the newly annotated set and expanded to
+  the existing three-image maximum.
+- Converted the HEIC sources through macOS Quick Look because direct `sips`
+  conversion produced black output, then encoded the verified previews as
+  optimized JPEGs. Catalog dimensions match the generated assets.
+- Excluded one unrelated Dior-folder screenshot because it was not a product
+  image and contained private personal information. It was neither copied into
+  the repository nor exposed by the catalog.
+- Files: six local assets under `public/brands/examples/`, `src/lib/brands.ts`,
+  `package.json`, `PROJECT_STATUS.md`.
+- Verification: scoped ESLint, TypeScript, 27/27 regressions and the 267-page
+  production build passed. Desktop renders of the local Vichy, L'Oréal Paris
+  and Dior pages showed the expected 3/1/2-image galleries with correct aspect
+  ratios and no broken assets. The build retains the pre-existing NFT tracing
+  warning for private photo storage.
+- Deployment: local preview only; not committed or deployed.
+
+## Completed — 0.12.0 (decoder correctness from real user traffic)
+
+- Reviewed the 310-record production check export (207 unique brand+code pairs,
+  83 unresolved). The finding that mattered was not the unresolved 40% but the
+  codes answered *confidently and wrongly*: `cerave C34` → high-confidence March
+  2003 for a brand founded in 2005, `vichy 14YN` → high on a truncated code,
+  `prada-beauty 4z8k` → high on junk. All reproduced locally before any change.
+- Root cause: the L'Oréal reader scans for any year letter followed by a valid
+  month character and reports the first hit as high confidence, with no length
+  floor and no check that the letter is where the documented format puts it.
+- Fixes in `src/lib/decoder/decoders.ts`:
+  - `clean()` now maps Cyrillic/Greek homoglyphs to their Latin twin and NFKD-
+    strips combining marks, so a code typed on a Russian or Vietnamese keyboard
+    stops silently losing characters (`clinique "А25"` went none → medium).
+  - The L'Oréal reader requires a 5-character minimum (canonical is 6), demotes
+    a read to low when the 25-year letter cycle resolves decades back, and only
+    reports high confidence for the documented `digits + year letter + month`
+    shape. Letter-led codes such as `MNX30W` — readable as both 2013-11 and
+    2023-03 — keep their date but lose the false certainty.
+- Measured against the full export before/after: **12 of 207 changed, 195
+  untouched**; high-confidence reads 82 → 71. No real code lost its date; the
+  three killed reads were all false positives.
+- Not done, deliberately: no decoder was invented for the unresolved clusters
+  (Jean Paul Gaultier `TCR15X`/`BPI75116`, and the Korean brands SKIN1004 /
+  Beauty of Joseon / Anua / Missha). JPG's own 5-digit format decodes correctly;
+  those 17 entries are users typing non-batch-code text, including the Paris
+  postcode (`75008`, `75116`) off the address block. Photo evidence first.
+- Files: `src/lib/decoder/decoders.ts`, `src/lib/decoder/index.ts` (the barcode
+  fix below), `scripts/decoder-regression.test.ts`, `.gitignore`.
+- Verification: ESLint 0, TypeScript clean, 36/36 regressions (5 new decoder
+  guards), `verify-decoder-examples` all green, production build passed.
+- Risk / needs verification: the `LOREAL_PLAUSIBLE_AGE_YEARS = 15` floor is a
+  judgement call, not a sourced constant — the oldest plausible read in real
+  traffic is ~14 years, so nothing legitimate is demoted today, but a genuine
+  old-stock check would be shown as low confidence.
+
+## Completed — 0.12.0 (retail barcodes with separators)
+
+- Prod logged `dior "3 348900 838185"` — an EAN-13 with spaces — as a
+  medium-confidence December 2023 date. The old guard only rejected 12–14 digit
+  strings whose checksum validated, so a mistyped or truncated barcode fell
+  through to the decoders and a substring was read as a Julian date.
+- `src/lib/decoder/index.ts` now treats any 12–14 digit compact string as a
+  retail identifier regardless of checksum, and classifies the failure as
+  `barcode` so the UI shows the "look for a separate short stamp" message.
+- Verified: `3 348900 838185` and `800523 733088` now return `reason=barcode`.
 
 ## Completed — 0.10.4 (decode result render crash hotfix)
 

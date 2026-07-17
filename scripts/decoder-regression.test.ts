@@ -118,7 +118,27 @@ test("a checksum-valid EAN-13 is rejected before substring decoding", () => {
     now,
   });
   assert.equal(result.decoded, false);
+  assert.equal(result.failureReason, "barcode");
   assert.match(result.notes.join(" "), /retail barcode/i);
+});
+
+test("numeric retail identifiers remain classified as barcodes even with spaces", () => {
+  const result = checkBatchCode({
+    brandName: "Dior",
+    code: "4006 3813 3393 1",
+    decoderId: "dior",
+    shelfLifeMonths: 60,
+    category: "perfume",
+    now,
+  });
+  assert.equal(result.decoded, false);
+  assert.equal(result.failureReason, "barcode");
+});
+
+test("failed checks distinguish malformed and unresolved codes", () => {
+  const input = { brandName: "Unsupported", shelfLifeMonths: 36, category: "generic" as const, now };
+  assert.equal(checkBatchCode({ ...input, code: "." }).failureReason, "invalid-format");
+  assert.equal(checkBatchCode({ ...input, code: "ZZ99" }).failureReason, "unresolved");
 });
 
 test("manufacture decoding and shelf-life estimation remain separate", () => {
@@ -132,4 +152,69 @@ test("manufacture decoding and shelf-life estimation remain separate", () => {
   });
   assert.equal(result.manufactureDate?.toISOString().slice(0, 10), "2024-05-14");
   assert.equal(result.expirationDate?.toISOString().slice(0, 10), "2029-05-14");
+});
+
+/*
+ * Guards for the L'Oréal reader, which scans for a year letter followed by a
+ * month character. Every case below is a real code from production traffic that
+ * the scan used to answer with high confidence.
+ */
+
+const loreal = (code: string) =>
+  checkBatchCode({
+    brandName: "Vichy",
+    code,
+    decoderId: "loreal",
+    shelfLifeMonths: 36,
+    category: "skincare",
+    now,
+  });
+
+test("a code too short to be a L'Oréal code is not decoded", () => {
+  // "C34" read as C=2003 + month 3, on a brand that did not exist in 2003.
+  assert.equal(loreal("C34").decoded, false);
+  assert.equal(loreal("14YN").decoded, false);
+});
+
+test("look-alike Cyrillic and Greek letters decode as their Latin twin", () => {
+  const cyrillic = checkBatchCode({
+    brandName: "Clinique",
+    code: "А25", // Cyrillic А + 25
+    decoderId: "estee-lauder",
+    shelfLifeMonths: 36,
+    category: "skincare",
+    now,
+  });
+  const latin = checkBatchCode({
+    brandName: "Clinique",
+    code: "A25",
+    decoderId: "estee-lauder",
+    shelfLifeMonths: 36,
+    category: "skincare",
+    now,
+  });
+  assert.equal(cyrillic.decoded, true);
+  assert.deepEqual(cyrillic.manufactureDate, latin.manufactureDate);
+});
+
+test("a code without the documented L'Oréal shape is not read confidently", () => {
+  // Letter-led: "MNX30W" reads as M=2013/N=Nov at the front and X=2023/3=Mar
+  // further in. The date is still offered; the certainty is not.
+  const result = loreal("MNX30W");
+  assert.equal(result.decoded, true);
+  assert.notEqual(result.confidence, "high");
+});
+
+test("a year letter resolving decades back is not read confidently", () => {
+  // The year letter repeats every 25 years, so "26B100" can only be read as
+  // 2002 — far past any shelf life, and likelier a misread letter.
+  const result = loreal("26B100");
+  assert.equal(result.manufactureDate?.toISOString().slice(0, 10), "2002-01-15");
+  assert.equal(result.confidence, "low");
+});
+
+test("the canonical L'Oréal shape still reads at high confidence", () => {
+  const result = loreal("22U401");
+  assert.equal(result.confidence, "high");
+  assert.equal(result.manufactureDate?.toISOString().slice(0, 10), "2021-04-15");
 });

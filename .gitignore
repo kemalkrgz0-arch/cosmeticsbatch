@@ -49,3 +49,7 @@ next-env.d.ts
 
 # Local operational backups are never committed.
 /backups/
+
+# Local agent tooling (Claude Code skills), not part of the product.
+/.agents/
+/skills-lock.json

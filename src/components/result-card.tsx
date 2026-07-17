@@ -18,7 +18,8 @@ import { Link } from "@/i18n/navigation";
 import type { CheckResult, DatePrecision, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
-import { photoSubmissionCopy } from "@/lib/photo-submission-copy";
+import { resultFailureCopy } from "@/lib/result-failure-copy";
+import { site } from "@/lib/site";
 
 // Some code families (L'Oréal, Estée Lauder) encode only year+month; the day in
 // `manufactureDate` is a mid-month placeholder, so we hide it rather than imply a
@@ -185,7 +186,6 @@ export function ResultCard({
 }) {
   const t = useTranslations("result");
   const locale = useLocale();
-  const photoCopy = photoSubmissionCopy(locale);
   // The public decode API deliberately omits decoder implementation details.
   // Server-rendered results still include notes, so normalize the API shape
   // before any render branch reads the collection.
@@ -196,10 +196,10 @@ export function ResultCard({
   const statusLabel = t(STATUS_KEY[result.freshness]);
   const months = (n: number) => t("months", { n });
 
-  // Decode failed — almost always a mistyped code. We deliberately do NOT reveal
-  // the brand's code format here, only how to re-check the input.
   if (!result.decoded) {
-    const showDetailedHelp = locale.startsWith("en");
+    const reason = result.failureReason ?? "unresolved";
+    const failure = resultFailureCopy(locale, reason);
+    const inviteEvidence = reason === "unresolved" || reason === "barcode";
     return (
       <div className="overflow-hidden rounded-3xl border border-warning/40 bg-warning-bg shadow-card">
         <div className="flex flex-col items-center gap-3 px-6 py-8 text-center sm:px-8">
@@ -207,45 +207,16 @@ export function ResultCard({
             <AlertTriangle className="h-6 w-6" />
           </span>
           <div>
-            <h2 className="text-lg font-semibold">{t("invalidTitle")}</h2>
+            <h2 className="text-lg font-semibold">{failure.title}</h2>
             <p className="mx-auto mt-1.5 max-w-md text-sm text-fg-muted">
-              {t("invalidBody", { code: result.code, brand: brand.name })}
+              {failure.body(result.code, brand.name)}
             </p>
             <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
-              {showDetailedHelp && (
-                <>
-                  {notes.length > 0 && (
-                    <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-fg-muted">
-                      {notes.map((note, index) => (
-                        <li key={`${index}:${note}`}>{note}</li>
-                      ))}
-                    </ul>
-                  )}
-                  <p className="mt-3 text-sm leading-relaxed text-fg-muted">
-                    A code can be valid but still use a regional, older, or
-                    contract-manufacturer format that this checker does not yet
-                    support. This result does not prove that the code or product
-                    is invalid.
-                  </p>
-                </>
-              )}
-              <div
-                className={`flex flex-col gap-2 sm:flex-row ${showDetailedHelp ? "mt-4" : ""}`}
-              >
-                {showDetailedHelp && (
-                  <a
-                    href="#batch-checker"
-                    className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong"
-                  >
-                    Check the brand and code again
-                  </a>
-                )}
-                <a
-                  href="#code-photo-submission"
-                  className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg"
-                >
-                  {photoCopy.open}
-                </a>
+              <p className="text-sm leading-relaxed text-fg-muted">{failure.detail}</p>
+              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                <a href="#batch-checker" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong">{failure.retry}</a>
+                {inviteEvidence && <a href="#code-photo-submission" className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg">{failure.contact}</a>}
+                <a href={`mailto:${site.email}?subject=${encodeURIComponent(`${brand.name} batch code ${result.code}`)}`} className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-accent hover:text-accent-hover">{failure.email}</a>
               </div>
             </div>
           </div>

@@ -46,6 +46,9 @@ export function InlineResult({ brand }: { brand: Brand }) {
             expirationDate: r.expirationDate ? new Date(r.expirationDate) : null,
           },
         });
+        if (r.failureReason === "unresolved" || r.failureReason === "barcode") {
+          window.dispatchEvent(new CustomEvent("unresolved-code", { detail: { code: r.code } }));
+        }
       })
       .catch((error: unknown) => {
         if (!(error instanceof DOMException && error.name === "AbortError")) {

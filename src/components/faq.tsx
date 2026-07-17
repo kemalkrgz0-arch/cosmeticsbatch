@@ -27,7 +27,7 @@ export function Faq({
   // Every item is always in the DOM (SEO + JSON-LD intact). On mobile, the
   // overflow items are CSS-hidden until expanded; on sm+ they're always shown.
   return (
-    <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <section className="reading-frame py-16">
       <SectionHeading title={title ?? t("title")} subtitle={subtitle} />
       <div className="mt-9 divide-y divide-border rounded-2xl border border-border bg-card">
         {items.map((item, i) => (

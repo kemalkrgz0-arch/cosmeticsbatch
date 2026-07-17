@@ -84,7 +84,7 @@ export function HowItWorks() {
     { visual: <ResultVisual />, title: t("step3Title"), body: t("step3Body") },
   ];
   return (
-    <section id="how-it-works" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+    <section id="how-it-works" className="site-frame py-14 sm:py-16">
       <SectionHeading
         eyebrow={t("eyebrow")}
         title={t("title")}

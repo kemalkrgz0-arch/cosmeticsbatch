@@ -1,6 +1,6 @@
 {
   "name": "cosmeticsbatch",
-  "version": "0.10.4",
+  "version": "0.12.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,8 @@
     "test": "pnpm test:quality",
     "test:decoder": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --resolveJsonModule --skipLibCheck scripts/decoder-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/decoder-regression.test.js",
     "test:quality": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --resolveJsonModule --skipLibCheck scripts/decoder-regression.test.ts scripts/quality-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/*.test.js",
-    "review:submissions": "node scripts/submission-review.mjs"
+    "review:submissions": "node scripts/submission-review.mjs",
+    "hero:inventory": "node scripts/brand-hero-inventory.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

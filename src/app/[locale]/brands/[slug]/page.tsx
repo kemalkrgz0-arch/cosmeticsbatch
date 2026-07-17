@@ -38,6 +38,11 @@ import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { JsonLd } from "@/components/json-ld";
 import { CodePhotoSubmission } from "@/components/code-photo-submission";
+import { BrandCodeGallery } from "@/components/brand-code-gallery";
+import { BrandHero } from "@/components/brand-page/brand-hero";
+import { BrandQuickFacts } from "@/components/brand-page/brand-quick-facts";
+import { TrustDisclaimer } from "@/components/brand-page/trust-disclaimer";
+import { brandThemeStyle, getBrandTheme } from "@/lib/brand-theme";
 import {
   LOREAL_OFFICIAL_PORTFOLIO_URL,
   isLorealGroupBrand,
@@ -139,6 +144,7 @@ export default async function BrandPage({
     : undefined;
 
   const category = t(`categoryNoun.${brand.category}`);
+  const theme = getBrandTheme(brand.category, brand.theme);
   const months = (n: number) => tb("months", { n });
 
   // Honest per-brand decoder label: a dedicated manufacturer scheme where we
@@ -169,7 +175,7 @@ export default async function BrandPage({
   ];
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <div className="brand-page pb-8" style={brandThemeStyle(theme)}>
       {monetizable && <AdsenseLoader />}
       <JsonLd
         data={[
@@ -185,23 +191,12 @@ export default async function BrandPage({
           ] : []),
         ]}
       />
-      <Breadcrumbs items={crumbs} />
+      <div className="site-frame pt-4 sm:pt-6">
+        <div className="mb-3 px-1 text-xs opacity-70"><Breadcrumbs items={crumbs} /></div>
+        <BrandHero brand={brand} theme={theme} title={tb("checkerTitle", { name: brand.name })} byline={tb("by", { group: brand.group })} intro={tb("blurb", { name: brand.name, category })} disclaimer={tb("intro", { name: brand.name })} />
+      </div>
 
-      <header className="flex items-center gap-4">
-        <BrandLogo name={brand.name} slug={brand.slug} className="h-14 w-14 text-base" />
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            {tb("checkerTitle", { name: brand.name })}
-          </h1>
-          <p className="mt-1 text-sm text-fg-muted">
-            {tb("by", { group: brand.group })}
-          </p>
-        </div>
-      </header>
-
-      <p className="mt-5 text-pretty leading-relaxed text-fg-muted">
-        {tb("intro", { name: brand.name })}
-      </p>
+      <div className="page-frame relative z-20 -mt-24 sm:-mt-28">
 
       {/* Brands that print the date directly (K-beauty, JP, FR pharmacy):
           point the user at the printed date + guide instead of a coded decode. */}
@@ -224,7 +219,7 @@ export default async function BrandPage({
         </div>
       )}
 
-      <CheckForm initialBrand={brand} className="mt-6" autoFocusCode />
+      <CheckForm initialBrand={brand} presentation="brand" />
 
       {/* Inline decode result (client-rendered from ?code= so the page stays SSG) */}
       <Suspense fallback={null}>
@@ -233,18 +228,16 @@ export default async function BrandPage({
 
       <CodePhotoSubmission brand={brand} locale={locale} />
 
-      {/* Quick facts */}
-      <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {facts.map(({ icon: Icon, label, value }) => (
-          <div key={label} className="rounded-xl border border-border bg-card p-3.5">
-            <dt className="flex items-center gap-1.5 text-xs text-fg-muted">
-              <Icon className="h-3.5 w-3.5" />
-              {label}
-            </dt>
-            <dd className="mt-1 text-sm font-medium leading-tight">{value}</dd>
-          </div>
-        ))}
-      </dl>
+      <BrandQuickFacts facts={facts} />
+
+      {/* A stable visual-guide slot near the primary checker. Every brand uses
+          this position as owner-approved packaging evidence is added. */}
+      <BrandCodeGallery
+        brandName={brand.name}
+        heading={introSections[0].heading}
+        body={introSections[0].body}
+        images={brand.codeImages}
+      />
 
       {/* Explanation */}
       <section className="mt-10">
@@ -309,36 +302,11 @@ export default async function BrandPage({
         </section>
       )}
 
-      {/* Where-to-find + storage — visible, category-specific body content
-          (promoted from the FAQ) that reveals nothing about the cipher. */}
-      {introSections.map((s, i) => (
+      {/* Remaining category guidance follows the explanatory content. */}
+      {introSections.slice(1).map((s) => (
         <section key={s.heading} className="mt-10">
           <h2 className="text-xl font-semibold">{s.heading}</h2>
           <p className="mt-3 leading-relaxed text-fg-muted">{s.body}</p>
-          {/* Real product photos sit right under the "where is the code?"
-              explanation (the first section) so the text and the visual are
-              together. */}
-          {i === 0 && brand.codeImages && brand.codeImages.length > 0 && (
-            <figure className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {brand.codeImages.map((img) => (
-                <div
-                  key={img.src}
-                  className="relative overflow-hidden rounded-xl border border-border bg-card"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={img.src}
-                    alt={`Where to find the batch code on ${brand.name} packaging`}
-                    width={img.width}
-                    height={img.height}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-auto w-full"
-                  />
-                </div>
-              ))}
-            </figure>
-          )}
         </section>
       ))}
 
@@ -373,6 +341,8 @@ export default async function BrandPage({
         title={tb("faqTitle", { name: brand.name })}
       />
 
+      <TrustDisclaimer independent={tb("intro", { name: brand.name })} estimate={tb("blurb", { name: brand.name, category })} privateLabel={t("hero.trustPrivate")} free={t("hero.trustFree")} />
+
       {/* Related brands */}
       <section className="mt-4">
         <h2 className="mb-4 text-lg font-semibold">{tb("relatedBrands")}</h2>
@@ -381,10 +351,10 @@ export default async function BrandPage({
             <Link
               key={b.slug}
               href={`/brands/${b.slug}`}
-              className="flex items-center gap-2.5 rounded-xl border border-border bg-card p-3 transition-colors hover:border-border-strong"
+              className="group flex min-w-0 items-center gap-3 rounded-2xl border border-[var(--brand-border)] bg-[var(--brand-surface)] p-4 transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-[var(--brand-accent)]"
             >
-              <BrandLogo name={b.name} slug={b.slug} className="h-8 w-8 text-[11px]" />
-              <span className="truncate text-sm font-medium">{b.name}</span>
+              <BrandLogo name={b.name} slug={b.slug} className="h-10 w-10 rounded-xl text-[11px]" />
+              <span className="min-w-0"><span className="block truncate text-sm font-semibold">{b.name}</span><span className="mt-0.5 block truncate text-xs text-fg-muted">{b.group}</span></span>
             </Link>
           ))}
         </div>
@@ -406,6 +376,7 @@ export default async function BrandPage({
           ))}
         </ul>
       </section>
+      </div>
     </div>
   );
 }

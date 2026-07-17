@@ -45,7 +45,7 @@ export default async function DecodersIndexPage({
     .map((g) => localizeDecoderGuide(g, t));
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <div className="page-frame py-10">
       <Breadcrumbs items={crumbs} />
 
       <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">

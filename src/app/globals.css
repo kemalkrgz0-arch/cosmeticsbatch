@@ -117,6 +117,116 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.brand-display {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.brand-page {
+  color: var(--brand-text);
+}
+
+.brand-hero-fallback {
+  background:
+    radial-gradient(circle at 78% 30%, color-mix(in srgb, var(--brand-accent) 22%, transparent) 0 9%, transparent 10%),
+    radial-gradient(circle at 88% 70%, color-mix(in srgb, var(--brand-primary) 12%, transparent) 0 16%, transparent 17%),
+    linear-gradient(125deg, transparent 0 58%, color-mix(in srgb, var(--brand-accent) 10%, transparent) 58% 72%, transparent 72%),
+    var(--brand-background);
+}
+
+.brand-page #code-photo-submission {
+  border-color: var(--brand-border);
+  border-radius: 1.5rem;
+  background: color-mix(in srgb, var(--brand-background) 38%, var(--card));
+  box-shadow: var(--shadow-soft);
+}
+
+.brand-page #code-photo-submission .text-accent,
+.brand-page a.text-accent {
+  color: var(--brand-primary);
+}
+
+@media (min-width: 640px) {
+  .brand-page #code-photo-submission .submission-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1.5rem;
+  }
+
+  .brand-page #code-photo-submission .submission-copy > h2,
+  .brand-page #code-photo-submission .submission-copy > p {
+    grid-column: 1;
+  }
+
+  .brand-page #code-photo-submission .submission-copy > button {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-top: 0;
+    border: 1px solid var(--brand-border);
+    border-radius: 999px;
+    padding-inline: 1.25rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .brand-hero-fallback {
+    background:
+      radial-gradient(circle at 88% 28%, color-mix(in srgb, var(--brand-accent) 25%, transparent) 0 13%, transparent 14%),
+      radial-gradient(circle at 94% 66%, color-mix(in srgb, var(--brand-primary) 12%, transparent) 0 21%, transparent 22%),
+      var(--brand-background);
+  }
+}
+
+.dark .brand-page {
+  --brand-background: color-mix(in srgb, var(--brand-primary-dark) 48%, #0a0a0b);
+  --brand-surface: #151813;
+  --brand-text: #f3f2eb;
+  --brand-muted: #b1b6ab;
+  --brand-border: #30372d;
+  --brand-overlay: linear-gradient(90deg, rgba(10,11,9,.96), rgba(16,19,14,.8), rgba(16,19,14,.34));
+}
+
+/* ---------- Responsive layout frames ----------
+   `site-frame` serves navigation, directories and broad landing-page sections.
+   `page-frame` is the central product/tool canvas. On large monitors the gap
+   between the 72rem page canvas and 96rem site frame intentionally reserves
+   two 12rem side rails for future advertising without forcing article text to
+   span the full viewport. `reading-frame` keeps long-form/legal copy readable. */
+.site-frame,
+.page-frame,
+.reading-frame {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.site-frame {
+  max-width: 96rem;
+}
+
+.page-frame {
+  max-width: 72rem;
+}
+
+.reading-frame {
+  max-width: 56rem;
+}
+
+@media (min-width: 640px) {
+  .site-frame,
+  .page-frame,
+  .reading-frame {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-frame,
+  .page-frame {
+    padding-inline: 2rem;
+  }
+}
+
 ::selection {
   background: color-mix(in srgb, var(--accent) 22%, transparent);
 }

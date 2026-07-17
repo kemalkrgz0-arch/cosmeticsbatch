@@ -1,5 +1,7 @@
 import type { ProductCategory } from "./decoder/types";
 import { BRAND_DETAILS } from "./brand-detail";
+import type { BrandTheme } from "./brand-theme";
+import { brandHeroAsset } from "./brand-hero-assets";
 
 export interface Brand {
   slug: string;
@@ -33,6 +35,8 @@ export interface Brand {
    * intrinsic px (reserve space to avoid layout shift).
    */
   codeImages?: { src: string; width: number; height: number }[];
+  /** Visual tokens/assets consumed by the shared brand-page template. */
+  theme?: Partial<BrandTheme>;
   blurb: string;
 }
 
@@ -630,6 +634,10 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
     { src: "/brands/examples/creed-2.jpg", width: 900, height: 416 },
     { src: "/brands/examples/creed-3.jpg", width: 900, height: 416 },
   ],
+  dior: [
+    { src: "/brands/examples/dior-1.jpg", width: 1073, height: 1174 },
+    { src: "/brands/examples/dior-2.jpg", width: 1102, height: 702 },
+  ],
   escada: [
     { src: "/brands/examples/escada-1.jpg", width: 900, height: 416 },
     { src: "/brands/examples/escada-2.jpg", width: 900, height: 416 },
@@ -650,6 +658,9 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
     { src: "/brands/examples/lancome-2.jpg", width: 900, height: 416 },
     { src: "/brands/examples/lancome-3.jpg", width: 900, height: 416 },
   ],
+  "loreal-paris": [
+    { src: "/brands/examples/loreal-paris-1.jpg", width: 956, height: 1118 },
+  ],
   "mac-cosmetics": [
     { src: "/brands/examples/mac-cosmetics-1.jpg", width: 900, height: 416 },
     { src: "/brands/examples/mac-cosmetics-2.jpg", width: 900, height: 416 },
@@ -664,14 +675,31 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
     { src: "/brands/examples/tom-ford-beauty-2.jpg", width: 900, height: 416 },
   ],
   vichy: [
-    { src: "/brands/examples/vichy-1.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/vichy-2.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/vichy-1.jpg", width: 815, height: 797 },
+    { src: "/brands/examples/vichy-2.jpg", width: 1052, height: 649 },
+    { src: "/brands/examples/vichy-3.jpg", width: 1095, height: 841 },
   ],
   zara: [
     { src: "/brands/examples/zara-1.jpg", width: 900, height: 416 },
     { src: "/brands/examples/zara-2.jpg", width: 900, height: 416 },
     { src: "/brands/examples/zara-3.jpg", width: 900, height: 416 },
   ],
+};
+
+const BRAND_THEMES: Record<string, Partial<BrandTheme>> = {
+  vichy: {
+    primary: "#b51e27",
+    primaryDark: "#7f1219",
+    accent: "#cf4a50",
+    cta: "#b51e27",
+    ctaHover: "#941720",
+    background: "#f2f1e9",
+    surface: "#fffefa",
+    text: "#252821",
+    mutedText: "#5e655a",
+    border: "#dce2d6",
+    heroOverlay: "linear-gradient(90deg, rgba(244,243,235,.99) 0%, rgba(244,243,235,.91) 47%, rgba(226,232,216,.38) 100%)",
+  },
 };
 
 /** Every brand, including hidden ones — used for URL resolution. */
@@ -690,6 +718,7 @@ export const ALL_BRANDS: Brand[] = ROWS.map(
       hidden: HIDDEN_SLUGS.has(slug),
       printsDate: PRINTS_DATE_SLUGS.has(slug),
       codeImages: CODE_IMAGES[slug],
+      theme: { ...BRAND_THEMES[slug], ...brandHeroAsset(slug) },
       blurb: `Decode ${name} batch codes to find the manufacture date, age and expiration date of your ${categoryBlurb[category]} products. Free, instant and private.`,
     };
   },

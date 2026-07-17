@@ -36,7 +36,22 @@ export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: s
   const [validationError, setValidationError] = useState("");
 
   useEffect(() => {
-    if (open) photoButton.current?.focus();
+    const reveal = (event?: Event) => {
+      const detail = (event as CustomEvent<{ code?: string }> | undefined)?.detail;
+      if (detail?.code) setCode(detail.code);
+      setOpen(true);
+    };
+    if (window.location.hash === "#code-photo-submission") reveal();
+    window.addEventListener("unresolved-code", reveal);
+    window.addEventListener("hashchange", reveal);
+    return () => {
+      window.removeEventListener("unresolved-code", reveal);
+      window.removeEventListener("hashchange", reveal);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (open) photoButton.current?.focus({ preventScroll: true });
   }, [open]);
 
   async function submit(event: React.FormEvent) {
@@ -79,7 +94,7 @@ export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: s
     <section id="code-photo-submission" className="mt-8 scroll-mt-24 rounded-2xl border border-border bg-card p-5 shadow-card sm:p-6">
       <div className="flex items-start gap-3">
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg-subtle"><Camera className="h-5 w-5 text-accent" /></span>
-        <div className="min-w-0 flex-1">
+        <div className="submission-copy min-w-0 flex-1">
           <h2 className="font-semibold">{copy.title.replace("BRANDNAME", brand.name)}</h2>
           <p className="mt-1 text-sm leading-relaxed text-fg-muted">{copy.description}</p>
           {!open && <button type="button" aria-expanded={false} aria-controls={`${formId}-form`} onClick={() => setOpen(true)} className="mt-3 min-h-11 rounded-lg text-sm font-semibold text-accent hover:text-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{copy.open} →</button>}

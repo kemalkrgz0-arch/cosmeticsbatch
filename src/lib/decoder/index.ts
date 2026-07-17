@@ -13,6 +13,8 @@ export type FreshnessStatus =
   | "expired"
   | "unknown";
 
+export type DecodeFailureReason = "barcode" | "invalid-format" | "unresolved";
+
 export interface CheckInput {
   brandName: string;
   code: string;
@@ -28,6 +30,8 @@ export interface CheckResult {
   brandName: string;
   code: string;
   decoded: boolean;
+  /** Safe public reason for an unsuccessful read; null after a successful decode. */
+  failureReason: DecodeFailureReason | null;
   manufactureDate: Date | null;
   expirationDate: Date | null;
   ageDays: number | null;
@@ -65,7 +69,7 @@ function humanizeAge(days: number): string {
 }
 
 /** UPC-A / EAN-13 / GTIN-14 checksum, used only to reject obvious barcodes. */
-function isRetailBarcode(value: string): boolean {
+function hasRetailBarcodeChecksum(value: string): boolean {
   if (!/^\d{12,14}$/.test(value)) return false;
   const digits = [...value].map(Number);
   const check = digits.pop()!;
@@ -84,7 +88,14 @@ export function checkBatchCode(input: CheckInput): CheckResult {
 
   // Long retail identifiers can contain a 4–6 digit substring that resembles
   // a Julian date. A checksum-valid UPC/EAN/GTIN is not a batch code.
-  const barcode = isRetailBarcode(trimmedCode.replace(/\s+/g, ""));
+  const compactCode = trimmedCode.replace(/[\s-]+/g, "");
+  const barcodeShape = /^\d{12,14}$/.test(compactCode);
+  const barcode = barcodeShape || hasRetailBarcodeChecksum(compactCode);
+  const normalizedBatch = trimmedCode
+    .normalize("NFKC")
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "");
+  const invalidFormat = normalizedBatch.length < 2 || normalizedBatch.length > 32;
 
   // 1. Try dedicated decoder, then fallback chain.
   const tried = [getDecoder(input.decoderId), ...FALLBACK_CHAIN].filter(
@@ -114,6 +125,7 @@ export function checkBatchCode(input: CheckInput): CheckResult {
     brandName: input.brandName,
     code: trimmedCode,
     decoded: false,
+    failureReason: null,
     manufactureDate: null,
     expirationDate: null,
     ageDays: null,
@@ -128,6 +140,11 @@ export function checkBatchCode(input: CheckInput): CheckResult {
   };
 
   if (!attempt || !attempt.manufactureDate) {
+    base.failureReason = barcode
+      ? "barcode"
+      : invalidFormat
+        ? "invalid-format"
+        : "unresolved";
     base.notes.push(barcode
       ? "This looks like a retail barcode (UPC/EAN/GTIN), not a batch code. Look for a separate short stamp on the packaging."
       : "We couldn't automatically decode this code. Double-check it matches the code stamped on the packaging (not the barcode).",
@@ -156,6 +173,7 @@ export function checkBatchCode(input: CheckInput): CheckResult {
   return {
     ...base,
     decoded: true,
+    failureReason: null,
     manufactureDate: mfg,
     expirationDate: expiry,
     ageDays,

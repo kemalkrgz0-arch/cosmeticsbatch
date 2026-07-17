@@ -45,7 +45,7 @@ export default async function CheckPage({
 
   if (!brand || !code) {
     return (
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
+      <div className="reading-frame py-16">
         <h1 className="text-2xl font-semibold">Check a batch code</h1>
         <p className="mt-2 text-fg-muted">
           Select a brand and enter its batch code to decode the manufacture date.
@@ -84,7 +84,7 @@ export default async function CheckPage({
   const related = POPULAR_BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 4);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <div className="page-frame py-10">
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },

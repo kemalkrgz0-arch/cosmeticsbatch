@@ -10,7 +10,7 @@ export function FeatureGrid() {
     { icon: Heart, title: t("freeTitle"), body: t("freeBody") },
   ];
   return (
-    <section className="mx-auto max-w-6xl px-4 pb-4 sm:px-6">
+    <section className="site-frame pb-4">
       <div className="grid gap-3 rounded-2xl border border-border bg-card p-6 shadow-soft sm:grid-cols-2 sm:gap-8 sm:p-10 lg:grid-cols-4">
         {features.map(({ icon: Icon, title, body }) => (
           <div key={title} className="flex gap-3.5">

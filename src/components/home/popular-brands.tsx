@@ -47,7 +47,7 @@ export function PopularBrands() {
   const t = useTranslations("popularBrands");
   return (
     <section className="py-14 sm:py-16" aria-labelledby="popular-brands-title">
-      <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
+      <div className="site-frame text-center">
         <h2
           id="popular-brands-title"
           className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-fg-muted sm:text-sm"

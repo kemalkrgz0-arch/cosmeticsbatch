@@ -4,7 +4,49 @@ import type { Decoder, DecodeAttempt, DecodeContext } from "./types";
 /*  Shared helpers                                                            */
 /* -------------------------------------------------------------------------- */
 
-const clean = (code: string) => code.toUpperCase().replace(/[^A-Z0-9]/g, "");
+/**
+ * Cyrillic and Greek capitals that are visually identical to a Latin letter.
+ * People on a Russian, Ukrainian or Greek keyboard type the character they see
+ * on the pack, and it arrives as a different code point. Without this map the
+ * character is stripped as punctuation and the code silently loses a letter —
+ * a real user typed the Cyrillic "А25" and got nothing back while "A25" reads
+ * fine. Only unambiguous look-alikes belong here.
+ */
+const HOMOGLYPHS: Record<string, string> = {
+  А: "A", В: "B", Е: "E", К: "K", М: "M", Н: "H", О: "O", Р: "P",
+  С: "C", Т: "T", У: "Y", Х: "X", І: "I", Ј: "J", Ѕ: "S",
+  Α: "A", Β: "B", Ε: "E", Ζ: "Z", Η: "H", Ι: "I", Κ: "K", Μ: "M",
+  Ν: "N", Ο: "O", Ρ: "P", Τ: "T", Υ: "Y", Χ: "X",
+};
+
+/**
+ * Normalise a typed code to the A-Z0-9 alphabet the decoders match against.
+ *
+ * NFKD splits accented Latin letters into base + combining mark so the mark can
+ * be dropped and the base kept (Vietnamese "Ư" -> "U"); without it the whole
+ * character is stripped and the code silently shortens.
+ */
+function normalizeCode(code: string): string {
+  return code
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toUpperCase()
+    .replace(/./gu, (ch) => HOMOGLYPHS[ch] ?? ch);
+}
+
+const clean = (code: string) => normalizeCode(code).replace(/[^A-Z0-9]/g, "");
+
+/**
+ * True when normalising dropped a character that was not an obvious separator —
+ * i.e. we are matching against something the user did not actually type. The
+ * decoders use this to refuse to report a confident read of a mangled code.
+ */
+function hasUnreadableChars(code: string): boolean {
+  const normalized = normalizeCode(code);
+  const separators = /[\s\-_.,/\\|:;()[\]]/g;
+  const meaningful = normalized.replace(separators, "");
+  return /[^A-Z0-9]/.test(meaningful);
+}
 
 /** Resolve a single-digit year to the most recent plausible full year. */
 function resolveYearDigit(digit: number, now: Date): number {
@@ -107,6 +149,24 @@ const esteeLauder: Decoder = {
 // Annual cycle: full alphabet with 'V' removed (25 letters). Anchor: Z = 2025.
 const LOREAL_YEAR_LETTERS = "ABCDEFGHIJKLMNOPQRSTUWXYZ";
 
+/** Shortest real code seen in production traffic; the canonical form is 6. */
+const LOREAL_MIN_LENGTH = 5;
+
+/**
+ * The documented layout: one or two factory digits, the year letter, then the
+ * month. Codes matching this leave no doubt about which letter is the year;
+ * codes that don't (a letter-led code such as "MNX30W") are read by scanning,
+ * which can only ever be a best guess.
+ */
+const LOREAL_CANONICAL_SHAPE = /^\d{1,2}[A-Z][1-9OND]/;
+
+/**
+ * Age past which the 25-year letter cycle, not a genuinely ancient batch, is the
+ * likely explanation. Well beyond any cosmetic shelf life, so nothing legitimate
+ * is demoted: the oldest plausible reads in real traffic sit around 14 years.
+ */
+const LOREAL_PLAUSIBLE_AGE_YEARS = 15;
+
 function lorealYear(letter: string, now: Date): number | null {
   const i = LOREAL_YEAR_LETTERS.indexOf(letter);
   if (i === -1) return null;
@@ -133,7 +193,22 @@ const loreal: Decoder = {
     "L'Oréal group codes are usually 6 characters (e.g. 22U401). The leading digits are the factory, the first letter is the production year (an annual letter cycle where 'V' is skipped, so U = 2021, W = 2022, X = 2023…), and the character right after it is the month (1–9 = January–September, O/N/D = October/November/December). The last three characters are the production batch and have no bearing on shelf life.",
   decode(code, ctx): DecodeAttempt | null {
     const c = clean(code);
-    if (c.length < 3) return null;
+    // A real L'Oréal code is 6 characters (a handful run to 5 or 7). Below that
+    // there is not enough code left to be sure we are reading a factory/year/
+    // month at all: the scan below would happily find a year+month pair inside
+    // any short string and report it as a confident date. "C34" decoding to a
+    // high-confidence March 2003 — for a brand founded in 2005 — came from here.
+    if (c.length < LOREAL_MIN_LENGTH) return null;
+    // Normalising threw away a character the user actually typed, so the string
+    // being matched is not the code on the pack. Read it, but never confidently.
+    const mangled = hasUnreadableChars(code);
+    // The documented shape is factory digits, then the year letter, then the
+    // month. When the code starts that way we know which letter is the year.
+    // When it does not, the loop below simply takes the first letter that has a
+    // valid month after it, which is a guess: "MNX30W" reads as M=2013/N=Nov at
+    // the front and as X=2023/3=Mar further in, and nothing in the code says
+    // which is meant. Guesses must not be reported as high confidence.
+    const canonical = LOREAL_CANONICAL_SHAPE.test(c);
     for (let i = 0; i <= c.length - 2; i++) {
       const ch = c[i];
       if (!/[A-Z]/.test(ch)) continue; // year is the first letter
@@ -146,14 +221,38 @@ const loreal: Decoder = {
       const guardDate = new Date(Date.UTC(year, month - 1, 1));
       if (inFuture(guardDate, ctx.now)) continue;
       const date = new Date(Date.UTC(year, month - 1, 15));
+      // The year letter repeats on a 25-year cycle, so every letter has an old
+      // reading as well as a recent one and we can only pick the most recent
+      // non-future match. When that match is already many years past any shelf
+      // life, a misread letter is the likelier explanation than a decades-old
+      // pot — say so instead of reporting the ancient date as fact.
+      const yearsOld = ctx.now.getFullYear() - year;
+      const ambiguousCycle = yearsOld > LOREAL_PLAUSIBLE_AGE_YEARS;
+      const notes = [
+        "L'Oréal codes give month precision; the day is estimated as mid-month.",
+        "This is the manufacture date. Once the product is opened, the PAO symbol (the open-jar icon, e.g. 12M / 24M) determines how long it stays good — regardless of how fresh the batch is.",
+      ];
+      if (ambiguousCycle) {
+        notes.unshift(
+          `This code reads as ${year}, which would make the product about ${yearsOld} years old. The year letter repeats every 25 years, so a misread letter is more likely than a batch that old — check the letter against the pack before trusting this date.`,
+        );
+      }
+      if (mangled) {
+        notes.unshift(
+          "Some characters in the code could not be read as letters or digits and were ignored, so this date may not correspond to the code on your product.",
+        );
+      }
+      if (!canonical) {
+        notes.unshift(
+          "This code doesn't have the usual L'Oréal shape (factory digits, then the year letter, then the month), so which character carries the year is a judgement call — treat this date as a best guess and check it against the product.",
+        );
+      }
       return {
         manufactureDate: date,
-        confidence: "high",
+        confidence:
+          ambiguousCycle || mangled ? "low" : canonical ? "high" : "medium",
         method: this.label,
-        notes: [
-          "L'Oréal codes give month precision; the day is estimated as mid-month.",
-          "This is the manufacture date. Once the product is opened, the PAO symbol (the open-jar icon, e.g. 12M / 24M) determines how long it stays good — regardless of how fresh the batch is.",
-        ],
+        notes,
       };
     }
     return null;

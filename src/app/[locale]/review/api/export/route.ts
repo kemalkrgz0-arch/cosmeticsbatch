@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBrand } from "@/lib/brands";
 import { asCsv } from "@/lib/csv";
-import { readRecentChecks } from "@/lib/dataset";
+import { readRecentChecks, readRecentFailedCodes } from "@/lib/dataset";
 import { requireReviewer } from "@/lib/review-auth";
 import { listSubmissions } from "@/lib/submission-store";
 
@@ -16,7 +16,8 @@ export async function GET(request: Request) {
   }
 
   const url = new URL(request.url);
-  const kind = url.searchParams.get("kind") === "checks" ? "checks" : "submissions";
+  const requestedKind = url.searchParams.get("kind");
+  const kind = requestedKind === "checks" || requestedKind === "failed" ? requestedKind : "submissions";
   const format = url.searchParams.get("format") === "json" ? "json" : "csv";
   const date = new Date().toISOString().slice(0, 10);
 
@@ -33,6 +34,16 @@ export async function GET(request: Request) {
         freshness: item.freshness,
         manufactureDate: item.mfg ?? "",
       }))
+    : kind === "failed"
+      ? (await readRecentFailedCodes(5_000)).map((item) => ({
+          timestamp: item.ts,
+          brand: getBrand(item.brand)?.name ?? item.brand,
+          brandSlug: item.brand,
+          code: item.code,
+          reason: item.reason,
+          locale: item.locale ?? "",
+          country: item.country ?? "",
+        }))
     : (await listSubmissions()).map((item) => ({
         id: item.id,
         timestamp: item.ts,

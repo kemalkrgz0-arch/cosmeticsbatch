@@ -19,7 +19,7 @@ const ITEMS = [
 export function WhereIsCode() {
   const t = useTranslations("whereCode");
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <section className="site-frame py-16">
       <SectionHeading title={t("title")} subtitle={t("subtitle")} />
       <div className="mt-9 flex snap-x gap-4 overflow-x-auto pb-2 no-scrollbar sm:grid sm:grid-cols-3 sm:overflow-visible">
         {ITEMS.map(({ key, icon: Icon, guide }) => (

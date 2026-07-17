@@ -4,7 +4,7 @@ import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
-const UPDATED = "July 14, 2026";
+const UPDATED = "July 17, 2026";
 
 export async function generateMetadata({
   params,
@@ -34,7 +34,7 @@ export default async function PrivacyPage({
   setRequestLocale(locale);
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+    <div className="reading-frame py-10">
       <Breadcrumbs
         items={[
           { name: "Home", path: "/" },
@@ -70,6 +70,15 @@ export default async function PrivacyPage({
           small items in your browser&apos;s local storage — for example your
           recently selected brands and your light/dark theme preference. This
           data stays on your device and is not sent to us.
+        </p>
+        <p>
+          <strong>Anonymous product analytics.</strong> We record the requested
+          page path, language and time, plus one approximate visit event per
+          browser tab session. We use these totals to understand which pages are
+          useful and where the product needs improvement. These events do not
+          contain an IP address, cookie or browser identifier, email address, or
+          URL query string. The visit total is therefore an approximate session
+          count, not a count of verified unique people.
         </p>
         <p>
           <strong>Code photos you submit.</strong> If you voluntarily send a

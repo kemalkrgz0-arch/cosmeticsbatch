@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { MobileHeaderMenu } from "@/components/layout/mobile-header-menu";
 
 export function SiteHeader() {
   const t = useTranslations("nav");
@@ -15,8 +16,8 @@ export function SiteHeader() {
     { href: "/about", label: t("about") },
   ];
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-bg/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:gap-6 sm:px-6">
+    <header className="sticky top-0 z-40 bg-transparent px-2 pt-2 sm:px-4 sm:pt-3">
+      <div className="site-frame flex h-[4.5rem] items-center gap-3 rounded-[1.35rem] border border-border/80 bg-bg/88 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:gap-6">
         <Link href="/" className="flex min-w-0 items-center gap-2 font-semibold">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -26,7 +27,7 @@ export function SiteHeader() {
             height={32}
             className="h-8 w-8 shrink-0 rounded-full border border-border"
           />
-          <span className="whitespace-nowrap text-[17px] tracking-tight">{site.name}</span>
+          <span className="whitespace-nowrap text-[16px] tracking-[.01em] sm:text-[17px]">{site.name}</span>
         </Link>
 
         <nav className="ml-4 hidden items-center gap-1 md:flex">
@@ -50,10 +51,11 @@ export function SiteHeader() {
           </span>
           <Link
             href="/#check"
-            className="inline-flex h-10 shrink-0 items-center whitespace-nowrap rounded-full bg-cta px-4 text-sm font-semibold text-cta-fg transition-colors duration-200 hover:bg-cta-hover"
+            className="hidden h-10 shrink-0 items-center whitespace-nowrap rounded-full bg-cta px-5 text-sm font-semibold text-cta-fg transition-colors duration-200 hover:bg-cta-hover sm:inline-flex"
           >
             {t("checkNow")}
           </Link>
+          <MobileHeaderMenu items={nav} label={t("brands")} />
         </div>
       </div>
     </header>

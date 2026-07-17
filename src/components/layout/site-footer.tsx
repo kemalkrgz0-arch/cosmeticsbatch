@@ -36,7 +36,7 @@ export function SiteFooter() {
   ];
   return (
     <footer className="mt-24 border-t border-border bg-bg-subtle/40">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-10 px-4 py-14 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr] md:gap-x-10">
+      <div className="site-frame grid grid-cols-2 gap-x-6 gap-y-10 py-14 md:grid-cols-[1.5fr_1fr_1fr] md:gap-x-10">
         {/* Brand block — full width on mobile, first column on desktop */}
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="inline-flex items-center gap-2 font-semibold">
@@ -87,7 +87,7 @@ export function SiteFooter() {
         ))}
       </div>
       <div className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-fg-muted sm:flex-row sm:px-6">
+        <div className="site-frame flex flex-col items-center justify-between gap-3 py-6 text-xs text-fg-muted sm:flex-row">
           <p>{t("rights", { year: new Date().getFullYear(), name: site.name })}</p>
           <div className="flex items-center gap-4">
             <span className="font-medium tracking-tight">
