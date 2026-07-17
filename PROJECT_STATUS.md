@@ -272,7 +272,11 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   focal positions, readable overlays, floating forms and palette-specific CTAs.
   The build retains the pre-existing NFT tracing warning for private photo
   storage.
-- Deployment: requested; pending commit/push and GitHub Actions verification.
+- Deployment: content commit `2531395` and hero release commit `5153376`;
+  GitHub Actions run `29578273924` completed successfully in 5m15s. Both live
+  brand pages and source assets returned HTTP 200; 640px negotiated WebP hero
+  responses were 14.8 KB (Lancôme) and 16.7 KB (Nivea), and immutable one-year
+  cache headers were present.
 
 ## Completed — 0.15.1 (PageSpeed image and consent performance)
 
