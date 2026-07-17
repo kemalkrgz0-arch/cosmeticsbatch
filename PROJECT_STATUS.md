@@ -273,7 +273,9 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   Mobile headline min-sizing/readability overlay was corrected after visual
   review. The build retains the pre-existing NFT tracing warning for private
   photo storage.
-- Deployment: requested; pending commit/push and GitHub Actions verification.
+- Deployment: commit `76112af`; GitHub Actions run `29572804477` completed
+  successfully in 6m04s. Production homepage, five brand routes and all five new
+  image assets returned HTTP 200 after restart.
 
 ## Completed — 0.14.0 (Estée Lauder, L'Oréal, Kérastase and Dior heroes)
 
@@ -293,7 +295,9 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   6/212 hero inventory, `git diff --check`, four desktop Chrome renders and the
   267-page production build passed. The build retains the pre-existing NFT
   tracing warning for private photo storage.
-- Deployment: requested; pending commit/push and GitHub Actions verification.
+- Deployment: commit `76112af`; GitHub Actions run `29572804477` completed
+  successfully in 6m04s. Production homepage, five brand routes and all five new
+  image assets returned HTTP 200 after restart.
 
 ## Completed — 0.13.1 (brand picker page-transition fix)
 
