@@ -1,5 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { LOCALE_CODES, DEFAULT_LOCALE } from "@/i18n/locales";
+import {
+  LOCALE_CODES,
+  DEFAULT_LOCALE,
+  RETIRED_LOCALE_CODES,
+} from "@/i18n/locales";
 
 /**
  * Locale routing (replaces next-intl's middleware, which self-redirect-loops on
@@ -17,6 +21,7 @@ import { LOCALE_CODES, DEFAULT_LOCALE } from "@/i18n/locales";
  * on the second pass to break that cycle.
  */
 const NON_DEFAULT = new Set(LOCALE_CODES.filter((c) => c !== DEFAULT_LOCALE));
+const RETIRED = new Set<string>(RETIRED_LOCALE_CODES);
 const REWRITE_MARK = "x-default-locale-rewrite";
 
 export default function proxy(request: NextRequest) {
@@ -40,6 +45,14 @@ export default function proxy(request: NextRequest) {
   if (seg === DEFAULT_LOCALE) {
     const url = request.nextUrl.clone();
     url.pathname = pathname.slice(DEFAULT_LOCALE.length + 1) || "/";
+    return NextResponse.redirect(url, 308);
+  }
+
+  // Retired locale prefix → preserve the page path and permanently consolidate
+  // it into English. request.nextUrl.clone() also preserves the query string.
+  if (RETIRED.has(seg)) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.slice(seg.length + 1) || "/";
     return NextResponse.redirect(url, 308);
   }
 

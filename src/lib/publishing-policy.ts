@@ -1,23 +1,16 @@
 import { BRAND_DETAILS } from "./brand-detail";
+import {
+  FULL_QUALITY_LOCALES,
+  INVESTMENT_PILOT_LOCALES,
+  ORGANIC_PRESERVATION_LOCALES,
+} from "../i18n/locales";
 
 /** Maximum locale set approved for public search exposure. Routes outside this
  * set remain usable, but are excluded from sitemap/hreflang and marked noindex. */
 export const INDEXABLE_LOCALES = [
-  "en",
-  "ru",
-  "es",
-  "it",
-  "ja",
-  "tr",
-  "vi",
-  "de",
-  "id",
-  "fr",
-  "nl",
-  "pl",
-  "pt",
-  "sv",
-  "zh",
+  ...FULL_QUALITY_LOCALES,
+  ...INVESTMENT_PILOT_LOCALES,
+  ...ORGANIC_PRESERVATION_LOCALES,
 ] as const;
 
 /** Demand-led brand program from the 2026-07-16 content audit. Inclusion here

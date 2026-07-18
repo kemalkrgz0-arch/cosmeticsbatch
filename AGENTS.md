@@ -36,6 +36,35 @@ Apply strict verification to every logical change group:
 P0 correctness, privacy, security, or data-loss findings stop lower-priority
 feature work until resolved or explicitly accepted by the owner and documented.
 
+## Concurrent work ownership
+
+Agents must not implement the same task or edit overlapping files concurrently.
+Before reading broadly or editing, claim the work in `PROJECT_STATUS.md` under
+`In progress` with:
+
+- a unique work item ID;
+- agent/owner name;
+- exact task and acceptance criteria;
+- intended file or directory scope;
+- starting commit SHA and claim timestamp.
+
+An agent must inspect existing claims first. If another active claim overlaps the
+task or file scope, stop and coordinate through the primary agent; do not create
+a second implementation. Parallel work is allowed only for disjoint scopes that
+the primary agent explicitly assigns. The primary agent is responsible for
+partitioning work and resolving overlaps.
+
+Before editing each claimed file, check `git status --short` and its current
+diff. Treat unexpected modifications as another contributor's work and do not
+overwrite them. Before commit, compare `HEAD` with the recorded starting SHA,
+re-read all touched diffs, and integrate upstream/shared changes deliberately.
+
+When finished or blocked, update the claim state and verification evidence in
+the same session. A claim with no update for 24 hours is `stale`, not free to
+overwrite: a new owner may take it only after recording the handoff in
+`PROJECT_STATUS.md` and checking the existing diff. Never delete another
+contributor's incomplete work to clear a claim.
+
 Use semantic versions (`MAJOR.MINOR.PATCH`). Bump:
 
 - `PATCH` for backward-compatible fixes;

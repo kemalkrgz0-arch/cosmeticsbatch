@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **0.18.2**
+Current version: **1.0.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -12,10 +12,10 @@ priorities live in `AUDIT.md`.
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
-- Current production baseline: commit `164ddbc`; GitHub Actions deploy run
-  `29662822927` completed successfully in 7m44s. Package/document version is
-  `0.18.1`; the local working version is `0.18.2` until this policy update is
-  committed.
+- Current production baseline: commit `bea3911`; GitHub Actions deploy run
+  `29663127446` completed successfully. Production package/document version is
+  `0.18.2`; the local working version is `1.0.0` until the language-policy
+  release is committed and deployed.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 44
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -53,33 +53,81 @@ priorities live in `AUDIT.md`.
 
 ## Active findings / next dependency-ordered work
 
-1. P0 truthfulness: replace the homepage `expiry date` / `help check
+1. P0 decoder-method disclosure (`Next`): server-rendered results publish the
+   decoder's internal method label and notes on English pages.
+   `src/components/result-card.tsx:301` renders `result.method` and `notes`
+   whenever `locale.startsWith("en")`. `/api/decode` deliberately strips both
+   (`src/app/api/decode/route.ts:175`), so only the server-rendered path leaks.
+   Confirmed live in production on 2026-07-19:
+   `GET https://cosmeticsbatch.com/check?brand=vichy&code=54X602` returns, in
+   the rendered DOM (scripts stripped),
+   `L'Oréal factory / year-letter / month` and `L'Oréal codes give month
+   precision; the day is estimated as mid-month.`; decoder notes additionally
+   contain `factory digits, then the year letter, then the month` and `The year
+   letter repeats every 25 years`. Scope: English locale only — the same URL
+   under `/ru` was checked and is clean. The page is `index, follow` and
+   `robots.txt` allows GPTBot/ClaudeBot/CCBot, so the format is also served to
+   AI crawlers. This contradicts the project rule that the cipher is the gold
+   source and must never be published. Remove the block or gate it behind an
+   authenticated reviewer session.
+2. P0 truthfulness: replace the homepage `expiry date` / `help check
    authenticity` meta promise with estimated manufacture-date, product-age,
    typical unopened shelf-life and PAO language.
-2. P0 privacy consistency: audit all 44 locale message files and remove stale
-   claims that decoding is browser-only or that codes are never sent/stored.
-   English/privacy pages already describe the current server dataset correctly.
-3. P1 structured data: align Organization/HowTo descriptions with the same
+3. P0 privacy consistency: audit the served locale message files and remove
+   stale claims that decoding is browser-only or that codes are never
+   sent/stored. English/privacy pages already describe the current server
+   dataset correctly.
+   Scope corrected 2026-07-19 (was “all 44 locale message files”): 44 files
+   still exist under `messages/`, but only the 19 codes in `LOCALE_CODES`
+   (`en, es, fr, de, pt, ru, ar, zh, ja, ko, tr, it, id, nl, pl, vi, sv, yue,
+   da`) are routed and indexable; the other 25 are in `RETIRED_LOCALE_CODES` and
+   cannot be reached by a user, so a stale claim in them is not user-facing.
+   `ALL_LOCALES` remains the 50-language planned registry and is not the audit
+   scope. Verified by reading the exported counts, not by inspection of the file
+   list alone. The retired files are still worth cleaning as technical debt, but
+   they do not carry P0 urgency — see finding 13.
+4. P1 structured data: align Organization/HowTo descriptions with the same
    cautious language; do not describe an estimated shelf-life date as a
    manufacturer expiry date.
-4. P1 locale directory: `/[locale]/brands` currently hard-codes English title,
+5. P1 locale directory: `/[locale]/brands` currently hard-codes English title,
    description, breadcrumb, H1 and ItemList labels. Its JSON-LD item URLs also
    point to prefix-free English brand URLs. Localize the visible/metadata copy
    and generate locale-aware structured-data URLs.
-5. P1 count accuracy: the directory currently says listed example brands “and
+6. P1 count accuracy: the directory currently says listed example brands “and
    {BRANDS.length}+ more”, which overstates the total. Use one central total and
    wording such as “Browse 212 supported brands, including …”.
-6. P1 content quality: Google still shows cached legacy `Expiry Date &
+7. P1 content quality: Google still shows cached legacy `Expiry Date &
    Authenticity` titles for several brand pages. Current English metadata is
    safer, but recrawl should be requested only after the remaining global claims
    are fixed. Do not mass-submit thousands of URLs.
-7. P1/P2 localization: live search evidence shows mixed-language and awkward
+8. P1/P2 localization: live search evidence shows mixed-language and awkward
    long-tail pages (for example Italian English fallback blocks and Korean
    guide fragments). Strengthen existing high-impression URLs before creating
    new programmatic pages.
-8. P2 brand uniqueness: prioritize verified examples, packaging location,
+9. P2 brand uniqueness: prioritize verified examples, packaging location,
    provenance and limitations for high-impression brands. Do not manufacture
    “unique” filler or repeat one template with only a brand-name substitution.
+10. P2 parameterized result indexability (`Next`): `/check?brand=&code=` renders
+    `index, follow`. The canonical correctly consolidates to `/check`, so
+    duplicate indexing risk is low, but crawlers still render the parameterized
+    variant — which is the surface that leaks finding 1. Consider `noindex` when
+    `brand`/`code` parameters are present.
+11. P2 rate-limit durability (`Next`): `src/lib/rate-limit.ts:8` keeps buckets in
+    a process-local `Map`. Limits reset on container restart and are not shared
+    between instances. Acceptable for the current single-container deployment;
+    revisit before horizontal scaling.
+12. P3 activity log pollution (`Next`): `/api/activity` accepts any caller-
+    supplied `path` that starts with `/`, omits `?`, is ≤180 characters and is
+    not under `review`. A same-origin caller can therefore write page paths that
+    do not exist into the analytics dataset. Bot-filtered and rate-limited, so
+    impact is limited to dashboard noise; validating against known routes would
+    close it.
+13. P3 retired locale message files (`Next`): `messages/` holds 44 catalogs while
+    only 19 locales are routed. The 25 retired files are unreachable, so their
+    contents cannot mislead a user, but they still ship in the repository, are
+    carried by translation-wide edits, and make locale counts quoted in this file
+    drift out of date. Decide explicitly whether to delete them or keep them as
+    an archive, and record which.
 
 ## Complete phase ledger and remaining roadmap
 
@@ -231,6 +279,53 @@ sequence used by this repository, not permission to skip unresolved audit areas.
 
 ## In progress / operational blockers
 
+- `Completed` — owner dashboard analytics and review-queue corrections, shipped
+  in commit `164ddbc` and deployed. Scope: `src/lib/review-metrics.ts` (new pure aggregation
+  layer), `src/app/[locale]/review/page.tsx` (four job-shaped tabs — Overview,
+  Traffic, Decoder health, Photo submissions — replacing one tab per log file),
+  `src/components/layout/site-chrome.tsx` (new; hides the public header/footer
+  in the private workspace), `src/lib/dataset.ts` (`readChecksSince` for exact
+  windowed reports plus `CheckLog.path`), `src/lib/decoder/decoders.ts`
+  (`canonicalCode` export), `src/app/[locale]/layout.tsx`,
+  `src/app/api/decode/route.ts`, `src/app/[locale]/check/page.tsx`,
+  `scripts/quality-regression.test.ts`.
+  Corrections included in this group, each with regression coverage where
+  testable: brand-page conversion now attributes a check to the page it was made
+  on rather than to its brand (previously produced conversion rates above 100%);
+  windowed check reads are no longer capped at 1000 rows, which would have
+  falsified 30-day totals within roughly eight days at current volume; the
+  locale split counts page views only, because a session's first page is logged
+  as both `visit` and `page_view`; daily buckets and printed timestamps now share
+  `Europe/Istanbul`; the failed-code queue groups by normalized code so one
+  user's spacing/case retries form one row while letter/digit differences stay
+  distinct; per-tab conditional loading; search shown only where it filters;
+  exports named for the dataset they download; the daily chart draws the third
+  series its caption claimed.
+  Verification actually run: TypeScript clean; ESLint clean; 48/48 regression
+  tests; `git diff --check` clean; `next build` exit 0 (retains the pre-existing
+  NFT tracing warning traced to `submission-store.ts`); the dashboard was
+  rendered locally against a purpose-built local JWKS server and a validly
+  signed Access token, exercising the real signature path without modifying
+  production code — all four tabs plus legacy `view=checks`/`view=failed` and an
+  invalid `view` returned 200, requests with no token and with a malformed token
+  were refused, and 13 public routes returned 200.
+  Live post-deploy smoke checks run against `https://cosmeticsbatch.com` on
+  2026-07-19: `/brands/dior` returns a 50-character title keeping the long form,
+  `/brands/giorgio-armani-beauty` returns the 40-character short form, and
+  `/de/brands/loreal-paris` returns 34 characters — the German title that
+  previously overflowed at 61. The dashboard tabs themselves were verified
+  locally only, because production requires a real Cloudflare Access session;
+  that remains `needs verification` in production.
+  Residual risk / `needs verification`:
+  `CheckLog.path` is derived from the `Referer` header, so checks from clients
+  that suppress it fall into the unattributed bucket (surfaced as a count, not
+  hidden); the public site chrome is still server-rendered into the RSC payload
+  for review routes and only discarded on the client, which a route group would
+  fix properly.
+- `Next` — a malformed Access token raises a raw `SyntaxError` from
+  `decodePart` (`src/lib/review-auth.ts:19`) instead of the intended
+  `Invalid Access token`. Access is still refused and Cloudflare Access sits in
+  front, so this is untidiness rather than a security gap.
 - Resend domain and production delivery are live-verified.
 - Production recipient: `contact@cosmeticsbatch.com`.
 - The active API key is supplied as an encrypted GitHub Actions secret and must
@@ -276,7 +371,61 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   inspected for scope, unrelated edits, secrets and private data. No runtime
   test or build was run because this group changes repository process text and
   package metadata only.
-- Deployment: documentation/process-only change; not yet committed or deployed.
+- Deployment: commit `bea3911`; GitHub Actions run `29663127446` completed
+  successfully on 2026-07-19.
+
+## Completed — 1.0.0 (value-led language policy)
+
+- Work item `LANG-001`; owner: primary Codex agent; claimed and completed
+  2026-07-19;
+  starting commit: `bea3911`; scope: `src/i18n/locales.ts`, `src/proxy.ts`,
+  `src/lib/publishing-policy.ts`, `scripts/quality-regression.test.ts`,
+  `package.json`, `PROJECT_STATUS.md`, and coordination rules in `AGENTS.md`.
+  Acceptance criteria are listed below. No parallel implementation is assigned.
+- P1 coordination finding — state: `Completed`. Evidence: repository rules
+  previously required status updates but did not require a unique owner, file
+  scope or starting SHA, so two agents could legitimately edit the same files.
+  The new claim protocol forbids overlapping implementations, requires primary
+  agent partitioning, pre-edit diff checks, explicit handoff and stale-claim
+  handling without deleting another contributor's work.
+- Strategy: retain 19 languages in three explicit tiers. Full-quality locales:
+  English, German, Spanish, Italian, Japanese and French. Investment pilots:
+  Dutch, Swedish, Danish, Korean, Arabic and Portuguese. Organic-preservation
+  locales: Turkish, Vietnamese, Indonesian, Polish, Russian, Mandarin Chinese
+  and Cantonese. The remaining 25 currently active locales will be retired.
+- P1 finding — state: `Completed`. Evidence: `src/proxy.ts` recognized only
+  active non-default locale prefixes; merely deleting a locale from `ACTIVE`
+  would make a legacy URL such as `/hi/brands/dior` enter the bare-path English
+  rewrite and likely resolve as a nonexistent `/en/hi/brands/dior` route.
+  Scope: retired locale URLs, crawl continuity and user navigation.
+- Fix: defined retained/retired locale policy in the locale registry, kept the
+  19-language route/switcher/indexing lists synchronized, and issued a
+  permanent redirect from retired locale paths to the equivalent prefix-free
+  English path while preserving query strings.
+- Acceptance criteria: exactly 19 live locale routes; policy tiers are disjoint
+  and exhaustive; sitemap/hreflang expose those same 19 locales; retired locale
+  prefixes redirect once to the equivalent English URL; unknown first segments
+  remain ordinary English paths; regression tests cover all invariants.
+- Files: `AGENTS.md`, `src/i18n/locales.ts`, `src/proxy.ts`,
+  `src/lib/publishing-policy.ts`, `scripts/quality-regression.test.ts`,
+  `package.json`, `PROJECT_STATUS.md`.
+- Verification: focused ESLint, repository ESLint, TypeScript and
+  `git diff --check` passed; 48/48 decoder/quality regressions passed; the
+  267-page production build passed with the pre-existing private-photo NFT
+  tracing warning. Local standalone smoke checks returned 308 from
+  `/hi/brands/dior` to `/brands/dior`, preserved `?brand=dior` while redirecting
+  `/uk/check`, returned 200 for retained `/ko/brands/dior`, and kept unknown
+  `/not-a-locale` at 404. Sitemap inspection showed only the 18 retained
+  non-English prefixes plus prefix-free English. The first quality run failed
+  because the standalone compiler cannot resolve the app `@/` alias; the import
+  was corrected. The second run exposed two obsolete assertions about ordering
+  and exact translation-file equality; both were corrected to test policy set
+  equality and active-locale copy coverage, after which the full suite passed.
+- Remaining risk: search engines may take time to consolidate retired URLs into
+  English; monitor crawl, 404 and index coverage after deployment. Retired
+  message files remain inactive, recoverable source material and are not routed
+  or shown in the language switcher.
+- Deployment: not yet committed or deployed.
 
 ## Completed — 0.18.1 (search snippets and failed-code grouping)
 

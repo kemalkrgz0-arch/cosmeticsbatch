@@ -11,7 +11,14 @@ import {
 } from "../src/lib/brands";
 import { DECODER_GUIDES } from "../src/lib/decoder-guides";
 import { DECODERS, canonicalCode } from "../src/lib/decoder";
-import { LOCALE_CODES } from "../src/i18n/locales";
+import {
+  ALL_LOCALES,
+  FULL_QUALITY_LOCALES,
+  INVESTMENT_PILOT_LOCALES,
+  LOCALE_CODES,
+  ORGANIC_PRESERVATION_LOCALES,
+  RETIRED_LOCALE_CODES,
+} from "../src/i18n/locales";
 import { LOREAL_PRIORITY_LOCALES } from "../src/lib/loreal";
 import {
   PHOTO_SUBMISSION_LOCALES,
@@ -83,9 +90,25 @@ test("failed-code intelligence stays privacy-minimal and reviewable", () => {
   assert.doesNotMatch(photoForm, /unresolved-code[\s\S]{0,500}scrollIntoView/);
 });
 
-test("publishing policy limits search exposure to 15 locales and 50 brands", () => {
-  assert.equal(INDEXABLE_LOCALES.length, 15);
-  assert.equal(new Set(INDEXABLE_LOCALES).size, 15);
+test("publishing policy exposes exactly the 19 retained locales and 50 brands", () => {
+  const tiers = [
+    ...FULL_QUALITY_LOCALES,
+    ...INVESTMENT_PILOT_LOCALES,
+    ...ORGANIC_PRESERVATION_LOCALES,
+  ];
+  assert.equal(FULL_QUALITY_LOCALES.length, 6);
+  assert.equal(INVESTMENT_PILOT_LOCALES.length, 6);
+  assert.equal(ORGANIC_PRESERVATION_LOCALES.length, 7);
+  assert.equal(tiers.length, 19);
+  assert.equal(new Set(tiers).size, 19);
+  assert.deepEqual([...LOCALE_CODES].sort(), [...tiers].sort());
+  assert.deepEqual([...INDEXABLE_LOCALES].sort(), [...tiers].sort());
+  assert.equal(RETIRED_LOCALE_CODES.length, 25);
+  assert.equal(new Set(RETIRED_LOCALE_CODES).size, 25);
+  assert.ok(RETIRED_LOCALE_CODES.every((locale) => !tiers.includes(locale as typeof tiers[number])));
+  assert.ok([...tiers, ...RETIRED_LOCALE_CODES].every((locale) =>
+    ALL_LOCALES.some((candidate) => candidate.code === locale),
+  ));
   assert.ok(INDEXABLE_LOCALES.includes("en"));
   assert.equal(PRIORITY_BRAND_SLUGS.length, 50);
   assert.equal(new Set(PRIORITY_BRAND_SLUGS).size, 50);
@@ -399,7 +422,7 @@ test("reviewed Russian brand-page copy has no known English fallback leak", () =
 });
 
 test("photo review flow has complete copy for every active locale", () => {
-  assert.deepEqual([...PHOTO_SUBMISSION_LOCALES].sort(), [...LOCALE_CODES].sort());
+  assert.ok(LOCALE_CODES.every((locale) => PHOTO_SUBMISSION_LOCALES.includes(locale)));
   for (const locale of LOCALE_CODES) {
     const copy = photoSubmissionCopy(locale);
     assert.equal(Object.keys(copy).length, 20, `${locale} has incomplete photo copy`);

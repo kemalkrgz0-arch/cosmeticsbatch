@@ -70,17 +70,31 @@ export const ALL_LOCALES: LocaleMeta[] = [
   { code: "sk", label: "Slovak", native: "Slovenčina" },
 ];
 
+/** Revenue/quality policy approved on 2026-07-19. Keep the tiers disjoint. */
+export const FULL_QUALITY_LOCALES = [
+  "en", "de", "es", "it", "ja", "fr",
+] as const;
+
+export const INVESTMENT_PILOT_LOCALES = [
+  "nl", "sv", "da", "ko", "ar", "pt",
+] as const;
+
+export const ORGANIC_PRESERVATION_LOCALES = [
+  "tr", "vi", "id", "pl", "ru", "zh", "yue",
+] as const;
+
+/** Previously live prefixes that permanently redirect to equivalent English paths. */
+export const RETIRED_LOCALE_CODES = [
+  "uk", "el", "cs", "nb", "fi", "ro", "hu", "ca", "sr", "bg", "sk",
+  "hi", "th", "ms", "tl", "bn", "ur", "ta", "te", "mr", "pa", "gu",
+  "uz", "az", "kk",
+] as const;
+
 /** Codes that currently have a translated message file and live routes. */
 const ACTIVE = [
-  "en", "es", "fr", "de", "pt", "ru", "ar", "zh",
-  // European languages
-  "tr", "it", "nl", "pl", "sv", "uk", "el", "cs", "nb", "da", "fi", "ro",
-  "hu", "ca", "sr", "bg", "sk",
-  // Asian + Indic + SE-Asian languages
-  "ja", "ko", "hi", "id", "vi", "th", "ms", "tl", "bn", "ur",
-  "ta", "te", "mr", "pa", "gu",
-  // Turkic + Cantonese
-  "yue", "uz", "az", "kk",
+  ...FULL_QUALITY_LOCALES,
+  ...INVESTMENT_PILOT_LOCALES,
+  ...ORGANIC_PRESERVATION_LOCALES,
 ] as const;
 
 export const LOCALES: LocaleMeta[] = ALL_LOCALES.filter((l) =>
