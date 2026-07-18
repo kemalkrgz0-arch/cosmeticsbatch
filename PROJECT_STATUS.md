@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **0.18.1**
+Current version: **0.18.2**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -14,7 +14,8 @@ priorities live in `AUDIT.md`.
   rebuilds/restarts the VPS container over SSH.
 - Current production baseline: commit `164ddbc`; GitHub Actions deploy run
   `29662822927` completed successfully in 7m44s. Package/document version is
-  `0.18.1`.
+  `0.18.1`; the local working version is `0.18.2` until this policy update is
+  committed.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 44
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -251,6 +252,31 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.18.2 (strict finding and verification discipline)
+
+- Repository rules now require every discovered bug, regression, privacy or
+  security risk, technical-debt item and proposed improvement to be recorded in
+  this shared file with `P0`–`P3` severity, evidence, scope and workflow state.
+  Actionable findings may no longer remain only in chat or private notes.
+- Each logical change group must define acceptance criteria, add regression
+  coverage where testable, run focused and repository-wide checks, inspect the
+  final diff for unrelated/private material, and record exact results, skipped
+  checks, environmental limits and residual risk. Deployment success must be
+  followed by proportionate live smoke checks.
+- P0 correctness, privacy, security and data-loss findings now block
+  lower-priority feature work unless the owner explicitly accepts and records
+  the risk. Unverified work cannot be marked complete.
+- Files: `AGENTS.md`, `package.json`, `PROJECT_STATUS.md`.
+- Acceptance criteria: rules are visible to every repository contributor;
+  package/status versions match; the status-entry requirements distinguish
+  evidence, priority, state and verification truthfully.
+- Verification: the package/status version synchronization assertion passed at
+  `0.18.2`; `git diff --check` passed; the three-file final diff was manually
+  inspected for scope, unrelated edits, secrets and private data. No runtime
+  test or build was run because this group changes repository process text and
+  package metadata only.
+- Deployment: documentation/process-only change; not yet committed or deployed.
 
 ## Completed — 0.18.1 (search snippets and failed-code grouping)
 
