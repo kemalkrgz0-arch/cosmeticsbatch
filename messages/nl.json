@@ -125,7 +125,7 @@
     "decoderAuto": "automatische datumdetectie",
     "q_accuracy": "Hoe nauwkeurig is deze {name} batchcodedecoder?",
     "q_free": "Is de {name} batchcodecontrole gratis?",
-    "a_free": "Ja – het decoderen van {name} -batchcodes op Cosmetics Batch is volledig gratis, werkt direct in uw browser zonder aanmelding en uw codes worden nooit opgeslagen of naar een server verzonden.",
+    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
     "a_afterExpiry": "Het gebruik van {name} {noun} kort na de geschatte datum is meestal een kwestie van cosmetische kwaliteit en niet van veiligheidsredenen: actieve stoffen verliezen hun kracht, texturen scheiden zich af en geuren vervagen. Stop met het gebruik ervan als u een verandering in geur, kleur of consistentie opmerkt, en gebruik nooit oog- of lipproducten die oud zijn, omdat het risico op bacteriën groter is.",
     "a_accuracy": "We lezen de fabricagedatum met behulp van {decoder}. Wanneer {group} een bekend codeschema publiceert, is het resultaat nauwkeurig tot op de maand of dag; waar het merk een openbaar plan niet bevestigt, is het een best mogelijke schatting. De datum is de productiedatum en geen gegarandeerde vervaldatum; houdbaarheidscijfers zijn typische sectorgemiddelden."
   },
@@ -134,7 +134,7 @@
     "a1": "Een batchcode is een korte code die op cosmetica- en parfumverpakkingen wordt afgedrukt en die de productierun identificeert. Door het te decoderen wordt duidelijk wanneer het product is vervaardigd.",
     "q2": "Is deze batchcodecontrole gratis?",
     "a3": "We gebruiken fabrikantspecifieke algoritmen waar beschikbaar en eerlijke vertrouwensniveaus elders. Schattingen van de houdbaarheid zijn typische waarden en geen garanties voor de veiligheid.",
-    "a2": "Ja. Cosmetics Batch is volledig gratis, vereist geen account en decodeert codes rechtstreeks in uw browser.",
+    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
     "q3": "Hoe nauwkeurig zijn de resultaten?",
     "q4": "Waar vind ik mijn batchcode?",
     "a4": "Het is meestal een korte, gestempelde of reliëfcode op de bodem van een fles, de krimp van een buis of de onderkant van de doos – los van de streepjescode.",
@@ -148,7 +148,7 @@
     "q9": "Waarom kan mijn batchcode niet worden gedecodeerd?",
     "a8": "De meeste geuren gaan 3 tot 5 jaar mee vanaf de productiedatum, en vaak langer als ze koel en uit het licht worden bewaard. Parfum wordt zelden onveilig, maar oxidatie verandert langzaam de geur – de topnoten vervagen eerst.",
     "a9": "Sommige merken veranderen hun codering in de loop van de tijd, gebruiken regiospecifieke formaten of coderen de datum niet openbaar. Controleer nogmaals of u de gestempelde batchcode (niet de streepjescode) heeft ingevoerd, of probeer het moederbedrijf te selecteren in plaats van het submerk.",
-    "a10": "Nee. Codes worden gedecodeerd in uw browser en we hebben geen account nodig. Niets dat u typt, wordt op een server opgeslagen, dus het controleren van een code is volledig privé.",
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy.",
     "q10": "Bewaart u mijn batchcodes of persoonlijke gegevens?"
   },
   "result": {
@@ -210,7 +210,7 @@
     "fastTitle": "Snel en gemakkelijk",
     "freeTitle": "Altijd gratis",
     "accurateTitle": "Nauwkeurig en betrouwbaar",
-    "privateBody": "Codes worden privé gedecodeerd. Uw privacy staat voorop.",
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
     "freeBody": "Elke functie is voor altijd 100% gratis."
   },
   "whereCode": {

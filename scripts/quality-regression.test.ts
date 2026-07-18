@@ -72,6 +72,25 @@ test("public decode paths never render decoder implementation details", () => {
   assert.doesNotMatch(resultCard, /result\.(method|notes)/);
 });
 
+test("active locale privacy copy matches server-side processing", () => {
+  const forbidden = /direct(?:ly)? in (?:your|the) browser|browser[^.]{0,80}(?:never|not)[^.]{0,30}(?:stored|sent)|never (?:stored|sent)|nothing[^.]{0,80}(?:server|saved)|completely private/i;
+  for (const locale of LOCALE_CODES) {
+    const messages = JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as {
+      brandFaq: { a_free: string };
+      homeFaq: { a2: string; a10: string };
+      features: { privateBody: string };
+    };
+    const privacyCopy = [
+      messages.brandFaq.a_free,
+      messages.homeFaq.a2,
+      messages.homeFaq.a10,
+      messages.features.privateBody,
+    ];
+    assert.doesNotMatch(privacyCopy.join(" "), forbidden, locale);
+    assert.match(privacyCopy.join(" "), /server/i, `${locale} omits server processing`);
+  }
+});
+
 test("failed-code intelligence stays privacy-minimal and reviewable", () => {
   const dataset = readFileSync("src/lib/dataset.ts", "utf8");
   const activity = readFileSync("src/app/api/activity/route.ts", "utf8");

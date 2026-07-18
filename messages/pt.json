@@ -125,7 +125,7 @@
     "q_accuracy": "Quão preciso é este decodificador de código de lote {name} ?",
     "a_accuracy": "Lemos a data de fabricação usando {decoder}. Onde {group} publica um esquema de código conhecido, o resultado é preciso para o mês ou dia; onde a marca não confirma um esquema público, é uma leitura de melhor estimativa. A data é a data de fabricação, não um prazo de validade garantido – os valores de prazo de validade são médias típicas da indústria.",
     "q_free": "O verificador de código de lote {name} é gratuito?",
-    "a_free": "Sim – a decodificação de códigos de lote {name} no Cosmetics Batch é totalmente gratuita, funciona instantaneamente em seu navegador sem inscrição e seus códigos nunca são armazenados ou enviados para um servidor.",
+    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
     "decoderKnown": "um esquema de código específico do fabricante",
     "decoderAuto": "detecção automática de data"
   },
@@ -133,7 +133,7 @@
     "q1": "O que é um código de lote?",
     "a1": "Um código de lote é um código curto impresso em embalagens de cosméticos e perfumes que identifica a produção. A decodificação revela quando o produto foi fabricado.",
     "q2": "Este verificador de código de lote é gratuito?",
-    "a2": "Sim. Cosmetics Batch é totalmente gratuito, não requer conta e decodifica códigos diretamente no seu navegador.",
+    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
     "q3": "Quão precisos são os resultados?",
     "a3": "Usamos algoritmos específicos do fabricante quando disponíveis e níveis de confiança honestos em outros lugares. As estimativas de prazo de validade são valores típicos, não garantias de segurança.",
     "q4": "Onde encontro meu código de lote?",
@@ -149,7 +149,7 @@
     "q9": "Por que meu código de lote não pode ser decodificado?",
     "a9": "Algumas marcas mudam sua codificação ao longo do tempo, usam formatos específicos de região ou não codificam a data publicamente. Verifique novamente se você inseriu o código do lote carimbado (não o código de barras) ou tente selecionar a empresa controladora em vez da submarca.",
     "q10": "Vocês armazenam meus códigos de lote ou dados pessoais?",
-    "a10": "Não. Os códigos são decodificados no seu navegador e não exigimos uma conta. Nada que você digita é salvo em um servidor, portanto, a verificação de um código é totalmente privada."
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -209,7 +209,7 @@
     "privateTitle": "Privado e seguro",
     "accurateBody": "Algoritmos específicos do fabricante para resultados precisos.",
     "fastBody": "Obtenha resultados em apenas alguns segundos – sem inscrição.",
-    "privateBody": "Os códigos são decodificados de forma privada. Sua privacidade está em primeiro lugar.",
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
     "freeBody": "Cada recurso é 100% gratuito, para sempre.",
     "freeTitle": "Sempre grátis"
   },

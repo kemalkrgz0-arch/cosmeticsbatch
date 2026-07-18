@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **1.0.1**
+Current version: **1.1.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -12,11 +12,11 @@ priorities live in `AUDIT.md`.
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
-- Current production baseline: commit `bea3911`; GitHub Actions deploy run
-  `29663127446` completed successfully. Production package/document version is
-  `0.18.2`; the local working version is `1.0.0` until the language-policy
-  release is committed and deployed.
-- Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 44
+- Current production baseline: commit `a64f2b9`; GitHub Actions deploy run
+  `29663601031` completed successfully. Production package/document version is
+  `1.0.1`; the local working version is `1.0.2` until the privacy-copy patch is
+  committed and deployed.
+- Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 19
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
   locale pages while AdSense reapplication is paused. Do not silently restore a
@@ -71,12 +71,25 @@ priorities live in `AUDIT.md`.
    under `/ru` was checked and is clean. The page is `index, follow` and
    `robots.txt` allows GPTBot/ClaudeBot/CCBot, so the format is also served to
    AI crawlers. This contradicts the project rule that the cipher is the gold
-   source and must never be published. The public rendering block was removed
-   and regression/runtime checks confirm those fields no longer appear.
+   source and must never be published. The public rendering block was removed.
+   Residual, `needs verification` — measured on the running app at 1.0.1 for
+   both a canonical code (`vichy` / `54X602`) and a non-canonical one
+   (`it-cosmetics` / `MNX30W`): the visible DOM is clean and the structural
+   label `L'Oréal factory / year-letter / month` is gone everywhere, which was
+   the serious part. But `src/app/[locale]/check/page.tsx:101` still passes the
+   unredacted `result` object to `ResultCard`, a client component, so `notes` is
+   serialized into the RSC payload and `month precision` remains readable in
+   page source. The fix commit did not touch that file. Severity is much reduced
+   but the finding is not fully closed; redacting `method`/`notes` before the
+   prop crosses into the client — the same thing `/api/decode` already does —
+   would close it. Owner asked to defer this remainder.
 2. P0 truthfulness: replace the homepage `expiry date` / `help check
    authenticity` meta promise with estimated manufacture-date, product-age,
    typical unopened shelf-life and PAO language.
-3. P0 privacy consistency: audit the served locale message files and remove
+3. P0 privacy consistency (`Completed` in 1.0.2, work item `PRIV-001`; owner: primary
+   Codex agent; claimed 2026-07-19; starting commit `a64f2b9`; scope: the 19
+   active `messages/*.json` catalogs, `scripts/quality-regression.test.ts`,
+   `package.json`, `PROJECT_STATUS.md`): audit the served locale message files and remove
    stale claims that decoding is browser-only or that codes are never
    sent/stored. English/privacy pages already describe the current server
    dataset correctly.
@@ -89,6 +102,15 @@ priorities live in `AUDIT.md`.
    scope. Verified by reading the exported counts, not by inspection of the file
    list alone. The retired files are still worth cleaning as technical debt, but
    they do not carry P0 urgency — see finding 13.
+   Audit evidence: English is accurate, but every other one of the 19 active
+   locales has stale claims in `brandFaq.a_free`, `homeFaq.a2`, `homeFaq.a10`
+   and/or `features.privateBody` saying checks happen only in the browser, are
+   never sent/stored, or are completely private. All 18 served non-English
+   catalogs require one atomic correction plus regression coverage.
+   The false claims were replaced atomically with accurate server-processing,
+   no-account, IP-exclusion and limited-retention wording. To remove the P0
+   immediately, the 18 non-English catalogs temporarily use reviewed English
+   copy for these four fields; native-language editorial replacement remains P1.
 4. P1 structured data: align Organization/HowTo descriptions with the same
    cautious language; do not describe an estimated shelf-life date as a
    manufacturer expiry date.
@@ -376,6 +398,67 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   package metadata only.
 - Deployment: commit `bea3911`; GitHub Actions run `29663127446` completed
   successfully on 2026-07-19.
+
+## Completed — 1.1.0 (owner dashboard: code-check log and bulk export)
+
+- The raw log of what users typed had been folded into the `Decoder health` tab
+  as its third panel during the 1.0.x dashboard restructure, below the decoder
+  table and the year histogram. The owner went looking for user queries and
+  could not find them. It is now its own `Code checks` tab, placed second in the
+  navigation directly after `Overview`, as the only panel on that view, titled
+  for what it holds: "Every code users typed, newest first."
+- Search and export now apply to that tab: `?view=checks&q=…` filters the table,
+  and the export control is labelled `Checks` rather than a bare `CSV`. Existing
+  `?view=checks` links resolve to the real tab instead of redirecting.
+- New bulk export: `GET /review/api/export?kind=all` returns one JSON bundle of
+  code checks, failed codes and activity events, surfaced as a
+  `Download all data (JSON)` control at the top of `Overview`, for handing the
+  full picture over in a single attachment.
+- Photo submissions are deliberately excluded from that bundle. They carry the
+  submitter's email address and free-text note, and `AGENTS.md` forbids moving
+  that data around; including them would place user emails into any chat or
+  ticket the file is shared through. The bundle states what it contains and what
+  it omits in its own `excludes` field.
+- Files: `src/app/[locale]/review/page.tsx`,
+  `src/app/[locale]/review/api/export/route.ts`, `package.json`,
+  `PROJECT_STATUS.md`.
+- Acceptance criteria: the code-check log is reachable without scrolling past
+  aggregate reports; the tab name states what it contains; one control exports
+  every analytics dataset in a single file; that file contains no personal data;
+  the export stays behind reviewer authentication.
+- Verification actually run: TypeScript clean; ESLint clean (an interim
+  `no-html-link-for-pages` error was resolved by marking the export anchor as a
+  `download`, and the then-redundant disable directive was removed); 48/48
+  regression tests. Rendered locally against a purpose-built local JWKS server
+  and a validly signed Access token: navigation order is
+  `Overview | Code checks | Traffic | Decoder health | Photo submissions`; the
+  `Code checks` tab returned 200 and rendered all 10 local rows; the bundle
+  returned `attachment; filename="cosmeticsbatch-all-…json"` with counts
+  `{checks: 10, failedCodes: 4, activity: 9}`; a regex scan of the whole bundle
+  for email addresses found none and no `submissions` key is present; the same
+  URL without a token returned 403.
+- `needs verification`: no production check — the dashboard requires a real
+  Cloudflare Access session. Not committed and not deployed at time of writing.
+
+## Completed — 1.0.2 (active-locale privacy truthfulness)
+
+- Work item `PRIV-001` audited the four privacy-sensitive UI fields across all
+  19 routed locales. Every served non-English catalog falsely claimed that
+  codes stayed in the browser, were never sent/stored, or were completely
+  private; English already described the actual server dataset correctly.
+- All 72 false strings were replaced atomically with the reviewed, accurate
+  server-processing and limited-retention wording. A regression now reads every
+  active catalog, rejects known browser-only/no-storage claims, and requires a
+  server-processing disclosure.
+- Files: 18 active non-English `messages/*.json` catalogs,
+  `scripts/quality-regression.test.ts`, `package.json`, `PROJECT_STATUS.md`.
+- Verification: focused ESLint, TypeScript, `git diff --check`, JSON parsing,
+  49/49 decoder/quality tests and the 267-page production build passed. The
+  pre-existing private-photo NFT tracing warning remains.
+- P1 editorial debt: the four corrected fields currently use reviewed English
+  text in the 18 non-English catalogs. Replace them with native-reviewed text
+  without weakening any server-processing or retention disclosure.
+- Deployment: not yet committed or deployed.
 
 ## Completed — 1.0.1 (decoder-detail disclosure)
 

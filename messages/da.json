@@ -127,7 +127,7 @@
     "decoderKnown": "en producentspecifik kodeordning",
     "decoderAuto": "automatisk datoregistrering",
     "a_accuracy": "Vi læser fremstillingsdatoen ved hjælp af {decoder}. Hvor {group} udgiver et kendt kodeskema, er resultatet præcist til måneden eller dagen; hvor mærket ikke bekræfter en offentlig ordning, er det den bedste vurdering. Datoen er fremstillingsdatoen, ikke en garanteret udløbsdato - tal for holdbarhed er typiske branchegennemsnit.",
-    "a_free": "Ja — afkodning af {name} -batchkoder på Cosmetics Batch er helt gratis, virker øjeblikkeligt i din browser uden tilmelding, og dine koder bliver aldrig gemt eller sendt til en server."
+    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset."
   },
   "homeFaq": {
     "q1": "Hvad er en batchkode?",
@@ -136,7 +136,7 @@
     "q3": "Hvor nøjagtige er resultaterne?",
     "a3": "Vi bruger producentspecifikke algoritmer, hvor de er tilgængelige, og ærlige konfidensniveauer andre steder. Holdbarhedsvurderinger er typiske værdier, ikke garantier for sikkerhed.",
     "q4": "Hvor finder jeg min batchkode?",
-    "a2": "Ja. Cosmetics Batch er helt gratis, kræver ingen konto og afkoder koder direkte i din browser.",
+    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
     "q5": "Betyder et udløbet produkt, at det er usikkert?",
     "a5": "Ikke nødvendigvis. Det betyder, at produktet er forbi sin typiske holdbarhed og kan have nedsat ydeevne. Øjenprodukter og alt, der lugter eller ser ud, skal kasseres.",
     "q6": "Hvad betyder det åbne krukke (PAO) symbol?",
@@ -148,7 +148,7 @@
     "q9": "Hvorfor kan min batchkode ikke afkodes?",
     "a8": "De fleste dufte holder 3 til 5 år fra fremstillingsdatoen, og ofte længere, hvis de opbevares køligt og væk fra lys. Parfume bliver sjældent usikker, men oxidation ændrer langsomt duften - topnoterne falmer først.",
     "a9": "Nogle mærker ændrer deres kodning over tid, bruger regionsspecifikke formater eller koder ikke datoen offentligt. Dobbelttjek, at du har indtastet den stemplede batchkode (ikke stregkoden), eller prøv at vælge moderselskabet i stedet for undermærket.",
-    "a10": "Nej. Koderne afkodes i din browser, og vi kræver ikke en konto. Intet du skriver gemmes på en server, så det er helt privat at tjekke en kode.",
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy.",
     "q10": "Gemmer du mine batchkoder eller personlige data?"
   },
   "result": {
@@ -206,7 +206,7 @@
   "features": {
     "fastTitle": "Hurtigt og nemt",
     "privateTitle": "Privat & Sikkert",
-    "privateBody": "Koder afkodes privat. Dit privatliv kommer først.",
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
     "fastBody": "Få resultater på få sekunder – ingen tilmelding.",
     "accurateBody": "Producentspecifikke algoritmer til præcise resultater.",
     "freeTitle": "Altid gratis",

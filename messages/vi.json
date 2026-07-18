@@ -134,7 +134,7 @@
     "q_accuracy": "Trình giải mã mã lô {name} này chính xác đến mức nào?",
     "a_accuracy": "Chúng tôi đọc ngày sản xuất bằng {decoder}. Khi {group} công bố một sơ đồ mã đã biết, kết quả chính xác đến tháng hoặc ngày; khi thương hiệu không xác nhận sơ đồ công khai, đó là ước tính tốt nhất. Ngày đó là ngày sản xuất, không phải ngày hết hạn được đảm bảo — các con số hạn sử dụng là mức trung bình thông thường của ngành.",
     "q_free": "Trình kiểm tra mã lô {name} có miễn phí không?",
-    "a_free": "Có — giải mã mã lô {name} trên Cosmetics Batch hoàn toàn miễn phí, hoạt động tức thì ngay trong trình duyệt của bạn mà không cần đăng ký, và mã của bạn không bao giờ được lưu hay gửi đến máy chủ.",
+    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
     "decoderKnown": "một sơ đồ mã riêng của nhà sản xuất",
     "decoderAuto": "tự động phát hiện ngày"
   },
@@ -142,7 +142,7 @@
     "q1": "Mã lô là gì?",
     "a1": "Mã lô là một mã ngắn được in trên bao bì mỹ phẩm và nước hoa để xác định đợt sản xuất. Giải mã nó cho biết sản phẩm được sản xuất khi nào.",
     "q2": "Trình kiểm tra mã lô này có miễn phí không?",
-    "a2": "Có. Cosmetics Batch hoàn toàn miễn phí, không cần tài khoản, và giải mã các mã ngay trong trình duyệt của bạn.",
+    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
     "q3": "Kết quả chính xác đến mức nào?",
     "a3": "Chúng tôi dùng thuật toán riêng của nhà sản xuất khi có sẵn và mức độ tin cậy trung thực ở những trường hợp khác. Ước tính hạn sử dụng là giá trị thông thường, không phải là đảm bảo an toàn.",
     "q4": "Tôi tìm mã lô của mình ở đâu?",
@@ -158,7 +158,7 @@
     "q9": "Tại sao mã lô của tôi không giải mã được?",
     "a9": "Một số thương hiệu thay đổi cách mã hóa theo thời gian, dùng định dạng riêng theo khu vực, hoặc không mã hóa ngày công khai. Hãy kiểm tra lại xem bạn đã nhập mã lô được dập (không phải mã vạch) chưa, hoặc thử chọn công ty mẹ thay vì thương hiệu con.",
     "q10": "Bạn có lưu mã lô hay dữ liệu cá nhân của tôi không?",
-    "a10": "Không. Mã được giải mã trong trình duyệt của bạn và chúng tôi không yêu cầu tài khoản. Không có gì bạn nhập được lưu vào máy chủ, nên việc kiểm tra một mã hoàn toàn riêng tư."
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -218,7 +218,7 @@
     "fastTitle": "Nhanh & dễ dàng",
     "fastBody": "Nhận kết quả chỉ trong vài giây — không cần đăng ký.",
     "privateTitle": "Riêng tư & an toàn",
-    "privateBody": "Mã được giải mã riêng tư. Quyền riêng tư của bạn là trên hết.",
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
     "freeTitle": "Luôn miễn phí",
     "freeBody": "Mọi tính năng đều 100% miễn phí, mãi mãi."
   },

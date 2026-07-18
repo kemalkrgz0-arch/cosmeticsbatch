@@ -125,7 +125,7 @@
     "q_accuracy": "这个 {name} 批号解码器的准确度如何？",
     "a_accuracy": "我们使用 {decoder}读取制造日期。如果 {group} 发布已知的代码方案，则结果精确到月份或日期；如果该品牌未确认公开方案，则这是最佳估计读数。该日期是生产日期，而不是保证的有效期——保质期数字是典型的行业平均值。",
     "q_free": "{name} 批量代码检查器是免费的吗？",
-    "a_free": "是的 - 在 Cosmetics Batch 上解码 {name} 批号是完全免费的，无需注册即可在浏览器中立即运行，并且您的代码永远不会存储或发送到服务器。",
+    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
     "decoderAuto": "自动日期检测",
     "decoderKnown": "制造商特定的代码方案"
   },
@@ -133,7 +133,7 @@
     "q1": "什么是批号？",
     "a1": "批号是印在化妆品和香水包装上的短代码，用于标识生产运行。对其进行解码可以揭示产品的制造时间。",
     "q2": "这个批量代码检查器是免费的吗？",
-    "a2": "是的。 Cosmetics Batch 完全免费，无需帐户，可直接在浏览器中解码代码。",
+    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
     "q3": "结果有多准确？",
     "a3": "我们在其他地方可用的情况下使用制造商特定的算法和诚实的置信度。保质期估计值是典型值，并非安全保证。",
     "q4": "在哪里可以找到我的批号？",
@@ -149,7 +149,7 @@
     "q9": "为什么我的批号无法解码？",
     "a9": "一些品牌会随着时间的推移改变其编码，使用特定于区域的格式，或者不公开编码日期。请仔细检查您输入的盖章批号（不是条形码），或尝试选择母公司而不是子品牌。",
     "q10": "你们会存储我的批号或个人数据吗？",
-    "a10": "不需要。代码在您的浏览器中解码，我们不需要帐户。您输入的任何内容都不会保存到服务器上，因此检查代码是完全私密的。"
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -211,7 +211,7 @@
     "accurateBody": "制造商特定的算法可提供精确的结果。",
     "freeTitle": "永远免费",
     "freeBody": "每个功能都是 100% 永久免费。",
-    "privateBody": "代码是私下解码的。您的隐私是第一位的。"
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected."
   },
   "whereCode": {
     "label": {

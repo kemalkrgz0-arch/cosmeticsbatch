@@ -134,7 +134,7 @@
     "q_accuracy": "Wie genau ist dieser {name} -Batchcode-Decoder?",
     "a_accuracy": "Das Herstellungsdatum lesen wir mit {decoder}aus. Wenn {group} ein bekanntes Codeschema veröffentlicht, ist das Ergebnis auf den Monat oder Tag genau; Wenn die Marke kein öffentliches Vorhaben bestätigt, handelt es sich um eine bestmögliche Schätzung. Bei dem Datum handelt es sich um das Herstellungsdatum, nicht um ein garantiertes Verfallsdatum – die Angaben zur Haltbarkeit sind typische Branchendurchschnitte.",
     "q_free": "Ist der {name} -Batchcode-Checker kostenlos?",
-    "a_free": "Ja – das Dekodieren von {name} -Batch-Codes auf Cosmetics Batch ist völlig kostenlos, funktioniert sofort in Ihrem Browser, ohne dass eine Anmeldung erforderlich ist, und Ihre Codes werden niemals gespeichert oder an einen Server gesendet.",
+    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
     "decoderAuto": "automatische Datumserkennung",
     "decoderKnown": "ein herstellerspezifisches Codeschema"
   },
@@ -142,7 +142,7 @@
     "q1": "Was ist ein Chargencode?",
     "a1": "Ein Chargencode ist ein kurzer Code, der auf Kosmetik- und Parfümverpackungen aufgedruckt ist und den Produktionslauf identifiziert. Die Entschlüsselung gibt Aufschluss darüber, wann das Produkt hergestellt wurde.",
     "q2": "Ist dieser Batch-Code-Checker kostenlos?",
-    "a2": "Ja. Cosmetics Batch ist völlig kostenlos, erfordert kein Konto und dekodiert Codes direkt in Ihrem Browser.",
+    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
     "q3": "Wie genau sind die Ergebnisse?",
     "a3": "Wir verwenden herstellerspezifische Algorithmen, sofern verfügbar, und ehrliche Vertrauensniveaus an anderer Stelle. Bei den geschätzten Haltbarkeitsdauern handelt es sich um typische Werte und nicht um Sicherheitsgarantien.",
     "q4": "Wo finde ich meinen Chargencode?",
@@ -158,7 +158,7 @@
     "q9": "Warum kann mein Chargencode nicht entschlüsselt werden?",
     "a9": "Einige Marken ändern ihre Kodierung im Laufe der Zeit, verwenden regionalspezifische Formate oder kodieren das Datum nicht öffentlich. Überprüfen Sie noch einmal, ob Sie den gestempelten Chargencode (nicht den Barcode) eingegeben haben, oder versuchen Sie, die Muttergesellschaft anstelle der Untermarke auszuwählen.",
     "q10": "Speichern Sie meine Chargencodes oder persönlichen Daten?",
-    "a10": "Nein. Codes werden in Ihrem Browser entschlüsselt und wir benötigen kein Konto. Nichts, was Sie eingeben, wird auf einem Server gespeichert, sodass die Überprüfung eines Codes völlig vertraulich ist."
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -217,7 +217,7 @@
     "accurateBody": "Herstellerspezifische Algorithmen für präzise Ergebnisse.",
     "freeTitle": "Immer kostenlos",
     "fastBody": "Erhalten Sie Ergebnisse in nur wenigen Sekunden – keine Anmeldung erforderlich.",
-    "privateBody": "Codes werden privat entschlüsselt. Ihre Privatsphäre steht an erster Stelle.",
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
     "freeBody": "Jede Funktion ist für immer 100 % kostenlos.",
     "fastTitle": "Schnell und einfach",
     "privateTitle": "Privat und sicher"

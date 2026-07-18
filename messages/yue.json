@@ -125,7 +125,7 @@
     "q_accuracy": "呢個 {name} 批次代碼解碼器有幾準確？",
     "a_accuracy": "我哋用 {decoder} 嚟讀取生產日期。喺 {group} 有公開已知代碼制式嘅情況下，結果可以準確到月甚至日；喺品牌冇確認公開制式嘅情況下，就係一個最佳估算嘅解讀。呢個日期係生產日期，並唔係保證嘅到期日——保質期數字只係業界一般平均值。",
     "q_free": "{name} 批次代碼查詢器係咪免費？",
-    "a_free": "係——喺 Cosmetics Batch 解讀 {name} 批次代碼完全免費，喺你嘅瀏覽器即刻運作，毋須註冊，而你嘅代碼永遠唔會被儲存或者傳送去伺服器。",
+    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
     "decoderKnown": "製造商專屬嘅代碼制式",
     "decoderAuto": "自動偵測日期"
   },
@@ -133,7 +133,7 @@
     "q1": "咩係批次代碼？",
     "a1": "批次代碼係印喺化妝品同香水包裝上嘅一個短代碼，用嚟識別生產批次。解讀佢就可以知道產品幾時製造。",
     "q2": "呢個批次代碼查詢器係咪免費？",
-    "a2": "係。Cosmetics Batch 完全免費，毋須開戶口，直接喺你嘅瀏覽器解讀代碼。",
+    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
     "q3": "結果有幾準確？",
     "a3": "喺有製造商專屬演算法嘅情況下我哋會用佢，其他情況就用誠實嘅信心程度。保質期估算係一般數值，並唔保證安全。",
     "q4": "喺邊度搵到我嘅批次代碼？",
@@ -149,7 +149,7 @@
     "q9": "點解我嘅批次代碼解讀唔到？",
     "a9": "有啲品牌會隨時間更改編碼、用地區性格式，又或者唔會公開編碼日期。請再檢查你係咪輸入咗打印嘅批次代碼（而唔係條碼），或者試吓改為揀母公司而唔係子品牌。",
     "q10": "你哋會唔會儲存我嘅批次代碼或者個人資料？",
-    "a10": "唔會。代碼喺你嘅瀏覽器解讀，我哋亦毋須開戶口。你輸入嘅任何嘢都唔會儲存去伺服器，所以查詢代碼完全私密。"
+    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -209,7 +209,7 @@
     "fastTitle": "快捷又簡單",
     "fastBody": "幾秒鐘就有結果——毋須註冊。",
     "privateTitle": "私密又安全",
-    "privateBody": "代碼私密解讀。你嘅私隱行先。",
+    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
     "freeTitle": "永遠免費",
     "freeBody": "每項功能都100%免費，永遠免費。"
   },
