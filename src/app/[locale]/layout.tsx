@@ -12,6 +12,7 @@ import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { BottomNav } from "@/components/layout/bottom-nav";
+import { SiteChrome } from "@/components/layout/site-chrome";
 import { JsonLd } from "@/components/json-ld";
 import { TrackingBoundary } from "@/components/tracking-boundary";
 import { ProductActivity } from "@/components/product-activity";
@@ -105,18 +106,22 @@ export default async function RootLayout({
         <NextIntlClientProvider>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Providers>
-          <a
-            href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-cta focus:px-4 focus:py-2 focus:text-cta-fg"
-          >
-            Skip to content
-          </a>
-          <SiteHeader />
+          <SiteChrome>
+            <a
+              href="#main"
+              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-cta focus:px-4 focus:py-2 focus:text-cta-fg"
+            >
+              Skip to content
+            </a>
+            <SiteHeader />
+          </SiteChrome>
           <main id="main" className="flex-1 pb-20 md:pb-0">
             {children}
           </main>
-          <SiteFooter />
-          <BottomNav />
+          <SiteChrome>
+            <SiteFooter />
+            <BottomNav />
+          </SiteChrome>
           <ProductActivity />
           <TrackingBoundary />
         </Providers>

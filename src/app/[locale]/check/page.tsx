@@ -79,6 +79,7 @@ export default async function CheckPage({
         decoderId: brand.decoderId,
         locale,
         country: hdrs.get("cf-ipcountry") ?? undefined,
+        path: locale === "en" ? "/check" : `/${locale}/check`,
         result,
       }),
     );

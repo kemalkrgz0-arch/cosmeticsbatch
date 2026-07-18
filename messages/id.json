@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "Kode batch {name} — berapa umur produkmu?",
+    "metaTitleShort": "Kode batch {name}",
     "metaDescription": "Masukkan kode batch produk {name} dan baca tanggal produksinya dalam hitungan detik. Lihat berapa umurnya dan sisa masa simpannya.",
     "blurb": "Baca kode batch {name} untuk memperkirakan tanggal produksi dan usia. Masa simpan adalah perkiraan; kode saja tidak membuktikan keaslian.",
     "checkerTitle": "Pemeriksa Kode Batch {name}",

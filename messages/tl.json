@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "Batch code ng {name} — gaano na katagal?",
+    "metaTitleShort": "Batch code ng {name}",
     "metaDescription": "Ilagay ang batch code ng iyong produktong {name} at basahin ang petsa ng paggawa sa ilang segundo. Tingnan kung gaano na ito katagal.",
     "blurb": "I-decode ang batch code ng {name} para malaman ang petsa ng paggawa, edad at petsa ng pag-expire ng iyong mga produktong {category} . Libre, agad at pribado.",
     "checkerTitle": "Checker ng Batch Code ng {name}",

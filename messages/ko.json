@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} 배치 코드 — 제조일자 확인",
+    "metaTitleShort": "{name} 배치 코드",
     "metaDescription": "{name} 제품의 배치 코드를 입력하면 제조일자를 몇 초 만에 확인할 수 있습니다. 제품이 얼마나 오래됐는지, 남은 기한이 얼마인지 보세요.",
     "blurb": "{name} 배치 코드를 해독하여 {category} 제품의 제조일, 사용 기간, 유통기한을 확인하세요. 무료, 즉시, 비공개.",
     "checkerTitle": "{name} 배치 코드 확인기",

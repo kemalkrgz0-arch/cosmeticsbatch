@@ -60,6 +60,7 @@
   "brandPage": {
     "blurb": "Läs batchkoden för {name} för att uppskatta tillverkningsmånad och produktens ålder. Hållbarheten är en uppskattning och koden bevisar inte äkthet.",
     "metaTitle": "{name} batchkod — hur gammal är din produkt?",
+    "metaTitleShort": "{name} batchkod",
     "metaDescription": "Ange batchkoden på din {name}-produkt och läs av tillverkningsdatumet på sekunder. Se hur gammal den är och hur mycket hållbarhet som återstår.",
     "checkerTitle": "Batchkodskontroll för {name}",
     "factManufacturer": "Tillverkare",

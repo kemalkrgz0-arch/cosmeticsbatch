@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} partiya kodu — məhsulunuz neçə yaşındadır?",
+    "metaTitleShort": "{name} partiya kodu",
     "metaDescription": "{name} məhsulunuzun partiya kodunu daxil edin və istehsal tarixini saniyələr içində oxuyun. Neçə yaşında olduğunu görün.",
     "blurb": "{name} partiya kodlarını deşifrələyərək {category} məhsullarınızın istehsal tarixini, yaşını və son istifadə tarixini tapın. Pulsuz, ani və məxfi.",
     "checkerTitle": "{name} partiya kodu yoxlayıcısı",

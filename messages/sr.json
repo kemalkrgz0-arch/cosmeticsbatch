@@ -61,6 +61,7 @@
     "checkerTitle": "{name} provera batch koda",
     "blurb": "Dekodirajte {name} batch kodove da biste saznali datum proizvodnje, starost i rok trajanja svojih {category} proizvoda. Besplatno, trenutno i privatno.",
     "metaTitle": "{name} серијски код — колико је производ стар?",
+    "metaTitleShort": "{name} серијски код",
     "metaDescription": "Унесите серијски код производа {name} и сазнајте датум производње за неколико секунди. Погледајте колико је стар и колико рока остаје.",
     "by": "od {group}",
     "factManufacturer": "Произвођач",

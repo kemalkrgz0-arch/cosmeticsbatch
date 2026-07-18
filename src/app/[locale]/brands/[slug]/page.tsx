@@ -30,6 +30,7 @@ import {
   faqSchema,
   pageMeta,
 } from "@/lib/seo";
+import { fitTitle } from "@/lib/snippet";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CheckForm } from "@/components/check-form";
 import { Faq } from "@/components/faq";
@@ -71,7 +72,10 @@ export async function generateMetadata({
   // No `keywords` meta: Google has ignored it since 2009 and it only leaks the
   // exact terms we target to competitors.
   const meta = pageMeta({
-    title: t("metaTitle", { name: brand.name }),
+    title: fitTitle(
+      t("metaTitle", { name: brand.name }),
+      t("metaTitleShort", { name: brand.name }),
+    ),
     description: t("metaDescription", { name: brand.name }),
     path: `/brands/${brand.slug}`,
     type: "article",

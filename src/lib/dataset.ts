@@ -24,6 +24,8 @@ export interface CheckLog {
   decoderId?: string;
   locale?: string;
   country?: string; // ISO-3166 alpha-2, from the CDN edge header
+  /** Referring page pathname only; query strings and origins are never stored. */
+  path?: string;
   confidence: string;
   freshness: string;
   mfg: string | null; // manufacture date, YYYY-MM-DD (null if undecodable)
@@ -54,6 +56,7 @@ export function toCheckLog(args: {
   decoderId?: string;
   locale?: string;
   country?: string;
+  path?: string;
   result: CheckResult;
 }): CheckLog {
   const { result } = args;
@@ -65,6 +68,7 @@ export function toCheckLog(args: {
     decoderId: args.decoderId,
     locale: args.locale,
     country: args.country,
+    path: args.path,
     confidence: result.confidence,
     freshness: result.freshness,
     mfg: result.manufactureDate
@@ -132,9 +136,19 @@ export async function logActivity(entry: ActivityLog): Promise<void> {
   }
 }
 
-/** Read newest successful human check events for the private owner dashboard. */
-export async function readRecentChecks(limit = 250): Promise<CheckLog[]> {
-  const safeLimit = Math.max(1, Math.min(limit, 1_000));
+/**
+ * Read newest successful human check events for the private owner dashboard.
+ *
+ * `since` is an ISO timestamp. Rows are visited newest-first, so the first row
+ * older than the window ends the scan — a caller that only needs a recent count
+ * never parses the rest of the month.
+ */
+async function readChecks(limit: number | undefined, since?: string): Promise<CheckLog[]> {
+  // A bounded list is for UI/export previews. A time-window report must read
+  // the whole window or its totals and rates silently become false at row 1000.
+  const safeLimit = limit === undefined
+    ? Number.POSITIVE_INFINITY
+    : Math.max(1, Math.min(limit, 1_000));
   let files: string[];
   try {
     files = (await readdir(DIR))
@@ -152,7 +166,10 @@ export async function readRecentChecks(limit = 250): Promise<CheckLog[]> {
       if (!line.trim()) continue;
       try {
         const entry = JSON.parse(line) as CheckLog;
-        if (entry.ts && entry.brand && typeof entry.code === "string") rows.push(entry);
+        if (entry.ts && entry.brand && typeof entry.code === "string") {
+          if (since && entry.ts < since) return rows;
+          rows.push(entry);
+        }
       } catch {
         // A process interruption can truncate one append. The dashboard skips
         // that row; writes remain append-only and decode behavior is unaffected.
@@ -161,6 +178,16 @@ export async function readRecentChecks(limit = 250): Promise<CheckLog[]> {
     }
   }
   return rows;
+}
+
+/** Read a bounded newest-first list for tables and exports. */
+export async function readRecentChecks(limit = 250): Promise<CheckLog[]> {
+  return readChecks(limit);
+}
+
+/** Read every valid check in an ISO timestamp window for exact reports. */
+export async function readChecksSince(since: string): Promise<CheckLog[]> {
+  return readChecks(undefined, since);
 }
 
 export async function readRecentFailedCodes(limit = 1_000): Promise<FailedCodeLog[]> {
@@ -187,7 +214,8 @@ export async function readRecentFailedCodes(limit = 1_000): Promise<FailedCodeLo
   return rows.sort((a, b) => b.ts.localeCompare(a.ts)).slice(0, safeLimit);
 }
 
-export async function readRecentActivity(limit = 10_000): Promise<ActivityLog[]> {
+/** Newest-first activity events. `since` bounds the scan, as in `readRecentChecks`. */
+export async function readRecentActivity(limit = 10_000, since?: string): Promise<ActivityLog[]> {
   const safeLimit = Math.max(1, Math.min(limit, 50_000));
   let files: string[];
   try {
@@ -206,7 +234,10 @@ export async function readRecentActivity(limit = 10_000): Promise<ActivityLog[]>
       if (!line.trim()) continue;
       try {
         const entry = JSON.parse(line) as ActivityLog;
-        if (entry.ts && entry.path && (entry.type === "visit" || entry.type === "page_view")) rows.push(entry);
+        if (entry.ts && entry.path && (entry.type === "visit" || entry.type === "page_view")) {
+          if (since && entry.ts < since) return rows;
+          rows.push(entry);
+        }
       } catch {
         // Ignore a truncated append.
       }

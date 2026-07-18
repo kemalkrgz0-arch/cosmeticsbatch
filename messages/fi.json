@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} eräkoodi — kuinka vanha tuotteesi on?",
+    "metaTitleShort": "{name} eräkoodi",
     "blurb": "Pura {name} -eräkoodit löytääksesi {category} -tuotteidesi valmistuspäivän, iän ja viimeinen käyttöpäivä. Ilmainen, välitön ja yksityinen.",
     "checkerTitle": "{name} Eräkoodin tarkistus",
     "metaDescription": "Syötä {name}-tuotteesi eräkoodi ja lue valmistuspäivä sekunneissa. Näet, kuinka vanha se on ja paljonko säilyvyyttä on jäljellä.",

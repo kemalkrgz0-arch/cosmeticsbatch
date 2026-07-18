@@ -61,6 +61,7 @@
     "checkerTitle": "{name}Batch Code Checker",
     "metaDescription": "Add meg a(z) {name} terméked tételszámát, és olvasd le a gyártási dátumot másodpercek alatt. Nézd meg, milyen régi és mennyi szavatosság maradt.",
     "metaTitle": "{name} tételszám — milyen régi a terméked?",
+    "metaTitleShort": "{name} tételszám",
     "blurb": "Az {name} kötegkódok dekódolása az {category} termékek gyártási dátumának, korának és lejárati dátumának megállapításához. Ingyenes, azonnali és privát.",
     "factManufacturer": "Gyártó",
     "factShelfLife": "Tipikus eltarthatósági idő",

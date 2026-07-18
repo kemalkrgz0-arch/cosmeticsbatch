@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "Mã lô {name} — sản phẩm của bạn bao nhiêu tuổi?",
+    "metaTitleShort": "Mã lô {name}",
     "metaDescription": "Nhập mã lô sản phẩm {name} để đọc ngày sản xuất trong vài giây. Xem sản phẩm đã sản xuất bao lâu và còn lại bao nhiêu hạn dùng.",
     "blurb": "Đọc mã lô {name} để ước tính ngày sản xuất và tuổi sản phẩm. Thời hạn chỉ là ước tính; mã lô không tự chứng minh hàng chính hãng.",
     "checkerTitle": "Trình kiểm tra mã lô {name}",

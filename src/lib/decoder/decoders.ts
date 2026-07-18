@@ -37,6 +37,19 @@ function normalizeCode(code: string): string {
 const clean = (code: string) => normalizeCode(code).replace(/[^A-Z0-9]/g, "");
 
 /**
+ * The code as the decoders actually see it, for callers that need to tell
+ * whether two typed strings are the same code.
+ *
+ * The review dashboard groups the failed-code queue by this. Grouping on the
+ * raw string instead splits harmless spacing/case retries such as "TCR 15",
+ * "TCR15" and "tcr15". Letter/digit substitutions remain distinct because
+ * they can change a batch code's meaning.
+ */
+export function canonicalCode(code: string): string {
+  return clean(code);
+}
+
+/**
  * True when normalising dropped a character that was not an obvious separator —
  * i.e. we are matching against something the user did not actually type. The
  * decoders use this to refuse to report a confident read of a mangled code.

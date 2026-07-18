@@ -60,8 +60,9 @@
   "brandPage": {
     "blurb": "Dekod {name} batchkoder for å finne produksjonsdato, alder og utløpsdato for {category} -produktene dine. Gratis, øyeblikkelig og privat.",
     "metaTitle": "{name} batchkode — hvor gammelt er produktet?",
+    "metaTitleShort": "{name} batchkode",
     "howHeading": "Hvordan {name} batch-koder fungerer",
-    "metaDescription": "Skriv inn batchkoden på {name}-produktet ditt og les av produksjonsdatoen på sekunder. Se hvor gammelt det er, og hvor mye holdbarhet som er igjen.",
+    "metaDescription": "Skriv inn batchkoden på {name}-produktet og les av produksjonsdatoen på sekunder. Se hvor gammelt det er, og hvor mye holdbarhet som er igjen.",
     "checkerTitle": "{name}Batch Code Checker",
     "factShelfLife": "Typisk holdbarhet",
     "factManufacturer": "Produsent",

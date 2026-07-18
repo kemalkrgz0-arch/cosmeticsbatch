@@ -74,6 +74,7 @@
     "helpfulGuides": "实用指南",
     "faqTitle": "{name} — 常见问题",
     "metaTitle": "{name} 批号查询 — 生产日期和保质期",
+    "metaTitleShort": "{name} 批号查询",
     "metaDescription": "输入你的 {name} 产品批号，几秒钟即可读出生产日期。查看产品已生产多久，以及大致还剩多少保质期。",
     "blurb": "解码 {name} 批号以查找 {category} 产品的制造日期、使用期限和到期日期。免费、即时且私密。",
     "printsDateNote": "{name} 直接在包装上印有生产日期或有效期，因此通常无需批号。",

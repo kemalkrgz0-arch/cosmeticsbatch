@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
-Last updated: 2026-07-17
-Current version: **0.18.0**
+Last updated: 2026-07-19
+Current version: **0.18.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -250,6 +250,43 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed — 0.18.1 (search snippets and failed-code grouping)
+
+- Brand-page search titles now select a localized short form when the long form
+  exceeds the 60-character budget. All 44 locale catalogs contain the short
+  form, and indexed-brand descriptions are held to a 160-character budget.
+  These are character-based safeguards; search engines ultimately render by
+  pixel width and may still rewrite snippets.
+- The private failed-code queue groups spacing/case variants by normalized code
+  regardless of failure classification. `TCR 15` and `TCR15` share one row,
+  while meaningful letter/digit differences such as `TCR1S` remain separate.
+  Each row preserves per-reason attempt counts and raw spelling variants.
+- Brand-page conversion reporting now stores only the same-origin referrer's
+  pathname (never its origin or query string) and attributes a check only to the
+  exact localized brand page it came from. Generic checker/API attempts and
+  legacy pathless rows no longer inflate brand-page conversion.
+- Thirty-day dashboard totals now use an explicit unbounded time-window reader;
+  the 1,000-row cap remains only on recent-table and export previews, so growing
+  traffic cannot silently falsify read-rate and decoder-health reports.
+- Locale distribution counts page-view rows only; the paired visit event on a
+  session's entry page no longer gives that first locale double weight.
+- The private owner workspace now separates overview, traffic, decoder health
+  and photo submissions; hides public site chrome; loads log datasets only for
+  tabs that render them; labels raw exports explicitly; and charts visits,
+  views and checks on Europe/Istanbul calendar days. Traffic search was omitted
+  because those panels are aggregate reports rather than searchable rows.
+- Files: all 44 `messages/*.json`, `src/lib/snippet.ts`, brand metadata route,
+  review dashboard and metrics, site-chrome/layout boundary, decode/check
+  attribution, review export, decoder normalization export, dataset readers,
+  regression tests, `package.json` and `PROJECT_STATUS.md`.
+- Verification: repository ESLint and TypeScript passed; 48/48 quality and
+  decoder regressions, `git diff --check` and the 267-page production build
+  passed. The build retains the pre-existing NFT tracing warning for private
+  photo storage. The first sandboxed build attempt could not bind Turbopack's
+  CSS worker port; the permitted production-equivalent rerun passed, confirming
+  an environment restriction rather than a code regression.
+- Deployment: local only; not committed or deployed.
 
 ## Completed — 0.18.0 (Chanel month wheel)
 

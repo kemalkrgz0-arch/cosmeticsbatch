@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} kód šarže — aký starý je váš výrobok?",
+    "metaTitleShort": "{name} kód šarže",
     "blurb": "Dekódujte kódy šarží {name} , aby ste našli dátum výroby, vek a dátum exspirácie vašich produktov {category} . Bezplatné, okamžité a súkromné.",
     "metaDescription": "Zadajte kód šarže výrobku {name} a zistite dátum výroby počas pár sekúnd. Uvidíte, aký je starý a koľko trvanlivosti zostáva.",
     "howHeading": "Ako fungujú dávkové kódy {name}",

@@ -59,9 +59,10 @@
   },
   "brandPage": {
     "checkerTitle": "{name}Batch Code Checker",
-    "metaDescription": "Indtast batchkoden på dit {name}-produkt og aflæs fremstillingsdatoen på sekunder. Se hvor gammelt det er, og hvor meget holdbarhed der er tilbage.",
+    "metaDescription": "Indtast batchkoden på dit {name} og aflæs fremstillingsdatoen på sekunder. Se hvor gammelt det er, og hvor meget holdbarhed der er tilbage.",
     "blurb": "Afkode {name} batchkoder for at finde fremstillingsdatoen, alderen og udløbsdatoen for dine {category} -produkter. Gratis, øjeblikkelig og privat.",
     "metaTitle": "{name} batchkode — hvor gammelt er dit produkt?",
+    "metaTitleShort": "{name} batchkode",
     "by": "af {group}",
     "factManufacturer": "Fabrikant",
     "factShelfLife": "Typisk holdbarhed",

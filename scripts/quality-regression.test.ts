@@ -10,7 +10,7 @@ import {
   isMonetizableBrand,
 } from "../src/lib/brands";
 import { DECODER_GUIDES } from "../src/lib/decoder-guides";
-import { DECODERS } from "../src/lib/decoder";
+import { DECODERS, canonicalCode } from "../src/lib/decoder";
 import { LOCALE_CODES } from "../src/i18n/locales";
 import { LOREAL_PRIORITY_LOCALES } from "../src/lib/loreal";
 import {
@@ -24,6 +24,18 @@ import {
   PRIORITY_BRAND_SLUGS,
   indexableBrandLocales,
 } from "../src/lib/publishing-policy";
+import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitTitle } from "../src/lib/snippet";
+import {
+  brandFunnel,
+  dailySeries,
+  decoderHealth,
+  entryPages,
+  localeSplit,
+  reportDay,
+  stripLocale,
+  topPages,
+  unattributedChecks,
+} from "../src/lib/review-metrics";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -60,6 +72,8 @@ test("failed-code intelligence stays privacy-minimal and reviewable", () => {
   const review = readFileSync("src/app/[locale]/review/page.tsx", "utf8");
   const photoForm = readFileSync("src/components/code-photo-submission.tsx", "utf8");
   assert.match(dataset, /failed-codes/);
+  assert.match(dataset, /readChecksSince/);
+  assert.match(review, /readChecksSince\(windowReport\)/);
   assert.match(dataset, /type: "visit" \| "page_view"/);
   assert.doesNotMatch(dataset, /interface ActivityLog[\s\S]{0,250}(email|cookie|ip:)/i);
   assert.match(activity, /!rawPath\.includes\("\?"\)/);
@@ -232,6 +246,146 @@ test("priority L'Oréal locales contain complete cautious editorial copy", () =>
       /help check authenticity|and check authenticity|проверка на подлинность —|die Echtheit checken/i,
       `${locale} promises an authenticity check`,
     );
+  }
+});
+
+test("traffic reports merge locales and read entry pages from visit rows", () => {
+  // The default locale is prefix-free and the rest are not. Getting this wrong
+  // splits one page's traffic across 44 rows, silently.
+  assert.equal(stripLocale("/ru/brands/dior"), "/brands/dior");
+  assert.equal(stripLocale("/brands/dior"), "/brands/dior");
+  assert.equal(stripLocale("/yue"), "/");
+  assert.equal(stripLocale("/"), "/");
+  // "dior" is not a locale, so a page that happens to sit at the root keeps it.
+  assert.equal(stripLocale("/check"), "/check");
+
+  const activity = [
+    { ts: "2026-07-18T10:00:00.000Z", type: "visit" as const, path: "/ru/brands/dior", locale: "ru" },
+    { ts: "2026-07-18T10:00:00.000Z", type: "page_view" as const, path: "/ru/brands/dior", locale: "ru" },
+    { ts: "2026-07-18T10:01:00.000Z", type: "page_view" as const, path: "/brands/dior", locale: "en" },
+    { ts: "2026-07-18T10:02:00.000Z", type: "visit" as const, path: "/check", locale: "en" },
+  ];
+  assert.deepEqual(topPages(activity), [{ path: "/brands/dior", count: 2 }]);
+  assert.deepEqual(entryPages(activity), [
+    { path: "/brands/dior", count: 1 },
+    { path: "/check", count: 1 },
+  ]);
+  assert.deepEqual(localeSplit(activity), [
+    { path: "en", count: 1 },
+    { path: "ru", count: 1 },
+  ]);
+
+  // A brand page that is read but never used must be visible as such.
+  const funnel = brandFunnel(activity, [
+    { ts: "2026-07-18T10:03:00.000Z", brand: "dior", path: "/ru/brands/dior", confidence: "high", mfg: "2025-01-15" },
+    { ts: "2026-07-18T10:04:00.000Z", brand: "dior", path: "/check", confidence: "high", mfg: "2025-02-15" },
+    { ts: "2026-07-18T10:05:00.000Z", brand: "dior", confidence: "high", mfg: "2025-03-15" },
+  ]);
+  const dior = funnel.find((row) => row.slug === "dior");
+  assert.equal(dior?.views, 2);
+  assert.equal(dior?.checks, 1);
+  assert.equal(dior?.decoded, 1);
+  assert.equal(dior?.conversion, 50);
+  // The two checks that no page can claim stay visible as a count rather than
+  // quietly dragging the rate down.
+  assert.equal(unattributedChecks([
+    { ts: "2026-07-18T10:04:00.000Z", brand: "dior", path: "/check", confidence: "high", mfg: null },
+    { ts: "2026-07-18T10:05:00.000Z", brand: "dior", confidence: "high", mfg: null },
+  ]), 1);
+  // A brand only ever checked from the site-wide checker gets no page row.
+  assert.equal(brandFunnel([], [
+    { ts: "2026-07-18T10:04:00.000Z", brand: "dior", path: "/check", confidence: "high", mfg: null },
+  ]).length, 0);
+});
+
+test("daily buckets follow the zone the dashboard prints", () => {
+  // 22:30 UTC on the 18th is already the 19th in Istanbul (UTC+3). Bucketing in
+  // UTC dropped such rows into a different day than the tables beside them.
+  assert.equal(reportDay("2026-07-18T22:30:00.000Z"), "2026-07-19");
+  assert.equal(reportDay("2026-07-18T20:59:00.000Z"), "2026-07-18");
+
+  const series = dailySeries(
+    [{ ts: "2026-07-18T22:30:00.000Z", type: "page_view" as const, path: "/", locale: "en" }],
+    [],
+    [],
+    2,
+    Date.parse("2026-07-19T09:00:00.000Z"),
+  );
+  assert.deepEqual(series.map((point) => point.day), ["2026-07-18", "2026-07-19"]);
+  assert.equal(series[1].views, 1, "a late-evening view belongs to the Istanbul day");
+});
+
+test("decoder health ranks the brands turning users away", () => {
+  const checks = [
+    { ts: "2026-07-18T10:00:00.000Z", brand: "skin1004", confidence: "none", mfg: null },
+    { ts: "2026-07-18T10:01:00.000Z", brand: "skin1004", confidence: "none", mfg: null },
+    { ts: "2026-07-18T10:02:00.000Z", brand: "vichy", confidence: "high", mfg: "2024-06-15" },
+    { ts: "2026-07-18T10:03:00.000Z", brand: "vichy", confidence: "high", mfg: "2024-07-15" },
+  ];
+  const health = decoderHealth(checks, []);
+  assert.equal(health[0].slug, "skin1004", "the worst brand must sort first");
+  assert.equal(health[0].failRate, 100);
+  assert.equal(health.find((row) => row.slug === "vichy")?.failRate, 0);
+});
+
+test("failed-code grouping collapses retries without merging distinct codes", () => {
+  // Spacing and case are typing noise: one user retrying the same code must
+  // land on one row in the review queue.
+  const spellings = ["TCR15X", "TCR 15X", "TCR 15 X", "tcr15x"];
+  const collapsed = new Set(spellings.map(canonicalCode));
+  assert.equal(collapsed.size, 1, `retries split into ${[...collapsed].join(", ")}`);
+
+  // O and 0 are not interchangeable: a L'Oréal month of "O" is October, so
+  // folding them together would merge a readable code with an unreadable one.
+  assert.notEqual(canonicalCode("40ZO01"), canonicalCode("40Z001"));
+  assert.notEqual(canonicalCode("TCR15X"), canonicalCode("TCR1SX"));
+
+  // Failure classification is presentation data, not part of code identity.
+  const attempts = [
+    { code: "TCR 15X", reason: "invalid-format" },
+    { code: "tcr15x", reason: "unresolved" },
+  ];
+  const groups = new Map<string, Map<string, number>>();
+  for (const attempt of attempts) {
+    const key = canonicalCode(attempt.code);
+    const reasons = groups.get(key) ?? new Map<string, number>();
+    reasons.set(attempt.reason, (reasons.get(attempt.reason) ?? 0) + 1);
+    groups.set(key, reasons);
+  }
+  assert.equal(groups.size, 1);
+  assert.deepEqual([...groups.values()][0], new Map([
+    ["invalid-format", 1],
+    ["unresolved", 1],
+  ]));
+});
+
+test("every brand-page snippet survives the search result", () => {
+  for (const locale of LOCALE_CODES) {
+    const { brandPage } = JSON.parse(
+      readFileSync(`messages/${locale}.json`, "utf8"),
+    ) as { brandPage: Record<string, string> };
+    assert.ok(brandPage.metaTitleShort?.trim(), `${locale} lacks metaTitleShort`);
+    assert.match(
+      brandPage.metaTitleShort,
+      /\{name\}/,
+      `${locale} short title lost the brand placeholder`,
+    );
+    for (const brand of INDEXED_BRANDS) {
+      const fill = (s: string) => s.replace(/\{name\}/g, brand.name);
+      const title = fitTitle(
+        fill(brandPage.metaTitle),
+        fill(brandPage.metaTitleShort),
+      );
+      assert.ok(
+        title.length <= TITLE_BUDGET,
+        `${locale}/${brand.slug} title is ${title.length} chars: ${title}`,
+      );
+      const description = fill(brandPage.metaDescription);
+      assert.ok(
+        description.length <= DESCRIPTION_BUDGET,
+        `${locale}/${brand.slug} description is ${description.length} chars`,
+      );
+    }
   }
 });
 

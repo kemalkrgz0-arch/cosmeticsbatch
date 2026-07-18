@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} partiya kodi — mahsulot necha yoshda?",
+    "metaTitleShort": "{name} partiya kodi",
     "metaDescription": "{name} mahsulotingiz partiya kodini kiriting va ishlab chiqarilgan sanani soniyalarda o'qing. Necha yoshda ekanini ko'ring.",
     "blurb": "{name} partiya kodlarini dekodlab, {category} mahsulotlaringizning ishlab chiqarilgan sanasi, yoshi va yaroqlilik muddatini aniqlang. Bepul, tezkor va maxfiy.",
     "checkerTitle": "{name} partiya kodi tekshiruvchisi",

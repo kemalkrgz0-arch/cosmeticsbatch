@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} batchcode checken — Hoe oud is je product?",
+    "metaTitleShort": "{name} batchcode checken",
     "blurb": "Decodeer {name} -batchcodes om de fabricagedatum, leeftijd en vervaldatum van uw {category} -producten te vinden. Gratis, direct en privé.",
     "metaDescription": "Voer de batchcode van je {name}-product in en lees direct de productiedatum af. Zie hoe oud het is en hoeveel van de houdbaarheid nog over is.",
     "checkerTitle": "{name} Batchcodecontrole",

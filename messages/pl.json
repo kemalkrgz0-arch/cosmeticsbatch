@@ -60,6 +60,7 @@
   "brandPage": {
     "blurb": "Odkoduj kody serii {name} , aby znaleźć datę produkcji, wiek i datę ważności produktów {category} . Bezpłatne, natychmiastowe i prywatne.",
     "metaTitle": "{name} — sprawdź kod partii i datę produkcji",
+    "metaTitleShort": "{name} — sprawdź kod partii",
     "intro": "Wpisz poniżej kod partii {name} , aby natychmiast odszyfrować datę produkcji, wiek produktu i szacowaną datę ważności — bezpłatnie i prywatnie.",
     "howHeading": "Jak działają kody wsadowe {name}",
     "checkerTitle": "{name} Kontroler kodu wsadowego",

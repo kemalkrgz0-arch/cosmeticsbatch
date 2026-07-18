@@ -60,6 +60,7 @@
   "brandPage": {
     "blurb": "Decodificați codurile lot {name} pentru a găsi data de fabricație, vârsta și data de expirare a produselor dvs. {category} . Gratuit, instant și privat.",
     "metaTitle": "Cod de lot {name} — ce vechime are produsul?",
+    "metaTitleShort": "Cod de lot {name}",
     "by": "de {group}",
     "checkerTitle": "Verificator cod lot {name}",
     "metaDescription": "Introdu codul de lot al produsului {name} și citește data fabricației în câteva secunde. Vezi ce vechime are și cât timp de valabilitate a rămas.",

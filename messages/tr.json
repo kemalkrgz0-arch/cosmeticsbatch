@@ -59,8 +59,9 @@
   },
   "brandPage": {
     "metaTitle": "{name} batch kodu sorgulama — Ürününüz kaç yaşında?",
+    "metaTitleShort": "{name} batch kodu sorgulama",
     "blurb": "{name} batch kodunu okuyarak üretim tarihini ve ürün yaşını tahmin edin. Raf ömrü tahminidir; batch kodu tek başına orijinalliği kanıtlamaz.",
-    "metaDescription": "{name} ürününüzün batch kodunu girin, üretim tarihini saniyeler içinde okuyun. Ürünün kaç yaşında olduğunu ve tipik raf ömründen ne kadar kaldığını görün.",
+    "metaDescription": "{name} batch kodunu girin, üretim tarihini saniyeler içinde okuyun. Ürünün kaç yaşında olduğunu ve tipik raf ömründen ne kadar kaldığını görün.",
     "freshnessPara": "Üretim tarihini okuduktan sonra, {name}'in {category} ürünleri için tipik {shelf} aylık raf ömrünü kullanarak tazeliği tahmin ediyoruz. Ürünü kullanmaya başladığınızda açıldıktan sonraki sürenin (yaklaşık {pao} ay) sınır haline geldiğini unutmayın.",
     "intro": "Tahmini üretim tarihini ve ürün yaşını görmek için kısa {name} batch kodunu girin. Bu sonuç üreticinin verdiği son kullanma tarihi veya orijinallik doğrulaması değildir.",
     "aliasesPara": "Bazen {name} batch kod çözücü, {name} batch kod denetleyici veya {name} batch kod hesaplayıcı olarak adlandırılan bu aracı görürsünüz; bunların hepsi aynı şeyi yapar: üretim kodunu okuyun ve size {name} {category} 'inizin ne kadar yeni olduğunu söyleyin.",

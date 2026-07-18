@@ -30,6 +30,7 @@ export async function GET(request: Request) {
         source: item.source,
         locale: item.locale ?? "",
         country: item.country ?? "",
+        path: item.path ?? "",
         confidence: item.confidence,
         freshness: item.freshness,
         manufactureDate: item.mfg ?? "",

@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "Kod kelompok {name} — berapa usia produk anda?",
+    "metaTitleShort": "Kod kelompok {name}",
     "metaDescription": "Masukkan kod kelompok produk {name} dan baca tarikh pengeluaran dalam beberapa saat. Lihat usianya dan baki jangka hayatnya.",
     "blurb": "Nyahkod kod kelompok {name} untuk mencari tarikh pembuatan, usia dan tarikh luput produk {category} anda. Percuma, segera dan peribadi.",
     "checkerTitle": "Penyemak Kod Kelompok {name}",

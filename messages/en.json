@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} Batch Code Checker — How Old Is Your Product?",
+    "metaTitleShort": "{name} Batch Code Checker",
     "metaDescription": "Enter your {name} batch code to read its manufacture date in seconds. See how old the product is and how much of its typical shelf life is left.",
     "blurb": "Read a {name} batch code to estimate its manufacture date and age. Shelf-life guidance is an estimate, and a batch code alone cannot prove authenticity.",
     "checkerTitle": "{name} Batch Code Checker",

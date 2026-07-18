@@ -36,6 +36,17 @@ function localeFromReferer(referer: string | null): string | undefined {
   }
 }
 
+/** Path only: attribution needs the page, never its query string or origin. */
+function pathFromReferer(referer: string | null): string | undefined {
+  if (!referer) return undefined;
+  try {
+    const path = new URL(referer).pathname;
+    return path.startsWith("/") && path.length <= 180 ? path : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 // Decode runs server-side only so the batch-code ciphers never ship to the
 // browser. The response is stripped of `method` and `notes` (which would
 // describe the algorithm) — the client only receives the resulting dates.
@@ -143,6 +154,7 @@ export async function POST(req: NextRequest) {
         decoderId: brand.decoderId,
         locale: localeFromReferer(referer),
         country: req.headers.get("cf-ipcountry") ?? undefined,
+        path: pathFromReferer(referer),
         result,
       }),
     );

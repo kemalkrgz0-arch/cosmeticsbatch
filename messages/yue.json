@@ -59,6 +59,7 @@
   },
   "brandPage": {
     "metaTitle": "{name} 批次代碼查詢 — 生產日期",
+    "metaTitleShort": "{name} 批次代碼查詢",
     "metaDescription": "輸入你嘅 {name} 產品批次代碼，幾秒就讀到生產日期。睇吓件產品出咗幾耐，仲剩返幾多保質期。",
     "blurb": "解讀 {name} 批次代碼，搵出你 {category} 產品嘅生產日期、使用時間同到期日。免費、即時、保障私隱。",
     "checkerTitle": "{name} 批次代碼查詢器",
