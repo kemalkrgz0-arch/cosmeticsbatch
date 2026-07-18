@@ -33,14 +33,19 @@ export const metadata: Metadata = {
 /** Days of history the traffic and decoder reports cover. */
 const REPORT_DAYS = 30;
 
-const VIEWS = ["overview", "traffic", "decoders", "submissions"] as const;
+// Order is prominence: the raw check log sits second because it is the thing
+// looked at most often, not last behind the aggregate reports.
+const VIEWS = ["overview", "checks", "traffic", "decoders", "submissions"] as const;
 type View = (typeof VIEWS)[number];
 
-/** Older links used one tab per log file; keep them working. */
-const LEGACY_VIEWS: Record<string, View> = { checks: "decoders", failed: "decoders" };
+/** Older links pointed the failed-code queue at its own tab; keep them working. */
+const LEGACY_VIEWS: Record<string, View> = { failed: "decoders" };
 
 const viewLabels: Record<View, string> = {
   overview: "Overview",
+  // The raw log of what people typed. It briefly lived third inside "Decoder
+  // health", where nobody looking for their users' queries would open it.
+  checks: "Code checks",
   traffic: "Traffic",
   decoders: "Decoder health",
   submissions: "Photo submissions",
@@ -124,7 +129,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   // Load only what the open tab renders. The summary tiles live on Overview
   // alone, so the other tabs no longer pay to read logs they never show.
   const needsActivity = view === "overview" || view === "traffic";
-  const needsChecks = view === "overview" || view === "traffic" || view === "decoders";
+  const needsChecks = view === "overview" || view === "checks" || view === "traffic" || view === "decoders";
   const needsFailed = view === "overview" || view === "decoders";
   const [activity, checks, failedCodes] = await Promise.all([
     needsActivity ? readRecentActivity(50_000, windowReport) : Promise.resolve([]),
@@ -229,7 +234,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
         {/* Search only appears where it actually filters something. On Traffic
             the panels are aggregates, so a box there looked broken. Exports name
             the dataset they download rather than a generic "CSV". */}
-        {(view === "decoders" || view === "submissions") && (
+        {(view === "checks" || view === "decoders" || view === "submissions") && (
           <section className="mb-5 flex flex-col gap-3 rounded-2xl border bg-card p-4 shadow-sm sm:flex-row sm:items-end sm:justify-between">
             <form method="get" action="/review/dashboard" className="flex flex-1 gap-2">
               <input type="hidden" name="view" value={view} />
@@ -244,7 +249,9 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             <div className="flex flex-wrap gap-2">
               {(view === "submissions"
                 ? [["submissions", "Submissions"] as const]
-                : [["checks", "Checks"] as const, ["failed", "Failed codes"] as const]
+                : view === "checks"
+                  ? [["checks", "Checks"] as const]
+                  : [["failed", "Failed codes"] as const]
               ).map(([kind, label]) => (
                 <span key={kind} className="inline-flex overflow-hidden rounded-xl border bg-bg">
                   <span className="flex min-h-11 items-center gap-2 border-r px-3 text-sm font-semibold"><Download aria-hidden="true" className="size-4" />{label}</span>
@@ -258,6 +265,19 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
         {view === "overview" && (
           <div className="grid gap-5 lg:grid-cols-2">
+            <div className="lg:col-span-2">
+              <Panel title="Download everything" hint="One JSON file with every code check, failed code and activity event, for sharing the full picture in a single attachment. Photo submissions are excluded — they contain submitter email addresses and notes.">
+                <div className="flex flex-wrap items-center gap-3 p-5">
+                  {/* A file download from an API route, not a page navigation:
+                      `Link` would try to client-route to it. */}
+                  <a href="/review/api/export?kind=all" download className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-cta px-5 font-semibold text-cta-fg">
+                    <Download aria-hidden="true" className="size-4" />
+                    Download all data (JSON)
+                  </a>
+                  <span className="text-sm text-fg-muted">Checks, failed codes and activity in one bundle.</span>
+                </div>
+              </Panel>
+            </div>
             <div className="lg:col-span-2">
               <Panel title={`Daily traffic · ${REPORT_DAYS} days`} hint="Page views, visits and code checks, one column per day.">
                 <div className="overflow-x-auto p-5">
@@ -309,6 +329,19 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
           </div>
         )}
 
+        {view === "checks" && (
+          <Panel title="Code checks" hint={`Every code users typed, newest first. Showing ${shownChecks.length} of ${matchedChecks.length} ${search ? "matching" : "recent"} requests${matchedChecks.length > shownChecks.length ? " — refine the search to see the rest" : ""}. IP addresses and user emails are not logged.`}>
+            {shownChecks.length === 0 ? <p className="p-8 text-center text-fg-muted">No check records are available.</p> : (
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[880px] text-left text-sm">
+                  <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Time</th><th className="p-3">Brand</th><th className="p-3">Code</th><th className="p-3">Locale</th><th className="p-3">Country</th><th className="p-3">Result</th><th className="p-3">Manufactured</th></tr></thead>
+                  <tbody>{shownChecks.map((check, index) => <tr key={`${check.ts}-${index}`} className="border-t"><td className="whitespace-nowrap p-3">{new Date(check.ts).toLocaleString("en-GB", { timeZone: REPORT_TIME_ZONE })}</td><td className="p-3 font-semibold">{brandName(check.brand)}</td><td className="p-3 font-mono">{check.code}</td><td className="p-3">{check.locale ?? "—"}</td><td className="p-3">{check.country ?? "—"}</td><td className="p-3">{check.confidence} / {check.freshness}</td><td className="p-3">{check.mfg ?? "Not decoded"}</td></tr>)}</tbody>
+                </table>
+              </div>
+            )}
+          </Panel>
+        )}
+
         {view === "traffic" && (
           <div className="grid gap-5 lg:grid-cols-2">
             <Panel title="Entry pages" hint="Every landing page in the window."><BarList rows={entryPages(activity, 25)} empty="No visits recorded." /></Panel>
@@ -343,17 +376,6 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
             <Panel title="Decoded manufacture years" hint="A gap followed by an old cluster is the signature of a cyclic year wheel resolving to the wrong turn.">
               <BarList rows={years} empty="No decoded dates in this window." />
-            </Panel>
-
-            <Panel title="Recent checks" hint={`Showing ${shownChecks.length} of ${matchedChecks.length} ${search ? "matching" : "recent"} requests${matchedChecks.length > shownChecks.length ? " — refine the search to see the rest" : ""}. IP addresses and user emails are not logged.`}>
-              {shownChecks.length === 0 ? <p className="p-8 text-center text-fg-muted">No check records are available.</p> : (
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[880px] text-left text-sm">
-                    <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Time</th><th className="p-3">Brand</th><th className="p-3">Code</th><th className="p-3">Locale</th><th className="p-3">Country</th><th className="p-3">Result</th><th className="p-3">Manufactured</th></tr></thead>
-                    <tbody>{shownChecks.map((check, index) => <tr key={`${check.ts}-${index}`} className="border-t"><td className="whitespace-nowrap p-3">{new Date(check.ts).toLocaleString("en-GB", { timeZone: "Europe/Istanbul" })}</td><td className="p-3 font-semibold">{brandName(check.brand)}</td><td className="p-3 font-mono">{check.code}</td><td className="p-3">{check.locale ?? "—"}</td><td className="p-3">{check.country ?? "—"}</td><td className="p-3">{check.confidence} / {check.freshness}</td><td className="p-3">{check.mfg ?? "Not decoded"}</td></tr>)}</tbody>
-                  </table>
-                </div>
-              )}
             </Panel>
 
             <div className="space-y-5">
