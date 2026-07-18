@@ -65,12 +65,11 @@ test("review CSV exports neutralize spreadsheet formulas", () => {
   );
 });
 
-test("result card tolerates redacted decoder details", () => {
+test("public decode paths never render decoder implementation details", () => {
   const api = readFileSync("src/app/api/decode/route.ts", "utf8");
   const resultCard = readFileSync("src/components/result-card.tsx", "utf8");
   assert.match(api, /method: _method, notes: _notes/);
-  assert.match(resultCard, /const notes = result\.notes \?\? \[\]/);
-  assert.doesNotMatch(resultCard, /result\.notes\.length/);
+  assert.doesNotMatch(resultCard, /result\.(method|notes)/);
 });
 
 test("failed-code intelligence stays privacy-minimal and reviewable", () => {

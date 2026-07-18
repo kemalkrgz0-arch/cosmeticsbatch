@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **1.0.0**
+Current version: **1.0.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -53,7 +53,10 @@ priorities live in `AUDIT.md`.
 
 ## Active findings / next dependency-ordered work
 
-1. P0 decoder-method disclosure (`Next`): server-rendered results publish the
+1. P0 decoder-method disclosure (`Completed` in 1.0.1, work item `SEC-001`;
+   owner: primary Codex agent; completed 2026-07-19; starting commit `ea2c81d`; scope:
+   `src/components/result-card.tsx`, `scripts/quality-regression.test.ts`,
+   `package.json`, `PROJECT_STATUS.md`): server-rendered results publish the
    decoder's internal method label and notes on English pages.
    `src/components/result-card.tsx:301` renders `result.method` and `notes`
    whenever `locale.startsWith("en")`. `/api/decode` deliberately strips both
@@ -68,8 +71,8 @@ priorities live in `AUDIT.md`.
    under `/ru` was checked and is clean. The page is `index, follow` and
    `robots.txt` allows GPTBot/ClaudeBot/CCBot, so the format is also served to
    AI crawlers. This contradicts the project rule that the cipher is the gold
-   source and must never be published. Remove the block or gate it behind an
-   authenticated reviewer session.
+   source and must never be published. The public rendering block was removed
+   and regression/runtime checks confirm those fields no longer appear.
 2. P0 truthfulness: replace the homepage `expiry date` / `help check
    authenticity` meta promise with estimated manufacture-date, product-age,
    typical unopened shelf-life and PAO language.
@@ -373,6 +376,26 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   package metadata only.
 - Deployment: commit `bea3911`; GitHub Actions run `29663127446` completed
   successfully on 2026-07-19.
+
+## Completed — 1.0.1 (decoder-detail disclosure)
+
+- Work item `SEC-001` removed the English-only result-card block that rendered
+  internal decoder `method` and `notes` on server-generated public pages. The
+  API already redacted both fields; public server and client result paths now
+  follow the same boundary.
+- Regression coverage reads both public paths: the API must destructure the two
+  private fields and the result card must never reference `result.method` or
+  `result.notes`.
+- Files: `src/components/result-card.tsx`,
+  `scripts/quality-regression.test.ts`, `package.json`, `PROJECT_STATUS.md`.
+- Verification: focused ESLint, TypeScript, `git diff --check`, 48/48 quality and
+  decoder tests, and the 267-page production build passed. The pre-existing NFT
+  tracing warning remains. A local production request to the original
+  `/check?brand=vichy&code=54X602` reproduction returned Vichy and the submitted
+  code but none of the three previously exposed implementation strings.
+- Remaining risk: production remains affected until this patch is deployed;
+  live verification is required immediately afterward.
+- Deployment: not yet committed or deployed.
 
 ## Completed — 1.0.0 (value-led language policy)
 
