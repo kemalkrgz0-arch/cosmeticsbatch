@@ -12,8 +12,9 @@ priorities live in `AUDIT.md`.
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
-- Current production baseline: commit `a771f0c`; GitHub Actions deploy run
-  `29330602612` completed successfully. Package/document version is `0.5.2`.
+- Current production baseline: commit `164ddbc`; GitHub Actions deploy run
+  `29662822927` completed successfully in 7m44s. Package/document version is
+  `0.18.1`.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 44
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -286,7 +287,12 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   photo storage. The first sandboxed build attempt could not bind Turbopack's
   CSS worker port; the permitted production-equivalent rerun passed, confirming
   an environment restriction rather than a code regression.
-- Deployment: local only; not committed or deployed.
+- Deployment: commit `164ddbc` was pushed to `main`; GitHub Actions deploy run
+  `29662822927` completed successfully in 7m44s. Live smoke checks confirmed an
+  HTTP 200 response on the home page and the deployed English Dior brand-page
+  content. The local runner then encountered transient DNS resolution failures,
+  so localized-brand, sitemap and private-review route smoke checks still need
+  verification; no application-level failure was observed.
 
 ## Completed — 0.18.0 (Chanel month wheel)
 
