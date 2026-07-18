@@ -136,13 +136,13 @@
     "q_free": "{name} batch kod denetleyicisi ücretsiz mi?",
     "a_pao": "{name} {noun} açıldıktan sonra genellikle yaklaşık {pao} ay içinde kullanılmalıdır - bu, ambalajın üzerinde açık kavanoz sembolü (örn. {pao} M) olarak gösterilen Açıldıktan Sonraki Dönemdir. Bir ürünü açtıktan sonra, partinin kendisi hala taze olsa bile PAO sınır haline gelir.",
     "a_afterExpiry": "{name} {noun} 'in tahmini tarihinden kısa bir süre sonra kullanılması genellikle güvenlikten ziyade kozmetik kalitede bir sorundur; aktifler gücünü kaybeder, dokular ayrılır ve kokular solar. Kokusunda, renginde veya kıvamında bir değişiklik fark ederseniz kullanmayı bırakın ve bakteri riski daha yüksek olduğundan eski göz veya dudak ürünlerini asla kullanmayın.",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset."
+    "a_free": "Evet. {name} batch kodlarını kontrol etmek ücretsizdir ve kayıt gerektirmez. İstekler sunucumuzda güvenli biçimde işlenir; IP adresleri batch kodu kalite veri setine dahil edilmez."
   },
   "homeFaq": {
     "q1": "Batch kod nedir?",
     "a1": "batch kodu, üretim sürecini tanımlayan, kozmetik ve parfüm ambalajlarının üzerine basılan kısa bir koddur. Kodun çözülmesi, ürünün ne zaman üretildiğini ortaya çıkarır.",
     "q2": "Bu batch kod denetleyicisi ücretsiz mi?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "Evet. Cosmetics Batch ücretsizdir, hesap gerektirmez ve kodları sunucuda güvenli biçimde işler.",
     "a3": "Mümkün olduğunda üreticiye özel algoritmalar, başka yerlerde ise dürüst güven düzeyleri kullanırız. Raf ömrü tahminleri tipik değerlerdir, güvenlik garantisi değildir.",
     "q3": "Sonuçlar ne kadar doğrudur?",
     "q5": "Son kullanma tarihi geçmiş bir ürün güvensiz olduğu anlamına mı gelir?",
@@ -158,7 +158,7 @@
     "a8": "Çoğu koku, üretim tarihinden itibaren 3 ila 5 yıl dayanır ve serin ve ışıktan uzakta saklandığında genellikle daha uzun süre dayanır. Parfüm nadiren güvensiz hale gelir, ancak oksidasyon yavaş yavaş kokuyu değiştirir; ilk önce üst notalar kaybolur.",
     "a9": "Bazı markalar zamanla kodlamalarını değiştirir, bölgeye özgü formatlar kullanır veya tarihi herkese açık olarak kodlamaz. Damgalı batch kodunu (barkodu değil) girdiğinizi bir kez daha kontrol edin veya alt marka yerine ana şirketi seçmeyi deneyin.",
     "q10": "batch kodlarımı veya kişisel verilerimi saklıyor musunuz?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "Hesap gerekmez ve IP adresleri batch kodu kalite veri setine dahil edilmez. Doğruluğu geliştirmek için kodu, markayı, sonucu, dili, zamanı ve ülke düzeyindeki kodu saklayabiliriz; ayrıntılar için Gizlilik Politikası'na bakın."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -219,7 +219,7 @@
     "accurateBody": "Kesin sonuçlar için üreticiye özel algoritmalar.",
     "fastBody": "Sonuçları yalnızca birkaç saniye içinde alın; kaydolmanıza gerek yok.",
     "freeBody": "Her özellik sonsuza kadar %100 ücretsizdir.",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "Gizlilik Politikamız hangi verilerin işlendiğini, kaydedildiğini ve korunduğunu açıklar.",
     "freeTitle": "Daima Ücretsiz"
   },
   "whereCode": {

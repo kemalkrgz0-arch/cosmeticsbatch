@@ -15,8 +15,21 @@ type Jwks = { keys?: Jwk[] };
 
 let cachedKeys: { expiresAt: number; keys: Jwk[] } | undefined;
 
+/**
+ * Decode one base64url JWT segment.
+ *
+ * A malformed segment is an invalid token, not an internal fault: letting
+ * `JSON.parse` throw raised a bare `SyntaxError: Unexpected end of JSON input`
+ * from inside the auth path, which reads like a bug in the app rather than a
+ * refused credential. Access is denied either way; this only keeps the failure
+ * in the same vocabulary as every other rejection here.
+ */
 function decodePart<T>(value: string): T {
-  return JSON.parse(Buffer.from(value, "base64url").toString("utf8")) as T;
+  try {
+    return JSON.parse(Buffer.from(value, "base64url").toString("utf8")) as T;
+  } catch {
+    throw new Error("Invalid Access token");
+  }
 }
 
 function config() {

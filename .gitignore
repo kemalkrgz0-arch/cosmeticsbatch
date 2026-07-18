@@ -50,6 +50,10 @@ next-env.d.ts
 # Local operational backups are never committed.
 /backups/
 
+# Immutable local GSC/Webmaster source exports. Normalized evidence under
+# /data/search-performance is reviewed and committed; raw binaries are not.
+/data/search-performance/raw/
+
 # Local agent tooling (Claude Code skills), not part of the product.
 /.agents/
 /skills-lock.json

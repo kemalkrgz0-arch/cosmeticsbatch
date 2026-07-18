@@ -127,13 +127,13 @@
     "a_accuracy": "Datę produkcji odczytujemy za pomocą {decoder}. Tam, gdzie {group} publikuje znany schemat kodu, wynik jest dokładny co do miesiąca lub dnia; tam, gdzie marka nie potwierdza programu publicznego, jest to najlepszy szacunkowy odczyt. Data to data produkcji, a nie gwarantowana data ważności – dane dotyczące okresu przydatności do spożycia to typowe średnie branżowe.",
     "a_pao": "Po otwarciu {name} {noun} należy zasadniczo zużyć w ciągu około {pao} miesięcy — jest to okres po otwarciu, oznaczony symbolem otwartego słoika (np. {pao} M) na opakowaniu. Po otwarciu produktu PAO staje się limitem nawet jeśli sama partia jest jeszcze świeża.",
     "a_afterExpiry": "Używanie {name} {noun} wkrótce po przewidywanej dacie jest zazwyczaj kwestią jakości kosmetycznej, a nie bezpieczeństwa – substancje aktywne tracą moc, tekstury rozdzielają się, a zapachy zanikają. Przestań go używać, jeśli zauważysz zmianę zapachu, koloru lub konsystencji i nigdy nie używaj starych produktów do oczu lub ust, ponieważ ryzyko bakterii jest większe.",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset."
+    "a_free": "Tak. Sprawdzanie kodów partii {name} jest bezpłatne i nie wymaga rejestracji. Żądania są bezpiecznie przetwarzane na naszym serwerze; adresy IP nie są zapisywane w zbiorze danych jakości."
   },
   "homeFaq": {
     "q1": "Co to jest kod partii?",
     "a1": "Kod partii to krótki kod drukowany na opakowaniach kosmetyków i perfum, identyfikujący serię produkcyjną. Dekodowanie ujawnia, kiedy produkt został wyprodukowany.",
     "q2": "Czy to narzędzie do sprawdzania kodów partii jest bezpłatne?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "Tak. Cosmetics Batch jest bezpłatny, nie wymaga konta i bezpiecznie przetwarza kody na serwerze.",
     "q3": "Jak dokładne są wyniki?",
     "a3": "Tam, gdzie są one dostępne, stosujemy algorytmy specyficzne dla producenta, a gdzie indziej – uczciwe poziomy zaufania. Szacunkowy okres przydatności do spożycia to wartości typowe, a nie gwarancja bezpieczeństwa.",
     "q4": "Gdzie znajdę kod partii?",
@@ -149,7 +149,7 @@
     "q10": "Czy przechowujecie moje kody partii lub dane osobowe?",
     "a9": "Niektóre marki z biegiem czasu zmieniają swoje kodowanie, używają formatów specyficznych dla regionu lub nie kodują daty publicznie. Sprawdź dokładnie, czy wprowadziłeś wytłoczony kod partii (a nie kod kreskowy) lub spróbuj wybrać firmę-matkę zamiast marki podrzędnej.",
     "q9": "Dlaczego nie można zdekodować mojego kodu partii?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "Konto nie jest wymagane, a adresy IP nie są zapisywane w zbiorze danych jakości kodów partii. Możemy przechowywać kod, markę, wynik, język, czas i kod kraju, aby poprawiać dokładność; zobacz Politykę prywatności."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -208,7 +208,7 @@
     "fastTitle": "Szybko i łatwo",
     "privateTitle": "Prywatne i bezpieczne",
     "freeTitle": "Zawsze za darmo",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "Nasza Polityka prywatności wyjaśnia, co jest przetwarzane, zapisywane i chronione.",
     "freeBody": "Każda funkcja jest w 100% darmowa, na zawsze.",
     "fastBody": "Uzyskaj wyniki w ciągu kilku sekund — bez rejestracji.",
     "accurateBody": "Specyficzne dla producenta algorytmy zapewniające precyzyjne wyniki."

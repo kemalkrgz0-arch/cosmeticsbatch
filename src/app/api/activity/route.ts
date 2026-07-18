@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { normalizeActivityPath } from "@/lib/activity-path";
 import { isRealApiUser } from "@/lib/bot-filter";
 import { logActivity } from "@/lib/dataset";
 import { checkRateLimit } from "@/lib/rate-limit";
@@ -20,10 +21,10 @@ export async function POST(request: NextRequest) {
   let body: unknown;
   try { body = await request.json(); } catch { return new NextResponse(null, { status: 400 }); }
   const data = body && typeof body === "object" ? body as Record<string, unknown> : {};
-  const rawPath = typeof data.path === "string" ? data.path : "";
-  const path = rawPath.startsWith("/") && !rawPath.includes("?") && rawPath.length <= 180 ? rawPath : "";
+  // Only paths that resolve to a real page are recorded; see `activity-path`.
+  const path = normalizeActivityPath(data.path);
   const locale = typeof data.locale === "string" && /^[a-z]{2,3}$/.test(data.locale) ? data.locale : undefined;
-  if (!path || path.split("/").includes("review")) return new NextResponse(null, { status: 400 });
+  if (!path) return new NextResponse(null, { status: 400 });
 
   const ts = new Date().toISOString();
   await logActivity({ ts, type: "page_view", path, locale });

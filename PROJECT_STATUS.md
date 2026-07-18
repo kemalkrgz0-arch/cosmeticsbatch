@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **1.1.0**
+Current version: **1.2.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -122,6 +122,128 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
+- `SEARCH-QA-006`; owner: primary Codex agent; state: `Completed locally`;
+  claimed
+  2026-07-19; starting commit `fa054ac`; scope:
+  `scripts/validate-search-performance.mjs`, the corresponding package quality
+  command, search-evidence documentation and this status entry. Acceptance:
+  fail on malformed/duplicate source IDs, missing or extra normalized sheets,
+  manifest row/column drift, invalid SHA-256 provenance, undocumented sources,
+  duplicate finding claims and private-data column names; parse quoted TSV
+  fields including embedded newlines correctly; pass the current GSC and empty
+  Webmaster sources; include the validator in the normal quality suite; run
+  focused and repository-wide checks; no product/review edits, commit, push or
+  deployment.
+  Result: `npm run test:search-data` validates all normalized manifests and is
+  now part of `test:quality`. The validator correctly parses quoted multiline
+  query fields, enforces source/manifest/file consistency, verifies documented
+  SHA-256 values and rejects private-data headers or duplicate finding claims.
+  Focused validator execution passed for two sources and one claim; focused
+  ESLint and `git diff --check` passed. The subsequent integrated run passed
+  57/57 quality tests and validated two sources/two claims, proving the gate is
+  part of the normal suite; no product/review files, commit, push or deployment.
+
+- `BRAND-PRODUCT-SEO-007`; owner: primary Codex agent; state: `Completed
+  locally`;
+  requested 2026-07-19; starting commit `fa054ac`; scope:
+  product-intent sections inside existing high-value brand pages and their
+  regression coverage only. Binding constraint from the owner: do not create
+  any product URL, route, sitemap entry or product canonical. Preserve each
+  existing brand URL as the sole search landing page; add content only where
+  GSC demand and existing verified brand evidence support it. Claude receives
+  the disjoint read-only `CLAUDE-PRODUCT-AUDIT-002` evidence task; Codex will not
+  implement until that handoff is recorded and reviewed.
+  Claude handoff `CLAUDE-PRODUCT-AUDIT-002`: read-only audit completed in
+  `data/search-performance/CLAUDE_PRODUCT_INTENT_AUDIT.md`; privacy scan and
+  file-scoped `git diff --check` passed; no code/shared-ledger edit, commit,
+  push or deployment. It measured Dior product-family demand at 9 impressions,
+  0 clicks and weighted position 33.0; MAC at 8/0/42.1 already has strong
+  coverage; the remaining groups total only 6 impressions. Codex reviewed and
+  adopted only the Dior recommendation. Implementation scope is one English
+  FAQ on the existing `/brands/dior` URL plus focused regression coverage; no
+  new URL or structured Product entity.
+  Result: the existing English Dior FAQ now names Sauvage, Dior Homme/Homme
+  Intense and Miss Dior, directs all of them to the same Dior checker, describes
+  the output as an estimated manufacture date and preserves the rule that a
+  valid date cannot prove authenticity. No route, URL, sitemap, canonical,
+  hreflang or Product schema was added. Focused ESLint, TypeScript, `git diff
+  --check`, 57/57 quality tests and the search-evidence validator (two sources,
+  two unique claims) and the 267-page production build passed. The route count
+  remained 267, confirming no product route was introduced. The pre-existing
+  private-photo NFT tracing warning remains; no commit, push or deployment.
+
+- `SEARCH-DATA-005`; owner: primary Codex agent; state: `Completed locally`;
+  claimed
+  2026-07-19; starting commit `fa054ac`; scope: repository search-performance
+  evidence structure, deterministic XLSX importer, contributor protocol in
+  `AGENTS.md`, source manifest and finding ledger, plus this status entry.
+  Inputs: the user-supplied 2026-07-19 Google Search Console performance export
+  and the companion Webmaster XLSX. Acceptance: retain immutable local source
+  copies; expose reviewable, non-binary normalized tables to every agent;
+  preserve source/date/filter provenance and explicitly mark missing metadata;
+  require unique analysis claims so agents do not duplicate the same slice;
+  record findings, recommendations, implementation links and post-change
+  measurements in one ledger; validate row counts and hashes; do not store
+  private submissions, emails or secrets; no commit, push or deploy.
+  Result: both supplied XLSX files have immutable, ignored local raw copies and
+  SHA-256 provenance; normalized UTF-8 TSV sheets plus JSON manifests are under
+  `data/search-performance/normalized/`. The GSC source contains 596 query and
+  421 page observations with Web / Last 3 months filters and daily chart rows
+  from 2026-07-02 through 2026-07-16. The companion source contains only its
+  `Query` header and zero observations, so its provider, period and filters
+  remain `needs verification`. `SOURCES.md` records provenance and
+  `FINDINGS.md` provides unique claims, measured facts, inference/confidence,
+  implementation links and post-release follow-up. `AGENTS.md` now makes this
+  protocol binding. The importer rejects unsafe IDs and existing source IDs.
+  Verification: both sources imported successfully; manifest hashes match the
+  raw copies; the deliberate duplicate import exited 1 with `source ID already
+  imported`; Python compilation passed when its cache was directed into `/tmp`.
+  The first compilation attempt could not write macOS's default cache outside
+  the workspace and is recorded as an environment failure, not hidden. Full
+  repository ESLint, TypeScript, `git diff --check`, 56/56 quality tests and the
+  267-page production build passed. The first sandboxed build could not bind a
+  Turbopack helper port; the authorized local retry passed with only the
+  pre-existing private-photo NFT tracing warning. No commit, push or deployment.
+
+- `BRAND-VALUE-004`; owner: primary Codex agent; state: `Completed locally`;
+  claimed
+  2026-07-19; starting commit `fa054ac`; scope: English metadata for
+  `/brands/loreal-paris` and `/brands/kerastase`, a dedicated brand-snippet
+  helper, related additions to `scripts/quality-regression.test.ts`, and this
+  status entry. Evidence: the 2026-07-19 Search Console export reports L'Oréal
+  Paris at 432 impressions, 1 click, 0.23% CTR and position 9.42; Kérastase at
+  121 impressions, 0 clicks and position 7.76. Dior has 142 impressions and no
+  clicks but position 15.42, so it is a ranking/content problem rather than the
+  first snippet experiment. Acceptance: use only claims already supported by
+  the existing brand detail; keep titles at or below 60 characters and
+  descriptions at or below 160; affect only the two English brand URLs; leave
+  all other brands/locales on the shared template; add focused regression
+  coverage; run focused and repository-wide checks; no commit, push or deploy.
+  Result: only the English L'Oréal Paris and Kérastase pages receive concise,
+  brand-specific titles and descriptions grounded in their existing packaging
+  guidance; every other brand/locale retains the shared fallback. The helper is
+  deliberately evidence-gated and dependency-free. Focused checks passed, then
+  full repository ESLint, TypeScript, `git diff --check`, 56/56 quality tests
+  and the 267-page production build passed. The pre-existing private-photo NFT
+  tracing warning remains. Baseline and follow-up requirements are recorded as
+  `GSC-BRAND-2026-07-19-01`; no commit, push or deployment performed.
+
+- `PRIV-I18N-002`; owner: primary Codex agent; state: `Completed locally`; claimed
+  2026-07-19; starting commit `fa054ac`; scope: the four privacy-sensitive keys
+  in 18 active non-English `messages/*.json` catalogs,
+  `scripts/quality-regression.test.ts`, `PROJECT_STATUS.md`. Acceptance: every
+  field is in its route language; all retain server processing, no-account,
+  IP-exclusion and limited-retention truth; tests use locale-aware assertions
+  rather than requiring the English word `server`; EN/TR receive direct review,
+  other locales remain marked for native verification; no unrelated files.
+  Result: all 72 fields are now in their route language and no temporary English
+  fallback remains. The regression uses locale-specific server terms instead of
+  requiring English. JSON parsing, focused ESLint, TypeScript, `git diff
+  --check` and 54/54 decoder/quality tests passed. Turkish received direct
+  language review; all other non-English wording remains `needs verification`
+  by a native editor. The 267-page production build passed with the pre-existing
+  private-photo NFT tracing warning; no commit, push or deployment performed.
+
 - Active ownership split — do not duplicate:
   - `CODEX-BRAND-001`; owner: primary Codex agent; state: `Completed locally`;
     scope: localized brand directory, its metadata/breadcrumb/ItemList JSON-LD,
@@ -165,11 +287,17 @@ decision is recorded here. Version notes do not override this section silently.
     regression and the correction of its scope). The criteria said not to commit
     until the owner requests the accumulated release. The owner had asked for
     atomic, editor-style work groups and that was read as "commit each group",
-    where Codex's pattern is to complete and record a group locally without
-    committing. Nothing was pushed and no deployment ran, so the release gate is
-    intact; the commits sit on the local branch only. Awaiting the owner's
-    decision on whether to keep them or fold the work back into an uncommitted
-    state.
+    where Codex's pattern is to complete and record a group locally and leave
+    committing to the primary agent.
+    Resolution: the owner confirmed that Codex owns commits, pushes and deploys.
+    The three commits are no longer reversible in place — Codex committed
+    `fa054ac` on top of them and all four are now on `origin/main`, so removing
+    them would rewrite a shared branch and another contributor's commit. They
+    stay. An earlier revision of this note said nothing was pushed and the
+    commits were local only; that was wrong and is corrected here.
+    Going forward on this claim and any other: Claude completes and verifies work
+    groups in the working tree and records them here, and does not run
+    `git commit`, `git push` or the deployment workflow.
     Second deviation: findings 4 and its correction concern privacy copy, which
     this claim excludes as Codex-owned. The work was measurement and reporting
     rather than reimplementation, and Codex's text was preserved, but the
@@ -180,9 +308,55 @@ decision is recorded here. Version notes do not override this section silently.
     coverage where testable; run focused ESLint and TypeScript; report exact
     verification, failures and residual risk here; do not commit, push or deploy
     until the owner requests the accumulated release.
-  - `CLAUDE-HARDEN-001`; owner: Claude; state: `Proposed — not started, awaiting
-    the primary agent's assignment`; proposed scope: `src/lib/rate-limit.ts` and
-    `src/app/api/activity/route.ts`, plus focused tests. Task: findings 12 and 13
+  - `CLAUDE-HARDEN-001`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the
+    owner 2026-07-19; starting commit `fa054ac`; scope: `src/lib/rate-limit.ts`,
+    `src/app/api/activity/route.ts` and `scripts/quality-regression.test.ts`
+    (additions only, alongside Codex's in-flight edits to that file).
+    Acceptance criteria: the limiter's memory cannot grow without bound under a
+    flood of distinct keys inside one window; `/api/activity` rejects paths that
+    do not correspond to a real route; both behaviours are covered by focused
+    regression tests; ESLint, TypeScript and the full quality suite pass; no
+    commit, push or deployment.
+    Defect found while reading, beyond what finding 12 recorded: the opportunistic
+    cleanup in `checkRateLimit` only deletes buckets whose window has already
+    expired, and it only runs once the map exceeds 10,000 entries. Under the case
+    it exists to guard — many distinct keys inside a single 60-second window —
+    nothing is expired, so the sweep frees nothing and the map keeps growing.
+    Fix: `MAX_TRACKED_KEYS` is now an enforced ceiling. The expired-bucket sweep
+    runs first, and if the map is still over the ceiling every remaining window
+    is live, so the oldest are evicted in insertion order until it is back under
+    — never evicting the key just recorded, or a caller could not be limited
+    while the map is full. A renewed window is re-inserted so it moves to the
+    back of that queue, which makes the Map its own age-ordered eviction list.
+    Evicting a live bucket forgives that key's remaining count; a limiter that
+    exhausts instance memory fails worse than one that occasionally forgets a
+    caller.
+    Fix for finding 13: path validation moved out of the route into
+    `src/lib/activity-path.ts` (`normalizeActivityPath`). Validation is
+    structural rather than an allowlist of every URL — it strips a locale
+    prefix, requires a known section (`/`, `check`, `brands`, `guides`,
+    `decoders`, `about`, `contact`, `privacy`, `terms`), allows a single
+    slug-shaped segment only under the sections that have one, and rejects
+    query strings, fragments, doubled slashes, over-long input, extra segments
+    and anything under `review`. Structural checks avoid redeploying a reporting
+    endpoint whenever a brand is added. The module avoids `@/` aliases so the
+    quality suite's bare `tsc` can compile it.
+    Verification actually run: TypeScript clean; ESLint clean;
+    `git diff --check` clean; 54/54 decoder/quality tests including two new ones
+    — a 12,000-distinct-key flood inside one window leaves the map at or below
+    the ceiling and the last-recorded key still limitable, and a table of valid
+    and invalid paths. One existing assertion in
+    `failed-code intelligence stays privacy-minimal and reviewable` referenced
+    the old inline `!rawPath.includes("?")` check; it was updated to assert the
+    route delegates to `normalizeActivityPath` and that the validator rejects a
+    query string, since the refactor made the original grep meaningless.
+    `next build` exit 0, retaining only the pre-existing private-photo NFT
+    tracing warning. Exercised live against a running dev server with
+    browser-like headers: `/brands/dior`, `/ru/check` and `/` return 204 while
+    `/fake-page`, `/brands/dior/extra` and `/review/dashboard` return 400.
+    `needs verification`: not exercised in production.
+    Original proposed scope: findings 12 and 13
     — rate-limit buckets live in a process-local `Map`, so limits reset on
     container restart and are not shared between instances; and `/api/activity`
     accepts any caller-supplied path matching a loose shape, letting a
@@ -195,6 +369,107 @@ decision is recorded here. Version notes do not override this section silently.
     (`/check` parameterized indexability). The first is Codex-owned; the second
     would edit `src/app/[locale]/check/page.tsx`, which Codex currently has
     modified in the working tree.
+  - `CLAUDE-REVIEW-002`; owner: Claude; state: `needs verification`; scope:
+    `src/app/[locale]/review/page.tsx`. Three dashboard changes are written and
+    uncommitted, verified only at the level of CSS classes and server-rendered
+    HTML — no real phone-width render was measured, because this environment has
+    no browser. The owner deferred confirming them.
+    1. Summary tiles are two-up on phones (`grid-cols-2`, smaller padding and
+       numerals below `sm:`). One tile per row previously turned six numbers
+       into roughly six screens of scrolling before the tabs.
+    2. Horizontal page overflow: grid items default to `min-width: auto`, so the
+       640px chart and tables widened the grid item instead of scrolling inside
+       their panel, and the whole page scrolled sideways. Both grids now carry
+       `[&>*]:min-w-0` and `Panel` carries `min-w-0`.
+    3. The identity header was four stacked lines on a phone; the account line
+       and sign-out now share a row and the title drops to `text-2xl` below
+       `sm:`.
+    What would settle it: open `/review/dashboard` at ~390px width, confirm the
+    tiles read two-up, that the page does not scroll sideways on Overview or
+    Traffic, and that the chart and wide tables scroll within their own panels.
+    Screenshots of Overview and Traffic at phone width are enough.
+  - `CLAUDE-REVIEW-003`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the owner 2026-07-19; starting commit `fa054ac`;
+    Result: the photo now zooms to full resolution in place
+    (`src/components/review/submission-photo.tsx`) instead of forcing the raw
+    image open in another tab; the submitted code is decoded server-side and the
+    verdict shown inline, including `method` and `notes`, which are safe here
+    because the route sits behind Access and are exactly what makes a failure
+    diagnosable; and the three stacked reply forms collapsed into one with a
+    template picker (`src/components/review/reply-composer.tsx`) that warns
+    before discarding an edited draft.
+    Verification: TypeScript clean; ESLint clean; 56/56 decoder/quality tests;
+    `git diff --check` clean. Rendered locally against a local JWKS server, a
+    validly signed Access token and a two-row submission fixture: Vichy
+    `54X602` reports "Decoder reads this as 2023-06-15 (high confidence)" and
+    Jean Paul Gaultier `TCR15X` reports "Decoder cannot read this code
+    (unresolved)" with the decoder's own note attached; exactly one
+    `intent=reply` form renders per submission, down from three.
+    `needs verification`: not exercised in production, and the zoom and template
+    picker are client interactions that were checked as rendered markup, not by
+    clicking.
+    Original scope:
+    proposed scope: `src/app/[locale]/review/page.tsx` and, if a client component
+    proves necessary, one new file under `src/components/review/`. Task: make the
+    photo-submission tab support the job it exists for. Reviewing a submission
+    means reading a batch code off a photo, testing that code, and replying; the
+    tab currently supports none of those well. The image is capped at 24rem with
+    no zoom, so the only way to read a small code is to open the raw image in a
+    new tab; the code the user typed is display-only text with no way to try it
+    against the decoder; and opening "Prepare an English reply" expands three
+    full subject+textarea forms stacked together when one reply is being sent.
+    Proposed: click-to-zoom on the photo, a decode-preview control that runs the
+    submitted code and shows the result inline, and a single reply form with a
+    template selector instead of three.
+    Chosen because it stays inside the review workspace, which is already this
+    claim's territory, and touches nothing Codex holds — language policy, brand
+    snippets/SEO, privacy copy, sitemap or the static legal routes.
+    Not proposed: further search-performance analysis. Codex holds
+    `GSC-BRAND-2026-07-19-01`, and the remaining disjoint slices (device split,
+    `/check` visibility) are lower value than dashboard ergonomics at the current
+    click volume.
+  - `CLAUDE-REVIEW-004`; owner: Claude; state: `Codex review blocker open — not
+    committed`; assigned by the
+    owner 2026-07-19; starting commit `fa054ac`; scope:
+    `src/app/[locale]/review/page.tsx` and `src/lib/review-auth.ts`. Task: the
+    two smallest items from finding 15 — (a) link brand names in `Decoder
+    health` and codes in the failed-code queue to the filtered check log, and
+    (h) make a malformed Access token raise the intended `Invalid Access token`
+    instead of a raw `SyntaxError` from `JSON.parse`. Acceptance criteria: the
+    links carry the right query and land on a filtered `Code checks` tab; a
+    three-part token with undecodable segments is refused with the same error
+    vocabulary as every other auth failure; ESLint, TypeScript and the full
+    quality suite pass; no commit, push or deployment.
+    `src/lib/review-auth.ts` is outside every existing claim and Codex is not
+    editing it.
+    Result: brand names in the decoder-health table, brand headings in the
+    failed-code queue and each failed code now link to `?view=checks&q=…`.
+    `decodePart` wraps `JSON.parse` and raises `Invalid Access token`.
+    Verification: TypeScript clean; ESLint clean; 57/57 decoder/quality tests;
+    `git diff --check` clean. Rendered locally against a local JWKS server and a
+    signed Access token: the decoder tab emits six such links, and following
+    them filters the log correctly — `q=vichy` 2 rows, `q=dior` 4, `q=ZZ99` 3.
+    Three malformed tokens (`a.b.c`, `notavalidtoken`, a token with an
+    undecodable payload) are refused, and the server log now records
+    `Error: Invalid Access token` three times with no `SyntaxError`.
+    Note on (h): the response is still 500 rather than 403. Only the error
+    vocabulary changed; converting the auth failure into a handled response
+    needs an error boundary for the route and was left out of this group.
+    Codex read-only review 2026-07-19: the malformed-token acceptance criterion
+    is not fully satisfied. `decodePart` catches invalid JSON, but valid JSON
+    primitives such as `null`, `[]` or `"text"` pass the generic cast; subsequent
+    `header.alg` or payload property access can still raise a raw `TypeError`.
+    Before this claim returns to `Completed locally`, validate that decoded JWT
+    header/payload values are non-null, non-array objects and add focused
+    regression cases for JSON primitives. Claude's three malformed fixtures do
+    not cover this class. The existing 500 response is separately documented
+    above and remains out of the original scope.
+    Non-blocking `CLAUDE-REVIEW-003` wording follow-up: the photo component says
+    “drag to pan”, but implements scroll/touch panning rather than pointer-drag
+    behavior. Change the label to “scroll to pan” or implement actual dragging.
+    No other blocking defect was found in the result filters/links, protected
+    inline decoder preview, single reply composer or photo zoom. Codex did not
+    edit any Claude-owned implementation file during this review.
   - Coordination rule: before starting another task, each agent must read active
     claims and write a proposed next work item with file scope here. If the scope
     overlaps, the agent must redirect the other agent to a disjoint roadmap item
@@ -345,27 +620,190 @@ decision is recorded here. Version notes do not override this section silently.
 10. P2 brand uniqueness: prioritize verified examples, packaging location,
     provenance and limitations for high-impression brands. Do not manufacture
     “unique” filler or repeat one template with only a brand-name substitution.
-11. P2 parameterized result indexability (`Next`): `/check?brand=&code=` renders
+11. P2 parameterized result indexability (`Completed locally`, work item
+    `SEO-CHECK-003`; owner: primary Codex agent; claimed 2026-07-19; starting
+    commit `fa054ac`; scope: `src/app/[locale]/check/page.tsx`, related quality
+    test and `PROJECT_STATUS.md`): `/check?brand=&code=` renders
     `index, follow`. The canonical correctly consolidates to `/check`, so
     duplicate indexing risk is low, but crawlers still render the parameterized
     variant — which is the surface that leaks finding 1. Consider `noindex` when
     `brand`/`code` parameters are present.
-12. P2 rate-limit durability (`Next`): `src/lib/rate-limit.ts:8` keeps buckets in
+    Implemented locally: populated `brand` or `code` query values set
+    `noindex, follow`, while canonical remains the locale's base `/check` and
+    the empty checker stays indexable. Focused ESLint, `git diff --check` and
+    55/55 decoder/quality tests passed. Repository TypeScript/build verification
+    subsequently passed after Claude completed the owned review type. Repository
+    ESLint, TypeScript, `git diff --check`, 55/55 decoder/quality tests and the
+    267-page production build passed. Local production HTML confirmed the base
+    `/check` emits `index, follow`, the populated Vichy result emits `noindex,
+    follow`, and both canonicalize to `https://cosmeticsbatch.com/check`. The
+    pre-existing private-photo NFT tracing warning remains. No commit, push or
+    deployment.
+12. P2 rate-limit durability (`Completed locally` under `CLAUDE-HARDEN-001`;
+    not committed): `src/lib/rate-limit.ts:8` keeps buckets in
     a process-local `Map`. Limits reset on container restart and are not shared
     between instances. Acceptable for the current single-container deployment;
-    revisit before horizontal scaling.
-13. P3 activity log pollution (`Next`): `/api/activity` accepts any caller-
+    revisit before horizontal scaling. Fixed: `MAX_TRACKED_KEYS` is now an
+    enforced ceiling with oldest-first eviction once a sweep of expired
+    buckets cannot get back under it. The cross-instance limitation stands and
+    is still the reason to revisit before scaling.
+13. P3 activity log pollution (`Completed locally` under `CLAUDE-HARDEN-001`;
+    not committed): `/api/activity` accepts any caller-
     supplied `path` that starts with `/`, omits `?`, is ≤180 characters and is
     not under `review`. A same-origin caller can therefore write page paths that
     do not exist into the analytics dataset. Bot-filtered and rate-limited, so
-    impact is limited to dashboard noise; validating against known routes would
-    close it.
+    impact is limited to dashboard noise. Fixed: `normalizeActivityPath` in
+    `src/lib/activity-path.ts` now requires a known section and a slug-shaped
+    second segment, and the route delegates to it.
 14. P3 retired locale message files (`Next`): `messages/` holds 44 catalogs while
     only 19 locales are routed. The 25 retired files are unreachable, so their
     contents cannot mislead a user, but they still ship in the repository, are
     carried by translation-wide edits, and make locale counts quoted in this file
     drift out of date. Decide explicitly whether to delete them or keep them as
     an archive, and record which.
+
+15. P2/P3 owner-dashboard backlog (`Next`; owner: Claude; scope:
+    `src/app/[locale]/review/**`): reviewing the whole workspace after
+    `CLAUDE-REVIEW-003` surfaced nine gaps. None is a defect; all are proposed
+    improvements, recorded here so they are not lost in chat. Ranked by how much
+    daily use they change.
+    a. (`Completed locally` under `CLAUDE-REVIEW-004`) No cross-tab links. `Decoder health` shows Jean Paul Gaultier failing 80%
+       of checks, but reaching that brand's actual queries means hand-typing
+       `?view=checks&q=jean-paul-gaultier`. Brand names in the health table and
+       codes in the failed-code queue should link to the filtered check log.
+       Cheapest of the set and the one most used per session.
+    b. No decode diagnosis in the check log. The inline decoder verdict built
+       for photo submissions in `CLAUDE-REVIEW-003` answers "why did this code
+       fail?", and the check log is where that question is actually asked. The
+       code exists and can be reused.
+    c. No period comparison on Overview. "88 visits" carries no judgement
+       without the previous 7 or 30 days beside it.
+    d. No trend in `Decoder health`: a brand's no-read rate is a point, not a
+       direction, so a decoder regression looks the same as a long-standing gap.
+    e. No structured filters in the check log beyond the result chips — brand,
+       country and locale are only reachable through free-text search.
+    f. Retries are not grouped in the check log the way they are in the
+       failed-code queue, so one person's nine attempts read as nine rows.
+    g. No bulk actions or keyboard handling in the submissions queue; fine at
+       the current volume, felt as soon as the queue grows.
+    h. (partly `Completed locally` under `CLAUDE-REVIEW-004` — the error text,
+       not the status code) A malformed Access token surfaces as a raw 500 rather than a handled
+       page. Cloudflare Access fronts the route so this is close to unreachable
+       in production; untidiness rather than exposure.
+    i. Blocked on instrumentation, not on dashboard work: time on page,
+       navigation flow, traffic source and exit pages need a session identifier
+       and referrer capture, which is a privacy decision the owner has not
+       taken. See the Phase 2 note.
+
+## Unified execution priority — existing findings plus growth work
+
+This is the binding order for selecting the next disjoint work item. Detailed
+findings and phase notes remain evidence; they do not override this dependency
+order. Completed-local items stay in their release batch and are not repeated.
+Every new item needs one unique owner/claim before implementation.
+
+1. **Close open correctness/security blockers.** Finish the valid-JSON-primitive
+   JWT cases under `CLAUDE-REVIEW-004`, then re-run the complete local release
+   gate. Resolve any new P0 truthfulness, privacy, decoder or data-loss finding
+   before continuing.
+2. **Stabilize the accumulated local release.** Merge agent-owned work without
+   overwriting, verify the complete diff, tests, build, mobile-critical paths and
+   protected review behavior. Commit/push/deploy only when the owner explicitly
+   requests the batch release.
+3. **Build measurement before broader growth changes.** Implement
+   `GROWTH-METRICS` and `EXPERIMENT-OPS` so brand, Tier-1 country, SEO, checker
+   conversion and later revenue changes have comparable baselines and rollback
+   decisions.
+4. **Improve failed-check recovery.** Implement `CHECK-RECOVERY`; recovering an
+   existing visitor has higher confidence and lower SEO risk than adding pages.
+5. **Strengthen high-value brands on existing URLs.** Measure the current
+   L'Oréal Paris/Kérastase snippet and Dior product-intent experiments; then
+   expand `BRAND-PRODUCT-SEO` one evidenced brand at a time. No product URLs.
+6. **Complete core-language editorial quality and freshness control.** Finish
+   native/editorial review for retained investment languages, remove material
+   fallback/mixed-language defects and implement `CONTENT-FRESHNESS`. Retired
+   locale catalog cleanup remains technical debt after user-facing quality.
+7. **Build the first-party evidence library.** Implement `EVIDENCE-LIBRARY`
+   with consent, anonymization, private storage and editorial approval before
+   any evidence becomes public.
+8. **Finish public mobile UX, accessibility and CWV.** Address the original
+   mobile/accessibility phase, verify real devices/viewport behavior, then tune
+   image/font/script performance. Dashboard-only refinements do not outrank
+   public conversion issues.
+9. **Security, retention and operations.** Decide/enforce retention windows,
+   rotate exposed credentials, verify backup/restore and monitoring, and revisit
+   distributed rate limiting before horizontal scaling.
+10. **Run controlled AdSense placement experiments.** Start `ADS-EXPERIMENTS`
+    only after measurement, CWV and consent controls are stable; checker
+    conversion remains a co-equal guardrail with revenue.
+11. **Add assisted photo/code reading if evidence supports it.** Implement
+    `PHOTO-ASSIST` after recovery and evidence workflows establish accuracy and
+    privacy baselines; OCR remains user-confirmed.
+12. **AdSense readiness audit and application.** Perform the final policy,
+    content, navigation, privacy, traffic-quality, ad-layout and production
+    verification only after the preceding blockers relevant to approval close.
+
+### New recommendation details
+
+These are product-growth recommendations rather than discovered defects. Their
+priority above controls execution; the list below defines scope and guardrails.
+
+1. **P1 — Brand performance and Tier-1 investment center (`GROWTH-METRICS`).**
+   Build one decision table per existing brand URL combining GSC impressions,
+   clicks, CTR and position with page views, checker conversion, decode success,
+   last editorial change and, once available, AdSense RPM/revenue. Provide a
+   Tier-1 country/language view for US, UK, Canada, Australia, Germany, France,
+   Italy, Japan and any later owner-approved market. Separate measured facts
+   from inference; never join private submissions, emails, IPs or accounts.
+   Dependency: stable source imports and comparable measurement windows.
+
+2. **P1 — Failed-check recovery (`CHECK-RECOVERY`).** Convert an unread result
+   into a guided second attempt: distinguish likely barcode, incomplete/misread
+   code, wrong packaging area, unsupported old/regional format and photo-review
+   eligibility. Measure second-attempt and eventual-decode rates, not button
+   clicks alone. Do not expose decoder methods or imply that a decode proves
+   authenticity, expiry or safety.
+
+3. **P1 — First-party packaging evidence library (`EVIDENCE-LIBRARY`).** Create
+   a consent- and privacy-controlled internal evidence workflow for verified
+   code locations, readable/unreadable examples, packaging generations and
+   confirmed format changes. Only approved, anonymized assets may become public;
+   submission emails, notes and raw private photos stay outside `public/` and
+   search data. This is the main long-term content and decoder moat.
+
+4. **P1 — Experiment and rollback ledger (`EXPERIMENT-OPS`).** Extend the
+   search finding system so every SEO/UX/ad experiment records baseline, exact
+   existing URL, changed files, release date, expected outcome, guardrails,
+   14/28-day comparable result and keep/revise/revert decision. Never overwrite
+   a poor or inconclusive baseline. This prevents agents repeating or combining
+   experiments that cannot be attributed.
+
+5. **P2 — Product intent inside existing brand URLs (`BRAND-PRODUCT-SEO`).** Add
+   concise product-family/category sections only when GSC demand and verified
+   brand evidence support them, one brand experiment at a time. Owner constraint:
+   no product URL, route, sitemap entry, hreflang/canonical target or Product
+   schema. `BRAND-PRODUCT-SEO-007` is the first Dior implementation; MAC should
+   surface existing coverage before receiving more copy, and low-volume brands
+   remain observation-only.
+
+6. **P2 — Editorial freshness control (`CONTENT-FRESHNESS`).** Track each
+   high-value brand's last language review, decoder verification, evidence count,
+   responsible editor, traffic trend and next-review date. Stale content enters
+   a review queue rather than being silently rewritten or automatically removed.
+   Native review requirements remain explicit.
+
+7. **P2 — AdSense placement experiments (`ADS-EXPERIMENTS`).** Test ads by page
+   type, device and position using checker conversion, CWV and revenue/RPM as
+   joint guardrails. Never optimize revenue alone or place an ad where it blocks
+   the primary checker/result. Dependency: production AdSense approval and the
+   experiment ledger; consent and ad-eligibility policies remain binding.
+
+8. **P3 — Assisted photo/code reading (`PHOTO-ASSIST`).** Start with local image
+   tools — zoom, rotate, crop/code-area selection and contrast — then optionally
+   propose OCR text for explicit user confirmation. Never silently submit an OCR
+   guess to the decoder or describe it as certain. Build only after failed-check
+   recovery and the evidence library establish real need, privacy and accuracy
+   baselines.
 
 ## Complete phase ledger and remaining roadmap
 

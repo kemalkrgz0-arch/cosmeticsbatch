@@ -1,0 +1,49 @@
+{
+  "source_id": "GSC-2026-07-19-01",
+  "raw_filename": "GSC-2026-07-19-01.xlsx",
+  "sha256": "d9c4b00b597254742bfbd4aff1aeada2013bffb2979b418563bca1262904ebbf",
+  "sheets": [
+    {
+      "sheet": "Grafik",
+      "file": "Grafik.tsv",
+      "rows_including_header": 16,
+      "columns": 5
+    },
+    {
+      "sheet": "Sorgular",
+      "file": "Sorgular.tsv",
+      "rows_including_header": 597,
+      "columns": 5
+    },
+    {
+      "sheet": "Sayfa sayısı",
+      "file": "Sayfa-sayısı.tsv",
+      "rows_including_header": 422,
+      "columns": 5
+    },
+    {
+      "sheet": "Ülkeler",
+      "file": "Ülkeler.tsv",
+      "rows_including_header": 123,
+      "columns": 5
+    },
+    {
+      "sheet": "Cihazlar",
+      "file": "Cihazlar.tsv",
+      "rows_including_header": 4,
+      "columns": 5
+    },
+    {
+      "sheet": "Arama görünümü",
+      "file": "Arama-görünümü.tsv",
+      "rows_including_header": 1,
+      "columns": 5
+    },
+    {
+      "sheet": "Filtreler",
+      "file": "Filtreler.tsv",
+      "rows_including_header": 3,
+      "columns": 2
+    }
+  ]
+}

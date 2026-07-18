@@ -18,16 +18,22 @@ import { pageMeta } from "@/lib/seo";
 // the checker indexable without creating one search document per entered code.
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ brand?: string; code?: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const query = await searchParams;
   const t = await getTranslations({ locale, namespace: "checkPage" });
   return pageMeta({
     title: t("metaTitle"),
     description: t("metaDescription"),
     path: "/check",
     locale,
+    // Submitted codes can be sensitive and create an unbounded URL space.
+    // Keep the tool indexable, but never index a populated result URL.
+    indexable: !(query.brand || query.code),
     // The title is the search term itself ("Проверить батч код"); the layout's
     // site-name suffix would only crowd it out of the 60-character cut.
     standaloneTitle: true,

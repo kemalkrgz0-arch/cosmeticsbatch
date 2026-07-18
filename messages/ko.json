@@ -125,7 +125,7 @@
     "q_accuracy": "이 {name} 배치 코드 해독기는 얼마나 정확한가요?",
     "a_accuracy": "{decoder}를 사용해 제조일을 읽습니다. {group} 이 알려진 코드 체계를 공개하는 경우 결과는 월 또는 일 단위로 정확합니다. 브랜드가 공개 체계를 확인하지 않는 경우 최선의 추정 판독입니다. 날짜는 제조일이며 보장된 유통기한이 아닙니다. 유통기한 수치는 일반적인 업계 평균입니다.",
     "q_free": "{name} 배치 코드 확인기는 무료인가요?",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
+    "a_free": "네. {name} 배치 코드 확인은 무료이며 가입할 필요가 없습니다. 요청은 서버에서 안전하게 처리되며 IP 주소는 품질 데이터세트에 저장되지 않습니다.",
     "decoderKnown": "제조사별 코드 체계",
     "decoderAuto": "자동 날짜 감지"
   },
@@ -133,7 +133,7 @@
     "q1": "배치 코드란 무엇인가요?",
     "a1": "배치 코드는 제조 로트를 식별하기 위해 화장품 및 향수 포장에 인쇄된 짧은 코드입니다. 해독하면 제품이 언제 제조되었는지 알 수 있습니다.",
     "q2": "이 배치 코드 확인기는 무료인가요?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "네. Cosmetics Batch는 무료이고 계정이 필요 없으며 코드를 서버에서 안전하게 처리합니다.",
     "q3": "결과는 얼마나 정확한가요?",
     "a3": "가능한 경우 제조사별 알고리즘을 사용하고 그 외에는 정직한 신뢰 수준을 제공합니다. 유통기한 추정치는 일반적인 값이며 안전을 보장하지 않습니다.",
     "q4": "배치 코드는 어디서 찾을 수 있나요?",
@@ -149,7 +149,7 @@
     "q9": "왜 내 배치 코드가 해독되지 않나요?",
     "a9": "일부 브랜드는 시간이 지나면서 코딩을 변경하거나, 지역별 형식을 사용하거나, 날짜를 공개적으로 부호화하지 않습니다. 각인된 배치 코드(바코드가 아님)를 입력했는지 다시 확인하거나, 하위 브랜드 대신 모회사를 선택해 보세요.",
     "q10": "제 배치 코드나 개인 데이터를 저장하나요?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "계정은 필요 없으며 IP 주소는 배치 코드 품질 데이터세트에 저장되지 않습니다. 정확도 개선을 위해 코드, 브랜드, 결과, 언어, 시간 및 국가 수준 코드를 보관할 수 있습니다. 자세한 내용은 개인정보 처리방침을 확인하세요."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -209,7 +209,7 @@
     "fastTitle": "빠르고 쉬움",
     "fastBody": "단 몇 초 만에 결과 확인 — 가입 불필요.",
     "privateTitle": "비공개 및 안전",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "개인정보 처리방침에서 처리·기록·보호되는 정보를 설명합니다.",
     "freeTitle": "항상 무료",
     "freeBody": "모든 기능이 100% 무료, 영원히."
   },

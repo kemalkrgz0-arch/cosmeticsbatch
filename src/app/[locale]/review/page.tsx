@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Activity, AlertTriangle, Download, Eye, Inbox, LogIn, Search, Users } from "lucide-react";
 import { getBrand } from "@/lib/brands";
-import { canonicalCode } from "@/lib/decoder";
+import { canonicalCode, checkBatchCode } from "@/lib/decoder";
+import { ReplyComposer } from "@/components/review/reply-composer";
+import { SubmissionPhoto } from "@/components/review/submission-photo";
 import { readChecksSince, readRecentActivity, readRecentFailedCodes } from "@/lib/dataset";
 import { requireReviewer } from "@/lib/review-auth";
 import { REPLY_TEMPLATES } from "@/lib/reviewer-reply";
@@ -82,7 +84,7 @@ function href(view: View, extra: Record<string, string> = {}) {
 
 function Panel({ title, hint, children }: { title: string; hint?: string; children: React.ReactNode }) {
   return (
-    <section className="overflow-hidden rounded-2xl border bg-card shadow-sm">
+    <section className="min-w-0 overflow-hidden rounded-2xl border bg-card shadow-sm">
       <div className="border-b p-5">
         <h2 className="text-lg font-bold">{title}</h2>
         {hint && <p className="mt-1 text-sm text-fg-muted">{hint}</p>}
@@ -109,7 +111,7 @@ function BarList({ rows, empty, format }: { rows: PathStat[]; empty: string; for
   );
 }
 
-export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; q?: string; updated?: string; error?: string }> }) {
+export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; q?: string; result?: string; updated?: string; error?: string }> }) {
   const reviewer = await requireReviewer();
   const query = await searchParams;
   const requested = query.view ? (LEGACY_VIEWS[query.view] ?? query.view) : "overview";
@@ -150,8 +152,34 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const health = decoderHealth(checks, failedCodes.filter((row) => row.ts >= windowReport));
   const years = manufactureYears(checks);
 
-  const matchedChecks = checks.filter((item) => !search || [item.brand, item.code, item.locale, item.country, item.mfg].some((value) => value?.toLowerCase().includes(search)));
+  // Result filter, composed with the text search rather than replacing it.
+  // "Unread" is the one that earns its place: those rows are the decoder gaps.
+  const RESULTS = ["all", "unread", "read", "low"] as const;
+  type ResultFilter = (typeof RESULTS)[number];
+  const resultFilter: ResultFilter = RESULTS.includes(query.result as ResultFilter)
+    ? (query.result as ResultFilter)
+    : "all";
+  const matchesResult = (item: (typeof checks)[number]) =>
+    resultFilter === "all"
+      || (resultFilter === "unread" && !item.mfg)
+      || (resultFilter === "read" && Boolean(item.mfg))
+      || (resultFilter === "low" && (item.confidence === "low" || item.confidence === "none"));
+  const matchedChecks = checks
+    .filter(matchesResult)
+    .filter((item) => !search || [item.brand, item.code, item.locale, item.country, item.mfg].some((value) => value?.toLowerCase().includes(search)));
   const shownChecks = matchedChecks.slice(0, 500);
+  const resultCounts: Record<ResultFilter, number> = {
+    all: checks.length,
+    unread: checks.filter((item) => !item.mfg).length,
+    read: checks.filter((item) => item.mfg).length,
+    low: checks.filter((item) => item.confidence === "low" || item.confidence === "none").length,
+  };
+  const resultLabels: Record<ResultFilter, string> = {
+    all: "All",
+    unread: "Not decoded",
+    read: "Decoded",
+    low: "Low confidence",
+  };
 
   const failedFiltered = failedCodes.filter((item) => !search || [item.brand, item.code, item.reason, item.locale, item.country].some((value) => value?.toLowerCase().includes(search)));
   // Group on the code as the decoder reads it, not the raw string or failure
@@ -172,6 +200,27 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   }, new Map<string, Map<string, FailedRow>>()).entries()).sort(([a], [b]) => (getBrand(a)?.name ?? a).localeCompare(getBrand(b)?.name ?? b));
 
   const brandName = (slug: string) => getBrand(slug)?.name ?? slug;
+
+  /**
+   * What the decoder currently makes of a submitted code.
+   *
+   * The reviewer's first question is always "does this code read?", and until
+   * now answering it meant leaving the dashboard and retyping the code into the
+   * public site. Decoding here is safe in a way the public pages are not: this
+   * route is behind Access, so `method` and `notes` — the very fields the public
+   * result strips — are exactly what makes a failure diagnosable.
+   */
+  const previewDecode = (slug: string, code: string) => {
+    const brand = getBrand(slug);
+    if (!brand || !code.trim()) return null;
+    return checkBatchCode({
+      brandName: brand.name,
+      code,
+      decoderId: brand.decoderId,
+      shelfLifeMonths: brand.shelfLifeMonths,
+      category: brand.category,
+    });
+  };
   const maxSeries = Math.max(1, ...series.map((point) => Math.max(point.views, point.visits, point.checks)));
 
   // A div rather than a <main>: the root layout already supplies the page's
@@ -179,13 +228,15 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   return (
     <div className="min-h-screen bg-bg-subtle px-4 py-8 text-fg sm:px-6">
       <div className="site-frame !px-0">
-        <header className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm font-semibold text-accent">Private workspace</p>
-            <h1 className="text-3xl font-bold tracking-tight">Owner dashboard</h1>
-            <p className="mt-1 text-sm text-fg-muted">Signed in as {reviewer.email}</p>
+        {/* On a phone the identity block was four stacked lines before any data.
+            Title stays prominent; the account line and sign-out share a row. */}
+        <header className="mb-4 sm:mb-6">
+          <p className="text-xs font-semibold text-accent sm:text-sm">Private workspace</p>
+          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Owner dashboard</h1>
+          <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+            <p className="min-w-0 truncate text-xs text-fg-muted sm:text-sm">Signed in as {reviewer.email}</p>
+            <Link href="/cdn-cgi/access/logout" prefetch={false} className="shrink-0 text-xs font-medium text-fg-muted underline sm:text-sm">Sign out</Link>
           </div>
-          <Link href="/cdn-cgi/access/logout" prefetch={false} className="text-sm font-medium text-fg-muted underline">Sign out</Link>
         </header>
 
         {query.updated && <p role="status" className="mb-4 rounded-xl bg-success-bg p-3 text-sm text-success">Submission updated successfully.</p>}
@@ -201,7 +252,9 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
         {view === "overview" && (
           <>
-        <section aria-label="Last 7 days" className="mb-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        {/* Two-up on phones. One tile per row turned six numbers into six
+            screens of scrolling before the tabs and the actual reports. */}
+        <section aria-label="Last 7 days" className="mb-2 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-6">
           {[
             { label: "Visits", value: visits7d, icon: Users },
             { label: "Page views", value: views7d, icon: Eye },
@@ -210,12 +263,12 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             { label: "Read rate", value: readRate === null ? "—" : `${readRate}%`, icon: Activity },
             { label: "Failed codes", value: failed7d, icon: AlertTriangle },
           ].map(({ label, value, icon: Icon }) => (
-            <div key={label} className="rounded-2xl border bg-card p-4 shadow-sm">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-medium text-fg-muted">{label}</p>
-                <Icon aria-hidden="true" className="size-5 text-accent" />
+            <div key={label} className="rounded-xl border bg-card p-3 shadow-sm sm:rounded-2xl sm:p-4">
+              <div className="flex items-center justify-between gap-2">
+                <p className="text-xs font-medium text-fg-muted sm:text-sm">{label}</p>
+                <Icon aria-hidden="true" className="size-4 shrink-0 text-accent sm:size-5" />
               </div>
-              <p className="mt-2 text-3xl font-bold tabular-nums">{value}</p>
+              <p className="mt-1 text-2xl font-bold tabular-nums sm:mt-2 sm:text-3xl">{value}</p>
             </div>
           ))}
         </section>
@@ -239,6 +292,9 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             <form method="get" action="/review/dashboard" className="flex flex-1 gap-2">
               <input type="hidden" name="view" value={view} />
               {view === "submissions" && <input type="hidden" name="status" value={selectedStatus} />}
+              {/* Keep the active result filter when searching, or the search
+                  silently widens back to every check. */}
+              {view === "checks" && resultFilter !== "all" && <input type="hidden" name="result" value={resultFilter} />}
               <label className="relative flex-1">
                 <span className="sr-only">Search review data</span>
                 <Search aria-hidden="true" className="absolute left-3 top-3 size-5 text-fg-muted" />
@@ -264,7 +320,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
         )}
 
         {view === "overview" && (
-          <div className="grid gap-5 lg:grid-cols-2">
+          <div className="grid gap-5 lg:grid-cols-2 [&>*]:min-w-0">
             <div className="lg:col-span-2">
               <Panel title="Download everything" hint="One JSON file with every code check, failed code and activity event, for sharing the full picture in a single attachment. Photo submissions are excluded — they contain submitter email addresses and notes.">
                 <div className="flex flex-wrap items-center gap-3 p-5">
@@ -330,7 +386,20 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
         )}
 
         {view === "checks" && (
-          <Panel title="Code checks" hint={`Every code users typed, newest first. Showing ${shownChecks.length} of ${matchedChecks.length} ${search ? "matching" : "recent"} requests${matchedChecks.length > shownChecks.length ? " — refine the search to see the rest" : ""}. IP addresses and user emails are not logged.`}>
+          <>
+          <nav aria-label="Filter checks by result" className="mb-4 flex flex-wrap gap-2">
+            {RESULTS.map((key) => (
+              <Link
+                key={key}
+                href={href("checks", { ...(key === "all" ? {} : { result: key }), ...(query.q ? { q: query.q } : {}) })}
+                aria-current={resultFilter === key ? "true" : undefined}
+                className={`rounded-full border px-3 py-1.5 text-sm font-semibold ${resultFilter === key ? "border-accent bg-accent text-white" : "bg-card"}`}
+              >
+                {resultLabels[key]} ({resultCounts[key]})
+              </Link>
+            ))}
+          </nav>
+          <Panel title="Code checks" hint={`Every code users typed, newest first. Showing ${shownChecks.length} of ${matchedChecks.length} ${resultFilter === "all" && !search ? "recent" : "matching"} requests${matchedChecks.length > shownChecks.length ? " — narrow the filter or search to see the rest" : ""}. IP addresses and user emails are not logged.`}>
             {shownChecks.length === 0 ? <p className="p-8 text-center text-fg-muted">No check records are available.</p> : (
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[880px] text-left text-sm">
@@ -340,10 +409,11 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
               </div>
             )}
           </Panel>
+          </>
         )}
 
         {view === "traffic" && (
-          <div className="grid gap-5 lg:grid-cols-2">
+          <div className="grid gap-5 lg:grid-cols-2 [&>*]:min-w-0">
             <Panel title="Entry pages" hint="Every landing page in the window."><BarList rows={entryPages(activity, 25)} empty="No visits recorded." /></Panel>
             <Panel title="All pages by views"><BarList rows={topPages(activity, 25)} empty="No page views recorded." /></Panel>
             <Panel title="Locale" hint="From the page the visitor was on."><BarList rows={localeSplit(activity, 15)} empty="No activity recorded." /></Panel>
@@ -360,7 +430,13 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                   <tbody>
                     {health.filter((row) => row.checks > 0).slice(0, 40).map((row) => (
                       <tr key={row.slug} className="border-t">
-                        <td className="p-3 font-semibold">{brandName(row.slug)}</td>
+                        {/* Straight to this brand's own queries: reading a fail
+                            rate always leads to "which codes were those?". */}
+                        <td className="p-3 font-semibold">
+                          <Link href={href("checks", { q: row.slug })} className="underline decoration-dotted underline-offset-2">
+                            {brandName(row.slug)}
+                          </Link>
+                        </td>
                         <td className="p-3 font-mono text-xs text-fg-muted">{row.decoderId ?? "none"}</td>
                         <td className="p-3 tabular-nums">{row.checks}</td>
                         <td className="p-3 tabular-nums">{row.undecoded}</td>
@@ -389,14 +465,18 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                 <section key={brandSlug} className="overflow-hidden rounded-2xl border bg-card shadow-sm">
                   <div className="flex items-end justify-between border-b p-5">
                     <div>
-                      <h3 className="text-lg font-bold">{brandName(brandSlug)}</h3>
+                      <h3 className="text-lg font-bold">
+                        <Link href={href("checks", { q: brandSlug })} className="underline decoration-dotted underline-offset-2">
+                          {brandName(brandSlug)}
+                        </Link>
+                      </h3>
                       <p className="mt-1 text-sm text-fg-muted">{rows.size} distinct codes · {Array.from(rows.values()).reduce((sum, row) => sum + row.count, 0)} attempts</p>
                     </div>
                   </div>
                   <div className="overflow-x-auto">
                     <table className="w-full min-w-[760px] text-left text-sm">
                       <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Code</th><th className="p-3">Types</th><th className="p-3">Attempts</th><th className="p-3">Spellings tried</th><th className="p-3">Latest</th><th className="p-3">Locales</th><th className="p-3">Countries</th></tr></thead>
-                      <tbody>{Array.from(rows.values()).sort((a, b) => b.count - a.count || b.latest.localeCompare(a.latest)).map((row) => <tr key={canonicalCode(row.code)} className="border-t"><td className="p-3 font-mono font-semibold">{row.code}</td><td className="p-3"><div className="flex flex-wrap gap-1">{Array.from(row.reasons).sort(([a], [b]) => a.localeCompare(b)).map(([reason, count]) => <span key={reason} className="rounded-full bg-warning-bg px-2.5 py-1 text-xs font-semibold text-warning">{reason} ({count})</span>)}</div></td><td className="p-3 font-bold tabular-nums">{row.count}</td><td className="p-3">{row.variants.size > 1 ? <span title={Array.from(row.variants).join(" · ")} className="font-mono text-xs">{row.variants.size} variants</span> : <span className="text-fg-muted">—</span>}</td><td className="whitespace-nowrap p-3">{new Date(row.latest).toLocaleString("en-GB", { timeZone: "Europe/Istanbul" })}</td><td className="p-3">{Array.from(row.locales).join(", ") || "—"}</td><td className="p-3">{Array.from(row.countries).join(", ") || "—"}</td></tr>)}</tbody>
+                      <tbody>{Array.from(rows.values()).sort((a, b) => b.count - a.count || b.latest.localeCompare(a.latest)).map((row) => <tr key={canonicalCode(row.code)} className="border-t"><td className="p-3 font-mono font-semibold"><Link href={href("checks", { q: row.code })} className="underline decoration-dotted underline-offset-2">{row.code}</Link></td><td className="p-3"><div className="flex flex-wrap gap-1">{Array.from(row.reasons).sort(([a], [b]) => a.localeCompare(b)).map(([reason, count]) => <span key={reason} className="rounded-full bg-warning-bg px-2.5 py-1 text-xs font-semibold text-warning">{reason} ({count})</span>)}</div></td><td className="p-3 font-bold tabular-nums">{row.count}</td><td className="p-3">{row.variants.size > 1 ? <span title={Array.from(row.variants).join(" · ")} className="font-mono text-xs">{row.variants.size} variants</span> : <span className="text-fg-muted">—</span>}</td><td className="whitespace-nowrap p-3">{new Date(row.latest).toLocaleString("en-GB", { timeZone: "Europe/Istanbul" })}</td><td className="p-3">{Array.from(row.locales).join(", ") || "—"}</td><td className="p-3">{Array.from(row.countries).join(", ") || "—"}</td></tr>)}</tbody>
                     </table>
                   </div>
                 </section>
@@ -427,11 +507,15 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                   return (
                     <article key={submission.id} className="overflow-hidden rounded-2xl border bg-card shadow-sm">
                       <div className="grid gap-0 lg:grid-cols-[minmax(280px,0.8fr)_1.2fr]">
-                        <div className="grid min-h-72 gap-2 bg-black/5 p-3">
-                          {(submission.files?.length ? submission.files : [submission.file]).map((_, index) => <a key={index} href={`/review/api/images/${encodeURIComponent(submission.id)}?index=${index}`} target="_blank" rel="noreferrer" className="flex items-center justify-center">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={`/review/api/images/${encodeURIComponent(submission.id)}?index=${index}`} alt={`Submitted batch code photo ${index + 1} for ${brand?.name ?? submission.brand}`} className="max-h-[24rem] w-full object-contain" />
-                          </a>)}
+                        <div className="grid min-h-72 gap-3 bg-black/5 p-3">
+                          {(submission.files?.length ? submission.files : [submission.file]).map((_, index) => (
+                            <SubmissionPhoto
+                              key={index}
+                              index={index}
+                              src={`/review/api/images/${encodeURIComponent(submission.id)}?index=${index}`}
+                              alt={`Submitted batch code photo ${index + 1} for ${brand?.name ?? submission.brand}`}
+                            />
+                          ))}
                         </div>
                         <div className="p-5 sm:p-6">
                           <div className="flex flex-wrap items-start justify-between gap-3">
@@ -439,7 +523,29 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                             <span className="rounded-full bg-bg-subtle px-3 py-1 text-xs font-semibold">{statusLabels[submission.status]}</span>
                           </div>
                           <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
-                            <div><dt className="font-semibold text-fg-muted">Visible code</dt><dd className="mt-1 font-mono text-base">{submission.code || "Not supplied"}</dd></div>
+                            <div className="sm:col-span-2">
+                              <dt className="font-semibold text-fg-muted">Visible code</dt>
+                              <dd className="mt-1 font-mono text-base">{submission.code || "Not supplied"}</dd>
+                              {(() => {
+                                const preview = previewDecode(submission.brand, submission.code ?? "");
+                                if (!preview) return null;
+                                return (
+                                  <dd className="mt-2 rounded-lg border bg-bg-subtle p-3 text-sm">
+                                    <p className="font-semibold">
+                                      {preview.decoded
+                                        ? `Decoder reads this as ${preview.manufactureDate?.toISOString().slice(0, 10)} (${preview.confidence} confidence)`
+                                        : `Decoder cannot read this code (${preview.failureReason ?? "unresolved"})`}
+                                    </p>
+                                    {preview.method && <p className="mt-1 text-fg-muted">{preview.method}</p>}
+                                    {preview.notes.length > 0 && (
+                                      <ul className="mt-1 list-disc space-y-0.5 pl-5 text-fg-muted">
+                                        {preview.notes.map((note) => <li key={note}>{note}</li>)}
+                                      </ul>
+                                    )}
+                                  </dd>
+                                );
+                              })()}
+                            </div>
                             <div><dt className="font-semibold text-fg-muted">Submitted</dt><dd className="mt-1">{new Date(submission.ts).toLocaleString("en-GB", { timeZone: "Europe/Istanbul" })}</dd></div>
                             <div className="sm:col-span-2"><dt className="font-semibold text-fg-muted">User note</dt><dd className="mt-1 whitespace-pre-wrap">{submission.note || "Not supplied"}</dd></div>
                             <div><dt className="font-semibold text-fg-muted">Reply email</dt><dd className="mt-1 break-all"><a className="underline" href={`mailto:${submission.email}`}>{submission.email}</a></dd></div>
@@ -457,16 +563,11 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                           <details className="mt-4 rounded-xl border p-4">
                             <summary className="cursor-pointer font-semibold">Prepare an English reply</summary>
                             <p className="mt-2 text-xs text-fg-muted">The institutional signature is added automatically. Sending records the message and updates the workflow.</p>
-                            <div className="mt-4 space-y-5">
-                              {Object.entries(REPLY_TEMPLATES).map(([key, template]) => (
-                                <form key={key} action={`/review/api/submissions/${encodeURIComponent(submission.id)}`} method="post" className="rounded-xl bg-bg-subtle p-4">
-                                  <input type="hidden" name="intent" value="reply" /><input type="hidden" name="template" value={key} />
-                                  <h3 className="font-semibold">{template.label}</h3>
-                                  <label className="mt-3 block text-sm font-semibold">Subject<input required name="subject" maxLength={160} defaultValue={template.subject} className="mt-1 min-h-11 w-full rounded-lg border bg-card px-3 font-normal" /></label>
-                                  <label className="mt-3 block text-sm font-semibold">Message<textarea required name="message" maxLength={4000} defaultValue={template.body} rows={7} className="mt-1 w-full rounded-lg border bg-card p-3 font-normal" /></label>
-                                  <button className="mt-3 min-h-11 rounded-lg bg-accent px-5 font-semibold text-white">Send reply</button>
-                                </form>
-                              ))}
+                            <div className="mt-4">
+                              <ReplyComposer
+                                action={`/review/api/submissions/${encodeURIComponent(submission.id)}`}
+                                templates={REPLY_TEMPLATES}
+                              />
                             </div>
                           </details>
                         </div>

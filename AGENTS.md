@@ -65,6 +65,20 @@ overwrite: a new owner may take it only after recording the handoff in
 `PROJECT_STATUS.md` and checking the existing diff. Never delete another
 contributor's incomplete work to clear a claim.
 
+## Unfinished work must survive the session
+
+Anything left undone belongs in `PROJECT_STATUS.md`, not in chat. That includes
+work deferred by the owner, a check that could not be run, a verification that
+needs a device or account the agent lacks, and a fix that was written but not
+confirmed in the environment that matters. Record it where the work itself is
+recorded, marked `needs verification`, `Blocked` or `Next`, with what is missing
+and what would settle it.
+
+At the start of every session, before proposing new work, read the open items —
+`Next`, `In progress`, `Blocked` and every `needs verification` — and tell the
+owner what is outstanding. The owner should never have to remember a loose end
+on the agent's behalf.
+
 ## Commit, push and deploy boundary
 
 Complete and verify logical work groups locally. Do not push or deploy after
@@ -81,3 +95,19 @@ Use semantic versions (`MAJOR.MINOR.PATCH`). Bump:
 
 Keep the version in `package.json` and `PROJECT_STATUS.md` synchronized. Do not
 commit secrets, API keys, private submission data, or user email addresses.
+
+## Search performance evidence
+
+- Register every Google Search Console or webmaster export in
+  `data/search-performance/SOURCES.md` before drawing conclusions from it.
+- Keep original exports immutable in the ignored local raw-data directory and
+  analyze the normalized repository tables. Never mix private review,
+  submission, email, IP or account data into search-performance evidence.
+- Before analysis, claim a unique provider/date-range/dimension/filter slice in
+  `data/search-performance/FINDINGS.md`. Do not duplicate another active claim.
+- Every finding must state its source, measured period (or `needs verification`),
+  exact filter, baseline metrics, interpretation, confidence, proposed action
+  and owner. Distinguish measured facts from inference.
+- Link implemented work back to its finding ID. After release, add a comparable
+  follow-up window and outcome; never overwrite the baseline when results are
+  disappointing or inconclusive.

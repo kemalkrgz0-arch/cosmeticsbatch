@@ -33,6 +33,9 @@ import {
   indexableBrandLocales,
 } from "../src/lib/publishing-policy";
 import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitTitle } from "../src/lib/snippet";
+import { brandSnippet } from "../src/lib/brand-snippets";
+import { normalizeActivityPath } from "../src/lib/activity-path";
+import { MAX_TRACKED_KEYS, checkRateLimit, trackedKeyCount } from "../src/lib/rate-limit";
 import { brandsDirectoryCopy } from "../src/lib/brands-directory-copy";
 import {
   brandFunnel,
@@ -80,6 +83,13 @@ test("public decode paths never render decoder implementation details", () => {
 
 test("active locale privacy copy matches server-side processing", () => {
   const forbidden = /direct(?:ly)? in (?:your|the) browser|browser[^.]{0,80}(?:never|not)[^.]{0,30}(?:stored|sent)|never (?:stored|sent)|nothing[^.]{0,80}(?:server|saved)|completely private/i;
+  const serverTerm: Record<string, RegExp> = {
+    de: /Server/i, es: /servidor/i, it: /server/i, fr: /serveur/i,
+    ja: /サーバー/u, tr: /sunucu/i, nl: /server/i, sv: /server/i,
+    da: /server/i, ko: /서버/u, ar: /خادم/u, pt: /servidor/i,
+    vi: /máy chủ/iu, id: /server/i, pl: /serwer/i, ru: /сервер/iu,
+    zh: /服务器/u, yue: /伺服器/u,
+  };
   for (const locale of LOCALE_CODES) {
     const messages = JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as {
       brandFaq: { a_free: string };
@@ -93,7 +103,10 @@ test("active locale privacy copy matches server-side processing", () => {
       messages.features.privateBody,
     ];
     assert.doesNotMatch(privacyCopy.join(" "), forbidden, locale);
-    assert.match(privacyCopy.join(" "), /server/i, `${locale} omits server processing`);
+    assert.match(
+      privacyCopy.join(" "), serverTerm[locale] ?? /server/i,
+      `${locale} omits server processing`,
+    );
   }
 });
 
@@ -106,6 +119,13 @@ test("homepage metadata and HowTo schema describe estimates truthfully", () => {
   assert.match(seo, /estimate its manufacture date and product age/);
   assert.match(seo, /separate typical unopened shelf-life and PAO guidance/);
   assert.doesNotMatch(seo, /guaranteed expiry|prove authenticity/i);
+});
+
+test("parameterized checker results are noindex with a stable canonical", () => {
+  const checkPage = readFileSync("src/app/[locale]/check/page.tsx", "utf8");
+  assert.match(checkPage, /searchParams:[^;]+brand\?: string; code\?: string/);
+  assert.match(checkPage, /indexable: !\(query\.brand \|\| query\.code\)/);
+  assert.match(checkPage, /path: "\/check"/);
 });
 
 test("brand directory copy and structured URLs follow every active locale", () => {
@@ -150,7 +170,10 @@ test("failed-code intelligence stays privacy-minimal and reviewable", () => {
   assert.match(review, /readChecksSince\(windowReport\)/);
   assert.match(dataset, /type: "visit" \| "page_view"/);
   assert.doesNotMatch(dataset, /interface ActivityLog[\s\S]{0,250}(email|cookie|ip:)/i);
-  assert.match(activity, /!rawPath\.includes\("\?"\)/);
+  // Path validation moved into `activity-path`; the route must delegate to it
+  // rather than re-implementing a looser inline check.
+  assert.match(activity, /normalizeActivityPath\(data\.path\)/);
+  assert.equal(normalizeActivityPath("/check?utm_source=x"), null);
   assert.match(review, /Failed-code queue/);
   assert.match(review, /Approximate visits are anonymous browser sessions/);
   assert.match(photoForm, /focus\(\{ preventScroll: true \}\)/);
@@ -339,6 +362,56 @@ test("priority L'Oréal locales contain complete cautious editorial copy", () =>
   }
 });
 
+test("the limiter stays bounded under a flood of distinct keys", () => {
+  // The case that matters is many distinct keys inside one window: nothing has
+  // expired, so sweeping expired buckets frees nothing. Before the ceiling was
+  // enforced this grew without bound.
+  const now = Date.now();
+  for (let i = 0; i < 12_000; i++) checkRateLimit(`flood:${i}`, now);
+  assert.ok(
+    trackedKeyCount() <= MAX_TRACKED_KEYS,
+    `limiter tracked ${trackedKeyCount()} keys, above the ${MAX_TRACKED_KEYS} ceiling`,
+  );
+  // The key recorded last must survive its own eviction pass, or a caller could
+  // never be limited while the map is full.
+  const last = checkRateLimit("flood:11999", now);
+  assert.equal(last.limit, 30);
+});
+
+test("activity logging only accepts paths that resolve to a real page", () => {
+  for (const good of [
+    "/",
+    "/check",
+    "/brands",
+    "/brands/loreal-paris",
+    "/ru/brands/loreal-paris",
+    "/guides/what-is-a-batch-code",
+    "/decoders/coty-batch-code-format",
+    "/privacy",
+    "/brands/dior/",
+  ]) {
+    assert.ok(normalizeActivityPath(good), `${good} should be recordable`);
+  }
+  for (const bad of [
+    "/not-a-section",
+    "/brands/loreal-paris/extra",
+    "/check/anything",
+    "/brands/Not A Slug",
+    "/review/dashboard",
+    "/ru/review/dashboard",
+    "//evil",
+    "/check?utm_source=x",
+    "/check#frag",
+    `/brands/${"a".repeat(200)}`,
+    "no-leading-slash",
+    42,
+  ]) {
+    assert.equal(normalizeActivityPath(bad), null, `${String(bad)} should be rejected`);
+  }
+  // The locale prefix is preserved: the dashboard reports per locale.
+  assert.equal(normalizeActivityPath("/ru/check"), "/ru/check");
+});
+
 test("traffic reports merge locales and read entry pages from visit rows", () => {
   // The default locale is prefix-free and the rest are not. Getting this wrong
   // splits one page's traffic across 44 rows, silently.
@@ -462,20 +535,56 @@ test("every brand-page snippet survives the search result", () => {
     );
     for (const brand of INDEXED_BRANDS) {
       const fill = (s: string) => s.replace(/\{name\}/g, brand.name);
-      const title = fitTitle(
-        fill(brandPage.metaTitle),
-        fill(brandPage.metaTitleShort),
-      );
+      const fallback = {
+        title: fitTitle(
+          fill(brandPage.metaTitle),
+          fill(brandPage.metaTitleShort),
+        ),
+        description: fill(brandPage.metaDescription),
+      };
+      const { title, description } = brandSnippet(locale, brand.slug, fallback);
       assert.ok(
         title.length <= TITLE_BUDGET,
         `${locale}/${brand.slug} title is ${title.length} chars: ${title}`,
       );
-      const description = fill(brandPage.metaDescription);
       assert.ok(
         description.length <= DESCRIPTION_BUDGET,
         `${locale}/${brand.slug} description is ${description.length} chars`,
       );
     }
+  }
+});
+
+test("high-impression English brand snippets stay targeted and isolated", () => {
+  const fallback = { title: "Generic title", description: "Generic description" };
+  const loreal = brandSnippet("en", "loreal-paris", fallback);
+  const kerastase = brandSnippet("en", "kerastase", fallback);
+
+  assert.match(loreal.title, /^L'Oréal Paris Batch Code Checker/);
+  assert.match(kerastase.title, /^Kérastase Batch Code Checker/);
+  assert.match(loreal.description, /jar bases, tube crimps, bottles or labels/);
+  assert.match(kerastase.description, /bottle base, under a jar or on a tube crimp/);
+  assert.equal(brandSnippet("de", "loreal-paris", fallback), fallback);
+  assert.equal(brandSnippet("en", "dior", fallback), fallback);
+});
+
+test("Dior product intent stays consolidated on the existing brand URL", () => {
+  const dior = englishMessages.brandDetail?.dior;
+  assert.match(dior?.faq4q ?? "", /Sauvage.*Dior Homme.*Miss Dior/);
+  assert.match(dior?.faq4a ?? "", /manufacture date/);
+  assert.match(dior?.faq4a ?? "", /cannot prove.*genuine/);
+
+  for (const productSlug of ["sauvage", "dior-homme", "miss-dior"]) {
+    assert.equal(
+      existsSync(`src/app/[locale]/products/${productSlug}`),
+      false,
+      `product intent must not create /products/${productSlug}`,
+    );
+    assert.equal(
+      existsSync(`src/app/[locale]/brands/dior/${productSlug}`),
+      false,
+      `product intent must not create /brands/dior/${productSlug}`,
+    );
   }
 });
 

@@ -136,13 +136,13 @@
     "q_fake": "Kan en batchkod tala om för mig om min {name} är falsk?",
     "a_accuracy": "Vi läser tillverkningsdatumet med {decoder}. När {group} publicerar ett känt kodschema är resultatet exakt för månaden eller dagen; där varumärket inte bekräftar ett offentligt system är det en bästa uppskattning. Datumet är tillverkningsdatumet, inte ett garanterat utgångsdatum - hållbarhetssiffror är typiska branschgenomsnitt.",
     "decoderAuto": "automatisk datumdetektering",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset."
+    "a_free": "Ja. Det är gratis att kontrollera {name}-batchkoder och ingen registrering krävs. Förfrågningar behandlas säkert på vår server; IP-adresser sparas inte i kvalitetsdatasetet."
   },
   "homeFaq": {
     "a1": "En batchkod är en kort kod tryckt på kosmetika- och parfymförpackningar som identifierar produktionskörningen. Avkodning avslöjar när produkten tillverkades.",
     "q1": "Vad är en batchkod?",
     "q2": "Är denna batchkodkontroll gratis?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "Ja. Cosmetics Batch är gratis, kräver inget konto och behandlar koder säkert på servern.",
     "q3": "Hur exakta är resultaten?",
     "a3": "Vi använder tillverkarspecifika algoritmer där det är tillgängligt och ärliga konfidensnivåer någon annanstans. Hållbarhetsuppskattningar är typiska värden, inte garantier för säkerhet.",
     "q4": "Var hittar jag min batchkod?",
@@ -157,7 +157,7 @@
     "a8": "De flesta dofter håller i 3 till 5 år från tillverkningsdatum, och ofta längre om de förvaras svalt och borta från ljus. Parfym blir sällan osäker, men oxidation ändrar långsamt doften - toppnoterna bleknar först.",
     "a7": "De flesta kosmetika har inget utgångsdatum. Batchkoden anger tillverkningsdatumet och vi uppskattar utgångsdatumet genom att lägga till produktens typiska oöppnade hållbarhet - vanligtvis 24–36 månader för smink och hudvård, och 3–5 år för parfym.",
     "q10": "Lagrar du mina batchkoder eller personuppgifter?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy.",
+    "a10": "Inget konto krävs och IP-adresser sparas inte i vårt kvalitetsdataset. Vi kan behålla kod, varumärke, resultat, språk, tid och landskod för att förbättra träffsäkerheten; se Integritetspolicyn.",
     "q9": "Varför kan min batchkod inte avkodas?"
   },
   "result": {
@@ -219,7 +219,7 @@
     "privateTitle": "Privat & Säkert",
     "freeTitle": "Alltid gratis",
     "fastBody": "Få resultat på bara några sekunder – ingen registrering.",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "Vår Integritetspolicy förklarar vad som behandlas, registreras och skyddas.",
     "freeBody": "Varje funktion är 100 % gratis, för alltid."
   },
   "whereCode": {

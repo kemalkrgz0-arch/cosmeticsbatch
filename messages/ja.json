@@ -134,7 +134,7 @@
     "q_accuracy": "この {name} バッチコード解読ツールはどれくらい正確ですか？",
     "a_accuracy": "{decoder}を使って製造年月日を読み取ります。 {group} が既知のコード体系を公開している場合、結果は月または日単位で正確です。ブランドが公開体系を確認していない場合は、最善の推定読み取りとなります。日付は製造年月日であり、保証された使用期限ではありません。使用期限の数値は一般的な業界平均です。",
     "q_free": "{name} バッチコードチェッカーは無料ですか？",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
+    "a_free": "はい。{name}のバッチコード確認は無料で、登録も不要です。リクエストは当社のサーバーで安全に処理され、IPアドレスは品質データセットに保存されません。",
     "decoderKnown": "メーカー固有のコード体系",
     "decoderAuto": "自動日付検出"
   },
@@ -142,7 +142,7 @@
     "q1": "バッチコードとは何ですか？",
     "a1": "バッチコードは、製造ロットを識別するために化粧品や香水のパッケージに印字された短いコードです。解読すると、製品がいつ製造されたかがわかります。",
     "q2": "このバッチコードチェッカーは無料ですか？",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "はい。Cosmetics Batchは無料で、アカウントは不要です。コードはサーバー上で安全に処理されます。",
     "q3": "結果はどれくらい正確ですか？",
     "a3": "利用可能な場合はメーカー固有のアルゴリズムを使用し、それ以外では正直な信頼度を示します。使用期限の推定は一般的な値であり、安全性の保証ではありません。",
     "q4": "バッチコードはどこにありますか？",
@@ -158,7 +158,7 @@
     "q9": "なぜバッチコードが解読できないのですか？",
     "a9": "一部のブランドは時とともにコード体系を変更したり、地域固有の形式を使用したり、日付を公開していなかったりします。刻印されたバッチコード（バーコードではなく）を入力したか再確認するか、サブブランドではなく親会社を選んでみてください。",
     "q10": "私のバッチコードや個人データを保存しますか？",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "アカウントは不要で、IPアドレスはバッチコード品質データセットに保存されません。精度向上のため、コード、ブランド、結果、言語、時刻、国レベルのコードを保持する場合があります。詳しくはプライバシーポリシーをご覧ください。"
   },
   "result": {
     "statusFresh": "Fresh",
@@ -218,7 +218,7 @@
     "fastTitle": "速くて簡単",
     "fastBody": "わずか数秒で結果を取得 — 登録不要。",
     "privateTitle": "プライベートで安全",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "プライバシーポリシーでは、処理・記録・保護される情報について説明しています。",
     "freeTitle": "常に無料",
     "freeBody": "すべての機能が100%無料、永久に。"
   },

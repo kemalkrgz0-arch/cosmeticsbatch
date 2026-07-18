@@ -1,6 +1,6 @@
 {
   "name": "cosmeticsbatch",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "pnpm test:quality",
     "test:decoder": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --resolveJsonModule --skipLibCheck scripts/decoder-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/decoder-regression.test.js",
-    "test:quality": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --resolveJsonModule --skipLibCheck scripts/decoder-regression.test.ts scripts/quality-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/*.test.js",
+    "test:quality": "tsc --outDir .test-dist --module commonjs --moduleResolution node --target ES2022 --esModuleInterop --resolveJsonModule --skipLibCheck scripts/decoder-regression.test.ts scripts/quality-regression.test.ts src/lib/decoder/*.ts && node --test .test-dist/scripts/*.test.js && node scripts/validate-search-performance.mjs",
+    "test:search-data": "node scripts/validate-search-performance.mjs",
     "review:submissions": "node scripts/submission-review.mjs",
     "hero:inventory": "node scripts/brand-hero-inventory.mjs"
   },

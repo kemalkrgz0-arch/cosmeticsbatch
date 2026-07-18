@@ -136,13 +136,13 @@
     "a_accuracy": "Leggiamo la data di produzione utilizzando {decoder}. Laddove {group} pubblica uno schema di codice noto, il risultato è preciso al mese o al giorno; laddove il marchio non conferma uno schema pubblico si tratta di una lettura basata sulla migliore stima. La data è la data di produzione, non una scadenza garantita: i dati sulla durata di conservazione sono medie tipiche del settore.",
     "q_accuracy": "Quanto è accurato questo decodificatore di codice batch {name} ?",
     "q_free": "Il controllo del codice batch {name} è gratuito?",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset."
+    "a_free": "Sì. Controllare i codici lotto {name} è gratuito e non richiede registrazione. Le richieste vengono elaborate in modo sicuro sul nostro server; gli indirizzi IP non vengono salvati nel dataset di qualità."
   },
   "homeFaq": {
     "q1": "Cos'è un codice batch?",
     "a1": "Un codice batch è un codice breve stampato sulla confezione di cosmetici e profumi che identifica il ciclo di produzione. La decodifica rivela quando è stato fabbricato il prodotto.",
     "q2": "Questo controllo del codice batch è gratuito?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "Sì. Cosmetics Batch è gratuito, non richiede un account ed elabora i codici in modo sicuro sul server.",
     "q3": "Quanto sono accurati i risultati?",
     "a3": "Utilizziamo algoritmi specifici del produttore laddove disponibili e livelli di confidenza onesti altrove. Le stime della durata di conservazione sono valori tipici, non garanzie di sicurezza.",
     "q4": "Dove trovo il mio codice batch?",
@@ -158,7 +158,7 @@
     "q9": "Perché il mio codice batch non può essere decodificato?",
     "a9": "Alcuni marchi modificano la codifica nel tempo, utilizzano formati specifici per regione o non codificano pubblicamente la data. Ricontrolla di aver inserito il codice lotto timbrato (non il codice a barre) oppure prova a selezionare la società madre anziché la sottomarca.",
     "q10": "Memorizzi i miei codici batch o i miei dati personali?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "Non è richiesto un account e gli indirizzi IP non vengono salvati nel dataset di qualità. Possiamo conservare codice, marca, risultato, lingua, ora e codice paese per migliorare l'accuratezza; consulta l'Informativa sulla privacy."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -218,7 +218,7 @@
     "accurateBody": "Algoritmi specifici del produttore per risultati precisi.",
     "fastBody": "Ottieni risultati in pochi secondi, senza registrazione.",
     "freeBody": "Ogni funzionalità è gratuita al 100%, per sempre.",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "La nostra Informativa sulla privacy spiega cosa viene elaborato, registrato e protetto.",
     "freeTitle": "Sempre gratuito",
     "fastTitle": "Veloce e facile"
   },

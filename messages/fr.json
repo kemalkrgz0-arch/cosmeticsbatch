@@ -125,7 +125,7 @@
     "q_accuracy": "Quelle est la précision de ce décodeur de code de lot {name} ?",
     "a_accuracy": "Nous lisons la date de fabrication en utilisant {decoder}. Lorsque {group} publie un schéma de code connu, le résultat est précis au mois ou au jour près ; lorsque la marque ne confirme pas un projet public, il s'agit d'une lecture basée sur la meilleure estimation. La date est la date de fabrication, et non une date d'expiration garantie – les chiffres de durée de conservation sont des moyennes typiques de l'industrie.",
     "q_free": "Le vérificateur de code de lot {name} est-il gratuit ?",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
+    "a_free": "Oui. Vérifier les codes de lot {name} est gratuit et sans inscription. Les demandes sont traitées de façon sécurisée sur notre serveur ; les adresses IP ne sont pas enregistrées dans le jeu de données qualité.",
     "decoderAuto": "détection automatique des dates",
     "decoderKnown": "un schéma de code spécifique au fabricant"
   },
@@ -133,7 +133,7 @@
     "q1": "Qu'est-ce qu'un code de lot ?",
     "a1": "Un code de lot est un code court imprimé sur les emballages de cosmétiques et de parfums qui identifie le cycle de production. Son décodage révèle la date de fabrication du produit.",
     "q2": "Ce vérificateur de code de lot est-il gratuit ?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "Oui. Cosmetics Batch est gratuit, ne nécessite aucun compte et traite les codes de façon sécurisée sur le serveur.",
     "q3": "Quelle est la précision des résultats ?",
     "a3": "Nous utilisons des algorithmes spécifiques au fabricant lorsqu'ils sont disponibles et des niveaux de confiance honnêtes ailleurs. Les estimations de durée de conservation sont des valeurs typiques et non des garanties de sécurité.",
     "q4": "Où puis-je trouver mon code de lot ?",
@@ -149,7 +149,7 @@
     "q9": "Pourquoi mon code de lot ne peut-il pas être décodé ?",
     "a9": "Certaines marques modifient leur codage au fil du temps, utilisent des formats spécifiques à la région ou n'encodent pas la date publiquement. Vérifiez à nouveau que vous avez saisi le code de lot estampillé (et non le code-barres) ou essayez de sélectionner la société mère au lieu de la sous-marque.",
     "q10": "Stockez-vous mes codes de lots ou mes données personnelles ?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "Aucun compte n’est requis et les adresses IP ne sont pas enregistrées dans notre jeu de données qualité. Nous pouvons conserver le code, la marque, le résultat, la langue, l’heure et le code pays pour améliorer la précision ; consultez la Politique de confidentialité."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -208,7 +208,7 @@
     "fastBody": "Obtenez des résultats en quelques secondes seulement, sans inscription.",
     "fastTitle": "Rapide et facile",
     "accurateTitle": "Précis et fiable",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "Notre Politique de confidentialité explique ce qui est traité, enregistré et protégé.",
     "privateTitle": "Privé et sécurisé",
     "freeTitle": "Toujours gratuit",
     "freeBody": "Chaque fonctionnalité est 100 % gratuite, pour toujours."

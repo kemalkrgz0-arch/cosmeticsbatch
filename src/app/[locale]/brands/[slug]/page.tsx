@@ -31,6 +31,7 @@ import {
   pageMeta,
 } from "@/lib/seo";
 import { fitTitle } from "@/lib/snippet";
+import { brandSnippet } from "@/lib/brand-snippets";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CheckForm } from "@/components/check-form";
 import { Faq } from "@/components/faq";
@@ -71,12 +72,16 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "brandPage" });
   // No `keywords` meta: Google has ignored it since 2009 and it only leaks the
   // exact terms we target to competitors.
-  const meta = pageMeta({
+  const snippet = brandSnippet(locale, brand.slug, {
     title: fitTitle(
       t("metaTitle", { name: brand.name }),
       t("metaTitleShort", { name: brand.name }),
     ),
     description: t("metaDescription", { name: brand.name }),
+  });
+  const meta = pageMeta({
+    title: snippet.title,
+    description: snippet.description,
     path: `/brands/${brand.slug}`,
     type: "article",
     locale,

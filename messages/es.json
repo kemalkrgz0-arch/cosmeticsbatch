@@ -134,7 +134,7 @@
     "q_accuracy": "¿Qué precisión tiene este decodificador de código de lote {name} ?",
     "a_accuracy": "Leemos la fecha de fabricación usando {decoder}. Cuando {group} publica un esquema de código conocido, el resultado es preciso para el mes o el día; cuando la marca no confirma un plan público, es una lectura de mejor estimación. La fecha es la fecha de fabricación, no una caducidad garantizada; las cifras de vida útil son promedios típicos de la industria.",
     "q_free": "¿El verificador de códigos de lote {name} es gratuito?",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
+    "a_free": "Sí. Consultar códigos de lote de {name} es gratis y no requiere registro. Las solicitudes se procesan de forma segura en nuestro servidor; las direcciones IP no se guardan en el conjunto de datos de calidad.",
     "decoderKnown": "un esquema de código específico del fabricante",
     "decoderAuto": "detección automática de fecha"
   },
@@ -142,7 +142,7 @@
     "q1": "¿Qué es un código de lote?",
     "a1": "Un código de lote es un código corto impreso en los envases de cosméticos y perfumes que identifica el ciclo de producción. Decodificarlo revela cuándo se fabricó el producto.",
     "q2": "¿Este verificador de códigos de lote es gratuito?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "Sí. Cosmetics Batch es gratuito, no requiere cuenta y procesa los códigos de forma segura en el servidor.",
     "q3": "¿Qué tan precisos son los resultados?",
     "a3": "Utilizamos algoritmos específicos del fabricante cuando están disponibles y niveles de confianza honestos en otros lugares. Las estimaciones de vida útil son valores típicos, no garantías de seguridad.",
     "q4": "¿Dónde encuentro mi código de lote?",
@@ -158,7 +158,7 @@
     "q9": "¿Por qué no se puede decodificar mi código de lote?",
     "a9": "Algunas marcas cambian su codificación con el tiempo, utilizan formatos específicos de la región o no codifican la fecha públicamente. Vuelva a verificar que ingresó el código de lote estampado (no el código de barras) o intente seleccionar la empresa matriz en lugar de la marca secundaria.",
     "q10": "¿Almacenan mis códigos de lote o datos personales?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "No se requiere una cuenta y las direcciones IP no se guardan en el conjunto de datos de calidad. Podemos conservar el código, la marca, el resultado, el idioma, la hora y el código de país para mejorar la precisión; consulte la Política de privacidad."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -217,7 +217,7 @@
     "accurateBody": "Algoritmos específicos del fabricante para resultados precisos.",
     "accurateTitle": "Preciso y confiable",
     "fastTitle": "Rápido y Fácil",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "Nuestra Política de privacidad explica qué se procesa, registra y protege.",
     "freeBody": "Cada función es 100% gratuita, para siempre.",
     "freeTitle": "Siempre gratis",
     "privateTitle": "Privado y seguro"

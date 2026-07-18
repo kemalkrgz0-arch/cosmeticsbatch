@@ -134,7 +134,7 @@
     "q_accuracy": "Seberapa akurat dekoder kode batch {name} ini?",
     "a_accuracy": "Kami membaca tanggal produksi menggunakan {decoder}. Jika {group} menerbitkan skema kode yang diketahui, hasilnya tepat hingga bulan atau hari; jika merek tidak mengonfirmasi skema publik, hasilnya adalah pembacaan perkiraan terbaik. Tanggal tersebut adalah tanggal produksi, bukan jaminan kedaluwarsa — angka masa simpan adalah rata-rata industri yang umum.",
     "q_free": "Apakah pemeriksa kode batch {name} gratis?",
-    "a_free": "Yes — checking {name} batch codes is free and requires no sign-up. Requests are processed securely on our server; IP addresses are not included in the batch-code quality dataset.",
+    "a_free": "Ya. Memeriksa kode batch {name} gratis dan tidak memerlukan pendaftaran. Permintaan diproses dengan aman di server kami; alamat IP tidak disimpan dalam set data kualitas.",
     "decoderKnown": "skema kode khusus produsen",
     "decoderAuto": "deteksi tanggal otomatis"
   },
@@ -142,7 +142,7 @@
     "q1": "Apa itu kode batch?",
     "a1": "Kode batch adalah kode pendek yang dicetak pada kemasan kosmetik dan parfum yang mengidentifikasi proses produksi. Mendekodenya mengungkap kapan produk dibuat.",
     "q2": "Apakah pemeriksa kode batch ini gratis?",
-    "a2": "Yes. Cosmetics Batch is free, requires no account, and processes codes securely on the server.",
+    "a2": "Ya. Cosmetics Batch gratis, tidak memerlukan akun, dan memproses kode dengan aman di server.",
     "q3": "Seberapa akurat hasilnya?",
     "a3": "Kami menggunakan algoritma khusus produsen jika tersedia dan tingkat keyakinan yang jujur di tempat lain. Perkiraan masa simpan adalah nilai umum, bukan jaminan keamanan.",
     "q4": "Di mana saya menemukan kode batch saya?",
@@ -158,7 +158,7 @@
     "q9": "Mengapa kode batch saya tidak dapat didekode?",
     "a9": "Beberapa merek mengubah pengkodean mereka seiring waktu, menggunakan format khusus wilayah, atau tidak menyandikan tanggal secara publik. Periksa kembali apakah Anda memasukkan kode batch yang dicap (bukan barkode), atau coba pilih perusahaan induk alih-alih sub-merek.",
     "q10": "Apakah Anda menyimpan kode batch atau data pribadi saya?",
-    "a10": "No account is required and IP addresses are not included in our batch-code quality dataset. We may retain the code, brand, result, language, time and country-level code to improve accuracy; see the Privacy Policy."
+    "a10": "Akun tidak diperlukan dan alamat IP tidak disimpan dalam set data kualitas kode batch. Kami dapat menyimpan kode, merek, hasil, bahasa, waktu, dan kode negara untuk meningkatkan akurasi; lihat Kebijakan Privasi."
   },
   "result": {
     "statusFresh": "Fresh",
@@ -218,7 +218,7 @@
     "fastTitle": "Cepat & Mudah",
     "fastBody": "Dapatkan hasil hanya dalam beberapa detik — tanpa mendaftar.",
     "privateTitle": "Pribadi & Aman",
-    "privateBody": "Our Privacy Policy explains what is processed, recorded and protected.",
+    "privateBody": "Kebijakan Privasi kami menjelaskan apa yang diproses, dicatat, dan dilindungi.",
     "freeTitle": "Selalu Gratis",
     "freeBody": "Setiap fitur 100% gratis, selamanya."
   },

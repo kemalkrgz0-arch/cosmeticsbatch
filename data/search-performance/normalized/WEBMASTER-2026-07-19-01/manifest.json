@@ -1,0 +1,13 @@
+{
+  "source_id": "WEBMASTER-2026-07-19-01",
+  "raw_filename": "WEBMASTER-2026-07-19-01.xlsx",
+  "sha256": "5420dbc1274491873543c38a5844af27d9d755e1dfcf61f2d7279ec62895c154",
+  "sheets": [
+    {
+      "sheet": "sheet1",
+      "file": "sheet1.tsv",
+      "rows_including_header": 1,
+      "columns": 1
+    }
+  ]
+}
