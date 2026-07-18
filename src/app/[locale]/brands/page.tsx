@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BRANDS } from "@/lib/brands";
-import { pageMeta } from "@/lib/seo";
+import { localizedPath, pageMeta } from "@/lib/seo";
 import { absoluteUrl } from "@/lib/site";
+import { brandsDirectoryCopy } from "@/lib/brands-directory-copy";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { BrandsDirectory } from "@/components/brands-directory";
@@ -14,9 +15,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const copy = brandsDirectoryCopy(locale);
   return pageMeta({
-    title: "All Supported Brands",
-    description: `Browse every cosmetic and perfume brand supported by Cosmetics Batch. Decode batch codes for Chanel, Dior, Estée Lauder, L'Oréal, MAC and ${BRANDS.length}+ more.`,
+    title: copy.title,
+    description: copy.description(BRANDS.length),
     path: "/brands",
     locale,
   });
@@ -29,6 +31,8 @@ export default async function BrandsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const copy = brandsDirectoryCopy(locale);
+  const nav = await getTranslations("nav");
   const groups = new Map<string, typeof BRANDS>();
   for (const b of [...BRANDS].sort((a, z) => a.name.localeCompare(z.name))) {
     const list = groups.get(b.group) ?? [];
@@ -45,13 +49,13 @@ export default async function BrandsPage({
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Supported cosmetic & perfume brands",
+    name: copy.listName,
     numberOfItems: BRANDS.length,
     itemListElement: BRANDS.map((b, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      name: `${b.name} Batch Code Checker`,
-      url: absoluteUrl(`/brands/${b.slug}`),
+      name: b.name,
+      url: absoluteUrl(localizedPath(locale, `/brands/${b.slug}`)),
     })),
   };
 
@@ -60,14 +64,14 @@ export default async function BrandsPage({
       <JsonLd data={itemList} />
       <Breadcrumbs
         items={[
-          { name: "Home", path: "/" },
-          { name: "Brands", path: "/brands" },
+          { name: nav("home"), path: "/" },
+          { name: nav("brands"), path: "/brands" },
         ]}
       />
       <SectionHeading
         as="h1"
-        title="All Supported Brands"
-        subtitle={`Decode batch codes for ${BRANDS.length}+ cosmetic and perfume brands. Pick a brand to see how its codes work.`}
+        title={copy.title}
+        subtitle={copy.subtitle(BRANDS.length)}
         className="!mx-0 text-left sm:!mx-auto sm:text-center"
       />
 

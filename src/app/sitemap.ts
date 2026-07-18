@@ -6,6 +6,7 @@ import { absoluteUrl, site } from "@/lib/site";
 import { localizedPath } from "@/lib/seo";
 import {
   INDEXABLE_LOCALES,
+  ENGLISH_ONLY_LOCALES,
   indexableBrandLocales,
   indexableContentLocales,
 } from "@/lib/publishing-policy";
@@ -37,10 +38,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...entries("/check", updated, "weekly", 0.7),
     ...entries("/decoders", updated, "weekly", 0.8),
     ...entries("/guides", updated, "weekly", 0.8),
-    ...entries("/about", updated, "monthly", 0.6),
-    ...entries("/contact", updated, "monthly", 0.6),
-    ...entries("/privacy", updated, "monthly", 0.3),
-    ...entries("/terms", updated, "monthly", 0.3),
+    ...entries("/about", updated, "monthly", 0.6, ENGLISH_ONLY_LOCALES),
+    ...entries("/contact", updated, "monthly", 0.6, ENGLISH_ONLY_LOCALES),
+    ...entries("/privacy", updated, "monthly", 0.3, ENGLISH_ONLY_LOCALES),
+    ...entries("/terms", updated, "monthly", 0.3, ENGLISH_ONLY_LOCALES),
   ];
   const publicBrands = ALL_BRANDS.filter(
     (brand) => !brand.hidden && indexableBrandLocales(brand.slug).length > 0,

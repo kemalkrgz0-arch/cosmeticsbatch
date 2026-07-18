@@ -1,12 +1,10 @@
 name: Deploy to VPS
 
-# Auto-deploy on every push to main; also runnable by hand from the Actions tab.
+# Production deploys are owner-controlled and run only from the Actions tab.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
-# Never let two deploys run at once; a newer push supersedes an in-flight one.
+# Never let two production deploys run at once.
 concurrency:
   group: deploy-production
   cancel-in-progress: false

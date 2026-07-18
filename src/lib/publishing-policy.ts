@@ -13,6 +13,9 @@ export const INDEXABLE_LOCALES = [
   ...ORGANIC_PRESERVATION_LOCALES,
 ] as const;
 
+/** Static legal/company pages are currently authored in English only. */
+export const ENGLISH_ONLY_LOCALES = ["en"] as const;
+
 /** Demand-led brand program from the 2026-07-16 content audit. Inclusion here
  * is a work queue, not enough on its own to make a page indexable. */
 export const PRIORITY_BRAND_SLUGS = [

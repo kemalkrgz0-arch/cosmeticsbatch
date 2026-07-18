@@ -4,6 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
+import { ENGLISH_ONLY_LOCALES } from "@/lib/publishing-policy";
 
 const UPDATED = "July 3, 2026";
 
@@ -18,6 +20,8 @@ export async function generateMetadata({
     description: `The terms for using ${site.name}. Batch-code results are informational estimates, not a guarantee of product safety.`,
     path: "/terms",
     locale,
+    availableLocales: ENGLISH_ONLY_LOCALES,
+    indexable: locale === DEFAULT_LOCALE,
   });
   return meta;
 }

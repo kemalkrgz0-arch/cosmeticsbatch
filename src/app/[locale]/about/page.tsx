@@ -4,6 +4,8 @@ import { Link } from "@/i18n/navigation";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
+import { ENGLISH_ONLY_LOCALES } from "@/lib/publishing-policy";
 
 export async function generateMetadata({
   params,
@@ -13,9 +15,11 @@ export async function generateMetadata({
   const { locale } = await params;
   const meta = pageMeta({
     title: "About",
-    description: `About ${site.name} — a free, private cosmetic and perfume batch code checker.`,
+    description: `About ${site.name} — estimate cosmetic and perfume manufacture dates with clear shelf-life guidance and limitations.`,
     path: "/about",
     locale,
+    availableLocales: ENGLISH_ONLY_LOCALES,
+    indexable: locale === DEFAULT_LOCALE,
   });
   return meta;
 }
@@ -41,14 +45,15 @@ export default async function AboutPage({
       <div className="mt-6 space-y-4 leading-relaxed text-fg-muted">
         <p>
           {site.name} is a free tool that decodes the batch codes printed on
-          cosmetics and perfumes, revealing the manufacture date, current age
-          and estimated expiration of your products.
+          cosmetics and perfumes, estimating the manufacture date and current
+          age with separate typical unopened shelf-life and PAO guidance.
         </p>
         <p>
           We built it because the existing batch-code tools feel dated and
-          intrusive. {site.name} is fast, private, and mobile-first — codes are
-          decoded instantly, with clear confidence levels so you know how much to
-          trust each result.
+          intrusive. {site.name} is fast and mobile-first — codes are processed
+          securely on our server, with clear confidence levels so you know how
+          much to trust each result. Our Privacy Policy explains limited quality
+          logging and what the dataset excludes.
         </p>
         <p>
           Our estimates use manufacturer-specific algorithms where available and

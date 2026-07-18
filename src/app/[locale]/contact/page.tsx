@@ -4,6 +4,8 @@ import { Mail } from "lucide-react";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
+import { ENGLISH_ONLY_LOCALES } from "@/lib/publishing-policy";
 
 export async function generateMetadata({
   params,
@@ -16,6 +18,8 @@ export async function generateMetadata({
     description: `Get in touch with ${site.name} — corrections to a batch-code result, a brand request, or any question about the tool.`,
     path: "/contact",
     locale,
+    availableLocales: ENGLISH_ONLY_LOCALES,
+    indexable: locale === DEFAULT_LOCALE,
   });
   return meta;
 }

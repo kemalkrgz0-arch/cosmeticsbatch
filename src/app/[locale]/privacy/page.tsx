@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { pageMeta } from "@/lib/seo";
+import { DEFAULT_LOCALE } from "@/i18n/locales";
+import { ENGLISH_ONLY_LOCALES } from "@/lib/publishing-policy";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
@@ -17,6 +19,8 @@ export async function generateMetadata({
     description: `How ${site.name} handles batch-code checks, cookies and advertising, and the privacy safeguards we apply.`,
     path: "/privacy",
     locale,
+    availableLocales: ENGLISH_ONLY_LOCALES,
+    indexable: locale === DEFAULT_LOCALE,
   });
   return meta;
 }

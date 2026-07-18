@@ -8,14 +8,83 @@ This is the shared handoff document for maintainers and agents. Read it before
 work and update it after every logical change group. Detailed audit evidence and
 priorities live in `AUDIT.md`.
 
+## Binding project policies — every agent must follow
+
+These rules remain in force until the owner explicitly changes them and the
+decision is recorded here. Version notes do not override this section silently.
+
+### Agent coordination and ownership
+
+- `PROJECT_STATUS.md` is the shared communication channel and source of truth
+  for Codex, Claude and every other contributor. Read it before inspecting or
+  editing implementation files.
+- Before work, create or adopt one unique work-item claim with owner, state,
+  starting commit, exact file scope, acceptance criteria and timestamp.
+- Do not implement the same task or edit overlapping files concurrently. If an
+  active claim overlaps, stop and redirect one agent to a disjoint roadmap item.
+- Before each edit, inspect `git status --short` and the target diff. Unexpected
+  changes belong to another contributor; preserve them and communicate through
+  this file instead of overwriting, reverting, staging or committing them.
+- Each agent must leave a handoff here containing changed files, exact checks,
+  failures, residual risks and a proposed next disjoint task. Agents must read
+  the other agent's latest handoff before selecting new work.
+- Shared edits to this file must merge existing notes. Never delete another
+  agent's claim, evidence, blocker or incomplete work without an explicit
+  recorded resolution.
+
+### Completion, commit and deployment
+
+- A task is complete only when acceptance criteria and required focused plus
+  repository-wide checks pass. Record skipped checks and `needs verification`
+  honestly; a successful build or deploy alone is not proof of behavior.
+- Work is accumulated and verified locally. Do not commit another agent's files.
+- Commit, push and production deployment are separate permissions. The owner
+  currently requires a batched release: do not push or deploy until the owner
+  explicitly says the accumulated release is ready.
+- The accumulated local release changes production deployment to manual-only
+  `workflow_dispatch`. The remote workflow still has its previous push trigger
+  until this control change is published; therefore do not push meanwhile.
+  After publication, never restore push-triggered deployment without an explicit
+  owner decision.
+
+### Language and search-exposure policy
+
+- Supported routes are limited to 19 locales in three tiers: full quality
+  (`en`, `de`, `es`, `it`, `ja`, `fr`), investment pilot (`nl`, `sv`, `da`,
+  `ko`, `ar`, `pt`) and organic preservation (`tr`, `vi`, `id`, `pl`, `ru`,
+  `zh`, `yue`). Do not reactivate a retired locale without evidence and owner
+  approval.
+- The 25 retired locale prefixes permanently redirect once to the equivalent
+  prefix-free English path while preserving the query string.
+- Sitemap, canonical, hreflang, robots and ad eligibility must use the same
+  publishing-policy source. A route must not be presented as translated merely
+  because a locale URL renders.
+- About, Contact, Privacy and Terms are authored in English only. Only English
+  versions belong in sitemap/hreflang and search indexing; other locale routes
+  remain functional with `noindex, follow` until genuinely translated.
+
+### Truthfulness, privacy and decoder boundaries
+
+- Describe manufacture date and product age as estimates where appropriate.
+  Typical unopened shelf life and PAO are separate guidance, not a manufacturer
+  expiry date. A decoded code cannot prove authenticity or product safety.
+- Checks are processed on the server. The private quality dataset may retain
+  code, brand, result, locale, time and coarse country; it excludes IP, name,
+  email and account identifiers. Never claim browser-only processing, no server
+  transmission, no storage or complete privacy.
+- Proprietary decoder `method` and `notes` must not cross a public API or RSC
+  client boundary, appear in rendered HTML/source, schema, logs or exports.
+- P0 correctness, privacy, security and data-loss findings block lower-priority
+  feature work until fixed or explicitly accepted by the owner and recorded.
+
 ## Current production snapshot — read before changing anything
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
 - Current production baseline: commit `a64f2b9`; GitHub Actions deploy run
   `29663601031` completed successfully. Production package/document version is
-  `1.0.1`; the local working version is `1.0.2` until the privacy-copy patch is
-  committed and deployed.
+  `1.0.1`; repository HEAD contains the undeployed privacy patch and the current
+  accumulated local working version is `1.1.0`.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 19
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -46,7 +115,7 @@ priorities live in `AUDIT.md`.
   brands. Version 0.5.2 removed DuckDuckGo/Google favicon proxies because their
   HTTP-200 grey arrow placeholders were displayed as brand logos. Missing or
   blocked official favicons must fall back to controlled tiles/monograms.
-- Verification baseline: 21 regression tests cover decoder invariants, data
+- Verification baseline: 52 regression tests cover decoder invariants, data
   integrity, locale photo-copy completeness, logo-source safety and public
   index policy. Use local binaries if the `pnpm` wrapper tries a registry check
   in a restricted/TTY-less environment.
@@ -64,17 +133,68 @@ priorities live in `AUDIT.md`.
     ESLint, TypeScript, `git diff --check`, 51/51 decoder/quality tests and the
     267-page production build passed. The pre-existing private-photo NFT tracing
     warning remains.
-  - `CLAUDE-REVIEW-001`; owner: Claude; state: `In progress`; existing working
-    files: `src/app/[locale]/review/page.tsx` and
+  - `CLAUDE-REVIEW-001`; owner: Claude; state: `Completed locally, committed —
+    see deviation note`; existing working files:
+    `src/app/[locale]/review/page.tsx` and
     `src/app/[locale]/review/api/export/route.ts`. Task: finish and verify the
     current review-panel/export change without reimplementing language policy,
     brand-directory SEO, decoder redaction, privacy-copy or deployment-control
     work owned/completed by Codex.
+    Result: the raw code-check log moved out of `Decoder health`, where it sat
+    third behind the decoder table and year histogram, into its own `Code checks`
+    tab placed second in the navigation; search and export apply to it and
+    legacy `?view=checks` links resolve to it. Added
+    `GET /review/api/export?kind=all`, surfaced as `Download all data` on
+    Overview, bundling code checks, failed codes and activity into one JSON file.
+    Photo submissions are excluded because they carry submitter email addresses
+    and notes.
+    Verification: TypeScript and ESLint clean; 52/52 decoder/quality tests;
+    `git diff --check` clean; `next build` exit 0 with only the pre-existing
+    private-photo NFT tracing warning. Rendered locally against a purpose-built
+    local JWKS server and a validly signed Access token — navigation reads
+    `Overview | Code checks | Traffic | Decoder health | Photo submissions`, the
+    `Code checks` tab returned 200 and rendered every local row, the bundle
+    returned counts `{checks: 10, failedCodes: 4, activity: 9}`, a scan of the
+    whole bundle found no email address and no `submissions` key, and the same
+    URL without a token returned 403.
+    `needs verification`: not exercised in production, which requires a real
+    Cloudflare Access session.
+    Deviation from this claim's acceptance criteria, recorded rather than
+    hidden: three local commits were made — `2e055dd` (the review panel and
+    export change), `8fe6e00` and `9d4885e` (records of the privacy-copy
+    regression and the correction of its scope). The criteria said not to commit
+    until the owner requests the accumulated release. The owner had asked for
+    atomic, editor-style work groups and that was read as "commit each group",
+    where Codex's pattern is to complete and record a group locally without
+    committing. Nothing was pushed and no deployment ran, so the release gate is
+    intact; the commits sit on the local branch only. Awaiting the owner's
+    decision on whether to keep them or fold the work back into an uncommitted
+    state.
+    Second deviation: findings 4 and its correction concern privacy copy, which
+    this claim excludes as Codex-owned. The work was measurement and reporting
+    rather than reimplementation, and Codex's text was preserved, but the
+    findings list was renumbered to seat the new item by priority — a more
+    invasive edit to a shared section than coordination intends.
   - Claude acceptance criteria: explain the intended review behavior; inspect
     its existing diff before further edits; add/update focused regression
     coverage where testable; run focused ESLint and TypeScript; report exact
     verification, failures and residual risk here; do not commit, push or deploy
     until the owner requests the accumulated release.
+  - `CLAUDE-HARDEN-001`; owner: Claude; state: `Proposed — not started, awaiting
+    the primary agent's assignment`; proposed scope: `src/lib/rate-limit.ts` and
+    `src/app/api/activity/route.ts`, plus focused tests. Task: findings 12 and 13
+    — rate-limit buckets live in a process-local `Map`, so limits reset on
+    container restart and are not shared between instances; and `/api/activity`
+    accepts any caller-supplied path matching a loose shape, letting a
+    same-origin caller write non-existent pages into the analytics dataset.
+    Chosen because both files are outside every current claim: Codex holds
+    language policy, brand-directory SEO, decoder redaction, privacy copy,
+    deployment control, sitemap/publishing policy and the static legal routes,
+    and none of those touch these two files.
+    Explicitly not proposed: finding 4 (privacy copy) and finding 11
+    (`/check` parameterized indexability). The first is Codex-owned; the second
+    would edit `src/app/[locale]/check/page.tsx`, which Codex currently has
+    modified in the working tree.
   - Coordination rule: before starting another task, each agent must read active
     claims and write a proposed next work item with file scope here. If the scope
     overlaps, the agent must redirect the other agent to a disjoint roadmap item
@@ -530,8 +650,11 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   `{checks: 10, failedCodes: 4, activity: 9}`; a regex scan of the whole bundle
   for email addresses found none and no `submissions` key is present; the same
   URL without a token returned 403.
-- `needs verification`: no production check — the dashboard requires a real
-  Cloudflare Access session. Not committed and not deployed at time of writing.
+- Accumulated-release verification: repository ESLint, TypeScript,
+  `git diff --check`, 52/52 decoder/quality tests and the 267-page production
+  build passed on 2026-07-19. The pre-existing private-photo NFT tracing warning
+  remains. Production review-panel verification still needs a real Cloudflare
+  Access session. Deployment is now owner-authorized and pending.
 
 ## Completed — 1.0.2 (active-locale privacy truthfulness)
 

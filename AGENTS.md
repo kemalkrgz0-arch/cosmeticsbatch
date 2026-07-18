@@ -65,6 +65,14 @@ overwrite: a new owner may take it only after recording the handoff in
 `PROJECT_STATUS.md` and checking the existing diff. Never delete another
 contributor's incomplete work to clear a claim.
 
+## Commit, push and deploy boundary
+
+Complete and verify logical work groups locally. Do not push or deploy after
+each group. A commit does not authorize a push, and a push does not authorize a
+production deployment. Push and run the manual production deployment workflow
+only when the owner explicitly says to publish/deploy the accumulated release.
+Record undeployed commits and their verification state in `PROJECT_STATUS.md`.
+
 Use semantic versions (`MAJOR.MINOR.PATCH`). Bump:
 
 - `PATCH` for backward-compatible fixes;

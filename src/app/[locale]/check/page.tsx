@@ -86,6 +86,11 @@ export default async function CheckPage({
   }
 
   const related = POPULAR_BRANDS.filter((b) => b.slug !== brand.slug).slice(0, 4);
+  // ResultCard is a client boundary. Never serialize proprietary decoder
+  // implementation details into its RSC payload.
+  const { method: _method, notes: _notes, ...publicResult } = result;
+  void _method;
+  void _notes;
 
   return (
     <div className="page-frame py-10">
@@ -98,7 +103,7 @@ export default async function CheckPage({
         ]}
       />
 
-      <ResultCard result={result} brand={brand} />
+      <ResultCard result={publicResult} brand={brand} />
 
       {/* Check another */}
       <div className="mt-10">

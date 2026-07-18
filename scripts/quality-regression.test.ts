@@ -27,11 +27,13 @@ import {
 import { getBrandLogoInventory } from "../src/lib/brand-logos";
 import { asCsv, csvCell } from "../src/lib/csv";
 import {
+  ENGLISH_ONLY_LOCALES,
   INDEXABLE_LOCALES,
   PRIORITY_BRAND_SLUGS,
   indexableBrandLocales,
 } from "../src/lib/publishing-policy";
 import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitTitle } from "../src/lib/snippet";
+import { brandsDirectoryCopy } from "../src/lib/brands-directory-copy";
 import {
   brandFunnel,
   dailySeries,
@@ -67,8 +69,12 @@ test("review CSV exports neutralize spreadsheet formulas", () => {
 
 test("public decode paths never render decoder implementation details", () => {
   const api = readFileSync("src/app/api/decode/route.ts", "utf8");
+  const checkPage = readFileSync("src/app/[locale]/check/page.tsx", "utf8");
   const resultCard = readFileSync("src/components/result-card.tsx", "utf8");
   assert.match(api, /method: _method, notes: _notes/);
+  assert.match(checkPage, /method: _method, notes: _notes, \.\.\.publicResult/);
+  assert.match(checkPage, /<ResultCard result=\{publicResult\}/);
+  assert.doesNotMatch(checkPage, /<ResultCard result=\{result\}/);
   assert.doesNotMatch(resultCard, /result\.(method|notes)/);
 });
 
@@ -89,6 +95,49 @@ test("active locale privacy copy matches server-side processing", () => {
     assert.doesNotMatch(privacyCopy.join(" "), forbidden, locale);
     assert.match(privacyCopy.join(" "), /server/i, `${locale} omits server processing`);
   }
+});
+
+test("homepage metadata and HowTo schema describe estimates truthfully", () => {
+  const site = readFileSync("src/lib/site.ts", "utf8");
+  const seo = readFileSync("src/lib/seo.ts", "utf8");
+  assert.match(site, /Estimate a product's manufacture date and age/);
+  assert.match(site, /typical unopened shelf life and PAO guidance/);
+  assert.doesNotMatch(site, /check (?:the )?expiry|check authenticity/i);
+  assert.match(seo, /estimate its manufacture date and product age/);
+  assert.match(seo, /separate typical unopened shelf-life and PAO guidance/);
+  assert.doesNotMatch(seo, /guaranteed expiry|prove authenticity/i);
+});
+
+test("brand directory copy and structured URLs follow every active locale", () => {
+  const page = readFileSync("src/app/[locale]/brands/page.tsx", "utf8");
+  for (const locale of LOCALE_CODES) {
+    const copy = brandsDirectoryCopy(locale);
+    assert.ok(copy.title.trim(), `${locale} lacks directory title`);
+    assert.match(copy.description(BRANDS.length), new RegExp(String(BRANDS.length)));
+    assert.match(copy.subtitle(BRANDS.length), new RegExp(String(BRANDS.length)));
+    assert.doesNotMatch(copy.description(BRANDS.length), /\d+\+\s*(?:more)?/i);
+  }
+  assert.match(page, /localizedPath\(locale, `\/brands\/\$\{b\.slug\}`\)/);
+  assert.match(page, /name: nav\("home"\)/);
+  assert.match(page, /name: nav\("brands"\)/);
+  assert.doesNotMatch(page, /All Supported Brands|BRANDS\.length\}\+|absoluteUrl\(`\/brands/);
+});
+
+test("English-only company and legal pages stay out of locale SEO exposure", () => {
+  assert.deepEqual(ENGLISH_ONLY_LOCALES, ["en"]);
+  const sitemap = readFileSync("src/app/sitemap.ts", "utf8");
+  for (const route of ["about", "contact", "privacy", "terms"]) {
+    const page = readFileSync(`src/app/[locale]/${route}/page.tsx`, "utf8");
+    assert.match(page, /availableLocales: ENGLISH_ONLY_LOCALES/, route);
+    assert.match(page, /indexable: locale === DEFAULT_LOCALE/, route);
+    assert.match(
+      sitemap,
+      new RegExp(`entries\\("/${route}"[^\\n]+ENGLISH_ONLY_LOCALES\\)`),
+      `${route} sitemap scope drifted`,
+    );
+  }
+  const about = readFileSync("src/app/[locale]/about/page.tsx", "utf8");
+  assert.doesNotMatch(about, /free, private|estimated expiration/i);
 });
 
 test("failed-code intelligence stays privacy-minimal and reviewable", () => {

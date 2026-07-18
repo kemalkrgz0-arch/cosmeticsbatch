@@ -181,7 +181,7 @@ export function ResultCard({
   result,
   brand,
 }: {
-  result: CheckResult;
+  result: Omit<CheckResult, "method" | "notes">;
   brand: Brand;
 }) {
   const t = useTranslations("result");
