@@ -61,8 +61,9 @@ priorities live in `AUDIT.md`.
     directory-specific title, description, subtitle and ItemList name copy;
     breadcrumb labels use locale navigation; JSON-LD brand URLs use the active
     locale; and the exact supported-brand total replaces “N+ more”. Focused
-    ESLint, TypeScript, `git diff --check` and 51/51 decoder/quality tests passed.
-    Full build remains required before the accumulated release.
+    ESLint, TypeScript, `git diff --check`, 51/51 decoder/quality tests and the
+    267-page production build passed. The pre-existing private-photo NFT tracing
+    warning remains.
   - `CLAUDE-REVIEW-001`; owner: Claude; state: `In progress`; existing working
     files: `src/app/[locale]/review/page.tsx` and
     `src/app/[locale]/review/api/export/route.ts`. Task: finish and verify the
@@ -79,6 +80,16 @@ priorities live in `AUDIT.md`.
     overlaps, the agent must redirect the other agent to a disjoint roadmap item
     instead of editing. `PROJECT_STATUS.md` is shared: preserve and merge notes;
     never remove the other agent's claim or evidence.
+  - `CODEX-SEO-002`; owner: primary Codex agent; state: `Completed locally`;
+    starting commit `40c9789`; scope: sitemap/publishing policy and the four
+    static company/legal routes. Finding: English-only About, Contact, Privacy
+    and Terms pages were incorrectly exposed as translated, indexable 19-locale
+    pages after the language-policy expansion. Fix: sitemap and hreflang now
+    expose English only; other functional locale routes are `noindex, follow`;
+    About also no longer claims generic privacy or an estimated expiration.
+    Verification: focused ESLint, TypeScript, `git diff --check` and 52/52
+    decoder/quality tests passed. Full build remains pending for this logical
+    group; no commit, push or deployment performed.
 
 - P1 release-control finding (`Completed` locally, work item `DEPLOY-001`;
   owner: primary Codex agent; 2026-07-19; starting commit `40c9789`; scope:
@@ -161,31 +172,35 @@ priorities live in `AUDIT.md`.
    copy for these four fields; native-language editorial replacement remains P1.
 4. P1 English copy replaced localized privacy text (`Next`; regression from
    commit `40c9789`): making the privacy claims truthful overwrote translated
-   copy with English in every non-English catalog. `messages/ru.json` went from
-   "Коды расшифровываются в частном порядке. Ваша конфиденциальность превыше
-   всего." to "Our Privacy Policy explains what is processed, recorded and
-   protected." Measured across the six non-Latin-script locales (`ru`, `zh`,
-   `ja`, `ar`, `ko`, `yue`): three of the four privacy fields —
-   `homeFaq.a2`, `homeFaq.a10`, `features.privateBody` — are now plain ASCII
-   English; `features.privateBody` is byte-identical to English in all 18
-   non-English catalogs. `homeFaq.a2` reads "Yes. Cosmetics Batch is free,
-   requires no account, and processes codes securely on the server." on the
-   Russian, Japanese and Arabic pages. `features.privateBody` renders on the
-   home feature grid (`src/components/home/feature-grid.tsx:9`), so this is
-   user-facing on every localized home page. Removing the old untruthful claim
-   was correct; replacing it with English reintroduces exactly what 0.17.0
-   fixed — a page cannot rank in a language it is not written in.
+   copy with English across every non-English catalog. `messages/ru.json` went
+   from "Коды расшифровываются в частном порядке. Ваша конфиденциальность
+   превыше всего." to "Our Privacy Policy explains what is processed, recorded
+   and protected."
+   Measured by counting distinct values per field across the 19 active locales,
+   which avoids the script and byte-comparison heuristics that under-reported
+   this twice during review: `brandFaq.a_free`, `homeFaq.a2` and `homeFaq.a10`
+   each hold exactly two values — one for `en` and a single shared English
+   string for all 18 others — and `features.privateBody` holds one value shared
+   by all 19. So all four privacy fields are English in all 18 non-English
+   catalogs: **72 fields**, not the "three of four" an earlier revision of this
+   entry claimed. `features.privateBody` renders on the home feature grid
+   (`src/components/home/feature-grid.tsx:9`), so this is user-facing on every
+   localized home page.
+   Removing the old untruthful claim was correct; replacing it with English
+   reintroduces what 0.17.0 fixed — a page cannot rank in a language it is not
+   written in.
    The regression test added in the same commit entrenches it:
    `active locale privacy copy matches server-side processing` applies an
    English-only forbidden pattern to all 19 locales, so it passes vacuously for
    the 18 that are not English, and its `assert.match(copy, /server/i)` requires
    the Latin word "server" — a correct Russian rendering ("на сервере") cannot
-   satisfy it. The test currently rewards English and would block a proper
-   translation. Fix both: translate the three fields for 18 locales, and make
-   the assertion language-aware (a per-locale expected term, or enforce the
-   positive claim only for `en` and check a localized forbidden pattern
-   elsewhere). Only `en` and `tr` have a speaker who can vouch for the wording
-   here; the rest need native review.
+   satisfy it. The test currently rewards English and would fail a proper
+   translation. Fix both: translate the four fields for 18 locales, and make the
+   assertion language-aware (a per-locale expected term, or enforce the positive
+   claim only for `en` and check a localized forbidden pattern elsewhere).
+   Only `en` and `tr` have a speaker who can vouch for the wording; the other 17
+   need native review before they ship, or the project repeats the machine-
+   translation defects already found in Serbian and Hungarian.
 5. P1 structured data (`Completed` locally): align Organization/HowTo descriptions with the same
    cautious language; do not describe an estimated shelf-life date as a
    manufacturer expiry date. Organization uses `site.description`; HowTo now
