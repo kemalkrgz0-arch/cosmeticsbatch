@@ -53,6 +53,42 @@ priorities live in `AUDIT.md`.
 
 ## Active findings / next dependency-ordered work
 
+- Active ownership split — do not duplicate:
+  - `CODEX-BRAND-001`; owner: primary Codex agent; state: `Completed locally`;
+    scope: localized brand directory, its metadata/breadcrumb/ItemList JSON-LD,
+    locale-aware brand URLs and directly related quality tests. Codex must not
+    edit Claude's review workspace files. Result: all 19 locales now have
+    directory-specific title, description, subtitle and ItemList name copy;
+    breadcrumb labels use locale navigation; JSON-LD brand URLs use the active
+    locale; and the exact supported-brand total replaces “N+ more”. Focused
+    ESLint, TypeScript, `git diff --check` and 51/51 decoder/quality tests passed.
+    Full build remains required before the accumulated release.
+  - `CLAUDE-REVIEW-001`; owner: Claude; state: `In progress`; existing working
+    files: `src/app/[locale]/review/page.tsx` and
+    `src/app/[locale]/review/api/export/route.ts`. Task: finish and verify the
+    current review-panel/export change without reimplementing language policy,
+    brand-directory SEO, decoder redaction, privacy-copy or deployment-control
+    work owned/completed by Codex.
+  - Claude acceptance criteria: explain the intended review behavior; inspect
+    its existing diff before further edits; add/update focused regression
+    coverage where testable; run focused ESLint and TypeScript; report exact
+    verification, failures and residual risk here; do not commit, push or deploy
+    until the owner requests the accumulated release.
+  - Coordination rule: before starting another task, each agent must read active
+    claims and write a proposed next work item with file scope here. If the scope
+    overlaps, the agent must redirect the other agent to a disjoint roadmap item
+    instead of editing. `PROJECT_STATUS.md` is shared: preserve and merge notes;
+    never remove the other agent's claim or evidence.
+
+- P1 release-control finding (`Completed` locally, work item `DEPLOY-001`;
+  owner: primary Codex agent; 2026-07-19; starting commit `40c9789`; scope:
+  `.github/workflows/deploy.yml`, `AGENTS.md`, `PROJECT_STATUS.md`): every push to
+  `main` automatically rebuilt production, preventing the owner from batching a
+  release. The deploy workflow is now manual-only and repository rules separate
+  local completion, commit, push and production deployment authority. These
+  changes remain local and will not be pushed until the owner requests the
+  accumulated release.
+
 1. P0 decoder-method disclosure (`Completed` in 1.0.1, work item `SEC-001`;
    owner: primary Codex agent; completed 2026-07-19; starting commit `ea2c81d`; scope:
    `src/components/result-card.tsx`, `scripts/quality-regression.test.ts`,
@@ -72,7 +108,10 @@ priorities live in `AUDIT.md`.
    `robots.txt` allows GPTBot/ClaudeBot/CCBot, so the format is also served to
    AI crawlers. This contradicts the project rule that the cipher is the gold
    source and must never be published. The public rendering block was removed.
-   Residual, `needs verification` — measured on the running app at 1.0.1 for
+   Residual (`Completed` locally, work item `SEC-002`; owner: primary Codex agent;
+   claimed 2026-07-19; starting commit `40c9789`; scope:
+   `src/app/[locale]/check/page.tsx`, `scripts/quality-regression.test.ts`,
+   `PROJECT_STATUS.md`) — measured on the running app at 1.0.1 for
    both a canonical code (`vichy` / `54X602`) and a non-canonical one
    (`it-cosmetics` / `MNX30W`): the visible DOM is clean and the structural
    label `L'Oréal factory / year-letter / month` is gone everywhere, which was
@@ -82,10 +121,19 @@ priorities live in `AUDIT.md`.
    page source. The fix commit did not touch that file. Severity is much reduced
    but the finding is not fully closed; redacting `method`/`notes` before the
    prop crosses into the client — the same thing `/api/decode` already does —
-   would close it. Owner asked to defer this remainder.
-2. P0 truthfulness: replace the homepage `expiry date` / `help check
+   now closes it: the server page strips both fields before the client boundary,
+   and `ResultCard` accepts an explicit public result type that excludes them.
+   Verification: focused ESLint, TypeScript, `git diff --check`, 49/49
+   decoder/quality tests and the 267-page production build passed. The first
+   TypeScript run correctly failed because `ResultCard` still required the
+   private fields; narrowing its prop contract fixed the boundary at type level.
+   The pre-existing private-photo NFT tracing warning remains. Not committed,
+   pushed or deployed per the owner's batch-release instruction.
+2. P0 truthfulness (`Completed` locally): replace the homepage `expiry date` / `help check
    authenticity` meta promise with estimated manufacture-date, product-age,
-   typical unopened shelf-life and PAO language.
+   typical unopened shelf-life and PAO language. `site.description` and the
+   homepage metadata already use the cautious wording; regression coverage now
+   prevents the old expiry/authenticity promise from returning.
 3. P0 privacy consistency (`Completed` in 1.0.2, work item `PRIV-001`; owner: primary
    Codex agent; claimed 2026-07-19; starting commit `a64f2b9`; scope: the 19
    active `messages/*.json` catalogs, `scripts/quality-regression.test.ts`,
@@ -111,43 +159,73 @@ priorities live in `AUDIT.md`.
    no-account, IP-exclusion and limited-retention wording. To remove the P0
    immediately, the 18 non-English catalogs temporarily use reviewed English
    copy for these four fields; native-language editorial replacement remains P1.
-4. P1 structured data: align Organization/HowTo descriptions with the same
+4. P1 English copy replaced localized privacy text (`Next`; regression from
+   commit `40c9789`): making the privacy claims truthful overwrote translated
+   copy with English in every non-English catalog. `messages/ru.json` went from
+   "Коды расшифровываются в частном порядке. Ваша конфиденциальность превыше
+   всего." to "Our Privacy Policy explains what is processed, recorded and
+   protected." Measured across the six non-Latin-script locales (`ru`, `zh`,
+   `ja`, `ar`, `ko`, `yue`): three of the four privacy fields —
+   `homeFaq.a2`, `homeFaq.a10`, `features.privateBody` — are now plain ASCII
+   English; `features.privateBody` is byte-identical to English in all 18
+   non-English catalogs. `homeFaq.a2` reads "Yes. Cosmetics Batch is free,
+   requires no account, and processes codes securely on the server." on the
+   Russian, Japanese and Arabic pages. `features.privateBody` renders on the
+   home feature grid (`src/components/home/feature-grid.tsx:9`), so this is
+   user-facing on every localized home page. Removing the old untruthful claim
+   was correct; replacing it with English reintroduces exactly what 0.17.0
+   fixed — a page cannot rank in a language it is not written in.
+   The regression test added in the same commit entrenches it:
+   `active locale privacy copy matches server-side processing` applies an
+   English-only forbidden pattern to all 19 locales, so it passes vacuously for
+   the 18 that are not English, and its `assert.match(copy, /server/i)` requires
+   the Latin word "server" — a correct Russian rendering ("на сервере") cannot
+   satisfy it. The test currently rewards English and would block a proper
+   translation. Fix both: translate the three fields for 18 locales, and make
+   the assertion language-aware (a per-locale expected term, or enforce the
+   positive claim only for `en` and check a localized forbidden pattern
+   elsewhere). Only `en` and `tr` have a speaker who can vouch for the wording
+   here; the rest need native review.
+5. P1 structured data (`Completed` locally): align Organization/HowTo descriptions with the same
    cautious language; do not describe an estimated shelf-life date as a
-   manufacturer expiry date.
-5. P1 locale directory: `/[locale]/brands` currently hard-codes English title,
+   manufacturer expiry date. Organization uses `site.description`; HowTo now
+   states estimated manufacture date/product age plus separate typical unopened
+   shelf-life and PAO guidance. Both are covered by the truthfulness regression.
+6. P1 locale directory (`Completed locally`): `/[locale]/brands` previously hard-coded English title,
    description, breadcrumb, H1 and ItemList labels. Its JSON-LD item URLs also
    point to prefix-free English brand URLs. Localize the visible/metadata copy
-   and generate locale-aware structured-data URLs.
-6. P1 count accuracy: the directory currently says listed example brands “and
+   and generate locale-aware structured-data URLs. Fixed in `CODEX-BRAND-001`.
+7. P1 count accuracy (`Completed locally`): the directory previously said listed example brands “and
    {BRANDS.length}+ more”, which overstates the total. Use one central total and
-   wording such as “Browse 212 supported brands, including …”.
-7. P1 content quality: Google still shows cached legacy `Expiry Date &
+   wording such as “Browse 212 supported brands, including …”. It now uses the
+   exact central count without a plus suffix.
+8. P1 content quality: Google still shows cached legacy `Expiry Date &
    Authenticity` titles for several brand pages. Current English metadata is
    safer, but recrawl should be requested only after the remaining global claims
    are fixed. Do not mass-submit thousands of URLs.
-8. P1/P2 localization: live search evidence shows mixed-language and awkward
+9. P1/P2 localization: live search evidence shows mixed-language and awkward
    long-tail pages (for example Italian English fallback blocks and Korean
    guide fragments). Strengthen existing high-impression URLs before creating
    new programmatic pages.
-9. P2 brand uniqueness: prioritize verified examples, packaging location,
-   provenance and limitations for high-impression brands. Do not manufacture
-   “unique” filler or repeat one template with only a brand-name substitution.
-10. P2 parameterized result indexability (`Next`): `/check?brand=&code=` renders
+10. P2 brand uniqueness: prioritize verified examples, packaging location,
+    provenance and limitations for high-impression brands. Do not manufacture
+    “unique” filler or repeat one template with only a brand-name substitution.
+11. P2 parameterized result indexability (`Next`): `/check?brand=&code=` renders
     `index, follow`. The canonical correctly consolidates to `/check`, so
     duplicate indexing risk is low, but crawlers still render the parameterized
     variant — which is the surface that leaks finding 1. Consider `noindex` when
     `brand`/`code` parameters are present.
-11. P2 rate-limit durability (`Next`): `src/lib/rate-limit.ts:8` keeps buckets in
+12. P2 rate-limit durability (`Next`): `src/lib/rate-limit.ts:8` keeps buckets in
     a process-local `Map`. Limits reset on container restart and are not shared
     between instances. Acceptable for the current single-container deployment;
     revisit before horizontal scaling.
-12. P3 activity log pollution (`Next`): `/api/activity` accepts any caller-
+13. P3 activity log pollution (`Next`): `/api/activity` accepts any caller-
     supplied `path` that starts with `/`, omits `?`, is ≤180 characters and is
     not under `review`. A same-origin caller can therefore write page paths that
     do not exist into the analytics dataset. Bot-filtered and rate-limited, so
     impact is limited to dashboard noise; validating against known routes would
     close it.
-13. P3 retired locale message files (`Next`): `messages/` holds 44 catalogs while
+14. P3 retired locale message files (`Next`): `messages/` holds 44 catalogs while
     only 19 locales are routed. The 25 retired files are unreachable, so their
     contents cannot mislead a user, but they still ship in the repository, are
     carried by translation-wide edits, and make locale counts quoted in this file
