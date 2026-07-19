@@ -3,6 +3,12 @@ name: Deploy to VPS
 # Production deploys are owner-controlled and run only from the Actions tab.
 on:
   workflow_dispatch:
+    inputs:
+      reclaim_shared_next_cache:
+        description: Reclaim the verified oversized YerelAtlas Next.js cache
+        required: false
+        default: false
+        type: boolean
 
 # Never let two production deploys run at once.
 concurrency:
@@ -24,13 +30,14 @@ jobs:
           # an accidentally blank secret from disabling origin validation.
           CF_ACCESS_TEAM_DOMAIN: https://calm-sun-fd60.cloudflareaccess.com
           REVIEWER_EMAILS: ${{ secrets.REVIEWER_EMAILS }}
+          RECLAIM_SHARED_NEXT_CACHE: ${{ inputs.reclaim_shared_next_cache }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           command_timeout: 30m
-          envs: RESEND_API_KEY,SUBMISSION_NOTIFY_EMAIL,SUBMISSION_FROM_EMAIL,CF_ACCESS_AUD,CF_ACCESS_TEAM_DOMAIN,REVIEWER_EMAILS
+          envs: RESEND_API_KEY,SUBMISSION_NOTIFY_EMAIL,SUBMISSION_FROM_EMAIL,CF_ACCESS_AUD,CF_ACCESS_TEAM_DOMAIN,REVIEWER_EMAILS,RECLAIM_SHARED_NEXT_CACHE
           script: |
             set -e
             cd /opt/cosmeticsbatch
@@ -59,6 +66,19 @@ jobs:
                   *GB) docker exec "$container" sh -c 'du -x -h -d 2 / 2>/dev/null | sort -h | tail -25' || true ;;
                 esac
               done
+              if [ "${RECLAIM_SHARED_NEXT_CACHE:-false}" = "true" ] && docker inspect yerelatlas-app-1 >/dev/null 2>&1; then
+                shared_cache_kb="$(docker exec yerelatlas-app-1 sh -c 'du -sk /app/.next/cache 2>/dev/null | cut -f1' || true)"
+                if [ "${shared_cache_kb:-0}" -ge 10485760 ]; then
+                  echo "Reclaiming verified rebuildable cache: yerelatlas-app-1:/app/.next/cache"
+                  docker exec yerelatlas-app-1 sh -c 'find /app/.next/cache -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +'
+                  available_kb="$(df --output=avail / | tail -1 | tr -dc '0-9')"
+                  df -h /
+                else
+                  echo "Shared cache is absent or below the 10 GiB safety threshold; nothing removed."
+                fi
+              fi
+            fi
+            if [ "$available_kb" -lt 6291456 ]; then
               echo "Insufficient build headroom: at least 6 GiB free is required." >&2
               exit 1
             fi

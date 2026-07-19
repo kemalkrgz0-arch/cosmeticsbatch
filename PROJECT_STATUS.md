@@ -229,6 +229,14 @@ decision is recorded here. Version notes do not override this section silently.
   not this release or its private dataset. Added a read-only directory-size
   diagnostic for oversized active containers; no unrelated container data will
   be removed until the exact cache/log target is known.
+  Read-only directory audit (`Completed`, run `29703992952`): 52.5 GiB of the
+  56.4 GiB YerelAtlas writable layer is `/app/.next`; `/app/node_modules` is
+  208.7 MiB and `/app/public` is 88.2 MiB. Added an owner-triggered workflow
+  input, disabled by default, that removes only contents of the verified
+  rebuildable `yerelatlas-app-1:/app/.next/cache` directory and only when it is
+  at least 10 GiB. It does not delete the container, database, volume, source or
+  CosmeticsBatch data. The maintenance run and post-cleanup deploy remain
+  pending.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
