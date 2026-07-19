@@ -6,7 +6,7 @@ import { BookOpen, Home, Info, Search, Sparkles } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-export function BottomNav() {
+export function BottomNav({ label }: { label: string }) {
   const t = useTranslations("nav");
   const items = [
     { label: t("home"), href: "/", icon: Home },
@@ -29,7 +29,7 @@ export function BottomNav() {
 
   return (
     <nav
-      aria-label="Primary"
+      aria-label={label}
       className={cn(
         "fixed inset-x-0 bottom-0 z-40 border-t border-border bg-bg/90 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl transition-transform duration-200 md:hidden",
         comboOpen && "translate-y-full",

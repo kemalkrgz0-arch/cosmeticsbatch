@@ -1,0 +1,479 @@
+{
+  "generatedFrom": "docs/BRAND_QUALITY_MATRIX.md",
+  "sourceReviewedAt": "2026-07-16",
+  "policy": {
+    "unknownFacts": "needs-verification",
+    "staleAction": "review-queue-not-auto-remove",
+    "nativeReviewMustBeExplicit": true
+  },
+  "brands": [
+    {
+      "slug": "carolina-herrera",
+      "name": "Carolina Herrera",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "manufacturer applicability",
+      "decoder": "embedded",
+      "sample": "231122"
+    },
+    {
+      "slug": "cerave",
+      "name": "CeraVe",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "regional applicability; original images",
+      "decoder": "loreal",
+      "sample": "40X200"
+    },
+    {
+      "slug": "chanel",
+      "name": "Chanel",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "numeric ambiguity; primary provenance",
+      "decoder": "chanel",
+      "sample": "3245"
+    },
+    {
+      "slug": "creed",
+      "name": "Creed",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "year-only precision; primary provenance",
+      "decoder": "creed",
+      "sample": "A4221N01"
+    },
+    {
+      "slug": "dior",
+      "name": "Dior",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "numeric ambiguity; original images",
+      "decoder": "dior",
+      "sample": "5H03"
+    },
+    {
+      "slug": "dunhill",
+      "name": "Dunhill",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance; original images",
+      "decoder": "interparfums",
+      "sample": "08J38J169"
+    },
+    {
+      "slug": "escada",
+      "name": "Escada",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "decade ambiguity; primary provenance",
+      "decoder": "coty",
+      "sample": "0175"
+    },
+    {
+      "slug": "estee-lauder",
+      "name": "Estée Lauder",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "decade ambiguity; primary provenance",
+      "decoder": "estee-lauder",
+      "sample": "A56"
+    },
+    {
+      "slug": "garnier",
+      "name": "Garnier",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance; original images",
+      "decoder": "loreal",
+      "sample": "31YO500"
+    },
+    {
+      "slug": "giorgio-armani-beauty",
+      "name": "Giorgio Armani Beauty",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "brand applicability; original images",
+      "decoder": "loreal",
+      "sample": "40X200"
+    },
+    {
+      "slug": "guerlain",
+      "name": "Guerlain",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "shared-format evidence; original images",
+      "decoder": "dior",
+      "sample": "3245"
+    },
+    {
+      "slug": "jean-paul-gaultier",
+      "name": "Jean Paul Gaultier",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "manufacturer applicability",
+      "decoder": "embedded",
+      "sample": "24045"
+    },
+    {
+      "slug": "kenzo-parfums",
+      "name": "Kenzo Parfums",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "shared-format evidence; original images",
+      "decoder": "dior",
+      "sample": "24045"
+    },
+    {
+      "slug": "kerastase",
+      "name": "Kérastase",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "brand applicability; original images",
+      "decoder": "loreal",
+      "sample": "22U401"
+    },
+    {
+      "slug": "kiehls",
+      "name": "Kiehl's",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "brand applicability; original images",
+      "decoder": "loreal",
+      "sample": "22U401"
+    },
+    {
+      "slug": "lancome",
+      "name": "Lancôme",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance",
+      "decoder": "loreal",
+      "sample": "31YO500"
+    },
+    {
+      "slug": "loreal-paris",
+      "name": "L'Oréal Paris",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance; original images",
+      "decoder": "loreal",
+      "sample": "22U401"
+    },
+    {
+      "slug": "mac-cosmetics",
+      "name": "MAC Cosmetics",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "brand applicability; primary provenance",
+      "decoder": "estee-lauder",
+      "sample": "B23"
+    },
+    {
+      "slug": "maybelline",
+      "name": "Maybelline",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance; original images",
+      "decoder": "loreal",
+      "sample": "40X200"
+    },
+    {
+      "slug": "montblanc",
+      "name": "Montblanc",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance; original images",
+      "decoder": "interparfums",
+      "sample": "08J38J169"
+    },
+    {
+      "slug": "nivea",
+      "name": "Nivea",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance; original images",
+      "decoder": "beiersdorf",
+      "sample": "8153554"
+    },
+    {
+      "slug": "paco-rabanne",
+      "name": "Paco Rabanne",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "manufacturer applicability; original images",
+      "decoder": "embedded",
+      "sample": "4135"
+    },
+    {
+      "slug": "roberto-cavalli",
+      "name": "Roberto Cavalli",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "decade ambiguity; original images",
+      "decoder": "coty",
+      "sample": "4135"
+    },
+    {
+      "slug": "vichy",
+      "name": "Vichy",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 2,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "primary provenance; third image optional",
+      "decoder": "loreal",
+      "sample": "22U401"
+    },
+    {
+      "slug": "ysl-beauty",
+      "name": "YSL Beauty",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 0,
+      "evidenceStatus": "missing",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "brand applicability; original images",
+      "decoder": "loreal",
+      "sample": "22U401"
+    },
+    {
+      "slug": "zara",
+      "name": "Zara",
+      "lastEditorialReview": "2026-07-16",
+      "decoderVerification": "needs-verification",
+      "evidenceCount": 3,
+      "evidenceStatus": "partial",
+      "reviewedLocales": [
+        "en",
+        "ru"
+      ],
+      "responsibleRole": "editorial-owner",
+      "nextReviewDate": null,
+      "nextReviewState": "review-required",
+      "remainingGap": "manufacturer applicability",
+      "decoder": "embedded",
+      "sample": "4135"
+    }
+  ]
+}

@@ -214,9 +214,9 @@ export function ResultCard({
               )}
               <p className="text-sm leading-relaxed text-fg-muted">{failure.detail}</p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-                <a href="#batch-checker" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong">{failure.retry}</a>
-                {inviteEvidence && <a href="#code-photo-submission" className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg">{failure.contact}</a>}
-                <a href={`mailto:${site.email}?subject=${encodeURIComponent(`${brand.name} batch code ${result.code}`)}`} className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-accent hover:text-accent-hover">{failure.email}</a>
+                <a href="#batch-checker" data-recovery-action="retry-code" data-recovery-reason={reason} className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong">{failure.retry}</a>
+                {inviteEvidence && <a href="#code-photo-submission" data-recovery-action="submit-photos" data-recovery-reason={reason} className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg">{failure.contact}</a>}
+                <a href={`mailto:${site.email}?subject=${encodeURIComponent(`${brand.name} batch code ${result.code}`)}`} data-recovery-action="email-support" data-recovery-reason={reason} className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-accent hover:text-accent-hover">{failure.email}</a>
               </div>
             </div>
           </div>

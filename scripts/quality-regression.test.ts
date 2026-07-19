@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
 import { BRAND_DETAILS } from "../src/lib/brand-detail";
 import {
@@ -48,6 +48,8 @@ import {
   topPages,
   unattributedChecks,
 } from "../src/lib/review-metrics";
+import { decodeAccessPart } from "../src/lib/review-auth";
+import { photoTransformPlan } from "../src/lib/photo-transform";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -59,6 +61,17 @@ const reviewedContent = JSON.parse(
   readFileSync("messages/content/reviewed.json", "utf8"),
 ) as Record<string, string[]>;
 
+test("message catalogs exist only for the 19 active locale routes", () => {
+  const catalogs = readdirSync("messages")
+    .filter((name) => name.endsWith(".json"))
+    .map((name) => name.slice(0, -5))
+    .sort();
+  assert.deepEqual(catalogs, [...LOCALE_CODES].sort());
+  for (const locale of RETIRED_LOCALE_CODES) {
+    assert.equal(existsSync(`messages/${locale}.json`), false, `${locale} catalog was reactivated`);
+  }
+});
+
 test("review CSV exports neutralize spreadsheet formulas", () => {
   for (const value of ["=1+1", "+SUM(A1:A2)", "-2+3", "@cmd", "\t=1", "\r=1"]) {
     assert.equal(csvCell(value).startsWith("\"'"), true, value);
@@ -68,6 +81,25 @@ test("review CSV exports neutralize spreadsheet formulas", () => {
     asCsv([{ note: "=HYPERLINK(\"https://example.test\")", status: "pending" }]),
     /^"note","status"\n"'=HYPERLINK/,
   );
+});
+
+test("Access JWT parts reject valid JSON primitives", () => {
+  for (const primitive of [null, [], "text"]) {
+    const encoded = Buffer.from(JSON.stringify(primitive)).toString("base64url");
+    for (const part of ["header", "payload"]) {
+      assert.throws(
+        () => decodeAccessPart<Record<string, unknown>>(encoded),
+        { message: "Invalid Access token" },
+        `${part} accepted ${JSON.stringify(primitive)}`,
+      );
+    }
+  }
+});
+
+test("photo zoom instructions match scroll-based panning", () => {
+  const photo = readFileSync("src/components/review/submission-photo.tsx", "utf8");
+  assert.match(photo, /full resolution — scroll to pan/);
+  assert.doesNotMatch(photo, /drag to pan/);
 });
 
 test("public decode paths never render decoder implementation details", () => {
@@ -178,6 +210,19 @@ test("failed-code intelligence stays privacy-minimal and reviewable", () => {
   assert.match(review, /Approximate visits are anonymous browser sessions/);
   assert.match(photoForm, /focus\(\{ preventScroll: true \}\)/);
   assert.doesNotMatch(photoForm, /unresolved-code[\s\S]{0,500}scrollIntoView/);
+});
+
+test("failed checks offer truthful, measurement-ready recovery actions", () => {
+  const failureCopy = readFileSync("src/lib/result-failure-copy.ts", "utf8");
+  const resultCard = readFileSync("src/components/result-card.tsx", "utf8");
+  assert.match(failureCopy, /Spaces and punctuation are already ignored/);
+  assert.match(failureCopy, /Boşluklar ve noktalama işaretleri zaten yok sayılır/);
+  assert.doesNotMatch(failureCopy, /Remove spaces or punctuation/);
+  for (const action of ["retry-code", "submit-photos", "email-support"]) {
+    assert.match(resultCard, new RegExp(`data-recovery-action="${action}"`));
+  }
+  assert.match(resultCard, /data-recovery-reason=\{reason\}/);
+  assert.doesNotMatch(resultCard, /data-recovery-(?:email|ip|account|submission-id)/i);
 });
 
 test("publishing policy exposes exactly the 19 retained locales and 50 brands", () => {
@@ -699,4 +744,28 @@ test("private review routes are excluded from analytics and consent rendering", 
   assert.match(boundary, /pathname\.split\("\/"\)\.includes\("review"\)/);
   assert.match(boundary, /if \(isPrivateReviewPath\(pathname\)\) return null/);
   assert.match(boundary, /googletagmanager\.com|YandexMetrica|CookieConsent/);
+});
+
+test("photo assist uses bounded centered crops and rotation-aware output", () => {
+  assert.deepEqual(photoTransformPlan(4000, 2000, 0, false), {
+    sx: 0,
+    sy: 0,
+    sw: 4000,
+    sh: 2000,
+    drawWidth: 2000,
+    drawHeight: 1000,
+    canvasWidth: 2000,
+    canvasHeight: 1000,
+  });
+  assert.deepEqual(photoTransformPlan(4000, 2000, 90, true), {
+    sx: 1000,
+    sy: 0,
+    sw: 2000,
+    sh: 2000,
+    drawWidth: 2000,
+    drawHeight: 2000,
+    canvasWidth: 2000,
+    canvasHeight: 2000,
+  });
+  assert.throws(() => photoTransformPlan(0, 2000, 0, false), /Invalid image dimensions/);
 });

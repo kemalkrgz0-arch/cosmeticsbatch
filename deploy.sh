@@ -89,8 +89,7 @@ main() {
   echo "→ Building image…"
   docker build -t cosmeticsbatch:latest "${build_args[@]}" .
 
-  echo "→ Restarting container…"
-  docker rm -f cosmeticsbatch 2>/dev/null || true
+  echo "→ Starting release candidate…"
   # DATASET_DIR must be a host bind mount: the container is replaced on every
   # deploy, so anything written inside it is lost.
   #
@@ -104,7 +103,9 @@ main() {
   chown 1001:65533 /opt/cosmeticsbatch-data
   chmod 775 /opt/cosmeticsbatch-data
 
-  docker run -d --name cosmeticsbatch \
+  docker rm -f cosmeticsbatch-candidate 2>/dev/null || true
+  docker rm -f cosmeticsbatch-previous 2>/dev/null || true
+  docker run -d --name cosmeticsbatch-candidate \
     --network yerelatlas_default \
     --restart unless-stopped \
     -e DATASET_DIR=/data \
@@ -118,11 +119,54 @@ main() {
     -v /opt/cosmeticsbatch-data:/data \
     cosmeticsbatch:latest
 
+  local candidate_ready=0
+  local attempt
+  for attempt in $(seq 1 30); do
+    if docker exec cosmeticsbatch-candidate wget -qO- http://127.0.0.1:3000/ >/dev/null 2>&1; then
+      candidate_ready=1
+      break
+    fi
+    sleep 2
+  done
+  if [ "$candidate_ready" != "1" ]; then
+    echo "✗ Release candidate failed its startup health check; production was not replaced." >&2
+    docker logs --tail 100 cosmeticsbatch-candidate >&2 || true
+    docker rm -f cosmeticsbatch-candidate >/dev/null 2>&1 || true
+    exit 1
+  fi
+
+  # Keep the previous container recoverable until the renamed candidate passes
+  # route-level smoke checks under the production container name.
+  if docker inspect cosmeticsbatch >/dev/null 2>&1; then
+    docker rename cosmeticsbatch cosmeticsbatch-previous
+    docker stop cosmeticsbatch-previous >/dev/null
+  fi
+  docker rename cosmeticsbatch-candidate cosmeticsbatch
+
+  local smoke_failed=0
+  for path in / /brands/dior /check; do
+    if ! docker exec cosmeticsbatch wget -qO- "http://127.0.0.1:3000$path" >/dev/null; then
+      echo "✗ Post-switch smoke failed: $path" >&2
+      smoke_failed=1
+    fi
+  done
+  if [ "$smoke_failed" = "1" ]; then
+    docker rename cosmeticsbatch cosmeticsbatch-failed
+    if docker inspect cosmeticsbatch-previous >/dev/null 2>&1; then
+      docker rename cosmeticsbatch-previous cosmeticsbatch
+      docker start cosmeticsbatch >/dev/null
+    fi
+    docker rm -f cosmeticsbatch-failed >/dev/null 2>&1 || true
+    echo "✗ Release rolled back after smoke failure." >&2
+    exit 1
+  fi
+  docker rm cosmeticsbatch-previous >/dev/null 2>&1 || true
+
   # Reclaim space from the previous build (safe: only dangling images).
   docker image prune -f >/dev/null
 
   echo "→ Status:"
-  docker ps | grep cosmeticsbatch
+  docker ps --filter name=^/cosmeticsbatch$ --format '{{.Names}} {{.Status}} {{.Image}}'
   echo "✓ Done. $NEXT_PUBLIC_SITE_URL"
 }
 

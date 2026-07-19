@@ -23,7 +23,7 @@ const en: Record<DecodeFailureReason, FailureCopy> = {
   "invalid-format": {
     title: "Please check the code format",
     body: (code, brand) => `${code} is not in a format we can check for ${brand}.`,
-    detail: "Remove spaces or punctuation and enter only the short letters and numbers printed as the batch code.",
+    detail: "Compare every character with the short stamp, confirm the selected brand, and make sure you did not enter a barcode, address or marketing reference. Spaces and punctuation are already ignored.",
     retry: "Correct the code",
     contact: "Send packaging photos",
     email: "Contact us by email",
@@ -50,7 +50,7 @@ const tr: Record<DecodeFailureReason, FailureCopy> = {
   "invalid-format": {
     title: "Kod biçimini kontrol edin",
     body: (code, brand) => `${code}, ${brand} için kontrol edebileceğimiz bir biçimde değil.`,
-    detail: "Boşluk ve noktalama işaretlerini kaldırıp yalnızca parti kodu olarak basılmış kısa harf ve rakamları girin.",
+    detail: "Kısa damgadaki her karakteri karşılaştırın, seçilen markayı doğrulayın ve barkod, adres ya da pazarlama referansı girmediğinizden emin olun. Boşluklar ve noktalama işaretleri zaten yok sayılır.",
     retry: "Kodu düzelt",
     contact: "Ambalaj fotoğraflarını gönder",
     email: "E-posta ile iletişime geç",

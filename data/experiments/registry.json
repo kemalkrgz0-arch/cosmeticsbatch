@@ -1,0 +1,49 @@
+[
+  {
+    "id": "SEO-BRAND-SNIPPET-2026-07-19-01",
+    "owner": "primary-codex",
+    "type": "seo-snippet",
+    "state": "local",
+    "urls": ["/brands/loreal-paris", "/brands/kerastase"],
+    "urlPolicy": "existing-only",
+    "source": "GSC-2026-07-19-01",
+    "baseline": {
+      "periodFilter": "Web / Last 3 months; observed chart rows 2026-07-02–2026-07-16",
+      "metrics": [
+        { "url": "/brands/loreal-paris", "clicks": 1, "impressions": 432, "ctr": 0.0023, "position": 9.42 },
+        { "url": "/brands/kerastase", "clicks": 0, "impressions": 121, "ctr": 0, "position": 7.76 }
+      ]
+    },
+    "hypothesis": "Evidence-specific English snippets improve CTR without changing index coverage.",
+    "primaryMetric": "GSC CTR for each exact URL",
+    "guardrails": ["GSC average position", "checker conversion when comparable internal data exists", "title <=60 and description <=160"],
+    "changedFiles": ["src/lib/brand-snippets.ts", "src/app/[locale]/brands/[slug]/page.tsx", "scripts/quality-regression.test.ts"],
+    "release": null,
+    "followUp14d": null,
+    "followUp28d": null,
+    "decision": "pending"
+  },
+  {
+    "id": "SEO-DIOR-PRODUCT-INTENT-2026-07-19-02",
+    "owner": "primary-codex",
+    "type": "brand-product-intent",
+    "state": "local",
+    "urls": ["/brands/dior"],
+    "urlPolicy": "existing-brand-only-no-product-url",
+    "source": "GSC-2026-07-19-01",
+    "baseline": {
+      "periodFilter": "Web / Last 3 months; observed chart rows 2026-07-02–2026-07-16",
+      "metrics": [
+        { "url": "/brands/dior", "clicks": 0, "impressions": 142, "ctr": 0, "position": 15.42, "productIntentImpressions": 9 }
+      ]
+    },
+    "hypothesis": "A concise FAQ naming evidenced Dior product families improves relevance on the existing brand URL.",
+    "primaryMetric": "GSC impressions and position for the audited Dior product-intent query family",
+    "guardrails": ["overall /brands/dior CTR", "no new URL/route/sitemap/canonical/Product schema", "no authenticity claim"],
+    "changedFiles": ["messages/en.json", "scripts/quality-regression.test.ts"],
+    "release": null,
+    "followUp14d": null,
+    "followUp28d": null,
+    "decision": "pending"
+  }
+]

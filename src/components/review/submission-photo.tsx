@@ -40,7 +40,7 @@ export function SubmissionPhoto({
         />
       </button>
       <figcaption className="mt-1 flex items-center justify-between gap-2 text-xs text-fg-muted">
-        <span>Photo {index + 1} · {zoomed ? "full resolution — drag to pan" : "click to zoom"}</span>
+        <span>Photo {index + 1} · {zoomed ? "full resolution — scroll to pan" : "click to zoom"}</span>
         <a href={src} target="_blank" rel="noreferrer" className="underline">
           Open original
         </a>

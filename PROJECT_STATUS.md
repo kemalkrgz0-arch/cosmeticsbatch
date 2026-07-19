@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **1.2.0**
+Current version: **1.3.0**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -121,6 +121,262 @@ decision is recorded here. Version notes do not override this section silently.
   in a restricted/TTY-less environment.
 
 ## Active findings / next dependency-ordered work
+
+- `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
+  claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
+  version `1.2.0`. Scope: reconcile stale roadmap states, then complete the
+  remaining locally actionable work in dependency order across public mobile
+  UX/accessibility/RTL, CWV and build tracing, technical SEO and active-locale
+  catalogs, decoder/evidence controls, assisted photo tools, security/retention
+  operations and consent/AdSense readiness. Intended scope may include
+  `PROJECT_STATUS.md`, `package.json`, `src/app/**`, `src/components/**`,
+  `src/lib/**`, `src/i18n/**`, `messages/**`, `scripts/**`, `docs/**` and
+  non-private generated control data. Acceptance: record each discovered
+  finding before implementation; preserve the 19-locale and no-new-product-URL
+  policies; add focused regression coverage; pass focused checks and the full
+  repository gate; never expose private submissions, decoder methods or
+  secrets; do not fabricate native-language, legal, license, production,
+  AdSense-account or time-window verification. External/account/legal/device
+  dependencies remain explicitly `Blocked` or `needs verification`. No commit,
+  push or deployment without a later explicit publication instruction.
+  Initial mobile/accessibility findings recorded before implementation:
+  `P1` — the global skip link is hard-coded English on every locale and the
+  mobile bottom navigation exposes an English-only `Primary` label; affected
+  scope `src/app/[locale]/layout.tsx`, `src/components/layout/bottom-nav.tsx`
+  and active message catalogs; state `In progress`. `P1` — the mobile menu
+  button/dialog is labelled with the translated word for “Brands” although it
+  opens the complete site navigation; affected scope
+  `src/components/layout/site-header.tsx` and navigation copy; state
+  `In progress`. `P2` — several directional utility classes and arrow glyphs
+  assume LTR, including the brand-picker chevron alignment and recovery/guide
+  affordances; affected public form/photo/navigation components; state
+  `In progress`. Acceptance: controls have truthful localized accessible names,
+  active RTL layout uses logical alignment/direction where behavior changes,
+  no 44-locale re-expansion, and regression checks cover active catalogs.
+  Mobile/accessibility group 1 result (`Completed locally`, 1.2.1): added a
+  bounded accessibility-copy registry for all 19 active locales; the global
+  skip link, desktop and bottom navigation, mobile menu trigger/dialog and
+  close controls now expose truthful localized names. Replaced affected
+  physical left/right spacing with logical start/end utilities in the global
+  skip link, header and checker controls so Arabic follows document direction.
+  Changed files: `src/lib/a11y-copy.ts`, `src/app/[locale]/layout.tsx`,
+  `src/components/layout/site-header.tsx`,
+  `src/components/layout/mobile-header-menu.tsx`,
+  `src/components/layout/bottom-nav.tsx`, `src/components/check-form.tsx`,
+  `package.json`, `PROJECT_STATUS.md`. Focused ESLint, repository TypeScript and
+  `git diff --check` passed. Native speaker review of the concise accessibility
+  strings and real VoiceOver/TalkBack behavior remain `needs verification`;
+  no claim of device or native-editor approval, commit, push or deployment.
+  `PHOTO-ASSIST` result (`Completed locally`, without OCR): selected photos now
+  receive local previews and user-controlled 90-degree rotation, centered
+  square crop, contrast enhancement and removal before upload. The chosen
+  transformations are applied during the existing browser-side resize/JPEG
+  re-encode, so embedded metadata still does not pass through; blob preview
+  URLs are revoked on replacement, removal and unmount. All controls have
+  localized accessible labels for the 19 active locales. No OCR guess is made
+  or silently submitted, no decoder/API method changed and no new URL was
+  added. Changed files: `src/components/code-photo-submission.tsx`,
+  `src/lib/photo-assist-copy.ts`, `src/lib/photo-transform.ts`,
+  `scripts/quality-regression.test.ts`, `PROJECT_STATUS.md`. Focused ESLint,
+  TypeScript, `git diff --check` and the complete 61/61 quality suite plus all
+  operational validators passed. Actual camera/gallery behavior on iOS Safari
+  and Android Chrome remains `needs verification`; no commit, push or deploy.
+  `P2` build-tracing finding — state `In progress`: Next.js 16.2.9 reported
+  that the runtime submission directory caused an unintended whole-project NFT
+  trace through the protected image route. The warning explicitly identified
+  dynamic filesystem path construction in `submission-store.ts`; scope is
+  restricted to tracing annotations around the runtime bind-mounted queue,
+  lock and validated image root. Acceptance: production build emits no
+  whole-project trace warning, standalone review file containment remains
+  unchanged and private runtime data is not copied into build output.
+  `P3` retired-catalog debt — state `In progress`: `messages/` still contains
+  JSON catalogs for all 25 locale prefixes retired by the binding 19-locale
+  policy. Runtime routing already redirects those prefixes to English and never
+  imports the catalogs, but their presence invites accidental reactivation and
+  causes agents to spend effort on unsupported languages. Affected scope is
+  exactly the codes in `RETIRED_LOCALE_CODES`; acceptance: remove only those 25
+  message files, retain all 19 active catalogs, validate registry/catalog parity
+  and preserve permanent redirect behavior.
+  Retired-catalog result (`Completed locally`): removed exactly the 25 JSON
+  catalogs named by `RETIRED_LOCALE_CODES`; all 19 active catalogs remain.
+  Added a regression invariant requiring filesystem catalogs to equal
+  `LOCALE_CODES` and forbidding every retired catalog. Redirect implementation
+  remains unchanged. `npm run test:quality` passed 62/62 with all operational
+  validators, repository TypeScript and `git diff --check`. Deleted catalogs
+  remain recoverable from Git history; no active language route, commit, push
+  or deployment was removed or performed.
+  `P1` deployment recovery finding — state `In progress`: `deploy.sh` removes
+  the healthy production container before proving the replacement can boot, so
+  an image/runtime regression turns a failed release into avoidable downtime.
+  The workflow also treats container existence as success without HTTP smoke
+  checks. `P2` backup finding — state `In progress`: private-data backups are
+  manual-only and checksum-tested but never extraction-tested. Affected scope:
+  `deploy.sh`, `Dockerfile`, `.github/workflows/deploy.yml` and
+  `.github/workflows/backup-vps-data.yml`. Acceptance: boot/health-check a
+  candidate before replacing the current named container; preserve the old
+  container when candidate health fails; verify core HTTP routes after switch;
+  schedule backups and test newest archive extraction without restoring over
+  production data. Production execution remains pending explicit deployment.
+  Operations result (`Completed locally; production verification pending`): the
+  Docker image now declares a local HTTP health check. `deploy.sh` boots and
+  tests a separately named candidate while the current container remains live,
+  retains the previous container during the switch, checks `/`,
+  `/brands/dior` and `/check`, and rolls back on a post-switch failure. The
+  backup workflow now runs weekly as well as manually, verifies SHA-256 and
+  extracts the archive into an isolated temporary directory. Weekly grouped
+  dependency updates are configured; `pnpm audit --prod --json` reported 0
+  known vulnerabilities across 138 resolved production/optional dependencies
+  on 2026-07-19. `bash -n deploy.sh` and `git diff --check` passed; ShellCheck
+  and actionlint are not installed, and no workflow was executed remotely.
+  Retention data classes, present storage behavior and the exact owner/legal
+  decisions required before deletion automation are recorded in
+  `docs/RETENTION_AND_RECOVERY.md`; no duration was invented and no private data
+  was deleted. Secret rotation, backup encryption-at-rest, real restore,
+  production candidate/rollback and Resend retention remain `needs verification`.
+  `P1` SEO crawl-control finding — state `In progress`: existing source-level
+  tests protect publishing rules but there is no reusable rendered-surface gate
+  that walks the generated sitemap and detects non-200 entries, wrong/self-
+  canonical paths, sitemap `noindex`, over-budget titles/descriptions,
+  non-reciprocal hreflang or broken internal links. Affected scope:
+  `scripts/audit-seo-surface.mjs`, package scripts and generated production
+  output only. Acceptance: audit the local production server without changing
+  or adding public URLs, reject the listed defects, report exact failing URLs
+  and record any environment-limited checks honestly.
+
+- `LOCAL-RELEASE-GATE-014`; owner: primary Codex agent; state: `Completed with
+  explicit mobile limitation`; verified 2026-07-19; version `1.2.0`. Full
+  accumulated working-tree gate passed: repository ESLint, TypeScript,
+  `git diff --check`, 60/60 decoder/quality tests, search evidence (2 sources/2
+  claims), experiment registry (2), content freshness (26 brands), evidence
+  inventory (46 assets) and 267/267 production build. The only build warning is
+  the pre-existing submission-store NFT whole-project trace. Running standalone
+  production returned 200 for `/`, `/brands/dior` and `/check` with expected
+  security headers. Mobile screenshots were attempted but not produced because
+  `node_modules/.bin/playwright` is absent in the current 1.2.0 installation;
+  real-device/390px visual verification remains `needs verification`, not
+  silently passed. Local servers were stopped. No commit, push or deployment.
+
+- `ADS-READY-013`; owner: primary Codex agent; state: `Audit completed —
+  application blocked`; audited 2026-07-19; scope: current AdSense integration,
+  consent/CMP, ads.txt, eligible inventory, navigation/content and readiness
+  documentation; no account mutation, ad activation, legal conclusion, commit,
+  push or deployment. Result: reviewed-content inventory gating, reserved ad
+  height, ads.txt generation, private-review exclusion, consent-mode defaults,
+  navigation and original brand/editorial thresholds are implemented. Blocking
+  issue: the repository explicitly uses a custom non-certified banner while
+  Google currently requires a Google-certified TCF CMP for EEA/UK/Switzerland
+  AdSense inventory; the AdSense loader can also be called before affirmative
+  consent. Privacy copy says applicable consent is obtained “through a consent
+  management platform”, which is not proven by the current implementation.
+  Configure Google Privacy & messaging CMP or another certified CMP, verify TCF
+  v2.3/region behavior and update/remove the competing custom ad-consent flow
+  before application. Account site/ads.txt status and production CMP signals
+  remain `needs verification`. Evidence and exact official sources are in
+  `docs/ADSENSE_READINESS.md`.
+
+- `EVIDENCE-LIBRARY-012`; owner: primary Codex agent; state: `Completed locally`;
+  claimed 2026-07-19; starting version `1.2.0`; scope: inventory and approval
+  controls for existing public packaging/code images plus private-to-public
+  evidence workflow documentation and validation; no image publication,
+  submission migration, route, consent expansion, commit/push/deploy.
+  Acceptance: inventory every active code image and file existence; never infer
+  ownership/license/provenance from repository presence; mark current unknowns
+  `needs verification`; require consent, anonymization/crop, source/submission
+  reference, reviewer/date and decoder relevance before any future public use;
+  prohibit email/note/raw private path in public evidence records.
+  Result: deterministic inventory covers 46 active public code/packaging assets
+  and validates every path/dimension. Because repository presence is not proof,
+  every current asset is explicitly `existing-public-audit-required` with
+  source, permission, privacy review and decoder relevance marked
+  `needs-verification`. The documented future workflow requires consent,
+  private source reference, anonymized crop/re-encode, reviewer/date and
+  publication decision while excluding contact/private paths from public
+  records. Inventory generation/validation, focused lint and `git diff --check`
+  passed. No image was added, exposed, moved, committed, pushed or deployed.
+
+- `EXPERIMENT-OPS-011`; owner: primary Codex agent; state: `Completed locally`;
+  claimed 2026-07-19; starting version `1.2.0`; scope: versioned experiment
+  registry/schema validator, operator documentation, package quality integration
+  and this status entry. Acceptance: every experiment has unique ID/owner/type,
+  exact existing URLs, source/baseline, hypothesis, primary metric, guardrails,
+  changed files, local/released state, release commit/date when applicable,
+  14/28-day follow-ups and keep/revise/revert decision; unreleased work cannot
+  pretend to have production results; reject new product URLs in current brand
+  experiments; validate current snippet and Dior baselines; no private data,
+  commit, push or deployment.
+  Result: `data/experiments/registry.json` records the L'Oréal Paris/Kérastase
+  snippet and Dior existing-URL product-intent experiments with immutable
+  baselines, hypotheses, metrics, guardrails, files and pending 14/28-day
+  follow-ups. `npm run test:experiments` rejects duplicate/unsafe IDs, malformed
+  URLs, nested product URLs, missing release metadata, premature outcomes or
+  decisions and email-like/private-data fields; it now runs inside
+  `test:quality`. Focused validation/lint, 59/59 quality tests, both evidence
+  validators and `git diff --check` passed. No commit, push or deployment.
+
+- `CHECK-RECOVERY-009`; owner: primary Codex agent; state: `Completed locally`;
+  claimed
+  2026-07-19; starting version `1.2.0`; scope to be finalized after read-only
+  inspection, limited to failed-result recovery copy/model and its focused test;
+  excludes review/auth, search-data, deployment, new routes and decoder method
+  changes. Acceptance: guide barcode, incomplete/misread code, unsupported
+  format and eligible photo-review cases without promising authenticity/expiry/
+  safety; preserve all locales or use an honest existing localized fallback;
+  measure-ready action taxonomy without IP/session identity; no commit/push/
+  deploy. Agent must report exact proposed files before editing and avoid shared
+  `package.json`/`PROJECT_STATUS.md` while other agents work.
+  Result: the existing failure UI already separated barcode, invalid-format and
+  unresolved cases with retry/photo/email actions. The invalid-format guidance
+  incorrectly told users to remove spaces/punctuation even though decoder
+  normalization already ignores them; EN/TR now direct users to compare every
+  character, brand and packaging field while stating normalization truthfully.
+  Recovery links carry stable anonymous `retry-code`, `submit-photos` and
+  `email-support` action/reason attributes without identity data. Focused lint,
+  TypeScript, `git diff --check`, 60/60 quality tests and all three operational
+  validators passed. No new route, tracking identity, commit, push or deploy.
+
+- `CONTENT-FRESHNESS-010`; owner: primary Codex agent; state: `Completed
+  locally`; claimed
+  2026-07-19; starting version `1.2.0`; scope: a new content-freshness manifest,
+  standalone validator and documentation only; excludes messages, review/auth,
+  product routes, package/status edits and deployment. Acceptance: cover current
+  high-value/indexable brands with last editorial review, decoder verification,
+  evidence count/status, reviewed locales, responsible role, next-review state
+  and `needs verification` where facts are absent; validator rejects unknown or
+  duplicate brands and future/invalid dates; no invented native review; no
+  commit/push/deploy. Agent reports a handoff for primary integration.
+  Result: a deterministic manifest now covers all 26 brands passing the current
+  editorial/sample gate. It records the matrix review date, EN/RU exposure,
+  evidence count/status, responsible role, remaining gap and explicitly marks
+  decoder verification/next review as unverified/required rather than inventing
+  approval. Drift validation rebuilds from the quality matrix and rejects
+  duplicates, unknown/future dates or unsupported native-review claims; it is
+  integrated into `test:quality`. The first validation correctly exposed a bad
+  decoder-ID-as-slug assumption; the builder now uses the catalog's real slug
+  normalization. Final focused lint, TypeScript, `git diff --check`, 60/60
+  quality tests and all operational validators passed. No commit/push/deploy.
+
+- `GROWTH-METRICS-008`; owner: primary Codex agent; state: `Completed locally`;
+  claimed 2026-07-19; starting commit `fa054ac`; scope: deterministic anonymous
+  GSC growth-baseline generator, shared TSV parser, generated brand/Tier-1
+  baseline report, search-data validator integration and this status entry.
+  Acceptance: consume only registered normalized aggregate evidence; report the
+  exact source/filter/observed-period caveat; rank existing prefix-free brand
+  URLs without inventing query-to-page joins; expose owner-approved Tier-1
+  country metrics separately; mark unavailable checker-conversion/AdSense RPM
+  fields honestly rather than fabricating zeros; contain no email, IP, account,
+  submission or raw-code data; deterministic regeneration and drift validation;
+  focused/full checks; no product URL, commit, push or deployment. This scope is
+  disjoint from Claude-owned review/auth implementation.
+  Result: `npm run growth:baseline` deterministically generates
+  `data/search-performance/GROWTH_BASELINE.md` from the registered GSC source,
+  covering 39 existing prefix-free English brand URLs and eight owner-approved
+  Tier-1 markets. It records Web/Last 3 months, the observed 2026-07-02 through
+  2026-07-16 chart range and aggregate-table non-join limitation. Unavailable
+  checker conversion, decode success and RPM/revenue remain `not available`.
+  The shared quoted/multiline TSV parser is reused by evidence validation.
+  Generation, search-data validation, focused ESLint and `git diff --check`
+  passed; later integrated quality run passed 59/59. No new URL, private data,
+  commit, push or deployment.
 
 - `SEARCH-QA-006`; owner: primary Codex agent; state: `Completed locally`;
   claimed
@@ -428,8 +684,19 @@ decision is recorded here. Version notes do not override this section silently.
     `GSC-BRAND-2026-07-19-01`, and the remaining disjoint slices (device split,
     `/check` visibility) are lower value than dashboard ergonomics at the current
     click volume.
-  - `CLAUDE-REVIEW-004`; owner: Claude; state: `Codex review blocker open — not
-    committed`; assigned by the
+  - `CLAUDE-REVIEW-004`; owner: primary Codex agent after Claude was stopped by
+    owner instruction; state: `Completed locally — not committed`; remediation
+    claimed 2026-07-19; starting commit
+    `fa054ac`; exact remediation scope: `src/lib/review-auth.ts`,
+    `src/components/review/submission-photo.tsx`, focused additions to
+    `scripts/quality-regression.test.ts`, and this status entry. Acceptance:
+    decoded JWT header and payload values must be non-null, non-array objects;
+    valid JSON primitives `null`, `[]` and `"text"` must all be rejected as
+    `Invalid Access token` by regression tests; photo zoom instructions must
+    describe the implemented scroll/touch panning rather than pointer dragging;
+    focused and repository-wide lint, TypeScript, quality and build checks pass;
+    preserve every other agent's changes; no commit, push or deployment.
+    Original work assigned by the
     owner 2026-07-19; starting commit `fa054ac`; scope:
     `src/app/[locale]/review/page.tsx` and `src/lib/review-auth.ts`. Task: the
     two smallest items from finding 15 — (a) link brand names in `Decoder
@@ -470,6 +737,13 @@ decision is recorded here. Version notes do not override this section silently.
     No other blocking defect was found in the result filters/links, protected
     inline decoder preview, single reply composer or photo zoom. Codex did not
     edit any Claude-owned implementation file during this review.
+    Resolution: Claude wrote the remediation immediately before being stopped;
+    Codex assumed ownership and verified it. `decodeAccessPart` now rejects
+    non-object, null and array JSON values before property access; focused tests
+    cover `null`, `[]` and `"text"` for JWT parts. The zoom label now says “scroll
+    to pan”. Focused ESLint, repository TypeScript, `git diff --check` and 59/59
+    integrated quality tests passed. Full build is deferred to the accumulated
+    release gate; no commit, push or deployment by Codex.
   - Coordination rule: before starting another task, each agent must read active
     claims and write a proposed next work item with file scope here. If the scope
     overlaps, the agent must redirect the other agent to a disjoint roadmap item
@@ -804,6 +1078,24 @@ priority above controls execution; the list below defines scope and guardrails.
    guess to the decoder or describe it as certain. Build only after failed-check
    recovery and the evidence library establish real need, privacy and accuracy
    baselines.
+
+16. P3 deploy switch window (`Next`; observed by Claude, scope owned by Codex:
+    `deploy.sh`): the new candidate/rename release flow is a large improvement —
+    a failed candidate never replaces production, and a failed post-switch smoke
+    rolls back — but the switch is not zero-downtime. Between
+    `docker rename cosmeticsbatch cosmeticsbatch-previous` and
+    `docker rename cosmeticsbatch-candidate cosmeticsbatch` no container answers
+    to the production name. If the reverse proxy resolves the app by Docker DNS,
+    requests in that gap can 502. Under a second, and far shorter than the
+    previous `docker rm -f` then `docker run` sequence, but not nil; a proxy with
+    its own DNS cache could stretch it. `needs verification` — the proxy config
+    lives in the `yerelatlas_default` stack and was not readable from here.
+    Two smaller notes on the same flow: the candidate mounts
+    `/opt/cosmeticsbatch-data` and runs with `--restart unless-stopped` while
+    production is still live, so two processes can append to the same JSONL
+    files during the health-check window (noise, not loss); and
+    `docker rm cosmeticsbatch-previous` at the end means fast rollback exists
+    only until the smoke checks pass, after which recovery is via the image.
 
 ## Complete phase ledger and remaining roadmap
 

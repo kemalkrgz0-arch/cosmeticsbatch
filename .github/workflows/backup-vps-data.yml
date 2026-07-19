@@ -2,6 +2,8 @@ name: Backup VPS private data
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * 1"
 
 jobs:
   backup:
@@ -35,3 +37,11 @@ jobs:
             echo "Backup created: $(basename "$archive")"
             du -h "$archive"
             sha256sum -c "$archive.sha256"
+
+            restore_test="$(mktemp -d /tmp/cosmeticsbatch-restore-test.XXXXXX)"
+            trap 'rm -rf "$restore_test"' EXIT
+            tar -C "$restore_test" -xzf "$archive"
+            test -d "$restore_test/cosmeticsbatch-data"
+            test -r "$restore_test/cosmeticsbatch-data"
+            find "$restore_test/cosmeticsbatch-data" -type f -print -quit | grep -q .
+            echo "Restore extraction test passed."

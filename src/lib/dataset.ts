@@ -11,8 +11,12 @@ import type { CheckResult, DecodeFailureReason } from "@/lib/decoder";
  * coarse country code is not personal information, so no consent gate is
  * needed. Logging is fire-and-forget: a failed write must never break a decode.
  */
-const DIR = process.env.DATASET_DIR || join(process.cwd(), ".data");
-const FAILED_DIR = join(DIR, "failed-codes");
+const configuredDir = process.env.DATASET_DIR;
+const DIR = join(
+  /* turbopackIgnore: true */ configuredDir || process.cwd(),
+  ...(configuredDir ? [] : [".data"]),
+);
+const FAILED_DIR = join(/* turbopackIgnore: true */ DIR, "failed-codes");
 
 export type CheckSource = "brand" | "check" | "api";
 
@@ -90,7 +94,7 @@ let warned = false;
 export async function logCheck(entry: CheckLog): Promise<void> {
   try {
     await mkdir(DIR, { recursive: true });
-    const file = join(DIR, `checks-${entry.ts.slice(0, 7)}.jsonl`);
+    const file = join(/* turbopackIgnore: true */ DIR, `checks-${entry.ts.slice(0, 7)}.jsonl`);
     await appendFile(file, JSON.stringify(entry) + "\n", "utf8");
   } catch (err) {
     if (!warned) {
@@ -110,7 +114,7 @@ export async function logFailedCode(entry: FailedCodeLog): Promise<void> {
     await mkdir(FAILED_DIR, { recursive: true });
     const brandFile = entry.brand.replace(/[^a-z0-9-]/gi, "-").toLowerCase();
     await appendFile(
-      join(FAILED_DIR, `${brandFile}.jsonl`),
+      join(/* turbopackIgnore: true */ FAILED_DIR, `${brandFile}.jsonl`),
       `${JSON.stringify(entry)}\n`,
       { encoding: "utf8", mode: 0o600 },
     );
@@ -126,7 +130,7 @@ export async function logFailedCode(entry: FailedCodeLog): Promise<void> {
 export async function logActivity(entry: ActivityLog): Promise<void> {
   try {
     await mkdir(DIR, { recursive: true });
-    const file = join(DIR, `activity-${entry.ts.slice(0, 7)}.jsonl`);
+    const file = join(/* turbopackIgnore: true */ DIR, `activity-${entry.ts.slice(0, 7)}.jsonl`);
     await appendFile(file, `${JSON.stringify(entry)}\n`, "utf8");
   } catch (err) {
     if (!warned) {
@@ -161,7 +165,7 @@ async function readChecks(limit: number | undefined, since?: string): Promise<Ch
   }
   const rows: CheckLog[] = [];
   for (const file of files) {
-    const lines = (await readFile(join(DIR, file), "utf8")).split("\n").reverse();
+    const lines = (await readFile(join(/* turbopackIgnore: true */ DIR, file), "utf8")).split("\n").reverse();
     for (const line of lines) {
       if (!line.trim()) continue;
       try {
@@ -201,7 +205,7 @@ export async function readRecentFailedCodes(limit = 1_000): Promise<FailedCodeLo
   }
   const rows: FailedCodeLog[] = [];
   for (const file of files) {
-    for (const line of (await readFile(join(FAILED_DIR, file), "utf8")).split("\n")) {
+    for (const line of (await readFile(join(/* turbopackIgnore: true */ FAILED_DIR, file), "utf8")).split("\n")) {
       if (!line.trim()) continue;
       try {
         const entry = JSON.parse(line) as FailedCodeLog;
@@ -229,7 +233,7 @@ export async function readRecentActivity(limit = 10_000, since?: string): Promis
   }
   const rows: ActivityLog[] = [];
   for (const file of files) {
-    const lines = (await readFile(join(DIR, file), "utf8")).split("\n").reverse();
+    const lines = (await readFile(join(/* turbopackIgnore: true */ DIR, file), "utf8")).split("\n").reverse();
     for (const line of lines) {
       if (!line.trim()) continue;
       try {

@@ -2,8 +2,10 @@ import { appendFile, open, readFile, unlink } from "node:fs/promises";
 import { isAbsolute, join, normalize, resolve, sep } from "node:path";
 
 export const SUBMISSIONS_DIR = process.env.SUBMISSIONS_DIR || "/tmp/cosmeticsbatch-submissions";
-const QUEUE = join(SUBMISSIONS_DIR, "submissions.jsonl");
-const LOCK = join(SUBMISSIONS_DIR, ".review.lock");
+// Runtime-only bind-mounted data must never be followed into the standalone
+// build trace. The directory is validated again before any image read.
+const QUEUE = join(/* turbopackIgnore: true */ SUBMISSIONS_DIR, "submissions.jsonl");
+const LOCK = join(/* turbopackIgnore: true */ SUBMISSIONS_DIR, ".review.lock");
 
 export const REVIEW_STATUSES = ["pending", "in_review", "awaiting_user", "completed", "discarded"] as const;
 export type ReviewStatus = typeof REVIEW_STATUSES[number];
@@ -108,7 +110,7 @@ export async function appendReply(id: string, status: "sent" | "failed", actor: 
 
 export function submissionImagePath(relativeFile: string) {
   if (!relativeFile || isAbsolute(relativeFile) || normalize(relativeFile).startsWith("..")) throw new Error("Invalid image path");
-  const root = resolve(SUBMISSIONS_DIR);
+  const root = resolve(/* turbopackIgnore: true */ SUBMISSIONS_DIR);
   const path = resolve(root, relativeFile);
   if (!path.startsWith(`${root}${sep}`)) throw new Error("Invalid image path");
   return path;

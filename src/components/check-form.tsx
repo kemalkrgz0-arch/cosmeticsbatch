@@ -256,7 +256,7 @@ export function CheckForm({
                 {t("form.selectBrandPlaceholder")}
               </span>
             )}
-            <ChevronDown className="ml-auto h-4 w-4 shrink-0 text-fg-muted" />
+            <ChevronDown className="ms-auto h-4 w-4 shrink-0 text-fg-muted" />
           </button>
 
           {open && (
@@ -309,7 +309,7 @@ export function CheckForm({
                           ? t("form.recent")
                           : section.label}
                         {section.label === "Recent" && (
-                          <span className="ml-1.5 lowercase tracking-normal text-fg-muted/50">
+                          <span className="ms-1.5 lowercase tracking-normal text-fg-muted/50">
                             · {t("form.lastUsed")}
                           </span>
                         )}
@@ -394,9 +394,9 @@ export function CheckForm({
               aria-describedby={`${codeHintId}${error ? ` ${errorId}` : ""}`}
               aria-invalid={Boolean(error && brand)}
               placeholder={t("form.batchCodePlaceholder")}
-              className={cn("w-full border bg-bg px-4 pr-11 font-medium tracking-wide outline-none transition-colors duration-200 hover:border-border-strong focus-visible:border-[var(--brand-primary)] placeholder:font-normal placeholder:text-fg-muted", presentation === "brand" ? "h-14 rounded-2xl" : "h-12 rounded-xl")}
+              className={cn("w-full border bg-bg px-4 pe-11 font-medium tracking-wide outline-none transition-colors duration-200 hover:border-border-strong focus-visible:border-[var(--brand-primary)] placeholder:font-normal placeholder:text-fg-muted", presentation === "brand" ? "h-14 rounded-2xl" : "h-12 rounded-xl")}
             />
-            <ScanLine className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-muted" />
+            <ScanLine className="pointer-events-none absolute end-3 top-1/2 h-5 w-5 -translate-y-1/2 text-fg-muted" />
           </div>
           {/* Steer users away from typing the product barcode (EAN). */}
           <p id={codeHintId} className="mt-1.5 px-1 text-xs leading-relaxed text-fg-muted">

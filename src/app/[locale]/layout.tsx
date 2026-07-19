@@ -16,6 +16,7 @@ import { SiteChrome } from "@/components/layout/site-chrome";
 import { JsonLd } from "@/components/json-ld";
 import { TrackingBoundary } from "@/components/tracking-boundary";
 import { ProductActivity } from "@/components/product-activity";
+import { a11yCopy } from "@/lib/a11y-copy";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -94,6 +95,7 @@ export default async function RootLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const accessibility = a11yCopy(locale);
 
   return (
     <html
@@ -109,18 +111,18 @@ export default async function RootLayout({
           <SiteChrome>
             <a
               href="#main"
-              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-cta focus:px-4 focus:py-2 focus:text-cta-fg"
+              className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-cta focus:px-4 focus:py-2 focus:text-cta-fg"
             >
-              Skip to content
+              {accessibility.skipToContent}
             </a>
-            <SiteHeader />
+            <SiteHeader accessibility={accessibility} />
           </SiteChrome>
           <main id="main" className="flex-1 pb-20 md:pb-0">
             {children}
           </main>
           <SiteChrome>
             <SiteFooter />
-            <BottomNav />
+            <BottomNav label={accessibility.primaryNavigation} />
           </SiteChrome>
           <ProductActivity />
           <TrackingBoundary />

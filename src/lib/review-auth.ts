@@ -24,12 +24,17 @@ let cachedKeys: { expiresAt: number; keys: Jwk[] } | undefined;
  * refused credential. Access is denied either way; this only keeps the failure
  * in the same vocabulary as every other rejection here.
  */
-function decodePart<T>(value: string): T {
+export function decodeAccessPart<T extends object>(value: string): T {
+  let decoded: unknown;
   try {
-    return JSON.parse(Buffer.from(value, "base64url").toString("utf8")) as T;
+    decoded = JSON.parse(Buffer.from(value, "base64url").toString("utf8"));
   } catch {
     throw new Error("Invalid Access token");
   }
+  if (typeof decoded !== "object" || decoded === null || Array.isArray(decoded)) {
+    throw new Error("Invalid Access token");
+  }
+  return decoded as T;
 }
 
 function config() {
@@ -64,8 +69,8 @@ export async function verifyAccessToken(token: string) {
   const { teamDomain, audience, reviewers } = config();
   const parts = token.split(".");
   if (parts.length !== 3) throw new Error("Invalid Access token");
-  const header = decodePart<{ alg?: string; kid?: string }>(parts[0]);
-  const payload = decodePart<AccessPayload>(parts[1]);
+  const header = decodeAccessPart<{ alg?: string; kid?: string }>(parts[0]);
+  const payload = decodeAccessPart<AccessPayload>(parts[1]);
   if (header.alg !== "RS256" || !header.kid) throw new Error("Unsupported Access token");
 
   const key = (await signingKeys(teamDomain)).find((candidate) => candidate.kid === header.kid);

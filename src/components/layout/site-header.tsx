@@ -6,7 +6,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { MobileHeaderMenu } from "@/components/layout/mobile-header-menu";
 
-export function SiteHeader() {
+export function SiteHeader({ accessibility }: { accessibility: { primaryNavigation: string; openMenu: string; closeMenu: string } }) {
   const t = useTranslations("nav");
   const nav = [
     { href: "/", label: t("home") },
@@ -30,7 +30,7 @@ export function SiteHeader() {
           <span className="whitespace-nowrap text-[16px] tracking-[.01em] sm:text-[17px]">{site.name}</span>
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-1 md:flex">
+        <nav aria-label={accessibility.primaryNavigation} className="ms-4 hidden items-center gap-1 md:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -42,7 +42,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ms-auto flex items-center gap-1.5">
           <LanguageSwitcher />
           {/* Theme toggle lives in the footer on mobile so the brand name
               always fits in the header; keep it here on larger screens. */}
@@ -55,7 +55,7 @@ export function SiteHeader() {
           >
             {t("checkNow")}
           </Link>
-          <MobileHeaderMenu items={nav} label={t("brands")} />
+          <MobileHeaderMenu items={nav} label={accessibility.primaryNavigation} openLabel={accessibility.openMenu} closeLabel={accessibility.closeMenu} />
         </div>
       </div>
     </header>

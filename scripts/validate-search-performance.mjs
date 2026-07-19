@@ -3,6 +3,7 @@
 import assert from "node:assert/strict";
 import { readdirSync, readFileSync } from "node:fs";
 import { basename, join } from "node:path";
+import { parseTsv } from "./lib/tsv.mjs";
 
 const root = join(process.cwd(), "data", "search-performance");
 const normalizedRoot = join(root, "normalized");
@@ -11,44 +12,6 @@ const findingsText = readFileSync(join(root, "FINDINGS.md"), "utf8");
 const sourceIdPattern = /^[A-Z0-9][A-Z0-9-]{2,79}$/;
 const shaPattern = /^[a-f0-9]{64}$/;
 const forbiddenHeaders = /^(?:e-?mail|email_address|ip|ip_address|account|account_id|user_id|submission|submission_id|name)$/i;
-
-function parseTsv(text) {
-  const rows = [];
-  let row = [];
-  let field = "";
-  let quoted = false;
-  for (let index = 0; index < text.length; index += 1) {
-    const character = text[index];
-    if (quoted) {
-      if (character === '"' && text[index + 1] === '"') {
-        field += '"';
-        index += 1;
-      } else if (character === '"') {
-        quoted = false;
-      } else {
-        field += character;
-      }
-    } else if (character === '"' && field.length === 0) {
-      quoted = true;
-    } else if (character === "\t") {
-      row.push(field);
-      field = "";
-    } else if (character === "\n") {
-      row.push(field.replace(/\r$/, ""));
-      rows.push(row);
-      row = [];
-      field = "";
-    } else {
-      field += character;
-    }
-  }
-  assert.equal(quoted, false, "TSV ends inside a quoted field");
-  if (field.length > 0 || row.length > 0) {
-    row.push(field.replace(/\r$/, ""));
-    rows.push(row);
-  }
-  return rows;
-}
 
 const sourceIds = readdirSync(normalizedRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
