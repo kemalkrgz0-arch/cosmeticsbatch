@@ -52,7 +52,7 @@ import {
 } from "../src/lib/review-metrics";
 import { decodeAccessPart } from "../src/lib/review-auth";
 import { photoTransformPlan } from "../src/lib/photo-transform";
-import { NON_ENGLISH_BRAND_DETAIL_GAPS } from "../src/lib/locale-message-gaps";
+import { BRAND_DETAIL_GAPS, hasReviewedBrandDetailKey } from "../src/lib/locale-message-gaps";
 import { isAdEligibleLocale } from "../src/lib/ads";
 
 const englishMessages = JSON.parse(
@@ -76,10 +76,7 @@ test("message catalogs exist only for the 19 active locale routes", () => {
   }
 });
 
-test("known non-English brand-detail gaps cannot leak through paired UI", () => {
-  const expected = [...NON_ENGLISH_BRAND_DETAIL_GAPS]
-    .map((key) => `brandDetail.${key}`)
-    .sort();
+test("the brand-detail gap manifest matches the catalogs, per locale", () => {
   const flatten = (value: Record<string, unknown>, prefix = "", out: Record<string, unknown> = {}) => {
     for (const [key, child] of Object.entries(value)) {
       const path = prefix ? `${prefix}.${key}` : key;
@@ -90,13 +87,32 @@ test("known non-English brand-detail gaps cannot leak through paired UI", () => 
     return out;
   };
   const english = flatten(JSON.parse(readFileSync("messages/en.json", "utf8")) as Record<string, unknown>);
+  const englishBrandDetail = Object.keys(english)
+    .filter((key) => key.startsWith("brandDetail."))
+    .map((key) => key.slice("brandDetail.".length));
+
+  // Locales are translated at different rates, so the manifest is per locale.
+  // Recomputing it here is what stops the generated file drifting from the
+  // catalogs when a key is added or a language is finished.
   for (const locale of LOCALE_CODES.filter((code) => code !== "en")) {
     const localized = flatten(JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as Record<string, unknown>);
-    const missingBrandDetail = Object.keys(english)
-      .filter((key) => key.startsWith("brandDetail.") && !(key in localized))
+    const missing = englishBrandDetail
+      .filter((key) => !(`brandDetail.${key}` in localized))
       .sort();
-    assert.deepEqual(missingBrandDetail, expected, `${locale} brand-detail gap manifest drifted`);
+    assert.deepEqual(
+      [...(BRAND_DETAIL_GAPS[locale] ?? [])].sort(),
+      missing,
+      `${locale} brand-detail gap manifest drifted — rerun scripts/build-locale-message-gaps.mjs`,
+    );
   }
+
+  // A fully translated locale must not appear at all, or its own content stays
+  // hidden. Turkish is the case that proved the old single-set model wrong.
+  assert.equal(BRAND_DETAIL_GAPS.tr, undefined, "tr is fully translated and must carry no gaps");
+  assert.equal(hasReviewedBrandDetailKey("tr", "vichy", "faq1a"), true);
+  assert.equal(hasReviewedBrandDetailKey("ru", "vichy", "faq1a"), false);
+  assert.equal(hasReviewedBrandDetailKey("en", "vichy", "faq1a"), true);
+
   const page = readFileSync("src/app/[locale]/brands/[slug]/page.tsx", "utf8");
   assert.match(page, /hasReviewedBrandDetailKey\(locale, brand\.slug, `faq\$\{i\}a`\)/);
 });
