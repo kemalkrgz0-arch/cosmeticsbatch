@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **1.3.0**
+Current version: **1.3.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -121,6 +121,97 @@ decision is recorded here. Version notes do not override this section silently.
   in a restricted/TTY-less environment.
 
 ## Active findings / next dependency-ordered work
+
+- `ADSENSE-APPROVAL-016`; owner: primary Codex agent; state: `In progress`;
+  claimed 2026-07-19 Europe/Istanbul; starting commit `c681ee5`; starting
+  version `1.3.0`. Scope: official-Google-only AdSense acceptance research,
+  repository/live readiness matrix, consent/CMP switch controls, privacy
+  disclosures, monetized-inventory gating, mixed-language/low-value blockers,
+  ads.txt/site connection and account-side application runbook. Intended files:
+  `docs/ADSENSE_READINESS.md`, `PROJECT_STATUS.md`, `src/lib/ads.ts`,
+  `src/components/tracking-boundary.tsx`, `src/components/cookie-consent.tsx`,
+  `src/app/[locale]/privacy/page.tsx`, monetized page components, deployment
+  environment templates and focused tests. Acceptance: cite current official
+  Google requirements; distinguish mandatory policy from recommendations;
+  prevent a custom banner from being represented as a certified TCF CMP; keep
+  ads off unreviewed/unsupported/mixed-language inventory; provide revocation
+  access when Google Privacy & messaging is enabled; verify code locally and
+  list every account/production/manual dependency. Google approval cannot be
+  guaranteed or truthfully marked 100%; no application, account mutation,
+  commit, push or deployment without the required external/account evidence.
+  Research/implementation update: official Google guidance confirms that the
+  whole site is reviewed; original useful publisher-content, clear navigation,
+  compliant inventory/placements, privacy disclosures and valid traffic are
+  required. Personalized ads in the EEA, UK and Switzerland require a
+  Google-certified CMP integrated with IAB TCF; Google Privacy & messaging now
+  supports TCF v2.3 and consent revocation. Repository changes separate CMP
+  verification from presence of a publisher ID via
+  `NEXT_PUBLIC_GOOGLE_CMP_ENABLED`; the existing custom banner identifies
+  itself as non-TCF and is suppressed only after that explicit production flag.
+  AdSense loader/units are now restricted to English, fully gated content while
+  other locale routes stay functional without ad code. A measured 30-key
+  non-English brand-detail gap manifest prevents translated questions/sections
+  from silently pairing with English fallback, with parity tests across all 18
+  non-English active catalogs. Privacy now discloses third-party cookies, web
+  beacons, IP/identifiers and Google partner-data use, describes the CMP
+  prerequisite honestly and uses the verified public contact mailbox.
+  `docs/ADSENSE_READINESS.md` now contains a mandatory blocker matrix,
+  repository controls, content/inventory review and exact account-side runbook
+  with current official Google URLs. Focused ESLint, TypeScript, `bash -n`,
+  `git diff --check`, 65/65 quality tests and all four operational validators
+  passed. Remaining blockers: publish/test the account-side certified CMP and
+  TC string; confirm Sites/ads.txt/Policy Center/identity/payment status; clear
+  all 46 public-asset provenance reviews; native editorial/rendered fallback
+  sample; real mobile/CWV with ads. State remains `In progress / blocked before
+  application`; no 100% guarantee, application, commit, push or deployment.
+  Production build passed 267/267 pages after these changes. The earlier
+  submission-store/dataset trace sources are resolved; the warning narrowed to
+  two remaining runtime path joins in `src/app/api/code-photo/route.ts`, which
+  are now explicitly excluded from NFT tracing while retaining the fixed
+  private bind-mount root. A final warning-free rebuild remains pending.
+  Follow-up build completed warning-free at 267/267 after the final route-path
+  annotations and the concurrently introduced review-dashboard import was
+  reconciled. The first post-fix rendered audit reduced 64 reported metadata
+  overages to 23 while all 206 sitemap URLs, canonicals/hreflang and 4,864
+  discovered internal paths remained structurally valid. The 23 residuals were
+  audit false positives: React encodes apostrophes as hexadecimal numeric HTML
+  entities (for example `&#x27;`), but the crawler decoded only named entities,
+  adding three characters per apostrophe. Numeric entity decoding has been
+  added; final crawl rerun is pending and this item stays `In progress`.
+  SEO crawl result (`Completed locally`): the final rendered production audit
+  passed all 206 sitemap URLs and 4,864 unique internal paths. Every sitemap URL
+  returned 200, stayed indexable, emitted a self-canonical, remained inside the
+  60-character title and 160-character description budgets, and produced
+  reciprocal sitemap-contained hreflang targets; no checked internal link
+  redirected, timed out or returned an error. The crawler now has bounded
+  concurrency, per-request timeout, progress output and correct named/decimal/
+  hexadecimal HTML entity decoding. This is local production-output evidence,
+  not proof that external crawlers have refreshed their indexes. No new public
+  URL, commit, push or deployment.
+  Pre-release independent review found five dashboard regressions in the
+  concurrent Claude change set before deployment: the checks search dropped
+  active brand/country filters; result-chip counts ignored composed filters;
+  the failed-code 7/14-day comparison was capped to the newest 5,000 all-time
+  rows; retry-count help relied on a hover-only `title`; and decoder trend
+  aggregation rescanned the complete check set per brand. State: `In progress`;
+  these findings are recorded before correction and block the release gate
+  until focused tests and the full verification suite pass.
+  Pre-release review correction (`Completed locally`): checks search now
+  preserves brand/country/result filters, chip counts use the same non-result
+  filter base as the table, failed-code trends read the complete 30-day window,
+  retry counts expose assistive text, and decoder trend counters aggregate in a
+  single pass. Added a focused regression guard. Scoped ESLint and
+  `git diff --check` passed; repository-wide gate and rebuilt runtime smoke are
+  pending before publication.
+  Release gate result (`Completed locally`, 1.3.1): independent read-only
+  review reported no P0/security finding and all five P2/P3 dashboard findings
+  above are corrected. Repository ESLint, TypeScript, shell syntax,
+  `git diff --check`, 68/68 quality tests and all four operational validators
+  passed. The warning-free production build generated 267/267 pages. The
+  rebuilt standalone server returned 200 for `/`, `/brands/dior`, `/check` and
+  `/sitemap.xml`; `/ads.txt` correctly returned 204 in the intentionally
+  credential-free local build. Production deployment and live verification are
+  pending; account/CMP/editorial/provenance blockers remain unchanged.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
@@ -744,6 +835,121 @@ decision is recorded here. Version notes do not override this section silently.
     to pan”. Focused ESLint, repository TypeScript, `git diff --check` and 59/59
     integrated quality tests passed. Full build is deferred to the accumulated
     release gate; no commit, push or deployment by Codex.
+  - `CLAUDE-REVIEW-005`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the
+    owner 2026-07-19; starting commit `c681ee5`; scope:
+    `src/app/[locale]/review/page.tsx`. Task: finding 15(b) — show the decoder's
+    verdict on a row in the `Code checks` log, reusing the inline preview built
+    for photo submissions in `CLAUDE-REVIEW-003`. The log answers "what did
+    people type"; the missing half is "and why did it fail", which today means
+    leaving the dashboard. Acceptance criteria: an undecodable row explains
+    itself without a second lookup; decoding stays server-side so no decoder
+    internals reach a public surface; ESLint, TypeScript and the full quality
+    suite pass; no commit, push or deployment.
+    Codex is not editing this file; the CMP/consent work it holds is unrelated.
+    Result: a row that produced no date renders "Not decoded — why?", collapsed
+    by default, expanding to the failure reason, the decoder label and the
+    decoder's own notes. Only undecodable rows get it, so the table stays quiet.
+    `previewDecode` moved to module scope so both the submission card and this
+    row share one implementation.
+    Verification: TypeScript clean; ESLint clean; 65/65 tests; `git diff --check`
+    clean. Rendered locally against a local JWKS server and a signed token —
+    `?view=checks&result=unread` produced 5 diagnosis blocks for 5 undecodable
+    rows, the first reading "unresolved / No date could be read from this code /
+    We couldn't automatically decode this code. Double-check it matches the code
+    stamped on the packaging (not the barcode)."
+    `needs verification`: not exercised in production.
+  - `CLAUDE-REVIEW-006`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the
+    owner 2026-07-19; starting commit `c681ee5`; scope:
+    `src/app/[locale]/review/page.tsx`, `src/lib/review-metrics.ts` and
+    `scripts/quality-regression.test.ts` (additions only). Task: findings 15(c)
+    and 15(e) — put the previous period beside each Overview tile, because "88
+    visits" carries no judgement on its own, and add brand and country filters
+    to the check log, which today are reachable only through free-text search.
+    Acceptance criteria: a tile states its direction against the comparable
+    earlier window and says so when there is no baseline; the new filters
+    compose with the existing result chips and search rather than replacing
+    them; ESLint, TypeScript and the full quality suite pass; no commit, push or
+    deployment.
+    Result (15c): `trend()` in `review-metrics` counts a window against the
+    same-length window before it and returns `null` rather than a percentage
+    when the earlier window is empty — "up from nothing" is not a rate. Tiles
+    render the direction, coloured by meaning rather than sign: the failed-code
+    tile passes `lowerIsBetter`, so a rise reads as bad.
+    Result (15e): exact brand and country selects on the check log, composing
+    with the result chips and the text search. `keepFilters` carries whatever a
+    given control does not itself set, so the chips no longer discard an active
+    brand filter — the same defect already fixed once for `q`.
+    Verification: TypeScript clean; ESLint clean; 66/66 tests including new
+    coverage that `trend` narrows both halves by the predicate, returns `null`
+    without a baseline, and reports 0% for a flat window. Rendered locally
+    against a local JWKS server and a signed token: filters give 10 → `brand=vichy`
+    2 → `brand=dior` 4 → `country=TR` 0 → `brand=vichy&result=unread` 1, and every
+    result chip on a brand-filtered view carries `brand=vichy` forward. Trend
+    notes render; the local dataset has no second week, so all four read "no
+    earlier baseline", which is the intended wording for that case rather than a
+    fabricated percentage.
+    `needs verification`: the percentage path is covered by unit tests but was
+    not seen rendered against real two-week data; not exercised in production.
+  - `CLAUDE-REVIEW-007`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the owner 2026-07-19; starting commit `c681ee5`;
+    scope: `src/app/[locale]/review/page.tsx`, `src/lib/review-metrics.ts`,
+    `scripts/quality-regression.test.ts`. Task: findings 15(d) and 15(f).
+    Result (15d): `decoderHealthTrend` compares a brand's no-read rate against
+    the previous seven days and returns `null` unless both windows hold at least
+    three checks — a swing drawn from one or two rows would read as a signal.
+    A new `7d trend` column shows the movement in percentage points, so a
+    decoder that just broke no longer looks the same as a format that was never
+    supported.
+    Result (15f): each check row carries an attempt badge when the same
+    brand+code was tried more than once, counted through `canonicalCode` so
+    spacing and case variants collapse the way the failed-code queue already
+    counts them. The log stays chronological rather than grouped — it is a log —
+    but one of nine attempts no longer looks like one of one.
+    Verification: TypeScript clean; ESLint clean; 67/67 tests including new
+    coverage that a brand going from 0/3 to 3/3 failing reports the full 100-point
+    swing while a brand with one check per side reports `null`. Rendered locally:
+    the trend column shows "too few" for Aveda's single check, and the log shows
+    ×3 on the three `dior:ZZ99` rows and ×2 on the two `kerastase:26A101` rows.
+    Note on the verification itself: the badge first appeared to be missing
+    because the check regex did not account for React inserting `<!-- -->`
+    between a literal and an expression. The feature was correct; the check was
+    not.
+    `needs verification`: not exercised in production.
+  - `CLAUDE-HEADER-001`; owner: Claude; state: `Completed locally — not
+    committed`; reported by the
+    owner with a screenshot 2026-07-19; starting commit `c681ee5`; scope:
+    `src/components/layout/site-header.tsx` and
+    `src/components/layout/mobile-header-menu.tsx`. Defect: between 768px and
+    roughly 1024px the site wordmark overlaps the primary navigation. The
+    desktop nav appears at `md:` and the hamburger disappears at the same
+    breakpoint, so that band must fit logo, "Cosmetics Batch", six nav links,
+    the language switcher, the theme toggle and the "Check Now" button on one
+    4.5rem row. It does not: the nav links carry no `whitespace-nowrap`, so
+    "How it works" breaks onto three lines and "Code formats" onto two, while
+    the wordmark's own `whitespace-nowrap` stops it shrinking and it renders
+    over the links. Reproduced from the owner's screenshot at landscape phone
+    width. Acceptance criteria: no overlap at any width; navigation stays
+    reachable in the affected band; ESLint, TypeScript and the quality suite
+    pass; no commit, push or deployment.
+    Fix: three changes, each addressing one part of the collision. The desktop
+    nav moves from `md:flex` to `lg:flex` and the hamburger from `md:hidden` to
+    `lg:hidden`, so 768–1023px is served by the menu instead of a row that
+    cannot hold everything. Nav links gain `whitespace-nowrap` so a label can
+    never break onto a second line even above 1024px. The wordmark swaps
+    `whitespace-nowrap` for `truncate`, so if it ever runs out of room it
+    shortens inside its own box rather than painting over its neighbour.
+    Verification: TypeScript clean; ESLint clean; 67/67 tests. Rendered locally
+    and read back from the HTML — nav is `ms-4 hidden items-center gap-1
+    lg:flex`, the hamburger is `... lg:hidden`, the wordmark is `truncate ...`,
+    and all six nav links carry `whitespace-nowrap`. The two breakpoints are
+    complementary, so there is no width where both are hidden or both shown.
+    Confirmed present on `/`, `/brands/dior` and `/guides`, since the header is
+    shared.
+    `needs verification`: measured from rendered classes and reasoning, not from
+    a real browser at 768/900/1024px — this environment has none. A screenshot
+    at those widths would close it.
   - Coordination rule: before starting another task, each agent must read active
     claims and write a proposed next work item with file scope here. If the scope
     overlaps, the agent must redirect the other agent to a disjoint roadmap item
@@ -894,6 +1100,35 @@ decision is recorded here. Version notes do not override this section silently.
 10. P2 brand uniqueness: prioritize verified examples, packaging location,
     provenance and limitations for high-impression brands. Do not manufacture
     “unique” filler or repeat one template with only a brand-name substitution.
+    Measurement added by Claude 2026-07-19, against live production, because the
+    entry carried intent but no number.
+    Method: fetch six monetized brand pages (`vichy`, `estee-lauder`, `dior`,
+    `nivea`, `kerastase`, `maybelline`), strip scripts, `nav`, `header` and
+    `footer`, split into sentences over 40 characters, then compare sets. Run
+    twice — once raw, once with every brand and parent-group name replaced by a
+    placeholder, so that substituting a name stops counting as originality.
+    Result: word count is not the problem — 1234 to 1562 words per page. Raw
+    sentence comparison suggests 59–76% unique, which flatters the pages. With
+    names neutralized, genuinely page-specific sentences fall to 21–49%, mean
+    about 31%, and 32 sentences are identical across all six. Roughly 70% of a
+    monetized page is shared scaffolding plus name substitution.
+    Per page: `dior` 49%, `kerastase` 32%, `maybelline` 29%, `nivea` 27%,
+    `estee-lauder` 26%, `vichy` 21%.
+    The remaining 31% is real editorial, not filler — Vichy's unique lines
+    include "Cartons: on an end flap, usually beside the open-jar symbol" and
+    storage guidance tied to the format. A tool site legitimately shares
+    structure; what matters is whether page-specific substance exists, and it
+    does. The gap is that it varies more than twice over between the strongest
+    and weakest page.
+    Suggested action, consistent with this finding's own rule: strengthen the
+    weakest indexed pages — `vichy`, `estee-lauder`, `nivea` — with verified
+    packaging locations, a real decoded example and brand-specific questions, on
+    the existing URLs. Do not add pages.
+    Related and separately reassuring: the scaled-content risk is already well
+    controlled. Of 331 catalog brands, 212 are visible, 35 are indexed, and the
+    sitemap lists 26 brand URLs. Sampled non-indexed pages (`aesop`, `adidas`,
+    `anessa`) return `noindex, follow` with no ad code, so the template pages are
+    not part of the reviewable or monetized surface.
 11. P2 parameterized result indexability (`Completed locally`, work item
     `SEO-CHECK-003`; owner: primary Codex agent; claimed 2026-07-19; starting
     commit `fa054ac`; scope: `src/app/[locale]/check/page.tsx`, related quality
@@ -929,12 +1164,11 @@ decision is recorded here. Version notes do not override this section silently.
     impact is limited to dashboard noise. Fixed: `normalizeActivityPath` in
     `src/lib/activity-path.ts` now requires a known section and a slug-shaped
     second segment, and the route delegates to it.
-14. P3 retired locale message files (`Next`): `messages/` holds 44 catalogs while
-    only 19 locales are routed. The 25 retired files are unreachable, so their
-    contents cannot mislead a user, but they still ship in the repository, are
-    carried by translation-wide edits, and make locale counts quoted in this file
-    drift out of date. Decide explicitly whether to delete them or keep them as
-    an archive, and record which.
+14. P3 retired locale message files (`Completed` by Codex in 1.3.0): the 25
+    retired catalogs were deleted from `messages/`, leaving the 19 served
+    locales. Their URL prefixes still redirect — verified live after the 1.3.0
+    deploy: `/ca/guides` → `/guides`, `/th/brands/dior` → `/brands/dior`,
+    `/uk/check` → `/check`, all 308. No code path references a deleted file.
 
 15. P2/P3 owner-dashboard backlog (`Next`; owner: Claude; scope:
     `src/app/[locale]/review/**`): reviewing the whole workspace after
@@ -946,17 +1180,18 @@ decision is recorded here. Version notes do not override this section silently.
        `?view=checks&q=jean-paul-gaultier`. Brand names in the health table and
        codes in the failed-code queue should link to the filtered check log.
        Cheapest of the set and the one most used per session.
-    b. No decode diagnosis in the check log. The inline decoder verdict built
+    b. (`Completed locally` under `CLAUDE-REVIEW-005`) No decode diagnosis in the check log. The inline decoder verdict built
        for photo submissions in `CLAUDE-REVIEW-003` answers "why did this code
        fail?", and the check log is where that question is actually asked. The
        code exists and can be reused.
-    c. No period comparison on Overview. "88 visits" carries no judgement
+    c. (`Completed locally` under `CLAUDE-REVIEW-006`) No period comparison on Overview. "88 visits" carries no judgement
        without the previous 7 or 30 days beside it.
-    d. No trend in `Decoder health`: a brand's no-read rate is a point, not a
+    d. (`Completed locally` under `CLAUDE-REVIEW-007`) No trend in `Decoder health`: a brand's no-read rate is a point, not a
        direction, so a decoder regression looks the same as a long-standing gap.
-    e. No structured filters in the check log beyond the result chips — brand,
+    e. (`Completed locally` under `CLAUDE-REVIEW-006`) No structured filters in the check log beyond the result chips — brand,
        country and locale are only reachable through free-text search.
-    f. Retries are not grouped in the check log the way they are in the
+    f. (`Completed locally` under `CLAUDE-REVIEW-007`, as an attempt badge rather
+       than grouping) Retries are not grouped in the check log the way they are in the
        failed-code queue, so one person's nine attempts read as nine rows.
     g. No bulk actions or keyboard handling in the submissions queue; fine at
        the current volume, felt as soon as the queue grows.
@@ -1096,6 +1331,299 @@ priority above controls execution; the list below defines scope and guardrails.
     files during the health-check window (noise, not loss); and
     `docker rm cosmeticsbatch-previous` at the end means fast rollback exists
     only until the smoke checks pass, after which recovery is via the image.
+
+17. P1 mixed-language brand FAQs (`Completed locally` by Codex — not yet
+    deployed; verified by Claude): every non-English brand page rendered a
+    localized question followed by an English answer. 432 orphaned questions
+    across 18 locales; confirmed live before the fix on `/tr/brands/vichy`.
+    Fix (Codex): `src/lib/locale-message-gaps.ts` lists the 30 English-only
+    brand-detail keys, and the brand page filters both `where` lines and FAQ
+    entries through `hasReviewedBrandDetailKey`, requiring the locale to hold
+    the question *and* the answer before either is rendered.
+    Independent verification (Claude): the manifest was recomputed from all 19
+    catalogs — 30 real gaps, 30 listed, nothing missing and nothing stale, so the
+    hand-written set is exactly correct. Rendered locally: `/tr/brands/vichy`
+    now shows no English answer in the visible DOM and still carries 17 Turkish
+    questions, so the page was pruned rather than emptied. 65/65 tests pass, and
+    Codex's guard recomputes the manifest per locale and fails on drift, which
+    closes the "a new English-only key silently reintroduces this" risk that the
+    original entry called for.
+    Residual, and the reason this is not simply closed: the English fallback text
+    is still present in the RSC payload — `"faq1a":"Often there isn't one..."`
+    appears in page source even though nothing renders it, because
+    `NextIntlClientProvider` ships the merged catalog to the client. A reviewer
+    or crawler reading the rendered page sees only Turkish, so the AdSense and
+    SEO content risk is resolved; a strict automated source-language check would
+    still see English. Related measurement on `/tr/brands/vichy`: 206 KB total,
+    59 KB visible DOM, 147 KB scripts, against `messages/tr.json` at 57 KB and
+    `messages/en.json` at 62 KB — the whole merged catalog appears to travel with
+    every page. Worth a separate look at scoping messages per route; recorded
+    here rather than opened as its own finding until someone confirms the cause.
+
+18. P3 orphaned locale registry entries (`Next`): `ALL_LOCALES` declares 50
+    languages, but `fa`, `he`, `sw`, `am`, `ha` and `yo` are neither served nor
+    retired — they have no `messages/*.json`, are absent from `LOCALE_CODES`,
+    and are absent from `RETIRED_LOCALE_CODES`, so `src/proxy.ts` has no
+    redirect rule for them either. The other 25 removed locales were handled
+    properly and still redirect. These six sit in a gap: planned-but-never-built
+    rather than launched-then-retired. Harmless today because nothing links to
+    them; decide explicitly whether they are aspirational registry entries or
+    should be dropped, and record which.
+
+19. P1 AdSense rejection exposure (`Next`). Correction to an earlier revision
+    of this entry, which said ads were already serving in production: they are
+    not. The loader script is present, but `NEXT_PUBLIC_ADSENSE_SLOT_*` is
+    unset, so `AdSlot` returns null and no `<ins class="adsbygoogle">` unit
+    renders on any page — verified on `/`, `/brands/vichy` and
+    `/brands/estee-lauder`. The site is in the deliberate pre-approval posture
+    the component comments describe: ad code visible to a reviewer, no units
+    until slots exist. Consent exposure is therefore smaller than first written,
+    though loading `adsbygoogle.js` still contacts Google before any consent.
+    The technical audit lives in `docs/ADSENSE_READINESS.md` (Codex) and is not
+    repeated here; this entry records what was measured against the live site
+    and the order the risks should be cleared in.
+
+    Measured on production 2026-07-19:
+    - The loader is live: the home page carries `adsbygoogle.js` and
+      `ca-pub-6300134697173168`, and `/ads.txt` returns
+      `google.com, pub-6300134697173168, DIRECT, f08c47fec0942fa0`. No ad unit
+      renders anywhere; slot ids are unconfigured.
+    - Ad surface is correctly narrow: 331 catalog brands, 35 indexed, 35
+      monetized. The loader sits outside the root layout, so the ~180 template
+      brand pages and the noindex tool pages carry no ad code. Thin-content
+      exposure is already well managed.
+    - `/privacy`, `/terms`, `/about` and `/contact` all return 200 and
+      `index, follow` in English.
+    - Content depth on monetized pages is well clear of thin-content territory:
+      `/brands/vichy` 1562 words over 12 sections, `/brands/estee-lauder` 1278
+      over 11, `/brands/dior` 1367 over 11.
+    - The privacy policy is 832 words and covers Google, AdSense, cookies,
+      third parties, advertising, personalization and opt-out.
+    - Unknown brand slugs and unknown paths both return 404 rather than a soft
+      200.
+    - Ad placement is conservative: one `AdSlot` per brand page, between content
+      sections, with reserved height and an `aria-label` of "Advertisement". It
+      is not in the check flow and not adjacent to a control, so accidental-click
+      exposure is low.
+    - Claim language was checked for policy-sensitive wording and is honest.
+      Matches for "prove authenticity" and "guaranteed expiry" are negations —
+      "a batch code alone cannot prove authenticity", "not a guaranteed expiry"
+      — not promises.
+
+    Risk 1 — consent, and the reason the audit says "blocked before
+    application". `src/components/cookie-consent.tsx:19` describes itself as
+    "No third-party CMP". Consent Mode signals are sent with `ad_storage`
+    denied by default, but Consent Mode is not a CMP: Google requires a
+    certified CMP integrated with IAB TCF for AdSense served to the EEA, UK and
+    Switzerland, and asks that the ad tag not be called without Purpose 1
+    consent. `AdsenseLoader` loads whenever a publisher id exists and is not
+    gated on affirmative consent. This is not hypothetical for this site — the
+    Search Console export shows the Netherlands (241 impressions), Germany
+    (214) and the United Kingdom (198) among the largest sources, so the
+    affected region is core traffic, and ads are already running there.
+
+    Risk 2 — mixed-language pages carry ads, which couples finding 17 directly
+    to this one. Verified: `/tr/brands/vichy` and `/ru/brands/loreal-paris` each
+    return the `adsbygoogle` tag *and* the English FAQ answer sitting under a
+    localized question. A reviewer opening a Turkish or Russian URL sees ads
+    beside content that is not in the page's declared language, which reads as
+    low-value or auto-generated content. Finding 17 should be treated as an
+    AdSense blocker, not only as a localization defect.
+
+    Suggested order, because clearing them out of order wastes a review:
+    1. Fix finding 17. It is the cheapest to fix, it is visible on exactly the
+       monetized pages, and a rejection on content grounds is harder to appeal
+       than a consent configuration gap.
+    2. Configure a certified CMP — Google's own European regulations message or
+       a third-party one — and gate `AdsenseLoader` on affirmative consent
+       rather than rendering it whenever a publisher id exists.
+    3. Remove or narrow the existing custom consent UI so users are not asked
+       twice by two systems that can disagree.
+    4. Make the privacy page describe the deployed CMP exactly rather than
+       generically.
+    5. Verify TCF v2.3 behaviour and the TC string in EEA, UK and Swiss test
+       sessions, and confirm ad requests differ before and after accept/reject.
+    6. Only then check Sites approval and ads.txt status in the AdSense account,
+       and record the date and screenshots here.
+
+    `needs verification`: none of the account-side state (Sites approval status,
+    policy notices, prior rejections) is visible from this environment, so this
+    entry describes site-side exposure only.
+
+20. P2 brand logo licence provenance is not recorded (`Next`): 71 brand logos
+    ship under `public/brand-logos/` and `src/lib/wikidata-brand-logos.json`
+    records `src`, Wikidata `qid`, `commonsFile` and `domainVerified` for each.
+    It does not record the licence. Wikimedia Commons logo files are a mix —
+    many are `PD-textlogo` and need no attribution, but some carry CC-BY or
+    CC-BY-SA, which do. Without the licence stored there is no way to show the
+    site complies, and no way to notice if a re-fetch swaps a public-domain file
+    for an attribution-required one. AdSense policy covers copyrighted material,
+    and these logos sit on exactly the 35 monetized pages.
+    Fix: extend `scripts/fetch-wikidata-brand-logos.mjs` to capture the Commons
+    licence short name and author for each file, store them alongside the
+    existing provenance, add a regression asserting every shipped logo has a
+    recorded licence, and surface attribution for any file whose licence
+    requires it. Separately from copyright, brand names and logos are
+    trademarks; nominative use on a page about that brand is normal, but that is
+    a judgement to record rather than assume.
+    `needs verification`: whether any of the 71 files actually carries an
+    attribution-required licence was not checked — it needs Commons API calls
+    that were not made from here.
+
+### AdSense rejection-avoidance sequence
+
+One ordered path through work already recorded elsewhere in this file. It does
+not restate those entries and does not replace the roadmap below — it only fixes
+the order for the AdSense goal, because clearing these out of sequence spends a
+review attempt. Every step names an existing item; update that item, not this
+list.
+
+1. **Finding 17 — mixed-language brand FAQs.** Content-grounds rejection is the
+   hardest to appeal, and the defect sits on exactly the 35 monetized pages: a
+   reviewer opening `/tr/brands/vichy` sees a Turkish question answered in
+   English. 432 orphaned questions across 18 locales. Land the guard test with
+   the translations so it cannot return.
+2. **Finding 19, risk 1 — consent.** Configure a certified CMP and gate
+   `AdsenseLoader` on affirmative consent instead of on the presence of a
+   publisher id. Then remove the competing custom consent UI, and make the
+   privacy page describe the CMP that is actually deployed.
+3. **Finding 20 — logo licence provenance.** Record the Commons licence per
+   logo and attribute the ones that require it. Lower probability than 1 and 2,
+   but it is copyright, and the logos are on the monetized pages.
+4. **Finding 4 — remaining localized privacy copy**, if any of it is still
+   English by the time steps 1–3 are done.
+5. **Only then**: configure `NEXT_PUBLIC_ADSENSE_SLOT_*`, verify TCF v2.3 and
+   the TC string in EEA, UK and Swiss sessions, compare ad requests before and
+   after accept/reject, and check Sites approval and ads.txt state in the
+   account. This is the existing `ADSENSE-READINESS` step; do not start it
+   earlier, because a rejection here is recorded against the account.
+
+Not blocking AdSense and deliberately left out of this sequence: findings 15
+(dashboard backlog), 16 (deploy switch window) and 18 (orphaned locale registry
+entries).
+
+21. P1 shelf life is a brand constant where it is a product property (`Next`;
+    live in production). A user-submitted photo on 2026-07-19 supplied the first
+    independent ground truth this project has had: a Dior foundation carton
+    printing both the batch code `5G01` and `EXP 28/06`. Month 28 does not
+    exist, so the format is `YY/MM` — June 2028.
+
+    Good news first, and it closes a real doubt: the manufacture decode is
+    corroborated. `5G01` decodes to July 2025 (`5` = 2025, `G` = July on the
+    A–M-skipping-I wheel). Against a printed June 2028 expiry that implies about
+    35 months of shelf life, so the year is right and the month is within one.
+    This is the first time a decoder reading has been checked against a date the
+    manufacturer printed rather than against what the batch-code community
+    republishes.
+
+    The defect: `GET /check?brand=dior&code=5G01` in production tells the user
+    "Shelf life 60 months", "Estimated unopened shelf-life date July 2030",
+    "Fresh · 80% left". The carton says June 2028. The site overstates the
+    manufacturer's own date by **24 months** and reports four fifths of life
+    remaining against a product the maker dates two years earlier.
+
+    Cause: shelf life is stored per brand, but it is a property of the product
+    category. `dior` is `category: "perfume"` with `shelfLifeMonths: 60`, which
+    is defensible for fragrance and wrong for the foundation, mascara and
+    skincare the same brand sells. The catalog splits 255 brands at 36 months
+    and 75 at 60; of the 35 indexed brands, 16 carry 60 months while several —
+    `dior`, `chanel`, `guerlain`, `giorgio-armani-beauty`, `tom-ford-beauty` —
+    have large makeup and skincare lines. Every one of those checks receives the
+    fragrance figure.
+
+    Wider than the number, and this is the part that matters most: `category`
+    also drives the words. `categoryNoun.perfume` resolves to "fragrance", so
+    `/brands/dior` tells the owner of a foundation "we estimate freshness using
+    Dior's typical 60-month shelf life for fragrance products", "how fresh your
+    Dior fragrance is", and — worst — "heat and steam break down the fragrance
+    oils faster than age alone, dulling the scent and shifting the colour".
+    That last line is not merely the wrong label; it is storage advice about a
+    product the reader does not own, on the page they came to for guidance.
+    Seven sentences on that page use the fragrance framing.
+    This also partly explains finding 10's low uniqueness score: much of what
+    reads as brand-specific editorial is category-templated, so brands sharing a
+    category share prose.
+
+    Why it matters beyond accuracy: the project's cautious-claims policy exists
+    precisely so the site does not imply a product is safe longer than its maker
+    says. This inverts that, and it does so on the monetized, indexed pages.
+
+    Fix direction, not yet chosen. Any option has to correct the copy as well as
+    the number, since a foundation described as a fragrance is wrong even if the
+    months are right. Candidates: ask the user which product type they are
+    checking and apply the matching shelf life and nouns; infer it from the code
+    format where a brand's fragrance and cosmetics lines use different schemes;
+    or, for multi-category brands, drop both the derived shelf-life date and the
+    category-specific prose and show the manufacture date, PAO and
+    category-neutral guidance. The last is the smallest honest change and needs
+    no new input from the user.
+
+    Blast radius, measured rather than assumed — "this affects everyone" is
+    true of the wording and not of the danger. Of the 35 indexed brands:
+    - 11 are single-line fragrance houses (`creed`, `montblanc`, `dunhill`,
+      `escada`, `paco-rabanne`, `jean-paul-gaultier`, `carolina-herrera`,
+      `kenzo-parfums`, `calvin-klein`, `hugo-boss`, `roberto-cavalli`). Their
+      category is correct and their copy is right. Changing them would make the
+      site worse, so any fix must not sweep them up.
+    - 13 are multi-category but recorded at 36 months (`estee-lauder`,
+      `clinique`, `mac-cosmetics`, `loreal-paris`, `maybelline`, `garnier`,
+      `la-roche-posay`, `cerave`, `vichy`, `lancome`, `kiehls`, `ysl-beauty`,
+      `nivea`). For their fragrance lines this understates shelf life: still
+      wrong, but it errs toward caution and toward the wrong noun rather than
+      toward implying a product is usable longer than it is.
+    - **5 are multi-category recorded at 60 months — `dior`, `chanel`,
+      `guerlain`, `giorgio-armani-beauty`, `tom-ford-beauty`.** These are the
+      only ones that overstate, and they are where the 24-month gap lives. They
+      are also among the highest-traffic pages in the Search Console export.
+    - 6 were not classified here and need a look: `too-faced`, `loreal`,
+      `kerastase`, `redken`, `fenty-beauty`, `zara`.
+    So the safety-relevant fix is five brands, the wording fix is eighteen, and
+    eleven must be left alone. Sequencing the five first buys most of the
+    correctness for a fraction of the churn.
+
+    `needs verification`: one carton, one brand. Confirming the same 24-month
+    gap on a second multi-category brand — a Chanel or Guerlain makeup item with
+    a printed date — would establish the pattern rather than the instance. The
+    11 single-line and 6 unclassified brands above are my reading of what each
+    house actually sells, not a catalog fact; a second pair of eyes on that
+    split would be worth having before anyone edits.
+
+22. P1 the L'Oréal decoder prefers the first readable letter over the plausible
+    one (`Next`; live in production). Seen in the owner dashboard's check log on
+    2026-07-19: a real user in Indonesia checked L'Oréal Paris `E38Y801N` and
+    was told **2005-03-15, expired** — a product 21 years old.
+
+    What happens: `loreal` scans left to right for the first letter that has a
+    valid month after it. In `E38Y801N` that is `E` at index 0 followed by `3`,
+    so it reads E = 2005, month = March. But the same string contains `Y8`, and
+    on the year wheel (`ABCDEFGHIJKLMNOPQRSTUWXYZ`, V skipped, Z = 2025) `Y` is
+    2024 with `8` = August. August 2024 is a plausible reading of a code a
+    shopper is holding; March 2005 is not.
+
+    The decoder already knows it is guessing. It marks the shape non-canonical,
+    drops to `low` confidence, and attaches "This code reads as 2005, which
+    would make the product about 21 years old. The year letter repeats every 25
+    years, so a misread letter is more likely than a batch that old." Having
+    reasoned that far, it still prints the date and labels the product
+    **expired**. That is the defect: the freshness verdict contradicts the note
+    printed beside it, and "expired" is a stronger claim than the evidence
+    supports.
+
+    This is also the mechanism behind the 2001–2005 cluster found earlier in the
+    same dataset — a distribution with nothing between 2006 and 2011 and nine
+    readings in 2001–2005, which is not how a population of products people
+    actually own is shaped.
+
+    Fix direction: when a non-canonical scan yields a date older than the
+    plausible-age threshold, prefer a later letter position that yields a
+    plausible one before falling back; and where no plausible reading exists,
+    decline rather than reporting `expired`. Telling someone a fresh product
+    expired two decades ago is worse than telling them the code could not be
+    read — the second is honest, the first is confidently wrong.
+
+    Evidence source: production check log, `/review/dashboard?view=checks`. The
+    same screenshot shows `361427` failing twice in a row for the same user,
+    which is the retry pattern the failed-code queue is meant to surface.
 
 ## Complete phase ledger and remaining roadmap
 

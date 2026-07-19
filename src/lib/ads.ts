@@ -20,3 +20,12 @@ export const adsense = {
 export type AdPlacement = keyof typeof adsense.slots;
 
 export const adsenseEnabled = Boolean(adsense.client);
+
+/** True only after the account-side certified CMP is published and verified. */
+export const googleCmpEnabled =
+  adsenseEnabled && process.env.NEXT_PUBLIC_GOOGLE_CMP_ENABLED === "true";
+
+/** Ad inventory stays English-only until another locale has complete review. */
+export function isAdEligibleLocale(locale: string): boolean {
+  return locale === "en";
+}

@@ -13,6 +13,7 @@ import { AdsenseLoader } from "@/components/ui/adsense-loader";
 import { JsonLd } from "@/components/json-ld";
 import { faqSchema, howToSchema } from "@/lib/seo";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
+import { isAdEligibleLocale } from "@/lib/ads";
 
 const HOME_FAQ_KEYS = Array.from({ length: 10 }, (_, i) => i + 1);
 
@@ -39,6 +40,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const monetizable = isAdEligibleLocale(locale);
   const t = await getTranslations("homeFaq");
   const homeFaq = HOME_FAQ_KEYS.map((i) => ({
     q: t(`q${i}`),
@@ -48,7 +50,7 @@ export default async function HomePage({
 
   return (
     <>
-      <AdsenseLoader />
+      {monetizable && <AdsenseLoader />}
       <JsonLd data={[
         faqSchema(homeFaq),
         ...(locale === DEFAULT_LOCALE ? [howToSchema()] : []),
@@ -60,7 +62,7 @@ export default async function HomePage({
       <WhereIsCode />
       {/* One placement after the substantial publisher content. Keeping the
           tool and explanations ad-free makes content the clear page focus. */}
-      <AdSlot placement="home" className="my-8" height={250} />
+      {monetizable && <AdSlot placement="home" className="my-8" height={250} />}
       <Faq items={homeFaq} subtitle={th("faqSubtitle")} />
     </>
   );

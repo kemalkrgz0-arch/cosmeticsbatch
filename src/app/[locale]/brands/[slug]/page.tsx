@@ -37,6 +37,7 @@ import { CheckForm } from "@/components/check-form";
 import { Faq } from "@/components/faq";
 import { AdSlot } from "@/components/ui/ad-slot";
 import { AdsenseLoader } from "@/components/ui/adsense-loader";
+import { isAdEligibleLocale } from "@/lib/ads";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { JsonLd } from "@/components/json-ld";
 import { CodePhotoSubmission } from "@/components/code-photo-submission";
@@ -54,6 +55,7 @@ import {
   indexableBrandLocales,
   isIndexableBrandPage,
 } from "@/lib/publishing-policy";
+import { hasReviewedBrandDetailKey } from "@/lib/locale-message-gaps";
 
 export function generateStaticParams() {
   return ALL_BRANDS.filter(
@@ -133,19 +135,25 @@ export default async function BrandPage({
   const localeIndexable =
     (isIndexedBrand(brand) && localeReviewed) ||
     (isLorealGroupBrand(brand) && isLorealPriorityLocale(locale));
-  const monetizable = isMonetizableBrand(brand) && localeIndexable;
+  const monetizable =
+    isMonetizableBrand(brand) && localeIndexable && isAdEligibleLocale(locale);
   const helpfulGuides = GUIDES.slice(0, 4).map((guide) =>
     localizeGuide(guide, contentT),
   );
   const has = (key: string) => t.has(`brandDetail.${brand.slug}.${key}`);
   const whereLines = detail
     ? Array.from({ length: MAX_WHERE_LINES }, (_, i) => `where${i + 1}`)
-        .filter(has)
+        .filter((key) => has(key) && hasReviewedBrandDetailKey(locale, brand.slug, key))
         .map((k) => t(`brandDetail.${brand.slug}.${k}`))
     : [];
+  // Never pair a translated question with a silent English fallback answer.
   const detailFaq = detail
     ? Array.from({ length: MAX_FAQ_ITEMS }, (_, i) => i + 1)
-        .filter((i) => has(`faq${i}q`))
+        .filter((i) =>
+          has(`faq${i}q`) &&
+          hasReviewedBrandDetailKey(locale, brand.slug, `faq${i}q`) &&
+          hasReviewedBrandDetailKey(locale, brand.slug, `faq${i}a`),
+        )
         .map((i) => ({
           q: t(`brandDetail.${brand.slug}.faq${i}q`),
           a: t(`brandDetail.${brand.slug}.faq${i}a`),

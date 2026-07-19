@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { adsenseEnabled } from "@/lib/ads";
+import { adsenseEnabled, googleCmpEnabled } from "@/lib/ads";
 import { gaEnabled, ymEnabled } from "@/lib/analytics";
 import { CookieConsent } from "@/components/cookie-consent";
 import { YandexMetrica } from "@/components/yandex-metrica";
@@ -29,7 +29,7 @@ export function TrackingBoundary() {
         />
       )}
       {ymEnabled && <YandexMetrica />}
-      {(adsenseEnabled || gaEnabled || ymEnabled) && <CookieConsent />}
+      {!googleCmpEnabled && (adsenseEnabled || gaEnabled || ymEnabled) && <CookieConsent />}
       {gaEnabled && <GoogleAnalytics />}
     </>
   );

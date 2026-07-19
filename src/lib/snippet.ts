@@ -13,6 +13,22 @@ export const TITLE_BUDGET = 60;
 /** Where search engines cut a description. Also a pixel measurement in practice. */
 export const DESCRIPTION_BUDGET = 160;
 
+export function snippetLength(value: string): number {
+  return [...value].length;
+}
+
+/** Keep metadata inside a character budget without cutting through a word. */
+export function fitSnippet(value: string, budget: number): string {
+  const clean = value.replace(/\s+/g, " ").trim();
+  if (snippetLength(clean) <= budget) return clean;
+  const slice = [...clean].slice(0, Math.max(1, budget - 1)).join("");
+  const wordBoundary = slice.lastIndexOf(" ");
+  const shortened = wordBoundary >= Math.floor(budget * 0.65)
+    ? slice.slice(0, wordBoundary)
+    : slice;
+  return `${shortened.replace(/[\s,;:–—-]+$/u, "")}…`;
+}
+
 /**
  * Pick the longest title that still survives the search snippet.
  *
@@ -23,5 +39,5 @@ export const DESCRIPTION_BUDGET = 160;
  * locale carries both forms and the long one is used wherever it fits.
  */
 export function fitTitle(long: string, short: string): string {
-  return long.length > TITLE_BUDGET ? short : long;
+  return snippetLength(long) > TITLE_BUDGET ? short : long;
 }

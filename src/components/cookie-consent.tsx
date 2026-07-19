@@ -16,7 +16,9 @@ type Gtag = (
  * Lightweight cookie-consent banner wired to Google Consent Mode v2. Consent
  * defaults to denied (set in the layout bootstrap before any loader runs); this
  * banner grants or keeps-denied the analytics/ads storage signals and persists
- * the choice so it isn't asked again. No third-party CMP.
+ * the choice so it isn't asked again. This is not an IAB TCF CMP and is
+ * disabled when the separately verified Google Privacy & messaging CMP flag is
+ * enabled, preventing two competing advertising-consent interfaces.
  */
 export function CookieConsent() {
   const [show, setShow] = useState(false);

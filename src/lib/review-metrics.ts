@@ -238,6 +238,80 @@ export function decoderHealth(checks: CheckRow[], failed: FailedRow[]): DecoderH
     .sort((a, b) => b.failRate - a.failRate || b.checks - a.checks);
 }
 
+/**
+ * Whether a brand's no-read rate is moving, not just where it stands.
+ *
+ * A single rate cannot separate a decoder that just broke from a format that
+ * was never supported: both show as "high". Comparing the window against the
+ * one before it does, and a decoder regression is the case worth catching
+ * early. Brands with too little traffic on either side return `null` rather
+ * than a swing computed from one or two checks.
+ */
+export function decoderHealthTrend(
+  checks: CheckRow[],
+  currentStart: string,
+  previousStart: string,
+  minimumChecks = 3,
+): Map<string, number | null> {
+  const out = new Map<string, number | null>();
+  const counts = new Map<string, { current: number; currentFailed: number; previous: number; previousFailed: number }>();
+  for (const row of checks) {
+    const count = counts.get(row.brand) ?? { current: 0, currentFailed: 0, previous: 0, previousFailed: 0 };
+    if (row.ts >= currentStart) {
+      count.current += 1;
+      if (!row.mfg) count.currentFailed += 1;
+    } else if (row.ts >= previousStart) {
+      count.previous += 1;
+      if (!row.mfg) count.previousFailed += 1;
+    }
+    counts.set(row.brand, count);
+  }
+  for (const [slug, count] of counts) {
+    out.set(
+      slug,
+      count.current >= minimumChecks && count.previous >= minimumChecks
+        ? (count.currentFailed / count.current) * 100 - (count.previousFailed / count.previous) * 100
+        : null,
+    );
+  }
+  return out;
+}
+
+export type Trend = {
+  current: number;
+  previous: number;
+  /** Percent change, or null when the earlier window had nothing to compare to. */
+  changePercent: number | null;
+};
+
+/**
+ * A count against the same-length window immediately before it.
+ *
+ * A bare "88 visits" carries no judgement. Growth from 40 and a fall from 300
+ * are different situations and the tile looked identical in both. `null` is
+ * returned rather than a fabricated percentage when the earlier window is
+ * empty, because "up from nothing" is not a rate.
+ */
+export function trend<T extends { ts: string }>(
+  rows: T[],
+  currentStart: string,
+  previousStart: string,
+  keep: (row: T) => boolean = () => true,
+): Trend {
+  let current = 0;
+  let previous = 0;
+  for (const row of rows) {
+    if (!keep(row)) continue;
+    if (row.ts >= currentStart) current += 1;
+    else if (row.ts >= previousStart) previous += 1;
+  }
+  return {
+    current,
+    previous,
+    changePercent: previous === 0 ? null : ((current - previous) / previous) * 100,
+  };
+}
+
 /** Decoded manufacture years, for spotting cyclic-wheel misreads. */
 export function manufactureYears(checks: CheckRow[]): PathStat[] {
   return [...tally(checks, (row) => row.mfg?.slice(0, 4)).entries()]

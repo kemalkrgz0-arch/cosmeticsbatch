@@ -98,9 +98,9 @@ export async function POST(req: NextRequest) {
       bytes,
     });
   }
-  for (const image of stored) await writeFile(join(DIR, image.relativeFile), image.bytes, { flag: "wx", mode: 0o600 });
+  for (const image of stored) await writeFile(join(/* turbopackIgnore: true */ DIR, image.relativeFile), image.bytes, { flag: "wx", mode: 0o600 });
   const relativeFiles = stored.map((image) => image.relativeFile);
-  const queueFile = join(DIR, "submissions.jsonl");
+  const queueFile = join(/* turbopackIgnore: true */ DIR, "submissions.jsonl");
   await appendFile(queueFile, JSON.stringify({
     type: "submission",
     id,

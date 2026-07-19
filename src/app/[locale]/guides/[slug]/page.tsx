@@ -22,6 +22,7 @@ import {
   reviewedContentLocales,
 } from "@/lib/content-review";
 import { indexableContentLocales } from "@/lib/publishing-policy";
+import { isAdEligibleLocale } from "@/lib/ads";
 
 export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }));
@@ -127,6 +128,7 @@ export default async function GuidePage({
   const t = await contentTranslator(locale);
   const guide = localizeGuide(source, t);
   const reviewed = isContentReviewed(locale, `guide.${source.slug}`);
+  const monetizable = reviewed && isAdEligibleLocale(locale);
   const tc = await getTranslations("contentPages");
   const nav = await getTranslations("nav");
 
@@ -140,7 +142,7 @@ export default async function GuidePage({
 
   return (
     <article className="reading-frame py-10">
-      {reviewed && <AdsenseLoader />}
+      {monetizable && <AdsenseLoader />}
       <JsonLd
         data={reviewed ? [
           articleSchema({
@@ -195,7 +197,7 @@ export default async function GuidePage({
                 />
               </figure>
             )}
-            {reviewed && i === 0 && (
+            {monetizable && i === 0 && (
               <AdSlot placement="article" className="mt-10" height={250} />
             )}
           </section>

@@ -32,7 +32,7 @@ import {
   PRIORITY_BRAND_SLUGS,
   indexableBrandLocales,
 } from "../src/lib/publishing-policy";
-import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitTitle } from "../src/lib/snippet";
+import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitSnippet, fitTitle, snippetLength } from "../src/lib/snippet";
 import { brandSnippet } from "../src/lib/brand-snippets";
 import { normalizeActivityPath } from "../src/lib/activity-path";
 import { MAX_TRACKED_KEYS, checkRateLimit, trackedKeyCount } from "../src/lib/rate-limit";
@@ -41,15 +41,19 @@ import {
   brandFunnel,
   dailySeries,
   decoderHealth,
+  decoderHealthTrend,
   entryPages,
   localeSplit,
   reportDay,
   stripLocale,
   topPages,
+  trend,
   unattributedChecks,
 } from "../src/lib/review-metrics";
 import { decodeAccessPart } from "../src/lib/review-auth";
 import { photoTransformPlan } from "../src/lib/photo-transform";
+import { NON_ENGLISH_BRAND_DETAIL_GAPS } from "../src/lib/locale-message-gaps";
+import { isAdEligibleLocale } from "../src/lib/ads";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -70,6 +74,37 @@ test("message catalogs exist only for the 19 active locale routes", () => {
   for (const locale of RETIRED_LOCALE_CODES) {
     assert.equal(existsSync(`messages/${locale}.json`), false, `${locale} catalog was reactivated`);
   }
+});
+
+test("known non-English brand-detail gaps cannot leak through paired UI", () => {
+  const expected = [...NON_ENGLISH_BRAND_DETAIL_GAPS]
+    .map((key) => `brandDetail.${key}`)
+    .sort();
+  const flatten = (value: Record<string, unknown>, prefix = "", out: Record<string, unknown> = {}) => {
+    for (const [key, child] of Object.entries(value)) {
+      const path = prefix ? `${prefix}.${key}` : key;
+      if (child && typeof child === "object" && !Array.isArray(child))
+        flatten(child as Record<string, unknown>, path, out);
+      else out[path] = child;
+    }
+    return out;
+  };
+  const english = flatten(JSON.parse(readFileSync("messages/en.json", "utf8")) as Record<string, unknown>);
+  for (const locale of LOCALE_CODES.filter((code) => code !== "en")) {
+    const localized = flatten(JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as Record<string, unknown>);
+    const missingBrandDetail = Object.keys(english)
+      .filter((key) => key.startsWith("brandDetail.") && !(key in localized))
+      .sort();
+    assert.deepEqual(missingBrandDetail, expected, `${locale} brand-detail gap manifest drifted`);
+  }
+  const page = readFileSync("src/app/[locale]/brands/[slug]/page.tsx", "utf8");
+  assert.match(page, /hasReviewedBrandDetailKey\(locale, brand\.slug, `faq\$\{i\}a`\)/);
+});
+
+test("AdSense inventory remains limited to the fully reviewed English locale", () => {
+  assert.equal(isAdEligibleLocale("en"), true);
+  for (const locale of LOCALE_CODES.filter((code) => code !== "en"))
+    assert.equal(isAdEligibleLocale(locale), false, `${locale} unexpectedly became ad eligible`);
 });
 
 test("review CSV exports neutralize spreadsheet formulas", () => {
@@ -567,6 +602,13 @@ test("failed-code grouping collapses retries without merging distinct codes", ()
   ]));
 });
 
+test("generic metadata fitting respects Unicode title and description budgets", () => {
+  const japanese = "製造日と化粧品のバッチコードを確認するための非常に長い説明です".repeat(4);
+  assert.ok(snippetLength(fitSnippet(japanese, TITLE_BUDGET)) <= TITLE_BUDGET);
+  assert.ok(snippetLength(fitSnippet("word ".repeat(80), DESCRIPTION_BUDGET)) <= DESCRIPTION_BUDGET);
+  assert.match(fitSnippet("word ".repeat(80), DESCRIPTION_BUDGET), /…$/u);
+});
+
 test("every brand-page snippet survives the search result", () => {
   for (const locale of LOCALE_CODES) {
     const { brandPage } = JSON.parse(
@@ -768,4 +810,69 @@ test("photo assist uses bounded centered crops and rotation-aware output", () =>
     canvasHeight: 2000,
   });
   assert.throws(() => photoTransformPlan(0, 2000, 0, false), /Invalid image dimensions/);
+});
+
+test("trend reports direction only against a real baseline", () => {
+  const rows = [
+    { ts: "2026-07-19T00:00:00.000Z" },
+    { ts: "2026-07-18T00:00:00.000Z" },
+    { ts: "2026-07-10T00:00:00.000Z" },
+  ];
+  const current = "2026-07-13T00:00:00.000Z";
+  const previous = "2026-07-06T00:00:00.000Z";
+  const t = trend(rows, current, previous);
+  assert.equal(t.current, 2);
+  assert.equal(t.previous, 1);
+  assert.equal(t.changePercent, 100);
+
+  // An empty earlier window has no rate; inventing one would read as growth.
+  const noBaseline = trend([{ ts: "2026-07-19T00:00:00.000Z" }], current, previous);
+  assert.equal(noBaseline.previous, 0);
+  assert.equal(noBaseline.changePercent, null);
+
+  // The predicate narrows both halves, not just the current one.
+  const typed = trend(
+    [
+      { ts: "2026-07-19T00:00:00.000Z", type: "visit" },
+      { ts: "2026-07-10T00:00:00.000Z", type: "visit" },
+      { ts: "2026-07-10T00:00:00.000Z", type: "page_view" },
+    ],
+    current,
+    previous,
+    (row) => row.type === "visit",
+  );
+  assert.equal(typed.current, 1);
+  assert.equal(typed.previous, 1);
+  assert.equal(typed.changePercent, 0);
+});
+
+test("decoder health trend needs traffic on both sides before it claims a swing", () => {
+  const current = "2026-07-13T00:00:00.000Z";
+  const previous = "2026-07-06T00:00:00.000Z";
+  const row = (brand: string, ts: string, mfg: string | null) =>
+    ({ ts, brand, confidence: mfg ? "high" : "none", mfg });
+  const checks = [
+    // vichy: 0/3 failing before, 3/3 failing now — a real regression.
+    row("vichy", "2026-07-08T00:00:00.000Z", "2025-01-15"),
+    row("vichy", "2026-07-09T00:00:00.000Z", "2025-01-15"),
+    row("vichy", "2026-07-10T00:00:00.000Z", "2025-01-15"),
+    row("vichy", "2026-07-15T00:00:00.000Z", null),
+    row("vichy", "2026-07-16T00:00:00.000Z", null),
+    row("vichy", "2026-07-17T00:00:00.000Z", null),
+    // dior: one check each side is not a trend.
+    row("dior", "2026-07-08T00:00:00.000Z", "2025-01-15"),
+    row("dior", "2026-07-15T00:00:00.000Z", null),
+  ];
+  const swings = decoderHealthTrend(checks, current, previous);
+  assert.equal(swings.get("vichy"), 100, "a decoder that stopped reading must show the full swing");
+  assert.equal(swings.get("dior"), null, "two checks cannot support a percentage-point claim");
+});
+
+test("review check filters compose and failed trends use the complete time window", () => {
+  const page = readFileSync("src/app/[locale]/review/page.tsx", "utf8");
+  assert.match(page, /name="brand" value=\{brandFilter\}/);
+  assert.match(page, /name="country" value=\{countryFilter\}/);
+  assert.match(page, /checksMatchingNonResultFilters\.filter\(matchesResult\)/);
+  assert.match(page, /readFailedCodesSince\(windowReport\)/);
+  assert.match(page, /attempts for this normalized code/);
 });

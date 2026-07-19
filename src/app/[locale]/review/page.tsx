@@ -5,7 +5,7 @@ import { getBrand } from "@/lib/brands";
 import { canonicalCode, checkBatchCode } from "@/lib/decoder";
 import { ReplyComposer } from "@/components/review/reply-composer";
 import { SubmissionPhoto } from "@/components/review/submission-photo";
-import { readChecksSince, readRecentActivity, readRecentFailedCodes } from "@/lib/dataset";
+import { readChecksSince, readFailedCodesSince, readRecentActivity } from "@/lib/dataset";
 import { requireReviewer } from "@/lib/review-auth";
 import { REPLY_TEMPLATES } from "@/lib/reviewer-reply";
 import { listSubmissions, REVIEW_STATUSES } from "@/lib/submission-store";
@@ -14,13 +14,16 @@ import {
   countrySplit,
   dailySeries,
   decoderHealth,
+  decoderHealthTrend,
   entryPages,
   localeSplit,
   manufactureYears,
   REPORT_TIME_ZONE,
   topPages,
+  trend,
   unattributedChecks,
   type PathStat,
+  type Trend,
 } from "@/lib/review-metrics";
 
 export const runtime = "nodejs";
@@ -111,7 +114,85 @@ function BarList({ rows, empty, format }: { rows: PathStat[]; empty: string; for
   );
 }
 
-export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; q?: string; result?: string; updated?: string; error?: string }> }) {
+/**
+ * Direction against the previous window of the same length.
+ *
+ * Colour follows meaning rather than sign: more failed codes is not good news,
+ * so that tile passes `lowerIsBetter`. When the earlier window was empty there
+ * is no rate to state, and saying so beats printing an invented percentage.
+ */
+function TrendNote({ trend, lowerIsBetter = false }: { trend: Trend; lowerIsBetter?: boolean }) {
+  if (trend.changePercent === null) {
+    return (
+      <p className="mt-1 text-xs text-fg-muted">
+        {trend.previous === 0 && trend.current > 0 ? "no earlier baseline" : "no change to compare"}
+      </p>
+    );
+  }
+  const rounded = Math.round(trend.changePercent);
+  const improved = lowerIsBetter ? rounded < 0 : rounded > 0;
+  const flat = rounded === 0;
+  return (
+    <p className={`mt-1 text-xs font-medium ${flat ? "text-fg-muted" : improved ? "text-success" : "text-danger"}`}>
+      {rounded > 0 ? "+" : ""}{rounded}% <span className="font-normal text-fg-muted">vs prev 7d ({trend.previous})</span>
+    </p>
+  );
+}
+
+/** Display name for a brand slug, falling back to the slug itself. */
+const brandName = (slug: string) => getBrand(slug)?.name ?? slug;
+
+/**
+ * What the decoder currently makes of a code.
+ *
+ * Decoding here is safe in a way the public pages are not: this route is behind
+ * Access, so `method` and `notes` — the very fields the public result strips —
+ * are exactly what makes a failure diagnosable.
+ */
+function previewDecode(slug: string, code: string) {
+  const brand = getBrand(slug);
+  if (!brand || !code.trim()) return null;
+  return checkBatchCode({
+    brandName: brand.name,
+    code,
+    decoderId: brand.decoderId,
+    shelfLifeMonths: brand.shelfLifeMonths,
+    category: brand.category,
+  });
+}
+
+/**
+ * Why a logged code did not decode, expanded on demand.
+ *
+ * The check log answers "what did people type"; without this the other half —
+ * "and why did that fail" — meant leaving the dashboard and retyping the code
+ * on the public site. Only rendered for rows that produced no date, so the
+ * table stays quiet, and collapsed by default so a screenful of failures does
+ * not become a screenful of prose.
+ *
+ * Decoding happens here, on the server: this route is behind Access, and
+ * `method` and `notes` are the fields the public result deliberately strips.
+ */
+function CheckDiagnosis({ brand, code }: { brand: string; code: string }) {
+  const result = previewDecode(brand, code);
+  if (!result) return <>Not decoded</>;
+  return (
+    <details>
+      <summary className="cursor-pointer">Not decoded — why?</summary>
+      <div className="mt-2 max-w-xs whitespace-normal text-xs font-normal text-fg-muted">
+        <p className="font-semibold">{result.failureReason ?? "unresolved"}</p>
+        {result.method && <p className="mt-1">{result.method}</p>}
+        {result.notes.length > 0 && (
+          <ul className="mt-1 list-disc space-y-0.5 pl-4">
+            {result.notes.map((note) => <li key={note}>{note}</li>)}
+          </ul>
+        )}
+      </div>
+    </details>
+  );
+}
+
+export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; q?: string; result?: string; brand?: string; country?: string; updated?: string; error?: string }> }) {
   const reviewer = await requireReviewer();
   const query = await searchParams;
   const requested = query.view ? (LEGACY_VIEWS[query.view] ?? query.view) : "overview";
@@ -136,13 +217,20 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const [activity, checks, failedCodes] = await Promise.all([
     needsActivity ? readRecentActivity(50_000, windowReport) : Promise.resolve([]),
     needsChecks ? readChecksSince(windowReport) : Promise.resolve([]),
-    needsFailed ? readRecentFailedCodes(5_000) : Promise.resolve([]),
+    needsFailed ? readFailedCodesSince(windowReport) : Promise.resolve([]),
   ]);
 
-  const visits7d = activity.filter((row) => row.type === "visit" && row.ts >= window7d).length;
-  const views7d = activity.filter((row) => row.type === "page_view" && row.ts >= window7d).length;
-  const checks7d = checks.filter((row) => row.ts >= window7d).length;
-  const failed7d = failedCodes.filter((row) => row.ts >= window7d).length;
+  // Each tile is measured against the seven days before it, so a number can be
+  // read as a direction rather than a bare quantity.
+  const window14d = since(14);
+  const visitsTrend = trend(activity, window7d, window14d, (row) => row.type === "visit");
+  const viewsTrend = trend(activity, window7d, window14d, (row) => row.type === "page_view");
+  const checksTrend = trend(checks, window7d, window14d);
+  const failedTrend = trend(failedCodes, window7d, window14d);
+  const visits7d = visitsTrend.current;
+  const views7d = viewsTrend.current;
+  const checks7d = checksTrend.current;
+  const failed7d = failedTrend.current;
   const decoded7d = checks.filter((row) => row.ts >= window7d && row.mfg).length;
   const readRate = checks7d ? Math.round((decoded7d / checks7d) * 100) : null;
 
@@ -150,6 +238,8 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const funnel = brandFunnel(activity, checks);
   const unattributed = unattributedChecks(checks);
   const health = decoderHealth(checks, failedCodes.filter((row) => row.ts >= windowReport));
+  // A rate says where a brand stands; the swing says whether it just broke.
+  const healthTrend = decoderHealthTrend(checks, window7d, window14d);
   const years = manufactureYears(checks);
 
   // Result filter, composed with the text search rather than replacing it.
@@ -164,15 +254,44 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
       || (resultFilter === "unread" && !item.mfg)
       || (resultFilter === "read" && Boolean(item.mfg))
       || (resultFilter === "low" && (item.confidence === "low" || item.confidence === "none"));
-  const matchedChecks = checks
-    .filter(matchesResult)
+  // Brand and country were reachable only by typing into the free-text box,
+  // which also matches codes and dates — so "vichy" and "tr" were guesses, not
+  // selections. These are exact and compose with the result chips and search.
+  const brandFilter = query.brand?.trim() ?? "";
+  const countryFilter = query.country?.trim().toUpperCase() ?? "";
+  const checkBrands = [...new Set(checks.map((row) => row.brand))]
+    .sort((a, b) => brandName(a).localeCompare(brandName(b)));
+  const checkCountries = [...new Set(checks.map((row) => row.country).filter(Boolean) as string[])].sort();
+  // How many times each brand+code was tried, counted the way the decoder reads
+  // it so "TCR 15" and "TCR15" are one code. The log stays chronological — it is
+  // a log — but a row that is one of nine attempts should not look like one of
+  // one, which is how the failed-code queue already presents the same fact.
+  const attemptCounts = new Map<string, number>();
+  for (const row of checks) {
+    const key = `${row.brand}:${canonicalCode(row.code)}`;
+    attemptCounts.set(key, (attemptCounts.get(key) ?? 0) + 1);
+  }
+  const attemptsFor = (row: { brand: string; code: string }) =>
+    attemptCounts.get(`${row.brand}:${canonicalCode(row.code)}`) ?? 1;
+
+  /** Carry the filters a control does not itself set, so they compose. */
+  const keepFilters = (except: { result?: boolean } = {}) => ({
+    ...(query.q ? { q: query.q } : {}),
+    ...(brandFilter ? { brand: brandFilter } : {}),
+    ...(countryFilter ? { country: countryFilter } : {}),
+    ...(!except.result && resultFilter !== "all" ? { result: resultFilter } : {}),
+  });
+  const checksMatchingNonResultFilters = checks
+    .filter((item) => !brandFilter || item.brand === brandFilter)
+    .filter((item) => !countryFilter || item.country === countryFilter)
     .filter((item) => !search || [item.brand, item.code, item.locale, item.country, item.mfg].some((value) => value?.toLowerCase().includes(search)));
+  const matchedChecks = checksMatchingNonResultFilters.filter(matchesResult);
   const shownChecks = matchedChecks.slice(0, 500);
   const resultCounts: Record<ResultFilter, number> = {
-    all: checks.length,
-    unread: checks.filter((item) => !item.mfg).length,
-    read: checks.filter((item) => item.mfg).length,
-    low: checks.filter((item) => item.confidence === "low" || item.confidence === "none").length,
+    all: checksMatchingNonResultFilters.length,
+    unread: checksMatchingNonResultFilters.filter((item) => !item.mfg).length,
+    read: checksMatchingNonResultFilters.filter((item) => item.mfg).length,
+    low: checksMatchingNonResultFilters.filter((item) => item.confidence === "low" || item.confidence === "none").length,
   };
   const resultLabels: Record<ResultFilter, string> = {
     all: "All",
@@ -199,28 +318,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
     return brands;
   }, new Map<string, Map<string, FailedRow>>()).entries()).sort(([a], [b]) => (getBrand(a)?.name ?? a).localeCompare(getBrand(b)?.name ?? b));
 
-  const brandName = (slug: string) => getBrand(slug)?.name ?? slug;
 
-  /**
-   * What the decoder currently makes of a submitted code.
-   *
-   * The reviewer's first question is always "does this code read?", and until
-   * now answering it meant leaving the dashboard and retyping the code into the
-   * public site. Decoding here is safe in a way the public pages are not: this
-   * route is behind Access, so `method` and `notes` — the very fields the public
-   * result strips — are exactly what makes a failure diagnosable.
-   */
-  const previewDecode = (slug: string, code: string) => {
-    const brand = getBrand(slug);
-    if (!brand || !code.trim()) return null;
-    return checkBatchCode({
-      brandName: brand.name,
-      code,
-      decoderId: brand.decoderId,
-      shelfLifeMonths: brand.shelfLifeMonths,
-      category: brand.category,
-    });
-  };
   const maxSeries = Math.max(1, ...series.map((point) => Math.max(point.views, point.visits, point.checks)));
 
   // A div rather than a <main>: the root layout already supplies the page's
@@ -256,19 +354,21 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             screens of scrolling before the tabs and the actual reports. */}
         <section aria-label="Last 7 days" className="mb-2 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-6">
           {[
-            { label: "Visits", value: visits7d, icon: Users },
-            { label: "Page views", value: views7d, icon: Eye },
+            { label: "Visits", value: visits7d, icon: Users, trend: visitsTrend },
+            { label: "Page views", value: views7d, icon: Eye, trend: viewsTrend },
             { label: "Entry pages", value: entryPages(activity.filter((row) => row.ts >= window7d)).length, icon: LogIn },
-            { label: "Code checks", value: checks7d, icon: Activity },
+            { label: "Code checks", value: checks7d, icon: Activity, trend: checksTrend },
             { label: "Read rate", value: readRate === null ? "—" : `${readRate}%`, icon: Activity },
-            { label: "Failed codes", value: failed7d, icon: AlertTriangle },
-          ].map(({ label, value, icon: Icon }) => (
+            // More failed codes is not an improvement, so this tile reads inverted.
+            { label: "Failed codes", value: failed7d, icon: AlertTriangle, trend: failedTrend, lowerIsBetter: true },
+          ].map(({ label, value, icon: Icon, trend: tileTrend, lowerIsBetter }) => (
             <div key={label} className="rounded-xl border bg-card p-3 shadow-sm sm:rounded-2xl sm:p-4">
               <div className="flex items-center justify-between gap-2">
                 <p className="text-xs font-medium text-fg-muted sm:text-sm">{label}</p>
                 <Icon aria-hidden="true" className="size-4 shrink-0 text-accent sm:size-5" />
               </div>
               <p className="mt-1 text-2xl font-bold tabular-nums sm:mt-2 sm:text-3xl">{value}</p>
+              {tileTrend && <TrendNote trend={tileTrend} lowerIsBetter={lowerIsBetter} />}
             </div>
           ))}
         </section>
@@ -295,6 +395,8 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
               {/* Keep the active result filter when searching, or the search
                   silently widens back to every check. */}
               {view === "checks" && resultFilter !== "all" && <input type="hidden" name="result" value={resultFilter} />}
+              {view === "checks" && brandFilter && <input type="hidden" name="brand" value={brandFilter} />}
+              {view === "checks" && countryFilter && <input type="hidden" name="country" value={countryFilter} />}
               <label className="relative flex-1">
                 <span className="sr-only">Search review data</span>
                 <Search aria-hidden="true" className="absolute left-3 top-3 size-5 text-fg-muted" />
@@ -387,11 +489,13 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
         {view === "checks" && (
           <>
-          <nav aria-label="Filter checks by result" className="mb-4 flex flex-wrap gap-2">
+          {/* Every control carries the others, so filters narrow rather than
+              replace each other. */}
+          <nav aria-label="Filter checks by result" className="mb-3 flex flex-wrap gap-2">
             {RESULTS.map((key) => (
               <Link
                 key={key}
-                href={href("checks", { ...(key === "all" ? {} : { result: key }), ...(query.q ? { q: query.q } : {}) })}
+                href={href("checks", { ...(key === "all" ? {} : { result: key }), ...keepFilters({ result: true }) })}
                 aria-current={resultFilter === key ? "true" : undefined}
                 className={`rounded-full border px-3 py-1.5 text-sm font-semibold ${resultFilter === key ? "border-accent bg-accent text-white" : "bg-card"}`}
               >
@@ -399,12 +503,37 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
               </Link>
             ))}
           </nav>
+          <form method="get" action="/review/dashboard" className="mb-4 flex flex-wrap items-end gap-3">
+            <input type="hidden" name="view" value="checks" />
+            {resultFilter !== "all" && <input type="hidden" name="result" value={resultFilter} />}
+            {query.q && <input type="hidden" name="q" value={query.q} />}
+            <label className="text-sm font-semibold">
+              Brand
+              <select name="brand" defaultValue={brandFilter} className="mt-1 block min-h-11 rounded-lg border bg-card px-3 font-normal">
+                <option value="">All brands</option>
+                {checkBrands.map((slug) => <option key={slug} value={slug}>{brandName(slug)}</option>)}
+              </select>
+            </label>
+            <label className="text-sm font-semibold">
+              Country
+              <select name="country" defaultValue={countryFilter} className="mt-1 block min-h-11 rounded-lg border bg-card px-3 font-normal">
+                <option value="">All countries</option>
+                {checkCountries.map((code) => <option key={code} value={code}>{code}</option>)}
+              </select>
+            </label>
+            <button className="min-h-11 rounded-lg bg-cta px-5 font-semibold text-cta-fg">Apply</button>
+            {(brandFilter || countryFilter) && (
+              <Link href={href("checks", { ...(resultFilter === "all" ? {} : { result: resultFilter }), ...(query.q ? { q: query.q } : {}) })} className="min-h-11 self-center text-sm underline">
+                Clear
+              </Link>
+            )}
+          </form>
           <Panel title="Code checks" hint={`Every code users typed, newest first. Showing ${shownChecks.length} of ${matchedChecks.length} ${resultFilter === "all" && !search ? "recent" : "matching"} requests${matchedChecks.length > shownChecks.length ? " — narrow the filter or search to see the rest" : ""}. IP addresses and user emails are not logged.`}>
             {shownChecks.length === 0 ? <p className="p-8 text-center text-fg-muted">No check records are available.</p> : (
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[880px] text-left text-sm">
                   <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Time</th><th className="p-3">Brand</th><th className="p-3">Code</th><th className="p-3">Locale</th><th className="p-3">Country</th><th className="p-3">Result</th><th className="p-3">Manufactured</th></tr></thead>
-                  <tbody>{shownChecks.map((check, index) => <tr key={`${check.ts}-${index}`} className="border-t"><td className="whitespace-nowrap p-3">{new Date(check.ts).toLocaleString("en-GB", { timeZone: REPORT_TIME_ZONE })}</td><td className="p-3 font-semibold">{brandName(check.brand)}</td><td className="p-3 font-mono">{check.code}</td><td className="p-3">{check.locale ?? "—"}</td><td className="p-3">{check.country ?? "—"}</td><td className="p-3">{check.confidence} / {check.freshness}</td><td className="p-3">{check.mfg ?? "Not decoded"}</td></tr>)}</tbody>
+                  <tbody>{shownChecks.map((check, index) => <tr key={`${check.ts}-${index}`} className="border-t"><td className="whitespace-nowrap p-3">{new Date(check.ts).toLocaleString("en-GB", { timeZone: REPORT_TIME_ZONE })}</td><td className="p-3 font-semibold">{brandName(check.brand)}</td><td className="p-3 font-mono">{check.code}{attemptsFor(check) > 1 && <span aria-label={`${attemptsFor(check)} attempts for this normalized code`} title="Times this code was tried, counted as the decoder reads it" className="ml-2 rounded-full bg-warning-bg px-2 py-0.5 text-xs font-semibold text-warning">×{attemptsFor(check)}</span>}</td><td className="p-3">{check.locale ?? "—"}</td><td className="p-3">{check.country ?? "—"}</td><td className="p-3">{check.confidence} / {check.freshness}</td><td className="p-3">{check.mfg ?? <CheckDiagnosis brand={check.brand} code={check.code} />}</td></tr>)}</tbody>
                 </table>
               </div>
             )}
@@ -426,7 +555,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             <Panel title="Decoder health" hint={`Per brand, over ${REPORT_DAYS} days. A high no-read rate means users are being turned away.`}>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] text-left text-sm">
-                  <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Brand</th><th className="p-3">Decoder</th><th className="p-3">Checks</th><th className="p-3">No read</th><th className="p-3">No-read rate</th><th className="p-3">Logged failures</th></tr></thead>
+                  <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Brand</th><th className="p-3">Decoder</th><th className="p-3">Checks</th><th className="p-3">No read</th><th className="p-3">No-read rate</th><th className="p-3">7d trend</th><th className="p-3">Logged failures</th></tr></thead>
                   <tbody>
                     {health.filter((row) => row.checks > 0).slice(0, 40).map((row) => (
                       <tr key={row.slug} className="border-t">
@@ -441,10 +570,19 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                         <td className="p-3 tabular-nums">{row.checks}</td>
                         <td className="p-3 tabular-nums">{row.undecoded}</td>
                         <td className="p-3"><span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${row.failRate >= 50 ? "bg-danger-bg text-danger" : row.failRate >= 20 ? "bg-warning-bg text-warning" : "bg-success-bg text-success"}`}>{row.failRate.toFixed(0)}%</span></td>
+                        <td className="p-3 text-xs tabular-nums">{(() => {
+                          const swing = healthTrend.get(row.slug);
+                          // Too few checks either side is not a trend, and a
+                          // swing drawn from two rows would read as a signal.
+                          if (swing === null || swing === undefined) return <span className="text-fg-muted">too few</span>;
+                          const points = Math.round(swing);
+                          if (points === 0) return <span className="text-fg-muted">flat</span>;
+                          return <span className={points > 0 ? "font-semibold text-danger" : "font-semibold text-success"}>{points > 0 ? "+" : ""}{points} pts</span>;
+                        })()}</td>
                         <td className="p-3 tabular-nums">{row.failures}</td>
                       </tr>
                     ))}
-                    {health.length === 0 && <tr><td colSpan={6} className="p-8 text-center text-fg-muted">No checks in this window.</td></tr>}
+                    {health.length === 0 && <tr><td colSpan={7} className="p-8 text-center text-fg-muted">No checks in this window.</td></tr>}
                   </tbody>
                 </table>
               </div>

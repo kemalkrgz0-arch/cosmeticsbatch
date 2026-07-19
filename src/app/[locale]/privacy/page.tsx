@@ -6,7 +6,7 @@ import { ENGLISH_ONLY_LOCALES } from "@/lib/publishing-policy";
 import { site } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
-const UPDATED = "July 17, 2026";
+const UPDATED = "July 19, 2026";
 
 export async function generateMetadata({
   params,
@@ -109,7 +109,19 @@ export default async function PrivacyPage({
         <p>
           We use third-party advertising, including Google AdSense, to keep{" "}
           {site.name} free. Third-party vendors, including Google, use cookies to
-          serve ads based on your prior visits to this and other websites.
+          serve ads, measure performance and, where permitted, personalize ads
+          based on your prior visits to this and other websites. Third parties
+          may place or read cookies in your browser and may use web beacons, IP
+          addresses or other identifiers as a result of ad serving. Read{" "}
+          <a
+            className="text-accent hover:text-accent-hover"
+            href="https://policies.google.com/technologies/partner-sites"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            how Google uses information from partner sites
+          </a>
+          .
         </p>
         <ul className="ml-1 list-disc space-y-1.5 pl-5">
           <li>
@@ -144,9 +156,13 @@ export default async function PrivacyPage({
           </li>
         </ul>
         <p>
-          Where required by law (for example in the EEA, UK and Switzerland), ads
-          are served in line with applicable consent obtained through a consent
-          management platform.
+          Before advertising is enabled, we configure Google Privacy &amp;
+          messaging or another Google-certified consent management platform
+          integrated with the IAB Transparency and Consent Framework. In the
+          EEA, UK and Switzerland, that message provides consent, refusal,
+          vendor and purpose choices and a way to reopen privacy and cookie
+          settings. If the certified message is not configured, advertising
+          readiness remains blocked.
         </p>
 
         <H2>How we use information</H2>
@@ -193,9 +209,9 @@ export default async function PrivacyPage({
           Questions about this policy? Contact us at{" "}
           <a
             className="text-accent hover:text-accent-hover"
-            href="mailto:privacy@cosmeticsbatch.com"
+            href={`mailto:${site.email}`}
           >
-            privacy@cosmeticsbatch.com
+            {site.email}
           </a>
           .
         </p>

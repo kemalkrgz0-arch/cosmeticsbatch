@@ -1,56 +1,108 @@
-# AdSense readiness audit — 2026-07-19
+# AdSense acceptance readiness — 2026-07-19
 
-State: **blocked before application**. This is a technical/policy readiness
-audit, not legal advice and not proof of account approval.
+State: **not ready to request review**. No person or technical checklist can
+guarantee AdSense acceptance; Google reviews the entire site and the account.
+This document separates repository evidence from account/production evidence.
 
-## Passed locally
+## Current decision
 
-- Ad code is limited to reviewed/monetizable pages rather than every generated
-  brand route; private review routes exclude tracking and advertising.
-- Ad containers reserve height and sit between content sections, protecting CLS
-  and the primary checker flow.
-- `/ads.txt` derives the publisher ID from configured AdSense client data and
-  returns no misleading entry when unconfigured.
-- Navigation, privacy/contact pages, cautious claims, brand-specific editorial
-  gates and existing-URL SEO controls are present.
-- Experiment controls require conversion/CWV guardrails and prevent declaring
-  unreleased ad/SEO work successful.
+Do not request review until every `BLOCKER` below is closed with dated evidence.
+Google says review normally takes a few days and can take 2–4 weeks. Repeatedly
+submitting an unfinished site does not replace fixing the underlying issue.
 
-## Blocking CMP/consent issue
+## Mandatory blockers
 
-`CookieConsent` identifies itself as “No third-party CMP”. It sends Consent Mode
-signals but does not implement or prove a Google-certified IAB TCF CMP. Google
-requires publishers serving AdSense in the EEA, UK and Switzerland to use a
-certified CMP integrated with TCF. Google also says that without Purpose 1
-consent the ad tag should not be called; the current server-rendered loader is
-not gated on affirmative consent.
+| Requirement | Current evidence | State | Closure evidence |
+| --- | --- | --- | --- |
+| Certified consent for EEA/UK/Switzerland | The custom Consent Mode banner explicitly is not a certified IAB TCF CMP. | **BLOCKER** | Publish Google Privacy & messaging European regulations message (or another Google-certified web CMP), enable TCF v2.3 and three choices, then verify the live message with `?fc=alwaysshow&fctype=gdpr`. |
+| No competing consent UI | Code now supports `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true`, which disables the custom ad/analytics banner only after the certified CMP is verified. Default remains false. | **BLOCKER until production flag + CMP match** | Screenshots and TC string from accept, reject and manage-options flows; confirm only one ad-consent UI. |
+| Consent revocation | Google’s message should add its required “Privacy and cookie settings” revocation entry. | **BLOCKER / account-side** | Reopen the message from the live footer/privacy control and change a prior decision. |
+| Site/account connection | Publisher meta and AdSense loader support exist; repository cannot read the account. | **BLOCKER / account-side** | AdSense Sites shows the exact domain connected and “Ready”; no connection issue. |
+| `ads.txt` authorization | `/ads.txt` is generated from the configured publisher id and returns 204 when unconfigured. | **BLOCKER / production/account-side** | Live root returns the exact AdSense-provided line and Sites shows ads.txt “Authorized”. |
+| Policy Center | No account access. | **BLOCKER / account-side** | Dated screenshot showing no unresolved policy issue or restriction requiring action. |
+| Identity/payment eligibility | Age, duplicate-account, identity, address, tax and payment tasks are not repository facts. | **BLOCKER / owner account** | Applicant is at least 18, controls the site/source, and all AdSense account tasks are complete. |
+| Original/licensed media | 46 active public packaging/code assets have unknown repository provenance, permission and decoder relevance. | **BLOCKER** | Audit each inventory record; replace, remove or document permission and reviewer/date. |
+| Mixed-language pages | A measured 30 English-only brand-detail keys were missing from every non-English catalog. UI gating now prevents those fragments from appearing inside localized detail blocks; native review is still incomplete. | **BLOCKER until rendered crawl + editorial sample passes** | Crawl all 19 locales for English fallback and review the six investment languages plus high-impression pages. |
+| Production UX/CWV | Local build and accessibility controls pass, but real 390px/iOS/Android and ad-loaded CWV were not measured. | **BLOCKER before ad activation** | Mobile screenshots/device checks and field/lab LCP, CLS and INP by home/brand/guide; checker remains usable. |
 
-Before application:
+## Repository controls already implemented
 
-1. configure Google’s Privacy & messaging European regulations message or a
-   certified third-party CMP for web;
-2. verify the production TC string and TCF v2.3 behavior in EEA, UK and Swiss
-   test sessions;
-3. remove or narrow the competing custom advertising-consent UI so users do not
-   receive two inconsistent consent systems;
-4. make privacy wording describe the deployed CMP exactly;
-5. verify AdSense Sites approval and ads.txt status in the account and record
-   screenshots/date in Project Status;
-6. verify ad requests before/after accept/reject and ensure the primary checker,
-   CWV and navigation remain usable.
+- Ad units render only on English inventory with explicit editorial/content
+  gates. Functional tools, private review pages and non-English pages carry no
+  AdSense loader or units. Google may still inspect the entire domain.
+- Ads sit between publisher-content sections, never inside the checker input or
+  private communication, and reserve height to limit layout shift.
+- No copy asks users to click, view or refresh ads. Units use the unambiguous
+  “Advertisement” accessible label.
+- No product URL expansion was introduced. Navigation, About, Contact, Privacy
+  and Terms are reachable without interacting with an ad.
+- Privacy disclosure now states that third parties may use cookies, web beacons,
+  IP addresses or identifiers due to ad serving and links to Google’s partner-
+  data explanation. It no longer points at an unverified `privacy@` mailbox.
+- A build-time CMP flag is separate from the publisher id, preventing “AdSense
+  configured” from being mistaken for “certified CMP verified”.
+- Search/experiment systems prohibit fabricated production results; current RPM
+  and revenue remain unavailable rather than recorded as zero.
 
-## Official evidence
+## Content and inventory review
 
-- Google consent requirements: https://support.google.com/adsense/answer/13554020
-- Google publisher CMP options: https://support.google.com/adsense/answer/13554116
-- IAB TCF integration and v2.3 transition: https://support.google.com/adsense/answer/9804260
-- Site approval and ads.txt states: https://support.google.com/adsense/answer/12170222
-- Page/content/navigation readiness: https://support.google.com/adsense/answer/7299563
+Google requires original, useful publisher-content, clear navigation and more
+publisher-content than advertising. For this site that means a generic checker
+template is not enough. Before review:
 
-## Still needs production/account verification
+1. Keep ads limited to the strongest English home, verified-decoder brand and
+   reviewed long-form guide/decoder pages.
+2. Manually sample every monetized URL for a working checker, meaningful unique
+   explanation, limitations, navigation and no unsupported authenticity,
+   safety, manufacturer-expiry or certainty claim.
+3. Resolve the 46-asset provenance inventory. Repository presence is not
+   copyright permission.
+4. Finish the rendered SEO crawl: 206 sitemap URLs previously had no broken
+   canonical/hreflang/link failure, but 64 title/description budget violations
+   were found and are being corrected by the shared snippet boundary.
+5. Keep ad count below publisher-content and away from buttons, photo selection,
+   menus and other high-touch mobile controls.
 
-- Certified CMP presence and valid TC strings.
-- AdSense Sites status, Policy Center, payments/account tasks and ads.txt crawler
-  authorization.
-- Real RPM/revenue; these remain unavailable in the growth baseline.
-- Mobile CWV and checker-conversion impact with actual ad slots.
+## Account-side runbook
+
+1. In AdSense **Privacy & messaging**, create a European regulations message
+   for `cosmeticsbatch.com`, use three choices (do not consent, consent, manage
+   options), confirm the privacy-policy URL, select/disclose ad partners, enable
+   Consent Mode integration if appropriate, publish, and retain evidence.
+2. Test `/?fc=alwaysshow&fctype=gdpr` in a clean browser. Verify accept, reject,
+   manage vendors/purposes and later revocation. Confirm TCF v2.3 signals in the
+   browser and that refusal does not break navigation or the checker.
+3. Only then set `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true`, rebuild and verify the
+   custom banner no longer competes with Google’s certified message.
+4. In **Sites**, connect the exact apex domain, verify the publisher code is on
+   a regularly viewed English page and publish the exact Google-provided
+   `ads.txt` line at the root.
+5. Complete identity, address, phone, tax and payment tasks that the account
+   requests; confirm there is no duplicate AdSense account.
+6. Inspect Policy Center. Resolve every issue before requesting review.
+7. Do not click live ads, ask anyone to click, buy traffic, use click exchanges,
+   auto-refresh pages, or run automated tools that interact with ad links.
+8. Request review once. Record request date, Sites status and every later Google
+   message without overwriting the baseline.
+
+## Official Google evidence
+
+- Eligibility, original content and age: https://support.google.com/adsense/answer/9724
+- Site readiness, unique content and navigation: https://support.google.com/adsense/answer/7299563
+- Connect a site and review timing: https://support.google.com/adsense/answer/7584263
+- Publisher policies, inventory value and privacy disclosures: https://support.google.com/adsense/answer/10502938
+- AdSense program/ad-placement behavior: https://support.google.com/adsense/answer/48182
+- Supported content languages: https://support.google.com/adsense/answer/9727
+- Certified CMP requirement: https://support.google.com/adsense/answer/13554116
+- TCF integration and v2.3: https://support.google.com/adsense/answer/9804260
+- Google European regulations messages: https://support.google.com/adsense/answer/10961068
+- Consent revocation: https://support.google.com/adsense/answer/10959060
+- Site and ads.txt status: https://support.google.com/adsense/answer/12170222
+- Invalid traffic: https://support.google.com/adsense/answer/16737
+
+## Approval statement
+
+The highest honest target is “all known repository blockers closed and every
+account/production check evidenced.” Approval remains Google’s decision. Do not
+write “100% guaranteed”, “Google approved” or “ready” until the account itself
+shows the corresponding state.

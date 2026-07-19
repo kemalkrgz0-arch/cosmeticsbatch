@@ -194,8 +194,10 @@ export async function readChecksSince(since: string): Promise<CheckLog[]> {
   return readChecks(undefined, since);
 }
 
-export async function readRecentFailedCodes(limit = 1_000): Promise<FailedCodeLog[]> {
-  const safeLimit = Math.max(1, Math.min(limit, 5_000));
+async function readFailedCodes(limit?: number, since?: string): Promise<FailedCodeLog[]> {
+  const safeLimit = limit === undefined
+    ? Number.POSITIVE_INFINITY
+    : Math.max(1, Math.min(limit, 5_000));
   let files: string[];
   try {
     files = (await readdir(FAILED_DIR)).filter((name) => name.endsWith(".jsonl")).sort();
@@ -209,13 +211,25 @@ export async function readRecentFailedCodes(limit = 1_000): Promise<FailedCodeLo
       if (!line.trim()) continue;
       try {
         const entry = JSON.parse(line) as FailedCodeLog;
-        if (entry.ts && entry.brand && entry.code && entry.reason) rows.push(entry);
+        if (entry.ts && entry.brand && entry.code && entry.reason && (!since || entry.ts >= since)) {
+          rows.push(entry);
+        }
       } catch {
         // Ignore an interrupted final append; other brand files remain readable.
       }
     }
   }
   return rows.sort((a, b) => b.ts.localeCompare(a.ts)).slice(0, safeLimit);
+}
+
+/** Read a bounded newest-first list for tables and exports. */
+export async function readRecentFailedCodes(limit = 1_000): Promise<FailedCodeLog[]> {
+  return readFailedCodes(limit);
+}
+
+/** Read every failed code in an ISO timestamp window for exact trend reports. */
+export async function readFailedCodesSince(since: string): Promise<FailedCodeLog[]> {
+  return readFailedCodes(undefined, since);
 }
 
 /** Newest-first activity events. `since` bounds the scan, as in `readRecentChecks`. */

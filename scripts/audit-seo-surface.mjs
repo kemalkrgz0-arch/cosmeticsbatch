@@ -1,8 +1,19 @@
 const baseUrl = process.env.BASE_URL ?? "http://127.0.0.1:3100";
 const concurrency = Math.max(1, Math.min(Number(process.env.SEO_AUDIT_CONCURRENCY ?? 8), 16));
+const requestTimeoutMs = Math.max(1_000, Number(process.env.SEO_AUDIT_TIMEOUT_MS ?? 15_000));
+
+async function checkedFetch(url, init = {}) {
+  try {
+    return await fetch(url, { ...init, signal: AbortSignal.timeout(requestTimeoutMs) });
+  } catch (error) {
+    return { ok: false, status: 0, text: async () => "", error };
+  }
+}
 
 function decode(value) {
   return value
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, decimal) => String.fromCodePoint(Number.parseInt(decimal, 10)))
     .replaceAll("&amp;", "&")
     .replaceAll("&quot;", '"')
     .replaceAll("&#39;", "'")
@@ -43,7 +54,7 @@ async function mapLimit(values, worker) {
   return results;
 }
 
-const sitemapResponse = await fetch(`${baseUrl}/sitemap.xml`, { redirect: "manual" });
+const sitemapResponse = await checkedFetch(`${baseUrl}/sitemap.xml`, { redirect: "manual" });
 if (!sitemapResponse.ok) throw new Error(`sitemap returned ${sitemapResponse.status}`);
 const sitemap = await sitemapResponse.text();
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => decode(match[1]));
@@ -52,7 +63,7 @@ if (!sitemapUrls.length) throw new Error("sitemap contains no URLs");
 const failures = [];
 const pages = await mapLimit(sitemapUrls, async (publicUrl) => {
   const publicPath = normalizePath(publicUrl);
-  const response = await fetch(new URL(publicPath, baseUrl), { redirect: "manual" });
+  const response = await checkedFetch(new URL(publicPath, baseUrl), { redirect: "manual" });
   if (response.status !== 200) {
     failures.push(`${publicPath}: sitemap URL returned ${response.status}`);
     return { publicPath, alternates: [], hrefs: [] };
@@ -98,8 +109,10 @@ for (const page of pages) {
 }
 
 const internalPaths = [...new Set(pages.flatMap((page) => page.hrefs))];
-await mapLimit(internalPaths, async (path) => {
-  const response = await fetch(new URL(path, baseUrl), { method: "HEAD", redirect: "manual" });
+await mapLimit(internalPaths, async (path, index) => {
+  if (index > 0 && index % 500 === 0) console.log(`Checked ${index}/${internalPaths.length} internal paths…`);
+  const response = await checkedFetch(new URL(path, baseUrl), { method: "HEAD", redirect: "manual" });
+  if (response.status === 0) failures.push(`${path}: internal link timed out or failed to connect`);
   if (response.status >= 400) failures.push(`${path}: internal link returned ${response.status}`);
   if ([301, 302, 303, 307, 308].includes(response.status)) failures.push(`${path}: internal link redirects (${response.status})`);
 });

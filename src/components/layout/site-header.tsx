@@ -27,15 +27,21 @@ export function SiteHeader({ accessibility }: { accessibility: { primaryNavigati
             height={32}
             className="h-8 w-8 shrink-0 rounded-full border border-border"
           />
-          <span className="whitespace-nowrap text-[16px] tracking-[.01em] sm:text-[17px]">{site.name}</span>
+          {/* Truncates rather than overflowing: with `whitespace-nowrap` alone
+              the wordmark spilled out of its box and rendered over the nav. */}
+          <span className="truncate text-[16px] tracking-[.01em] sm:text-[17px]">{site.name}</span>
         </Link>
 
-        <nav aria-label={accessibility.primaryNavigation} className="ms-4 hidden items-center gap-1 md:flex">
+        {/* Desktop nav starts at `lg`, not `md`. Between 768px and 1024px the
+            row cannot hold the wordmark, six links and the actions at once —
+            the links wrapped to three lines and the wordmark overlapped them.
+            The hamburger covers that band instead, where there is room. */}
+        <nav aria-label={accessibility.primaryNavigation} className="ms-4 hidden items-center gap-1 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-sm text-fg-muted transition-colors duration-200 hover:text-fg"
+              className="whitespace-nowrap rounded-full px-3 py-2 text-sm text-fg-muted transition-colors duration-200 hover:text-fg"
             >
               {item.label}
             </Link>

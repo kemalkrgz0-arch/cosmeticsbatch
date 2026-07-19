@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { site, absoluteUrl } from "./site";
 import { DEFAULT_LOCALE, ogLocale } from "@/i18n/locales";
 import { INDEXABLE_LOCALES, isIndexableLocale } from "./publishing-policy";
+import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitSnippet } from "./snippet";
 
 /** Localized URL path. Default locale is prefix-free (/, /brands/…); others prefixed. */
 export function localizedPath(locale: string, path = "/"): string {
@@ -53,10 +54,15 @@ export function pageMeta({
   const url = absoluteUrl(localizedPath(locale, path));
   const fullTitle =
     path === "/" ? `${site.name} — ${site.tagline}` : `${title} | ${site.name}`;
+  const titleSuffix = ` | ${site.name}`;
+  const searchTitle = path === "/"
+    ? fitSnippet(fullTitle, TITLE_BUDGET)
+    : fitSnippet(title, standaloneTitle ? TITLE_BUDGET : TITLE_BUDGET - titleSuffix.length);
+  const searchDescription = fitSnippet(description, DESCRIPTION_BUDGET);
   const canIndex = indexable ?? isIndexableLocale(locale);
   return {
-    title: standaloneTitle ? { absolute: title } : title,
-    description,
+    title: path === "/" || standaloneTitle ? { absolute: searchTitle } : searchTitle,
+    description: searchDescription,
     alternates: {
       canonical: url,
       languages: hreflangAlternates(
@@ -70,13 +76,13 @@ export function pageMeta({
       url,
       siteName: site.name,
       title: fullTitle,
-      description,
+      description: searchDescription,
       locale: ogLocale(locale),
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
-      description,
+      description: searchDescription,
       site: site.twitter,
     },
   };

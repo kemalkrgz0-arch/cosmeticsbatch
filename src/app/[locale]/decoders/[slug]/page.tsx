@@ -27,6 +27,7 @@ import {
   reviewedContentLocales,
 } from "@/lib/content-review";
 import { indexableContentLocales } from "@/lib/publishing-policy";
+import { isAdEligibleLocale } from "@/lib/ads";
 
 export function generateStaticParams() {
   return DECODER_GUIDES.map((g) => ({ slug: g.slug }));
@@ -69,6 +70,7 @@ export default async function DecoderGuidePage({
   const t = await contentTranslator(locale);
   const guide = localizeDecoderGuide(source, t);
   const reviewed = isContentReviewed(locale, `dec.${source.slug}`);
+  const monetizable = reviewed && isAdEligibleLocale(locale);
   const tc = await getTranslations("contentPages");
   const nav = await getTranslations("nav");
 
@@ -88,7 +90,7 @@ export default async function DecoderGuidePage({
 
   return (
     <article className="reading-frame py-10">
-      {reviewed && <AdsenseLoader />}
+      {monetizable && <AdsenseLoader />}
       <JsonLd
         data={reviewed ? [
           articleSchema({
@@ -137,7 +139,7 @@ export default async function DecoderGuidePage({
         </Link>
       </section>
 
-      {reviewed && <AdSlot placement="article" className="mt-10" height={250} />}
+      {monetizable && <AdSlot placement="article" className="mt-10" height={250} />}
 
       {brands.length > 0 && (
         <section className="mt-14 border-t border-border pt-8">
