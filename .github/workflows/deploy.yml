@@ -69,6 +69,8 @@ jobs:
               if [ "${RECLAIM_SHARED_NEXT_CACHE:-false}" = "true" ] && docker inspect yerelatlas-app-1 >/dev/null 2>&1; then
                 echo "YerelAtlas .next breakdown (read-only):"
                 docker exec yerelatlas-app-1 sh -c 'du -x -h -d 2 /app/.next 2>/dev/null | sort -h | tail -30' || true
+                echo "YerelAtlas oversized server/app files and directories (read-only):"
+                docker exec yerelatlas-app-1 sh -c 'du -x -h -d 2 /app/.next/server/app 2>/dev/null | sort -h | tail -30; find /app/.next/server/app -xdev -type f -size +100M -exec ls -lh {} +' || true
                 shared_cache_kb="$(docker exec yerelatlas-app-1 sh -c 'du -sk /app/.next/cache 2>/dev/null | cut -f1' || true)"
                 if [ "${shared_cache_kb:-0}" -ge 10485760 ]; then
                   echo "Reclaiming verified rebuildable cache: yerelatlas-app-1:/app/.next/cache"

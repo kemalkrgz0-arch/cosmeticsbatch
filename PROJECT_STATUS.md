@@ -242,6 +242,11 @@ decision is recorded here. Version notes do not override this section silently.
   files were removed and deployment remained blocked. The large `.next` size
   belongs to a different child; the workflow now reports a targeted read-only
   two-level breakdown before any further cleanup decision.
+  Targeted `.next` audit (`Completed read-only`, run `29704357016`): cache is
+  only 25.9 MiB; the full 52.6 GiB is under `/app/.next/server/app`. It is not
+  safe to treat that as ordinary cache without identifying the generated route
+  files. Added a read-only child-directory and >100 MiB file inventory; still
+  no deletion, container restart or production switch.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
