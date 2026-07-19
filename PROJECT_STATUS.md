@@ -247,6 +247,13 @@ decision is recorded here. Version notes do not override this section silently.
   safe to treat that as ordinary cache without identifying the generated route
   files. Added a read-only child-directory and >100 MiB file inventory; still
   no deletion, container restart or production switch.
+  Final route-size audit (`Completed read-only`, run `29704550928`): the 52.7
+  GiB layer is generated city route output under `.next/server/app` (24.1 GiB
+  English, 28.6 GiB Turkish; the Istanbul branches alone total 7.6 GiB), not a
+  database or declared Docker volume. Added an explicit owner-triggered,
+  default-off Compose force-recreate input for only the stateless YerelAtlas app
+  service. Compose preserves its declared volumes/environment while replacing
+  the oversized writable route layer; DB and Redis services are untouched.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting

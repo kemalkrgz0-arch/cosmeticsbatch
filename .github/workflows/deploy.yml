@@ -9,6 +9,11 @@ on:
         required: false
         default: false
         type: boolean
+      recreate_shared_next_app:
+        description: Recreate the stateless oversized YerelAtlas app container
+        required: false
+        default: false
+        type: boolean
 
 # Never let two production deploys run at once.
 concurrency:
@@ -31,13 +36,14 @@ jobs:
           CF_ACCESS_TEAM_DOMAIN: https://calm-sun-fd60.cloudflareaccess.com
           REVIEWER_EMAILS: ${{ secrets.REVIEWER_EMAILS }}
           RECLAIM_SHARED_NEXT_CACHE: ${{ inputs.reclaim_shared_next_cache }}
+          RECREATE_SHARED_NEXT_APP: ${{ inputs.recreate_shared_next_app }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT || 22 }}
           command_timeout: 30m
-          envs: RESEND_API_KEY,SUBMISSION_NOTIFY_EMAIL,SUBMISSION_FROM_EMAIL,CF_ACCESS_AUD,CF_ACCESS_TEAM_DOMAIN,REVIEWER_EMAILS,RECLAIM_SHARED_NEXT_CACHE
+          envs: RESEND_API_KEY,SUBMISSION_NOTIFY_EMAIL,SUBMISSION_FROM_EMAIL,CF_ACCESS_AUD,CF_ACCESS_TEAM_DOMAIN,REVIEWER_EMAILS,RECLAIM_SHARED_NEXT_CACHE,RECREATE_SHARED_NEXT_APP
           script: |
             set -e
             cd /opt/cosmeticsbatch
@@ -79,6 +85,18 @@ jobs:
                   df -h /
                 else
                   echo "Shared cache is absent or below the 10 GiB safety threshold; nothing removed."
+                fi
+              fi
+              if [ "${RECREATE_SHARED_NEXT_APP:-false}" = "true" ] && docker inspect yerelatlas-app-1 >/dev/null 2>&1; then
+                compose_dir="$(docker inspect -f '{{ index .Config.Labels "com.docker.compose.project.working_dir" }}' yerelatlas-app-1)"
+                compose_service="$(docker inspect -f '{{ index .Config.Labels "com.docker.compose.service" }}' yerelatlas-app-1)"
+                if [ -n "$compose_dir" ] && [ -d "$compose_dir" ] && [ -n "$compose_service" ]; then
+                  echo "Recreating stateless YerelAtlas app service; declared volumes and environment are preserved."
+                  (cd "$compose_dir" && docker compose up -d --force-recreate "$compose_service")
+                  available_kb="$(df --output=avail / | tail -1 | tr -dc '0-9')"
+                  df -h /
+                else
+                  echo "Compose metadata is missing; refusing to recreate the shared app." >&2
                 fi
               fi
             fi
