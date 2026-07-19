@@ -237,6 +237,11 @@ decision is recorded here. Version notes do not override this section silently.
   at least 10 GiB. It does not delete the container, database, volume, source or
   CosmeticsBatch data. The maintenance run and post-cleanup deploy remain
   pending.
+  First maintenance attempt (`Blocked safely`, run `29704172866`): the verified
+  `/app/.next/cache` target was absent or below the 10 GiB threshold, so no
+  files were removed and deployment remained blocked. The large `.next` size
+  belongs to a different child; the workflow now reports a targeted read-only
+  two-level breakdown before any further cleanup decision.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
@@ -975,8 +980,8 @@ decision is recorded here. Version notes do not override this section silently.
     `needs verification`: measured from rendered classes and reasoning, not from
     a real browser at 768/900/1024px — this environment has none. A screenshot
     at those widths would close it.
-  - `CLAUDE-I18N-001`; owner: Claude; state: `Completed locally — not
-    committed`; assigned by the
+  - `CLAUDE-I18N-001`; owner: Claude; state: `Completed locally — independently
+    reverified, not committed`; assigned by the
     owner 2026-07-20; starting commit `c681ee5`; scope: `messages/tr.json`,
     `src/lib/locale-message-gaps.ts`, a new generator script, and
     `scripts/quality-regression.test.ts`. Task: translate the 30 English-only
@@ -1011,8 +1016,44 @@ decision is recorded here. Version notes do not override this section silently.
     `/tr/brands/vichy` shows "Vichy ürünlerinin son kullanma tarihi nerede?"
     answered in Turkish with no English fallback; `/ru/brands/vichy` still hides
     the pair; `/brands/vichy` still shows the English original.
-    `needs verification`: the Turkish wording is mine and I can vouch for it; the
-    other 17 locales are untouched and still hidden. Not exercised in
+    Independent handoff verification (Claude, 2026-07-20, repository HEAD
+    `f00102e`): preserved the existing implementation without rewriting it.
+    Exact owned files are `messages/tr.json`,
+    `src/lib/locale-message-gaps.ts`,
+    `src/lib/locale-message-gaps.json`,
+    `scripts/build-locale-message-gaps.mjs`, and the directly related additions
+    in `scripts/quality-regression.test.ts`; only this status paragraph was
+    additionally edited. A comparison with `HEAD:messages/tr.json` found exactly
+    30 added `brandDetail` keys, all present in the English source, non-empty and
+    paired where they are FAQ questions/answers. Turkish and English now each
+    expose 261 flattened brand-detail keys. The cautious authenticity/expiry
+    language was inspected and an automated heuristic found no answer lacking a
+    limiting term such as estimate, typical, warning, not-proof, copied-code,
+    shelf-life or printed-date guidance.
+    Generator determinism/idempotence: two consecutive
+    `node scripts/build-locale-message-gaps.mjs` runs both reported 17 locales
+    and 510 missing keys; the generated JSON SHA-256 remained
+    `e9cbf81d3309f4073013c6dfdc5d0c52b86010646b1458ac637cd2d520564f94`
+    before, between and after the runs. The manifest contains 17 active
+    non-English locales with exactly 30 gaps each and omits fully translated
+    `tr`; the quality test independently recomputes this from active catalogs
+    and locks `en=true`, missing Russian key `false`, translated Turkish key
+    `true`.
+    Exact checks: JSON parsing for Turkish and the generated manifest passed;
+    focused ESLint passed for the TS/MJS/test files but reported one non-failing
+    warning that `messages/tr.json` is intentionally outside ESLint's configured
+    file set; `./node_modules/.bin/eslint .` passed with no output;
+    `./node_modules/.bin/tsc --noEmit` passed; `npm run test:quality` passed
+    68/68 tests plus search-performance, experiment, content-freshness and
+    evidence-inventory validators; `git diff --check` passed. No build was run
+    because this handoff requested lint/type/quality/diff verification and no
+    runtime/build file changed. No commit, push or deployment.
+    Residual risk / `needs verification`: key parity, pairing and cautious claim
+    structure are verified, but this independent handoff is not a native-editor
+    approval of natural Turkish phrasing. A fluent Turkish editorial reviewer
+    should approve the 30 strings before they are labeled native-reviewed. The
+    other 17 locales remain intentionally hidden for these keys and still need
+    their own native translations. The behavior was not exercised in
     production.
   - Coordination rule: before starting another task, each agent must read active
     claims and write a proposed next work item with file scope here. If the scope
@@ -1579,6 +1620,25 @@ entries).
     This is the first time a decoder reading has been checked against a date the
     manufacturer printed rather than against what the batch-code community
     republishes.
+
+    Independent architecture audit (`Completed read-only`, 2026-07-19): the
+    defect also covers brand-wide PAO and category language. Brand defaults flow
+    independently through the decoder, public API, `/check`, private diagnosis,
+    result card/actions, brand facts/copy/FAQ and FAQ schema; changing only one
+    surface would leave contradictory output. Minimum safe containment is a
+    discriminated server-owned lifecycle state: retain manufacture date, age
+    and confidence for a product-dependent brand, but return no estimated
+    expiry, remaining percentage, PAO or fresh/expired verdict until a verified
+    product category is selected. Never accept raw months from the client.
+    Phase A should apply to Dior because direct printed evidence exists; Chanel,
+    Guerlain, Armani and Tom Ford remain `needs verification`, while evidenced
+    single-category fragrance brands keep current behavior. Later phases should
+    unify duplicated brand-check call sites, optionally log a nonpersonal
+    guidance kind without rewriting historical JSONL, and add a server allowlist
+    selector only where sourced category guidance exists. Acceptance must prove
+    Dior `5G01` retains July 2025 manufacture while suppressing the false 2030/
+    60-month lifecycle claims in DOM, API and schema, with a known perfume brand
+    unchanged. No code was changed by this audit.
 
     The defect: `GET /check?brand=dior&code=5G01` in production tells the user
     "Shelf life 60 months", "Estimated unopened shelf-life date July 2030",
