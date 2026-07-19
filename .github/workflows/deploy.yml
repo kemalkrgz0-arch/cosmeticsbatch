@@ -49,6 +49,13 @@ jobs:
             echo "Disk usage after cleanup:"
             df -h /
             docker system df || true
+            echo "Active container writable-layer sizes:"
+            docker ps --size --format 'table {{.Names}}\t{{.Size}}\t{{.Image}}' || true
+            available_kb="$(df --output=avail / | tail -1 | tr -dc '0-9')"
+            if [ "$available_kb" -lt 6291456 ]; then
+              echo "Insufficient build headroom: at least 6 GiB free is required." >&2
+              exit 1
+            fi
             git pull --ff-only
             # deploy.sh owns the build args (read from .env.build on the VPS) and
             # the run flags. Inlining a partial `docker build` here once shipped a

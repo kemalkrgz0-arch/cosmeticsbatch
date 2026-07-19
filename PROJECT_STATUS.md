@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-19
-Current version: **1.3.1**
+Current version: **1.3.2**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -212,6 +212,16 @@ decision is recorded here. Version notes do not override this section silently.
   `/sitemap.xml`; `/ads.txt` correctly returned 204 in the intentionally
   credential-free local build. Production deployment and live verification are
   pending; account/CMP/editorial/provenance blockers remain unchanged.
+  Deployment attempt (`Blocked safely`, run `29703281893`): the VPS build
+  completed all 267 pages but failed while copying the standalone layer with
+  `no space left on device`. The filesystem was 100% full before cleanup and
+  97% full (2.5 GiB available) afterward; active container writable layers
+  totalled 56.59 GiB. The candidate was never started or switched, so the prior
+  production container remained intact. Added an early 6 GiB headroom gate and
+  per-container writable-layer diagnostics to the manual workflow. No active
+  container or private data is deleted automatically; the exact large owner
+  must be identified before cleanup. State remains `Blocked` pending the
+  diagnostic rerun and scoped disk remediation.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
