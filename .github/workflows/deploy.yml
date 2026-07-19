@@ -53,6 +53,12 @@ jobs:
             docker ps --size --format 'table {{.Names}}\t{{.Size}}\t{{.Image}}' || true
             available_kb="$(df --output=avail / | tail -1 | tr -dc '0-9')"
             if [ "$available_kb" -lt 6291456 ]; then
+              echo "Largest directories in oversized active containers (read-only diagnostic):"
+              docker ps --size --format '{{.Names}} {{.Size}}' | while read -r container size _; do
+                case "$size" in
+                  *GB) docker exec "$container" sh -c 'du -x -h -d 2 / 2>/dev/null | sort -h | tail -25' || true ;;
+                esac
+              done
               echo "Insufficient build headroom: at least 6 GiB free is required." >&2
               exit 1
             fi
