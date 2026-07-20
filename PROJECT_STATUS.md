@@ -3027,6 +3027,50 @@ entries).
     covers is itself a claim, and none of the profiles records how it was
     arrived at.
 
+44. P1 the Unilever decoder reads Dove codes about three years early
+    (`Needs a fix — one printed date, wants two more`). Four Dove packs
+    photographed 2026-07-20, all carrying the same nine-character shape — five
+    digits, two letters, two digits:
+
+        12174 AX 58    EXP 12-2026 printed on the can
+        11165 XU 02
+        02112 ET 82
+        05041 JU 35
+
+    What we do now, and why it cannot be right. The `unilever` decoder reads
+    these as a year digit plus Julian day and returns 2021-08-05 for the first.
+    The same can prints EXP 12-2026, which would make the shelf life 64 months.
+    A deodorant is not labelled five years out. We do not need the correct rule
+    to know the current one is wrong here.
+    It also fails outright on `05041JU35`, so three of four get a wrong date and
+    the fourth gets none.
+
+    A reading that fits all four: the leading five digits as MMDD plus a year
+    digit.
+
+        12174 -> 2024-12-17    24 months to the printed EXP 12-2026
+        11165 -> 2025-11-16
+        02112 -> 2022-02-11
+        05041 -> 2021-05-04
+
+    Every one is a valid calendar date, the trailing letters and digits fall out
+    as plant and line, and the single checkable case lands on exactly 24 months.
+
+    Not implemented on this evidence. One printed date is what the third-party
+    rule in finding 39 had before packaging demolished it, and MMDD is
+    permissive — any four digits with a month under 13 and a day under 32 will
+    satisfy it.
+    `needs verification`: two more Unilever packs with a code and a printed
+    expiry, ideally not Dove, since this decoder also carries Vaseline, Axe,
+    Rexona, Sunsilk, TRESemmé, Simple, Pond's, St. Ives and Nexxus.
+    The asymmetry is different from earlier findings and worth stating: here we
+    ship a confident wrong date rather than declining, so this is finding 22's
+    failure shape on a decoder covering ten brands, and it should be treated as
+    more urgent than a no-read.
+    Also seen: `24WN00` still returns nothing, and the same user typed `24WNOO`
+    with letter O — the confusion recorded in finding 33, now on a third
+    decoder.
+
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
     2026-07-20. One (nanamall.com) returned all three; the implied rule was
