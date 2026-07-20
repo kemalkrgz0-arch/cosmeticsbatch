@@ -908,12 +908,23 @@ const beiersdorf: Decoder = {
     "Beiersdorf brands (NIVEA, Eucerin, Labello) use an 8-digit batch code, sometimes followed by two letters (e.g. 63450108 CZ). The first digit is the last digit of the production year and the next two are the week of that year, so 8153554 is week 15 of 2018.",
   decode(code, ctx): DecodeAttempt | null {
     const c = clean(code);
-    // Real Beiersdorf codes are a contiguous 6–8 digit run (optionally with two
-    // trailing letters). Require ≥6 digits so we don't latch onto a short
-    // fragment of some other code shape.
-    const m = c.match(/\d{6,}/);
+    // Real Beiersdorf codes are a 6–8 digit run, optionally with two trailing
+    // letters, and that run has to be the whole code rather than a fragment
+    // found inside it.
+    //
+    // The unanchored version of this cost a real user a wrong answer. On
+    // 2026-07-20 someone in Bulgaria worked through eight strings off a Eucerin
+    // pack — `MEGA`, `D-20245`, `87997`, `AE.04`, `87997.000.AE.04` — which are
+    // the product name and article references, not a batch code. Seven were
+    // correctly refused. The ninth, `139602005`, is nine digits, and the loose
+    // match read its first digit as a year and its next two as a week, telling
+    // them their product expired in 2021.
+    //
+    // Anchoring costs one historic read, and that read is the wrong answer
+    // above. See findings 31 and 39.
+    const m = c.match(/^(\d{6,8})(?:[A-Z]{2})?$/);
     if (!m) return null;
-    const d = m[0];
+    const d = m[1];
     const week = Number(d.slice(1, 3));
     if (week < 1 || week > 53) return null;
     // Single-digit year: take the most recent match, stepping back a decade if

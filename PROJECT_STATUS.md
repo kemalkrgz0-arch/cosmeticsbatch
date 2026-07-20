@@ -2805,6 +2805,38 @@ entries).
     decoder carries NIVEA and Labello — so getting this right is worth more than
     the eleven checks suggest.
 
+    Answered from the live log the same afternoon, and it exposed a defect my own
+    finding 31 work had missed. A session from Bulgaria on 2026-07-20 worked
+    through eight strings off one Eucerin pack over fourteen minutes:
+
+        MEGA               refused
+        D-20245 / D20245   refused
+        87997              refused
+        AE.04              refused
+        87997.000.AE.04    refused
+        87997000AE04       refused
+        139602005          decoded 2021-09-24, EXPIRED
+
+    The first seven are the product name and article references — dotted groups
+    like `87997.000.AE.04` are how Beiersdorf writes an article number — which is
+    what someone types when they cannot find the batch code. Refusing them is
+    right. The eighth is nine digits against a documented six-to-eight, and the
+    decoder's unanchored `\d{6,}` took it anyway, reading the first digit as a
+    year and the next two as a week. We told a real person their product expired
+    five years ago on a string that is almost certainly not a batch code.
+
+    Same defect class as findings 22 and 29, and my own miss: `readEmbeddedDate`
+    was anchored under `CLAUDE-PERMISSIVE-001` and `loreal` was tightened, but
+    `beiersdorf` used the identical loose scan and was not touched. Anchored now
+    to `^(\d{6,8})(?:[A-Z]{2})?$`.
+    Measured before changing: anchoring costs exactly one historic read across
+    the whole log, and that read is `139602005` — the wrong answer above. Junk
+    dating is unaffected at zero for this decoder. A regression test pins the
+    eight strings from this session.
+    The wider question stands: of eleven Eucerin codes users have brought us only
+    one matches the documented shape, so `printsDate` may belong on this brand
+    too. That still needs a photograph.
+
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
     2026-07-20. One (nanamall.com) returned all three; the implied rule was

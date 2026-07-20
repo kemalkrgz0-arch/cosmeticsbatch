@@ -1101,3 +1101,29 @@ test("failed checks on date-printing brands point at the printed date", () => {
     "the printed-date hint must come before the address hint",
   );
 });
+
+/**
+ * Article references on a Eucerin pack are not batch codes.
+ *
+ * A real session from Bulgaria on 2026-07-20 worked through eight strings off
+ * one pack — the product name, two article references, and fragments of them.
+ * Seven were correctly refused; `139602005` was read as a year and a week and
+ * the user was told their product had expired in 2021. Beiersdorf codes are a
+ * 6-8 digit run, so a nine-digit reference is not one. See finding 39.
+ */
+test("Beiersdorf refuses pack references that are not batch codes", () => {
+  const refused = ["MEGA", "D-20245", "87997", "AE.04", "87997.000.AE.04", "139602005"];
+  for (const code of refused) {
+    const result = checkBatchCode({
+      brandName: "Eucerin", code, decoderId: "beiersdorf", shelfLifeMonths: 36, category: "skincare",
+    });
+    assert.equal(result.decoded, false, `${code} should not produce a date`);
+  }
+  // The documented shape still reads, with and without the trailing letters.
+  for (const code of ["44736976", "8153554", "63450108CZ"]) {
+    const result = checkBatchCode({
+      brandName: "Eucerin", code, decoderId: "beiersdorf", shelfLifeMonths: 36, category: "skincare",
+    });
+    assert.equal(result.decoded, true, `${code} should still decode`);
+  }
+});
