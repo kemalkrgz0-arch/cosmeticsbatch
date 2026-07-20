@@ -38,10 +38,21 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
     ],
   },
   coty: {
-    decoderId: "coty", version: "1.0.0", verificationStatus: "UNKNOWN",
-    datePrecision: "day", sourceType: "observed-samples", sourceReferences: [], verifiedAt: null,
+    decoderId: "coty", version: "1.1.0", verificationStatus: "ESTIMATED",
+    datePrecision: "day", sourceType: "observed-samples",
+    // Four Calvin Klein bottles photographed 2026-07-20. Three carry a
+    // four-digit code identical on bottle and box — 4186, 3053, 8022 — and all
+    // three read as plausible recent dates under YDDD. No printed expiry on any
+    // of them, so this evidences the shape and not the arithmetic; that is why
+    // it stops at ESTIMATED. See finding 42.
+    sourceReferences: ["PROJECT_STATUS.md finding 42 — owner packaging photographs, 2026-07-20"],
+    verifiedAt: null,
     supportedCodeFormats: ["YDDD"],
-    knownLimitations: ["Single-digit year repeats every decade", "Primary evidence needs verification"],
+    knownLimitations: [
+      "Single-digit year repeats every decade",
+      "No printed-date verification yet",
+      "Pre-Coty stock (Calvin Klein Cosmetics Co., before the 2005 acquisition) uses a different code and does not decode",
+    ],
   },
   chanel: {
     decoderId: "chanel", version: "1.0.0", verificationStatus: "ESTIMATED",

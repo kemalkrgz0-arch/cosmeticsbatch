@@ -2924,6 +2924,37 @@ entries).
     Plausible background, not evidence: CeraVe belonged to Valeant until L'Oréal
     bought it in 2017, which would explain two systems coexisting on shelves.
 
+42. P2 the Coty decoder now has packaging evidence, and pre-2005 stock does not
+    fit it (`Profile promoted; era gap open`). Four Calvin Klein bottles
+    photographed 2026-07-20:
+
+        4186   -> 2024-07-04  medium   code identical on bottle and box
+        3053   -> 2023-02-22  medium   code identical on bottle and box
+        8022   -> 2018-01-22  medium   from the line "A8 0237802816 8022"
+        0931   -> unresolved           code identical on bottle and box
+
+    Three read cleanly under the documented YDDD shape and land on plausible
+    dates. That the code is printed identically on bottle and box is itself
+    corroboration that it is the batch code rather than a reference.
+    `coty` moves from UNKNOWN to ESTIMATED. It stops there rather than going
+    higher because none of the four carries a printed expiry, so this evidences
+    the shape and not the arithmetic — the distinction drawn in finding 41.
+    This matters more than four bottles suggest: `coty` carries 39 brands, more
+    than any decoder except `loreal`, and 37 of them had never been checked by a
+    user at all.
+
+    `0931` is the interesting failure. Day 931 does not exist, so YDDD cannot be
+    right — but the code is on both bottle and box, so it is the batch code. The
+    carton reads "Calvin Klein Cosmetics Co.", not Coty, and Coty did not acquire
+    the CK fragrance licence until 2005. So this is pre-Coty stock carrying an
+    earlier scheme, the same era split found on Jean Paul Gaultier in finding 26.
+    Deliberately not guessed at. `0931` read as year 09, week 31 would give
+    August 2009 and fit a CK Be bottle, and that is exactly the kind of
+    single-sample reasoning findings 39 and 31 exist to prevent.
+    `needs verification`: two or three more pre-2005 Calvin Klein or other
+    Coty-era bottles, ideally with a printed date, before the older format is
+    anything but a note.
+
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
     2026-07-20. One (nanamall.com) returned all three; the implied rule was
