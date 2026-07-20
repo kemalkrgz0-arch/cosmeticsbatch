@@ -1,15 +1,5 @@
-import { getBrandLogo, getBrandTile } from "@/lib/brand-logos";
+import { brandTile, getBrandLogo } from "@/lib/brand-logos";
 import { cn } from "@/lib/utils";
-
-function monogram(name: string) {
-  return name
-    .replace(/[^a-zA-Z0-9 ]/g, "")
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
 
 /** Auto-scaling wordmark: SVG text that fits any tile size crisply. */
 function WordmarkSvg({ label, fg }: { label: string; fg: string }) {
@@ -37,7 +27,11 @@ function WordmarkSvg({ label, fg }: { label: string; fg: string }) {
 
 /**
  * Uses a local Wikidata P154 logo only when the entity's P856 official website
- * matched our domain registry. Missing records retain an honest wordmark.
+ * matched our domain registry, and only for files we can show are public
+ * domain — see finding 20. Everything else gets a typographic tile of our own,
+ * which is a deliberate choice rather than a fallback: a brand's logo is a
+ * trademark, and the freely-licensed copies circulating on Commons are largely
+ * mislabelled uploads of the brand's own artwork.
  */
 export function BrandLogo({
   name,
@@ -48,8 +42,8 @@ export function BrandLogo({
   slug: string;
   className?: string;
 }) {
-  const tile = getBrandTile(slug);
   const logo = getBrandLogo(slug);
+  const tile = brandTile(slug, name);
 
   return (
     <span
@@ -67,13 +61,9 @@ export function BrandLogo({
           decoding="async"
           className="h-full w-full object-contain p-[10%]"
         />
-      ) : tile ? (
+      ) : (
         <span className="h-full w-full" style={{ backgroundColor: tile.bg }}>
           <WordmarkSvg label={tile.label} fg={tile.fg ?? "#ffffff"} />
-        </span>
-      ) : (
-        <span className="font-semibold tracking-tight text-[#0a0a0a]">
-          {monogram(name)}
         </span>
       )}
     </span>

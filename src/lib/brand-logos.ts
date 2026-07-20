@@ -237,6 +237,30 @@ export interface WikidataBrandLogo {
   qid: string;
   commonsFile: string;
   domainVerified: boolean;
+  /** Commons `LicenseShortName`, e.g. "Public domain" or "CC BY-SA 4.0". */
+  licence?: string | null;
+  licenceId?: string | null;
+  /** Uploader-stated author and source — the evidence, not a guarantee. */
+  licenceAuthor?: string | null;
+  licenceSource?: string | null;
+  /** Commons' own `AttributionRequired` flag for this file. */
+  attributionRequired?: boolean;
+}
+
+/**
+ * Licences that carry no attribution duty, so a logo under one of them can be
+ * shipped without a credit line. Everything else has to be either attributed or
+ * not used — see `PUBLIC_DOMAIN_ONLY` in the quality suite, and finding 20.
+ */
+export const ATTRIBUTION_FREE_LICENCES = new Set(["Public domain"]);
+
+/** Logos whose Commons licence obliges us to credit the author. */
+export function logosRequiringAttribution(): string[] {
+  return Object.entries(WIKIDATA_LOGOS)
+    .filter(([, logo]) => logo.attributionRequired
+      || (logo.licence != null && !ATTRIBUTION_FREE_LICENCES.has(logo.licence)))
+    .map(([slug]) => slug)
+    .sort();
 }
 
 const WIKIDATA_LOGOS = wikidataLogos as Record<string, WikidataBrandLogo>;
@@ -311,4 +335,63 @@ const BRAND_TILES: Record<string, BrandTile> = {
 
 export function getBrandTile(slug: string): BrandTile | undefined {
   return BRAND_TILES[slug];
+}
+
+/**
+ * Tile palette for brands without a curated entry.
+ *
+ * Dark enough that white text clears WCAG AA at the sizes these render, and
+ * muted rather than saturated so a directory of them reads as one grid instead
+ * of a colour chart.
+ */
+const GENERATED_TILE_BACKGROUNDS = [
+  "#0a0a0a", "#1c2b3a", "#2d2a32", "#123a35", "#3a2419",
+  "#1f3326", "#332030", "#14304a", "#3a2c14", "#251f3a",
+] as const;
+
+/** Stable per-slug index, so a brand keeps its colour between deploys. */
+function slugHash(slug: string): number {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+  return hash;
+}
+
+/**
+ * Label for a generated tile.
+ *
+ * Short names read better whole than abbreviated — "COSRX" beats "C" — so the
+ * whole name is kept when it fits and initials are used only when it does not.
+ * The renderer scales text to the tile, so the ceiling here is about legibility
+ * at a directory thumbnail's size rather than about overflow.
+ */
+function tileLabel(name: string): string {
+  // Unicode-aware: stripping to ASCII turned "Clé de Peau Beauté" into words
+  // with holes in them, and a tile reading "BEAUT " is worse than no tile.
+  const cleaned = name.replace(/[^\p{L}\p{N} &']/gu, " ").replace(/\s+/g, " ").trim();
+  if (!cleaned) return "?";
+  const words = cleaned.split(" ");
+  if (cleaned.length <= 9) return cleaned.toUpperCase();
+  if (words.length === 1) return cleaned.slice(0, 8).toUpperCase();
+  const initials = words.slice(0, 3).map((word) => word[0]).join("").toUpperCase();
+  // A single initial is not a brand mark; prefer the first word when short.
+  if (initials.length < 2 && words[0].length <= 9) return words[0].toUpperCase();
+  return initials;
+}
+
+/**
+ * A tile for any brand, curated where we have one and derived where we do not.
+ *
+ * Every brand gets a designed tile rather than bare initials on white. It is
+ * also the answer to "find a logo for the rest": a brand's logo is a trademark,
+ * and the freely-licensed copies of them are mostly mislabelled uploads — see
+ * finding 20. Our own typography carries no such problem.
+ */
+export function brandTile(slug: string, name: string): BrandTile {
+  const curated = BRAND_TILES[slug];
+  if (curated) return curated;
+  const backgrounds = GENERATED_TILE_BACKGROUNDS;
+  return {
+    label: tileLabel(name),
+    bg: backgrounds[slugHash(slug) % backgrounds.length],
+  };
 }

@@ -3,426 +3,715 @@
     "src": "/brand-logos/clinique.svg",
     "qid": "Q2655764",
     "commonsFile": "Clinique logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Clinique Laboratories",
+    "licenceSource": "www.clinique.com",
+    "attributionRequired": false
   },
   "mac-cosmetics": {
     "src": "/brand-logos/mac-cosmetics.png",
     "qid": "Q2624442",
     "commonsFile": "MAC Cosmetics logo.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Make-up Art Cosmetics",
+    "licenceSource": "https://logosinside.com/cosmetic-logos/1043-mac-logo.html",
+    "attributionRequired": false
   },
   "bobbi-brown": {
     "src": "/brand-logos/bobbi-brown.gif",
     "qid": "Q105132734",
     "commonsFile": "Bobbi Brown logo 2013.gif",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Bobbi Brown",
+    "licenceSource": "The logo can presumably be obtained from Bobbi Brown.",
+    "attributionRequired": false
   },
   "aveda": {
     "src": "/brand-logos/aveda.svg",
     "qid": "Q4827965",
     "commonsFile": "Aveda Logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Aveda",
+    "licenceSource": "https://www.aveda.com/",
+    "attributionRequired": false
   },
   "jo-malone-london": {
     "src": "/brand-logos/jo-malone-london.jpg",
     "qid": "Q20724743",
     "commonsFile": "JoMalone Logo.jpg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Jo Malone",
+    "licenceSource": "https://www.jomalone.co.uk/",
+    "attributionRequired": false
   },
   "coty": {
     "src": "/brand-logos/coty.svg",
     "qid": "Q1104787",
     "commonsFile": "Coty logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Coty, Inc.",
+    "licenceSource": "Own work using: [1]",
+    "attributionRequired": false
   },
   "rimmel-london": {
     "src": "/brand-logos/rimmel-london.svg",
     "qid": "Q966846",
     "commonsFile": "Rimmel logo.svg",
-    "domainVerified": true
-  },
-  "max-factor": {
-    "src": "/brand-logos/max-factor.svg",
-    "qid": "Q2354647",
-    "commonsFile": "MaxFactor logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Coty Inc.",
+    "licenceSource": "www.rimmel.com",
+    "attributionRequired": false
   },
   "covergirl": {
     "src": "/brand-logos/covergirl.svg",
     "qid": "Q1629990",
     "commonsFile": "COVERGIRL logo 2017.svg",
-    "domainVerified": true
-  },
-  "kylie-cosmetics": {
-    "src": "/brand-logos/kylie-cosmetics.png",
-    "qid": "Q28859450",
-    "commonsFile": "Kylie Cosmetics Logo.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Covergirl",
+    "licenceSource": "https://vignette.wikia.nocookie.net/logopedia/images/e/e8/COVERGIRL_2017_logo.svg/revision/latest?cb=20171011013338",
+    "attributionRequired": false
   },
   "adidas": {
     "src": "/brand-logos/adidas.svg",
     "qid": "Q12358242",
     "commonsFile": "Adidas 2022 logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Adidas",
+    "licenceSource": "Own work using: www.adidas.com",
+    "attributionRequired": false
   },
   "mexx": {
     "src": "/brand-logos/mexx.svg",
     "qid": "Q1837290",
     "commonsFile": "Mexx Logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "selbst vektorisiert, Vorlage: [1]",
+    "attributionRequired": false
   },
   "calvin-klein": {
     "src": "/brand-logos/calvin-klein.svg",
     "qid": "Q1068628",
     "commonsFile": "Calvin klein logo old.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "The original uploader was Vargklo at English Wikipedia .",
+    "licenceSource": "Transferred from en.wikipedia to Commons. ( Original image ) (renamed)",
+    "attributionRequired": false
   },
   "hugo-boss": {
     "src": "/brand-logos/hugo-boss.svg",
     "qid": "Q491627",
     "commonsFile": "Hugo Boss logo 2021.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Hugo Boss AG",
+    "licenceSource": "https://group.hugoboss.com/en",
+    "attributionRequired": false
   },
   "chloe": {
     "src": "/brand-logos/chloe.svg",
     "qid": "Q1075391",
     "commonsFile": "Chloe 2024 Logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Chloe SAS",
+    "licenceSource": "http://chloe.com",
+    "attributionRequired": false
   },
   "davidoff": {
     "src": "/brand-logos/davidoff.svg",
     "qid": "Q501422",
     "commonsFile": "Logo Davidoff.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "PNG-Datei SVG erzeugt mit Inkscape von Sa-se",
+    "attributionRequired": false
   },
   "tiffany-co": {
     "src": "/brand-logos/tiffany-co.svg",
     "qid": "Q1066858",
     "commonsFile": "Tiffany & Co. wordmark 2003.svg",
-    "domainVerified": true
-  },
-  "roberto-cavalli": {
-    "src": "/brand-logos/roberto-cavalli.png",
-    "qid": "Q3938666",
-    "commonsFile": "Roberto Cavalli Logo.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Paula Scher (Pentagram)",
+    "licenceSource": "Tiffany & Co. 2011 Annual Letter ( archived copy ), from http://investor.tiffany.com/",
+    "attributionRequired": false
   },
   "jil-sander": {
     "src": "/brand-logos/jil-sander.svg",
     "qid": "Q17101930",
     "commonsFile": "Jil Sander logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "Own work using: http://www.jilsander.com/main.swf",
+    "attributionRequired": false
   },
   "joop": {
     "src": "/brand-logos/joop.svg",
     "qid": "Q1703526",
     "commonsFile": "Joop! logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "[1]",
+    "attributionRequired": false
   },
   "lacoste": {
     "src": "/brand-logos/lacoste.svg",
     "qid": "Q309031",
     "commonsFile": "Lacoste wordmark 2011.svg",
-    "domainVerified": true
-  },
-  "escada": {
-    "src": "/brand-logos/escada.png",
-    "qid": "Q600986",
-    "commonsFile": "ESCADA gold.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Lacoste SA",
+    "licenceSource": "www.lacoste.com",
+    "attributionRequired": false
   },
   "cerruti": {
     "src": "/brand-logos/cerruti.svg",
     "qid": "Q1056200",
     "commonsFile": "Cerruti logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "Own work using: http://www.cerruti.com/intro2010new.swf",
+    "attributionRequired": false
   },
   "bottega-veneta": {
     "src": "/brand-logos/bottega-veneta.svg",
     "qid": "Q894874",
     "commonsFile": "Logo of Bottega Veneta.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Bottega Veneta",
+    "licenceSource": "bottegaveneta.com",
+    "attributionRequired": false
   },
   "loreal": {
     "src": "/brand-logos/loreal.svg",
     "qid": "Q156077",
     "commonsFile": "L'Oréal logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "L'Oréal",
+    "licenceSource": "http://www.loreal.com/_en/_ww/group_new/pdf/",
+    "attributionRequired": false
   },
   "maybelline": {
     "src": "/brand-logos/maybelline.svg",
     "qid": "Q1351054",
     "commonsFile": "Maybelline-Logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "L’Oréal",
+    "licenceSource": "Aus Skip-PDF",
+    "attributionRequired": false
   },
   "nyx-professional-makeup": {
     "src": "/brand-logos/nyx-professional-makeup.jpeg",
     "qid": "Q23671513",
     "commonsFile": "NYX Professional Makeup Logo.jpeg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "L'Oréal",
+    "licenceSource": "http://loreal-dam-front-resources-corp-fr-cdn.brainsonic.com/ressources/afile/149152-f0934-picture_original-nyx-logo-2017.jpg",
+    "attributionRequired": false
   },
   "vichy": {
     "src": "/brand-logos/vichy.jpg",
     "qid": "Q2079719",
     "commonsFile": "Vichy Laboratoires (logo).jpg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Vichy Laboratories",
+    "licenceSource": "vichy.fr",
+    "attributionRequired": false
   },
   "kiehls": {
     "src": "/brand-logos/kiehls.svg",
     "qid": "Q3196447",
     "commonsFile": "Kiehl's SVG logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Kiehl's",
+    "licenceSource": "Extracted from SPA 1851 - Healthy Skin Services & Body Treatments (PDF) hosted at www.kiehls.com .",
+    "attributionRequired": false
   },
   "urban-decay": {
     "src": "/brand-logos/urban-decay.svg",
     "qid": "Q153264",
     "commonsFile": "Urban Decay logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "L'Oréal",
+    "licenceSource": "loreal.com",
+    "attributionRequired": false
   },
   "viktor-rolf": {
     "src": "/brand-logos/viktor-rolf.svg",
     "qid": "Q2707765",
     "commonsFile": "Viktor & Rolf.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Upload: Valerio79",
+    "licenceSource": "This file was derived from: Viktor & Rolf.jpg : cdn.businessoffashion.com",
+    "attributionRequired": false
   },
   "diesel": {
     "src": "/brand-logos/diesel.svg",
     "qid": "Q158285",
     "commonsFile": "Diesel.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author . SVG erstellt durch Lokomotive74",
+    "licenceSource": "Deutsch : Die Vektordaten für diese SVG entstammen dem Brands-of-the-World -Archiv. English : SVG vector data for this image is sourced from the Brands-of-the-World archive.",
+    "attributionRequired": false
   },
   "aesop": {
     "src": "/brand-logos/aesop.svg",
     "qid": "Q4688560",
     "commonsFile": "Aesop logo 2013.svg",
-    "domainVerified": true
-  },
-  "kerastase": {
-    "src": "/brand-logos/kerastase.gif",
-    "qid": "Q1999812",
-    "commonsFile": "Kerastase logo.gif",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Aesop",
+    "licenceSource": "Own work using: https://seeklogo.com/vector-logo/323732/aesop",
+    "attributionRequired": false
   },
   "redken": {
     "src": "/brand-logos/redken.svg",
     "qid": "Q7305998",
     "commonsFile": "Redken logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "Vektordaten: http://www.ch.intl.redken.com/File%20Library/Unassigned/Club-Broadway_German.pdf Farbinfo: Weiß auf Schwarz umgesetzt",
+    "attributionRequired": false
   },
   "dior": {
     "src": "/brand-logos/dior.svg",
     "qid": "Q542767",
     "commonsFile": "Dior Logo 2022.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Christian Dior SE",
+    "licenceSource": "https://www.dior.com/fr_fr",
+    "attributionRequired": false
   },
   "guerlain": {
     "src": "/brand-logos/guerlain.svg",
     "qid": "Q1553251",
     "commonsFile": "Guerlain - logo (France, 2022-).svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Guerlain",
+    "licenceSource": "Official website",
+    "attributionRequired": false
   },
   "benefit-cosmetics": {
     "src": "/brand-logos/benefit-cosmetics.svg",
     "qid": "Q2895769",
     "commonsFile": "Benefit Cosmetics logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Benefit Cosmetics",
+    "licenceSource": "https://www.benefitcosmetics.com/on/demandware.static/Sites-benco-us-Site/-/default/dwf2345cc4/images/logo-small.svg",
+    "attributionRequired": false
   },
   "chanel": {
     "src": "/brand-logos/chanel.svg",
     "qid": "Q218115",
     "commonsFile": "Chanel logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "Own work using: http://www.brandsoftheworld.com/search/68351561/1165.html",
+    "attributionRequired": false
   },
   "tommy-hilfiger": {
     "src": "/brand-logos/tommy-hilfiger.svg",
     "qid": "Q634881",
     "commonsFile": "Tommy hilfig vectorlogo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "SVG based on company logo",
+    "attributionRequired": false
   },
   "jean-paul-gaultier": {
     "src": "/brand-logos/jean-paul-gaultier.svg",
     "qid": "Q3173870",
     "commonsFile": "Jean Paul Gaultier logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Jean Paul Gaultier",
+    "licenceSource": "https://searchlogovector.com/download-logo-vector-7588/",
+    "attributionRequired": false
   },
   "paco-rabanne": {
     "src": "/brand-logos/paco-rabanne.svg",
     "qid": "Q129676852",
     "commonsFile": "Rabanne logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Puig France SAS",
+    "licenceSource": "www.rabanne.com",
+    "attributionRequired": false
   },
   "rabanne": {
     "src": "/brand-logos/rabanne.svg",
     "qid": "Q129676852",
     "commonsFile": "Rabanne logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Puig France SAS",
+    "licenceSource": "www.rabanne.com",
+    "attributionRequired": false
   },
   "carolina-herrera": {
     "src": "/brand-logos/carolina-herrera.svg",
     "qid": "Q264589",
     "commonsFile": "Carolina Herrera logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Carolina Herrera",
+    "licenceSource": "Own work using: https://www.carolinaherrera.com/",
+    "attributionRequired": false
   },
   "nina-ricci": {
     "src": "/brand-logos/nina-ricci.svg",
     "qid": "Q1439858",
     "commonsFile": "Nina Ricci logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Puig",
+    "licenceSource": "www.ninaricci.com",
+    "attributionRequired": false
   },
   "montblanc": {
     "src": "/brand-logos/montblanc.svg",
     "qid": "Q142691",
     "commonsFile": "Montblanc logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Original image: Mont Blanc. SVG version: A ngelus",
+    "licenceSource": "Own work using: http://www.montblanc.com",
+    "attributionRequired": false
   },
   "jimmy-choo": {
     "src": "/brand-logos/jimmy-choo.svg",
     "qid": "Q5213855",
     "commonsFile": "Jimmy Choo wordmark.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Jimmy Choo",
+    "licenceSource": "https://us.jimmychoo.com/en/home",
+    "attributionRequired": false
   },
   "coach": {
     "src": "/brand-logos/coach.svg",
     "qid": "Q727697",
     "commonsFile": "Coach New Logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Original: Coach Vector: Theduffmate88",
+    "licenceSource": "Own work based on: COACH – Offizielle Website . de.coach.com . Retrieved on 2025-08-23 .",
+    "attributionRequired": false
   },
   "boucheron": {
     "src": "/brand-logos/boucheron.svg",
     "qid": "Q848553",
     "commonsFile": "Logo of Boucheron.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Original: Boucheron Vector: 麗春",
+    "licenceSource": "Own work",
+    "attributionRequired": false
   },
   "kate-spade": {
     "src": "/brand-logos/kate-spade.jpg",
     "qid": "Q275094",
     "commonsFile": "Kate-spade-logo.jpg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Kate Spade",
+    "licenceSource": "http://www.katespade.com/",
+    "attributionRequired": false
   },
   "salvatore-ferragamo": {
     "src": "/brand-logos/salvatore-ferragamo.svg",
     "qid": "Q3946053",
     "commonsFile": "Fergamo - logo (Italy, 2022).svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Peter Saville [1]",
+    "licenceSource": "www.ferragamo.com",
+    "attributionRequired": false
   },
   "moncler": {
     "src": "/brand-logos/moncler.svg",
     "qid": "Q1548951",
     "commonsFile": "Logo Moncler Group.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Moncler S.p.A.",
+    "licenceSource": "https://www.monclergroup.com/",
+    "attributionRequired": false
   },
   "guess": {
     "src": "/brand-logos/guess.svg",
     "qid": "Q2470307",
     "commonsFile": "Guess logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Eromans12",
+    "licenceSource": "Own work",
+    "attributionRequired": false
   },
   "abercrombie-fitch": {
     "src": "/brand-logos/abercrombie-fitch.svg",
     "qid": "Q319344",
     "commonsFile": "Abercrombie & Fitch logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Abercrombie & Fitch",
+    "licenceSource": "http://www.abercrombie.com/anf/lifestyles/downloads/afmap.pdf",
+    "attributionRequired": false
   },
   "dunhill": {
     "src": "/brand-logos/dunhill.svg",
     "qid": "Q1784995",
     "commonsFile": "Dunhill logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Alfred Dunhill Ltd.",
+    "licenceSource": "http://www.richemont.com/annualReport/2008/Richemont_AR.pdf",
+    "attributionRequired": false
   },
   "eucerin": {
     "src": "/brand-logos/eucerin.svg",
     "qid": "Q1372140",
     "commonsFile": "Eucerin logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Eucerin",
+    "licenceSource": "https://www.beiersdorf.com/investors/financial-reports/financial-reports",
+    "attributionRequired": false
   },
   "shiseido": {
     "src": "/brand-logos/shiseido.svg",
     "qid": "Q728185",
     "commonsFile": "Shiseido logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": null,
+    "licenceSource": null,
+    "attributionRequired": false
   },
   "sk-ii": {
     "src": "/brand-logos/sk-ii.png",
     "qid": "Q7390579",
     "commonsFile": "SK-II Logo Red.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "SK-II",
+    "licenceSource": "SK-II",
+    "attributionRequired": false
   },
   "charlotte-tilbury": {
     "src": "/brand-logos/charlotte-tilbury.jpg",
     "qid": "Q5086166",
     "commonsFile": "Charlotte Tilbury logo.jpg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "Charlotte Tilbury.com",
+    "attributionRequired": false
   },
   "vaseline": {
     "src": "/brand-logos/vaseline.png",
     "qid": "Q185120",
     "commonsFile": "Vaseline new logo.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unilever",
+    "licenceSource": "https://www.vaseline.com/",
+    "attributionRequired": false
   },
   "rexona": {
     "src": "/brand-logos/rexona.svg",
     "qid": "Q1183694",
     "commonsFile": "Rexona logo 2018.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unilever",
+    "licenceSource": "https://www.rexona.com/",
+    "attributionRequired": false
   },
   "tresemme": {
     "src": "/brand-logos/tresemme.png",
     "qid": "Q7671316",
     "commonsFile": "Tresemme logo.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "no one",
+    "licenceSource": "Official Website of TRESemmé",
+    "attributionRequired": false
   },
   "olay": {
     "src": "/brand-logos/olay.svg",
     "qid": "Q1246901",
     "commonsFile": "Olay new logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "联合利华",
+    "licenceSource": "https://www.facebook.com/pg/OlayANZ/photos/?tab=album&album_id=149353108420860",
+    "attributionRequired": false
   },
   "pantene": {
     "src": "/brand-logos/pantene.svg",
     "qid": "Q1353013",
     "commonsFile": "Pantene.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Procter & Gamble",
+    "licenceSource": "https://images.ctfassets.net/r9udlqyetmm3/3sSIW3zLBSs0nGEH0jv9ch/9178d7d2fc8ab93f667b1dc861782477/Pantene_Black.svg",
+    "attributionRequired": false
   },
   "head-shoulders": {
     "src": "/brand-logos/head-shoulders.svg",
     "qid": "Q555900",
     "commonsFile": "Head&shoulders-Logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Unknown author Unknown author",
+    "licenceSource": "nicht angegeben",
+    "attributionRequired": false
   },
   "old-spice": {
     "src": "/brand-logos/old-spice.svg",
     "qid": "Q2325626",
     "commonsFile": "Old Spice wordmark.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Old Spice",
+    "licenceSource": "https://oldspice.com/",
+    "attributionRequired": false
   },
   "labello": {
     "src": "/brand-logos/labello.png",
     "qid": "Q1799401",
     "commonsFile": "Labello.png",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Beiersdorf AG",
+    "licenceSource": "http://www.beiersdorf.de/controller.aspx?n=31",
+    "attributionRequired": false
   },
   "neutrogena": {
     "src": "/brand-logos/neutrogena.svg",
     "qid": "Q2451589",
     "commonsFile": "Neutrogena logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Brands of the World (original logo by Neutrogena)",
+    "licenceSource": "This vector image was created by converting the Encapsulated PostScript file available at Brands of the World ( view • download ). Remember not all content there is in general free, see Commons:Fair use for more. This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
+    "attributionRequired": false
   },
   "aveeno": {
     "src": "/brand-logos/aveeno.svg",
     "qid": "Q4827975",
     "commonsFile": "Aveeno logo.svg",
-    "domainVerified": true
-  },
-  "innisfree": {
-    "src": "/brand-logos/innisfree.svg",
-    "qid": "Q16176002",
-    "commonsFile": "Innisfree-logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Aveeno",
+    "licenceSource": "https://www.aveeno.com/",
+    "attributionRequired": false
   },
   "bioderma": {
     "src": "/brand-logos/bioderma.svg",
     "qid": "Q16951811",
     "commonsFile": "Bioderma logo.svg",
-    "domainVerified": true
+    "domainVerified": true,
+    "licence": "Public domain",
+    "licenceId": "pd",
+    "licenceAuthor": "Naos Inc.",
+    "licenceSource": "bioderma.com",
+    "attributionRequired": false
   }
 }
