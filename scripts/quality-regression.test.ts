@@ -54,6 +54,7 @@ import { decodeAccessPart } from "../src/lib/review-auth";
 import { photoTransformPlan } from "../src/lib/photo-transform";
 import { BRAND_DETAIL_GAPS, hasReviewedBrandDetailKey } from "../src/lib/locale-message-gaps";
 import { isAdEligibleLocale } from "../src/lib/ads";
+import { printsDateHint } from "../src/lib/result-failure-copy";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -1066,4 +1067,37 @@ test("every brand resolves to a logo or a tile", () => {
   // Deterministic: a brand keeps its colour between deploys.
   const first = brandTile("cosrx", "COSRX");
   assert.deepEqual(brandTile("cosrx", "COSRX"), first);
+});
+
+/**
+ * A brand that prints a readable date must say so when a decode fails.
+ *
+ * `printsDate` was already recorded per brand and shown on the brand page, but
+ * it never reached the person who had just been told their code was unreadable.
+ * That was the entire failure for two brands — Skin1004 and Beauty of Joseon
+ * returned no date on every logged check — and 41 of the 46 K-beauty brands
+ * carry the same flag. There is no decoder to write: the date is on the pack.
+ */
+test("failed checks on date-printing brands point at the printed date", () => {
+  for (const slug of ["skin1004", "beauty-of-joseon", "cosrx", "hada-labo"]) {
+    const brand = ALL_BRANDS.find((entry) => entry.slug === slug);
+    assert.ok(brand, `${slug} is missing from the catalog`);
+    assert.equal(brand.printsDate, true, `${slug} should be flagged as printing a date`);
+    for (const locale of ["en", "tr"]) {
+      const hint = printsDateHint(locale, brand.printsDate);
+      assert.ok(hint && hint.length > 40, `${slug} has no ${locale} printed-date hint`);
+    }
+  }
+  // Brands that encode a date must not be told to go looking for a printed one.
+  for (const slug of ["dior", "chanel", "loreal-paris"]) {
+    const brand = ALL_BRANDS.find((entry) => entry.slug === slug);
+    assert.equal(printsDateHint("en", brand?.printsDate), null, `${slug} should not offer the hint`);
+  }
+  // The failure card has to render it, above the address hint.
+  const card = readFileSync("src/components/result-card.tsx", "utf8");
+  assert.match(card, /printsDateHint\(locale, brand\.printsDate\)/);
+  assert.ok(
+    card.indexOf("readableDateHint &&") < card.indexOf("addressHint &&"),
+    "the printed-date hint must come before the address hint",
+  );
 });

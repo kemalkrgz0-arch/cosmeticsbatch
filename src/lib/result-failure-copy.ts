@@ -118,6 +118,27 @@ const embHint = {
   tr: "Bu, üreticinin adres bloğundaki ambalajcı sicil numarasına benziyor (\"EMB\" ve ardından rakamlar); batch kod değil. Batch kod yakınlarda ayrı bir damgadır — genelde kutunun aynı yüzünde, farklı bir yazı tipiyle.",
 };
 
+const printsDateHintCopy = {
+  en: "This brand usually prints the date in plain text rather than hiding it in a code, so there may be nothing here to decode. Look on the carton or the back of the tube for a printed manufacture or expiry date — Korean and Japanese packaging often shows two dates side by side, the earlier being manufacture and the later expiry, and some print MFD and EXP against them.",
+  tr: "Bu marka tarihi genelde koda gizlemek yerine düz metin olarak basar; yani burada çözülecek bir şey olmayabilir. Kutuda veya tüpün arkasında basılı bir üretim ya da son kullanma tarihi arayın — Kore ve Japon ambalajlarında sıkça iki tarih yan yana durur, öndeki üretim, sondaki son kullanma tarihidir; bazıları bunları MFD ve EXP ile işaretler.",
+};
+
+/**
+ * Nudge for brands that print a readable date instead of encoding one.
+ *
+ * `printsDate` is already recorded per brand and shown on the brand page, but it
+ * was not reaching the person who had just been told their code was unreadable.
+ * That was the whole of the failure for two brands: Skin1004 and Beauty of
+ * Joseon returned no date on 23 of 23 logged checks, and 41 of the 46 K-beauty
+ * brands carry the same flag. There is no decoder to write here — the date is
+ * on the pack in plain text, and saying so is the correct answer rather than a
+ * consolation for not having one.
+ */
+export function printsDateHint(locale: string, printsDate: boolean | undefined): string | null {
+  if (!printsDate) return null;
+  return locale.toLowerCase().startsWith("tr") ? printsDateHintCopy.tr : printsDateHintCopy.en;
+}
+
 /** Extra nudge when the entered code is an address line, not a batch code. */
 export function addressLookalikeHint(locale: string, code: string): string | null {
   const value = code.trim();

@@ -2724,6 +2724,119 @@ entries).
     reached from the other direction. The site ranks for brands, in Russian, and
     does not rank for what it is, in English. Both exports agree on that.
 
+38. P1 brands that print a readable date were failing silently
+    (`Completed locally — not committed` under `CLAUDE-PRINTSDATE-001`). Found by
+    re-running every logged check through the post-deploy engine to see where
+    decoding is still weakest:
+
+        overall            443 checks   179 no-read   40.4%
+        skin1004            18          18           100%
+        beauty-of-joseon     5           5           100%
+        tom-ford-beauty      7           7           100%
+        jean-paul-gaultier  60          46            77%
+        eucerin              9           6            67%
+        dove                 8           5            63%
+
+    Two of the three brands at 100% are not decoder gaps at all. `skin1004` and
+    `beauty-of-joseon` already carry `printsDate: true`, as do 41 of the 46
+    brands on the K-beauty decoder: they print the manufacture and expiry date in
+    plain text rather than encoding one. The brand page says so. The failure
+    result did not, so a user who typed the batch code was told it was unreadable
+    and left with nothing, while the answer was printed on the carton in front of
+    them.
+    Nothing to decode here, and that is the point — the honest response was
+    already in our data and simply never reached the moment of failure.
+    Fix: `printsDateHint` renders above the address hint on the failure card, in
+    English and Turkish, describing what to look for and that Korean and Japanese
+    packs often carry two dates side by side.
+    Measured against the logged history: 29 of 203 no-reads (14%) now receive a
+    usable answer instead of a dead end, across skin1004, beauty-of-joseon,
+    numbuzin, missha and anua.
+    Verification: quality suite 49/49, including a test that the flagged brands
+    produce the hint in both locales, that date-encoding brands do not, and that
+    the card renders it ahead of the address hint.
+    Still open and genuinely decoder-shaped: `tom-ford-beauty` at 7/7,
+    `jean-paul-gaultier` at 77% (the BPI half is recognised but undated),
+    `eucerin` at 67%, `dove` at 63% — the last of which shows `24WNOO` and
+    `24WN00` from the same user, the O-versus-zero confusion recorded in finding
+    33 appearing on a second decoder.
+    A live check arrived during this work that belongs with them: OXY `V08Q88S`,
+    twice from Germany. OXY runs the `rohto` decoder and is *not* flagged
+    `printsDate`, while its sibling Rohto brands `hada-labo` and `melano-cc` are.
+    Whether that flag is missing or correctly absent needs a photograph, not a
+
+39. P2 our unread codes are unread everywhere, and Eucerin's format is not what
+    we think (`Hypothesis — deliberately not implemented`). The owner checked the
+    thirty codes we cannot read against CheckFresh, by hand, on 2026-07-20.
+    CheckFresh reads none of them either — not `F16C27`, not `FB024`, not
+    `SJP 041 COL K01`, not `V08Q88S`. One exception: Eucerin `63944`, which it
+    dates to 2016-09-21 with the note that batch codes repeat every ten years.
+
+    The reassuring half: these are genuinely undocumented formats rather than a
+    weakness particular to us. An established competitor with far more history
+    fails on the same inputs.
+
+    The Eucerin case, and why it is not being acted on. Our own Beiersdorf rule
+    would read `63944` the same way — first digit the year, next two the week, so
+    6 -> 2016 and week 39 -> late September, which matches. It fails only because
+    the decoder requires six digits and this is five.
+    Loosening to five was measured rather than assumed: it gains two real checks
+    and admits two junk strings (`12345`, `M12345`) that currently produce
+    nothing. Two-for-two, which is the same trade declined for the L'Oréal
+    factory prefix under `CLAUDE-PERMISSIVE-001`, and here it is worse — there
+    the two real codes came from users, while here there is no evidence at all
+    that 2016-09 is the right answer. CheckFresh agreeing is a second guess, not
+    a verification; finding 31 measured exactly this, where five unrelated
+    decoders agreed on the same wrong date for one Bvlgari code.
+
+    The finding worth keeping is the one underneath it. Of eleven Eucerin codes
+    users have brought us, only one matches the eight-digit shape we document:
+
+        4 digits   5 checks   0003, 0516
+        5 digits   2          63944
+        8 digits   1          44736976
+        9 digits   3          139602005
+
+    Either users are typing something other than the batch code, or Beiersdorf
+    prints more than one format and our explanation covers a single case. That is
+    the question to answer, and widening a length guard would paper over it.
+    `needs verification`: two or three Eucerin or NIVEA packs photographed with
+    the batch code and any printed date. Beiersdorf is a large group — the same
+    decoder carries NIVEA and Labello — so getting this right is worth more than
+    the eleven checks suggest.
+
+    Beauty of Joseon, and the reason not to copy a competitor's answer. Two
+    third-party checkers were run against our three logged BoJ codes on
+    2026-07-20. One (nanamall.com) returned all three; the implied rule was
+    recovered from its own output:
+
+        FB024   digits 0[2]4   ->  month 2, year 4  ->  2024-02
+        FC121   digits 1[2]1   ->  month 2, year 1  ->  2021-02
+        CK267   digits 2[6]7   ->  month 6, year 7  ->  2027-06
+
+    Middle digit month, last digit year, and the letters ignored entirely. Three
+    for three, which is what makes it worth writing down — and three failures
+    at once:
+      - Two of five characters play no part. `FB`, `FC` and `CK` contribute
+        nothing. Something that discards the letters is extracting digits, not
+        reading a code.
+      - `CK267` resolves to 2027-06, eleven months from now. The tool prints
+        "AGE: -11 months" and labels it VALID in green.
+      - A second checker dated `FB024` to 2024-02 while the first said 2026-02.
+        The single-digit year is ambiguous and the tool's own footnote says so.
+
+    This is the defect class removed from our engine earlier the same day —
+    finding 22's `E38Y801N` -> 2005 expired, finding 29's product reference, the
+    permissiveness measured in finding 31. Returning `unresolved` for these codes
+    is the better answer than a fabricated 2027, and Beauty of Joseon carries
+    `printsDate: true`, so under finding 38 the user is now told where the real
+    date is printed instead.
+    Recorded as the settled answer to a question that has come up three times
+    today: no competitor output is adopted without physical evidence behind it.
+    Comparison remains useful for finding our own bugs — it is how
+    `CLAUDE-DIOR-001` was confirmed — and useless as a source of truth.
+    guess.
+
 ## Complete phase ledger and remaining roadmap
 
 The original audit defined 20 work areas. “Phase” below is the implementation

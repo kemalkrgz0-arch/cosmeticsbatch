@@ -18,7 +18,7 @@ import { Link } from "@/i18n/navigation";
 import type { CheckResult, DatePrecision, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
-import { addressLookalikeHint, resultFailureCopy } from "@/lib/result-failure-copy";
+import { addressLookalikeHint, printsDateHint, resultFailureCopy } from "@/lib/result-failure-copy";
 import { site } from "@/lib/site";
 
 // Some code families (L'Oréal, Estée Lauder) encode only year+month; the day in
@@ -196,6 +196,10 @@ export function ResultCard({
     const reason = result.failureReason ?? "unresolved";
     const failure = resultFailureCopy(locale, reason);
     const addressHint = addressLookalikeHint(locale, result.code);
+    // Ordered above the address hint deliberately: for a brand that prints a
+    // readable date, "there is nothing here to decode" is the answer, not a
+    // secondary tip.
+    const readableDateHint = printsDateHint(locale, brand.printsDate);
     const inviteEvidence = reason === "unresolved" || reason === "barcode";
     return (
       <div className="overflow-hidden rounded-3xl border border-warning/40 bg-warning-bg shadow-card">
@@ -209,6 +213,9 @@ export function ResultCard({
               {failure.body(result.code, brand.name)}
             </p>
             <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
+              {readableDateHint && (
+                <p className="mb-3 text-sm font-medium leading-relaxed text-fg">{readableDateHint}</p>
+              )}
               {addressHint && (
                 <p className="mb-3 text-sm font-medium leading-relaxed text-fg">{addressHint}</p>
               )}
