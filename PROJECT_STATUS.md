@@ -2867,9 +2867,33 @@ entries).
     inventing what the manufacturer already prints.
     Finding 38's fix is therefore verified against packaging, not just against
     logs: the hint sends the user to a date that demonstrably exists on the pack.
-    The codes do carry structure — `P0652` and `P0656` are consecutive lots with
-    expiries six months apart — but deriving it is unnecessary and, on five
-    samples, would be the same mistake the competitor made.
+    The codes do carry structure, and the full set of ten photographs makes it
+    partly legible. On the `[letter][letter][digits]` shape the second letter
+    tracks the printed expiry month exactly:
+
+        EL014   L -> 12   printed EXP 2028-12-15
+        OI293   I ->  9   printed EXP 2027-09-26
+        FC144   C ->  3   printed EXP 2029-03-19
+
+    and the first letter behaves like a year — E for 2028, F for 2029, which are
+    consecutive letters for consecutive years. Two things spoil it: `O` would
+    have to be 2027, which breaks the sequence (the photograph is ambiguous
+    between `O` and a zero), and `BQA` carries three letters and no digits, where
+    Q would be a seventeenth month.
+    Deliberately not implemented, for two reasons. Three samples is the same
+    evidence base the competitor built its broken rule on, and being right about
+    three cases is how that rule looked plausible until it met printed dates.
+    More decisively, it would buy nothing: Beauty of Joseon prints the expiry in
+    plain text, the user can already read it, and finding 38 now points them at
+    it. A decoder here adds only a way to be wrong.
+    One cross-check worth keeping: our logs contain `FC121` and the photographs
+    contain `FC144`. Under this pattern both expire in March 2029 as separate
+    lots. The third-party tool dated `FC121` to a 2021 manufacture — eight years
+    adrift.
+    `needs verification`: five or six more `[letter][letter][digits]` codes with
+    printed expiries, including at least one where the first letter is neither E
+    nor F, before this is anything more than a note. It is recorded so the next
+    agent does not re-derive it from scratch, not because it is ready.
     guess.
 
 ## Complete phase ledger and remaining roadmap
