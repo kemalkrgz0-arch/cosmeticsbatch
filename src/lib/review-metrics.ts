@@ -41,6 +41,131 @@ export function reportDay(ts: string | number | Date): string {
   return dayFormatter.format(new Date(ts));
 }
 
+const zoneParts = new Intl.DateTimeFormat("en-US", {
+  timeZone: REPORT_TIME_ZONE,
+  hour12: false,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+});
+
+/** How far the reporting zone is from UTC at a given instant. */
+function zoneOffsetMs(date: Date): number {
+  const parts = Object.fromEntries(
+    zoneParts.formatToParts(date).map((part) => [part.type, part.value]),
+  ) as Record<string, string>;
+  const asIfUtc = Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+    Number(parts.hour) % 24,
+    Number(parts.minute),
+    Number(parts.second),
+  );
+  return asIfUtc - date.getTime();
+}
+
+/**
+ * The instant a reporting-zone calendar day began.
+ *
+ * "Today" and "yesterday" have to mean the calendar days the dashboard already
+ * prints, not a rolling 24 hours — otherwise the "today" figure disagrees with
+ * the last column of the daily chart sitting beside it. Computed from the zone's
+ * offset rather than a hardcoded +03:00 so the arithmetic survives a rule change.
+ */
+export function startOfReportDay(ts: string | number | Date): Date {
+  const date = new Date(ts);
+  const offset = zoneOffsetMs(date);
+  const shifted = new Date(date.getTime() + offset);
+  shifted.setUTCHours(0, 0, 0, 0);
+  return new Date(shifted.getTime() - offset);
+}
+
+export const REPORT_PERIODS = [
+  { key: "today", label: "Today", days: 1 },
+  { key: "yesterday", label: "Yesterday", days: 1 },
+  { key: "7d", label: "7 days", days: 7 },
+  { key: "14d", label: "14 days", days: 14 },
+  { key: "30d", label: "30 days", days: 30 },
+] as const;
+
+export type ReportPeriodKey = (typeof REPORT_PERIODS)[number]["key"];
+
+export const DEFAULT_REPORT_PERIOD: ReportPeriodKey = "7d";
+
+export type ReportWindow = {
+  key: ReportPeriodKey;
+  label: string;
+  /** Inclusive lower bound, ISO. */
+  start: string;
+  /** Exclusive upper bound, ISO. Absent means "up to now". */
+  end?: string;
+  /** Same-length window immediately before, for the direction arrows. */
+  previousStart: string;
+  previousEnd: string;
+  /** Days the daily series should draw for this window. */
+  seriesDays: number;
+};
+
+export function isReportPeriod(value: unknown): value is ReportPeriodKey {
+  return REPORT_PERIODS.some((period) => period.key === value);
+}
+
+/**
+ * Resolve a period key into the bounds every aggregation on the page shares.
+ *
+ * Rolling windows run back from now; the two calendar periods are pinned to
+ * reporting-zone midnights, and "yesterday" is the only one that needs an upper
+ * bound — without it, yesterday's tile would silently include today.
+ */
+export function reportWindow(key: ReportPeriodKey, now: number): ReportWindow {
+  const period = REPORT_PERIODS.find((entry) => entry.key === key) ?? REPORT_PERIODS[2];
+  const day = 86_400_000;
+  const todayStart = startOfReportDay(now).getTime();
+
+  if (key === "today" || key === "yesterday") {
+    const start = key === "today" ? todayStart : startOfReportDay(todayStart - day).getTime();
+    const end = key === "today" ? now : todayStart;
+    // The comparison runs against the same clock hours of the previous day, not
+    // against the equally long stretch immediately before this window. Today at
+    // noon has seen half a day of traffic; measuring it against yesterday
+    // afternoon-to-midnight compares a morning with an evening, and traffic has
+    // a daily rhythm that makes that difference look like a trend.
+    const previousStart = startOfReportDay(start - day).getTime();
+    return {
+      key,
+      label: period.label,
+      start: new Date(start).toISOString(),
+      // "Today" is still running, so leaving it open-ended and letting it end at
+      // `now` are the same thing; only "yesterday" has to be closed.
+      end: key === "yesterday" ? new Date(end).toISOString() : undefined,
+      previousStart: new Date(previousStart).toISOString(),
+      previousEnd: new Date(previousStart + (end - start)).toISOString(),
+      seriesDays: key === "today" ? 1 : 2,
+    };
+  }
+
+  const start = now - period.days * day;
+  return {
+    key,
+    label: period.label,
+    start: new Date(start).toISOString(),
+    previousStart: new Date(start - period.days * day).toISOString(),
+    previousEnd: new Date(start).toISOString(),
+    seriesDays: period.days,
+  };
+}
+
+/** Rows falling inside a resolved window. */
+export function withinWindow<T extends { ts: string }>(rows: T[], window: ReportWindow): T[] {
+  return rows.filter(
+    (row) => row.ts >= window.start && (window.end === undefined || row.ts < window.end),
+  );
+}
+
 /**
  * Drop the locale prefix so the same page groups across languages.
  *
@@ -297,13 +422,29 @@ export function trend<T extends { ts: string }>(
   currentStart: string,
   previousStart: string,
   keep: (row: T) => boolean = () => true,
+  /**
+   * Exclusive upper bound on the current window. Only the closed periods need
+   * it — without one, "yesterday" counts today's rows as well and every
+   * yesterday figure reads high until midnight.
+   */
+  currentEnd?: string,
+  /**
+   * Exclusive upper bound on the comparison window. Defaults to `currentStart`,
+   * which is right for the rolling periods where the two windows abut. The
+   * calendar periods compare against the same clock hours a day earlier, so
+   * their comparison window closes well before the current one opens.
+   */
+  previousEnd?: string,
 ): Trend {
   let current = 0;
   let previous = 0;
+  const previousCutoff = previousEnd ?? currentStart;
   for (const row of rows) {
     if (!keep(row)) continue;
-    if (row.ts >= currentStart) current += 1;
-    else if (row.ts >= previousStart) previous += 1;
+    if (currentEnd !== undefined && row.ts >= currentEnd) continue;
+    if (row.ts >= currentStart) {
+      if (currentEnd === undefined || row.ts < currentEnd) current += 1;
+    } else if (row.ts >= previousStart && row.ts < previousCutoff) previous += 1;
   }
   return {
     current,

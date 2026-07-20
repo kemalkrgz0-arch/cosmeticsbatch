@@ -15,13 +15,18 @@ import {
   dailySeries,
   decoderHealth,
   decoderHealthTrend,
+  DEFAULT_REPORT_PERIOD,
   entryPages,
+  isReportPeriod,
   localeSplit,
   manufactureYears,
+  REPORT_PERIODS,
   REPORT_TIME_ZONE,
+  reportWindow,
   topPages,
   trend,
   unattributedChecks,
+  withinWindow,
   type PathStat,
   type Trend,
 } from "@/lib/review-metrics";
@@ -34,9 +39,6 @@ export const metadata: Metadata = {
   title: "Submission Review | Cosmetics Batch",
   robots: { index: false, follow: false, noarchive: true, nosnippet: true },
 };
-
-/** Days of history the traffic and decoder reports cover. */
-const REPORT_DAYS = 30;
 
 // Order is prominence: the raw check log sits second because it is the thing
 // looked at most often, not last behind the aggregate reports.
@@ -121,7 +123,7 @@ function BarList({ rows, empty, format }: { rows: PathStat[]; empty: string; for
  * so that tile passes `lowerIsBetter`. When the earlier window was empty there
  * is no rate to state, and saying so beats printing an invented percentage.
  */
-function TrendNote({ trend, lowerIsBetter = false }: { trend: Trend; lowerIsBetter?: boolean }) {
+function TrendNote({ trend, lowerIsBetter = false, label = "prev period" }: { trend: Trend; lowerIsBetter?: boolean; label?: string }) {
   if (trend.changePercent === null) {
     return (
       <p className="mt-1 text-xs text-fg-muted">
@@ -134,8 +136,36 @@ function TrendNote({ trend, lowerIsBetter = false }: { trend: Trend; lowerIsBett
   const flat = rounded === 0;
   return (
     <p className={`mt-1 text-xs font-medium ${flat ? "text-fg-muted" : improved ? "text-success" : "text-danger"}`}>
-      {rounded > 0 ? "+" : ""}{rounded}% <span className="font-normal text-fg-muted">vs prev 7d ({trend.previous})</span>
+      {rounded > 0 ? "+" : ""}{rounded}% <span className="font-normal text-fg-muted">vs {label} ({trend.previous})</span>
     </p>
+  );
+}
+
+/**
+ * Window selector.
+ *
+ * Every figure on the page follows it, including the tables, so a period is a
+ * statement about the whole screen rather than a filter on one panel. It is a
+ * row of links rather than a form so the choice survives in the URL and can be
+ * bookmarked or sent to someone.
+ */
+function PeriodPicker({ current, view, extra }: { current: string; view: View; extra: Record<string, string> }) {
+  const { period: _drop, ...rest } = extra;
+  void _drop;
+  return (
+    <nav aria-label="Reporting period" className="mb-5 flex flex-wrap items-center gap-2">
+      <span className="text-xs font-medium text-fg-muted">Period</span>
+      {REPORT_PERIODS.map(({ key, label }) => (
+        <Link
+          key={key}
+          href={href(view, { ...rest, ...(key === DEFAULT_REPORT_PERIOD ? {} : { period: key }) })}
+          aria-current={current === key ? "true" : undefined}
+          className={`rounded-lg px-3 py-1.5 text-sm font-semibold ${current === key ? "bg-cta text-cta-fg" : "bg-card border"}`}
+        >
+          {label}
+        </Link>
+      ))}
+    </nav>
   );
 }
 
@@ -192,7 +222,7 @@ function CheckDiagnosis({ brand, code }: { brand: string; code: string }) {
   );
 }
 
-export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; q?: string; result?: string; brand?: string; country?: string; updated?: string; error?: string }> }) {
+export default async function ReviewPage({ searchParams }: { searchParams: Promise<{ view?: string; status?: string; q?: string; result?: string; brand?: string; country?: string; period?: string; updated?: string; error?: string }> }) {
   const reviewer = await requireReviewer();
   const query = await searchParams;
   const requested = query.view ? (LEGACY_VIEWS[query.view] ?? query.view) : "overview";
@@ -201,9 +231,13 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const search = query.q?.trim().toLowerCase() ?? "";
 
   const now = await dashboardTimestamp();
-  const since = (days: number) => new Date(now - days * 86_400_000).toISOString();
-  const window7d = since(7);
-  const windowReport = since(REPORT_DAYS);
+  // One selected window drives every number on the page. Before this, the tiles
+  // were pinned to seven days and the reports to REPORT_DAYS, so the two halves
+  // of the screen described different spans of time without saying so.
+  const period = isReportPeriod(query.period) ? query.period : DEFAULT_REPORT_PERIOD;
+  const win = reportWindow(period, now);
+  const windowReport = win.previousStart; // read far enough back to compare
+  const window7d = win.start;
 
   const all = await listSubmissions();
   const submissions = all.filter((item) => item.status === selectedStatus && (!search || [item.id, item.brand, item.code, item.email, item.note].some((value) => value?.toLowerCase().includes(search))));
@@ -220,27 +254,35 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
     needsFailed ? readFailedCodesSince(windowReport) : Promise.resolve([]),
   ]);
 
-  // Each tile is measured against the seven days before it, so a number can be
-  // read as a direction rather than a bare quantity.
-  const window14d = since(14);
-  const visitsTrend = trend(activity, window7d, window14d, (row) => row.type === "visit");
-  const viewsTrend = trend(activity, window7d, window14d, (row) => row.type === "page_view");
-  const checksTrend = trend(checks, window7d, window14d);
-  const failedTrend = trend(failedCodes, window7d, window14d);
+  // Each tile is measured against the window of equal length before it, so a
+  // number can be read as a direction rather than a bare quantity.
+  const window14d = win.previousStart;
+  const visitsTrend = trend(activity, window7d, window14d, (row) => row.type === "visit", win.end, win.previousEnd);
+  const viewsTrend = trend(activity, window7d, window14d, (row) => row.type === "page_view", win.end, win.previousEnd);
+  const checksTrend = trend(checks, window7d, window14d, undefined, win.end, win.previousEnd);
+  const failedTrend = trend(failedCodes, window7d, window14d, undefined, win.end, win.previousEnd);
   const visits7d = visitsTrend.current;
   const views7d = viewsTrend.current;
   const checks7d = checksTrend.current;
   const failed7d = failedTrend.current;
-  const decoded7d = checks.filter((row) => row.ts >= window7d && row.mfg).length;
-  const readRate = checks7d ? Math.round((decoded7d / checks7d) * 100) : null;
 
-  const series = dailySeries(activity, checks, failedCodes.filter((row) => row.ts >= windowReport), REPORT_DAYS, now);
-  const funnel = brandFunnel(activity, checks);
-  const unattributed = unattributedChecks(checks);
-  const health = decoderHealth(checks, failedCodes.filter((row) => row.ts >= windowReport));
+  // The reports below the tiles read the selected window only. The wider fetch
+  // above exists so the comparison has something to compare against; letting it
+  // reach the tables would show 60 days of rows under a "Today" heading.
+  const activityWindow = withinWindow(activity, win);
+  const checksWindow = withinWindow(checks, win);
+  const failedWindow = withinWindow(failedCodes, win);
+
+  const decodedInWindow = checksWindow.filter((row) => row.mfg).length;
+  const readRate = checks7d ? Math.round((decodedInWindow / checks7d) * 100) : null;
+
+  const series = dailySeries(activityWindow, checksWindow, failedWindow, win.seriesDays, now);
+  const funnel = brandFunnel(activityWindow, checksWindow);
+  const unattributed = unattributedChecks(checksWindow);
+  const health = decoderHealth(checksWindow, failedWindow);
   // A rate says where a brand stands; the swing says whether it just broke.
   const healthTrend = decoderHealthTrend(checks, window7d, window14d);
-  const years = manufactureYears(checks);
+  const years = manufactureYears(checksWindow);
 
   // Result filter, composed with the text search rather than replacing it.
   // "Unread" is the one that earns its place: those rows are the decoder gaps.
@@ -276,6 +318,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
   /** Carry the filters a control does not itself set, so they compose. */
   const keepFilters = (except: { result?: boolean } = {}) => ({
+    ...(period !== DEFAULT_REPORT_PERIOD ? { period } : {}),
     ...(query.q ? { q: query.q } : {}),
     ...(brandFilter ? { brand: brandFilter } : {}),
     ...(countryFilter ? { country: countryFilter } : {}),
@@ -348,15 +391,17 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
           </Link>
         )}
 
+        <PeriodPicker current={period} view={view} extra={keepFilters()} />
+
         {view === "overview" && (
           <>
         {/* Two-up on phones. One tile per row turned six numbers into six
             screens of scrolling before the tabs and the actual reports. */}
-        <section aria-label="Last 7 days" className="mb-2 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-6">
+        <section aria-label={`Summary · ${win.label}`} className="mb-2 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-6">
           {[
             { label: "Visits", value: visits7d, icon: Users, trend: visitsTrend },
             { label: "Page views", value: views7d, icon: Eye, trend: viewsTrend },
-            { label: "Entry pages", value: entryPages(activity.filter((row) => row.ts >= window7d)).length, icon: LogIn },
+            { label: "Entry pages", value: entryPages(activityWindow).length, icon: LogIn },
             { label: "Code checks", value: checks7d, icon: Activity, trend: checksTrend },
             { label: "Read rate", value: readRate === null ? "—" : `${readRate}%`, icon: Activity },
             // More failed codes is not an improvement, so this tile reads inverted.
@@ -368,17 +413,17 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                 <Icon aria-hidden="true" className="size-4 shrink-0 text-accent sm:size-5" />
               </div>
               <p className="mt-1 text-2xl font-bold tabular-nums sm:mt-2 sm:text-3xl">{value}</p>
-              {tileTrend && <TrendNote trend={tileTrend} lowerIsBetter={lowerIsBetter} />}
+              {tileTrend && <TrendNote trend={tileTrend} lowerIsBetter={lowerIsBetter} label={`prev ${win.label.toLowerCase()}`} />}
             </div>
           ))}
         </section>
-        <p className="mb-6 text-xs text-fg-muted">Last 7 days. Reports below cover {REPORT_DAYS} days, bucketed by {REPORT_TIME_ZONE} calendar day. Approximate visits are anonymous browser sessions, not verified unique people. No IP, cookie identifier, email or query string is stored — so time on page, navigation paths and traffic sources are not available here.</p>
+        <p className="mb-6 text-xs text-fg-muted">{win.label}, bucketed by {REPORT_TIME_ZONE} calendar day — tiles and reports cover the same window, compared against the {win.label.toLowerCase()} before it. Approximate visits are anonymous browser sessions, not verified unique people. No IP, cookie identifier, email or query string is stored — so time on page, navigation paths and traffic sources are not available here.</p>
           </>
         )}
 
         <nav aria-label="Dashboard sections" className="mb-5 flex flex-wrap gap-2 border-b pb-4">
           {VIEWS.map((key) => (
-            <Link key={key} href={href(key, query.q ? { q: query.q } : {})} aria-current={view === key ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === key ? "bg-cta text-cta-fg" : "bg-card"}`}>
+            <Link key={key} href={href(key, { ...(period !== DEFAULT_REPORT_PERIOD ? { period } : {}), ...(query.q ? { q: query.q } : {}) })} aria-current={view === key ? "page" : undefined} className={`rounded-lg px-4 py-2 text-sm font-semibold ${view === key ? "bg-cta text-cta-fg" : "bg-card"}`}>
               {viewLabels[key]}{key === "submissions" && open > 0 ? ` (${open})` : ""}
             </Link>
           ))}
@@ -437,7 +482,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
               </Panel>
             </div>
             <div className="lg:col-span-2">
-              <Panel title={`Daily traffic · ${REPORT_DAYS} days`} hint="Page views, visits and code checks, one column per day.">
+              <Panel title={`Daily traffic · ${win.label}`} hint="Page views, visits and code checks, one column per day.">
                 <div className="overflow-x-auto p-5">
                   <div className="flex min-w-[640px] items-end gap-1" style={{ height: "9rem" }}>
                     {series.map((point) => (
@@ -458,10 +503,10 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
               </Panel>
             </div>
             <Panel title="Top entry pages" hint="Where sessions begin — the first page view of each visit.">
-              <BarList rows={entryPages(activity, 8)} empty="No visits recorded in this window." />
+              <BarList rows={entryPages(activityWindow, 8)} empty="No visits recorded in this window." />
             </Panel>
             <Panel title="Most viewed pages" hint="Merged across locales.">
-              <BarList rows={topPages(activity, 8)} empty="No page views recorded in this window." />
+              <BarList rows={topPages(activityWindow, 8)} empty="No page views recorded in this window." />
             </Panel>
             <div className="lg:col-span-2">
               <Panel title="Brand pages that convert" hint={`Page views against codes checked on that page. A page can rank, be read, and still never get a code typed into it.${unattributed ? ` ${unattributed} check${unattributed === 1 ? "" : "s"} in this window carry no referring page and are excluded.` : ""}`}>
@@ -543,16 +588,16 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
 
         {view === "traffic" && (
           <div className="grid gap-5 lg:grid-cols-2 [&>*]:min-w-0">
-            <Panel title="Entry pages" hint="Every landing page in the window."><BarList rows={entryPages(activity, 25)} empty="No visits recorded." /></Panel>
-            <Panel title="All pages by views"><BarList rows={topPages(activity, 25)} empty="No page views recorded." /></Panel>
-            <Panel title="Locale" hint="From the page the visitor was on."><BarList rows={localeSplit(activity, 15)} empty="No activity recorded." /></Panel>
-            <Panel title="Country" hint="Coarse edge data, recorded only on code checks."><BarList rows={countrySplit(checks, 15)} empty="No checks recorded." /></Panel>
+            <Panel title="Entry pages" hint="Every landing page in the window."><BarList rows={entryPages(activityWindow, 25)} empty="No visits recorded." /></Panel>
+            <Panel title="All pages by views"><BarList rows={topPages(activityWindow, 25)} empty="No page views recorded." /></Panel>
+            <Panel title="Locale" hint="From the page the visitor was on."><BarList rows={localeSplit(activityWindow, 15)} empty="No activity recorded." /></Panel>
+            <Panel title="Country" hint="Coarse edge data, recorded only on code checks."><BarList rows={countrySplit(checksWindow, 15)} empty="No checks recorded." /></Panel>
           </div>
         )}
 
         {view === "decoders" && (
           <div className="space-y-5">
-            <Panel title="Decoder health" hint={`Per brand, over ${REPORT_DAYS} days. A high no-read rate means users are being turned away.`}>
+            <Panel title="Decoder health" hint={`Per brand, over ${win.label.toLowerCase()}. A high no-read rate means users are being turned away.`}>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] text-left text-sm">
                   <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Brand</th><th className="p-3">Decoder</th><th className="p-3">Checks</th><th className="p-3">No read</th><th className="p-3">No-read rate</th><th className="p-3">7d trend</th><th className="p-3">Logged failures</th></tr></thead>
