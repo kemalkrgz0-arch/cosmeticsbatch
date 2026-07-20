@@ -80,10 +80,25 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
     ],
   },
   beiersdorf: {
-    decoderId: "beiersdorf", version: "1.0.0", verificationStatus: "UNKNOWN",
-    datePrecision: "day", sourceType: "observed-samples", sourceReferences: [], verifiedAt: null,
-    supportedCodeFormats: ["YWW followed by production digits"],
-    knownLimitations: ["Date represents the start of a production week", "Single-digit year repeats every decade", "Primary evidence needs verification"],
+    decoderId: "beiersdorf", version: "1.1.0", verificationStatus: "ESTIMATED",
+    datePrecision: "day", sourceType: "observed-samples",
+    // Not VERIFIED, deliberately, and the header rule above is why: three
+    // Eucerin cartons photographed on 2026-07-20 each carried the batch code
+    // above a printed expiry — 43844057 / EXP 08-2026, 51341357 / EXP 03-2027,
+    // 51826188 / EXP 05-2028 — and the year-digit-plus-week reading places all
+    // three sensibly ahead of their dates. That is the strongest evidence any
+    // decoder here has, but the photographs live in a chat session rather than
+    // in this repository, so a later reader cannot check the claim. Promoting
+    // this needs the images stored and an editorial review, not a code edit.
+    // See findings 39 and 40.
+    sourceReferences: [],
+    verifiedAt: null,
+    supportedCodeFormats: ["YWW followed by production digits, 6-8 digits, optional two trailing letters"],
+    knownLimitations: [
+      "Date represents the start of a production week",
+      "Single-digit year repeats every decade",
+      "Shelf life varies by product: observed 23, 24 and 37 months against a 36-month brand constant",
+    ],
   },
   naos: {
     decoderId: "naos", version: "1.0.0", verificationStatus: "UNKNOWN",

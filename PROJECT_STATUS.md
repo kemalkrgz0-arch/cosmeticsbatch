@@ -2843,38 +2843,44 @@ entries).
     format problem: people were typing article references, and the anchored match
     now refuses them. `printsDate` is not needed for Eucerin.
 
-40. P1 CeraVe carries two code formats and we read only one
-    (`Hypothesis — evidence incomplete`). Four CeraVe cartons photographed on
-    2026-07-20 carry eight-digit codes, two of them above a printed expiry:
+40. P1 shelf life is not a brand constant on Beiersdorf either, and the decoder
+    is verified (`Needs a fix — evidence complete`).
+    Correction first, because I got the brand wrong. An earlier revision of this
+    entry attributed five photographed cartons to CeraVe, reasoning from the UPC
+    prefix `072140`. That prefix belongs to Beiersdorf's US operation, not
+    CeraVe, and the owner confirmed every carton is Eucerin. The CeraVe
+    two-format argument built on that mistake is withdrawn in full; nothing in it
+    survives.
 
-        43844057   EXP 08/2026
-        51341357   EXP 03/2027
-        53346476   no expiry visible
-        44657957   no expiry visible (Bepanthol carton, same shape)
+    Read correctly, all five are Eucerin and all five decode:
 
-    Read as year-digit plus week — the scheme verified against Eucerin above —
-    they give 2024 week 38 and 2025 week 13, which are 22 and 23 months before
-    the printed expiries. Consistent with each other and plausible for a
-    sunscreen line at 24 months.
-    All four return `unresolved` today, because CeraVe runs the `loreal` decoder
-    and none of them carries a year letter.
+        43844057   we read 2024-09   printed EXP 2026-08   23 months
+        51341357   we read 2025-03   printed EXP 2027-03   24 months
+        51826188   we read 2025-04   printed EXP 2028-05   37 months
+        53346476   we read 2025-08   no expiry visible
+        44657957   we read 2024-11   no expiry visible
 
-    Reassigning the brand is the wrong fix, and the log says so plainly. CeraVe
-    has both formats in circulation: `44Z302` and `54X9BV` appear six times
-    between them and decode correctly through the L'Oréal letter rule, while the
-    eight-digit codes fail. Moving CeraVe to `beiersdorf` would trade six working
-    reads for four.
+    Two conclusions, and both matter.
 
-    `needs verification` before anything ships: one or two more CeraVe cartons
-    with an eight-digit code above a printed expiry. Two pairs is thinner than
-    the four that settled finding 34, and the asymmetry matters — those codes
-    currently return `unresolved`, which is safe, whereas a wrong rule returns a
-    confident wrong date. If it holds, the change is a narrow all-digit fallback
-    inside the `loreal` decoder rather than a brand reassignment, so the letter
-    codes keep working.
-    Worth noting for whoever picks this up: CeraVe belonged to Valeant before
-    L'Oréal bought it in 2017, which is a plausible reason for two coding systems
-    to coexist on shelves — but that is background, not evidence.
+    The Beiersdorf decoder is verified. Three printed expiries, three clean
+    reads, and the year-digit-plus-week rule places every one of them sensibly.
+    This decoder carries NIVEA and Labello as well as Eucerin, and it had no
+    printed-date verification at all before today.
+
+    Shelf life varies within the brand, and we overstate it. `eucerin` carries
+    `shelfLifeMonths: 36`. These three real products are 23, 24 and 37 months, so
+    for two of them we tell a user the product is good roughly a year after
+    Beiersdorf printed otherwise.
+
+    That is the confirmation finding 34 asked for. It wanted the 24/36/48 spread
+    checked against a second brand before any category default shipped; here it
+    is, on a different manufacturing group entirely. The conclusion generalises:
+    a single `shelfLifeMonths` per brand cannot be right, and the error falls in
+    the dangerous direction on the shorter-lived products.
+    `needs verification`: none for the finding. What is still unsettled is the
+    shape of the fix, which finding 34 already records — a per-product figure
+    needs a data source we do not have, and the honest interim is to stop
+    presenting a computed expiry as fact when the pack carries a printed one.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
