@@ -2955,6 +2955,27 @@ entries).
     Coty-era bottles, ideally with a printed date, before the older format is
     anything but a note.
 
+    The owner raised a second explanation on 2026-07-20: the bottle may be
+    counterfeit. It is plausible — CK Be is among the most copied fragrances, and
+    a copier prints the same code on bottle and box, so the bottle/box agreement
+    that corroborates the other three codes proves nothing here.
+    It is also indistinguishable from the first explanation. Pre-2005 stock
+    legitimately carries a scheme we do not read, and nothing available to us
+    separates "old genuine" from "fake". Recorded as a hypothesis with no way to
+    test it.
+
+    It must not become a user-facing claim, and this is the entry to point at
+    when that is proposed again. The site already states that a code decoding
+    cleanly is not proof of authenticity; the converse has to hold or the claim
+    is incoherent. A failure to decode is a statement about our coverage, not
+    about the product — Jean Paul Gaultier proved that today, where 46 unread
+    codes turned out to be an entire genuine production era we simply did not
+    support (finding 26).
+    Telling a user their product may be counterfeit because our decoder is
+    incomplete would bill our own gap to them, and would be a claim we could not
+    stand behind if they acted on it. The existing `unresolved` copy — "this does
+    not mean the product or code is invalid" — stays correct and stays.
+
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
     2026-07-20. One (nanamall.com) returned all three; the implied rule was
