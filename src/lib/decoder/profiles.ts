@@ -16,10 +16,26 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
     knownLimitations: ["Single-digit year repeats every decade", "Day is estimated as mid-month", "Primary evidence needs verification"],
   },
   loreal: {
-    decoderId: "loreal", version: "1.0.0", verificationStatus: "UNKNOWN",
-    datePrecision: "month", sourceType: "observed-samples", sourceReferences: [], verifiedAt: null,
+    decoderId: "loreal", version: "1.1.0", verificationStatus: "HIGH_CONFIDENCE",
+    datePrecision: "month", sourceType: "observed-samples",
+    // Two independent lines of packaging evidence, 2026-07-20, reviewed by the
+    // owner. Dates: four YSL cartons carried a code and a printed expiry on the
+    // same face — 40NN00, 40W100, 40X710, 40XN01 — and every gap to the printed
+    // date came out an exact multiple of twelve months across four different
+    // year letters, which a wrong table does not produce. Coverage: Garnier
+    // 28ZN14 and Kiehl's 18WD00 / 18X400 carry the canonical shape and read at
+    // high confidence with plausible dates, so the scheme is not YSL-specific.
+    // Short of VERIFIED because the photographs are not stored in this
+    // repository, per the rule above. See findings 34 and 41.
+    sourceReferences: ["PROJECT_STATUS.md findings 34 and 41 — owner packaging photographs, 2026-07-20"],
+    verifiedAt: "2026-07-20",
     supportedCodeFormats: ["factory prefix + year letter + month character + batch series"],
-    knownLimitations: ["Letter-cycle provenance needs verification", "Day is estimated as mid-month"],
+    knownLimitations: [
+      "Day is estimated as mid-month",
+      "Year letter repeats on a 25-year cycle",
+      "Shelf life varies by product: YSL observed at 24, 36 and 48 months against a 36-month brand constant",
+      "CeraVe carries codes this scheme does not cover — see finding 41",
+    ],
   },
   coty: {
     decoderId: "coty", version: "1.0.0", verificationStatus: "UNKNOWN",
