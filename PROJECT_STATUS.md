@@ -2882,6 +2882,48 @@ entries).
     needs a data source we do not have, and the honest interim is to stop
     presenting a computed expiry as fact when the pack carries a printed one.
 
+41. P1 the L'Oréal decoder is now evidenced across brands, and CeraVe does not
+    fit it (`Profile promoted; CeraVe open`). The owner photographed Garnier,
+    Kiehl's and CeraVe packs on 2026-07-20 and asked that they be treated as
+    confirmed L'Oréal at high confidence. Measured rather than assumed:
+
+        garnier  28ZN14   -> 2025-11  high        canonical shape
+        kiehls   18WD00   -> 2022-12  high        canonical shape
+        kiehls   18X400   -> 2023-04  high        canonical shape
+        cerave   SDX80W   -> recognized, no date
+        cerave   482309   -> unresolved
+        cerave   2022202  -> unresolved
+
+    Garnier and Kiehl's earn it. Both carry the documented factory-digits,
+    year-letter, month-character shape, both read at `high`, and both land on
+    plausible recent dates — a wrong year table shows up as 2005 or a future
+    date, which is how finding 22 was caught.
+
+    A distinction worth keeping, because the record would otherwise overstate
+    itself: none of these three cartons carries a printed expiry, so they verify
+    that the shape reads across brands, not that the year arithmetic is right.
+    The arithmetic was verified separately by finding 34, where four YSL cartons
+    each carried a code beside a printed expiry and every gap came out an exact
+    multiple of twelve months across four different year letters. Dates from YSL,
+    coverage from Garnier and Kiehl's. Together they are the strongest evidence
+    any decoder here has.
+    `loreal` accordingly moves from UNKNOWN to HIGH_CONFIDENCE, with the owner as
+    the reviewing party the profile header requires. Not VERIFIED: the
+    photographs live in a chat session rather than in this repository, so a later
+    reader still cannot check the claim.
+
+    CeraVe is the exception and it is a real one this time — not the brand
+    mis-attribution withdrawn in finding 40. Three photographed CeraVe codes
+    fail: `SDX80W` leads with letters, `482309` and `2022202` carry none at all.
+    Yet `44Z302` and `54X9BV` appear six times in the log and decode correctly.
+    So CeraVe has at least two coding systems in circulation and we read one.
+    `needs verification`: a CeraVe carton with a non-canonical code above a
+    printed expiry. Reassigning the brand is not the answer — it would trade six
+    working reads for three — and `SDX80W` returning `recognized` rather than a
+    guess is the correct behaviour meanwhile.
+    Plausible background, not evidence: CeraVe belonged to Valeant until L'Oréal
+    bought it in 2017, which would explain two systems coexisting on shelves.
+
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
     2026-07-20. One (nanamall.com) returned all three; the implied rule was
