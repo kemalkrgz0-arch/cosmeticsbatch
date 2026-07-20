@@ -13,7 +13,17 @@ export type FreshnessStatus =
   | "expired"
   | "unknown";
 
-export type DecodeFailureReason = "barcode" | "invalid-format" | "unresolved";
+/**
+ * `recognized` is not quite a failure: the code matched a format we know belongs
+ * to the brand, but that format carries no date we can read yet. It exists
+ * because "unreadable" was a wrong answer for a whole era of Jean Paul Gaultier
+ * stock — see `jean-paul-gaultier` in `decoders.ts`.
+ */
+export type DecodeFailureReason =
+  | "barcode"
+  | "invalid-format"
+  | "unresolved"
+  | "recognized";
 
 export interface CheckInput {
   brandName: string;
@@ -106,20 +116,31 @@ export function checkBatchCode(input: CheckInput): CheckResult {
   let confidence: Confidence = "none";
   let datePrecision: DatePrecision = "day";
 
+  // A decoder that returns an attempt without a date is claiming recognition,
+  // not a read: it knows the format belongs to this brand but cannot date it.
+  // Keep the first such claim aside and carry on looking for a real date, so a
+  // later decoder that can actually read the code still wins.
+  let recognition: ReturnType<(typeof tried)[number]["decode"]> | null = null;
+
   for (const decoder of barcode ? [] : tried) {
     const res = decoder.decode(input.code, ctx);
-    if (res && res.manufactureDate) {
-      attempt = res;
-      method = res.method;
-      confidence = res.confidence;
-      datePrecision =
-        res.datePrecision ??
-        getDecoderProfile(decoder.id)?.datePrecision ??
-        "day";
-      if (res.notes) notes.push(...res.notes);
-      break;
+    if (!res) continue;
+    if (!res.manufactureDate) {
+      recognition ??= res;
+      continue;
     }
+    attempt = res;
+    method = res.method;
+    confidence = res.confidence;
+    datePrecision =
+      res.datePrecision ??
+      getDecoderProfile(decoder.id)?.datePrecision ??
+      "day";
+    if (res.notes) notes.push(...res.notes);
+    break;
   }
+
+  if (!attempt && recognition) method = recognition.method;
 
   const base: CheckResult = {
     brandName: input.brandName,
@@ -140,6 +161,13 @@ export function checkBatchCode(input: CheckInput): CheckResult {
   };
 
   if (!attempt || !attempt.manufactureDate) {
+    // Recognition outranks `unresolved` but not a barcode: a checksum-valid EAN
+    // is the more useful thing to tell someone, and no decoder runs on one.
+    if (recognition && !barcode) {
+      base.failureReason = "recognized";
+      if (recognition.notes) base.notes.push(...recognition.notes);
+      return base;
+    }
     base.failureReason = barcode
       ? "barcode"
       : invalidFormat

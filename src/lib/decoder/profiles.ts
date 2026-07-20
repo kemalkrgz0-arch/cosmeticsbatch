@@ -69,6 +69,16 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
     supportedCodeFormats: ["YDDD", "YYDDD", "YYMMDD"],
     knownLimitations: ["Format recognition is not manufacturer verification", "Numeric codes can have multiple interpretations"],
   },
+  "jean-paul-gaultier": {
+    decoderId: "jean-paul-gaultier", version: "1.0.0", verificationStatus: "FORMAT_ONLY",
+    datePrecision: "variable", sourceType: "observed-samples", sourceReferences: [], verifiedAt: null,
+    supportedCodeFormats: ["YDDD", "YYDDD", "YYMMDD", "LLLDDL (recognised, not dated)"],
+    knownLimitations: [
+      "Only the Puig-era numeric code yields a date",
+      "The Beauté Prestige International alphanumeric code is recognised but deliberately left undated",
+      "Primary evidence needs verification",
+    ],
+  },
   beiersdorf: {
     decoderId: "beiersdorf", version: "1.0.0", verificationStatus: "UNKNOWN",
     datePrecision: "day", sourceType: "observed-samples", sourceReferences: [], verifiedAt: null,

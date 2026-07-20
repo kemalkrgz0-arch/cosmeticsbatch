@@ -222,6 +222,39 @@ const loreal: Decoder = {
     // the front and as X=2023/3=Mar further in, and nothing in the code says
     // which is meant. Guesses must not be reported as high confidence.
     const canonical = LOREAL_CANONICAL_SHAPE.test(c);
+    // When the code does not start with the documented shape, the scan below is
+    // guessing which character carries the year, and it used to publish that
+    // guess as a dated result. Measured against the 2026-07-19 export: of 164
+    // L'Oréal decodes, 146 come from the canonical shape and 18 only from the
+    // scan — and two of those 18 are already logged as wrong (`E38Y801N` -> 2005
+    // in finding 22, `MNX30W` -> 2013-11, which this file's own comment cites as
+    // unresolvable). The same scan is why this decoder read 10 of 16 junk
+    // strings in finding 31's benchmark.
+    //
+    // So a non-canonical code no longer gets a date. It gets recognition: we say
+    // the code looks like a L'Oréal-family code and that we cannot place the
+    // year and month confidently. That is the honest version of what the "best
+    // guess" note below was already admitting in prose while the UI showed a
+    // date beside it.
+    if (!canonical) {
+      for (let i = 0; i <= c.length - 2; i++) {
+        const ch = c[i];
+        if (!/[A-Z]/.test(ch)) continue;
+        if (lorealYear(ch, ctx.now) === null) continue;
+        if (lorealMonth(c[i + 1]) === null) continue;
+        return {
+          manufactureDate: null,
+          confidence: "none",
+          method: `${this.label} — shape not recognised`,
+          notes: [
+            "This looks like a L'Oréal-group code, but it does not have the usual shape — factory digits, then the year letter, then the month.",
+            "Because of that we cannot tell which character carries the year, and we would rather say so than show you a date we are guessing at.",
+            "Check the code against the pack. If it matches what is printed, send us a photo of the code and the packaging and we will look at the format.",
+          ],
+        };
+      }
+      return null;
+    }
     for (let i = 0; i <= c.length - 2; i++) {
       const ch = c[i];
       if (!/[A-Z]/.test(ch)) continue; // year is the first letter
@@ -255,15 +288,12 @@ const loreal: Decoder = {
           "Some characters in the code could not be read as letters or digits and were ignored, so this date may not correspond to the code on your product.",
         );
       }
-      if (!canonical) {
-        notes.unshift(
-          "This code doesn't have the usual L'Oréal shape (factory digits, then the year letter, then the month), so which character carries the year is a judgement call — treat this date as a best guess and check it against the product.",
-        );
-      }
+      // Reaching here means the code carried the documented shape: the guard
+      // above returns before this point otherwise, so there is no longer a
+      // "best guess" branch to warn about.
       return {
         manufactureDate: date,
-        confidence:
-          ambiguousCycle || mangled ? "low" : canonical ? "high" : "medium",
+        confidence: ambiguousCycle || mangled ? "low" : "high",
         method: this.label,
         notes,
       };
@@ -327,7 +357,20 @@ function readEmbeddedDate(
   now: Date,
 ): { date: Date; method: string } | null {
   const c = clean(code);
-  const m = c.match(/\d{4,6}/) ?? c.match(/\d{4}/);
+  // The digit run has to be the whole code, not a fragment found inside it.
+  //
+  // This used to be an unanchored `\d{4,6}`, which meant any string carrying
+  // four digits anywhere got a date: "M12345" became 2012-12-10, and Dior
+  // product references like "C03560099" became 2020-12-21 — finding 29, where a
+  // number printed larger and more prominently than the batch code decoded as
+  // one. All four callers reach this as their "vintage / all-digit" fallback,
+  // so requiring the code to actually be all digits is the rule they already
+  // describe in their own comments.
+  //
+  // Length is capped at six because that is what the three formats below cover.
+  // Slicing the first six digits off an eight-digit code was itself a guess
+  // about where the date sat.
+  const m = c.match(/^\d{4,6}$/);
   if (!m) return null;
   const digits = m[0];
   const cands: { date: Date; method: string; rank: number }[] = [];
@@ -472,8 +515,18 @@ const dior: Decoder = {
     const c = clean(code);
     const now = ctx.now;
 
-    // Modern letter-month code: year digit + month letter + 1-3 day/batch digits.
-    const m = c.match(/^(\d)([A-Z])(\d{1,3})$/);
+    // Modern letter-month code: year digit + month letter + 1-3 day/batch digits,
+    // optionally followed by a short plant or line marker (4C2X, 5M5K, 3J1P,
+    // 4F03A1). Requiring the code to end after the digits rejected 6 of the 27
+    // Dior codes users have brought us — the head was always well-formed and only
+    // the marker was unexpected.
+    //
+    // The marker is deliberately narrow: one letter and at most one digit. A
+    // freer `[A-Z0-9]{1,3}` reads the same real codes but also swallows junk like
+    // "1A2B3C" as January 2021, which is the failure in finding 31. Scored
+    // against the junk benchmark there, this shape takes 13/13 real codes and
+    // 0/16 junk strings.
+    const m = c.match(/^(\d)([A-Z])(\d{1,3})(?:[A-Z]\d?)?$/);
     if (m) {
       const monthIdx = DIOR_MONTH_LETTERS.indexOf(m[2]);
       if (monthIdx !== -1) {
@@ -774,6 +827,63 @@ const embedded: Decoder = {
       notes: [
         "The production date was read from the numeric part of the code.",
         "This is the manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the product stays good.",
+      ],
+    };
+  },
+};
+
+/* -------------------------------------------------------------------------- */
+/*  Jean Paul Gaultier                                                         */
+/*  Two schemes, split by who filled the bottle. Antonio Puig (Barcelona,      */
+/*  2016 onwards) prints a numeric production date the generic reader handles. */
+/*  Beauté Prestige International, the earlier licensee, printed an            */
+/*  alphanumeric code instead, which we cannot date yet.                       */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The BPI-era shape: three letters, two digits, one or two trailing letters.
+ *
+ * Held across eight owner-supplied packaging photographs — HLL05 V, KUU14 X,
+ * MWH10 S, QUF03CH, FAK08 X, TCR15X, DGV 19TP — every one of them on a carton
+ * naming Beauté Prestige International, and never on a Puig carton. `QOEC` is
+ * deliberately excluded: four letters with no digits, sitting on a gift-set
+ * carton, so it reads more like a set reference than a batch code.
+ *
+ * Recognising the shape is as far as this goes. A published collector guide
+ * dates these by their first letter and agrees with five of our photographs,
+ * but one external source is not enough to put a year in front of a user, and
+ * the same guide calls its own pre-1999 codes unreliable. See finding 26.
+ */
+const BPI_ALPHANUMERIC = /^[A-Z]{3}\d{2}[A-Z]{1,2}$/;
+
+const jeanPaulGaultier: Decoder = {
+  id: "jean-paul-gaultier",
+  label: "Jean Paul Gaultier production code",
+  explanation:
+    "Jean Paul Gaultier bottles carry one of two codes depending on who filled them. Bottles made from 2016 onwards, whose packaging names Antonio Puig in Barcelona, print the production date as a 5- or 6-digit number. Earlier bottles, whose packaging names Beauté Prestige International in Paris, carry a letters-and-digits code instead — we can identify these as genuine Gaultier codes but cannot yet date them.",
+  decode(code, ctx): DecodeAttempt | null {
+    const r = readEmbeddedDate(code, ctx.now);
+    if (r) {
+      return {
+        manufactureDate: r.date,
+        confidence: "medium",
+        method: `${this.label} — ${r.method}`,
+        notes: [
+          "The production date was read from the numeric part of the code, the format used on bottles filled by Antonio Puig from 2016 onwards.",
+          "This is the manufacture date. Once opened, the PAO symbol (open-jar icon, e.g. 12M / 24M) governs how long the fragrance stays good.",
+        ],
+      };
+    }
+    if (!BPI_ALPHANUMERIC.test(clean(code))) return null;
+    // No date: this is a recognition, and `checkBatchCode` treats it as one.
+    return {
+      manufactureDate: null,
+      confidence: "none",
+      method: `${this.label} — Beauté Prestige International format`,
+      notes: [
+        "This is a genuine Jean Paul Gaultier batch code in the older format, used while the fragrances were made by Beauté Prestige International in Paris — before Antonio Puig took over production in 2016.",
+        "We can recognise this format but cannot date it yet, so we are not going to guess a year. Your product is older than 2016.",
+        "If your packaging shows a printed date anywhere near this code, a photo of it would let us finish decoding this format.",
       ],
     };
   },
@@ -1194,6 +1304,7 @@ export const DECODERS: Record<string, Decoder> = {
   [deciem.id]: deciem,
   [shiseido.id]: shiseido,
   [embedded.id]: embedded,
+  [jeanPaulGaultier.id]: jeanPaulGaultier,
   [julian.id]: julian,
 };
 
@@ -1206,7 +1317,7 @@ export function getDecoder(id: string | undefined): Decoder | undefined {
   return id ? DECODERS[id] : undefined;
 }
 
-export { esteeLauder, loreal, coty, chanel, dior, acquaDiParma, creed, interparfums, embedded, julian };
+export { esteeLauder, loreal, coty, chanel, dior, acquaDiParma, creed, interparfums, embedded, jeanPaulGaultier, julian };
 
 /** Convenience for tests. */
 export function runDecoder(decoder: Decoder, code: string, ctx: DecodeContext) {

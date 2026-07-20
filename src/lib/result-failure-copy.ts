@@ -36,6 +36,14 @@ const en: Record<DecodeFailureReason, FailureCopy> = {
     contact: "Send code photos",
     email: "Contact us by email",
   },
+  recognized: {
+    title: "We recognize this code but cannot date it yet",
+    body: (code, brand) => `${code} is a genuine ${brand} batch code, in a format we can identify but have not finished decoding.`,
+    detail: "We would rather tell you this than guess a date. A photo showing this code next to any printed date on the packaging is exactly what we need to finish the format.",
+    retry: "Check another code",
+    contact: "Send packaging photos",
+    email: "Contact us by email",
+  },
 };
 
 const tr: Record<DecodeFailureReason, FailureCopy> = {
@@ -63,6 +71,14 @@ const tr: Record<DecodeFailureReason, FailureCopy> = {
     contact: "Kod fotoğraflarını gönder",
     email: "E-posta ile iletişime geç",
   },
+  recognized: {
+    title: "Bu kodu tanıyoruz ama henüz tarihleyemiyoruz",
+    body: (code, brand) => `${code}, gerçek bir ${brand} parti kodu — biçimini tanıyoruz, ancak çözümünü henüz tamamlamadık.`,
+    detail: "Tarih uydurmaktansa bunu söylemeyi tercih ederiz. Bu kodun ambalajdaki herhangi bir basılı tarihle birlikte göründüğü bir fotoğraf, biçimi tamamlamamız için tam olarak ihtiyacımız olan şey.",
+    retry: "Başka bir kod kontrol et",
+    contact: "Ambalaj fotoğraflarını gönder",
+    email: "E-posta ile iletişime geç",
+  },
 };
 
 export function resultFailureCopy(locale: string, reason: DecodeFailureReason): FailureCopy {
@@ -81,13 +97,34 @@ export function resultFailureCopy(locale: string, reason: DecodeFailureReason): 
  */
 const PARIS_POSTCODE = /^75(0(0[1-9]|1\d|20)|116)$/;
 
+/**
+ * French packager registration, printed as "EMB 60350" in the address block.
+ *
+ * It sits directly beside the batch code on French-made cosmetics — both YSL
+ * cartons photographed on 2026-07-20 show the two within a centimetre of each
+ * other — and it is the more official-looking of the pair, so it gets typed.
+ * "EMB60350" also happens to satisfy the L'Oréal letter-then-month shape, which
+ * is how it reached a decoder at all.
+ */
+const EMB_REGISTRATION = /^EMB\d{3,6}$/;
+
 const addressHint = {
   en: "That number looks like a Paris postcode from the manufacturer's address on the pack, rather than a batch code. The batch code is a separate, shorter stamp — usually on the base of the bottle or on an end flap of the box.",
   tr: "Bu numara, ambalajdaki üretici adresinde geçen bir Paris posta koduna benziyor; batch kod değil. Batch kod ayrı ve daha kısa bir damgadır — genelde şişenin altında ya da kutunun yan kapağında bulunur.",
 };
 
+const embHint = {
+  en: "That looks like the packager registration (\"EMB\" followed by digits) from the manufacturer's address block, not a batch code. The batch code is a separate stamp nearby — often on the same face of the box, in a different typeface.",
+  tr: "Bu, üreticinin adres bloğundaki ambalajcı sicil numarasına benziyor (\"EMB\" ve ardından rakamlar); batch kod değil. Batch kod yakınlarda ayrı bir damgadır — genelde kutunun aynı yüzünde, farklı bir yazı tipiyle.",
+};
+
 /** Extra nudge when the entered code is an address line, not a batch code. */
 export function addressLookalikeHint(locale: string, code: string): string | null {
-  if (!PARIS_POSTCODE.test(code.trim())) return null;
-  return locale.toLowerCase().startsWith("tr") ? addressHint.tr : addressHint.en;
+  const value = code.trim();
+  const turkish = locale.toLowerCase().startsWith("tr");
+  if (EMB_REGISTRATION.test(value.toUpperCase().replace(/[\s-]+/g, ""))) {
+    return turkish ? embHint.tr : embHint.en;
+  }
+  if (!PARIS_POSTCODE.test(value)) return null;
+  return turkish ? addressHint.tr : addressHint.en;
 }

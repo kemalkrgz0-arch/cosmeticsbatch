@@ -335,7 +335,7 @@ export const DECODER_GUIDES: DecoderGuide[] = [
   /* --------------------------------------------------------------- Puig -- */
   {
     slug: "puig-batch-code-format",
-    decoderIds: ["embedded"],
+    decoderIds: ["embedded", "jean-paul-gaultier"],
     title: "Paco Rabanne, Jean Paul Gaultier and Zara Batch Codes (Puig)",
     description:
       "Check the batch code on Paco Rabanne, Jean Paul Gaultier, Carolina Herrera, Nina Ricci and Zara fragrance (Puig) — get the production date and estimated shelf life free.",
@@ -382,6 +382,14 @@ export const DECODER_GUIDES: DecoderGuide[] = [
         body: [
           "On the base of the outer box, and on the underside of the bottle — printed on the base sticker or, on the heavier Paco Rabanne bottles, stamped into the glass or the metal. Zara's fragrance boxes carry it on the bottom flap.",
           "The box code and the bottle code should agree. They are applied minutes apart on the same line, and a mismatch is a sign the box and the bottle were paired somewhere other than the factory.",
+        ],
+      },
+      {
+        heading: "Older Jean Paul Gaultier bottles use a different code",
+        body: [
+          "Puig only took over Jean Paul Gaultier production in 2016. Before that the fragrances were made by Beauté Prestige International in Paris, and BPI did not print a numeric date — it used a code of letters and digits instead, such as FAK08 X or HLL05 V.",
+          "You can tell which one you are holding from the address on the box rather than from the code. A box naming Antonio Puig in Barcelona is 2016 or later and carries the numeric date. A box naming Beauté Prestige International in Paris is older.",
+          "We recognise the BPI format and will tell you your code is a genuine Gaultier code, but we do not yet date it. There is a published collector scheme that reads the first letter as the year, and it agrees with every BPI bottle we have photographed — but one unofficial source is not enough for us to put a year in front of you. If your packaging shows a printed date next to the code, send us a photo and we will finish the format.",
         ],
       },
       {

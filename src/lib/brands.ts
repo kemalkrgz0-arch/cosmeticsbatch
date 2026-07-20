@@ -189,7 +189,11 @@ const ROWS: Row[] = [
   // Puig — fragrances print the production date in the code (year digit +
   // Julian day), read by the generic embedded-date decoder.
   ["Zara", "Puig", "embedded", "perfume", 48, 36],
-  ["Jean Paul Gaultier", "Puig", "embedded", "perfume", 60, 36, true],
+  // Not the shared `embedded` reader: Gaultier had a second, alphanumeric code
+  // before Puig took over production in 2016, and half the codes users bring us
+  // are from that era. The dedicated decoder recognises those instead of
+  // rejecting them. See finding 26.
+  ["Jean Paul Gaultier", "Puig", "jean-paul-gaultier", "perfume", 60, 36, true],
   ["Paco Rabanne", "Puig", "embedded", "perfume", 60, 36, true],
   ["Rabanne", "Puig", "embedded", "perfume", 60, 36],
   ["Carolina Herrera", "Puig", "embedded", "perfume", 60, 36, true],

@@ -46,7 +46,10 @@ export function InlineResult({ brand }: { brand: Brand }) {
             expirationDate: r.expirationDate ? new Date(r.expirationDate) : null,
           },
         });
-        if (r.failureReason === "unresolved" || r.failureReason === "barcode") {
+        // `recognized` belongs here most of all: we know the format and only
+        // lack a printed date to finish it, which is what the photo prompt asks
+        // for.
+        if (r.failureReason === "unresolved" || r.failureReason === "barcode" || r.failureReason === "recognized") {
           window.dispatchEvent(new CustomEvent("unresolved-code", { detail: { code: r.code } }));
         }
       })
