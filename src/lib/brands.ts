@@ -34,7 +34,13 @@ export interface Brand {
    * packaging. Shown in the "where to find the code" section. Dimensions are
    * intrinsic px (reserve space to avoid layout shift).
    */
-  codeImages?: { src: string; width: number; height: number }[];
+  /**
+   * `annotated` means the image carries our own colour marking — orange on
+   * the batch code, red on the codes that are not one. The gallery renders a
+   * translated key beneath it; the words are never drawn into the image,
+   * because the site runs in 19 languages and baked-in text serves one.
+   */
+  codeImages?: { src: string; width: number; height: number; annotated?: boolean }[];
   /** Visual tokens/assets consumed by the shared brand-page template. */
   theme?: Partial<BrandTheme>;
   blurb: string;
@@ -617,6 +623,13 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
     { src: "/brands/examples/aesop-1.jpg", width: 900, height: 416 },
     { src: "/brands/examples/aesop-2.jpg", width: 900, height: 416 },
     { src: "/brands/examples/aesop-3.jpg", width: 900, height: 416 },
+  ],
+  nivea: [
+    // Owner photograph, marked by the owner: orange on the batch code and the
+    // printed production/expiry beside it, red on the barcode and the PAO
+    // symbol. Verified against this pack — 52943210 reads as 2025 week 29 and
+    // the tin prints P07/25. See finding 40.
+    { src: "/brands/examples/nivea-1.jpg", width: 1200, height: 1182, annotated: true },
   ],
   anua: [
     { src: "/brands/examples/anua-1.jpg", width: 900, height: 416 },

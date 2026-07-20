@@ -81,7 +81,9 @@
     "whereHeading": "{name} ambalajındaki kodu nerede bulabilirim?",
     "exampleHeading": "Kodu çözülmüş gerçek bir {name} kodu",
     "decoderGuideBody": "{name}, {group} ile ilişkilidir. Kod gözlemlenen grup formatına uyduğunda tarih deseni okunur; bölgesel veya sözleşmeli üretim ürünlerinde farklı bir format bulunabilir.",
-    "decoderGuideLink": "{name} kod formatını ve sınırlamalarını inceleyin"
+    "decoderGuideLink": "{name} kod formatını ve sınırlamalarını inceleyin",
+    "codeKeyBatch": "Parti kodu — girmeniz gereken kod bu. Yanındaki basılı üretim ve son kullanma tarihleri okumayı doğrular.",
+    "codeKeyOther": "Parti kodu değil — barkod ürünü mağazada tanımlar, açık kavanoz simgesi ise açıldıktan sonraki ömrü gösterir."
   },
   "lorealFamily": {
     "heading": "{name} ve L'Oréal batch kodları hakkında bilinmesi gerekenler",

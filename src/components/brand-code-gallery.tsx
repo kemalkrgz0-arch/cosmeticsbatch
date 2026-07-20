@@ -6,11 +6,16 @@ export function BrandCodeGallery({
   heading,
   body,
   images,
+  keyBatch,
+  keyOther,
 }: {
   brandName: string;
   heading: string;
   body: string;
   images?: Brand["codeImages"];
+  /** Legend for our colour marking. Translated, never drawn into the image. */
+  keyBatch?: string;
+  keyOther?: string;
 }) {
   if (!images?.length) {
     return (
@@ -63,6 +68,30 @@ export function BrandCodeGallery({
           </div>
         ))}
       </figure>
+
+      {/* The colour key lives here rather than inside the picture. A packaging
+          photo with words burned into it can only serve the language it was
+          drawn in, and this site runs in nineteen. */}
+      {images.some((image) => image.annotated) && keyBatch && keyOther && (
+        <ul className="mt-5 flex flex-col gap-2 border-t border-border pt-5 sm:flex-row sm:gap-6">
+          <li className="flex items-start gap-2.5 text-sm text-fg-muted">
+            <span
+              aria-hidden="true"
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-[3px]"
+              style={{ borderColor: "#e08214" }}
+            />
+            <span>{keyBatch}</span>
+          </li>
+          <li className="flex items-start gap-2.5 text-sm text-fg-muted">
+            <span
+              aria-hidden="true"
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-[3px]"
+              style={{ borderColor: "#e2452f" }}
+            />
+            <span>{keyOther}</span>
+          </li>
+        </ul>
+      )}
     </section>
   );
 }

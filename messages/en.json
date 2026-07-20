@@ -81,7 +81,9 @@
     "faqTitle": "{name} — FAQ",
     "printsDateNote": "{name} prints the manufacture or expiry date directly on the packaging, so you usually don't need a batch code.",
     "decoderGuideBody": "{name} is associated with {group}. Where its code matches the observed group format, the decoder reads the date pattern; regional or contract-manufactured products may use another format.",
-    "decoderGuideLink": "Review the {name} code format and limitations"
+    "decoderGuideLink": "Review the {name} code format and limitations",
+    "codeKeyBatch": "Batch code — this is the one to enter. The production and expiry dates printed beside it confirm the reading.",
+    "codeKeyOther": "Not batch codes — the barcode identifies the product in a shop, and the open-jar symbol is how long it lasts after opening."
   },
   "lorealFamily": {
     "heading": "What to know about {name} and L'Oréal batch codes",

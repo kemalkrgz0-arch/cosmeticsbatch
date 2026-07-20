@@ -257,6 +257,8 @@ export default async function BrandPage({
         heading={introSections[0].heading}
         body={introSections[0].body}
         images={brand.codeImages}
+        keyBatch={tb("codeKeyBatch")}
+        keyOther={tb("codeKeyOther")}
       />
 
       {/* Explanation */}
