@@ -42,11 +42,12 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
     datePrecision: "day", sourceType: "observed-samples",
     // Four Calvin Klein bottles photographed 2026-07-20. Three carry a
     // four-digit code identical on bottle and box — 4186, 3053, 8022 — and all
-    // three read as plausible recent dates under YDDD. No printed expiry on any
-    // of them, so this evidences the shape and not the arithmetic; that is why
-    // it stops at ESTIMATED. See finding 42.
-    sourceReferences: ["PROJECT_STATUS.md finding 42 — owner packaging photographs, 2026-07-20"],
-    verifiedAt: null,
+    // three read under YDDD onto dates the owner, holding the bottles, confirmed
+    // as correct. That is weaker than a printed expiry, which is what would take
+    // this higher, but it is a check on the arithmetic and not only the shape.
+    // See finding 42.
+    sourceReferences: ["PROJECT_STATUS.md finding 42 — owner packaging photographs and confirmation, 2026-07-20"],
+    verifiedAt: "2026-07-20",
     supportedCodeFormats: ["YDDD"],
     knownLimitations: [
       "Single-digit year repeats every decade",

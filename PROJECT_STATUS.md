@@ -2936,9 +2936,12 @@ entries).
     Three read cleanly under the documented YDDD shape and land on plausible
     dates. That the code is printed identically on bottle and box is itself
     corroboration that it is the batch code rather than a reference.
-    `coty` moves from UNKNOWN to ESTIMATED. It stops there rather than going
-    higher because none of the four carries a printed expiry, so this evidences
-    the shape and not the arithmetic — the distinction drawn in finding 41.
+    `coty` moves from UNKNOWN to ESTIMATED. The owner, holding the bottles,
+    confirmed those three dates as correct and accepted `0931` returning an
+    error, so this is a check on the arithmetic and not only on the shape — the
+    distinction drawn in finding 41. It stops at ESTIMATED rather than going
+    higher because owner recognition is weaker evidence than a printed expiry on
+    the pack, which is what took `loreal` further.
     This matters more than four bottles suggest: `coty` carries 39 brands, more
     than any decoder except `loreal`, and 37 of them had never been checked by a
     user at all.
@@ -2948,9 +2951,11 @@ entries).
     carton reads "Calvin Klein Cosmetics Co.", not Coty, and Coty did not acquire
     the CK fragrance licence until 2005. So this is pre-Coty stock carrying an
     earlier scheme, the same era split found on Jean Paul Gaultier in finding 26.
-    Deliberately not guessed at. `0931` read as year 09, week 31 would give
-    August 2009 and fit a CK Be bottle, and that is exactly the kind of
-    single-sample reasoning findings 39 and 31 exist to prevent.
+    Deliberately not guessed at, and the owner agreed an error is the right
+    outcome for it. `0931` read as year 09, week 31 would give August 2009 and
+    fit a CK Be bottle, and that is exactly the kind of single-sample reasoning
+    findings 39 and 31 exist to prevent. No code change: `unresolved` is already
+    what it returns.
     `needs verification`: two or three more pre-2005 Calvin Klein or other
     Coty-era bottles, ideally with a printed date, before the older format is
     anything but a note.
