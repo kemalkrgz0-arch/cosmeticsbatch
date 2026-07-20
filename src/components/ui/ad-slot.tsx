@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { adsense, type AdPlacement } from "@/lib/ads";
+import { adsense, googleCmpEnabled, type AdPlacement } from "@/lib/ads";
 import { cn } from "@/lib/utils";
 
 declare global {
@@ -33,7 +33,11 @@ export function AdSlot({
   // The unit needs a slot id. The loader script does not, and lives in
   // [[adsense-loader]] — a server component, so it reaches the HTML the reviewer
   // reads. Until slot ids exist, the loader is on the page and no box is drawn.
-  const hasUnit = Boolean(client && slot);
+  // The CMP condition is the same one that gates the loader. Without it, setting
+  // slot ids before publishing the certified message would draw ad units on a
+  // page carrying no ad script — and, worse, would be advertising to an EEA
+  // visitor who was never shown a TCF message.
+  const hasUnit = Boolean(client && slot && googleCmpEnabled);
   const pushed = useRef(false);
 
   useEffect(() => {

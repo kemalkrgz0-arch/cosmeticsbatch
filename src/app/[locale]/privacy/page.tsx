@@ -4,6 +4,7 @@ import { pageMeta } from "@/lib/seo";
 import { DEFAULT_LOCALE } from "@/i18n/locales";
 import { ENGLISH_ONLY_LOCALES } from "@/lib/publishing-policy";
 import { site } from "@/lib/site";
+import { googleCmpEnabled } from "@/lib/ads";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 
 const UPDATED = "July 19, 2026";
@@ -155,15 +156,34 @@ export default async function PrivacyPage({
             .
           </li>
         </ul>
-        <p>
-          Before advertising is enabled, we configure Google Privacy &amp;
-          messaging or another Google-certified consent management platform
-          integrated with the IAB Transparency and Consent Framework. In the
-          EEA, UK and Switzerland, that message provides consent, refusal,
-          vendor and purpose choices and a way to reopen privacy and cookie
-          settings. If the certified message is not configured, advertising
-          readiness remains blocked.
-        </p>
+        {/* Describes what is deployed, in both states, rather than what we
+            intend. A privacy page that promises a consent message the site does
+            not serve is a false statement a reviewer can check in one click —
+            and the same is true in reverse once the message is live. Tied to the
+            flag that gates the ad script so the two cannot drift apart. */}
+        {googleCmpEnabled ? (
+          <p>
+            Advertising on this site is served through Google AdSense, and
+            consent is collected by Google Privacy &amp; messaging, a
+            Google-certified consent management platform integrated with the IAB
+            Transparency and Consent Framework. In the EEA, UK and Switzerland
+            that message asks before any advertising cookie is set, and offers
+            consent, refusal, and per-vendor and per-purpose choices. You can
+            reopen it at any time from the privacy and cookie settings control it
+            provides, and change a decision you made earlier.
+          </p>
+        ) : (
+          <p>
+            Advertising is not currently enabled on this site. No advertising
+            script is loaded and no ad unit is served. Before that changes we
+            configure Google Privacy &amp; messaging, or another
+            Google-certified consent management platform integrated with the IAB
+            Transparency and Consent Framework, so that visitors in the EEA, UK
+            and Switzerland are asked — with consent, refusal, vendor and purpose
+            choices, and a way to reopen the settings — before any advertising
+            cookie is set.
+          </p>
+        )}
 
         <H2>How we use information</H2>
         <p>
