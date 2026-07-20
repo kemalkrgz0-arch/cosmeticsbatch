@@ -2835,6 +2835,41 @@ entries).
     today: no competitor output is adopted without physical evidence behind it.
     Comparison remains useful for finding our own bugs — it is how
     `CLAUDE-DIOR-001` was confirmed — and useless as a source of truth.
+
+    Settled with physical evidence the same day. The owner photographed five
+    Beauty of Joseon packs, each carrying its lot code and a printed expiry on
+    the same face:
+
+        EL014    EXP 2028-12-15
+        OI293    EXP 2027-09-26
+        P0652    EXP 2028-02-23
+        P0656    EXP 2028-08-05
+        240275   EXP 2026-05-18
+
+    Applying the third-party rule recovered above to these real codes and
+    measuring the gap to the printed expiry — K-beauty runs about 36 months
+    unopened — falsifies it outright:
+
+        EL014    rule says 2024-01  ->  59 months to expiry
+        OI293    rule says 2023-09  ->  48
+        P0652    rule says 2022-05  ->  69
+        240275   rule says 2025-07  ->  10
+        P0656    rule says 2026-05  ->  27   (the only survivable one)
+
+    Four of five are impossible. The tool is not reading these codes, and we now
+    know that from packaging rather than from suspicion.
+
+    The answer is printed on the box. One carton states `LOT/EXP ON THE PRODUCT`
+    and then prints `LOT/EXP 240275` above `EXP 2026/05/18`. Beauty of Joseon
+    puts the expiry in plain text beside the lot number, which is exactly what
+    `printsDate: true` records and what finding 38 now surfaces at the moment a
+    check fails. There is no decoder to write here, and writing one would mean
+    inventing what the manufacturer already prints.
+    Finding 38's fix is therefore verified against packaging, not just against
+    logs: the hint sends the user to a date that demonstrably exists on the pack.
+    The codes do carry structure — `P0652` and `P0656` are consecutive lots with
+    expiries six months apart — but deriving it is unnecessary and, on five
+    samples, would be the same mistake the competitor made.
     guess.
 
 ## Complete phase ledger and remaining roadmap
