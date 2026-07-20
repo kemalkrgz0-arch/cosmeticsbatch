@@ -2981,6 +2981,52 @@ entries).
     stand behind if they acted on it. The existing `unresolved` copy — "this does
     not mean the product or code is invalid" — stays correct and stays.
 
+43. P1 the brand-to-decoder map is an ownership assumption, not a verified fact
+    (`Next`). Asked directly by the owner on 2026-07-20 whether the brand
+    groupings are right. They are assumptions, and two of them were undermined by
+    evidence the same day.
+
+    Every brand is assigned a decoder by who owns it. Corporate ownership is not
+    the same as shared manufacturing, and a code format follows the filling line,
+    not the logo. Where those diverge the map is wrong and nothing currently
+    detects it.
+
+    Visible weak points, worst first:
+
+    `kbeauty`, 46 brands across 29 unrelated companies — Amorepacific, LG H&H,
+    COSRX, Beauty of Joseon, Anua, Purito and twenty-odd others. This is not a
+    manufacturing group, it is a region. What those brands actually share is that
+    they print a readable date, which is the absence of a cipher rather than a
+    common one. Finding 38 already acts on that for the failure message; the
+    grouping itself remains unexamined.
+
+    `coty`, 39 brands, mostly licensed fragrance houses — Calvin Klein, Hugo
+    Boss, Gucci, Burberry, Chloé, Davidoff. Licences move between owners, so a
+    bottle's code follows whoever filled it, not the brand on the front. Finding
+    42 caught this on Calvin Klein: a pre-2005 bottle carries "Calvin Klein
+    Cosmetics Co." and a scheme the Coty decoder cannot read.
+
+    `loreal`, 38 brands including CeraVe, whose photographed codes do not fit the
+    L'Oréal shape at all — finding 41.
+
+    `estee-lauder`, 19 brands, with `tom-ford-beauty` failing 7 of 7 and
+    `mac-cosmetics` 5 of 6. Two brands failing that completely inside one group is
+    the shape of a wrong assignment rather than bad luck.
+
+    `kenvue` lists RoC Skincare, which was divested and is not Kenvue.
+
+    What this is not: a reason to unpick the map now. It has been right far more
+    often than wrong — `loreal` reached HIGH_CONFIDENCE across YSL, Garnier and
+    Kiehl's, and `beiersdorf` across three Eucerin cartons — and guessing at
+    re-assignments would repeat the mistake in the other direction.
+    `needs verification`, in priority order, and all of it photographic: an
+    Estée Lauder or Clinique pack to test the largest unevidenced group; a Tom
+    Ford Beauty or MAC pack to test whether those two belong in it; any two
+    unrelated K-beauty brands to see whether `kbeauty` describes anything at all.
+    Worth adding to the decoder profiles when touched: the brand list a decoder
+    covers is itself a claim, and none of the profiles records how it was
+    arrived at.
+
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
     2026-07-20. One (nanamall.com) returned all three; the implied rule was
