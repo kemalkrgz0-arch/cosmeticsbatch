@@ -2833,9 +2833,48 @@ entries).
     the whole log, and that read is `139602005` — the wrong answer above. Junk
     dating is unaffected at zero for this decoder. A regression test pins the
     eight strings from this session.
-    The wider question stands: of eleven Eucerin codes users have brought us only
-    one matches the documented shape, so `printsDate` may belong on this brand
-    too. That still needs a photograph.
+    The wider question was answered by photograph the same afternoon, and the
+    answer is that the decoder is right. A Eucerin 30 ml carton (EAN
+    4005800241901) carries `51826188` above `EXP: 05/2028`. Our Beiersdorf rule
+    reads it as 2025, week 18 — 2025-04-30 — which is exactly 36 months before
+    the printed expiry. That is the first printed-date verification this decoder
+    has ever had, and it passes.
+    So the eleven-codes-one-shape observation was a user-input problem, not a
+    format problem: people were typing article references, and the anchored match
+    now refuses them. `printsDate` is not needed for Eucerin.
+
+40. P1 CeraVe carries two code formats and we read only one
+    (`Hypothesis — evidence incomplete`). Four CeraVe cartons photographed on
+    2026-07-20 carry eight-digit codes, two of them above a printed expiry:
+
+        43844057   EXP 08/2026
+        51341357   EXP 03/2027
+        53346476   no expiry visible
+        44657957   no expiry visible (Bepanthol carton, same shape)
+
+    Read as year-digit plus week — the scheme verified against Eucerin above —
+    they give 2024 week 38 and 2025 week 13, which are 22 and 23 months before
+    the printed expiries. Consistent with each other and plausible for a
+    sunscreen line at 24 months.
+    All four return `unresolved` today, because CeraVe runs the `loreal` decoder
+    and none of them carries a year letter.
+
+    Reassigning the brand is the wrong fix, and the log says so plainly. CeraVe
+    has both formats in circulation: `44Z302` and `54X9BV` appear six times
+    between them and decode correctly through the L'Oréal letter rule, while the
+    eight-digit codes fail. Moving CeraVe to `beiersdorf` would trade six working
+    reads for four.
+
+    `needs verification` before anything ships: one or two more CeraVe cartons
+    with an eight-digit code above a printed expiry. Two pairs is thinner than
+    the four that settled finding 34, and the asymmetry matters — those codes
+    currently return `unresolved`, which is safe, whereas a wrong rule returns a
+    confident wrong date. If it holds, the change is a narrow all-digit fallback
+    inside the `loreal` decoder rather than a brand reassignment, so the letter
+    codes keep working.
+    Worth noting for whoever picks this up: CeraVe belonged to Valeant before
+    L'Oréal bought it in 2017, which is a plausible reason for two coding systems
+    to coexist on shelves — but that is background, not evidence.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
     third-party checkers were run against our three logged BoJ codes on
