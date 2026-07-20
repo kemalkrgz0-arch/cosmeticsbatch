@@ -10,7 +10,7 @@ import {
   isMonetizableBrand,
 } from "../src/lib/brands";
 import { DECODER_GUIDES } from "../src/lib/decoder-guides";
-import { DECODERS, canonicalCode } from "../src/lib/decoder";
+import { DECODERS, canonicalCode, checkBatchCode } from "../src/lib/decoder";
 import {
   ALL_LOCALES,
   FULL_QUALITY_LOCALES,
@@ -24,7 +24,7 @@ import {
   PHOTO_SUBMISSION_LOCALES,
   photoSubmissionCopy,
 } from "../src/lib/photo-submission-copy";
-import { getBrandLogoInventory } from "../src/lib/brand-logos";
+import { ATTRIBUTION_FREE_LICENCES, brandTile, getBrandLogoInventory, getBrandTile, logosRequiringAttribution } from "../src/lib/brand-logos";
 import { asCsv, csvCell } from "../src/lib/csv";
 import {
   ENGLISH_ONLY_LOCALES,
@@ -716,7 +716,11 @@ test("photo review flow has complete copy for every active locale", () => {
 
 test("brand logo inventory contains only verified local Wikidata assets", () => {
   const inventory = getBrandLogoInventory();
-  assert.ok(Object.keys(inventory).length >= 70, "Wikidata logo coverage regressed below baseline");
+  // Baseline was 70 while the inventory carried 71. Six files were withdrawn on
+  // 2026-07-20 because their CC BY-SA tags were doubtful (finding 20), so 65 is
+  // the floor now — the point of the check is to catch a fetch silently losing
+  // logos, not to stop a deliberate removal.
+  assert.ok(Object.keys(inventory).length >= 65, "Wikidata logo coverage regressed below baseline");
   for (const [slug, logo] of Object.entries(inventory)) {
     assert.ok(ALL_BRANDS.some((brand) => brand.slug === slug), `${slug} is not a catalog brand`);
     assert.match(logo.qid, /^Q\d+$/, `${slug} has an invalid Wikidata entity`);
@@ -891,4 +895,175 @@ test("review check filters compose and failed trends use the complete time windo
   assert.match(page, /checksMatchingNonResultFilters\.filter\(matchesResult\)/);
   assert.match(page, /readFailedCodesSince\(windowReport\)/);
   assert.match(page, /attempts for this normalized code/);
+});
+
+/**
+ * Permissiveness ceiling — the regression guard for finding 31.
+ *
+ * These strings are not batch codes. Any date produced from one is a confident
+ * wrong answer of the kind that produced findings 22, 29 and 30, so the count is
+ * pinned rather than merely observed: a change that makes a decoder hungrier
+ * fails here instead of reaching users.
+ *
+ * The ceiling is not zero yet, and the remainder is deliberate. `1A2B3C` and
+ * `7X8Y9Z` still satisfy the documented L'Oréal shape; tightening the factory
+ * prefix from one digit to two would refuse them at the cost of two real codes
+ * in the export (`2A100`, `4Z8K`) whose provenance is unconfirmed. Two-for-two
+ * is not evidence worth spending. The rest sit in decoders whose formats are
+ * short enough that a plausible date really is readable from a short string —
+ * lowering those needs per-decoder evidence, not a blanket rule.
+ */
+test("decoders decline strings that are not batch codes", () => {
+  const junk = [
+    "ABC123", "XY9876", "A1B2C3", "HELLO1", "12345", "987654", "QQ0011",
+    "ZZZ999", "TEST01", "1A2B3C", "000000", "555555", "AAA111", "M12345",
+    "7X8Y9Z", "B4D5E6",
+  ];
+  const ids = Object.keys(DECODERS);
+  const dated: string[] = [];
+  for (const code of junk) {
+    for (const id of ids) {
+      const result = checkBatchCode({
+        brandName: "test",
+        code,
+        decoderId: id,
+        shelfLifeMonths: 60,
+        category: "perfume",
+      });
+      if (result.decoded) dated.push(`${id}:${code}`);
+    }
+  }
+  const CEILING = 33;
+  assert.ok(
+    dated.length <= CEILING,
+    `decoders dated ${dated.length} junk inputs, above the ${CEILING} ceiling: ${dated.join(", ")}`,
+  );
+
+  // L'Oréal is pinned separately: it carries ~45 brands, more than any other
+  // decoder, and its scanning fallback was the single largest source of these.
+  const lorealDated = junk.filter(
+    (code) => checkBatchCode({
+      brandName: "test", code, decoderId: "loreal", shelfLifeMonths: 36, category: "skincare",
+    }).decoded,
+  );
+  assert.ok(
+    lorealDated.length <= 2,
+    `loreal dated ${lorealDated.length} junk inputs (was 10 before finding 31): ${lorealDated.join(", ")}`,
+  );
+});
+
+/** Codes whose shape we know but whose date we do not must say exactly that. */
+test("unshaped L'Oréal codes are recognized rather than dated", () => {
+  for (const code of ["E38Y801N", "MNX30W", "N295635", "14YZ300"]) {
+    const result = checkBatchCode({
+      brandName: "L'Oréal", code, decoderId: "loreal", shelfLifeMonths: 36, category: "skincare",
+    });
+    assert.equal(result.decoded, false, `${code} should not produce a date`);
+    assert.equal(result.failureReason, "recognized", `${code} should be recognized`);
+    assert.equal(result.manufactureDate, null);
+  }
+  // The documented shape still decodes, at full confidence.
+  const good = checkBatchCode({
+    brandName: "L'Oréal", code: "26X300", decoderId: "loreal", shelfLifeMonths: 36, category: "skincare",
+  });
+  assert.equal(good.decoded, true);
+  assert.equal(good.confidence, "high");
+});
+
+/**
+ * Advertising cannot ship ahead of the certified consent message.
+ *
+ * Production was loading `adsbygoogle.js` on every page with no `__tcfapi`
+ * present anywhere, which is the third-party advertising processing an EEA, UK
+ * or Swiss visitor has to be asked about first. Both the loader and the ad unit
+ * now hang off the same flag, so neither can be switched on by setting slot ids
+ * and forgetting the CMP. See finding 19.
+ */
+test("ad loader and ad units are gated on the certified CMP", () => {
+  const loader = readFileSync("src/components/ui/adsense-loader.tsx", "utf8");
+  const slot = readFileSync("src/components/ui/ad-slot.tsx", "utf8");
+
+  assert.match(loader, /if \(!googleCmpEnabled\) return null;/);
+  assert.doesNotMatch(
+    loader,
+    /if \(!adsense\.client\) return null;/,
+    "the loader must not gate on the publisher id alone",
+  );
+  assert.match(slot, /googleCmpEnabled/);
+  assert.match(
+    slot,
+    /const hasUnit = Boolean\(client && slot && googleCmpEnabled\)/,
+    "ad units must require the CMP as well as a slot id",
+  );
+
+  // The flag itself must stay account-verified rather than implied by config.
+  const ads = readFileSync("src/lib/ads.ts", "utf8");
+  assert.match(ads, /NEXT_PUBLIC_GOOGLE_CMP_ENABLED === "true"/);
+
+  // The privacy page has to describe what is deployed, in both states, since it
+  // is what a reviewer reads to check the claim against the behaviour. Promising
+  // a consent message the site does not serve — or omitting one it does — is a
+  // false statement checkable in one click.
+  // Whitespace-tolerant: the copy is JSX and wraps across lines.
+  const privacy = readFileSync("src/app/[locale]/privacy/page.tsx", "utf8").replace(/\s+/g, " ");
+  assert.match(privacy, /IAB Transparency and Consent Framework/);
+  assert.match(privacy, /googleCmpEnabled \? \(/, "privacy copy must follow the deployed CMP state");
+  assert.match(privacy, /Advertising is not currently enabled/, "the pre-CMP branch must say so plainly");
+  assert.match(privacy, /reopen it at any time/, "the deployed branch must describe consent revocation");
+});
+
+/**
+ * Brand logos may not ship under a licence we are not honouring.
+ *
+ * The inventory records the Commons licence per file so this can be checked
+ * rather than assumed, and so a re-fetch that swaps a public-domain file for a
+ * licensed one fails here instead of shipping. See finding 20.
+ *
+ * The list is explicit rather than computed: adding a logo that needs
+ * attribution should be a decision someone writes down, not something that
+ * slips in because a script found a file.
+ */
+test("brand logos are public domain, or explicitly accounted for", () => {
+  const inventory = getBrandLogoInventory();
+  const slugs = Object.keys(inventory);
+  assert.ok(slugs.length > 0, "no brand logos in the inventory");
+
+  for (const [slug, logo] of Object.entries(inventory)) {
+    assert.ok(logo.licence, `${slug} has no recorded licence — rerun scripts/fetch-brand-logo-licences.mjs`);
+  }
+
+  // The six files whose CC BY-SA tags were doubtful — each the brand's own mark
+  // uploaded by someone who did not hold the rights — were removed on
+  // 2026-07-20 and now render as typographic tiles. Nothing we ship should
+  // require attribution: if this list grows, a licensed file got in.
+  assert.deepEqual(
+    logosRequiringAttribution(),
+    [],
+    "a logo now requires attribution — review it against finding 20 before shipping",
+  );
+  for (const licence of Object.values(inventory).map((logo) => logo.licence)) {
+    assert.ok(
+      ATTRIBUTION_FREE_LICENCES.has(licence ?? ""),
+      `a logo ships under "${licence}", which is not attribution-free`,
+    );
+  }
+});
+
+/** Every brand shows something designed, not bare initials on white. */
+test("every brand resolves to a logo or a tile", () => {
+  for (const brand of ALL_BRANDS) {
+    const tile = brandTile(brand.slug, brand.name);
+    assert.ok(tile.label.length > 0, `${brand.slug} produced an empty tile label`);
+    // Curated labels are hand-set and the wordmark SVG squeezes them to fit
+    // ("MAYBELLINE" is deliberate). The generator is what needs a ceiling.
+    const limit = getBrandTile(brand.slug) ? 12 : 9;
+    assert.ok(
+      tile.label.length <= limit,
+      `${brand.slug} tile label "${tile.label}" is too long to read`,
+    );
+    assert.match(tile.bg, /^#[0-9a-f]{6}$/i, `${brand.slug} tile has no usable background`);
+  }
+  // Deterministic: a brand keeps its colour between deploys.
+  const first = brandTile("cosrx", "COSRX");
+  assert.deepEqual(brandTile("cosrx", "COSRX"), first);
 });

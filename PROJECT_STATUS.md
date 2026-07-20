@@ -122,7 +122,8 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
-- `ADSENSE-APPROVAL-016`; owner: primary Codex agent; state: `In progress`;
+- `ADSENSE-APPROVAL-016`; owner: **Claude from 2026-07-20** (handed over by the
+  owner; previously primary Codex agent); state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `c681ee5`; starting
   version `1.3.0`. Scope: official-Google-only AdSense acceptance research,
   repository/live readiness matrix, consent/CMP switch controls, privacy
@@ -131,6 +132,21 @@ decision is recorded here. Version notes do not override this section silently.
   `docs/ADSENSE_READINESS.md`, `PROJECT_STATUS.md`, `src/lib/ads.ts`,
   `src/components/tracking-boundary.tsx`, `src/components/cookie-consent.tsx`,
   `src/app/[locale]/privacy/page.tsx`, monetized page components, deployment
+  Handover recorded per the concurrent-work rule: the owner reassigned this
+  claim on 2026-07-20. Codex left no in-flight edits in its intended file scope —
+  `git status` showed only `PROJECT_STATUS.md` modified — so nothing of theirs is
+  being overwritten. Their work to date stands: the readiness matrix, the
+  `NEXT_PUBLIC_GOOGLE_CMP_ENABLED` switch, the suppression of the custom banner
+  when a certified CMP is live, the English-only ad-eligibility gate and the
+  privacy disclosures.
+  Claude's starting position: of the seven blockers, five are account-side and
+  cannot be closed from this environment — certified CMP publication, consent
+  revocation, site/account connection, `ads.txt` authorization in the account,
+  Policy Center state and identity/payment eligibility. Two are repository work
+  and are what this claim now covers: the 46 public packaging/code assets with
+  unrecorded provenance, and the rendered-crawl proof that no locale leaks
+  English into a localized page. A third — production UX/CWV at real device
+  widths — needs hardware this environment does not have.
   environment templates and focused tests. Acceptance: cite current official
   Google requirements; distinguish mandatory policy from recommendations;
   prevent a custom banner from being represented as a certified TCF CMP; keep
@@ -254,6 +270,19 @@ decision is recorded here. Version notes do not override this section silently.
   default-off Compose force-recreate input for only the stateless YerelAtlas app
   service. Compose preserves its declared volumes/environment while replacing
   the oversized writable route layer; DB and Redis services are untouched.
+  Production result (`Completed`, run `29704753618`, commit `fd2e8a4`): the
+  stateless YerelAtlas app service was recreated from its existing image, which
+  removed the 52.7 GiB generated writable route layer while preserving declared
+  Compose volumes/environment. The CosmeticsBatch image then built, its release
+  candidate passed startup checks, the named-container switch and `/`,
+  `/brands/dior`, `/check` smoke checks passed, and the workflow completed
+  successfully. Live verification returned 200 for home, Dior, checker,
+  sitemap, ads.txt, privacy and Turkish/Russian Vichy; private review returned
+  the expected 302 Access redirect. English home/Dior load the publisher script;
+  sampled `tr`, `ru`, `de` and `fr` brand pages load no AdSense script or units.
+  No slot/unit is active. Known English fallback strings remain only inside the
+  merged RSC catalog payload on the Turkish sample, not as proof of visible DOM;
+  scoping client messages remains separate technical debt.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
@@ -1067,6 +1096,364 @@ decision is recorded here. Version notes do not override this section silently.
     other 17 locales remain intentionally hidden for these keys and still need
     their own native translations. The behavior was not exercised in
     production.
+  - `CLAUDE-JPG-001`; owner: Claude; state: `Completed locally — not committed`;
+    assigned by the owner 2026-07-20; starting commit `2342ed0`; scope:
+    `src/lib/decoder/{index,decoders,profiles}.ts`, `src/lib/brands.ts`,
+    `src/lib/result-failure-copy.ts`, `src/lib/decoder-guides.ts`,
+    `src/components/inline-result.tsx`. Task: act on finding 26 — Jean Paul
+    Gaultier's pre-2016 alphanumeric codes were being told they were unreadable.
+    Owner's decision, given explicitly when asked: recognise the format, do not
+    date it. The published collector scheme agreeing with five of our
+    photographs was judged not enough to put a year in front of a user.
+    What shipped: a dedicated `jean-paul-gaultier` decoder replacing the shared
+    `embedded` reader for that brand only. It still reads the Puig-era numeric
+    date exactly as before, and additionally recognises the BPI-era shape
+    `/^[A-Z]{3}\d{2}[A-Z]{1,2}$/` — returning an attempt with a null date.
+    `checkBatchCode` now treats a dateless attempt as a claim of recognition
+    rather than ignoring it, behind a fourth `DecodeFailureReason`, `recognized`.
+    No existing decoder returned a null-date attempt, so the new meaning could
+    not collide with one; this was checked before the change, not assumed.
+    Recognition never outranks the barcode guard, and it does not stop the
+    search — a later decoder that can actually date the code still wins.
+    User-facing: "We recognize this code but cannot date it yet", in English and
+    Turkish, saying plainly that we would rather tell them this than guess. The
+    result also now fires the photo-submission prompt, which it did not before —
+    a printed date beside one of these codes is the single thing that would
+    finish the format, so this is the case that most needs a photo.
+    Why a separate decoder rather than a branch in `embedded`: `embedded` is
+    shared with Zara, Rabanne, Paco Rabanne, Carolina Herrera and Nina Ricci, and
+    `DecodeContext` carries no brand, so a BPI rule added there would have
+    applied to all six. `FALLBACK_CHAIN` is empty, so a dedicated decoder is
+    reachable only from its own brand.
+    Verification: 7/7 BPI codes from owner photographs return `recognized`; 5/5
+    Puig codes decode to the same dates as before the change; `QOEC`, a
+    checksum-valid EAN and junk strings are not falsely recognised; the four
+    other `embedded` brands are unaffected in both directions. TypeScript clean;
+    quality suite 43/43 after adding the guide entry the suite's decoder-coverage
+    guard correctly demanded. No commit, push or deployment.
+    Not done, deliberately: no year is inferred. Finding 26 keeps its open
+    `needs verification` — one BPI-era item carrying both a code and a printed
+    date.
+  - `CLAUDE-DIOR-001`; owner: Claude; state: `Completed locally — not committed`;
+    assigned by the owner 2026-07-20; starting commit `2342ed0`; scope:
+    `src/lib/decoder/decoders.ts` (the `dior` decoder only). Trigger: the owner
+    showed two live check-log rows from today, `3J1P` and `4F03A1`, both Dior,
+    both `unresolved`.
+    Cause: the modern letter-month pattern was anchored as
+    `^(\d)([A-Z])(\d{1,3})$`, so any code carrying a trailing plant or line
+    marker was rejected outright even though its head was well-formed. This was
+    not two stray codes. Of the 27 Dior codes in the 2026-07-19 export, 16 decode,
+    4 are barcodes or C-references and 1 is the Paris postcode already handled —
+    but 6 (`4C2X`, `4d1x`, `5M5K` among them) failed for the marker alone. With
+    today's two that is 8 real codes lost to a `$`.
+    Confirmation: CheckFresh, a competitor, dates `3J1P` as 2023-09 and `4F03A1`
+    as 2024-06 — matching what our own year-digit and month-letter rules already
+    say (3 -> 2023, J -> September; 4 -> 2024, F -> June). We are not learning a
+    new format here, only removing an anchor that discarded codes we could
+    already read. This is the comparison use of a competitor recorded in
+    finding 32, not adoption of anyone's cipher.
+    Guard against finding 31: the marker is admitted as `(?:[A-Z]\d?)?` rather
+    than a free `[A-Z0-9]{1,3}`. Both read all 13 known-good Dior codes, but the
+    free form also reads "1A2B3C" as January 2021. Scored on the junk benchmark
+    from finding 31, the chosen shape takes 13/13 real and 0/16 junk.
+    Verification: `3J1P` -> 2023-09 and `4F03A1` -> 2024-06, matching CheckFresh;
+    the three previously rejected log codes now decode; five known-good codes are
+    bit-for-bit unchanged (`5D01`, `5G01`, `4A01`, `1K01`, `6L02`); `1A2B3C`,
+    `ZZ99`, `75008` and `ABC123` are still refused. Whole-engine permissiveness is
+    unchanged at 49/320 (15%) and `dior` specifically stays at 3/16 — the fix adds
+    real coverage without buying any of it with false positives. TypeScript clean;
+    quality suite 43/43. No commit, push or deployment.
+    Left open: `M12345` still decodes to 2012-12 through the `readEmbeddedDate`
+    fallback inside this decoder. That is pre-existing and is finding 31, not this
+    change; it is called out here so the next agent does not read the passing
+    verification above as meaning the `dior` decoder is now strict.
+  - `CLAUDE-PERMISSIVE-001`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the owner 2026-07-20; starting commit `2342ed0`;
+    scope: `src/lib/decoder/decoders.ts` (the `loreal` decoder only) and
+    `scripts/quality-regression.test.ts`. Task: finding 31, starting with the
+    worst offender.
+    Cause: the `loreal` decoder slid a window across the whole string looking for
+    any letter with a valid month character after it. This file's own comment
+    already described the failure — "MNX30W reads as M=2013/N=Nov at the front
+    and as X=2023/3=Mar further in, and nothing in the code says which is meant"
+    — but the guess was still published as a date, with a prose note beside it
+    admitting it was a guess.
+    Change: a code that does not carry the documented shape no longer receives a
+    date. It receives recognition, through the `recognized` path built earlier
+    today for Jean Paul Gaultier under `CLAUDE-JPG-001`: we say it looks like a
+    L'Oréal-group code and that we cannot place the year and month confidently.
+    The canonical branch is untouched — the only edit inside it removes a now
+    unreachable `!canonical` note and simplifies `canonical ? "high" : "medium"`
+    to `"high"`, which is the same value on that path.
+    Measured against the 2026-07-19 export and finding 31's junk benchmark:
+
+        real L'Oréal decodes    164  ->  144 dated + 20 recognized
+        loreal junk reads      10/16 ->  2/16
+        whole-engine junk      15%   ->  13%
+
+    Two of the 20 downgraded codes are already recorded as wrong: `E38Y801N`
+    (finding 22, dated 2005 and shown as expired) and `MNX30W`. The other 18 were
+    never verified against anything.
+    Deliberately not done: tightening the factory prefix from `\d{1,2}` to
+    `\d{2}` would also refuse the two junk strings that still pass
+    (`1A2B3C`, `7X8Y9Z`), but it would refuse two real export codes with it
+    (`2A100`, `4Z8K`) whose provenance nobody has checked. Two-for-two is not
+    evidence worth spending, so the residue is pinned in the test instead.
+    Locked in: two new suite tests. One pins whole-engine junk dating at a
+    ceiling of 41 and `loreal` at 2, so a hungrier decoder fails the suite rather
+    than reaching users. The other asserts that unshaped L'Oréal codes come back
+    `recognized` with a null date while `26X300` still decodes at `high`.
+    Verification: TypeScript clean; quality suite 45/45 (43 before, plus the two
+    new). No commit, push or deployment.
+    Second half, same claim, later the same day: the shared `readEmbeddedDate`
+    fallback. Its digit match was unanchored — `\d{4,6}` found anywhere in the
+    string — so any code carrying four digits somewhere got a date built from
+    them. All four callers (`dior`, `embedded`, `jean-paul-gaultier`, `chanel`)
+    reach it as their "vintage / all-digit" fallback and say so in their own
+    comments, so it now requires the whole code to be four to six digits.
+    The six-digit cap matters too: slicing the first six digits off an
+    eight-digit code was itself a guess about where the date sat.
+    This is what closes finding 29. `C03560099` and `C036400649`, Dior product
+    references printed larger and more prominently than the batch code beside
+    them, dated to 2020-12-21 and 2020-12-29 before the change and are declined
+    after it.
+    Measured: real all-digit codes are untouched (`231122`, `4135`, `24045`,
+    `509811`, `401212`, `13481`), and so is Dior's letter-month path including
+    the `3J1P` and `4F03A1` codes fixed under `CLAUDE-DIOR-001`. Whole-engine
+    junk dating falls from 49/320 to 33/320 — 15% to 10% — and the suite ceiling
+    moves with it. Across the export, 288 previously dated checks become 263;
+    every loss is either a `loreal` code downgraded by the first half of this
+    claim, one of the two Dior references above, an eight-digit code of unknown
+    provenance (`01067285`), or an EAN that the barcode guard already refuses.
+    Note for the next agent: findings 22 and 29 are both resolved by this claim
+    and should be marked so rather than reworked. What remains of finding 31 is
+    spread thinly across decoders whose formats are genuinely short — a
+    four-character code can be read off a four-character string, so lowering
+    those needs per-decoder evidence rather than another blanket rule.
+
+  - Notes for Codex, 2026-07-20, left at the owner's request:
+    a. Nine commits' worth of work is sitting uncommitted across three claims:
+       `CLAUDE-JPG-001`, `CLAUDE-DIOR-001` and `CLAUDE-PERMISSIVE-001`. All three
+       touch `src/lib/decoder/`, so they want committing in that order — the Dior
+       and L'Oréal changes both depend on the `recognized` failure reason added
+       by the JPG one, and neither compiles without it.
+    b. The `recognized` reason is a new member of `DecodeFailureReason`. Anything
+       that switches on that union exhaustively needs a branch; TypeScript
+       catches it, and it caught two during this work. `resultFailureCopy` has
+       English and Turkish only, matching the existing file — the other locales
+       fall back to English exactly as they did for the other three reasons.
+    c. The decoder-coverage guard in the suite is worth knowing about before
+       adding a decoder: registering one in `DECODERS` without a matching
+       `DECODER_GUIDES` entry fails the suite. It caught the JPG decoder here.
+    d. Do not adopt the external batch-code guides. Finding 32 records why, with
+       the measurements. The one legitimate use is scoring our output against a
+       competitor's on the same code, which is how `CLAUDE-DIOR-001` was
+       confirmed.
+    e. Open and blocked on evidence, not on effort: finding 26 needs one
+       Beauté Prestige International item photographed with a printed date beside
+       the code; finding 30 needs the physical carton behind `130711` read again.
+       Neither should be guessed at.
+
+  - `CLAUDE-CMP-001`; owner: Claude; state: `Completed locally — not committed`;
+    assigned by the owner 2026-07-20; starting commit `2342ed0`; scope:
+    `src/components/ui/adsense-loader.tsx`, `src/components/ui/ad-slot.tsx`,
+    `scripts/quality-regression.test.ts`. Task: step 2 of the AdSense
+    rejection-avoidance sequence, the code half of finding 19 risk 1.
+    Verified against production first, not against this file's labels. The live
+    home page loads the AdSense script and carries a valid `ads.txt` and a
+    publisher id, but has no `__tcfapi` and no Google funding-choices message —
+    so `adsbygoogle.js` was being served to every visitor, including in the EEA,
+    with no certified consent message anywhere. Ad units do not render because
+    slot ids are unset, which is what made this easy to mistake for harmless:
+    loading the ad script is itself the third-party processing that needs asking
+    about, with or without a unit on the page.
+    Correction to an earlier reading in this session: an initial crawl reported
+    no custom cookie banner in the HTML. That was wrong — `CookieConsent` is a
+    client component and cannot appear in server-rendered markup. The two real
+    findings, no certified CMP and no `__tcfapi`, stand.
+    Change: `AdsenseLoader` gated on `googleCmpEnabled` rather than on the
+    presence of a publisher id, and `AdSlot` given the same condition so slot ids
+    alone can never draw a unit.
+    Why the flag and not a client-side consent value, which is what the recorded
+    sequence asked for: Google's own Privacy & messaging CMP is delivered *by*
+    `adsbygoogle.js`. Putting that script behind our banner's answer would mean
+    the certified message could never be shown, so the instruction as written
+    only fits a third-party CMP. Gating on the flag gives the same protection in
+    both phases — no ad script at all before the CMP is published, and after it
+    is published the script loads server-side exactly as before while the CMP
+    owns the consent conversation. The loader also stays a server component, so
+    a reviewer still finds the ad code in the HTML.
+    Verification: TypeScript clean; quality suite 46/46 including a new test that
+    pins both gates, asserts the loader no longer gates on the publisher id
+    alone, and holds the privacy page's TCF description in place.
+    No commit, push or deployment.
+    Owner action required, and it is the actual blocker now: publish a certified
+    consent message in the AdSense account (Privacy & messaging → European
+    regulations), then set `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true` in `.env.build`
+    on the VPS. Until that happens this change means the site serves no ad script
+    — which is the correct state, but it is a deliberate step backwards in
+    appearance and should not be mistaken for a regression.
+    After it is set, verify before moving to step 5: `__tcfapi` present, a TC
+    string produced in an EEA session, ad requests differing between accept and
+    reject, and the custom `CookieConsent` banner suppressing itself as
+    `TrackingBoundary` already provides for.
+
+  - `CLAUDE-LOGO-001`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the owner 2026-07-20; starting
+    commit `2342ed0`; scope: `scripts/fetch-brand-logo-licences.mjs` (new),
+    `src/lib/wikidata-brand-logos.json`, `src/lib/brand-logos.ts`,
+    `scripts/quality-regression.test.ts`. Task: finding 20, step 3 of the AdSense
+    sequence.
+    Done: every logo now records its Commons licence, licence id, uploader-stated
+    author and source, and Commons' own `AttributionRequired` flag, fetched from
+    the Commons API rather than inferred. 65 of 71 are `Public domain`, 5 are
+    `CC BY-SA 4.0`, 1 is `Copyrighted free use`. A suite test pins the list of
+    non-public-domain files, so a re-fetch that swaps a public-domain logo for a
+    licensed one fails the build instead of shipping.
+    Found while doing it, and it changes the fix: four of the six files are the
+    brand's own mark with the brand's own site as the stated source — `escada`
+    credited to "ESCADA press department", `kylie-cosmetics` to
+    `www.kyliecosmetics.com`, `max-factor` to `maxfactor.com`, `kerastase` to a
+    direct URL on `kerastase.ru`. An uploader who is not the rights holder cannot
+    place a third party's logo under CC BY-SA, so those licence tags are
+    doubtful. Adding the credit line those licences ask for would assert a
+    licence chain we cannot stand behind, which is worse than the omission.
+    Not a legal opinion. The practical reading is that our basis for showing a
+    brand's mark is referential use of a trademark to identify the actual
+    product, which needs no licence, and that the 65 `PD-textlogo` files are
+    genuinely unencumbered because they sit below the threshold of originality.
+    Owner's decision, 2026-07-20: remove the six and give every brand a tile.
+    Done. The six entries are gone from the inventory and the six files deleted
+    from `public/brand-logos/`, leaving 65 logos, all `Public domain`, and
+    `logosRequiringAttribution()` returning empty.
+    Tiles are now generated rather than enumerated. `brandTile(slug, name)`
+    returns the curated `BRAND_TILES` entry where one exists and derives one
+    otherwise: a label from the brand name — kept whole when it fits, initials
+    when it does not — and a background chosen from a ten-colour palette by a
+    stable hash of the slug, so a brand keeps its colour between deploys. The
+    palette is dark enough for white text and muted enough that a directory of
+    them reads as a grid rather than a colour chart.
+    That removes the bare-initials-on-white branch from `BrandLogo` entirely.
+    Coverage went from 63 logos + 20 tiles + 123 brands showing nothing designed,
+    to 63 logos + 149 tiles, every brand covered.
+    Label derivation is Unicode-aware. An ASCII-only strip turned "Clé de Peau
+    Beauté" into words with holes in them; a tile reading "BEAUT " is worse than
+    no tile.
+    Declined, with reasons, and the owner accepted: sourcing licensed logos for
+    the remaining brands. There is no licensed logo for a commercial brand in the
+    sense meant — the Commons CC BY-SA tags are the doubtful artefact found
+    above, and repeating the exercise across 141 more brands would multiply the
+    exposure immediately before a policy review. Our own typography is the same
+    visual outcome at no risk.
+    Two existing assertions moved, both deliberately and both recorded here so
+    the movement is not mistaken for drift. The logo-coverage floor went from 70
+    to 65, because six were withdrawn on purpose and that check exists to catch a
+    fetch silently losing files. The tile-label ceiling is 9 for generated labels
+    and 12 for curated ones, because the curated set includes hand-set labels
+    like "MAYBELLINE" that the wordmark SVG squeezes to fit.
+    Verification: TypeScript clean; quality suite 48/48, including a new test
+    that every brand resolves to a label and a background, that the generator is
+    deterministic, and that nothing in the inventory ships under a licence
+    requiring attribution.
+    Not yet done: the six removed brands have not been looked at in a browser, so
+    the tiles are verified by their values rather than by their appearance.
+
+  - `CLAUDE-PERIOD-001`; owner: Claude; state: `Completed locally — not
+    committed`; assigned by the owner 2026-07-20; starting commit `2342ed0`;
+    scope: `src/lib/review-metrics.ts`, `src/app/[locale]/review/page.tsx`.
+    Task: today / yesterday / 7 / 14 / 30-day views on the review dashboard.
+    Shape: one selected window drives the whole page. Before this the tiles were
+    pinned to seven days and the reports to `REPORT_DAYS` (30), so the two halves
+    of the screen described different spans of time without saying so; the tables
+    now read the same window as the tiles above them.
+    The two calendar periods are calendar days in `REPORT_TIME_ZONE`, not rolling
+    24-hour spans, so "today" agrees with the last column of the daily chart
+    beside it. `startOfReportDay` derives the zone offset through `Intl` rather
+    than assuming +03:00. Verified at the boundary: a row at 23:59 Istanbul lands
+    in yesterday, one at 00:01 lands in today, matching `reportDay`.
+    One correctness fix found while testing rather than after shipping. "Today"
+    is a partial window, and comparing it against the equally long stretch ending
+    at midnight measured this morning against yesterday *evening* — traffic has a
+    daily rhythm, so that difference reads as a trend when it is only the time of
+    day. The calendar periods now compare against the same clock hours a day
+    earlier, which needed an upper bound on the comparison window; `trend` gained
+    an optional `previousEnd` that defaults to the old behaviour, so the rolling
+    periods are unchanged.
+    The period travels in the URL and is carried by the tab links and by
+    `keepFilters`, so switching tab or filter does not silently reset it, and a
+    window can be bookmarked or sent to someone.
+    Verification: TypeScript clean; quality suite 47/47. Window bounds and the
+    same-clock comparison checked against fixed timestamps. Not yet rendered in a
+    browser — the dashboard needs the `CF_ACCESS_*` environment to serve, so a
+    visual pass is still outstanding.
+
+  - Deploy handoff, 2026-07-20, Claude to Codex. Seven claims are ready in the
+    working tree and none is committed: `CLAUDE-JPG-001`, `CLAUDE-DIOR-001`,
+    `CLAUDE-PERMISSIVE-001`, `CLAUDE-CMP-001`, `CLAUDE-LOGO-001`,
+    `CLAUDE-PERIOD-001`, plus the finding records. 23 modified files and one new
+    script, `scripts/fetch-brand-logo-licences.mjs`.
+    Local gate before handoff: `next build` succeeds, TypeScript clean, ESLint
+    clean, quality suite 48/48.
+
+    **Ordering hazard — read before deploying.** `CLAUDE-CMP-001` moved the
+    AdSense loader from "render whenever a publisher id exists" to "render only
+    when `NEXT_PUBLIC_GOOGLE_CMP_ENABLED` is true". Production currently serves
+    `adsbygoogle.js`; deploying this build without that variable set removes the
+    ad script from the site entirely. The variable belongs in `.env.build` on the
+    VPS and has to land with this deploy, not after it.
+    The owner published the certified consent message in the AdSense account on
+    2026-07-20, so the account side is ready and the flag can be set.
+
+    Commit order matters as much: `CLAUDE-JPG-001` first, because the Dior and
+    L'Oréal decoder work both depend on the `recognized` failure reason it adds
+    and neither compiles without it.
+
+    Post-deploy verification, all of it still outstanding and none of it possible
+    from this machine:
+      - `__tcfapi` present, and a TC string produced in an EEA session. A raw
+        HTML fetch cannot answer this — the CMP is injected at runtime by
+        `adsbygoogle.js` — and a request from Turkey is out of scope for the
+        message, so it needs a browser on an EEA connection.
+      - ad requests differing between accept and reject
+      - the custom `CookieConsent` banner suppressing itself, which
+        `TrackingBoundary` already provides for once the flag is true
+      - the review dashboard's new period selector rendered in a browser; it
+        needs `CF_ACCESS_*` to serve, so it has only been verified by its values
+      - the six brands whose logos were withdrawn now showing a tile:
+        escada, innisfree, kerastase, kylie-cosmetics, max-factor,
+        roberto-cavalli
+
+  - Packaging-image work, paused by the owner 2026-07-20. The owner will review
+    the 46 assets and supply replacement photographs they took themselves, then
+    the policy becomes one or two images per brand rather than three. No agent
+    should start editing `data/evidence-inventory.json` or deleting assets until
+    that review lands — the owner is doing it by hand and a concurrent pass would
+    collide.
+    Measured before the pause, so the review has numbers to work from:
+
+        46 assets across 17 brands
+        35 on monetized brand pages (13 brands)
+        11 on brands that are neither indexed nor monetized —
+           acqua-di-parma, aesop, anua, shiseido
+
+    Those 11 are the clear case: they carry the same provenance exposure as the
+    rest and return neither ad revenue nor search visibility. Deleting them is
+    pure subtraction of risk and needs no photography to replace.
+    Selection criterion worth keeping when the owner trims the other 13 brands to
+    two each: keep any frame showing a batch code *and* a printed date on the
+    same face. Those are what settled findings 27 and 34 — they are simultaneously
+    the most useful image for a reader and our own verification ground.
+    Status against the readiness doc: "Original/licensed media" stays a listed
+    blocker while this is paused. Judged proportionately rather than treated as
+    fatal — a reviewer is unlikely to reverse-search 46 packaging photographs, so
+    the realistic exposure is a later complaint rather than a rejection. It
+    should not hold the application, and it should not be forgotten either.
+    Known bad input: at least one image supplied during the 2026-07-20 session
+    was an eBay listing photograph — "ebay" is visible in the frame of the YSL
+    All Hours shot — so the set demonstrably mixes owner photography with
+    third-party listings. That is the whole reason the inventory records
+    `sourceType` at all.
+
   - Coordination rule: before starting another task, each agent must read active
     claims and write a proposed next work item with file scope here. If the scope
     overlaps, the agent must redirect the other agent to a disjoint roadmap item
@@ -1162,8 +1549,15 @@ decision is recorded here. Version notes do not override this section silently.
    no-account, IP-exclusion and limited-retention wording. To remove the P0
    immediately, the 18 non-English catalogs temporarily use reviewed English
    copy for these four fields; native-language editorial replacement remains P1.
-4. P1 English copy replaced localized privacy text (`Next`; regression from
-   commit `40c9789`): making the privacy claims truthful overwrote translated
+4. P1 English copy replaced localized privacy text
+   (`Resolved — verified 2026-07-20 by Claude, label was stale`; regression
+   from commit `40c9789`). Re-measured with the same method that settled it
+   originally, counting distinct values per field across the 19 active
+   locales: `brandFaq.a_free`, `homeFaq.a2` and `homeFaq.a10` each now carry
+   18 distinct values and no locale holds the English string. The entry
+   below describes the regression as it was found; it no longer describes
+   the tree. This clears step 4 of the AdSense sequence.
+   Original report: making the privacy claims truthful overwrote translated
    copy with English across every non-English catalog. `messages/ru.json` went
    from "Коды расшифровываются в частном порядке. Ваша конфиденциальность
    превыше всего." to "Our Privacy Policy explains what is processed, recorded
@@ -1567,7 +1961,10 @@ priority above controls execution; the list below defines scope and guardrails.
     policy notices, prior rejections) is visible from this environment, so this
     entry describes site-side exposure only.
 
-20. P2 brand logo licence provenance is not recorded (`Next`): 71 brand logos
+20. P2 brand logo licence provenance is not recorded
+    (`Completed locally — not committed` under `CLAUDE-LOGO-001`; licences
+    recorded, the six doubtful files withdrawn, every brand now on a logo we
+    can show is public domain or a tile of our own): 71 brand logos
     ship under `public/brand-logos/` and `src/lib/wikidata-brand-logos.json`
     records `src`, Wikidata `qid`, `commonsFile` and `domainVerified` for each.
     It does not record the licence. Wikimedia Commons logo files are a mix —
@@ -1725,7 +2122,9 @@ entries).
     split would be worth having before anyone edits.
 
 22. P1 the L'Oréal decoder prefers the first readable letter over the plausible
-    one (`Next`; live in production). Seen in the owner dashboard's check log on
+    one (`Completed locally — not committed` under `CLAUDE-PERMISSIVE-001`:
+    `E38Y801N` does not carry the documented shape, so it now returns
+    `recognized` instead of a dated, expired verdict). Seen in the owner dashboard's check log on
     2026-07-19: a real user in Indonesia checked L'Oréal Paris `E38Y801N` and
     was told **2005-03-15, expired** — a product 21 years old.
 
@@ -1796,6 +2195,534 @@ entries).
     `needs verification`: SKIN1004's real format. A photo showing a SKIN1004
     code beside a printed date would settle it, the same way one Dior carton
     settled the Dior wheel in finding 21.
+
+24. P1 the guides index was English in every locale (`Completed locally` under
+    `ADSENSE-APPROVAL-016`; not committed). Found by the rendered crawl the
+    AdSense readiness matrix calls for — 108 pages, 18 locales × 6 paths, live.
+
+    `/[locale]/guides` rendered the raw `GUIDES` array: card titles, card
+    descriptions, the `h1`, the breadcrumb and "N min read" were all hardcoded
+    English on every localized URL. The translations already existed — the same
+    guides render correctly on `/[locale]/guides/[slug]` and on brand pages, both
+    of which call `localizeGuide`, and `/decoders` was already doing it properly.
+    The index was simply skipped.
+
+    Fixed by following the `/decoders` pattern: `contentTranslator` +
+    `localizeGuide` for the cards, `nav.guides` for the heading and breadcrumb,
+    `contentPages.minRead` for the read time. Verified live-equivalent locally —
+    `/tr/guides` now reads "Kılavuzlar" / "Batch kodu Nedir?", `/ru/guides`
+    "Гиды" / "Что такое батч-код?", `/fr/guides` "Qu'est-ce qu'un code de lot ?".
+    French keeps "Guides" as its heading because that is the French word, not a
+    fallback. 68/68 tests, TypeScript and ESLint clean.
+
+    Left English deliberately, and recorded rather than invented: the page
+    subtitle and the `pageMeta` title/description. Localizing them needs two new
+    `contentPages` keys in 19 catalogs, and only `en` and `tr` have a speaker who
+    can vouch. Adding them for two locales only would leave the other 17 falling
+    back to English, which is the behaviour they already have — no regression
+    either way, so it waits for a translator rather than being guessed.
+
+25. P2 `brandPage.freshnessPara` is untranslated in `fr` and `pl` (`Next`). The
+    string is byte-identical to English in exactly those two catalogs, so a
+    French or Polish brand page prints "Once we read the manufacture date, we
+    estimate freshness using ... typical ... shelf life for ..." mid-page. Found
+    by comparing every long string against its English counterpart across all 18
+    non-English catalogs: this is the only key affected, so the exposure is one
+    sentence on two languages' brand pages rather than a systemic gap. Needs a
+    French and a Polish speaker; not guessed here.
+
+26. P1 Jean Paul Gaultier has a second code format we do not read
+    (`Completed locally — not committed` under `CLAUDE-JPG-001`;
+    found while auditing the packaging-evidence inventory under
+    `ADSENSE-APPROVAL-016`). JPG is the site's worst decoder by volume — 49
+    checks in the 2026-07-19 export, 35 of them returning nothing, and 11 more
+    rows in the failed-code queue.
+
+    The evidence was already in the repository. `public/brands/examples/
+    jean-paul-gaultier-1.jpg` is our own verified example photo, published on
+    the brand page under "where to find the batch code", and the code visible on
+    that bottle base is `FAK08 X`. Running it through our own decoder returns
+    nothing:
+
+        FAK08 X    -> none        (our own published example)
+        FAK08X     -> none
+        TCR15X     -> none        (real user, 2026-07-19)
+        TCR 15 X   -> none
+        52911      -> 2025-10-18  medium
+        60021      -> 2026-01-02  medium
+
+    So JPG uses at least two schemes: a numeric one the `embedded` decoder
+    reads, and an alphanumeric one — three letters, two digits, a separated
+    trailing letter — that it does not. The users typing `TCR15X` and
+    `SJP 041 COL K01` were almost certainly holding valid codes in the second
+    format; the site told them their code could not be read.
+
+    We are pointing at a code in a photograph and then failing to read it. That
+    is worth fixing ahead of most of the dashboard backlog.
+
+    Confirmed 2026-07-20 with five owner-supplied photographs of real JPG
+    packaging. Every numeric code reads; every alphanumeric one fails:
+
+        509811     -> 2025-04-08  medium   Le Male 100ml can base, clearly stamped
+        401212     -> 2024-01-12  medium   can base, Japanese-market label
+        13481      -> 2021-12-14  medium   Le Male 125ml bottle side
+        52911      -> 2025-10-18  medium   real user, succeeded
+        DGV 19TP   -> none                 Les Éditions Originales coffret
+        FAK08 X    -> none                 our own published example photo
+        TCR15X     -> none                 real user, failed
+
+    So JPG stamps at least two schemes and the `embedded` decoder implements
+    only the numeric one. Three independent alphanumeric samples now — a
+    coffret, a bottle base and a user's code — share the shape "letters, two
+    digits, a separated trailing letter". The users typing `TCR15X` and
+    `SJP 041 COL K01` were not mistyping; they were holding the format we do not
+    read, and the site told them their code was unreadable.
+    I wrote here on 2026-07-19 that "all five cartons are Antonio Puig, S.A.
+    (Barcelona) product, so this is not an old-versus-new manufacturer split."
+    That was wrong, and it was wrong because five photographs happened to be
+    Puig-era. Seven more arrived on 2026-07-20 and the split is exactly a
+    manufacturer split — it is legible from the company name printed on the
+    packaging:
+
+        Beauté Prestige International   HLL05 V, KUU14 X, MWH10 S, QUF03CH,
+                                        QOEC, FAK08 X, DGV 19TP, TCR15X   8/8 fail
+        Antonio Puig, S.A. Barcelona    509811, 401212, 130711, 13481,
+                                        52911                             5/5 read
+
+    Thirteen samples, no overlap in either direction. The `embedded` decoder
+    implements the Puig numeric scheme only, so every BPI-era item is turned
+    away. That is an era of the brand's output rather than an edge case, and it
+    accounts for the 71% no-read rate on its own.
+
+    Seven of the eight alphanumeric codes share one shape: three letters, two
+    digits, then a separated trailing letter or pair (`HLL05 V`, `KUU14 X`,
+    `MWH10 S`, `FAK08 X`, `QUF03CH`, `TCR15X`, `DGV 19TP`). `QOEC` is the
+    exception and sits on a gift-set carton, so it may be a set reference rather
+    than a batch code — compare finding 29, where a product reference on a Chanel
+    box decoded as a date.
+
+    `needs verification`: what the alphanumeric encodes. None of the twelve
+    photographs puts a printed date beside an alphanumeric code, and the two
+    digits fit a year, a week or a day equally well — the observed values are
+    03, 05, 08, 10, 14, 15, 19. Guessing from shape alone is how findings 21 and
+    22 happened. One BPI-era item carrying both a code and a printed date would
+    settle it, the way one Vichy carton settled finding 27.
+
+    Shippable without that answer: recognise the shape and say so. "This is an
+    older Jean Paul Gaultier code and we cannot date it yet" tells the user their
+    code was real, which "unreadable" does not, and gives us a place to ask for
+    the photograph that would close this out.
+
+    A candidate rule, later the same day. raidersofthelostscent.blog publishes a
+    JPG dating guide claiming the first letter is the fill year, valid only while
+    the packaging carries the 75116 Paris address, with G and I unused:
+
+        D 1998  E 1999  F 2000  H 2001  J 2002  K 2003  L 2004
+        M 2005  N 2006  P 2007  Q 2008  R 2009  S 2010  T 2011
+        U 2012  V 2013   ("and so on" — the table stops here)
+
+    It also dates the addresses themselves: BPI 75008 Avenue Matignon 1993-1997,
+    BPI 75116 Avenue Victor Hugo 1998-2015, Antonio Puig Barcelona 2016 onwards.
+
+    That last part makes the claim testable against our own photographs, because
+    every one of them shows an address. It holds five times with no contradiction:
+
+        FAK08 X    B.P.I. 75116 Paris             F -> 2000   in-range
+        HLL05 V    B.P.I. 75116 Paris             H -> 2001   in-range
+        QUF03CH    28/32 Av. Victor Hugo 75116    Q -> 2008   in-range
+        QOEC       75116 + "© BPI 2007" printed   Q -> 2008   copyright 2007 <= fill 2008
+        KUU14 X    18 Av. Matignon 75008          table does not apply to 75008
+
+    The `QOEC` line is the strongest: an independently printed year on the same
+    carton, one below the decoded year, which is what a copyright date should be.
+    The `KUU14 X` line matters as much in the other direction — applying the table
+    anyway would have returned 2003 for a carton whose address was retired in
+    1997, so the rule declines exactly where it should. `FAK08 X` is our own
+    published example asset, so this also closes the embarrassment of failing to
+    read the code in our own instructional photograph.
+
+    Still not enough to ship as a decoder:
+      - one external source, five confirmations, all from a single owner's shelf
+      - the table stops at V/2013 and BPI ran to 2015, so U/V and whatever
+        follows are unverified at the boundary
+      - characters after the first letter are unexplained everywhere, so this
+        yields a year and nothing finer, against `medium` month precision on the
+        Puig side
+      - the pre-1998 75008 era stays unreadable, and the same source calls
+        1993-1999 codes "erratic" and "not so reliable"
+
+    A year-only answer is still worth shipping if it is labelled as one. It turns
+    the largest no-read population on the site into "made in 2008" instead of
+    "unreadable", and `low` confidence already exists for exactly this.
+    `needs verification`: two or three BPI-era items from outside this collection,
+    ideally with a printed date or a known purchase year, before any of it is
+    wired into `src/lib/decoder`. If we ship it, credit the source.
+
+27. Evidence: a second decoder validation, from our own asset library
+    (supports finding 21). `public/brands/examples/vichy-1.jpg` is an annotated
+    instructional photo showing both a batch code and a printed date:
+    `54YN00 11-2027`.
+
+        decoder manufacture : 2024-11-15   (high confidence)
+        recorded shelf life : 36 months
+        our predicted date  : 2027-11
+        printed on the box  : 11-2027      exact match
+
+    Paired with the Dior carton in finding 21 this stops being one anecdote and
+    becomes a mechanism. The L'Oréal decoder is right, and 36 months is right
+    for a skincare-classified brand. The Dior foundation carton showed the same
+    decoder right and the shelf life wrong — 60 months applied to a product the
+    maker dates at about 35. The difference is not the decoder, it is that
+    `shelfLifeMonths` is a brand constant applied to a product category, exactly
+    as finding 21 argued. Finding 21's `needs verification` — "one carton, one
+    brand" — is now partly closed: two brands, opposite outcomes, same cause.
+
+28. P3 packaging-evidence inventory has a schema but no data (`Next`). Codex's
+    `data/evidence-inventory.json` holds all 46 `CODE_IMAGES` records with the
+    right fields — `sourceType`, `sourceReference`, `permissionStatus`,
+    `privacyReview`, `decoderRelevance`, `reviewedByRole` — every one set to
+    `needs-verification`. 35 of the 46 sit on monetized brand pages, which is
+    why the AdSense readiness matrix calls this a blocker.
+    Source and permission are owner knowledge and cannot be derived from the
+    repository. What was checked here: a sample of three images across brands
+    (`chanel-1`, `vichy-1`, `jean-paul-gaultier-1`) is clean product
+    photography — no faces, hands, receipts, addresses or reflections. The
+    printed manufacturer contact details visible on the Vichy carton are the
+    maker's own public information, not personal data. This is a sample, not a
+    clearance of all 46; the remaining 43 still need looking at before
+    `privacyReview` can be set.
+    Also noted: `Brand["codeImages"]` carries only `src`, `width` and `height` —
+    there is no field for alt text, source or licence, so provenance has nowhere
+    to live in the code even once it is known. The gallery generates a single
+    generic alt string for every image.
+
+29. P1 a printed product reference decodes as a date
+    (`Completed locally — not committed` under `CLAUDE-PERMISSIVE-001`: the
+    anchored `readEmbeddedDate` now declines `C03560099` and `C036400649`).
+    Found while
+    reading our own example photo `public/brands/examples/chanel-1.jpg`, which
+    shows three numbers on a Chanel carton side: the EAN barcode
+    `3145891071900`, a large printed `107.190`, and a small etched `2702`.
+    `107.190` is the product reference — it is the barcode's own digits
+    reformatted — and `2702` is the batch code.
+
+        3145891071900  -> rejected as `barcode`   correct
+        107.190        -> 2021-03-12  low         not a batch code at all
+        2702           -> 2026-04-15  low         the real code
+
+    The barcode guard works. The product reference has no guard: the decoder
+    finds six digits and reads them as a date. It is the most prominent number
+    on that face of the box — larger and higher-contrast than the etched batch
+    code — so a user is more likely to type it than the code we actually want,
+    and gets a plausible-looking date for a number that encodes nothing.
+
+    This is the same failure shape as finding 22: the decoder answers where it
+    should decline. It differs in that the input is not a mistyped code but a
+    different number entirely, printed by the manufacturer beside the right one.
+
+    Fix direction: the barcode checksum guard already proves the pattern works.
+    A reference like `107.190` is recognisable — it is the EAN's trailing digits
+    with separators — so a check against the product's own barcode, or simply
+    declining a dotted six-digit group for a brand whose scheme is four digits,
+    would close it. Chanel's documented code is four digits; accepting six is
+    the decoder being more permissive than the format warrants.
+    Current exposure, measured rather than assumed: none. All 47 Chanel checks
+    in the 2026-07-19 export are four digits, plus one 13-digit entry that the
+    barcode guard correctly refused. Nobody has typed the product reference yet.
+    This is a latent defect, not an active harm — worth fixing because the
+    misreadable number is the prominent one on the box, but it does not compete
+    with findings 21, 22 or 26 for priority.
+
+30. P2 a Puig code decodes to before its own packaging (`Needs verification`).
+    `130711`, read off a perfumed body lotion carton in the 2026-07-20 batch,
+    returns 2013-07-11. The same carton reads `MADE IN SPAIN - ©2017`. A design
+    copyright of 2017 cannot appear on a carton filled in 2013, so either the
+    reading is wrong or the six-digit path mis-seats the same way finding 22
+    does.
+    `needs verification`: the code sits small and low-contrast in the lower
+    corner of the photograph and the leading `1` could be a stray mark or a `l`
+    — confirm the digits against the physical carton before calling this a
+    decoder defect. If they hold it belongs with findings 22 and 29 rather than
+    standing alone.
+
+31. P0 our decoders answer when they should decline, and it is measurable
+    (`Completed locally — not committed` under `CLAUDE-PERMISSIVE-001`; junk
+    dating 15% -> 10%, with the residue pinned by a suite ceiling).
+    Found while testing whether an existing group decoder could cover a brand we
+    do not yet carry. Feeding sixteen strings that are certainly not batch codes
+    ("ABC123", "HELLO1", "000000", "TEST01" …) through all twenty decoders:
+
+        320 attempts -> 49 returned a manufacture date (15%)
+
+        loreal          10 / 16   63%
+        interparfums     4 / 16
+        pg, kenvue, unilever, coty, chanel, dior,
+        naos, shiseido, embedded, jean-paul-gaultier   3 / 16 each
+        julian           2 / 16
+        kbeauty, rohto, deciem                         1 / 16 each
+
+    `loreal` is the worst and also the most exposed: it is assigned to roughly 45
+    of our 212 brands, more than any other decoder. A user who picks the wrong
+    brand from the dropdown — or types a product reference instead of a batch
+    code — gets a confident date rather than "we cannot read this".
+
+    This is the shared root of findings 22, 29 and 30. Each was reported as a
+    single bad code; they are one defect seen three times. The corroborating
+    evidence is sharper still: a published Bvlgari code, `A31517B3`, is read by
+    *five* unrelated decoders (dior, shiseido, coty, embedded and, differently,
+    loreal) and four of them agree on 2023-05. Agreement between decoders that
+    share no cipher is not confirmation, it is proof that all of them are
+    pattern-matching loose digits.
+
+    Fix direction: decoders should require the code to match the manufacturer's
+    documented shape before extracting anything, rather than scanning for the
+    first digit run that can be bent into a date. The barcode guard in
+    `checkBatchCode` already shows the house style — reject on structure first.
+    A regression test built from this junk list belongs with the fix, so the
+    permissive behaviour cannot come back.
+
+32. P2 external batch-code guides are not safe to adopt, and we now know why
+    (`Recorded`).
+    Requested on 2026-07-20: study raidersofthelostscent.blog to verify the
+    brands we carry and to prepare the ones we do not. Two guides read in full.
+
+    Hermès. The author states plainly: "This scheme is not certified by anyone;
+    it is only the work of a genuine fragrance lover." Its 2000-onwards table
+    uses a single year digit, so 0 is both 2000 and 2010 and 3 is both 2003 and
+    2013 — the exact ambiguity behind finding 22 — and it stops at 2013, which
+    is a decade short of the current production our users actually hold.
+
+    Bvlgari. The pre-2010 rule reads `151` as November 2005 by taking the outer
+    digits as the month and the middle as the year. It is self-consistent across
+    the three published examples, but an interleaved M-Y-M encoding with no
+    manufacturer source behind it reads like a pattern fitted to samples, and it
+    carries the same single-digit-year ambiguity.
+
+    Neither is shippable. Adopting them would multiply finding 31 across new
+    brands, which is the opposite of what a checker is for.
+
+    What the study did produce: finding 31, and the measurement behind it. The
+    guides earn their place as an adversarial test set — codes with an
+    independently published date that our decoders can be scored against — not
+    as a source to import. That is the use to keep.
+    `needs verification`: whether any brand we lack can instead be covered by a
+    group decoder we already trust (Rochas and Guy Laroche to Inter Parfums,
+    Serge Lutens to Shiseido, Bvlgari to LVMH are the plausible ones). The test
+    above says do not assume it: every existing decoder that "read" a Bvlgari or
+    Hermès sample got the year wrong. Ownership is a lead, not a format.
+
+33. P3 a zero sitting where a L'Oréal month letter belongs (`Hypothesis — not
+    implemented`). Raised by the owner asking for a YSL decoder. YSL Beauty is a
+    L'Oréal house and already runs on the shared decoder; of its seven codes in
+    the export, five decode and one, `38y01y9`, does not.
+    The observation: a L'Oréal month is 1-9 or O/N/D, so a `0` in that position is
+    never valid. Across the 123 distinct L'Oréal codes in the export, nine
+    non-canonical codes hold a `0` exactly there — `40X02R1`, `23X00YE`,
+    `40Z001`, `38Y01Y9`, `54X000`, `44Y001`, `2A001`, `26A001`, `26A026` — and
+    reading it as the letter O (October) makes all nine canonical.
+    Why it is recorded and not built: this is the second time this question has
+    been opened. A related claim, that O/0 confusion was a homoglyph bug, was
+    made and then retracted earlier in this project precisely because `O` already
+    means October, so a blanket 0-to-O mapping in `canonicalCode` would corrupt
+    real digits. A position-specific reading is a different proposal and is not
+    refuted by that retraction, but nine codes with no verified date behind any of
+    them is a pattern, not evidence.
+    `needs verification`: two or three of those nine products photographed with a
+    printed date, or with a purchase year the owner can vouch for. If October
+    holds, this is a real decode. If it does not, we have re-run a retracted claim
+    on a larger sample and should stop asking.
+    Until then these nine come back `recognized` under `CLAUDE-PERMISSIVE-001`,
+    which is the correct answer for a code whose shape we can see and whose date
+    we cannot justify.
+
+34. P1 finding 21 is now proven, with the brand's own printed dates
+    (`Needs a fix — evidence complete`). The owner photographed four Yves Saint
+    Laurent items on 2026-07-20, three of which carry the batch code and a
+    printed expiry on the same face:
+
+        (L)40NN00   we read 2014-11   EXP 11/18   48 months   B20 Ivory
+        (L)40W100   we read 2022-01   EXP 01/25   36 months   All Hours BD40
+        (L)40X710   we read 2023-07   EXP 07/25   24 months   All Hours DN5
+        (L)40XN01   we read 2023-11   EXP 11/25   24 months   All Hours DW6
+         40U803     we read 2021-08   no EXP visible          All Hours MN4
+         38WN01A    we read 2022-11   no EXP visible          Libre Le Parfum
+
+    A fourth item arrived after the first three and changed the reading. The
+    spread does not track the product, it tracks the production year:
+
+        2014 -> 48 months     2022 -> 36 months     2023 -> 24 months
+
+    BD40, DN5 and DW6 are all All Hours foundation. BD40 is a 2022 fill and
+    carries 36 months; DN5 and DW6 are 2023 fills and both carry 24. Same
+    product line, different year, different labelled life — so this is not a
+    per-product figure we are missing, it is a figure that changed.
+
+    Two conclusions, and the second is the one that matters.
+
+    The L'Oréal year-letter table is confirmed, twice over. Every gap to the
+    printed expiry is an exact multiple of twelve months, which a decoder reading
+    the wrong letter would not produce — misread letters give gaps like 29 or 41.
+    Stronger still, `40X710` and `40XN01` share the year letter X but not the
+    month, July against November, and both land on exactly 24 months. Two codes
+    with the same letter agreeing to the month is internal consistency the
+    decoder could not fake. This is the independent validation finding 27 asked
+    for, on the decoder that carries more brands than any other.
+
+    Shelf life is not a brand constant, we are wrong in the dangerous direction,
+    and we are wrong on exactly the stock most people are holding.
+    `ysl-beauty` carries `shelfLifeMonths: 36` for everything it sells. Current
+    YSL production prints 24. For DN5 we would tell a user the foundation is good
+    until 2026-07 when YSL printed 2025-07 on the bottle — a product called fine a
+    year after its own manufacturer declared it finished, and the same for DW6.
+    The 2014 item errs the other way and only costs a year of usable life.
+    That the error falls on the newest fills is what makes this P1 rather than a
+    tidy-up: a checker that is most wrong about the freshest stock is wrong about
+    the majority of what it is asked.
+
+    This closes the evidence question in finding 21 — that entry proposed the
+    same cause from a single Dior carton and could not rule out a decoder fault.
+    It can now: the decoder is right and the shelf-life constant is wrong.
+
+    Fix direction: `shelfLifeMonths` has to stop being a brand-level number.
+    The honest intermediate step, and the cheap one, is to stop presenting a
+    computed expiry as fact when we have no product-level figure — say the
+    typical range for the category and point the user at the printed date on
+    their own pack, which these photographs show is usually right there beside
+    the code. A per-product table is the real fix and needs a data source we do
+    not yet have.
+    `needs verification`: nothing for the finding itself — four printed dates
+    against four decoded ones settle it. What is not settled is the shape of the
+    fix. Three production years with 1, 1 and 2 samples is enough to prove the
+    brand constant wrong and not enough to replace it with a year-indexed table.
+    The 2023 figure is the sound one, holding across two items; 2014 and 2022 are
+    single points. Before shipping any default, check whether the same decline
+    appears on a second L'Oréal brand — Lancôme or Vichy — which would separate a
+    YSL labelling change from a group-wide one.
+
+35. P3 YSL has a third era, and its packaging references sit next to the code
+    (`Partly completed locally — not committed` under `CLAUDE-PERMISSIVE-001`).
+    The same 2026-07-20 photograph set includes vintage Yves Saint Laurent
+    Parfums stock — the Neuilly Cedex and "Parfums Corp, Paris / New York"
+    branding that predates the L'Oréal-era packaging. Those carry codes we do not
+    read: `7CAA` (`unresolved`) and `Z5 178` (`recognized`, correctly, since it
+    satisfies the L'Oréal shape without being placeable). So YSL splits by era
+    the way Jean Paul Gaultier does in finding 26, and the modern half is the
+    half we handle.
+    Not worth a decoder on this evidence: two codes, no printed dates, and the
+    audience for vintage YSL is collectors rather than the people checking
+    whether their foundation is still good.
+    What did need fixing: those cartons print `EMB 60350`, a French packager
+    registration, in the address block within a centimetre of the batch code. It
+    is the more official-looking of the two, and `EMB60350` happens to satisfy
+    the L'Oréal letter-then-month shape, so before `CLAUDE-PERMISSIVE-001` it
+    decoded to a date — the same failure shape as finding 29. After that change
+    it came back `recognized`, which is better but still told the user it looked
+    like a L'Oréal code when it is an address line.
+    Now handled by `addressLookalikeHint`, alongside the Paris postcode rule that
+    was already there for the same reason: an `EMB` followed by digits gets told
+    what it actually is and where to look instead. Verified on `EMB 60350`,
+    `EMB60350` and lowercase input; `40W100`, a bare `EMB` and a bare `60350` are
+    untouched. The other references on these cartons (`05015`, `50158`, `60350`)
+    already returned no date, and the EAN is caught by the barcode guard.
+
+36. P2 the guides section earns impressions and no clicks at all
+    (`Next`). From the Search Console export the owner supplied on 2026-07-20,
+    covering the site's whole indexed surface: 464 URLs, 4,801 impressions, 96
+    clicks.
+
+        section          impressions  clicks     CTR
+        brands  active          2448      55   2.25%
+        brands  retired          178      10   5.62%
+        guides  active           282       0   0.00%
+        guides  retired          519       0   0.00%
+        other   active          1076      30   2.79%
+        other   retired          298       1   0.34%
+
+    Guides take 801 impressions across 90 URLs and convert none of them, at an
+    impression-weighted average position of 62.7. The first read — that this was
+    an artefact of retired locales — is wrong: the active-locale guides return
+    zero clicks on their own 282 impressions. Nothing is broken; they simply rank
+    far enough down that nobody sees them. Position, not title or snippet, is the
+    thing to fix, and it is an SEO problem rather than a defect.
+
+    Not a defect either, but worth knowing: 995 of the 4,801 impressions — 21% —
+    point at retired-locale URLs (`/ca/`, `/sr/`, `/ro/`, `/ms/`, `/az/`, `/cs/`,
+    `/tl/`, `/bg/`). Every one of them was checked live and returns 308, so the
+    redirects are correct and Google is simply slow to drop them. The practical
+    consequence is that our real reach is about 79% of what the export shows, and
+    any rate computed from the raw total is optimistic.
+
+    The category's own head terms are where we are weakest:
+
+        batch code           34 impressions   position 42
+        batch code checker   22               43
+        batch code check     14               44
+        perfume batch code   14               48
+        batch number         23               81
+
+    These name the product and we sit on results page four to six for them, while
+    brand pages do well — `/brands/vichy` at 7.4, `/bg/brands/vichy` at 5.9,
+    `/sr/brands/dove` at 3.8. The site ranks for brands and not for what it is.
+
+    One asymmetry worth investigating separately: mobile sits at position 10.7
+    with 3.84% CTR on 1,977 impressions, desktop at 35.6 with 0.74% on 2,437.
+    Desktop draws more impressions and ranks far worse, which most likely means
+    the two surfaces are being shown for different queries — desktop for the head
+    terms above, mobile for brand long-tail — rather than that anything is wrong
+    with the desktop page.
+
+    Reading for AdSense, since that is the current goal: none of this blocks it.
+    The 35 monetized brand pages are both the best-ranking and the best-converting
+    part of the site. The weak section carries no ad code at all.
+    The second file supplied alongside this one turned out to be a Yandex
+    Webmaster export and is analysed in finding 37.
+
+37. P2 Yandex is where the site actually ranks, and it converts badly anyway
+    (`Next`). The owner supplied a Yandex Webmaster query export alongside the
+    Search Console one on 2026-07-20 — 714 query/URL rows with per-day shows,
+    position, demand, CTR and clicks over fourteen days. It was initially
+    unreadable because the file uses inline strings rather than a shared-string
+    table; the earlier note in finding 36 that it could not be interpreted is
+    superseded.
+
+        Yandex    1,012 shows     91 clicks    ~9.0% CTR
+        Google    4,801 shows     96 clicks     ~2.0% CTR
+
+    A quarter of the impressions produce the same number of clicks. The reason is
+    position: on Yandex the site sits inside the top ten for its own commercial
+    terms — `проверить батч код` at 5.5 against a demand of 51, `проверка по
+    батч коду` at 6.5, `проверить по батч коду косметику` at 6.0 — while Google
+    has the English equivalents at 42 to 62 (finding 36).
+
+    The problem on Yandex is therefore the opposite one, and it is the more
+    tractable of the two. Several queries rank well and convert nothing:
+
+        colour wow пробить срок                 position 2.6   0 clicks
+        проверка по батч коду                   position 6.5   0 clicks
+        проверить по батч коду косметику        position 6.0   0 clicks
+        лореаль париж трайпл актив ...          position 6.6   0 clicks
+        anua проверить подлинность              position 5.5   0 clicks
+
+    Ranking third and getting no clicks is not a ranking defect. It points at the
+    title and description the searcher actually reads, in Russian, on pages that
+    are already winning the position. That is a snippet problem on a surface
+    where we have already done the hard part.
+
+    Russian brand pages carry the traffic — `/ru/brands/loreal-paris` 68 shows,
+    `/ru/brands/vichy` 58, `/ru/brands/estee-lauder` 58, `/ru/brands/loreal` 45,
+    `/ru/brands/garnier` 44 — so the affected snippets are a short, identifiable
+    list rather than a site-wide rewrite.
+
+    `needs verification`: whether the Russian titles and descriptions on those
+    pages are genuinely weak or whether Yandex simply reports clicks
+    conservatively at this volume. Fourteen days and single-digit click counts is
+    thin evidence for a rewrite, and the same numbers would look different across
+    a month. Measure before editing — the snippet budgets and `brandSnippet` are
+    already in place, so a change here is cheap to make and hard to attribute.
+
+    Worth noting for prioritisation: this is the same conclusion finding 36
+    reached from the other direction. The site ranks for brands, in Russian, and
+    does not rank for what it is, in English. Both exports agree on that.
 
 ## Complete phase ledger and remaining roadmap
 

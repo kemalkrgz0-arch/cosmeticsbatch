@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { GUIDES } from "@/lib/guides";
+import { contentTranslator, localizeGuide } from "@/lib/content-i18n";
 import { pageMeta } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -30,21 +31,28 @@ export default async function GuidesPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  // The index rendered raw `GUIDES`, so every card stayed English even though
+  // `messages/content/*.json` already holds the translations the detail page
+  // and the brand page both use. `/decoders` was already doing this correctly.
+  const t = await contentTranslator(locale);
+  const nav = await getTranslations("nav");
+  const tc = await getTranslations("contentPages");
+  const guides = GUIDES.map((guide) => localizeGuide(guide, t));
   return (
     <div className="page-frame py-10">
       <Breadcrumbs
         items={[
-          { name: "Home", path: "/" },
-          { name: "Guides", path: "/guides" },
+          { name: nav("home"), path: "/" },
+          { name: nav("guides"), path: "/guides" },
         ]}
       />
       <SectionHeading
         as="h1"
-        title="Guides"
+        title={nav("guides")}
         subtitle="Everything about batch codes, shelf life, storage and authenticity — written to actually be useful."
       />
       <div className="mt-12 grid gap-4 sm:grid-cols-2">
-        {GUIDES.map((g) => (
+        {guides.map((g) => (
           <Link
             key={g.slug}
             href={`/guides/${g.slug}`}
@@ -57,7 +65,7 @@ export default async function GuidesPage({
             <div className="mt-4 flex items-center justify-between text-sm">
               <span className="inline-flex items-center gap-1.5 text-fg-muted">
                 <Clock className="h-3.5 w-3.5" />
-                {g.readMinutes} min read
+                {tc("minRead", { n: g.readMinutes })}
               </span>
               <span className="inline-flex items-center gap-1 font-medium text-accent">
                 Read <ArrowRight className="h-4 w-4" />
