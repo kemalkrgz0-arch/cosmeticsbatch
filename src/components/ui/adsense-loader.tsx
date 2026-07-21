@@ -17,6 +17,16 @@ import { adsense, googleCmpEnabled } from "@/lib/ads";
  * during review no ad units exist yet, and a site with no ad code anywhere
  * cannot be approved.
  *
+ * `afterInteractive`, not `lazyOnload`, and the difference is the whole point of
+ * the paragraph above. `lazyOnload` defers injection to the browser's idle time
+ * after the `load` event, so the server-rendered HTML contained no script tag at
+ * all — only the flight payload describing one. That is the exact defect the
+ * component was written to avoid, reintroduced by the strategy, and it cost a
+ * day: with the CMP flag finally on and the account message published, no
+ * consent message appeared, because the script that delivers it had not run yet.
+ * Waiting for every hero image to finish downloading before asking a visitor for
+ * consent is the wrong order anyway.
+ *
  * It is gated on the certified CMP, not on the publisher id. Loading
  * `adsbygoogle.js` is itself the third-party advertising processing a visitor in
  * the EEA, UK or Switzerland has to be asked about first, so shipping it before
@@ -36,7 +46,7 @@ export function AdsenseLoader() {
   return (
     <Script
       id="adsense"
-      strategy="lazyOnload"
+      strategy="afterInteractive"
       src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense.client}`}
       crossOrigin="anonymous"
     />
