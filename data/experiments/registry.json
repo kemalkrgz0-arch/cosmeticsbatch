@@ -3,7 +3,7 @@
     "id": "SEO-BRAND-SNIPPET-2026-07-19-01",
     "owner": "primary-codex",
     "type": "seo-snippet",
-    "state": "local",
+    "state": "released",
     "urls": ["/brands/loreal-paris", "/brands/kerastase"],
     "urlPolicy": "existing-only",
     "source": "GSC-2026-07-19-01",
@@ -18,7 +18,7 @@
     "primaryMetric": "GSC CTR for each exact URL",
     "guardrails": ["GSC average position", "checker conversion when comparable internal data exists", "title <=60 and description <=160"],
     "changedFiles": ["src/lib/brand-snippets.ts", "src/app/[locale]/brands/[slug]/page.tsx", "scripts/quality-regression.test.ts"],
-    "release": null,
+    "release": { "commit": "bf63712", "date": "2026-07-19" },
     "followUp14d": null,
     "followUp28d": null,
     "decision": "pending"
