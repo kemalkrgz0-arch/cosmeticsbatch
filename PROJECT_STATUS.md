@@ -5416,3 +5416,53 @@ Ordered by effect per unit of work, when it is picked up:
 
 Not recommended: generating alt text mechanically from the brand name, which is
 what produced the current duplicate strings.
+
+## Barcode detection was already built — correction, 2026-07-21
+
+I proposed barcode detection as the highest certainty-to-effort item on the open
+list, twice. It already exists and works. `src/lib/decoder/index.ts:81` carries a
+UPC-A/EAN-13/GTIN-14 checksum, line 103 combines it with a 12–14 digit shape
+test, and a match short-circuits every decoder and returns
+`failureReason: "barcode"` with copy that names the barcode and points at the
+separate stamp. Probed directly with four of the codes from the export —
+`5060150182242`, `8028713822469`, `3386460119276`, `071249938010` — all four
+return `barcode`.
+
+The claim came from the check dataset, which logs `confidence` but not
+`failureReason`, so a handled barcode and an unhandled decoder gap look
+identical in it. They are not identical: a second stream, `logFailedCode` in
+`src/lib/dataset.ts:114`, records the reason per brand, and the review export
+already serves it as `failed`. That is the file to read before proposing decoder
+work — not the checks export.
+
+Corrected figures: of 653 checks, 228 returned no date. 28 of those are retail
+barcodes already answered correctly. The real decoder gap is **200**, not 228.
+
+Same shape as the other three corrections today: a conclusion drawn from data
+without reading the code that produces it.
+
+## Brands that print the date — what is actually missing, 2026-07-21
+
+The owner asked for high-traffic Korean brands where the batch code carries no
+date. They are already here: 59 brands carry `printsDate`, and
+`printsDateHint` in `src/lib/result-failure-copy.ts:137` tells the reader to look
+for a printed MFD/EXP instead of apologising for an unreadable code. Skin1004,
+Torriden, Anua, Beauty of Joseon, COSRX, Missha and Numbuzin account for 36
+logged checks and 35 non-decodes, which is the expected and correct outcome.
+
+Two real gaps behind that, neither of them a decoder:
+
+1. **The hint is English and Turkish only.** `printsDateHint` and the rest of
+   `result-failure-copy.ts` hold eleven strings in a hardcoded two-language
+   object — four failure reasons with a title and body, plus three lookalike
+   hints. Seventeen locales read them in English, and these are the strings a
+   person sees at the exact moment the tool failed them. They belong in
+   `messages/*.json` where the translation loop can reach them; today they sit
+   outside it, which is why they were missed by every pass.
+2. **Sixteen `printsDate` brands are in `HIDDEN_SLUGS`** — A-Derma, Avène,
+   Bifesta, Curél, d'Alba, DHC, Dr. Hauschka, Ducray, Embryolisse, FANCL,
+   Institut Esthederm, Klorane, René Furterer, rom&nd, Uriage, Weleda. The
+   staging rule is "hidden until a verified decoder exists", but for a brand that
+   prints the date in plain text there is no decoder to verify and never will be.
+   The complete answer already exists and is being withheld by a rule written for
+   a different case. Worth an owner decision rather than a silent change.
