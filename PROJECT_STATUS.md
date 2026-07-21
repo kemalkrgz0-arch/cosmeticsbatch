@@ -3124,6 +3124,34 @@ entries).
     brands — Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels and others — and 11
     of them have never been checked by a user, so getting the shape right here is
     worth more than one bottle suggests.
+
+47. P1 the review lists showed two periods at once (`Completed locally — not
+    committed`). Reported by the owner on 2026-07-21: the dashboard seems to mix
+    time zones, and the list does not restart after midnight.
+
+    Not a time-zone fault. Every timestamp on the page renders in
+    `REPORT_TIME_ZONE`, and `startOfReportDay` buckets correctly — that part was
+    verified at the boundary when it was written. The defect is mine, introduced
+    with the period picker under `CLAUDE-PERIOD-001` the day before.
+
+    The dashboard deliberately fetches two periods deep, because the trend arrows
+    need a baseline to compare against: `windowReport = win.previousStart`. I
+    pointed the aggregate reports at `checksWindow` but left six places reading
+    the raw `checks` and `failedCodes` arrays. Those show both periods.
+    So selecting "Today" listed yesterday's checks underneath today's, and the
+    log appeared never to restart at midnight — exactly what was reported.
+    On the 7-day default it silently showed 14 days, which is why this went
+    unnoticed: the numbers looked plausible, just wrong.
+
+    Six leaks closed, all pointed at the window: the code-checks table, the
+    failed-code list and its heading count, the brand and country filter options
+    (which offered brands the window did not contain, so a pick returned nothing),
+    and the attempt-count badge (which counted attempts outside the period it was
+    displayed in).
+    `decoderHealthTrend` still reads the raw array, correctly and deliberately —
+    it is the one function whose job is to compare the two periods.
+    A suite test now pins all six, and names the exception, so the next person to
+    add a list to this page cannot repeat it.
     decoder.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two

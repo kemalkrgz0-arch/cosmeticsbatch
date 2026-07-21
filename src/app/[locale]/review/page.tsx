@@ -301,15 +301,15 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   // selections. These are exact and compose with the result chips and search.
   const brandFilter = query.brand?.trim() ?? "";
   const countryFilter = query.country?.trim().toUpperCase() ?? "";
-  const checkBrands = [...new Set(checks.map((row) => row.brand))]
+  const checkBrands = [...new Set(checksWindow.map((row) => row.brand))]
     .sort((a, b) => brandName(a).localeCompare(brandName(b)));
-  const checkCountries = [...new Set(checks.map((row) => row.country).filter(Boolean) as string[])].sort();
+  const checkCountries = [...new Set(checksWindow.map((row) => row.country).filter(Boolean) as string[])].sort();
   // How many times each brand+code was tried, counted the way the decoder reads
   // it so "TCR 15" and "TCR15" are one code. The log stays chronological — it is
   // a log — but a row that is one of nine attempts should not look like one of
   // one, which is how the failed-code queue already presents the same fact.
   const attemptCounts = new Map<string, number>();
-  for (const row of checks) {
+  for (const row of checksWindow) {
     const key = `${row.brand}:${canonicalCode(row.code)}`;
     attemptCounts.set(key, (attemptCounts.get(key) ?? 0) + 1);
   }
@@ -324,7 +324,12 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
     ...(countryFilter ? { country: countryFilter } : {}),
     ...(!except.result && resultFilter !== "all" ? { result: resultFilter } : {}),
   });
-  const checksMatchingNonResultFilters = checks
+  // `checksWindow`, not `checks`: the wider fetch above exists only so the trend
+  // arrows have a previous period to compare against. Reading it here put the
+  // comparison window into the visible log, so selecting "Today" listed
+  // yesterday's rows underneath today's and the list never restarted at
+  // midnight. See finding 47.
+  const checksMatchingNonResultFilters = checksWindow
     .filter((item) => !brandFilter || item.brand === brandFilter)
     .filter((item) => !countryFilter || item.country === countryFilter)
     .filter((item) => !search || [item.brand, item.code, item.locale, item.country, item.mfg].some((value) => value?.toLowerCase().includes(search)));
@@ -343,7 +348,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
     low: "Low confidence",
   };
 
-  const failedFiltered = failedCodes.filter((item) => !search || [item.brand, item.code, item.reason, item.locale, item.country].some((value) => value?.toLowerCase().includes(search)));
+  const failedFiltered = failedWindow.filter((item) => !search || [item.brand, item.code, item.reason, item.locale, item.country].some((value) => value?.toLowerCase().includes(search)));
   // Group on the code as the decoder reads it, not the raw string or failure
   // classification. "TCR 15" / "TCR15" are one code; "TCR1S" stays distinct.
   const failedGroups = Array.from(failedFiltered.reduce((brands, item) => {
@@ -638,7 +643,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             </Panel>
 
             <div className="space-y-5">
-              <h2 className="text-xl font-bold">Failed-code queue ({failedCodes.length})</h2>
+              <h2 className="text-xl font-bold">Failed-code queue ({failedWindow.length})</h2>
               {failedGroups.length === 0 ? (
                 <section className="rounded-2xl border bg-card p-10 text-center shadow-sm">
                   <h3 className="text-lg font-semibold">No failed codes found</h3>

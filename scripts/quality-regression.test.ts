@@ -1127,3 +1127,29 @@ test("Beiersdorf refuses pack references that are not batch codes", () => {
     assert.equal(result.decoded, true, `${code} should still decode`);
   }
 });
+
+/**
+ * The visible lists show the selected period, not the comparison window.
+ *
+ * The dashboard fetches two periods deep so the trend arrows have a baseline.
+ * Pointing a rendered list at that raw array shows twice the range the heading
+ * claims — selecting "Today" listed yesterday's checks underneath today's, and
+ * the log never restarted at midnight. See finding 47.
+ */
+test("review lists read the selected window, not the raw fetch", () => {
+  const page = readFileSync("src/app/[locale]/review/page.tsx", "utf8");
+
+  // The wider fetch may only feed the trend comparisons, which need both halves.
+  assert.match(page, /const checksMatchingNonResultFilters = checksWindow/);
+  assert.match(page, /const failedFiltered = failedWindow\.filter/);
+  assert.match(page, /Failed-code queue \(\{failedWindow\.length\}\)/);
+
+  // Filter options have to come from the window too, or a pick returns nothing.
+  assert.match(page, /const checkBrands = \[\.\.\.new Set\(checksWindow\.map/);
+  assert.match(page, /const checkCountries = \[\.\.\.new Set\(checksWindow\.map/);
+  // The attempt badge counts attempts within the window it is displayed in.
+  assert.match(page, /for \(const row of checksWindow\) \{/);
+
+  // decoderHealthTrend is the deliberate exception: it compares two periods.
+  assert.match(page, /decoderHealthTrend\(checks, window7d, window14d\)/);
+});
