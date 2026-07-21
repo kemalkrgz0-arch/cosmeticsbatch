@@ -34,7 +34,23 @@ function normalizeCode(code: string): string {
     .replace(/./gu, (ch) => HOMOGLYPHS[ch] ?? ch);
 }
 
-const clean = (code: string) => normalizeCode(code).replace(/[^A-Z0-9]/g, "");
+/**
+ * A label printed beside the code, not part of it.
+ *
+ * Packs print "LOT 54Z82X" and people copy the line faithfully, which cost us
+ * the read: `LOT54Z82X` returned nothing while `54Z82X` decoded to 2025-08.
+ *
+ * The remainder must contain a digit. Without that condition "LOTUS" became
+ * "US" — stripping a prefix out of a word that merely starts with the same three
+ * letters. Batch codes carry digits; a purely alphabetic tail means we guessed
+ * wrong about where the label ended. See finding 48.
+ */
+const CODE_LABEL_PREFIX = /^(?:LOT|BATCH|BN|CHARGE)(?=[A-Z0-9]*\d)/;
+
+const clean = (code: string) =>
+  normalizeCode(code)
+    .replace(/[^A-Z0-9]/g, "")
+    .replace(CODE_LABEL_PREFIX, "");
 
 /**
  * The code as the decoders actually see it, for callers that need to tell

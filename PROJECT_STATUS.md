@@ -3152,6 +3152,61 @@ entries).
     it is the one function whose job is to compare the two periods.
     A suite test now pins all six, and names the exception, so the next person to
     add a list to this page cannot repeat it.
+
+48. P2 users copy the printed "LOT" label into the box, and we punished them for
+    it (`Completed locally — not committed`). From the 2026-07-21 export, a
+    CeraVe user typed `LOT54Z82X` and then `LOT 54Z82X`. Both returned nothing.
+    `54Z82X` alone decodes to 2025-08.
+    The pack prints `LOT 54Z82X`, so the user copied the line exactly as it
+    appears. Six checks lost to a label.
+    `clean()` now strips a leading LOT / BATCH / BN / CHARGE.
+    The remainder has to contain a digit, and that condition was added after the
+    first version turned "LOTUS" into "US" — stripping three letters out of a
+    word that merely begins with them. Batch codes carry digits; a purely
+    alphabetic tail means the guess about where the label ended was wrong.
+    Junk dating is unchanged at 33/320, and `LOTUS`, `LOTION` and a bare `LOT`
+    keep every character.
+
+49. P2 the letter O typed for a zero, now measured (`Next`; extends finding 33).
+    The same export shows two more codes that decode if the O is read as a zero:
+
+        chanel  44O2  ->  4402  =  2019-09
+        dior    6AO1  ->  6A01  =  2026-01
+
+    With the earlier `24WNOO` on Dove and `17OS` on Acqua di Parma, that is four
+    brands and four decoders. Four checks across the whole log, so the volume is
+    small and the direction is clear.
+    Still not implemented, and the reason has not changed since finding 33: `O`
+    is October in the L'Oréal month position, so a blanket substitution corrupts
+    real codes. What is now worth building instead is a *fallback* — try the
+    substitution only after the code has already failed, and only when the
+    original produced no date at all. That cannot corrupt a working read.
+    `needs verification`: run that fallback against the junk benchmark before
+    shipping it. The measurement above only tried the substitution on codes that
+    already failed, which is the safe case, but the ceiling test is what decides
+    whether it stays safe.
+
+50. Evidence: what the 19-21 July traffic says. 278 checks over three days, 53%
+    of them still unread through the current engine. The failures cluster:
+
+        eucerin              34   69767.000.AE.11, D-20245, MEGA
+        dior                 14   913M, 3348901729307, 38A101V
+        chanel               12   44O2, 3145891263206
+        loreal-paris          9   E38Y801N, 361427, 221301
+        cerave                8   48A024, LOT54Z82X
+        jean-paul-gaultier    8   FAK08 X, TCR15X
+
+    Eucerin is the largest and confirms finding 39 rather than contradicting it:
+    `69767.000.AE.11` is another dotted article reference, the same shape as
+    `87997.000.AE.04`. People cannot find the batch code on that pack, so they
+    type the most official-looking number instead. This is an instruction problem
+    and the annotated NIVEA image is the fix — the same Beiersdorf decoder, the
+    same packaging family.
+    Thirteen brands were checked for the first time in this window, including
+    Garnier and Kiehl's, which had been verified from packaging the day before.
+    A Cyrillic М appeared in `913М` alongside the Latin `913M` from the same
+    user; `canonicalCode` already folds it, so both reach the decoder identically
+    and both fail for an unrelated reason. The homoglyph handling works.
     decoder.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two

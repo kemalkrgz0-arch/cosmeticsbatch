@@ -1153,3 +1153,27 @@ test("review lists read the selected window, not the raw fetch", () => {
   // decoderHealthTrend is the deliberate exception: it compares two periods.
   assert.match(page, /decoderHealthTrend\(checks, window7d, window14d\)/);
 });
+
+/**
+ * "LOT" is a label printed beside the code, not part of it.
+ *
+ * Packs print "LOT 54Z82X" and people copy the line as they see it. That cost
+ * the read: `LOT54Z82X` returned nothing while `54Z82X` decoded. The remainder
+ * must contain a digit, or "LOTUS" would be truncated to "US". See finding 48.
+ */
+test("a printed LOT label does not break the code", () => {
+  const read = (code: string) => checkBatchCode({
+    brandName: "CeraVe", code, decoderId: "loreal", shelfLifeMonths: 36, category: "skincare",
+  });
+  const bare = read("54Z82X");
+  assert.equal(bare.decoded, true, "the bare code should decode");
+  for (const prefixed of ["LOT54Z82X", "LOT 54Z82X", "LOT-54Z82X", "lot 54z82x", "BATCH 54Z82X"]) {
+    const result = read(prefixed);
+    assert.equal(result.decoded, true, `${prefixed} should decode`);
+    assert.deepEqual(result.manufactureDate, bare.manufactureDate, `${prefixed} should match the bare code`);
+  }
+  // Words that merely start with the same letters keep every character.
+  for (const word of ["LOTUS", "LOTION", "LOT"]) {
+    assert.equal(canonicalCode(word), word, `${word} must not be truncated`);
+  }
+});
