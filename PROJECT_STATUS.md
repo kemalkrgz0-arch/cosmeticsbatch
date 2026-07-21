@@ -283,6 +283,59 @@ decision is recorded here. Version notes do not override this section silently.
   No slot/unit is active. Known English fallback strings remain only inside the
   merged RSC catalog payload on the Turkish sample, not as proof of visible DOM;
   scoping client messages remains separate technical debt.
+  CMP not reaching visitors, found 2026-07-21 (`In progress`, owner-side action
+  required). The owner reported that the consent message is not appearing. It is
+  not an account fault: the message is published and assigned. Production simply
+  serves no `adsbygoogle.js` — `curl https://cosmeticsbatch.com/en` returns zero
+  matches for `adsbygoogle`, while `/ads.txt` still returns 200 with the correct
+  publisher line. That is exactly the ordering hazard this file recorded on
+  2026-07-20 and it landed: `CLAUDE-CMP-001` deployed without
+  `NEXT_PUBLIC_GOOGLE_CMP_ENABLED` being added to `.env.build` on the VPS, so
+  `googleCmpEnabled` (`src/lib/ads.ts:25`) is false, `AdsenseLoader` returns null
+  (`src/components/ui/adsense-loader.tsx:35`), and the script that injects the
+  certified message never loads. The site has been running with no ad script and
+  no Google consent UI since that deploy.
+  Fix is one line on the VPS — `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true` in
+  `/opt/cosmeticsbatch/.env.build` — followed by a rebuild, not a container
+  restart, because `NEXT_PUBLIC_*` is inlined at build time. Setting it also
+  suppresses the custom `CookieConsent` banner
+  (`src/components/tracking-boundary.tsx:32`), which is the intended single-UI
+  outcome. No agent can perform this: `.env.build` is untracked and lives only on
+  the VPS.
+  To stop the same silence recurring, `deploy.sh` now prints a warning when a
+  publisher id is configured while the CMP flag is not `true`. Deliberately a
+  warning and not a hard failure — an intentionally ad-free build is a valid
+  reason to deploy. The local `.env.build` mirror was updated to match; it is
+  gitignored and has no effect on production.
+  Second failure, same day, worse than the first. After the owner's deploy the
+  loader appeared: a live fetch returned the script with the correct publisher
+  id. A later fetch returned nothing, and it is not intermittent — repeated
+  requests to `/` and `/en` all return zero occurrences of `adsbygoogle`. The
+  publisher `<meta google-adsense-account>` is gone as well, and that tag depends
+  only on `adsenseEnabled` (`src/app/[locale]/layout.tsx:63`), not on the CMP
+  flag. `/ads.txt` now returns empty where it previously returned the correct
+  line, and neither the GA id nor the Yandex id appears in the HTML any more.
+  So the current production build carries no `NEXT_PUBLIC_ADSENSE_CLIENT`, no
+  `NEXT_PUBLIC_GA_ID` and no `NEXT_PUBLIC_YM_ID`. `NEXT_PUBLIC_SITE_URL` did
+  survive — canonical, og:url and sitemap are all correct — which is the useful
+  clue: `deploy.sh` sources one file and hard-fails on a missing site URL, so
+  `.env.build` on the VPS was read, but its ad and analytics keys are now blank
+  or absent. The likeliest cause is that editing the file to add the CMP flag
+  replaced or truncated the rest of it.
+  This is not only a CMP problem. Analytics has been collecting nothing since
+  that deploy, and the ads.txt that AdSense checks for authorization is empty
+  while the account is under review. Diagnosis is `cat /opt/cosmeticsbatch/.env.build`
+  on the VPS, compared against `.env.build.example`; every key in the example
+  belongs there. No agent can read or repair that file from here.
+  The warning added to `deploy.sh` would not have caught this: it fires when a
+  publisher id is set without the CMP flag, and here the publisher id itself went
+  blank. A blank id silently disables the meta tag, the loader and ads.txt at
+  once, so it deserves its own check.
+  Post-fix verification is still owner-side and still needs an EEA/UK/Swiss
+  session: `__tcfapi` present and a TC string produced, the refusal button
+  visible on the three-option layout, and ad requests differing between accept
+  and reject. A check from Turkey cannot show any of this, which is the same
+  measurement error corrected further down this file.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
@@ -1453,6 +1506,75 @@ decision is recorded here. Version notes do not override this section silently.
     All Hours shot — so the set demonstrably mixes owner photography with
     third-party listings. That is the whole reason the inventory records
     `sourceType` at all.
+    Addition on 2026-07-21, made at the owner's explicit instruction and so not a
+    breach of the pause: one owner photograph of a Jimmy Choo carton, marked by
+    the owner in the established colours — orange on the batch code, red on the
+    barcode and printed reference. Added as `/brands/examples/jimmy-choo-1.jpg`
+    (1068x1086, 259 KB), `annotated: true`, re-encoded from HEIC so no EXIF or
+    GPS survives; checked, and none does. It is worth having beyond decoration:
+    this is the carton `AFR42R261` was read from, the long-form Inter Parfums
+    code cited at `src/lib/decoder/decoders.ts:811` that the decoder recognises
+    and deliberately refuses to date. The page shows the reader the exact code
+    the honest refusal is about.
+    Marked-photograph replacement, 2026-07-21, on the owner's instruction. Five
+    owner photographs arrived named `<brand> bc.heic` — the "bc" is batch code,
+    which is what the earlier request meant. Each was opened and looked at before
+    use. All five follow the site's convention exactly: colour only, no words
+    burned into the frame, orange on the batch code, red on the barcode and any
+    printed reference. No personal content in any of them.
+    They replace rather than extend, at the owner's direction: acqua-di-parma,
+    aesop, escada, jean-paul-gaultier and lancome each drop from three unmarked
+    images of unrecorded provenance to one marked owner photograph. Ten files
+    were removed with `git rm`, so they remain recoverable from history. The
+    evidence inventory falls from 48 records to 38, and the provenance-audit
+    backlog shrinks by the same amount — this is the 46-asset blocker being
+    worked down by replacement, which is what the owner said they would do.
+    Codes visible, for anyone re-checking the marking later: escada `09C5`,
+    acqua-di-parma `1494Y`, aesop `21M0923A`, jean-paul-gaultier `FAK08 X`,
+    lancome `CL1F`. The Gaultier one is a pre-Puig code the decoder declines to
+    date, kept deliberately for the same reason as the Jimmy Choo carton.
+    Hero artwork delivery, 2026-07-21: six banners supplied by the owner and
+    wired — chanel, cerave, creed, maybelline, mac-cosmetics, paco-rabanne. All
+    arrived at 1774x887, the same spec as the existing set, re-encoded from PNG
+    to JPEG at 192–367 KB (the inventory script fails above 700 KB). Each stands
+    its products in the right-hand half, so `mobileFocalPosition` follows the
+    products, 72–78% depending on where the group starts; desktop stays 50% 50%
+    as everywhere else. Every target slug was checked as present and not in
+    `HIDDEN_SLUGS` before wiring. Hero coverage moves 8/212 to 14/212.
+    These are brand-page decoration, not evidence: they carry no batch code and
+    are not inventory records. Their provenance is still worth recording when the
+    owner does the asset audit, since they show trademarked packaging.
+    Stop-the-line finding, 2026-07-21, while looking for further photographs to
+    ingest from the owner's source folders. One file in the Dior source folder
+    (`IMG_0308.PNG`, iCloud `Cosmetics batch/Dior/`) is not a product photograph
+    at all. It is a phone screenshot of a private messaging conversation and it
+    carries a named third party, their phone number, photographs of an
+    identifiable person in a hospital bed, and information about a surgical
+    procedure. Details are deliberately not reproduced here; the file reference
+    is enough to find it. It must never be published, and it should be moved out
+    of the source folder rather than left for the next pass to rediscover.
+    Nothing was ingested from it and the working copy made while reviewing was
+    deleted. The consequence is a rule, not just an incident: the source folders
+    are camera-roll exports and mix packaging photography with private material,
+    so no bulk or pattern-based ingest may ever run over them. Every candidate is
+    opened and looked at before it becomes a public asset. This is what the
+    inventory's `privacyReview` field is for, and it is now the reason it exists.
+    Two further candidates were reviewed and rejected on convention, not privacy:
+    `Dior/IMG_0306.heic` and `L’oreal Paris/IMG_0303.PNG` are genuine marked
+    packaging shots, but both have English words burned into the frame ("Batch
+    code", "EAN code"). `src/components/brand-code-gallery.tsx:72` is explicit
+    that the colour key stays out of the picture precisely so one photograph can
+    serve nineteen languages. The L'Oréal frame is worse than untranslatable: it
+    boxes the EAN in orange and the batch code in red, the exact inverse of the
+    published legend, so it would teach the reader the wrong number. Both need
+    re-marking with colour only before they can be used.
+    Found while doing it: the evidence inventory had drifted. `nivea-1` was added
+    to `CODE_IMAGES` without regenerating `data/evidence-inventory.json`, so
+    `pnpm test:quality` was failing on the committed tree at
+    `validate-evidence-inventory.mjs`. Regenerated; the file now holds 48 records
+    and validates. Both additions land as `needs-verification`, which is correct
+    — the generator cannot know provenance, and the owner's review is what
+    records it.
 
   - Coordination rule: before starting another task, each agent must read active
     claims and write a proposed next work item with file scope here. If the scope
