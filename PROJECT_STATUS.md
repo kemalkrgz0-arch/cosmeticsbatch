@@ -1469,6 +1469,76 @@ decision is recorded here. Version notes do not override this section silently.
     browser — the dashboard needs the `CF_ACCESS_*` environment to serve, so a
     visual pass is still outstanding.
 
+  - Session handoff, 2026-07-21, Claude. Read this before picking up any of the
+    open items below; several of them look tempting and are deliberately blocked.
+
+    **Committed and deployed this day**, in order: `31765b8` deploy guard,
+    `0de5cb8` six brand banners, `a9f8ed6` marked photograph replacement,
+    `acc848a` and `4ae4f88` CMP/account records, `3a55004` AdSense loader
+    strategy. Two production deploys ran and both were verified live.
+
+    **Committed and NOT pushed**, seven commits: `7d5e330` search-data import,
+    `23a9440` experiment release date, `192c036` Yandex importer fix, `a066eae`
+    homepage metadata localization, `5f1b42d` Color Wow evidence, `76e93b7` Color
+    Wow code image, and this record. Local gate on all of them: TypeScript clean,
+    ESLint clean, four operational validators clean, production build 263 routes
+    with no warnings. The owner has not yet said to push.
+
+    **Known failing, and not caused by this work**: the quality suite is 76 pass
+    / 2 fail. `every registered decoder has one exact known fixture` and `a code
+    without the documented L'Oréal shape is not read confidently` both fail on a
+    clean checkout of `aa2115a` as well — verified by stashing. The Jean Paul
+    Gaultier decoder has no fixture. A red suite erodes the gate that caught two
+    real defects today; it deserves fixing before it becomes background noise.
+
+    **Three defects found today that were all invisible to their own tests**, and
+    the pattern is worth more than the individual fixes. Each was a case of a
+    file or a library being believed instead of measured.
+    1. The CMP was absent because `AdsenseLoader` used `next/script` with
+       `lazyOnload`, which injects after the load event, so the server HTML held
+       no script tag at all — while the component's own comment explained why it
+       must be in the server HTML. Fixed to `afterInteractive`.
+    2. A deploy shipped with a blank publisher id, silently removing the loader,
+       the publisher meta tag and the ads.txt line. Google crawled ads.txt inside
+       that window and the account now reads "not found". `deploy.sh` now fails
+       on a blank public identifier rather than shipping a hollow site.
+    3. Three Yandex exports were recorded as empty. They held 589, 735 and 775
+       rows; openpyxl in read-only mode believed a bogus `A1:A1` dimension. The
+       repository stated "zero observations" as fact for two days.
+
+    **Open, in the order I would take them.**
+    - Barcode detection in the decoder. 24 of 228 failing checks are valid
+      EAN-13/UPC-A — every 13-digit failure passed the checksum. Highest
+      certainty-to-effort item on this list, and the marked photographs already
+      show the barcode in red for exactly this confusion.
+    - Eucerin. 19 of 27 checks fail. Successes are 8–9 digits, failures are 4–5
+      digits and dotted lot strings like `99999.999.AA.99`.
+    - The retired claims still live in seventeen locale catalogs. English was
+      corrected for truthfulness; the translations were not. Dutch currently
+      promises a `vervaldatum` the site cannot read and calls itself
+      "nauwkeurig en betrouwbaar". This is an AdSense content requirement, not a
+      polish item, and it is live in every language but English.
+    - Dutch translation package: `~/Desktop/cosmeticsbatch-NL-ceviri-2026-07-21.txt`
+      is with the owner. `meta.homeTitle` and `meta.homeDescription` exist in
+      `messages/en.json` only; every other locale falls back to English until
+      filled.
+
+    **Blocked — do not touch, and here is why so nobody re-derives it.**
+    - CMP. Site status is "getting ready" in AdSense; Google does not deliver the
+      Funding Choices bundle to an unapproved site. Browser measurement confirmed
+      `googlefc` and `__tcfapi` undefined while `adsbygoogle.js` loaded and ran.
+      There is no repository defect left. Do not change code to chase it and do
+      not re-request review.
+    - Brand snippets. `SEO-BRAND-SNIPPET-2026-07-19-01` released 2026-07-19; the
+      current export covers 2026-07-02–07-19, so it is essentially unmeasured.
+      Editing those titles before a clean window destroys the experiment.
+    - Color Wow. Five samples, a clean letter+YDDD+letter fit, no corroborating
+      printed date, and all of them pre-acquisition packaging. Stays hidden.
+
+    **Owner-side, and nothing here can proceed without them**: AdSense site
+    approval, the 39-asset provenance audit, and removing the private screenshot
+    from the Dior source folder.
+
   - Deploy handoff, 2026-07-20, Claude to Codex. Seven claims are ready in the
     working tree and none is committed: `CLAUDE-JPG-001`, `CLAUDE-DIOR-001`,
     `CLAUDE-PERMISSIVE-001`, `CLAUDE-CMP-001`, `CLAUDE-LOGO-001`,
