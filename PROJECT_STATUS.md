@@ -3207,6 +3207,49 @@ entries).
     A Cyrillic М appeared in `913М` alongside the Latin `913M` from the same
     user; `canonicalCode` already folds it, so both reach the decoder identically
     and both fail for an unrelated reason. The homoglyph handling works.
+
+51. P1 Inter Parfums bottles were being dated 2011, and our own sample with them
+    (`Completed locally — not committed`). Six Jimmy Choo and related bottles
+    photographed 2026-07-21, plus three codes from real user checks, give nine
+    real Inter Parfums codes. Eight share one shape:
+
+        AFR42R261   ADR20R091   AFS07S005   AER44R276
+        CES07R363   AFS02R303C  08N46N257A  08L22L069B
+
+    Two characters, a letter, two digits, that same letter again, three digits,
+    sometimes a trailing letter. None of them matches the short year-letter plus
+    day-of-year form this decoder documents.
+
+    They decoded anyway, because the match was unanchored: `c.match(/[A-Z]/)`
+    took the first letter found anywhere in the string and `c.slice(-3)` took the
+    last three characters as a day. `AFR42R261` and `ADR20R091` came back as 2011
+    — the year our table gives a leading A — on bottles whose packaging carries
+    current FSC marks. `AFS07S005` and `AER44R276`, from real users, did the
+    same.
+
+    Worse, our own published example was one of them. Montblanc and Dunhill both
+    ship `08J38J169` as the worked sample on their brand pages, and it was
+    resolving to a 2019 date we had no basis for. That is the Jean Paul Gaultier
+    situation from finding 26 repeated: the code in our own instructional
+    material was being read wrongly.
+
+    Fixed the way finding 26 was. The long form is now recognised and
+    deliberately left undated; the documented short form is anchored to
+    `^[A-Z]\d{3,4}$` so a letter sitting inside another shape no longer starts a
+    read. Junk dating across the engine falls from 33/320 to 29/320 and the suite
+    ceiling moves with it.
+
+    Consequence worth surfacing rather than burying: Montblanc and Dunhill are
+    indexed and monetized, and their pages now demonstrate recognition instead of
+    a decode. Honest, but a weak result for someone arriving from search. The
+    suite records them as a named exception so this cannot spread quietly.
+    `needs verification`: one Inter Parfums pack with a long-form code and a
+    printed date. The decoder carries 12 brands — Montblanc, Jimmy Choo, Coach,
+    Van Cleef & Arpels, Boucheron, Karl Lagerfeld and others — and this is the
+    single piece of evidence that would turn recognition into a read.
+    This also supersedes the open question in finding 46: `AFS02R303C` is not an
+    oddity, it is the normal shape, and the 2021-10-23 date offered for it
+    remains unverifiable.
     decoder.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two

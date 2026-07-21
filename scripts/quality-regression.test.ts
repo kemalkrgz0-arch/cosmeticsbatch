@@ -377,10 +377,23 @@ test("every indexable brand meets the editorial and decoder threshold", () => {
     assert.ok(isMonetizableBrand(brand), `${slug} is indexable without a decoder`);
     const decoder = DECODERS[brand.decoderId ?? ""];
     assert.ok(decoder, `${slug} has no registered decoder`);
-    assert.ok(
-      decoder.decode(detail.sampleCode, { now })?.manufactureDate,
-      `${slug} sample ${detail.sampleCode} does not decode`,
-    );
+    // Named, not blanket. These two publish an Inter Parfums long-form code as
+    // their worked example, and that format is recognised but deliberately
+    // undated — the decoder used to return a fabricated 2019 for it (finding
+    // 51). An honest "we cannot date this yet" is better than a wrong date, but
+    // it is still a weak page for an indexed, monetized brand, and listing them
+    // here keeps that visible instead of letting the exception spread silently.
+    const RECOGNISED_ONLY_SAMPLES = new Set(["montblanc", "dunhill"]);
+    const attempt = decoder.decode(detail.sampleCode, { now });
+    if (RECOGNISED_ONLY_SAMPLES.has(slug)) {
+      assert.ok(attempt, `${slug} sample ${detail.sampleCode} is not even recognised`);
+      assert.equal(attempt.manufactureDate, null, `${slug} now dates — remove it from the exception list`);
+    } else {
+      assert.ok(
+        attempt?.manufactureDate,
+        `${slug} sample ${detail.sampleCode} does not decode`,
+      );
+    }
     const copy = englishMessages.brandDetail?.[slug];
     assert.ok(copy?.where1, `${slug} lacks brand-specific code-location copy`);
     assert.ok(copy?.faq1q && copy?.faq1a, `${slug} lacks a complete brand-specific FAQ`);
@@ -934,7 +947,7 @@ test("decoders decline strings that are not batch codes", () => {
       if (result.decoded) dated.push(`${id}:${code}`);
     }
   }
-  const CEILING = 33;
+  const CEILING = 29;
   assert.ok(
     dated.length <= CEILING,
     `decoders dated ${dated.length} junk inputs, above the ${CEILING} ceiling: ${dated.join(", ")}`,
@@ -1176,4 +1189,25 @@ test("a printed LOT label does not break the code", () => {
   for (const word of ["LOTUS", "LOTION", "LOT"]) {
     assert.equal(canonicalCode(word), word, `${word} must not be truncated`);
   }
+});
+
+/**
+ * Inter Parfums bottles carry a long code we cannot date, and must not pretend.
+ *
+ * Eight real codes — six photographed, two from user checks — share a shape the
+ * documented short format does not describe. The unanchored match read them
+ * anyway, taking any letter as the year and the last three characters as a day,
+ * and returned 2011 for bottles whose packaging is current. See finding 51.
+ */
+test("Inter Parfums long codes are recognized, not dated", () => {
+  const read = (code: string) => checkBatchCode({
+    brandName: "Jimmy Choo", code, decoderId: "interparfums", shelfLifeMonths: 60, category: "perfume",
+  });
+  for (const code of ["AFR42R261", "ADR20R091", "AFS07S005", "AER44R276", "CES07R363", "08N46N257A"]) {
+    const result = read(code);
+    assert.equal(result.decoded, false, `${code} must not produce a date`);
+    assert.equal(result.failureReason, "recognized", `${code} should be recognized`);
+  }
+  // The documented short form still reads.
+  assert.equal(read("K123").decoded, true, "the short form should still decode");
 });

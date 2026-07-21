@@ -799,9 +799,38 @@ const interparfums: Decoder = {
     "Inter Parfums fragrances (Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron, Karl Lagerfeld and others) use a code whose first letter is the production year — an annual cycle that skips I and O, so J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 and R = 2026 — and whose last three digits are the day of that year. For example, 08J38J169 is the 169th day of 2019, i.e. 18 June 2019.",
   decode(code, ctx): DecodeAttempt | null {
     const c = clean(code);
-    const m = c.match(/[A-Z]/); // first letter is the production year
+
+    // The shape every real Inter Parfums code we have seen actually takes:
+    // two characters, a letter, two digits, that region's letter again, three
+    // digits, sometimes a trailing letter. Eight of the nine codes collected
+    // from packaging and user checks match it; none matches the short
+    // letter-plus-day form this decoder was written for.
+    //
+    // Those long codes still decoded, because the match below was unanchored:
+    // it took the first letter found anywhere and the last three characters as
+    // a day. `AFR42R261` and `ADR20R091` came back as 2011 — the year our table
+    // gives for a leading A — on bottles whose packaging is current. Two more
+    // from real users, `AFS07S005` and `AER44R276`, did the same.
+    // Recognising the shape and declining to date it is the honest answer, and
+    // the same one Jean Paul Gaultier's pre-Puig codes get. See finding 51.
+    if (/^[A-Z0-9]{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]?$/.test(c)) {
+      return {
+        manufactureDate: null,
+        confidence: "none",
+        method: `${this.label} — long-form code`,
+        notes: [
+          "This is a genuine Inter Parfums code, in the longer form printed on current bottles.",
+          "We can recognise the format but have not established how it encodes the date, so we are not going to guess at one.",
+          "If your packaging shows a printed date near this code, a photo of it would let us finish decoding this format.",
+        ],
+      };
+    }
+
+    // The documented short form: a year letter, then a day of year. Anchored,
+    // so a letter sitting inside some other code shape no longer starts a read.
+    const m = /^([A-Z])\d{3,4}$/.exec(c);
     if (!m) return null;
-    const year = interparfumsYear(m[0], ctx.now);
+    const year = interparfumsYear(m[1], ctx.now);
     if (year === null) return null;
     const last3 = c.slice(-3);
     if (!/^[0-9]{3}$/.test(last3)) return null;
