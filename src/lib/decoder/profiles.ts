@@ -10,10 +10,23 @@ import type { DecoderProfile } from "./types";
  */
 export const DECODER_PROFILES: Record<string, DecoderProfile> = {
   "estee-lauder": {
-    decoderId: "estee-lauder", version: "1.0.0", verificationStatus: "UNKNOWN",
-    datePrecision: "month", sourceType: "observed-samples", sourceReferences: [], verifiedAt: null,
-    supportedCodeFormats: ["3–4 chars; trailing month character + year digit"],
-    knownLimitations: ["Single-digit year repeats every decade", "Day is estimated as mid-month", "Primary evidence needs verification"],
+    decoderId: "estee-lauder", version: "1.1.0", verificationStatus: "ESTIMATED",
+    datePrecision: "month", sourceType: "observed-samples",
+    // Nine Clinique cartons photographed 2026-07-20, the batch code marked by
+    // the owner because it is not the prominent number on the pack: A24, A15,
+    // A93, A54 and others, all plant A, all decoding to 2023-2025, which is the
+    // spread a production run should show. The label's 7KXC-nn is a product
+    // reference and is correctly refused. No printed expiry on any carton, so
+    // this evidences the shape, not the arithmetic. See finding 45.
+    sourceReferences: ["PROJECT_STATUS.md finding 45 — owner packaging photographs, 2026-07-20"],
+    verifiedAt: null,
+    supportedCodeFormats: ["3 chars: plant + month (1-9, A/B/C) + year digit"],
+    knownLimitations: [
+      "Single-digit year repeats every decade",
+      "Day is estimated as mid-month",
+      "No printed-date verification yet",
+      "The prominent 7KXC-nn on Clinique labels is a product reference, not a batch code",
+    ],
   },
   loreal: {
     decoderId: "loreal", version: "1.1.0", verificationStatus: "HIGH_CONFIDENCE",

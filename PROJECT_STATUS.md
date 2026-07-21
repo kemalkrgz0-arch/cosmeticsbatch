@@ -3069,6 +3069,36 @@ entries).
     more urgent than a no-read.
     Also seen: `24WN00` still returns nothing, and the same user typed `24WNOO`
     with letter O — the confusion recorded in finding 33, now on a third
+
+45. P1 the Estée Lauder decoder is right, and I looked at the wrong number
+    (`Profile promoted`). Nine Clinique foundation cartons photographed
+    2026-07-20. My first reading took `7KXC-14` from the label — the most
+    prominent code on the pack — and reported that the decoder could not read it
+    and that the largest unevidenced group therefore looked broken.
+    Wrong. The owner marked the actual batch code, stamped on the carton itself
+    rather than the label, and every one decodes:
+
+        A24 -> 2024-02      A93 -> 2023-09
+        A15 -> 2025-01      A54 -> 2024-05
+
+    Plant A throughout, one product family, dates spread across 2023-2025, which
+    is what a production run should look like. `7KXC-nn` is a product reference
+    and is correctly refused — the trailing number tracks the shade, and the
+    barcodes differ between cartons that share it.
+
+    `estee-lauder` moves from UNKNOWN to ESTIMATED. It covers 19 brands and had
+    no packaging evidence at all before this. Not higher: no carton carries a
+    printed expiry, so this evidences the shape and not the arithmetic — the
+    distinction from finding 41.
+
+    Worth keeping for its own sake: I made exactly the mistake our users make.
+    The batch code is the least prominent marking on that carton, and the
+    reference next to the barcode looks far more like an identifier. That is why
+    `clinique` shows 4 of 5 logged checks failing, mostly on barcodes and
+    references. The fix is not decoder work — it is telling people where to look,
+    which is what the annotated NIVEA image now does on that brand page.
+    Clinique is the strongest candidate for the same treatment, and the owner has
+    already marked a photograph for it.
     decoder.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
