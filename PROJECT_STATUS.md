@@ -3099,6 +3099,31 @@ entries).
     which is what the annotated NIVEA image now does on that brand page.
     Clinique is the strongest candidate for the same treatment, and the owner has
     already marked a photograph for it.
+
+46. P2 an Inter Parfums bottle we cannot read, and a date we cannot check
+    (`Hypothesis — not implemented`). Photographed 2026-07-21: an Inter Parfums
+    Paris bottle, made in France, stamped `AFS02R303C`. Our `interparfums`
+    decoder returns `unresolved` — it expects a leading year letter and a
+    trailing three-digit day, and this code has three letters up front.
+
+    The owner supplied a production date of 2021-10-23 with it. Recorded, not
+    adopted, for two reasons that are worth stating plainly because they are the
+    same two applied to competitors' answers all through this file.
+    The bottle carries no printed date. Every date accepted as evidence so far
+    either sat on the pack beside the code (Eucerin, YSL, NIVEA) or was confirmed
+    by the owner holding the product against our output (Calvin Klein). Neither
+    applies here.
+    And the arithmetic does not land. If `303` is a day of year, 2021 day 303 is
+    30 October, not 23 October — 23 October is day 296. So whatever produced
+    2021-10-23, it is not the reading the digits most obviously suggest, and
+    adopting the date without knowing the rule would mean encoding a result we
+    cannot reproduce.
+
+    `needs verification`: an Inter Parfums pack carrying this code shape *and* a
+    printed date, or the source of the 2021-10-23 figure. The decoder covers 12
+    brands — Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels and others — and 11
+    of them have never been checked by a user, so getting the shape right here is
+    worth more than one bottle suggests.
     decoder.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
