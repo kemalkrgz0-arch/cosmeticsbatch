@@ -1545,6 +1545,31 @@ decision is recorded here. Version notes do not override this section silently.
     code cited at `src/lib/decoder/decoders.ts:811` that the decoder recognises
     and deliberately refuses to date. The page shows the reader the exact code
     the honest refusal is about.
+    Color Wow evidence, 2026-07-21, five owner photographs. Not a decoder — read
+    the last paragraph before acting on the pattern.
+    Codes collected: `B4002A` and `B4249A` (bottle bases), `B5069A` (foam pump
+    base), `S4226` with a second group `07144` (tube crimp) and, on an aerosol
+    base, a two-line `06:0?` over `21197`.
+    Shape: four of the five are a letter, four digits and an optional trailing
+    letter. Read as year-digit plus day-of-year they resolve cleanly and none
+    lands in the future or past day 366 — `B4002A` 2 Jan 2024, `S4226` 13 Aug
+    2024, `B4249A` 5 Sep 2024, `B5069A` 10 Mar 2025. Four for four is a good fit
+    for a Julian read. The aerosol does not follow it and is probably a contract
+    filler's own stamp; aerosols usually are.
+    Two reasons this is not enough, and both are the reasons this file exists.
+    First, nothing corroborates a single date. No sample carries a printed
+    manufacture or expiry date beside the code, so the whole reading rests on the
+    dates looking sensible — which is precisely how the Inter Parfums and Jean
+    Paul Gaultier misreads happened. A plausible date is not a verified one.
+    Second, and specific to this brand: every sample is Federici-era packaging.
+    The table's own comment says not to assign a decoder until post-acquisition
+    samples verify the format, and L'Oréal completed the acquisition in September
+    2025. These describe what L'Oréal inherited, not what it prints. `B5069A` at
+    March 2025 is the newest of them and still predates the deal.
+    What would settle it: a Color Wow pack that prints a date next to the code,
+    or any 2026 pack. Until then Color Wow stays in `HIDDEN_SLUGS` with no
+    decoder. Yandex demand — 12 impressions, 3 clicks, position 2.67 — is a
+    reason to want this finished, not a reason to publish a guess.
     Marked-photograph replacement, 2026-07-21, on the owner's instruction. Five
     owner photographs arrived named `<brand> bc.heic` — the "bc" is batch code,
     which is what the earlier request meant. Each was opened and looked at before

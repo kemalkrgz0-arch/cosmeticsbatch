@@ -168,6 +168,11 @@ const ROWS: Row[] = [
   ["Mizani", "L'Oréal Group", "loreal", "haircare", 36, 12],
   // L'Oréal completed the acquisition in September 2025. Do not assign the
   // shared decoder until post-acquisition packaging samples verify its format.
+  // Five owner photographs on 2026-07-21 supplied the first real samples and do
+  // not meet that condition: every one is Federici-era stock ("a federici
+  // product", Federici Brands LLC), so they describe the format L'Oréal
+  // inherited, not the one it prints now. Recorded in PROJECT_STATUS with the
+  // shape they suggest. Still no decoder — nothing corroborates a date.
   ["Color Wow", "L'Oréal Group", undefined, "haircare", 36, 12],
 
   // ---- LVMH (Dior + sister houses share a production-date code) ----
