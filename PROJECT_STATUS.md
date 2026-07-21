@@ -331,6 +331,35 @@ decision is recorded here. Version notes do not override this section silently.
   publisher id is set without the CMP flag, and here the publisher id itself went
   blank. A blank id silently disables the meta tag, the loader and ads.txt at
   once, so it deserves its own check.
+  Account evidence, 2026-07-21, from owner screenshots — the first time this file
+  can state the account side from the account rather than from inference.
+  Sites: `cosmeticsbatch.com`, approval status **"Hazırlanıyor" (getting ready)**,
+  so the site is not approved. Ads.txt status **"Bulunamadı" (not found)**, last
+  updated 21 Jul 2026 10:39 GMT+3. Privacy & messaging: the European regulations
+  message exists, is **published**, assigned to `cosmeticsbatch.com`, English plus
+  31 more languages — and has **0 impressions at 0% consent rate**.
+  Those three facts line up with the browser measurement and with each other.
+  Google crawled `/ads.txt` at 10:39, which is inside the window when the build
+  had lost its publisher id and the route was answering 204 with an empty body.
+  The "not found" is therefore a recorded consequence of that config loss, not a
+  routing or Cloudflare problem: `/ads.txt` now returns 200 with the correct line
+  to a Googlebot user agent, verified. It should flip to authorized on the next
+  crawl; nothing further is required from the repository.
+  Zero impressions is the same story from the other end. The message is fine —
+  Google is simply not delivering the Funding Choices bundle to a site that is
+  still "getting ready", which is exactly what the browser showed: `googlefc`
+  undefined, `__tcfapi` undefined, no funding-choices request at all, while
+  `adsbygoogle.js` and `show_ads_impl` both loaded and ran.
+  Conclusion worth keeping: the CMP was never a repository defect after the
+  loader strategy was fixed. It is downstream of site approval. Do not keep
+  changing code to chase it, and do not re-request review to hurry it.
+  Browser measurement, same day, from Turkey with `?fc=alwaysshow&fctype=gdpr`.
+  One blocker does close on this evidence regardless of geo: there is no
+  competing consent UI. A DOM scan found zero consent surfaces, so the custom
+  `CookieConsent` is correctly suppressed while the certified message owns the
+  conversation. The geo-dependent half — TC string, refusal button, ad requests
+  differing across accept and reject — still needs an EEA session; `fc=alwaysshow`
+  cannot force a bundle Google never sends.
   Post-fix verification is still owner-side and still needs an EEA/UK/Swiss
   session: `__tcfapi` present and a TC string produced, the refusal button
   visible on the three-option layout, and ad requests differing between accept
