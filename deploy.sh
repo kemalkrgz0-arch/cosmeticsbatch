@@ -69,6 +69,27 @@ main() {
   : "${CF_ACCESS_TEAM_DOMAIN:?must be set through GitHub Actions or $env_file}"
   : "${REVIEWER_EMAILS:?must be set through GitHub Actions or $env_file}"
 
+  # These three are public identifiers, not secrets, and every one of them has
+  # already been live. A blank value is therefore never a deliberate choice here
+  # — it means the env file lost a line. On 2026-07-21 exactly that happened and
+  # it was silent: the publisher meta tag, the AdSense loader, ads.txt, GA and
+  # Yandex all disappeared in one deploy while the site kept serving normally,
+  # and it was found only because a human noticed the consent banner missing.
+  # Failing the build is the cheaper outcome than another day of that.
+  : "${NEXT_PUBLIC_ADSENSE_CLIENT:?blank in $env_file — a blank publisher id silently removes the publisher meta tag, the AdSense loader and the ads.txt line. Compare $env_file against .env.build.example.}"
+  : "${NEXT_PUBLIC_GA_ID:?blank in $env_file — analytics would collect nothing. Compare $env_file against .env.build.example.}"
+  : "${NEXT_PUBLIC_YM_ID:?blank in $env_file — analytics would collect nothing. Compare $env_file against .env.build.example.}"
+
+  # A publisher id without the CMP flag builds a site with no adsbygoogle.js at
+  # all — and since that script is what injects Google's consent message, the
+  # certified CMP disappears with it. Silent for a whole deploy cycle once
+  # already, so say it out loud rather than fail: an intentionally ad-free build
+  # is still a legitimate reason to deploy.
+  if [ "${NEXT_PUBLIC_GOOGLE_CMP_ENABLED-}" != "true" ]; then
+    echo "! NEXT_PUBLIC_GOOGLE_CMP_ENABLED is not 'true' while a publisher id is set."
+    echo "  This build ships no AdSense loader and therefore no Google consent message."
+  fi
+
   local build_args=()
   local v
   for v in \
