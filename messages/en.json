@@ -608,5 +608,9 @@
     "relatedBrands": "Related brands",
     "resultCrumb": "Result",
     "learnHow": "Learn how {name} batch codes work"
+  },
+  "meta": {
+    "homeTitle": "Cosmetic & Perfume Batch Code Checker",
+    "homeDescription": "Free batch code checker for cosmetics, perfume and fragrance. Estimate a product's manufacture date and age, then compare typical unopened shelf life and PAO guidance."
   }
 }

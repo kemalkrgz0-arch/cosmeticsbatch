@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMeta } from "@/lib/seo";
-import { site } from "@/lib/site";
 import { Hero } from "@/components/home/hero";
 import { FeatureGrid } from "@/components/home/feature-grid";
 import { PopularBrands } from "@/components/home/popular-brands";
@@ -23,11 +22,23 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  // The homepage title targets the top head term ("batch code checker"), not
+  // just the brand name — and it has to do that in the reader's language.
+  //
+  // Every localized homepage shipped the English tagline and description
+  // because both were read straight from `site`, while the body rendered
+  // Dutch, Russian or German. A searcher in the Netherlands was offered an
+  // English headline above a Dutch page and did not click it: 278 impressions,
+  // zero clicks over 28 days. The title is also the strongest relevance signal
+  // a page has, and Dutch head terms sat at positions 68 to 99.
+  //
+  // Brand, guide and checker pages were always localized; only the homepage was
+  // not. Locales without their own strings fall back to English through the
+  // catalog merge, which is exactly what they had before.
+  const t = await getTranslations({ locale, namespace: "meta" });
   return pageMeta({
-    // Homepage title targets the top head term ("batch code checker"), not just
-    // the brand name.
-    title: site.tagline,
-    description: site.description,
+    title: t("homeTitle"),
+    description: t("homeDescription"),
     path: "/",
     locale,
   });
