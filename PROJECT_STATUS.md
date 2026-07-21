@@ -1539,6 +1539,50 @@ decision is recorded here. Version notes do not override this section silently.
     approval, the 39-asset provenance audit, and removing the private screenshot
     from the Dior source folder.
 
+  - Session handoff addendum, 2026-07-21 evening, Claude. The morning handoff
+    above is still accurate; this records what happened after it and what is now
+    waiting on the owner.
+
+    **Deployed since**: `a066eae` homepage metadata localization and the seo.ts
+    fix that made it actually work, the four i18n commits, the Color Wow evidence
+    and image, the Yandex importer fix, and the search-data records. Three
+    production deploys, each verified live.
+
+    **The i18n result in one line**: the brand-detail gap manifest went from 481
+    entries to 30, and the remaining 30 are all Indonesian — the one catalog the
+    owner has not returned. Every other locale shows its own language where it
+    used to hide the fragment or leak English.
+
+    **A mistake worth keeping, because it nearly shipped twice.** The homepage
+    title fix was verified against the English prerender and looked correct. It
+    was not: `pageMeta` built the homepage title from `site.tagline` and ignored
+    the title it was passed, so all eighteen locales still read English. English
+    renders identically whether that bug is present or not, which is precisely
+    why checking English proved nothing. The second attempt was verified against
+    a running production server on `/nl`, `/ru`, `/ja` before deploying. When a
+    fix is about locale-specific output, the default locale is not evidence.
+
+    **Owner deliverables now on the Desktop**, all annotated, all with a
+    verification pass waiting on return:
+      - `cosmeticsbatch-DECODER-EKSIKLERI-2026-07-21.xlsx` — three sheets. A: 22
+        brands whose decoder exists and fails on real user codes, Eucerin worst
+        at 19 of 27. B: the 119 hidden brands grouped by parent, because one
+        verified format unlocks a whole group — Kao has 8, Unilever 7, Kosé 6.
+        C: 60 suggested new brands plus blank rows, with their parent group
+        marked as needing packaging confirmation rather than trusted.
+      - `cosmeticsbatch-DECODER-SAYFALARI-2026-07-21.xlsx` — 913 rows, the 83
+        `dec.*` content strings missing in 11 locales. Dutch decoder pages
+        currently carry English titles in search results; German does not.
+    Both sheets lead with the same rule, because it is the one that keeps being
+    relearned: a batch code without a printed date beside it cannot verify a
+    format. Color Wow fit a Julian read four times out of four and was still not
+    shipped.
+
+    **Next disjoint task I would take**, unchanged from the morning: barcode
+    detection in the decoder. 24 of 228 failing checks are valid EAN-13 or UPC-A,
+    every 13-digit failure passes its checksum, and the marked photographs
+    already show the barcode in red for exactly this confusion.
+
   - Deploy handoff, 2026-07-20, Claude to Codex. Seven claims are ready in the
     working tree and none is committed: `CLAUDE-JPG-001`, `CLAUDE-DIOR-001`,
     `CLAUDE-PERMISSIVE-001`, `CLAUDE-CMP-001`, `CLAUDE-LOGO-001`,
