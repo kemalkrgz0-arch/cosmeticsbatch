@@ -137,6 +137,21 @@
       "publicationState": "existing-public-audit-required"
     },
     {
+      "id": "color-wow-1",
+      "brand": "color-wow",
+      "publicPath": "/brands/examples/color-wow-1.jpg",
+      "width": 692,
+      "height": 881,
+      "sourceType": "needs-verification",
+      "sourceReference": null,
+      "permissionStatus": "needs-verification",
+      "privacyReview": "needs-verification",
+      "decoderRelevance": "needs-verification",
+      "reviewedByRole": null,
+      "reviewedAt": null,
+      "publicationState": "existing-public-audit-required"
+    },
+    {
       "id": "chanel-1",
       "brand": "chanel",
       "publicPath": "/brands/examples/chanel-1.jpg",

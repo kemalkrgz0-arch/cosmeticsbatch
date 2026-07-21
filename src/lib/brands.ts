@@ -645,6 +645,13 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
     { src: "/brands/examples/carolina-herrera-2.jpg", width: 900, height: 416 },
     { src: "/brands/examples/carolina-herrera-3.jpg", width: 900, height: 416 },
   ],
+  // The brand is staged out of the picker for want of a verified decoder, but
+  // its page still resolves, and showing a reader where the code sits does not
+  // depend on being able to date it. The marked code is `B4249A`, one of the
+  // five samples recorded in PROJECT_STATUS.
+  "color-wow": [
+    { src: "/brands/examples/color-wow-1.jpg", width: 692, height: 881, annotated: true },
+  ],
   chanel: [
     { src: "/brands/examples/chanel-1.jpg", width: 900, height: 416 },
     { src: "/brands/examples/chanel-2.jpg", width: 900, height: 416 },
