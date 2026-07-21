@@ -112,3 +112,82 @@ causation; label interpretations and confidence honestly.
 - Follow-up: no action proposed under this claim. A snippet audit of the
   zero-CTR brand pages against Vichy is the obvious next slice and needs its own
   claim.
+
+#### GSC-SURFACE-2026-07-21-01, language and vocabulary extension
+
+- Script split of the 713 query rows, weighted by impressions: Latin 1,248
+  impressions and 0 attributed clicks; Cyrillic 139 and 4; CJK 34 and 1; Thai 6
+  and 1. Every attributed query click in the export is non-Latin.
+- Caveat that limits how hard this can be read: query rows account for 1,474 of
+  4,822 impressions and 6 of 102 clicks, so 96 clicks are unattributed and may
+  well be Latin. The country table is the safer instrument and says the same
+  thing more moderately — United States 0.86% over 813 impressions, United
+  Kingdom 0.75%, Netherlands 0.00% over 278, Canada 0.00% over 220, against
+  Spain 8.82%, Japan 6.78%, Ukraine 5.76%, Italy 5.36%, Russia 5.06%.
+- Locale investment does not match where the clicks are. Ukraine returns 8 clicks
+  at 5.76% and `uk` is a retired locale. Bulgaria still earns clicks on retired
+  `bg` URLs. Netherlands is an investment-pilot locale and returned 0 clicks on
+  278 impressions; Canada returned 0 on 220.
+- The sharper version of the same problem, from the query rows: the site already
+  ranks top-ten for native batch-code vocabulary in languages it does not serve.
+  `batchkode` position 4.6, `fecha de fabricación` 4.8, `dior batch kodu
+  sorgulama` 6.6, `batchkod parfym` 7.7, `batch kod` 8.0, `provera batch koda
+  parfema` 8.0, `kosmetiikan valmistuspäivä` 8.0, `zara perfume expiry date` 5.3.
+  Finnish, Serbian and Norwegian are retired locales; a searcher in those
+  languages reaches an English page and an English snippet. Zero clicks at
+  position 8 is the expected outcome of that, not a mystery.
+- Vocabulary: weighted by impressions the user's words are `batch` 526, `code`
+  418, `check` 274, `date` 255, `perfume` 139, `expiry` 138, `expiration` 116,
+  `how` 100, `long` 78, `last` 67, `expire` 47. Combined, the expiry family is
+  301 — comparable to `check`. The live English home page uses `manufacture`
+  seven times, `shelf life` five, `expir*` four and `how old` none, and the brand
+  snippets lead on manufacture date and shelf life.
+- Interpretation, and the constraint that makes it interesting: the mismatch is
+  deliberate. This project refuses to present a manufacturer expiry date it
+  cannot read, and that refusal is correct and should not be traded for CTR. The
+  available move is bridging vocabulary rather than false vocabulary — meeting
+  the searcher's word and immediately saying what the site can and cannot tell
+  them. Any such change belongs in its own claim with a snippet experiment.
+- Confidence: high on the vocabulary counts and the ranking positions, medium on
+  the locale-coverage reading, low on any claim that language alone explains the
+  English CTR.
+
+### WEBMASTER-2026-07-21-02 — Yandex was never empty
+
+- Correction first, because it invalidates two earlier statements in this
+  repository and two reports made to the owner. `SOURCES.md` recorded the
+  2026-07-19 and 2026-07-21 Yandex exports as "zero observations", and that was
+  read as a broken export. It was our own importer. Yandex writes a
+  `<dimension>` of `A1:A1` on sheets that carry hundreds of rows; openpyxl in
+  read-only mode believes it and yields the header alone. The three exports hold
+  589, 735 and 775 query rows. `scripts/import-search-performance.py` now calls
+  `reset_dimensions()` before iterating, and all three have been re-imported.
+- Source/filter: `WEBMASTER-2026-07-21-02`, period stated in every row as
+  2026-06-19–2026-07-19. 775 query rows.
+- Baseline: 1,109 impressions, 99 clicks, CTR 8.93%, impression-weighted average
+  position 7.48. Cyrillic 680 queries / 982 impressions / 89 clicks / 9.06%;
+  Latin 95 / 127 / 10 / 7.87%.
+- The comparison that matters. Over a comparable month Google returned 102 clicks
+  from 4,822 impressions at 2.12%, and Yandex returned 99 clicks from 1,109 at
+  8.93%. Yandex delivers the same click volume from less than a quarter of the
+  impressions, at an average position twenty-eight places better. This channel
+  has been invisible in every prior analysis, including the language and
+  vocabulary extension above, which should be re-read with that in mind.
+- Data caveat: individual rows can show CTR above 100% because Yandex attributes
+  clicks across position bands. Trust the totals and the ordering, not a single
+  row's percentage.
+- Demand signal against brand visibility, matching query tokens to slugs:
+  loreal 120 impressions / 13 clicks, vichy 73/6, estee-lauder 61/4, dior 42/5,
+  garnier 38/5, kerastase 32/4, creed 30/4, tom-ford-beauty 25/3,
+  gucci-beauty 20/0, roberto-cavalli 11/2, bottega-veneta 8/2, aesop 3/2. One
+  brand in the list is staged out: `color-wow`, 12 impressions and 3 clicks while
+  hidden from the picker for want of a verified decoder. Demand exists for a
+  brand the site deliberately does not serve; that is a decoder-verification
+  priority, not a reason to unhide it.
+- Interpretation: Russian-language batch-code intent converts several times
+  better than the English market the site is currently optimised and monetised
+  for, at positions the site already holds. `ru` is presently an
+  organic-preservation locale and ad inventory is English-only.
+- Confidence: high on the totals and the importer defect; medium on the brand
+  token matching, which is string matching over transliterations and will both
+  miss and over-collect.

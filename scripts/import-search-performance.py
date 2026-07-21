@@ -61,6 +61,13 @@ def main() -> None:
     sheets = []
     used_names: set[str] = set()
     for index, worksheet in enumerate(workbook.worksheets, start=1):
+        # Yandex Webmaster writes a <dimension> of A1:A1 on sheets that actually
+        # carry hundreds of rows. In read-only mode openpyxl trusts that record
+        # and yields the header alone, so three exports in a row were imported as
+        # "zero observations" and written up as an export-settings problem. They
+        # held 590, 736 and 775 rows. Recompute the extent instead of believing
+        # the file, and keep read-only for the memory behaviour.
+        worksheet.reset_dimensions()
         base = safe_sheet_name(worksheet.title)
         filename = f"{base}.tsv"
         if filename in used_names:
