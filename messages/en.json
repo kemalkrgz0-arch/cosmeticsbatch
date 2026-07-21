@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Cosmetic & Perfume Batch Code Checker",
     "homeDescription": "Free batch code checker for cosmetics, perfume and fragrance. Estimate a product's manufacture date and age, then compare typical unopened shelf life and PAO guidance."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "title": "This looks like a retail barcode",
+        "body": "{code} looks like an EAN, UPC or GTIN for {brand}, not a manufacturing batch code.",
+        "detail": "We recorded it with a barcode label. Look for a shorter stamped, embossed or ink-jet code elsewhere on the product or box.",
+        "retry": "Check another code",
+        "contact": "Send packaging photos",
+        "email": "Contact us by email"
+      },
+      "invalid-format": {
+        "title": "Please check the code format",
+        "body": "{code} is not in a format we can check for {brand}.",
+        "detail": "Compare every character with the short stamp, confirm the selected brand, and make sure you did not enter a barcode, address or marketing reference. Spaces and punctuation are already ignored.",
+        "retry": "Correct the code",
+        "contact": "Send packaging photos",
+        "email": "Contact us by email"
+      },
+      "unresolved": {
+        "title": "We could not decode this code yet",
+        "body": "{code} was not recognized for {brand}. This does not mean the product or code is invalid.",
+        "detail": "Thank you for reporting it. We added the code to the brand review queue. A clear photo of the code and packaging will help us investigate the format.",
+        "retry": "Check the brand and code again",
+        "contact": "Send code photos",
+        "email": "Contact us by email"
+      },
+      "recognized": {
+        "title": "We recognize this code but cannot date it yet",
+        "body": "{code} is a genuine {brand} batch code, in a format we can identify but have not finished decoding.",
+        "detail": "We would rather tell you this than guess a date. A photo showing this code next to any printed date on the packaging is exactly what we need to finish the format.",
+        "retry": "Check another code",
+        "contact": "Send packaging photos",
+        "email": "Contact us by email"
+      }
+    },
+    "hint": {
+      "address": "That number looks like a Paris postcode from the manufacturer's address on the pack, rather than a batch code. The batch code is a separate, shorter stamp — usually on the base of the bottle or on an end flap of the box.",
+      "emb": "That looks like the packager registration (\"EMB\" followed by digits) from the manufacturer's address block, not a batch code. The batch code is a separate stamp nearby — often on the same face of the box, in a different typeface.",
+      "printsDate": "This brand usually prints the date in plain text rather than hiding it in a code, so there may be nothing here to decode. Look on the carton or the back of the tube for a printed manufacture or expiry date — Korean and Japanese packaging often shows two dates side by side, the earlier being manufacture and the later expiry, and some print MFD and EXP against them."
+    }
   }
 }

@@ -5,7 +5,7 @@ import {
   DECODER_PROFILES,
   DECODERS,
 } from "../src/lib/decoder";
-import { addressLookalikeHint } from "../src/lib/result-failure-copy";
+import { addressLookalikeKey } from "../src/lib/result-failure-copy";
 
 const now = new Date("2025-07-14T12:00:00Z");
 
@@ -224,13 +224,14 @@ test("the canonical L'Oréal shape still reads at high confidence", () => {
 
 test("Paris postcodes from the address block are flagged, batch codes are not", () => {
   // Real entries: "75008" for two brands, "75116" for a third, all unresolved.
-  assert.ok(addressLookalikeHint("en", "75008"));
-  assert.ok(addressLookalikeHint("en", "75116"));
-  assert.ok(addressLookalikeHint("tr", "75001"));
+  assert.equal(addressLookalikeKey("75008"), "address");
+  assert.equal(addressLookalikeKey("75116"), "address");
+  assert.equal(addressLookalikeKey("75001"), "address");
+  assert.equal(addressLookalikeKey("EMB60350"), "emb");
   // Not Paris, and shapes a real code can take.
-  assert.equal(addressLookalikeHint("en", "75021"), null);
-  assert.equal(addressLookalikeHint("en", "22U401"), null);
-  assert.equal(addressLookalikeHint("en", "52911"), null);
+  assert.equal(addressLookalikeKey("75021"), null);
+  assert.equal(addressLookalikeKey("22U401"), null);
+  assert.equal(addressLookalikeKey("52911"), null);
 });
 
 test("a flagged postcode could never have decoded anyway", () => {

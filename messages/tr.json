@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Kozmetik ve Parfüm Batch Kodu Sorgulama",
     "homeDescription": "Kozmetik ve parfümler için ücretsiz parti kodu sorgulama aracı. Ürünün üretim tarihini ve yaşını tahmin edin, tipik raf ömrü ve PAO rehberliğini inceleyin."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "title": "Bu kod ürün barkoduna benziyor",
+        "body": "{code}, {brand} için üretim parti kodundan çok EAN, UPC veya GTIN barkoduna benziyor.",
+        "detail": "Kodu barkod etiketiyle kaydettik. Ürünün veya kutunun başka bir yerindeki daha kısa, damgalı, kabartmalı ya da mürekkep püskürtmeli kodu arayın.",
+        "retry": "Başka bir kod kontrol et",
+        "contact": "Ambalaj fotoğraflarını gönder",
+        "email": "E-posta ile iletişime geç"
+      },
+      "invalid-format": {
+        "title": "Kod biçimini kontrol edin",
+        "body": "{code}, {brand} için kontrol edebileceğimiz bir biçimde değil.",
+        "detail": "Kısa damgadaki her karakteri karşılaştırın, seçilen markayı doğrulayın ve barkod, adres ya da pazarlama referansı girmediğinizden emin olun. Boşluklar ve noktalama işaretleri zaten yok sayılır.",
+        "retry": "Kodu düzelt",
+        "contact": "Ambalaj fotoğraflarını gönder",
+        "email": "E-posta ile iletişime geç"
+      },
+      "unresolved": {
+        "title": "Bu kodu henüz çözemedik",
+        "body": "{code}, {brand} için tanınmadı. Bu sonuç ürünün veya kodun geçersiz olduğu anlamına gelmez.",
+        "detail": "Bize bildirdiğiniz için teşekkür ederiz. Kodu markanın inceleme listesine ekledik. Kodun ve ambalajın net fotoğrafları biçimi araştırmamıza yardımcı olur.",
+        "retry": "Markayı ve kodu tekrar kontrol et",
+        "contact": "Kod fotoğraflarını gönder",
+        "email": "E-posta ile iletişime geç"
+      },
+      "recognized": {
+        "title": "Bu kodu tanıyoruz ama henüz tarihleyemiyoruz",
+        "body": "{code}, gerçek bir {brand} parti kodu — biçimini tanıyoruz, ancak çözümünü henüz tamamlamadık.",
+        "detail": "Tarih uydurmaktansa bunu söylemeyi tercih ederiz. Bu kodun ambalajdaki herhangi bir basılı tarihle birlikte göründüğü bir fotoğraf, biçimi tamamlamamız için tam olarak ihtiyacımız olan şey.",
+        "retry": "Başka bir kod kontrol et",
+        "contact": "Ambalaj fotoğraflarını gönder",
+        "email": "E-posta ile iletişime geç"
+      }
+    },
+    "hint": {
+      "address": "Bu numara, ambalajdaki üretici adresinde geçen bir Paris posta koduna benziyor; batch kod değil. Batch kod ayrı ve daha kısa bir damgadır — genelde şişenin altında ya da kutunun yan kapağında bulunur.",
+      "emb": "Bu, üreticinin adres bloğundaki ambalajcı sicil numarasına benziyor (\"EMB\" ve ardından rakamlar); batch kod değil. Batch kod yakınlarda ayrı bir damgadır — genelde kutunun aynı yüzünde, farklı bir yazı tipiyle.",
+      "printsDate": "Bu marka tarihi genelde koda gizlemek yerine düz metin olarak basar; yani burada çözülecek bir şey olmayabilir. Kutuda veya tüpün arkasında basılı bir üretim ya da son kullanma tarihi arayın — Kore ve Japon ambalajlarında sıkça iki tarih yan yana durur, öndeki üretim, sondaki son kullanma tarihidir; bazıları bunları MFD ve EXP ile işaretler."
+    }
   }
 }

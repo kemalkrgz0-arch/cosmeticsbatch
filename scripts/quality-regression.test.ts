@@ -54,7 +54,7 @@ import { decodeAccessPart } from "../src/lib/review-auth";
 import { photoTransformPlan } from "../src/lib/photo-transform";
 import { BRAND_DETAIL_GAPS, hasReviewedBrandDetailKey } from "../src/lib/locale-message-gaps";
 import { isAdEligibleLocale } from "../src/lib/ads";
-import { printsDateHint } from "../src/lib/result-failure-copy";
+import { printsDateHintKey } from "../src/lib/result-failure-copy";
 
 const englishMessages = JSON.parse(
   readFileSync("messages/en.json", "utf8"),
@@ -269,11 +269,12 @@ test("failed-code intelligence stays privacy-minimal and reviewable", () => {
 });
 
 test("failed checks offer truthful, measurement-ready recovery actions", () => {
-  const failureCopy = readFileSync("src/lib/result-failure-copy.ts", "utf8");
   const resultCard = readFileSync("src/components/result-card.tsx", "utf8");
-  assert.match(failureCopy, /Spaces and punctuation are already ignored/);
-  assert.match(failureCopy, /Boşluklar ve noktalama işaretleri zaten yok sayılır/);
-  assert.doesNotMatch(failureCopy, /Remove spaces or punctuation/);
+  const enCopy = readFileSync("messages/en.json", "utf8");
+  const trCopy = readFileSync("messages/tr.json", "utf8");
+  assert.match(enCopy, /Spaces and punctuation are already ignored/);
+  assert.match(trCopy, /Boşluklar ve noktalama işaretleri zaten yok sayılır/);
+  assert.doesNotMatch(enCopy, /Remove spaces or punctuation/);
   for (const action of ["retry-code", "submit-photos", "email-support"]) {
     assert.match(resultCard, new RegExp(`data-recovery-action="${action}"`));
   }
@@ -1100,19 +1101,26 @@ test("failed checks on date-printing brands point at the printed date", () => {
     const brand = ALL_BRANDS.find((entry) => entry.slug === slug);
     assert.ok(brand, `${slug} is missing from the catalog`);
     assert.equal(brand.printsDate, true, `${slug} should be flagged as printing a date`);
-    for (const locale of ["en", "tr"]) {
-      const hint = printsDateHint(locale, brand.printsDate);
-      assert.ok(hint && hint.length > 40, `${slug} has no ${locale} printed-date hint`);
-    }
+    assert.equal(printsDateHintKey(brand.printsDate), "printsDate", `${slug} must offer the hint`);
   }
   // Brands that encode a date must not be told to go looking for a printed one.
   for (const slug of ["dior", "chanel", "loreal-paris"]) {
     const brand = ALL_BRANDS.find((entry) => entry.slug === slug);
-    assert.equal(printsDateHint("en", brand?.printsDate), null, `${slug} should not offer the hint`);
+    assert.equal(printsDateHintKey(brand?.printsDate), null, `${slug} should not offer the hint`);
   }
   // The failure card has to render it, above the address hint.
   const card = readFileSync("src/components/result-card.tsx", "utf8");
-  assert.match(card, /printsDateHint\(locale, brand\.printsDate\)/);
+  assert.match(card, /printsDateHintKey\(brand\.printsDate\)/);
+  // The words themselves moved into the catalogs so every locale gets them.
+  for (const locale of ["en", "tr"]) {
+    const messages = JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as {
+      resultFailure?: { hint?: Record<string, string>; reason?: Record<string, Record<string, string>> };
+    };
+    const hint = messages.resultFailure?.hint?.printsDate;
+    assert.ok(hint && hint.length > 40, `${locale} has no printed-date hint in its catalog`);
+    for (const reason of ["barcode", "invalid-format", "unresolved", "recognized"])
+      assert.ok(messages.resultFailure?.reason?.[reason]?.title, `${locale} is missing ${reason} copy`);
+  }
   assert.ok(
     card.indexOf("readableDateHint &&") < card.indexOf("addressHint &&"),
     "the printed-date hint must come before the address hint",

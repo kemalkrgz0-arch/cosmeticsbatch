@@ -18,7 +18,7 @@ import { Link } from "@/i18n/navigation";
 import type { CheckResult, DatePrecision, FreshnessStatus } from "@/lib/decoder";
 import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
-import { addressLookalikeHint, printsDateHint, resultFailureCopy } from "@/lib/result-failure-copy";
+import { addressLookalikeKey, printsDateHintKey } from "@/lib/result-failure-copy";
 import { site } from "@/lib/site";
 
 // Some code families (L'Oréal, Estée Lauder) encode only year+month; the day in
@@ -185,6 +185,7 @@ export function ResultCard({
   brand: Brand;
 }) {
   const t = useTranslations("result");
+  const tf = useTranslations("resultFailure");
   const locale = useLocale();
   const meta = statusMeta[result.freshness];
   const color = meta.color;
@@ -194,12 +195,14 @@ export function ResultCard({
 
   if (!result.decoded) {
     const reason = result.failureReason ?? "unresolved";
-    const failure = resultFailureCopy(locale, reason);
-    const addressHint = addressLookalikeHint(locale, result.code);
+    const failure = tf.raw(`reason.${reason}`) as Record<string, string>;
+    const addressKey = addressLookalikeKey(result.code);
+    const addressHint = addressKey ? tf(`hint.${addressKey}`) : null;
     // Ordered above the address hint deliberately: for a brand that prints a
     // readable date, "there is nothing here to decode" is the answer, not a
     // secondary tip.
-    const readableDateHint = printsDateHint(locale, brand.printsDate);
+    const dateKey = printsDateHintKey(brand.printsDate);
+    const readableDateHint = dateKey ? tf(`hint.${dateKey}`) : null;
     const inviteEvidence = reason === "unresolved" || reason === "barcode";
     return (
       <div className="overflow-hidden rounded-3xl border border-warning/40 bg-warning-bg shadow-card">
@@ -210,7 +213,7 @@ export function ResultCard({
           <div>
             <h2 className="text-lg font-semibold">{failure.title}</h2>
             <p className="mx-auto mt-1.5 max-w-md text-sm text-fg-muted">
-              {failure.body(result.code, brand.name)}
+              {tf(`reason.${reason}.body`, { code: result.code, brand: brand.name })}
             </p>
             <div className="mx-auto mt-5 max-w-lg rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
               {readableDateHint && (
