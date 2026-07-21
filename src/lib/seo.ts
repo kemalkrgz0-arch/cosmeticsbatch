@@ -52,8 +52,15 @@ export function pageMeta({
   standaloneTitle?: boolean;
 }): Metadata {
   const url = absoluteUrl(localizedPath(locale, path));
+  // The homepage keeps the "Cosmetics Batch — <what the site does>" shape, but
+  // the second half is the caller's title, not `site.tagline`. Reading the
+  // constant here quietly discarded whatever the caller passed, so every
+  // localized homepage announced itself in English above a translated page even
+  // after `generateMetadata` started passing a translated title. The description
+  // never had the bug, which is why the two halves of the same snippet
+  // disagreed in eighteen languages.
   const fullTitle =
-    path === "/" ? `${site.name} — ${site.tagline}` : `${title} | ${site.name}`;
+    path === "/" ? `${site.name} — ${title}` : `${title} | ${site.name}`;
   const titleSuffix = ` | ${site.name}`;
   const searchTitle = path === "/"
     ? fitSnippet(fullTitle, TITLE_BUDGET)
