@@ -82,8 +82,8 @@
     "exampleHeading": "Kodu çözülmüş gerçek bir {name} kodu",
     "decoderGuideBody": "{name}, {group} ile ilişkilidir. Kod gözlemlenen grup formatına uyduğunda tarih deseni okunur; bölgesel veya sözleşmeli üretim ürünlerinde farklı bir format bulunabilir.",
     "decoderGuideLink": "{name} kod formatını ve sınırlamalarını inceleyin",
-    "codeKeyBatch": "Parti kodu — girmeniz gereken kod bu. Yanındaki basılı üretim ve son kullanma tarihleri okumayı doğrular.",
-    "codeKeyOther": "Parti kodu değil — barkod ürünü mağazada tanımlar, açık kavanoz simgesi ise açıldıktan sonraki ömrü gösterir."
+    "codeKeyBatch": "Batch code (Parti kodu) — girmeniz gereken kod budur. Yanında basılı olan üretim ve son kullanma tarihleri okumayı doğrular.",
+    "codeKeyOther": "Parti kodu değildir — barkod ürünü mağazada tanımlar, açık kavanoz sembolü ise açıldıktan sonra ne kadar süre dayandığını gösterir."
   },
   "lorealFamily": {
     "heading": "{name} ve L'Oréal batch kodları hakkında bilinmesi gerekenler",
@@ -255,7 +255,7 @@
       "where1": "Kutunun tabanında ve şişenin alt tarafında.",
       "where2": "Good Girl stiletto şişesinde kod, topuğun tabanında bulunur.",
       "faq1a": "Cosmetics Batch sizin için Carolina Herrera kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq2a": "Buna dürüstçe bir oran veremeyiz: güvenilir sahtecilik istatistiği yayımlayan yok ve bir rakam veren her site tahmin yürütüyordur. Her hâlükârda yapmaya değer olan, kodun yapamadığı kontrollerdir — kutu ile şişedeki kodları karşılaştırın, şişeyi tartın ve sprey inceliğine bakın. Temiz bir okuma gereklidir ama yeterli olmaktan çok uzaktır."
+      "faq2a": "Dürüst olmak gerekirse kesin bir oran veremeyiz: kimse güvenilir sahtecilik oranları yayınlamaz ve oran veren siteler yalnızca tahmin yürütür. Yapmaya değer şey, bir kodun yapamayacağı kontrollerdir — kutu ve şişe kodlarını karşılaştırın, şişeyi tartın ve spreyin inceliğine bakın. Kodun sorunsuz okunması gereklidir ancak tek başına yeterli değildir."
     },
     "cerave": {
       "faq1q": "Bir CeraVe ürününün raf ömrünü nasıl kontrol edebilirim?",
@@ -264,8 +264,8 @@
       "faq2q": "CeraVe'nin son kullanma tarihi var mı?",
       "faq3q": "CeraVe'nin sahte olup olmadığını nasıl anlarım?",
       "faq3a": "CeraVe, pazarlarda yaygın olarak taklit edilmektedir. batch kodu bir ilk filtredir - L'Oréal'in şekline uymayan bir kod kötü bir işarettir - ancak gerçek bir kod sahte bir tüpe kopyalanabileceğinden orijinal bir ürünü doğrulayamaz. Plastiğin dokusunu, küçük metnin baskı kalitesini karşılaştırın ve eczaneden veya yetkili satıcıdan satın alın.",
-      "faq1a": "CeraVe'yi L'Oréal üretir ve grubun üretim tarihini taşıyan batch kodunu kullanır. Kodu sayfanın üstündeki sorgulama alanına girin, tarihi sizin için okuyalım; ardından açılmamış ürün için yaklaşık 36 ay hesaplayın. Açtıktan sonra artık açık kavanoz simgesi geçerlidir — ürün yelpazesinin çoğunda 12 ay.",
-      "faq2a": "Bazen, ve arkasındaki kural bilmeye değer: AB kozmetik mevzuatına göre 30 aydan uzun dayanan bir ürünün basılı son kullanma tarihi taşıması gerekmez, onun yerine açık kavanoz (PAO) simgesini taşır. Yani yalnızca simge gösteren bir ambalajda eksik bir şey yoktur — tarih basan bir ambalaj ise size 30 ay veya daha kısa için etiketlendiğini söylüyordur. Basılı tarih varsa ona güvenin: üreticinin kendi garantisidir ve bir kod çözücünün tahmininden üstündür."
+      "faq1a": "CeraVe, L'Oréal tarafından üretilir ve grubun üretim tarihini içeren parti kodunu taşır. Sayfanın üst kısmındaki denetleyiciye girin, tarihi sizin için okuyalım; açılmamış ürün için yaklaşık 36 ay hesaplayabilirsiniz. Açıldıktan sonra açık kavanoz sembolü devreye girer — ürünlerin çoğu için 12 aydır.",
+      "faq2a": "Bazen, ve arkasındaki kuralı bilmekte fayda var: AB kozmetik mevzuatına göre 30 aydan fazla dayanan bir ürünün son kullanma tarihi basılmasına gerek yoktur ve bunun yerine açık kavanoz (PAO) sembolünü taşır. Dolayısıyla yalnızca sembol gösteren bir ambalajda eksik bir şey yoktur — tarih basılı ambalaj ise 30 ay veya daha kısa süre için etiketlendiğini söyler. Basılı tarih varsa ona güvenin: üreticinin kendi garantisidir."
     },
     "chanel": {
       "where2": "Makyaj ve cilt bakımı: Kompakt veya kavanozun tabanında, çok küçük gri tipte.",
@@ -293,7 +293,7 @@
       "faq2q": "Kod bana Green Irish Tweed cihazımın orijinal olup olmadığını söyleyebilir mi?",
       "faq3a": "Daha ağır, reçineli bileşimler için eski bir şişe gerçekten tercih edilebilir, çünkü yeniden formülasyonlar birçok klasiği değiştirmiştir ve batch kodu, hangi formülü satın aldığınızı belirlemenin tek yoludur. Daha hafif, narenciye ağırlıklı Creed'ler için yaş çoğunlukla oksidasyondur ve hiçbir faydası yoktur.",
       "faq1a": "Cosmetics Batch sizin için Creed kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq2a": "Kısmen. Creed'in formatına hiç uymayan bir kod açık bir işarettir. Ama kopyalanmış bir kod da temiz çözülür, dolayısıyla geçerli kod kanıt değildir — şişeyi tartın, spreye ve kutu baskısına bakın, yetkili satıcıdan alın."
+      "faq2a": "Kısmen. Creed formatına hiç uymayan bir kod net bir işarettir. Ancak kopyalanmış bir kod da sorunsuz çözülür, bu nedenle geçerli bir kod tek başına kanıt değildir — şişeyi tartın, püskürtme kısmına ve kutu baskısına bakın, yetkili satıcıdan alın."
     },
     "dior": {
       "where1": "Koku: Dış kutunun tabanında ve şişenin alt tarafında - küçük baskılı bir etiket veya daha büyük şişelerin camına lazerle kazınmış.",
@@ -304,16 +304,16 @@
       "faq3q": "Dior rujunun batch kodu nerede?",
       "faq3a": "Kasanın düz tabanında. İlk önce mermiyi tamamen aşağı çevirin; kod tabana damgalanmıştır ve metalik kaplama nedeniyle gözden kaçırılması kolaydır.",
       "faq1a": "Kodlarla başlayın: Kutunun üzerindeki kod ile şişenin üzerindeki kod eşleşmelidir çünkü her ikisi de aynı dolum hattında birkaç dakika arayla uygulanır. Sonra şifreyi çözün; kokunun piyasaya sürülmesinden önceki bir ay veya yıl gerçek bir uyarıdır. Ancak sınırı anlayın: Orijinal bir kodu kopyalayan bir sahteci, kodu mükemmel şekilde çözen bir kod üretir. Toplu iş kodu bir sahtekarlığı ortaya çıkarabilir; gerçek olanı onaylayamaz.",
-      "faq2a": "Şişenin tabanına ve kutuya basılan ya da kazınan, harf ve rakam karışımı birkaç karakterlik kısa bir kod. Üretim tarihini taşır ama tarih olarak yazılı değildir: sayfanın üstündeki sorgulama alanına girin, sizin için okuyalım. Bilinmeye değer bir sınırı var: kod on yılı kaydetmez, bu yüzden çok daha eski bir şişe yeni bir şişeyle aynı okumayı verebilir. Bunu şişenin tasarımı ve kokunun çıkış tarihi belirler. Bazı eski Dior'lar bunun yerine düz bir rakam dizisi taşır.",
-      "faq4a": "Evet. Dior'u seçin ve Sauvage, Dior Homme veya Homme Intense ya da Miss Dior üzerindeki batch kodunu girin. Sorgulama, Dior kodundan üretim tarihini tahmin eder. Kutu ile şişedeki kodları da karşılaştırın, ancak geçerli bir tarihin kokunun orijinal olduğunu kanıtlayamayacağını unutmayın.",
-      "faq4q": "Dior Sauvage, Dior Homme ve Miss Dior'u buradan sorgulayabilir miyim?"
+      "faq2a": "Şişenin tabanına ve kutuya basılmış veya kazınmış, harf ve rakamlardan oluşan kısa bir kod. Üretim tarihini taşır ancak tarih olarak yazılmaz: sayfanın üstündeki denetleyiciye girin, sizin için okuyalım. Bilinmesi gereken bir sınır şudur: kod on yılı kaydetmez, bu nedenle çok eski bir şişe yeni bir şişeyle aynı okumayı verebilir. Şişe stili ve parfümün çıkış tarihi durumu netleştirir.",
+      "faq4a": "Evet. Dior'u seçin ve Sauvage, Dior Homme, Homme Intense veya Miss Dior parti kodunu girin. Denetleyici, Dior kodundan üretim tarihini tahmin eder. Kutu ve şişe kodlarını da karşılaştırın, ancak geçerli bir tarihin parfümün orijinal olduğunu kanıtlayamayacağını unutmayın.",
+      "faq4q": "Dior Sauvage, Dior Homme ve Miss Dior'u buradan kontrol edebilir miyim?"
     },
     "dunhill": {
       "where1": "Kutunun tabanında ve şişenin alt tarafında, beyaz taban etiketinin üzerine siyah basılmıştır.",
       "faq1q": "Dunhill batch kodunu nasıl okurum?",
       "faq2q": "Bir Dunhill kokusunun orijinal olup olmadığını nasıl kontrol edebilirim?",
       "faq1a": "Cosmetics Batch sizin için Dunhill kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq2a": "Önce kutu ile şişedeki kodları karşılaştırın, sonra çözün. Formata hiç uymayan bir kod ya da kutu ile şişede birbirini tutmayan kodlar gerçek uyarılardır. Temiz bir okuma kanıt değildir — kopyalanmış kodlar da çözülür."
+      "faq2a": "Kutu ve şişe kodlarını karşılaştırın, ardından sorgulayın. Formata hiç uymayan bir kod veya kutu ile şişe arasında uyuşmayan kodlar gerçek uyarı işaretleridir. Kodun okunması orijinallik kanıtı değildir — kopyalanmış kodlar da okunur."
     },
     "estee-lauder": {
       "where1": "Cilt bakımı: Kavanozun veya şişenin tabanına kabartma yapılır; malzemeye bastırılır, bu nedenle doğrudan ışık yerine yan yatan bir ışığa ihtiyaç duyar.",
@@ -344,7 +344,7 @@
       "faq3a": "Kodun L'Oréal'in formatına uyduğunu (Garnier bir L'Oréal markasıdır) ve kodunun makul bir tarihe çözülüp çözülmediğini kontrol edin. Bu, kaba sahtelikleri ortadan kaldırır. Kopyalanan bir kodun kodu mükemmel bir şekilde çözüldüğü için iyi bir kodu ekarte edemez.",
       "faq2q": "Garnier güneş kreminin tarihi nerede?",
       "faq3q": "Garnier ürünümün gerçek olduğunu nasıl bilebilirim?",
-      "faq1a": "Çoğu zaman basılı bir tarih yoktur ve bu bir eksiklik değil, etiketleme kuralıdır: AB kozmetik mevzuatına göre 30 aydan uzun dayanan bir ürünün basılı son kullanma tarihi taşıması gerekmez, onun yerine açık kavanoz (PAO) simgesini taşır. Tüp kıvrımındaki veya şişe tabanındaki kısa kod batch kodudur ve son kullanma değil üretim tarihini taşır — sayfanın üstündeki sorgulama alanına girin, tarihi sizin için okuyalım. Açılmamış ürün için yaklaşık 36 ay sayın, açtıktan sonra açık kavanoz simgesini kullanın."
+      "faq1a": "Genellikle basılı bir tarih bulunmaz, bu bir eksiklik değil etiketleme kuralıdır: AB kozmetik mevzuatına göre 30 aydan fazla dayanan bir ürünün son kullanma tarihi basılması gerekmez, bunun yerine açık kavanoz (PAO) sembolü taşır. Tüp kıvrımındaki veya şişe tabanındaki kısa kod parti kodudur ve üretim tarihini taşır — sayfanın üstündeki araca girin, tarihi okuyalım. Açılmamış ürün için yaklaşık 36 ay hesaplayın ve açıldıktan sonra kavanoz sembolünü kullanın."
     },
     "giorgio-armani-beauty": {
       "where1": "Koku (Acqua di Giò, Armani Code): kutunun alt kısmında ve şişenin taban etiketinde.",
@@ -360,7 +360,7 @@
       "where1": "Koku: Kutunun tabanında ve şişenin alt tarafında - genellikle küçük bir çıkartma üzerine basılmıştır.",
       "faq2q": "Eski Guerlain kodum çözülmüyor.",
       "faq2a": "Daha eski ve bölgeye özgü kodlar bazen hiçbir tarih içermeyen dahili alfanümerik referanslardır. Bunlar hiç kimse tarafından çözülemez. Şişeyi durumuna ve meyve suyunun kokusuna göre değerlendirin.",
-      "faq1a": "Guerlain bir LVMH markasıdır ve üretim tarihini ambalaja değil batch kodunun içine yazar. Kodu sayfanın üstündeki sorgulama alanına girin, tarihi sizin için okuyalım; ardından ışıktan ve ısıdan uzak tutulan bir eau de parfum için açılmamış üç ila beş yıllık ömür hesaplayın."
+      "faq1a": "Guerlain bir LVMH markasıdır ve üretim tarihini ambalaja yazmak yerine parti kodunun içine işler. Kodu sayfanın üstündeki denetleyiciye girin, tarihi okuyalım; ardından ışıktan ve ısıdan uzak tutulan bir eau de parfum için açılmamış 3 ila 5 yıl raf ömrü hesaplayabilirsiniz."
     },
     "hugo-boss": {
       "where1": "Dış kutunun tabanında ve şişenin altındaki şeffaf etikette.",
@@ -386,7 +386,7 @@
       "faq3q": "Kod, Kenzo kokusunun orijinal olduğunu kanıtlayabilir mi?",
       "faq2q": "Kenzo kodları her on yılda bir tekrarlanır mı?",
       "faq1a": "Cosmetics Batch sizin için Kenzo kodunuzdaki üretim tarihini okur; manuel kod çözme işlemine gerek kalmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq2a": "Evet, ve bu bir tuhaflık değil gerçek bir sınırdır. Kod on yılı kaydetmez, bu yüzden on yıl önceki bir şişe yeni bir şişeyle tam olarak aynı okumayı verebilir — kanıt her iki durumda da aynıdır. Kod çözücü yakın okumayı varsayar; şişe ve ambalaj daha eski bir döneme aitmiş gibi görünüyorsa muhtemelen öyledir."
+      "faq2a": "Evet, bu teknik bir sınırlandırmadır. Kod on yılı kaydetmez, bu nedenle on yıl önceki bir şişe yeni bir şişeyle tam olarak aynı okumayı verebilir. Denetleyici yakın tarihi varsayar; şişe ve ambalaj daha eski bir döneme ait görünüyorsa muhtemelen öyledir."
     },
     "kerastase": {
       "where1": "Şişeler ve maskeler: Şişenin arka kısmına, tabanın yakınına mürekkep püskürtmeli baskıyla basılmış veya kavanozun tabanına damga basılmıştır.",
@@ -396,7 +396,7 @@
       "faq3a": "Hayır. Formülün raf ömrü pazarın değil, ürünün bir özelliğidir. Sıcak iklimde değişen şey, gerçekte ne kadar hızlı bozulduğudur: ısı, gerçek dünyadaki yaşamı basılı olanın çok altında kısaltır.",
       "faq3q": "Ürün yurt dışından satın alındı; raf ömrü değişir mi?",
       "faq2a": "Kérastase, sahte ürünler ve saptırılmış salon stokları için ortak bir hedeftir. Kodu çözün: L'Oréal'in formatına uymalı ve makul bir tarih ortaya koymalıdır. Kopyalanan bir kodu yakalayamayacağı için baskının kalitesine, kapağın ağırlığına ve kaplamasına ve satıcının yetkili bir salon veya perakendeci olup olmadığına da bakın.",
-      "faq1a": "Kérastase, L'Oréal Professionnel'dir ve grubun üretim tarihini taşıyan batch kodunu kullanır. Kodu sayfanın üstündeki sorgulama alanına girin, tarihi sizin için okuyalım. Açılmamış bir maske o tarihten itibaren tipik olarak 30–36 ay iyidir; açıldıktan sonra açık kavanoz simgesi geçerlidir — genellikle 12M."
+      "faq1a": "Kérastase, L'Oréal Professionnel grubuna aittir ve grubun üretim tarihini içeren parti kodunu taşır. Sayfanın üstündeki denetleyiciye girin, tarihi okuyalım. Açılmamış bir maske genellikle o tarihten itibaren yaklaşık 30–36 ay iyidir; açıldıktan sonra açık kavanoz sembolü geçerlidir (genellikle 12M)."
     },
     "kiehls": {
       "where1": "Kavanoz ve şişeler: tabanları damgalıdır, genellikle baskı yerine kabartma yapılır; ışığın altında eğin.",
@@ -404,7 +404,7 @@
       "faq2q": "Kiehl's kavanozumdaki kod görünmüyor.",
       "where2": "Tüpler ve göz kremleri: kıvrımın içine bastırılır.",
       "faq2a": "Genellikle mürekkeplenmek yerine tabana kabartılır. Kabartmalı kodlar doğrudan ışık altında kaybolur ve yan taraftan ışık yanlarına geldiğinde görünür; kavanozu yavaşça bir lambaya doğru çevirin.",
-      "faq1a": "Tabandaki kodu sayfanın üstündeki sorgulama alanına girin — Kiehl's L'Oréal'dir ve grubun kodunu sizin için okuruz. Açılmamış hâlde yaklaşık 36 ay hesaplayın; açtıktan sonra açık kavanoz simgesi geçerlidir — göz kremi için genellikle 12M, ve önce dolacak olan bu süredir."
+      "faq1a": "Tabandaki kodu sayfanın üstündeki denetleyiciye girin — Kiehl's bir L'Oréal markasıdır ve grup kodunu sizin için okuruz. Açılmamış ürün için yaklaşık 36 ay hesaplayın; açıldıktan sonra açık kavanoz sembolünü kullanın — göz kremleri için genellikle 12M geçerlidir."
     },
     "la-roche-posay": {
       "where2": "Şişeler ve Anthelios güneş kremi: Arka etikette genellikle gerçek son kullanma tarihi belirtilir.",
@@ -414,7 +414,7 @@
       "faq2q": "Anthelios güneş koruyucusunun etkisi ne kadar sürer?",
       "faq3q": "La Roche-Posay'ım gerçek mi?",
       "faq3a": "L'Oréal'in formatına uyan ve makul bir tarihi çözen kod, kaba sahtekarlıkları ortadan kaldırıyor. İyi bir şeyi belgeleyemez. Eczaneden satın alma bu seri için en güçlü garanti olmayı sürdürüyor.",
-      "faq1a": "Eczane serileri genellikle kutuya veya tüpe gerçek bir son kullanma tarihi basar — onu kullanın. Yanındaki kısa kod batch kodudur ve onun yerine üretim tarihini taşır — bulabildiğiniz tek şey buysa sayfanın üstündeki sorgulama alanına girin."
+      "faq1a": "Eczane serileri genellikle kutu veya tüp üzerine gerçek bir son kullanma tarihi basar — onu kullanın. Yanındaki kısa kod parti kodudur ve üretim tarihini tutar — bulabildiğiniz tek şey buysa sayfanın üstündeki denetleyiciye girin."
     },
     "lancome": {
       "where2": "Cilt bakımı ve fondöten: Kavanozun tabanına, tüp kıvrımına veya şişeye kabartmalı veya baskılı.",
@@ -432,7 +432,7 @@
       "faq2q": "L'Oréal kodu neye benzer?",
       "faq3a": "O zaman bu format değil. Yakın zamanda satın alınan bazı markalar ve bazı bölgesel sözleşmeli üreticiler bunun yerine sade bir Jülyen tarihi basıyor; denetleyici, rakamlara gömülü bir tarihi okumaya geri dönüyor.",
       "faq1a": "Hepsi: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm ve diğerleri. Aynı bitkilerden çıkıyorlar, dolayısıyla aynı formatı taşıyorlar.",
-      "faq2a": "Tarih olarak yazılmak yerine damgalanan ya da mürekkep püskürtmeyle basılan, harf ve rakamlardan oluşan kısa bir dizi. Yalnızca bir kısmı üretim tarihini taşır; geri kalanı fabrikayı ve üretim partisini tanımlar ve raf ömrü hakkında bir şey söylemez. Kodun tamamını sayfanın üstündeki sorgulama alanına girin, tarihi sizin için okuyalım."
+      "faq2a": "Harf ve rakamlardan oluşan, tarih olarak yazılmak yerine damgalanmış veya basılmış kısa bir kod. Yalnızca bir kısmı üretim tarihini taşır; kalanı fabrikayı ve üretim serisini tanımlar, raf ömrü hakkında bilgi vermez. Kodun tamamını sayfanın üstündeki denetleyiciye girin."
     },
     "loreal-paris": {
       "where2": "Tüpler: mühürlü uçtaki kıvrıma bastırılır.",
@@ -442,8 +442,8 @@
       "faq2q": "L'Oréal ürünlerinin üretim tarihi nerede basılıyor?",
       "faq2a": "Tarih olarak basılmaz; kıvrım, taban veya arka etiket üzerindeki kısa düzensiz damga olan batch kodunda kodlanır. Barkod şeritlerinin altındaki uzun sayı EAN'dir ve hiçbir tarih içermez.",
       "faq3q": "Bir L'Oréal ürününün orijinal olup olmadığını nasıl kontrol edebilirim?",
-      "faq1a": "Genellikle bulunacak bir son kullanma tarihi yoktur ve bu bir eksiklik değil, etiketleme kuralıdır: AB kozmetik mevzuatına göre 30 aydan uzun dayanan bir ürünün basılı son kullanma tarihi taşıması gerekmez, onun yerine açık kavanoz (PAO) simgesini taşır. Basılı olan şey, üretim tarihini taşıyan batch kodudur. Sayfanın üstündeki sorgulama alanına girin, o tarihi sizin için okuyalım. Oradan itibaren açılmamış bir krem tipik olarak yaklaşık 36 ay iyidir; kullanmaya başladıktan sonra ne kadar dayanacağını açık kavanoz simgesi belirler.",
-      "faq3a": "Kod, üretim tarihini taşır — ürünün ne zaman yapıldığını. Son kullanma tarihi değildir ve orijinallik kanıtı da değildir. Tazeliği o tarihten hesaplarız: açılmamış ürün için yaklaşık 36 ay, açtıktan sonra ise açık kavanoz simgesindeki süre."
+      "faq1a": "Genellikle basılı son kullanma tarihi bulunmaz: AB mevzuatı uyarınca 30 aydan fazla dayanan ürünler açık kavanoz (PAO) sembolü taşır. Basılı olan kod, üretim tarihini tutan parti kodudur. Sayfanın üstündeki denetleyiciye girin, tarihi okuyalım. Buradan hareketle açılmamış bir krem genellikle yaklaşık 36 ay dayanır.",
+      "faq3a": "Kodu çözün ve L'Oréal formatına uyup uymadığına bakın — formatın tanımadığı veya imkansız bir tarihe çıkan bir kod gerçek bir uyarı işaretidir. Ancak kopyalanmış bir kod da çözülür, dolayısıyla bu test sahteyi yakalayabilir ama orijinali kesin olarak doğrulayamaz. Baskı kalitesini karşılaştırın ve yetkili satıcıdan alın."
     },
     "mac-cosmetics": {
       "faq1q": "MAC temelinin son kullanma tarihini nasıl kontrol edebilirim?",
@@ -454,7 +454,7 @@
       "faq2a": "B23 gibi üç karakter. MAC, Estée Lauder grubuna aittir, dolayısıyla son karakter yıl rakamıdır ve ortadaki karakter aydır; burada A, B ve C, Ekim, Kasım ve Aralık anlamına gelir.",
       "faq3q": "MAC rujumun orijinal olup olmadığını nasıl anlarım?",
       "faq3a": "Kod üç veya dört karakterden oluşmalı ve kodu makul bir tarihe göre çözülmelidir; bu şekle uymayan bir kod bir uyarıdır. Ancak kopyalanan bir kod mükemmel bir şekilde çözülür; bu nedenle kasanın ağırlığını, kapağın sesini ve küçük metnin baskısını da değerlendirin ve yetkili bir tezgahtan satın alın.",
-      "faq1a": "Genellikle bulunacak bir tarih yoktur ve bu bir eksiklik değil, etiketleme kuralıdır: AB kozmetik mevzuatına göre 30 aydan uzun dayanan bir ürünün basılı son kullanma tarihi taşıması gerekmez, onun yerine açık kavanoz (PAO) simgesini taşır. MAC'in bastığı şey, üretim tarihini taşıyan kısa bir batch kodudur. Sayfanın üstündeki sorgulama alanına girin, sonra açık kavanoz simgesini uygulayın: likit fondöten açıldıktan sonra tipik olarak 6–12 ay, açılmamış hâlde yaklaşık 36 aydır. Hangisi önce doluyorsa o geçerlidir."
+      "faq1a": "Genellikle basılı tarih bulunmaz, bu etiketleme kuralıdır: 30 aydan fazla dayanan ürünler açık kavanoz sembolü taşır. MAC, üretim tarihini tutan kısa bir parti kodu basar. Sayfanın üstündeki denetleyiciye girin, ardından açık kavanoz sembolünü uygulayın: likit fondöten açıldıktan sonra genellikle 6–12 ay, açılmamışsa yaklaşık 36 ay dayanır."
     },
     "maybelline": {
       "faq1q": "Maybelline maskaram kaç yıllık?",
@@ -463,7 +463,7 @@
       "where2": "Fondöten şişeleri: tabanda veya arka etikette.",
       "faq2a": "Tüpün veya şişenin tabanında veya bir paletin arkasında. Bu, uzun barkod numarası değil, kısa düzensiz koddur.",
       "faq2q": "Maybelline ürünlerinde batch kodu nerede?",
-      "faq1a": "Tabandaki kodu sayfanın üstündeki sorgulama alanına girin — Maybelline L'Oréal'dir ve grubun kodunu sizin için okuruz. Ancak maskarada üretim tarihi nadiren belirleyicidir: tüpü açtığınız gün başlayan üç ila altı aylık süre neredeyse her zaman önce dolar."
+      "faq1a": "Tabandaki kodu sayfanın üstündeki denetleyiciye girin — Maybelline bir L me markasıdır ve kod okumasını yaparız. Maskara için üretim tarihi belirleyici değildir: tüpü açtığınız gün başlayan 3 ila 6 aylık süre neredeyse her zaman önce dolar."
     },
     "montblanc": {
       "where2": "Montblanc kodları büyüteç olmadan okunması daha kolay koku kodları arasında yer alıyor.",
@@ -472,7 +472,7 @@
       "faq2q": "Bakabileceğim bir seri numarası var mı?",
       "faq2a": "Hayır. batch kodu, tek bir şişeyi değil, bir üretim çalışmasını tanımlar ve aranacak genel bir veri tabanı yoktur. Size verdiği şey tarihtir; bu da işin yararlı kısmıdır.",
       "faq1a": "Cosmetics Batch sizin için Montblanc kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq3a": "Inter Parfums kodlarının bir kısmında kodun bir bölümü tarihi değil üretim hattını tanımlar; bu da okumayı kaydırabilir. Tarih şişe için makul görünmüyorsa günü yaklaşık kabul edin ve şişenin kendi görünen yaşıyla birlikte değerlendirin.",
+      "faq3a": "Bazı Inter Parfums kodlarında kodun bir kısmı tarih yerine üretim hattını tanımlar ve bu da okumayı kaydırabilir. Tarih şişe için mantıksız görünüyorsa günü yaklaşık kabul edin ve şişenin kendi yaşıyla değerlendirin.",
       "faq3q": "Aldığım tarih yanlış görünüyor."
     },
     "nivea": {
@@ -484,7 +484,7 @@
       "faq2q": "NIVEA güneş kreminin son kullanma tarihi var mı?",
       "faq3a": "Baskı yerine metal tabana kabartma yapılmıştır, bu da onu doğrudan ışık altında neredeyse görünmez kılar. Kutuyu, bir lamba tabanı yan taraftan yakalayacak ve karakterler görünecek şekilde tutun.",
       "faq2a": "Güneş korumasının üzerinde normalde basılı bir son kullanma tarihi bulunur, çünkü SPF iddiası bir güvenlik iddiası olarak kabul edilir. Kodu çözülmüş bir tahmin yerine basılı tarihi kullanın ve tarihin ne söylediğine bakılmaksızın, bir yazı sıcak bir arabada geçirmiş bir şişeye bitmiş muamelesi yapın.",
-      "faq1a": "NIVEA (Beiersdorf) kesin bir gün yerine üretim haftasını kaydeder, bu yüzden okuma ürünü yaklaşık yedi günlük bir aralığa yerleştirir — bir vücut losyonu için fazlasıyla yeterli. Kodu sayfanın üstündeki sorgulama alanına girin, tarihi sizin için çıkaralım."
+      "faq1a": "NIVEA (Beiersdorf) kesin bir gün yerine üretim haftasını kaydeder, bu nedenle okuma ürünü yaklaşık yedi günlük bir aralığa yerleştirir — vücut losyonu için oldukça yeterlidir. Kodu sayfanın üstündeki denetleyiciye girin, tarihi çıkaralım."
     },
     "paco-rabanne": {
       "where1": "Kutunun alt kısmında ve şişenin alt tarafında. Daha ağır şişelerde (1 Million külçe, Invictus kupası) kod genellikle bir etiket üzerine basılmak yerine metal veya cam üzerine damgalanır.",
@@ -494,7 +494,7 @@
       "faq2q": "Kod Paco Rabanne'imin gerçek olduğunu kanıtlayabilir mi?",
       "faq3q": "Rabanne Paco Rabanne ile aynı marka mı?",
       "faq1a": "Cosmetics Batch sizin için Paco Rabanne kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq2a": "Sahteyi yakalayabilir, gerçeği belgeleyemez. Kutu ile şişede birbirini tutmayan kodlar ya da var olamayacak bir tarih güçlü uyarılardır — ama gerçek bir şişeden kopyalanmış bir kod kusursuz çözülür. Şişeyi tartın ve sprey desenini de kontrol edin."
+      "faq2a": "Sahteyi yakalayabilir ancak orijinal ürünü kesin olarak doğrulayamaz. Kutu ve şişede uyuşmayan kodlar veya imkansız bir tarih güçlü uyarılardır — ancak orijinal şişeden kopyalanmış bir kod mükemmel şekilde çözülür. Şişeyi tartın ve püskürtme desenini kontrol edin."
     },
     "redken": {
       "where1": "Şişeler: Şişenin arka etiketine veya tabanına mürekkep püskürtmeli baskı yapılmıştır.",
@@ -502,7 +502,7 @@
       "faq1q": "Redken ürününün raf ömrünü nasıl kontrol edebilirim?",
       "faq2a": "Hayır. Barkod EAN'dir; satılan ürünü tanımlar ve her şişede aynıdır. Yalnızca batch kodu, kısa düzensiz damga, bir tarih taşır.",
       "faq2q": "Barkod bana raf ömrünü söylüyor mu?",
-      "faq1a": "Redken bir L'Oréal markasıdır ve grubun üretim tarihini taşıyan batch kodunu kullanır — sayfanın üstündeki sorgulama alanına girin, sizin için okuyalım. Saç bakımı tipik olarak açılmamış hâlde yaklaşık 36 ay, açıldıktan sonra 12 ay iyidir."
+      "faq1a": "Redken bir L'Oréal markasıdır ve üretilme tarihini tutan parti kodunu taşır — sayfanın üstündeki denetleyiciye girin, sizin için okuyalım. Saç bakımı açılmamış halde yaklaşık 36 ay, açıldıktan sonra 12 ay dayanır."
     },
     "roberto-cavalli": {
       "where1": "Kutunun alt kısmına ve şişenin tabanına basılmış veya daha ağır şişelerin üzerine camın üzerine basılmıştır.",
@@ -510,7 +510,7 @@
       "faq1q": "Roberto Cavalli parfümünün orijinalliğini nasıl kontrol edebilirim?",
       "faq2q": "Roberto Cavalli şişesinin seri numarası nerede?",
       "faq2a": "Şişe başına benzersiz bir seri anlamında bir tane yok. Yazdırılan şey, aynı üretim sürecindeki her birim tarafından paylaşılan bir batch kodudur ve bir kimliği değil tarihi kodlar.",
-      "faq1a": "Cavalli parfümlerini Coty üretir ve kod üretim tarihini taşır. Önce kutudaki kod ile şişedeki kodu karşılaştırın: uyuşmazlık, bir alıcının elindeki en güçlü tek sinyaldir. Sonra kodu çözün; var olamayacak bir tarih açık bir sahtelik işaretidir. Ancak temiz çözülen bir kod orijinallik kanıtı değildir — kopyalanmış kodlar da çözülür."
+      "faq1a": "Cavalli parfümleri Coty tarafından üretilir ve kod üretim tarihini taşır. Önce kutudaki kod ile şişedeki kodu karşılaştırın: uyuşmazlık en güçlü uyarı işaretidir. Ardından kodu çözün; imkansız bir tarih net bir sahtedir. Ancak sorunsuz çözülen bir kod orijinallik kanıtı değildir."
     },
     "tom-ford-beauty": {
       "where1": "Koku: Kutunun tabanında ve şişenin alt tarafında kazınmış veya baskılı.",
@@ -541,7 +541,7 @@
       "faq4a": "Evet ve bu, ürün yelpazesindeki diğer her şeyden daha önemlidir: Bozulmuş UV filtreleri daha fazla radyasyonun geçmesine izin verir, bu nedenle güncelliğini yitirmiş bir SPF 50, SPF 50 sağlamaz. Güneş koruyucularında normalde tam da bu nedenle basılı bir son kullanma tarihi bulunur; onu kullanın. Ve tarihi ne olursa olsun, bir yazı sıcak bir arabada geçirmiş bir şişeye bitmiş muamelesi yapın.",
       "faq3a": "Sadece kısmen. L'Oréal'in şekline uymayan veya ürün serisinin ortaya çıkışından önceki bir tarihe dönüşen kod, gerçek bir uyarıdır. Ancak orijinal bir tüpten kod kopyalayan bir sahteci, kodu mükemmel şekilde çözen bir kod üretir; dolayısıyla temiz bir kod çözme, kremin değil, kodun iyi biçimlendirilmiş olduğunu kanıtlar. Eczane cilt bakımı için eczaneden satın almak daha güçlü bir koruma olmaya devam ediyor.",
       "faq2a": "Cosmetics Batch sizin için Vichy kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq1a": "Çoğu zaman yoktur ve bu bir eksiklik değil, etiketleme kuralıdır: AB kozmetik mevzuatına göre 30 aydan uzun dayanan bir ürünün basılı son kullanma tarihi taşıması gerekmez, onun yerine açık kavanoz (PAO) simgesini taşır. Cilt bakımının çoğu bundan uzun dayanır. Basılı bir tarih varsa — eczane serileri genellikle taşır — ona güvenin: çözülmüş herhangi bir tahminden üstündür. Bulabildiğiniz tek şey kısa bir kodsa, o batch kodudur ve son kullanma değil üretim tarihini taşır. Sayfanın üstündeki sorgulama alanına girin, sonra raf ömrünü ekleyin: cilt bakımı için açılmamış hâlde kabaca 36 ay, açtıktan sonra açık kavanoz simgesini izleyin."
+      "faq1a": "Genellikle basılı tarih yoktur: 30 aydan fazla dayanan ürünler açık kavanoz sembolü taşır. Basılı bir tarih varsa ona güvenin. Bulabildiğiniz tek şey kısa bir kodsa, o parti kodudur ve üretim tarihini taşır: sayfanın üstündeki araca girin ve açılmamış halde yaklaşık 36 ay raf ömrü ekleyin."
     },
     "ysl-beauty": {
       "where2": "Koku: Kutunun tabanında ve şişenin alt tarafında.",
@@ -567,10 +567,10 @@
       "faq3q": "Escada parfümün son kullanma tarihi geçer mi?",
       "faq3a": "Kokunun zor bir son kullanma tarihi yoktur, ancak değişir. Serin ve karanlık saklanan açılmamış bir Escada şişe, karakterini yaklaşık beş yıl boyunca korur; Bir kez açıldığında, önce parlak meyveli üst notalar kaybolur. Kararmış veya keskinleşmiş ve ekşimiş bir şişe, kodda ne söylenirse söylensin oksitlenmiştir.",
       "faq1a": "Cosmetics Batch sizin için Escada kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq2a": "Bu, bugünkü Coty kodlamasından önceki eski bir Escada parfümü; Margaretha Ley dönemi mini şişeler, Coty'nin bugün bastığı kod yerine metal tabana harf ve rakamdan oluşan bir parti numarası basar. O eski partiler bu aracın okuduğu formata uymaz, dolayısıyla tarihlendirilemez. Bu, şişenin sahte olduğuna işaret etmez — fabrika yalnızca farklı bir sistem kullanmıştır.",
-      "faq4a": "Hayır. Coty'nin formatına uymayan ya da kokunun çıkışından önceye tarihlenen bir kod gerçek bir uyarı işaretidir. Ama sahte bir ürüne kopyalanmış düzgün bir kod da aynı temizlikte çözülür; yani geçerli bir tarih kodun gerçek olduğunu kanıtlar, parfümün değil. Yetkili satıcıdan almak daha güçlü bir kontrol olmayı sürdürür.",
-      "where1": "Güncel eau de parfum ve eau de toilette: cam şişenin altındaki şeffaf etikette, \"EAU DE PARFUM VAPORISATEUR\" yazısıyla aynı satırda kısa bir numara olarak basılıdır.",
-      "where3": "Eski Escada parfüm minileri (Escada Beauté tarafından dağıtılan Margaretha Ley dönemi) bunun yerine metal taban plakasına harf artı rakamdan oluşan kısa bir parti numarası basar. Bu eski format Coty'nin bugün kullandığı kod değildir ve burada çözülmez."
+      "faq2a": "Bu, mevcut Coty kodlamasından önceki eski bir Escada parfümüdür; Margaretha Ley dönemi minileri, Coty'nin bugün kullandığı kodu basmak yerine metal tabana harf ve rakam damgalar. Bu vintage kodlar bu aracın okuduğu formata uymadığından tarihlendirilemez. Bu şişenin sahte olduğunu göstermez — fabrika sadece farklı bir sistem kullanmıştır.",
+      "faq4a": "Hayır. Coty formatına uymayan veya kokunun çıkışından öncesine dayanan bir kod gerçek bir uyarı işaretidir. Ancak sahte bir ürüne kopyalanmış düzgün bir kod da aynı şekilde çözülür; yani geçerli bir tarih parfümün değil, kodun gerçek olduğunu kanıtlar. Yetkili satıcıdan satın almak en güçlü kontroldür.",
+      "where1": "Modern eau de parfum ve eau de toilette: cam şişenin altındaki şeffaf etikette, \"EAU DE PARFUM VAPORISATEUR\" metniyle aynı satırda kısa bir numara olarak basılmıştır.",
+      "where3": "Daha eski Escada parfüm minileri (Escada Beauté tarafından dağıtılan Margaretha Ley dönemi), metal taban plakasına kısa bir harf ve numara lotu damgalar. Bu vintage format Coty'nin bugün kullandığı kod değildir ve burada çözülemez."
     }
   },
   "contentPages": {
@@ -608,5 +608,9 @@
     "relatedBrands": "Benzer markalar",
     "resultCrumb": "Sonuç",
     "learnHow": "{name} batch kodları nasıl çalışır"
+  },
+  "meta": {
+    "homeTitle": "Kozmetik ve Parfüm Parti Kodu Sorgulama",
+    "homeDescription": "Kozmetik ve parfümler için ücretsiz parti kodu sorgulama aracı. Ürünün üretim tarihini ve yaşını tahmin edin, tipik raf ömrü ve PAO rehberliğini inceleyin."
   }
 }

@@ -111,7 +111,11 @@ test("the brand-detail gap manifest matches the catalogs, per locale", () => {
   // hidden. Turkish is the case that proved the old single-set model wrong.
   assert.equal(BRAND_DETAIL_GAPS.tr, undefined, "tr is fully translated and must carry no gaps");
   assert.equal(hasReviewedBrandDetailKey("tr", "vichy", "faq1a"), true);
-  assert.equal(hasReviewedBrandDetailKey("ru", "vichy", "faq1a"), false);
+  // The false case needs a locale that genuinely still lacks the key. Russian
+  // used to be it and was translated on 2026-07-21, which is why this line
+  // moved rather than being deleted — the assertion is about the gating
+  // function, not about Russian.
+  assert.equal(hasReviewedBrandDetailKey("id", "vichy", "faq1a"), false);
   assert.equal(hasReviewedBrandDetailKey("en", "vichy", "faq1a"), true);
 
   const page = readFileSync("src/app/[locale]/brands/[slug]/page.tsx", "utf8");

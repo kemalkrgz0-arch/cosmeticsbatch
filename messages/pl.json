@@ -81,7 +81,9 @@
     "exampleHeading": "Prawdziwy kod {name} , zdekodowany",
     "whereHeading": "Gdzie znaleźć kod na opakowaniu {name}",
     "decoderGuideLink": "Przejrzyj format i ograniczenia kodu{name}",
-    "decoderGuideBody": "{name}jest powiązany z{group}. Tam, gdzie jego kod pasuje do obserwowanego formatu grupy, dekoder odczytuje wzór daty; produkty regionalne lub wytwarzane na zlecenie mogą mieć inny format."
+    "decoderGuideBody": "{name}jest powiązany z{group}. Tam, gdzie jego kod pasuje do obserwowanego formatu grupy, dekoder odczytuje wzór daty; produkty regionalne lub wytwarzane na zlecenie mogą mieć inny format.",
+    "codeKeyBatch": "Kod partii (batch code) — to jest kod, który należy wpisać. Wydrukowane obok daty produkcji i ważności potwierdzają odczyt.",
+    "codeKeyOther": "To nie są kody partii — kod kreskowy identyfikuje produkt w sklepie, a symbol otwartego słoiczka oznacza trwałość po otwarciu."
   },
   "faqUi": {
     "title": "Często zadawane pytania",
@@ -243,7 +245,8 @@
       "where2": "Na butelce na szpilce Good Girl kod znajduje się na podeszwie pięty.",
       "faq1q": "Jak sprawdzić kod partii Carolina Herrera?",
       "faq2q": "Czy Good Girl jest często podrabiana?",
-      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Carolina Herrera — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Carolina Herrera — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "faq2a": "Szczerze mówiąc, nie możemy podać dokładnej liczby: nikt nie publikuje wiarygodnych danych dotyczących podróbek, a każdy serwis podający wartości liczbowe jedynie zgaduje. Warto natomiast wykonać kontrole, których kod nie zastąpi — porównać kody na pudełku i flakonie, zważyć flakon oraz sprawdzić jakość rozpylacza. Poprawny odczyt kodu jest konieczny, ale niewystarczający do potwierdzenia oryginalności."
     },
     "cerave": {
       "where2": "Butelki z pompką (SA Cleanser, balsam nawilżający): nadruk atramentowy na tylnej etykiecie lub na podstawie.",
@@ -251,7 +254,9 @@
       "faq1q": "Jak sprawdzić trwałość produktu CeraVe?",
       "faq2q": "Czy CeraVe ma datę ważności?",
       "faq3q": "Jak mogę sprawdzić, czy CeraVe jest podrobiony?",
-      "faq3a": "CeraVe jest powszechnie podrabiana na rynkach. Kod partii jest pierwszym filtrem – kod, który nie pasuje do kształtu L'Oréal, jest złym znakiem – ale nie może potwierdzić oryginalności produktu, ponieważ prawdziwy kod można skopiować na fałszywą tubę. Porównaj fakturę plastiku, jakość druku małego tekstu i kup w aptece lub u autoryzowanego sprzedawcy."
+      "faq3a": "CeraVe jest powszechnie podrabiana na rynkach. Kod partii jest pierwszym filtrem – kod, który nie pasuje do kształtu L'Oréal, jest złym znakiem – ale nie może potwierdzić oryginalności produktu, ponieważ prawdziwy kod można skopiować na fałszywą tubę. Porównaj fakturę plastiku, jakość druku małego tekstu i kup w aptece lub u autoryzowanego sprzedawcy.",
+      "faq1a": "Marka CeraVe należy do koncernu L'Oréal i stosuje kod partii grupy, który zawiera datę produkcji. Wpisz go w wyszukiwarce na górze strony, a odczytamy datę. Fabrycznie zamknięty produkt zachowuje trwałość przez około 36 miesięcy. Po otwarciu obowiązuje symbol otwartego słoiczka — zazwyczaj 12 miesięcy.",
+      "faq2a": "Czasami tak jest, i warto znać tę zasadę: zgodnie z unijnym prawem kosmetycznym produkt o trwałości powyżej 30 miesięcy nie wymaga drukowanej daty ważności i posiada symbol otwartego słoiczka (PAO). Opakowanie wyłącznie z symbolem jest zatem pełnowartościowe — natomiast wydrukowana дата oznacza trwałość 30 miesięcy lub krótszą. Jeśli data jest nadrukowana, należy jej zaufać: to gwarancja producenta."
     },
     "chanel": {
       "where1": "Zapach: wytrawiony laserowo na szkle u podstawy butelki i wydrukowany na dolnej klapce pudełka. Na akwafortie nie ma atramentu — przechyl butelkę tak, aby światło padało z boku.",
@@ -278,7 +283,8 @@
       "faq3q": "Czy starszy Creed oznacza lepszy Creed?",
       "faq2q": "Czy kod może mi powiedzieć, czy mój Green Irish Tweed jest oryginalny?",
       "faq3a": "W przypadku cięższych, żywicznych kompozycji rzeczywiście lepsza będzie starsza butelka, ponieważ zmiana składu zmieniła kilka klasyków – a kod partii to jedyny sposób na ustalenie, jaką formułę kupujesz. W przypadku lżejszych Creedów z nutą cytrusów wiek wynika głównie z utleniania i nie przynosi żadnych korzyści.",
-      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Creed — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Creed — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "faq2a": "Częściowo. Kod całkowicie odbiegający od formatu Creed jest wyraźnym sygnałem ostrzegawczym. Jednak skopiowany kod odczytuje się prawidłowo, więc poprawny kod nie stanowi dowodu — zważ flakon, sprawdź rozpylacz i nadruk na pudełku oraz kupuj u autoryzowanych sprzedawców."
     },
     "dior": {
       "where3": "Pielęgnacja skóry: wytłoczony na dnie słoiczka, obok symbolu otwartego słoiczka.",
@@ -288,13 +294,17 @@
       "faq2q": "Jak wygląda kod partii Dior?",
       "faq3q": "Gdzie jest kod partii szminki Dior?",
       "faq3a": "Na płaskiej podstawie obudowy. Najpierw przekręć kulę całkowicie w dół — kod jest wybity w podstawie i łatwo go przeoczyć na tle metalicznego wykończenia.",
-      "faq1a": "Zacznij od kodów: ten na pudełku i ten na butelce powinny pasować, ponieważ oba są nakładane na tę samą linię rozlewniczą w odstępie kilku minut. Następnie rozszyfruj — miesiąc lub rok poprzedzający premierę zapachu jest prawdziwym ostrzeżeniem. Ale zrozum granicę: fałszerz, który kopiuje prawdziwy kod, tworzy kod, który doskonale dekoduje. Kod partii może ujawnić podróbkę; nie może poświadczyć prawdziwego."
+      "faq1a": "Zacznij od kodów: ten na pudełku i ten na butelce powinny pasować, ponieważ oba są nakładane na tę samą linię rozlewniczą w odstępie kilku minut. Następnie rozszyfruj — miesiąc lub rok poprzedzający premierę zapachu jest prawdziwym ostrzeżeniem. Ale zrozum granicę: fałszerz, który kopiuje prawdziwy kod, tworzy kod, który doskonale dekoduje. Kod partii może ujawnić podróbkę; nie może poświadczyć prawdziwego.",
+      "faq4q": "Czy mogę sprawdzić tutaj Dior Sauvage, Dior Homme i Miss Dior?",
+      "faq4a": "Tak. Wybierz Dior i wpisz kod partii z Sauvage, Dior Homme, Homme Intense lub Miss Dior. Narzędzie oszacuje datę produkcji na podstawie kodu Dior. Porównaj także kody na pudełku i flakonie, pamiętając jednak, że poprawna дата nie dowodzi oryginalności perfum.",
+      "faq2a": "Krótki kod — kilka znaków łączących litery i cyfry — nadrukowany lub wygrawerowany na spodzie flakonu i pudełku. Zawiera datę produkcji: wpisz go w wyszukiwarce na górze strony, a odczytamy ją. Warto znać ograniczenie: kod nie zapisuje dekady, więc znacznie starszy flakon może dać taki sam wynik jak nowy. O wieku decyduje wygląd flakonu i дата premiery zapachu."
     },
     "dunhill": {
       "where1": "Na podstawie pudełka i na spodzie butelki nadruk w kolorze czarnym na białej naklejce na podstawie.",
       "faq1q": "Jak odczytać kod partii Dunhill?",
       "faq2q": "Jak sprawdzić, czy zapach Dunhill jest autentyczny?",
-      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Dunhill — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Dunhill — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "faq2a": "Porównaj kody na pudełku i flakonie, a następnie odczytaj kod. Kod niepasujący do formatu lub niezgodne kody między pudełkiem a flakonem to poważne ostrzeżenia. Prawidłowy odczyt nie jest dowodem — skopiowane kody również się odczytują."
     },
     "estee-lauder": {
       "where2": "Zapach i makijaż: na spodzie pudełka i na spodzie produktu.",
@@ -324,7 +334,8 @@
       "faq2a": "Wyjątkiem jest ochrona przeciwsłoneczna – zwykle ma wydrukowaną datę ważności, ponieważ informacja o SPF jest gwarancją bezpieczeństwa. Użyj wydrukowanej daty, a nie odkodowanej i wymień każdą butelkę, która spędziła lato w upale.",
       "faq3q": "Skąd mam wiedzieć, że mój produkt Garnier jest prawdziwy?",
       "faq2q": "Gdzie jest data na kremie przeciwsłonecznym Garnier?",
-      "faq3a": "Sprawdź, czy kod pasuje do formatu L'Oréal — Garnier jest marką L'Oréal — i czy dekoduje wiarygodną datę. To wyklucza prymitywne podróbki. Nie można wykluczyć dobrego, bo skopiowany kod dekoduje doskonale."
+      "faq3a": "Sprawdź, czy kod pasuje do formatu L'Oréal — Garnier jest marką L'Oréal — i czy dekoduje wiarygodną datę. To wyklucza prymitywne podróbki. Nie można wykluczyć dobrego, bo skopiowany kod dekoduje doskonale.",
+      "faq1a": "Często brak wydrukowanej daty, co wynika z przepisów dotyczących znakowania: kosmetyk o trwałości powyżej 30 miesięcy nie wymaga daty ważności i posiada symbol otwartego słoiczka (PAO). Krótki kod na zgrzewie tubki lub spodzie to kod partii zawierający datę produkcji — wpisz go na górze strony. Przyjmij ok. 36 miesięcy dla zamkniętego produktu."
     },
     "giorgio-armani-beauty": {
       "where1": "Zapach (Acqua di Giò, Armani Code): na spodzie pudełka i na naklejce na spodzie butelki.",
@@ -339,7 +350,8 @@
       "where1": "Zapach: na spodzie pudełka i na spodzie butelki – często nadrukowany na małej naklejce.",
       "faq1q": "Jak sprawdzić datę produkcji zapachu Guerlain?",
       "faq2q": "Mój stary kod Guerlain nie da się rozszyfrować.",
-      "faq2a": "Starsze i specyficzne dla regionu kody są czasami wewnętrznymi odniesieniami alfanumerycznymi bez żadnej daty. Nikt nie jest w stanie ich rozszyfrować. Zamiast tego oceniaj butelkę po jej stanie i zapachu soku."
+      "faq2a": "Starsze i specyficzne dla regionu kody są czasami wewnętrznymi odniesieniami alfanumerycznymi bez żadnej daty. Nikt nie jest w stanie ich rozszyfrować. Zamiast tego oceniaj butelkę po jej stanie i zapachu soku.",
+      "faq1a": "Marka Guerlain należy do koncernu LVMH i koduje datę produkcji w kodzie partii zamiast drukowania jej na opakowaniu. Wpisz kod w wyszukiwarce na górze strony, a odczytamy datę. Fabrycznie zamknięta voda perfumowana przechowywana z dala od światła i ciepła zachowuje trwałość przez 3 do 5 lat."
     },
     "hugo-boss": {
       "faq1q": "Jak sprawdzić kod partii zapachu Hugo Boss?",
@@ -364,7 +376,8 @@
       "faq3q": "Czy kod może potwierdzić autentyczność zapachu Kenzo?",
       "faq2q": "Czy kody Kenzo powtarzają się co dziesięć lat?",
       "faq3a": "Potrafi wykryć podróbkę – niemożliwy dzień lub niezgodność pomiędzy kodem pudełka a kodem butelki, czego nie produkuje żadna oryginalna linia rozlewnicza. Nie może poświadczyć oryginalności, ponieważ skopiowany kod dekoduje czysto.",
-      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Kenzo — wpisz ją w polu sprawdzania na górze tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Kenzo — wpisz ją w polu sprawdzania na górze tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "faq2a": "Tak, to realne ograniczenie. Kod nie zapisuje dekady, więc flakon sprzed dziesięciu lat może dać dokładnie taki sam wynik jak nowy. Dekoder przyjmuje nowszą datę; jeśli flakon i opakowanie wyglądają na starszą epokę, prawdopodobnie tak jest."
     },
     "kerastase": {
       "faq1q": "Jak sprawdzić trwałość maski Kérastase?",
@@ -373,14 +386,16 @@
       "where1": "Butelki i maski: nadruki atramentowe z tyłu butelki, w pobliżu podstawy lub wytłoczone na dnie słoika.",
       "faq3q": "Produkt został zakupiony za granicą – czy zmienia się termin przydatności do spożycia?",
       "faq3a": "Nie. Trwałość receptury jest cechą produktu, a nie rynku. To, co zmienia się w gorącym klimacie, to szybkość jego faktycznej degradacji: ciepło skraca życie w świecie rzeczywistym znacznie poniżej tego drukowanego.",
-      "faq2a": "Kérastase jest częstym celem podróbek i produktów pochodzących z salonów kosmetycznych. Odszyfruj kod: powinien pasować do formatu L'Oréal i zawierać wiarygodną datę. Nie złapie skopiowanego kodu, dlatego zwróć uwagę także na jakość druku, wagę i wykończenie nakrętki oraz to, czy sprzedawca jest autoryzowanym salonem lub sprzedawcą."
+      "faq2a": "Kérastase jest częstym celem podróbek i produktów pochodzących z salonów kosmetycznych. Odszyfruj kod: powinien pasować do formatu L'Oréal i zawierać wiarygodną datę. Nie złapie skopiowanego kodu, dlatego zwróć uwagę także na jakość druku, wagę i wykończenie nakrętki oraz to, czy sprzedawca jest autoryzowanym salonem lub sprzedawcą.",
+      "faq1a": "Kérastase należy do L'Oréal Professionnel i posiada kod partii grupy z datą produkcji. Wpisz go w wyszukiwarce na górze strony. Zamknięta maska jest zazwyczaj dobra przez około 30–36 miesięcy od tej daty; po otwarciu obowiązuje symbol słoiczka (zazwyczaj 12M)."
     },
     "kiehls": {
       "where2": "Tubki i kremy pod oczy: wciśnięte w karb.",
       "where1": "Słoiki i butelki: wytłoczone na podstawie, często wytłaczane, a nie drukowane – przechyl je pod światło.",
       "faq1q": "Jak sprawdzić trwałość kremu pod oczy Kiehl's?",
       "faq2q": "Kod na moim słoiku Kiehl's jest niewidoczny.",
-      "faq2a": "Zwykle jest wytłoczony w podstawie, a nie tuszowany. Wytłoczone kody znikają pod bezpośrednim światłem i pojawiają się, gdy pada na nie światło z boku — powoli obracaj słoiczek w stronę lampy."
+      "faq2a": "Zwykle jest wytłoczony w podstawie, a nie tuszowany. Wytłoczone kody znikają pod bezpośrednim światłem i pojawiają się, gdy pada na nie światło z boku — powoli obracaj słoiczek w stronę lampy.",
+      "faq1a": "Wpisz kod ze spodu w wyszukiwarce na górze strony — Kiehl's należy do L'Oréal i odczytujemy kod grupy. Zamknięty produkt zachowuje trwałość przez ok. 36 miesięcy; po otwarciu sprawdź symbol słoiczka (dla kremu pod oczy zazwyczaj 12M)."
     },
     "la-roche-posay": {
       "where1": "Rury: wciśnięte w zacisk na uszczelnionym końcu.",
@@ -389,7 +404,8 @@
       "faq2a": "Do trzech lat bez otwierania, jeśli jest przechowywane w chłodnym miejscu, i około 12 miesięcy po otwarciu. Filtry przeciwsłoneczne to jedyny produkt, w przypadku którego wydrukowana data naprawdę ma znaczenie, ponieważ zdegradowane filtry oznaczają mniejszą ochronę, niż obiecuje etykieta.",
       "faq3a": "Kod pasujący do formatu L'Oréal i dekodujący wiarygodną datę wyklucza prymitywne podróbki. Nie może potwierdzić, że jest dobry. Zakup w aptece pozostaje najsilniejszą gwarancją dla tego asortymentu.",
       "faq3q": "Czy mój La Roche-Posay jest oryginalny?",
-      "faq2q": "Jak długo utrzymuje się filtr przeciwsłoneczny Anthelios?"
+      "faq2q": "Jak długo utrzymuje się filtr przeciwsłoneczny Anthelios?",
+      "faq1a": "Serie apteczne zazwyczaj drukują rzeczywistą datę ważności na kartoniku lub tubce — skorzystaj z niej. Krótki kod obok to kod partii z datą produkcji — wpisz go w wyszukiwarce powyżej, jeśli to jedyny kod, jaki znajdujesz."
     },
     "lancome": {
       "where1": "Zapach: na podstawie pudełka i na spodzie butelki.",
@@ -406,7 +422,8 @@
       "faq1q": "Które marki mają wspólny kod partii L'Oréal?",
       "faq3q": "W moim kodzie nie ma litery.",
       "faq1a": "Wszystkie: L'Oréal Paris, Maybelline, Garnier, NYX, Essie, Lancôme, Kiehl's, YSL Beauty, Giorgio Armani, Urban Decay, CeraVe, La Roche-Posay, Vichy, SkinCeuticals, Kérastase, Redken, Biotherm i reszta. Wychodzą z tych samych roślin, więc mają ten sam format.",
-      "faq3a": "W takim razie to nie ten format. Niektóre niedawno nabyte marki i niektórzy regionalni producenci kontraktowi drukują zamiast tego zwykłą datę juliańską — kontroler powraca do odczytywania daty zawartej w cyfrach."
+      "faq3a": "W takim razie to nie ten format. Niektóre niedawno nabyte marki i niektórzy regionalni producenci kontraktowi drukują zamiast tego zwykłą datę juliańską — kontroler powraca do odczytywania daty zawartej w cyfrach.",
+      "faq2a": "Krótki ciąg liter i cyfr, wytłoczony lub nadrukowany. Tylko jego część zawiera datę produkcji; reszta identyfikuje fabrykę i serię. Wpisz cały kod w wyszukiwarce na górze strony."
     },
     "loreal-paris": {
       "where2": "Rury: wciśnięte w zacisk na uszczelnionym końcu.",
@@ -415,7 +432,9 @@
       "where3": "Butelki (szampon, serum, podkład): nadruk atramentowy na tylnej etykiecie lub podstawie.",
       "faq3q": "Jak mogę sprawdzić autentyczność produktu L'Oréal?",
       "faq2q": "Gdzie na produktach L'Oréal widnieje data produkcji?",
-      "faq2a": "Nie jest drukowana jako data – jest zakodowana w kodzie partii, czyli krótkim, nieregularnym stemplu na karbowaniu, podstawie lub tylnej etykiecie. Długa liczba pod paskami kodu kreskowego to numer EAN i nie zawiera żadnej daty."
+      "faq2a": "Nie jest drukowana jako data – jest zakodowana w kodzie partii, czyli krótkim, nieregularnym stemplu na karbowaniu, podstawie lub tylnej etykiecie. Długa liczba pod paskami kodu kreskowego to numer EAN i nie zawiera żadnej daty.",
+      "faq1a": "Zazwyczaj brak drukowanej daty ważności zgodnie z prawem UE dla produktów o trwałości powyżej 30 miesięcy. Nadrukowany kod to kod partii zawierający datę produkcji. Wpisz go w wyszukiwarce powyżej, aby odczytać datę. Zamknięty krem jest trwały zazwyczaj przez ok. 36 miesięcy.",
+      "faq3a": "Odczytaj kod i sprawdź, czy pasuje do formatu L'Oréal — nierozpoznany kod lub niemożliwa дата to sygnał ostrzegawczy. Jednak skopiowany kod odczytuje się prawidłowo, więc ten test może wykryć podróbkę, ale nie potwierdzi oryginału. Porównaj jakość druku i kupuj u autoryzowanych sprzedawców."
     },
     "mac-cosmetics": {
       "where1": "Szminka: wytłoczona na płaskiej podstawie łuski na naboje. Przekręć kulę całkowicie w dół, aby łuska leżała płasko.",
@@ -425,7 +444,8 @@
       "faq3q": "Jak mogę sprawdzić, czy moja szminka MAC jest oryginalna?",
       "where2": "Kompakty, róże i palety: z tyłu opakowania — oraz na niektórych produktach nadruk na metalowej szalce, widoczny dopiero po zużyciu pudru.",
       "faq2a": "Trzy znaki, takie jak B23. MAC należy do grupy Estée Lauder, więc ostatni znak to cyfra roku, a środkowa to miesiąc — gdzie A, B i C oznaczają październik, listopad i grudzień.",
-      "faq3a": "Kod powinien składać się z trzech lub czterech znaków i dekodować wiarygodną datę; kod, który nie pasuje do tego kształtu, jest ostrzeżeniem. Ale skopiowany kod dekoduje doskonale, więc oceń także wagę etui, kliknięcie zamknięcia i wydruk małego tekstu – i kup w autoryzowanym punkcie sprzedaży."
+      "faq3a": "Kod powinien składać się z trzech lub czterech znaków i dekodować wiarygodną datę; kod, który nie pasuje do tego kształtu, jest ostrzeżeniem. Ale skopiowany kod dekoduje doskonale, więc oceń także wagę etui, kliknięcie zamknięcia i wydruk małego tekstu – i kup w autoryzowanym punkcie sprzedaży.",
+      "faq1a": "Zwykle brak drukowanej daty ważności z uwagi na przepisy UE. MAC drukuje krótki kod partii z datą produkcji. Wpisz go powyżej i zastosuj symbol słoiczka: podkład w płynie po otwarciu zachowuje trwałość przez 6–12 miesięcy, a zamknięty przez ok. 36 miesięcy."
     },
     "maybelline": {
       "where3": "Palety i kompakty: z tyłu etui.",
@@ -433,7 +453,8 @@
       "where1": "Tusz do rzęs: nadrukowany na podstawie tuby lub pionowo w miejscu owinięcia się etykiety.",
       "where2": "Buteleczki z podkładem: na podstawie lub na tylnej etykiecie.",
       "faq2q": "Gdzie znajduje się kod partii produktów Maybelline?",
-      "faq2a": "Na bazie tuby, butelki lub z tyłu palety. Jest to krótki, nieregularny kod, a nie długi numer kodu kreskowego."
+      "faq2a": "Na bazie tuby, butelki lub z tyłu palety. Jest to krótki, nieregularny kod, a nie długi numer kodu kreskowego.",
+      "faq1a": "Wpisz kod ze spodu w wyszukiwarce na górze strony — Maybelline należy do L'Oréal. W przypadku tuszu do rzęs дата produkcji rzadko jest decydująca: termin 3–6 miesięcy od otwarcia upływa prawie zawsze jako pierwszy."
     },
     "montblanc": {
       "faq1q": "Jak sprawdzić legendę Montblanc na podstawie jej kodu?",
@@ -441,7 +462,9 @@
       "where2": "Kody Montblanc należą do najłatwiejszych do odczytania bez użycia lupy.",
       "faq2a": "Nie. Kod partii identyfikuje serię produkcyjną, a nie pojedynczą butelkę, i nie ma publicznej bazy danych, w której można by to sprawdzić. Podaje datę – a to jest przydatna część.",
       "faq2q": "Czy mogę sprawdzić numer seryjny?",
-      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Montblanc — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Montblanc — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "faq3q": "Otrzymana дата wygląda na nieprawidłową.",
+      "faq3a": "W niewielkiej części kodów Inter Parfums fragment kodu oznacza linię produkcyjną zamiast daty, co może przesunąć wynik. Jeśli дата wydaje się neiprawdopodobna, potraktuj ją jako orientacyjną i oceń wygląd flakonu."
     },
     "nivea": {
       "where3": "Butelki i produkty do pielęgnacji przeciwsłonecznej: nadruki atramentowe na tylnej etykiecie lub na ramieniu butelki.",
@@ -451,7 +474,8 @@
       "where2": "Klasyczna niebieska puszka po kremie: wciśnięta w metalową podstawę, bez żadnego atramentu. Przechyl go pod światło; bezpośrednie światło sprawia, że ​​znika.",
       "faq2a": "Ochrona przeciwsłoneczna zwykle ma wydrukowaną datę ważności, ponieważ informacja o SPF jest traktowana jako informacja o bezpieczeństwie. Użyj wydrukowanej daty, a nie zdekodowanej szacunkowej wartości – i traktuj butelkę, która spędziła lato w nagrzanym samochodzie, jako skończoną, niezależnie od tego, co mówi data.",
       "faq3a": "Jest on wytłoczony w metalowej podstawie, a nie nadrukowany, co sprawia, że ​​jest prawie niewidoczny w bezpośrednim świetle. Przytrzymaj puszkę tak, aby lampka zaczepiła się o podstawę z boku i pojawiły się znaki.",
-      "faq2q": "Czy krem ​​​​do opalania NIVEA ma datę ważności?"
+      "faq2q": "Czy krem ​​​​do opalania NIVEA ma datę ważności?",
+      "faq1a": "Marka NIVEA (Beiersdorf) rejestruje tydzień produkcji zamiast dokładnego dnia, więc odczyt określa datę z dokładnością do około siedmiu dni — co jest w zupełności wystarczające dla balsamu do ciała. Wpisz kod na górze strony."
     },
     "paco-rabanne": {
       "faq1q": "Jak odkodować kod partii Invictus lub 1 Million?",
@@ -460,21 +484,24 @@
       "where1": "Na dnie pudełka i na spodzie butelki. Na cięższych butelkach – sztabce 1 Million czy trofeum Invictus – kod jest często wytłoczony w metalu lub szkle, a nie drukowany na naklejce.",
       "faq3a": "Tak - w 2023 r. dom zrezygnował ze swojej nazwy „Paco”. Starsze produkty noszą poprzednią markę, a format kodu nie uległ zmianie.",
       "faq3q": "Czy Rabanne to ta sama marka co Paco Rabanne?",
-      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Paco Rabanne — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Paco Rabanne — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "faq2a": "Test może wykryć podróbkę, ale nie potwierdzi oryginalności. Niezgodne kody na pudełku i flakonie lub niemożliwa дата to poważne ostrzeżenia — ale kod skopiowany z oryginalnego flakonu odczyta się idealnie. Zważ flakon i sprawdź rozpylacz."
     },
     "redken": {
       "where2": "Proszki i aerozole: wytłoczone na dnie puszki.",
       "where1": "Butelki: nadruk atramentowy na tylnej etykiecie lub podstawie butelki.",
       "faq1q": "Jak sprawdzić trwałość produktu Redken?",
       "faq2a": "Nie. Kod kreskowy to EAN – identyfikuje sprzedawany produkt i jest identyczny na każdej butelce. Jedynie kod partii, czyli krótki, nieregularny stempel, zawiera datę.",
-      "faq2q": "Czy kod kreskowy informuje mnie o okresie przydatności do spożycia?"
+      "faq2q": "Czy kod kreskowy informuje mnie o okresie przydatności do spożycia?",
+      "faq1a": "Redken to marka L'Oréal stosująca kod partii grupy z datą produkcji — wpisz go w wyszukiwarce na górze strony. Kosmetyki do włosów są trwałe przez ok. 36 miesięcy bez otwierania i 12 miesięcy po otwarciu."
     },
     "roberto-cavalli": {
       "where1": "Na spodzie pudełka i podstawie butelki – nadruk lub na cięższych flakonach wytłoczony w szkle.",
       "where2": "Poszukaj krótkiego czterocyfrowego kodu; dłuższa liczba pod paskami kodu kreskowego to nie to.",
       "faq2q": "Gdzie znajduje się numer seryjny na butelce Roberto Cavalli?",
       "faq1q": "Jak sprawdzić autentyczność perfum Roberto Cavalli?",
-      "faq2a": "Nie ma takiego w sensie unikalnego numeru seryjnego na butelkę. Drukowany jest kod partii – wspólny dla każdej jednostki z tej samej serii produkcyjnej – i koduje on datę, a nie tożsamość."
+      "faq2a": "Nie ma takiego w sensie unikalnego numeru seryjnego na butelkę. Drukowany jest kod partii – wspólny dla każdej jednostki z tej samej serii produkcyjnej – i koduje on datę, a nie tożsamość.",
+      "faq1a": "Perfumy Cavalli są produkowane przez Coty, a kod zawiera datę produkcji. Najpierw porównaj kod na pudełku z kodem na flakonie: rozbieżność to najsilniejszy sygnał ostrzegawczy. Następnie odczytaj kod; niemożliwa дата oznacza ewidentną podróbkę. Jednak poprawnie odczytany kod nie jest dowodem oryginalności."
     },
     "tom-ford-beauty": {
       "where2": "Palety podkładów i cieni do powiek: wytłoczone na bazie kompaktu lub butelki.",
@@ -504,7 +531,8 @@
       "faq4q": "Czy filtr przeciwsłoneczny Capital Soleil ma datę ważności?",
       "faq3a": "Tylko częściowo. Kod, który nie pasuje do kształtu L'Oréal lub który dekoduje datę sprzed istnienia linii produktów, jest prawdziwym ostrzeżeniem. Jednak fałszerz kopiujący kod z oryginalnej tuby tworzy kod, który jest doskonale dekodowany — zatem czyste odkodowanie dowodzi, że kod jest dobrze uformowany, a nie, że krem ​​jest taki. W przypadku aptecznej pielęgnacji skóry, kupowanie w aptece pozostaje silniejszą ochroną.",
       "faq4a": "Tak, i ma to większe znaczenie niż cokolwiek innego w tej gamie: zdegradowane filtry UV przepuszczają więcej promieniowania, więc przestarzały SPF 50 nie zapewnia SPF 50. Filtry przeciwsłoneczne zwykle mają wydrukowaną datę ważności właśnie z tego powodu – używaj go. Butelkę, która spędziła lato w nagrzanym samochodzie, traktuj jako skończoną, niezależnie od daty.",
-      "faq2a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Vichy — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq2a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Vichy — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "faq1a": "Często brak wydrukowanej daty z uwagi na przepisy UE dotyczące produktów o trwałości powyżej 30 miesięcy. Jeśli дата jest nadrukowana, należy jej zaufać. Jeśli znajdujesz tylko krótki kod, jest to kod partii z datą produkcji: wpisz go powyżej i przyjmij ok. 36 miesięcy trwałości dla zamkniętego produktu."
     },
     "ysl-beauty": {
       "where1": "Szminka i makijaż: wytłoczony na podstawie etui lub z tyłu kompaktu.",
@@ -529,7 +557,11 @@
       "faq3a": "Zapach nie ma twardego terminu ważności, ale się zmienia. Nieotwarta butelka Escada, przechowywana w chłodnym i ciemnym miejscu, zachowuje swój charakter przez około pięć lat; po otwarciu, jasne owocowe nuty głowy najpierw zanikają. Butelka, która pociemniała lub stała się ostra i kwaśna, utleniła się niezależnie od tego, co mówi kod.",
       "faq3q": "Czy Escada perfumy tracą ważność?",
       "faq4q": "Czy kod partii może potwierdzić, że mój Escada jest autentyczny?",
-      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Escada — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO)."
+      "faq1a": "Cosmetics Batch odczytuje za Ciebie datę produkcji z Twojego kodu Escada — wpisz ją w okienku kontrolnym u góry tej strony, bez ręcznego dekodowania. Kod zawiera datę produkcji, a nie datę ważności: dodaj typowy okres przydatności do spożycia po nieotwartym opakowaniu, aby ocenić świeżość, a po otwarciu postępuj zgodnie z symbolem otwartego słoika (PAO).",
+      "where1": "Współczesne wody perfumowane i toaletowe: na przeźroczystej naklejce pod szklanym flakonem, nadrukowany jako krótki numer w tej samej linii co tekst \"EAU DE PARFUM VAPORISATEUR\".",
+      "where3": "Starsze miniaturki perfum Escada (era Margaretha Ley, dystrybucja Escada Beauté) posiadają krótki kod wybity na metalowej płytce spodu. Ten vintage format różni się od kodów stosowanych obecnie przez Coty i nie zostanie tu odczytany.",
+      "faq2a": "To starsze perfumy Escada z okresu przed obecnym systemem Coty; miniaturki z ery Margaretha Ley mają kod wybity na metalowej podstawie. Te kody vintage nie odpowiadają formatowi obsługiwanemu przez to narzędzie, więc nie można określić daty. Nie oznacza to, że flakon jest podróbкой — fabryka stosowała wówczas inny system.",
+      "faq4a": "Nie. Kod odbiegający od formatu Coty lub wskazujący na datę przed premierą zapachu to sygnał ostrzegawczy. Jednak poprawny kod skopiowany na podróbkę odczyta się równie dobrze, więc prawidłowa дата potwierdza jedynie istnienie kodu, a nie perfum. Zakup u autoryzowanego sprzedawcy pozostaje najpewniejszą weryfikacją."
     }
   },
   "contentPages": {
@@ -576,5 +608,9 @@
     "relatedBrands": "Podobne marki",
     "resultCrumb": "Wynik",
     "learnHow": "Jak działają kody partii marki {name}"
+  },
+  "meta": {
+    "homeTitle": "Weryfikacja kodu partii kosmetyków i perfum",
+    "homeDescription": "Bezpłatny kalkulator kodu partii kosmetyków i perfum. Oszacuj datę produkcji oraz wiek produktu i porównaj z typowym okresem trwałości i PAO."
   }
 }
