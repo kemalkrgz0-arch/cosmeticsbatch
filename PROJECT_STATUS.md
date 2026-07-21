@@ -3250,6 +3250,40 @@ entries).
     This also supersedes the open question in finding 46: `AFS02R303C` is not an
     oddity, it is the normal shape, and the 2021-10-23 date offered for it
     remains unverifiable.
+
+52. P1 three brands are on the wrong decoder, checked against the manufacturer's
+    own list (`Next` — evidence complete, action deliberately withheld).
+    The owner supplied Inter Parfums' published brand list from
+    interparfumsinc.com on 2026-07-21. It is the authoritative answer to the
+    question finding 43 raised, and our map disagrees with it in three places:
+
+        dunhill           we assign interparfums   NOT on their list   INDEXED
+        roberto-cavalli   we assign coty           on their list       INDEXED
+        lacoste           we assign coty           on their list
+
+    Eleven of our twelve Inter Parfums brands are confirmed correct. Dunhill is
+    the one we invented, and it is indexed, monetized, and was added to the
+    sample-code exception list under finding 51 an hour before this was found —
+    so it is currently presenting a recognition result from a decoder whose
+    manufacturer does not make it.
+
+    Not reassigning any of them yet, and the reason is the era problem this file
+    has now hit three times. Licences move: finding 42 found a pre-2005 Calvin
+    Klein bottle that Coty's scheme cannot read because Coty did not hold the
+    licence when it was filled, and finding 26 found the same split on Jean Paul
+    Gaultier. A bottle's code follows whoever filled it, not whoever holds the
+    name today. So a current brand list tells us where to look, not what a
+    given bottle carries — and moving Roberto Cavalli to `interparfums` could
+    break correct reads on older stock.
+    Nor do we know who makes Dunhill fragrances now. Moving it somewhere on the
+    strength of knowing it is not Inter Parfums would replace one guess with
+    another.
+
+    `needs verification`, and it is cheap: one Roberto Cavalli or Lacoste bottle
+    photographed, and one Dunhill. If a Cavalli code carries the Inter Parfums
+    long-form shape from finding 51, that settles it for that era in one image.
+    Recorded here rather than acted on because the owner has been supplying
+    exactly these photographs faster than the questions can be written down.
     decoder.
 
     Beauty of Joseon, and the reason not to copy a competitor's answer. Two
