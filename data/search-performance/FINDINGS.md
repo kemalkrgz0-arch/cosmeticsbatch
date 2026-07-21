@@ -10,6 +10,7 @@ causation; label interpretations and confidence honestly.
 |---|---|---|---|---:|---|
 | GSC-BRAND-2026-07-19-01 | primary Codex agent | Implemented locally | `GSC-2026-07-19-01`; English prefix-free brand pages; impressions ≥100 | 2026-07-19 | CTR/ranking triage without editing other locales or review operations |
 | GSC-PRODUCT-2026-07-19-02 | Claude evidence audit / primary Codex implementation | Implemented locally | `GSC-2026-07-19-01`; identifiable brand + explicit product/product-category query | 2026-07-19 | Existing brand URLs only; no product URL/route/sitemap/canonical/schema |
+| GSC-SURFACE-2026-07-21-01 | Claude | Completed — analysis only, no change proposed yet | `GSC-2026-07-21-01`; whole property, device and country splits plus English brand pages ≥30 impressions | 2026-07-21 | Read-only measurement. No code, copy, locale-policy or ad-eligibility change is made under this claim |
 
 ## Findings
 
@@ -64,3 +65,50 @@ causation; label interpretations and confidence honestly.
   there and no corresponding product/nested-brand route exists. Local only.
 - Follow-up: measure the same query family and `/brands/dior` after one complete
   post-release window; preserve this baseline.
+
+### GSC-SURFACE-2026-07-21-01 — the site ranks, and then loses the click
+
+- Source/filter: `GSC-2026-07-21-01`, Web / Last 28 days. Observed chart rows
+  cover 2026-07-02–2026-07-19. Query-level totals (713 rows, 6 clicks, 1,474
+  impressions) are far below the device totals (102 clicks, 4,822 impressions)
+  because Google withholds low-volume queries; all query-level shares below are
+  therefore directional, not exhaustive.
+- Baseline, device split: mobile 83 clicks / 2,179 impressions / CTR 3.81% /
+  position 10.53. Desktop 18 / 2,607 / 0.69% / 35.57. Tablet 1 / 36 / 2.78% /
+  11.61.
+- Baseline, English brand pages by impressions: loreal-paris 457 impressions,
+  1 click, 0.22%, position 9.47; dior 196, 0, 0.00%, 14.09; vichy 184, 5, 2.72%,
+  7.63; lancome 177, 2, 1.13%, 9.76; kerastase 158, 0, 0.00%, 7.78; nivea 130,
+  1, 0.77%, 11.38; estee-lauder 129, 2, 1.55%, 9.05; mac-cosmetics 90, 0, 0.00%,
+  16.51; bottega-veneta 37, 0, 0.00%, 9.00.
+- Baseline, English head terms: `batch code` position 41.19 (36 impressions, 0
+  clicks); `batch code checker` 41.83 (23, 0); `batch number` 81.92 (25, 0);
+  `perfume batch code` 49.06 (17, 0); `batch code check` 44.73 (15, 0).
+- Baseline, country CTR: Spain 8.82%, Japan 6.78%, Ukraine 5.76%, Italy 5.36%,
+  Russia 5.06%, Türkiye 4.00% against United States 0.86% (813 impressions, the
+  largest single market), United Kingdom 0.75%, Netherlands 0.00% (278), Canada
+  0.00% (220).
+- Interpretation, held separately from the numbers above. Ranking is not the
+  binding constraint on brand pages: eight of them sit inside the first two
+  positions-pages and still return almost nothing. Vichy is the control that
+  makes this readable — same position band, 2.72%, so the template is capable of
+  converting and something page-specific is suppressing the rest. The snippet is
+  the first thing to inspect, not the ranking.
+- Interpretation, desktop. Desktop draws more impressions than mobile and sits
+  twenty-five positions worse. Whatever desktop is being shown for, the site is
+  not competitive on it, and the impressions are not reachable traffic.
+- Interpretation, language. Every attributed query click in the export is
+  non-English, and the highest-CTR countries are all non-English while the
+  largest impression markets convert near zero. This sits in tension with the
+  current policy of English-only ad eligibility and en/ru-only indexable brand
+  pages. Recording the tension only; the policy exists for editorial-quality
+  reasons this data cannot speak to.
+- Confidence: high on the measurements, medium on the snippet interpretation,
+  low on any causal claim about desktop.
+- Checked and deliberately not a finding: `/ca/guides`, `/sr/...` and `/bg/...`
+  still draw impressions, but all six sampled URLs return 308 to their English
+  equivalents. These are stale index entries for correctly retired locales, not
+  a redirect defect. Do not "fix" them.
+- Follow-up: no action proposed under this claim. A snippet audit of the
+  zero-CTR brand pages against Vichy is the obvious next slice and needs its own
+  claim.

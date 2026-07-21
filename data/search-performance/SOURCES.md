@@ -9,6 +9,8 @@ search metrics only and must never be joined with private user submissions.
 |---|---|---:|---|---|---|---|---|---|
 | GSC-2026-07-19-01 | Google Search Console | 2026-07-19 | filter: last 3 months; observed daily rows: 2026-07-02–2026-07-16 | Search type: Web; date: Last 3 months | `raw/GSC-2026-07-19-01.xlsx` | `d9c4b00b597254742bfbd4aff1aeada2013bffb2979b418563bca1262904ebbf` | `normalized/GSC-2026-07-19-01/` | 7 sheets; 596 query and 421 page observations |
 | WEBMASTER-2026-07-19-01 | needs verification | 2026-07-19 | needs verification | needs verification | `raw/WEBMASTER-2026-07-19-01.xlsx` | `5420dbc1274491873543c38a5844af27d9d755e1dfcf61f2d7279ec62895c154` | `normalized/WEBMASTER-2026-07-19-01/` | one sheet; only a `Query` header and zero observations |
+| GSC-2026-07-21-01 | Google Search Console | 2026-07-21 | filter: last 28 days; observed daily rows: 2026-07-02–2026-07-19 | Search type: Web; date: Last 28 days | `raw/GSC-2026-07-21-01.xlsx` | `6985cff6651018249a02bbb5c3a48045c9e14512802fb7b7984fc4cda6015002` | `normalized/GSC-2026-07-21-01/` | 7 sheets; 713 query and 494 page observations |
+| WEBMASTER-2026-07-21-01 | needs verification | 2026-07-21 | needs verification | needs verification | `raw/WEBMASTER-2026-07-21-01.xlsx` | `6f8d15338b40689d1a8ce825c57290884b95bd4439586f013adff379d27c8856` | `normalized/WEBMASTER-2026-07-21-01/` | one sheet; a header and zero observations, the same empty result as the 2026-07-19 export |
 
 Import command:
 
