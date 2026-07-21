@@ -2012,6 +2012,32 @@ list.
    account. This is the existing `ADSENSE-READINESS` step; do not start it
    earlier, because a rejection here is recorded against the account.
 
+**Sequence closed 2026-07-21.** Steps 1-4 are done and deployed. The owner
+published the certified consent message, assigned to cosmeticsbatch.com across
+32 languages, and — after the layout was found to be the two-option variant —
+switched it to the three-option one carrying an explicit refusal.
+That last change mattered for a reason worth keeping: our own privacy page
+claims the message offers "consent, refusal, and per-vendor and per-purpose
+choices". Under the two-option layout refusal was only reachable through Manage
+options, so the page was overstating what the site did — a claim a reviewer can
+check in one click, and the same class of defect this file spent two days
+removing from the decoder.
+
+Correction to my own reporting while this was open: I repeatedly stated the CMP
+"was not loading" on the basis that `__tcfapi` did not appear in a headless DOM
+dump. `__tcfapi` is a JavaScript global and cannot appear in serialized DOM, and
+the message is scoped to the EEA, UK and Switzerland while the check ran from
+Turkey. The measurement could not have shown what I said it showed. The account
+screenshots settled it instead: the message was published and correctly assigned
+throughout.
+
+Still owner-side and unverifiable from here, listed so it is not mistaken for
+done: Sites approval status, ads.txt "Authorized" state, Policy Center being
+clear, identity and payment tasks, and a real EEA session confirming the message
+renders with its refusal button. `NEXT_PUBLIC_ADSENSE_SLOT_*` stays unset until
+approval, which is why no ad unit renders — deliberate, and the pre-approval
+posture the components describe.
+
 Not blocking AdSense and deliberately left out of this sequence: findings 15
 (dashboard backlog), 16 (deploy switch window) and 18 (orphaned locale registry
 entries).
