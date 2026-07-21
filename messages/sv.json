@@ -28,10 +28,10 @@
   },
   "hero": {
     "badge": "Betrodd av skönhetsälskare över hela världen",
-    "subtitle": "Hitta tillverkningsdatum, ålder och utgångsdatum för din kosmetika på några sekunder – gratis, omedelbart och privat.",
+    "subtitle": "Uppskatta tillverkningsdatum och ålder för kosmetika som stöds, och granska sedan vägledning om typisk oöppnad hållbarhet och PAO.",
     "title": "Kontrollera batchkoder för kosmetika och parfym",
     "trustFree": "100 % gratis",
-    "trustPrivate": "Privat & Säkert",
+    "trustPrivate": "Tydliga begränsningar",
     "trustNoSignup": "Ingen registrering krävs"
   },
   "home": {
@@ -199,12 +199,12 @@
   "howItWorks": {
     "step1Title": "Välj varumärke",
     "title": "Hur det fungerar",
-    "step1Body": "Välj ditt varumärke bland över {n} kosmetika- och parfymtillverkare som stöds.",
+    "step1Body": "Välj bland {n} kosmetika- och parfymmärken som stöds.",
     "step2Body": "Ange batchkoden stämplad eller präglad på din produkt.",
     "step2Title": "Ange batchkod",
     "subtitle": "Inget konto, ingen väntan. Avkoda alla batchkoder som stöds på under tio sekunder.",
     "eyebrow": "Tre enkla steg",
-    "step3Body": "Se tillverkningsdatum, ålder, färskhet och utgångsdatum direkt.",
+    "step3Body": "Se uppskattat tillverkningsdatum och ålder, med separat vägledning för hållbarhet och PAO.",
     "step3Title": "Få resultat"
   },
   "popularBrands": {
@@ -213,10 +213,10 @@
     "viewAll": "Se alla märken"
   },
   "features": {
-    "accurateTitle": "Noggrann och pålitlig",
+    "accurateTitle": "Evidensbaserade resultat",
     "fastTitle": "Snabbt & enkelt",
-    "accurateBody": "Tillverkarspecifika algoritmer för exakta resultat.",
-    "privateTitle": "Privat & Säkert",
+    "accurateBody": "Format som stöds visar sin precision, antaganden och kända begränsningar.",
+    "privateTitle": "Integritet förklarad",
     "freeTitle": "Alltid gratis",
     "fastBody": "Få resultat på bara några sekunder – ingen registrering.",
     "privateBody": "Vår Integritetspolicy förklarar vad som behandlas, registreras och skyddas.",

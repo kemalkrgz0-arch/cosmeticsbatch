@@ -29,10 +29,10 @@
   "hero": {
     "title": "Tjek batchkoder for kosmetik og parfume",
     "badge": "Betroet af skønhedselskere verden over",
-    "subtitle": "Find fremstillingsdatoen, alderen og udløbsdatoen for din kosmetik på få sekunder - gratis, øjeblikkelig og privat.",
+    "subtitle": "Estimer fremstillingsdato og alder for understøttede kosmetikprodukter, og se derefter vejledning om typisk uåbnet holdbarhed og PAO.",
     "trustFree": "100 % gratis",
     "trustNoSignup": "Ingen tilmelding nødvendig",
-    "trustPrivate": "Privat & Sikkert"
+    "trustPrivate": "Tydelige begrænsninger"
   },
   "form": {
     "selectBrand": "Vælg mærke",
@@ -194,8 +194,8 @@
     "eyebrow": "Tre enkle trin",
     "step3Title": "Få resultater",
     "step2Title": "Indtast batchkode",
-    "step3Body": "Se produktionsdato, alder, friskhed og udløb med det samme.",
-    "step1Body": "Vælg dit mærke blandt {n}+ understøttede kosmetik- og parfumeproducenter.",
+    "step3Body": "Se den estimerede fremstillingsdato og alder med separat vejledning om holdbarhed og PAO.",
+    "step1Body": "Vælg mellem {n} understøttede kosmetik- og parfumemærker.",
     "step2Body": "Indtast batchkoden stemplet eller præget på dit produkt."
   },
   "popularBrands": {
@@ -205,12 +205,12 @@
   },
   "features": {
     "fastTitle": "Hurtigt og nemt",
-    "privateTitle": "Privat & Sikkert",
+    "privateTitle": "Privatliv forklaret",
     "privateBody": "Vores Privatlivspolitik forklarer, hvad der behandles, registreres og beskyttes.",
     "fastBody": "Få resultater på få sekunder – ingen tilmelding.",
-    "accurateBody": "Producentspecifikke algoritmer til præcise resultater.",
+    "accurateBody": "Understøttede formater viser deres præcision, antagelser og kendte begrænsninger.",
     "freeTitle": "Altid gratis",
-    "accurateTitle": "Nøjagtig og pålidelig",
+    "accurateTitle": "Evidensbaserede resultater",
     "freeBody": "Hver funktion er 100 % gratis, for evigt."
   },
   "whereCode": {

@@ -29,10 +29,10 @@
   "hero": {
     "badge": "Weltweit von Beauty-Fans genutzt",
     "title": "Chargencodes von Kosmetik & Parfüm prüfen",
-    "subtitle": "Finde Herstellungsdatum, Alter und Haltbarkeit deiner Kosmetik in Sekunden – kostenlos, sofort und privat.",
+    "subtitle": "Schätzen Sie das Herstellungsdatum und das Alter unterstützter Kosmetika und prüfen Sie anschließend Hinweise zur typischen ungeöffneten Haltbarkeit sowie zur PAO.",
     "trustFree": "100 % kostenlos",
     "trustNoSignup": "Keine Anmeldung",
-    "trustPrivate": "Privat & sicher"
+    "trustPrivate": "Klare Grenzen"
   },
   "home": {
     "faqSubtitle": "Alles Wissenswerte zum Entschlüsseln von Chargencodes bei Kosmetik und Parfüm."
@@ -199,13 +199,13 @@
   "howItWorks": {
     "title": "Wie es funktioniert",
     "step1Title": "Wählen Sie Marke aus",
-    "step1Body": "Wählen Sie Ihre Marke aus über {n} unterstützten Kosmetik- und Parfümherstellern.",
+    "step1Body": "Wählen Sie aus {n} unterstützten Kosmetik- und Parfümmarken.",
     "step2Title": "Geben Sie den Chargencode ein",
     "subtitle": "Kein Konto, keine Wartezeit. Dekodieren Sie jeden unterstützten Batch-Code in weniger als zehn Sekunden.",
     "eyebrow": "Drei einfache Schritte",
     "step2Body": "Geben Sie den auf Ihrem Produkt eingeprägten oder eingeprägten Chargencode ein.",
     "step3Title": "Erhalten Sie Ergebnisse",
-    "step3Body": "Sehen Sie sofort Herstellungsdatum, Alter, Frische und Verfallsdatum."
+    "step3Body": "Sehen Sie das geschätzte Herstellungsdatum und Alter mit separaten Hinweisen zu Haltbarkeit und PAO."
   },
   "popularBrands": {
     "title": "Beliebte Marken",
@@ -213,14 +213,14 @@
     "viewAll": "Alle Marken ansehen"
   },
   "features": {
-    "accurateTitle": "Präzise und zuverlässig",
-    "accurateBody": "Herstellerspezifische Algorithmen für präzise Ergebnisse.",
+    "accurateTitle": "Evidenzbasierte Ergebnisse",
+    "accurateBody": "Unterstützte Formate zeigen ihre Genauigkeit, Annahmen und bekannten Grenzen.",
     "freeTitle": "Immer kostenlos",
     "fastBody": "Erhalten Sie Ergebnisse in nur wenigen Sekunden – keine Anmeldung erforderlich.",
     "privateBody": "Unsere Datenschutzrichtlinie erklärt, was verarbeitet, gespeichert und geschützt wird.",
     "freeBody": "Jede Funktion ist für immer 100 % kostenlos.",
     "fastTitle": "Schnell und einfach",
-    "privateTitle": "Privat und sicher"
+    "privateTitle": "Datenschutz erklärt"
   },
   "whereCode": {
     "label": {

@@ -28,11 +28,11 @@
   },
   "hero": {
     "title": "Kozmetik ve Parfüm batch kodlarını Kontrol Edin",
-    "subtitle": "Kozmetiklerinizin üretim tarihini, yaşını ve son kullanma tarihini saniyeler içinde ücretsiz, anında ve özel olarak bulun.",
+    "subtitle": "Desteklenen kozmetik ürünlerinin üretim tarihini ve yaşını tahmin edin, ardından tipik açılmamış raf ömrü ve PAO rehberliğini inceleyin.",
     "badge": "Dünya çapında güzellik tutkunlarının güvendiği",
     "trustNoSignup": "Kayıt olmanıza gerek yok",
     "trustFree": "%100 Ücretsiz",
-    "trustPrivate": "Özel ve Güvenli"
+    "trustPrivate": "Açık sınırlandırmalar"
   },
   "form": {
     "selectBrandPlaceholder": "Marka seçin",
@@ -205,9 +205,9 @@
     "subtitle": "Hesap yok, beklemek yok. Desteklenen herhangi bir batch kodun kodunu on saniyeden kısa sürede çözün.",
     "step3Title": "Sonuçları Al",
     "step2Title": "batch kodunu Girin",
-    "step1Body": "{n}'den fazla desteklenen kozmetik ve parfüm üreticisi arasından markanızı seçin.",
+    "step1Body": "Desteklenen {n} kozmetik ve parfüm markası arasından seçim yapın.",
     "step2Body": "Ürününüzün üzerine damgalanmış veya kabartmalı batch kodunu yazın.",
-    "step3Body": "Üretim tarihini, yaşını, tazeliğini ve son kullanma tarihini anında görün."
+    "step3Body": "Ayrı raf ömrü ve PAO rehberliği ile birlikte tahmini üretim tarihini ve yaşını görün."
   },
   "popularBrands": {
     "title": "Popüler Markalar",
@@ -215,10 +215,10 @@
     "viewAll": "Tüm markaları görüntüle"
   },
   "features": {
-    "privateTitle": "Özel ve Güvenli",
+    "privateTitle": "Gizlilik açıklaması",
     "fastTitle": "Hızlı ve Kolay",
-    "accurateTitle": "Doğru ve Güvenilir",
-    "accurateBody": "Kesin sonuçlar için üreticiye özel algoritmalar.",
+    "accurateTitle": "Kanıta dayalı sonuçlar",
+    "accurateBody": "Desteklenen formatlar hassasiyetlerini, varsayımlarını ve bilinen sınırlarını gösterir.",
     "fastBody": "Sonuçları yalnızca birkaç saniye içinde alın; kaydolmanıza gerek yok.",
     "freeBody": "Her özellik sonsuza kadar %100 ücretsizdir.",
     "privateBody": "Gizlilik Politikamız hangi verilerin işlendiğini, kaydedildiğini ve korunduğunu açıklar.",

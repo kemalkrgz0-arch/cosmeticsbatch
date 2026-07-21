@@ -29,10 +29,10 @@
   "hero": {
     "badge": "Được tin dùng bởi những người yêu làm đẹp trên toàn thế giới",
     "title": "Kiểm tra mã lô mỹ phẩm & nước hoa",
-    "subtitle": "Tìm ngày sản xuất, tuổi và hạn sử dụng của mỹ phẩm chỉ trong vài giây — miễn phí, tức thì và riêng tư.",
+    "subtitle": "Ước tính ngày sản xuất và tuổi của các sản phẩm mỹ phẩm được hỗ trợ, sau đó xem hướng dẫn về hạn sử dụng khi chưa mở nắp và PAO thông thường.",
     "trustFree": "100% miễn phí",
     "trustNoSignup": "Không cần đăng ký",
-    "trustPrivate": "Riêng tư & an toàn"
+    "trustPrivate": "Giới hạn rõ ràng"
   },
   "home": {
     "faqSubtitle": "Mọi điều bạn cần biết về việc giải mã mã lô mỹ phẩm và nước hoa."
@@ -201,11 +201,11 @@
     "title": "Cách hoạt động",
     "subtitle": "Không tài khoản, không chờ đợi. Giải mã bất kỳ mã lô được hỗ trợ nào trong chưa đầy mười giây.",
     "step1Title": "Chọn thương hiệu",
-    "step1Body": "Chọn thương hiệu của bạn từ hơn {n} nhà sản xuất mỹ phẩm và nước hoa được hỗ trợ.",
+    "step1Body": "Chọn từ {n} thương hiệu mỹ phẩm và nước hoa được hỗ trợ.",
     "step2Title": "Nhập mã lô",
     "step2Body": "Gõ mã lô được dập hoặc in nổi trên sản phẩm của bạn.",
     "step3Title": "Nhận kết quả",
-    "step3Body": "Xem ngày sản xuất, tuổi, độ tươi mới và hạn dùng ngay lập tức."
+    "step3Body": "Xem ngày sản xuất và tuổi ước tính, cùng với hướng dẫn riêng về hạn sử dụng và PAO."
   },
   "popularBrands": {
     "title": "Thương hiệu phổ biến",
@@ -213,11 +213,11 @@
     "viewAll": "Xem tất cả thương hiệu"
   },
   "features": {
-    "accurateTitle": "Chính xác & đáng tin cậy",
-    "accurateBody": "Thuật toán riêng của nhà sản xuất cho kết quả chính xác.",
+    "accurateTitle": "Kết quả dựa trên bằng chứng",
+    "accurateBody": "Các định dạng được hỗ trợ hiển thị độ chính xác, các giả định và các giới hạn đã biết.",
     "fastTitle": "Nhanh & dễ dàng",
     "fastBody": "Nhận kết quả chỉ trong vài giây — không cần đăng ký.",
-    "privateTitle": "Riêng tư & an toàn",
+    "privateTitle": "Giải thích về quyền riêng tư",
     "privateBody": "Chính sách quyền riêng tư giải thích dữ liệu nào được xử lý, ghi lại và bảo vệ.",
     "freeTitle": "Luôn miễn phí",
     "freeBody": "Mọi tính năng đều 100% miễn phí, mãi mãi."

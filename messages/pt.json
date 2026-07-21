@@ -29,10 +29,10 @@
   "hero": {
     "badge": "A escolha de amantes da beleza em todo o mundo",
     "title": "Verifique os códigos de lote de cosméticos e perfumes",
-    "subtitle": "Descubra a data de fabrico, a idade e a validade dos seus cosméticos em segundos — grátis, instantâneo e privado.",
+    "subtitle": "Estime a data de fabricação e a idade dos cosméticos suportados e, em seguida, consulte as orientações sobre a validade típica do produto fechado e o PAO.",
     "trustFree": "100% grátis",
     "trustNoSignup": "Sem registo",
-    "trustPrivate": "Privado e seguro"
+    "trustPrivate": "Limitações claras"
   },
   "home": {
     "faqSubtitle": "Tudo o que precisa de saber para descodificar códigos de lote de cosméticos e perfumes."
@@ -190,13 +190,13 @@
   "howItWorks": {
     "title": "Como funciona",
     "step1Title": "Selecione a marca",
-    "step1Body": "Escolha sua marca entre mais de {n} fabricantes de cosméticos e perfumes suportados.",
+    "step1Body": "Escolha entre {n} marcas de cosméticos e perfumes suportadas.",
     "step3Title": "Obtenha resultados",
     "subtitle": "Sem conta, sem espera. Decodifique qualquer código de lote compatível em menos de dez segundos.",
     "step2Title": "Insira o código do lote",
     "eyebrow": "Três passos simples",
     "step2Body": "Digite o código do lote estampado ou gravado em seu produto.",
-    "step3Body": "Veja a data de fabricação, idade, frescor e validade instantaneamente."
+    "step3Body": "Veja a data de fabricação e a idade estimadas, com orientações separadas para validade do produto fechado e PAO."
   },
   "popularBrands": {
     "title": "Marcas populares",
@@ -205,9 +205,9 @@
   },
   "features": {
     "fastTitle": "Rápido e fácil",
-    "accurateTitle": "Preciso e confiável",
-    "privateTitle": "Privado e seguro",
-    "accurateBody": "Algoritmos específicos do fabricante para resultados precisos.",
+    "accurateTitle": "Resultados baseados em evidências",
+    "privateTitle": "Explicação sobre privacidade",
+    "accurateBody": "Os formatos suportados mostram sua precisão, suposições e limitações conhecidas.",
     "fastBody": "Obtenha resultados em apenas alguns segundos – sem inscrição.",
     "privateBody": "Nossa Política de Privacidade explica o que é processado, registrado e protegido.",
     "freeBody": "Cada recurso é 100% gratuito, para sempre.",

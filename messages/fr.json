@@ -29,10 +29,10 @@
   "hero": {
     "badge": "La référence des passionnés de beauté dans le monde entier",
     "title": "Vérifiez les codes de lot des cosmétiques et parfums",
-    "subtitle": "Trouvez la date de fabrication, l’âge et la date de péremption de vos cosmétiques en quelques secondes — gratuit, instantané et privé.",
+    "subtitle": "Estimez la date de fabrication et l’âge des produits cosmétiques pris en charge, puis consultez les conseils sur la durée de conservation non ouvert et la PAO.",
     "trustFree": "100 % gratuit",
     "trustNoSignup": "Sans inscription",
-    "trustPrivate": "Privé et sécurisé"
+    "trustPrivate": "Limites claires"
   },
   "home": {
     "faqSubtitle": "Tout ce qu’il faut savoir pour décoder les codes de lot des cosmétiques et parfums."
@@ -194,8 +194,8 @@
     "step2Title": "Entrez le code de lot",
     "subtitle": "Pas de compte, pas d'attente. Decode any supported batch code in under ten seconds.",
     "eyebrow": "Trois étapes simples",
-    "step3Body": "Consultez instantanément la date de fabrication, l’âge, la fraîcheur et l’expiration.",
-    "step1Body": "Choisissez votre marque parmi plus de {n} fabricants de cosmétiques et de parfums pris en charge.",
+    "step3Body": "Consultez la date de fabrication et l’âge estimés, avec des conseils distincts pour la durée de conservation et la PAO.",
+    "step1Body": "Choisissez parmi {n} marques de cosmétiques et de parfums prises en charge.",
     "step2Body": "Tapez le code de lot tamponné ou gravé sur votre produit."
   },
   "popularBrands": {
@@ -204,12 +204,12 @@
     "subtitle": "Accédez directement au décodeur de codes de lots d’une marque."
   },
   "features": {
-    "accurateBody": "Algorithmes spécifiques au fabricant pour des résultats précis.",
+    "accurateBody": "Les formats pris en charge affichent leur précision, leurs hypothèses et leurs limites connues.",
     "fastBody": "Obtenez des résultats en quelques secondes seulement, sans inscription.",
     "fastTitle": "Rapide et facile",
-    "accurateTitle": "Précis et fiable",
+    "accurateTitle": "Résultats basés sur des preuves",
     "privateBody": "Notre Politique de confidentialité explique ce qui est traité, enregistré et protégé.",
-    "privateTitle": "Privé et sécurisé",
+    "privateTitle": "Confidentialité expliquée",
     "freeTitle": "Toujours gratuit",
     "freeBody": "Chaque fonctionnalité est 100 % gratuite, pour toujours."
   },

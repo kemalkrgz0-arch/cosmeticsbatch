@@ -29,10 +29,10 @@
   "hero": {
     "badge": "全球美妆爱好者的信赖之选",
     "title": "查询化妆品和香水的批号",
-    "subtitle": "几秒钟即可查出化妆品的生产日期、使用时长和保质期——免费、即时、私密。",
+    "subtitle": "估算支持的化妆品生产日期与出廠时长，并查看常见未拆封保质期与开封后使用期限（PAO）指南。",
     "trustFree": "100% 免费",
     "trustNoSignup": "无需注册",
-    "trustPrivate": "私密且安全"
+    "trustPrivate": "明确限制"
   },
   "home": {
     "faqSubtitle": "解读化妆品和香水批号所需了解的一切。"
@@ -191,12 +191,12 @@
     "eyebrow": "三个简单步骤",
     "title": "它是如何运作的",
     "step1Title": "选择品牌",
-    "step1Body": "从 {n} 多家受支持的化妆品和香水制造商中选择您的品牌。",
+    "step1Body": "从 {n} 个支持的化妆品和香水品牌中选择。",
     "subtitle": "没有账户，无需等待。在十秒内解码任何支持的批号。",
     "step3Title": "获取结果",
     "step2Title": "输入批号",
     "step2Body": "输入产品上压印或压印的批号。",
-    "step3Body": "立即查看生产日期、年龄、新鲜度和有效期。"
+    "step3Body": "查看估算的生产日期与出廠时长，以及独立的保质期与 PAO 指南。"
   },
   "popularBrands": {
     "title": "热门品牌",
@@ -204,11 +204,11 @@
     "subtitle": "直接跳转到品牌的批号解码器。"
   },
   "features": {
-    "privateTitle": "私密且安全",
+    "privateTitle": "隐私说明",
     "fastTitle": "快速简单",
-    "accurateTitle": "准确可靠",
+    "accurateTitle": "基于事实的结果",
     "fastBody": "只需几秒钟即可获得结果 - 无需注册。",
-    "accurateBody": "制造商特定的算法可提供精确的结果。",
+    "accurateBody": "支持的格式将展示其精确度、假设条件及已知局限。",
     "freeTitle": "永远免费",
     "freeBody": "每个功能都是 100% 永久免费。",
     "privateBody": "我们的隐私政策说明哪些信息会被处理、记录和保护。"

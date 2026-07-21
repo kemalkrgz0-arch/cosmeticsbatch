@@ -29,10 +29,10 @@
   "hero": {
     "title": "Sprawdź kody serii kosmetyków i perfum",
     "badge": "Zaufały miłośnikom piękna na całym świecie",
-    "subtitle": "Znajdź datę produkcji, wiek i datę ważności swoich kosmetyków w ciągu kilku sekund — bezpłatnie, natychmiastowo i prywatnie.",
+    "subtitle": "Oszacuj datę produkcji i wiek obsługiwanych kosmetyków, a następnie zapoznaj się z wytycznymi dotyczącymi typowego okresu trwałości nieotwartego produktu oraz PAO.",
     "trustFree": "100% za darmo",
     "trustNoSignup": "Nie jest wymagana rejestracja",
-    "trustPrivate": "Prywatne i bezpieczne"
+    "trustPrivate": "Jasne ograniczenia"
   },
   "home": {
     "faqSubtitle": "Wszystko, co musisz wiedzieć o dekodowaniu kodów partii kosmetyków i perfum."
@@ -192,11 +192,11 @@
     "step1Title": "Wybierz markę",
     "eyebrow": "Trzy proste kroki",
     "subtitle": "Bez konta, bez czekania. Odkoduj dowolny obsługiwany kod wsadowy w mniej niż dziesięć sekund.",
-    "step1Body": "Wybierz swoją markę spośród ponad {n} wspieranych producentów kosmetyków i perfum.",
+    "step1Body": "Wybierz spośród {n} obsługiwanych marek kosmetyków i perfum.",
     "step2Body": "Wpisz kod partii wybity lub wytłoczony na produkcie.",
     "step3Title": "Uzyskaj wyniki",
     "step2Title": "Wprowadź kod partii",
-    "step3Body": "Natychmiast sprawdź datę produkcji, wiek, świeżość i datę ważności."
+    "step3Body": "Zobacz szacowaną datę produkcji i wiek wraz z osobnymi wytycznymi dotyczącymi okresu trwałości oraz PAO."
   },
   "popularBrands": {
     "viewAll": "Zobacz wszystkie marki",
@@ -204,14 +204,14 @@
     "title": "Popularne marki"
   },
   "features": {
-    "accurateTitle": "Dokładne i niezawodne",
+    "accurateTitle": "Wyniki oparte na dowodach",
     "fastTitle": "Szybko i łatwo",
-    "privateTitle": "Prywatne i bezpieczne",
+    "privateTitle": "Wyjaśnienie prywatności",
     "freeTitle": "Zawsze za darmo",
     "privateBody": "Nasza Polityka prywatności wyjaśnia, co jest przetwarzane, zapisywane i chronione.",
     "freeBody": "Każda funkcja jest w 100% darmowa, na zawsze.",
     "fastBody": "Uzyskaj wyniki w ciągu kilku sekund — bez rejestracji.",
-    "accurateBody": "Specyficzne dla producenta algorytmy zapewniające precyzyjne wyniki."
+    "accurateBody": "Obsługiwane formaty pokazują swoją precyzję, założenia oraz znane ograniczenia."
   },
   "whereCode": {
     "label": {

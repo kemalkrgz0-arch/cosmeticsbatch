@@ -28,11 +28,11 @@
   },
   "hero": {
     "trustNoSignup": "Geen aanmelding vereist",
-    "subtitle": "Vind binnen enkele seconden de productiedatum, leeftijd en vervaldatum van uw cosmetica - gratis, direct en privé.",
+    "subtitle": "Schat de productiedatum en ouderdom van ondersteunde cosmetica en bekijk vervolgens de richtlijnen voor de typische ongeopende houdbaarheid en PAO.",
     "trustFree": "100% gratis",
     "title": "Controleer batchcodes voor cosmetica en parfum",
     "badge": "Vertrouwd door schoonheidsliefhebbers over de hele wereld",
-    "trustPrivate": "Privé en veilig"
+    "trustPrivate": "Duidelijke beperkingen"
   },
   "form": {
     "chooseBrand": "Kies Merk",
@@ -191,9 +191,9 @@
     "title": "Hoe het werkt",
     "step1Title": "Selecteer Merk",
     "subtitle": "Geen account, geen wachttijden. Decodeer elke ondersteunde batchcode in minder dan tien seconden.",
-    "step1Body": "Kies uw merk uit meer dan {n} ondersteunde cosmetica- en parfummakers.",
+    "step1Body": "Kies uit {n} ondersteunde cosmetica- en parfummerken.",
     "step2Body": "Typ de batchcode die op uw product is gestempeld of in reliëf is aangebracht.",
-    "step3Body": "Bekijk direct de productiedatum, leeftijd, versheid en vervaldatum.",
+    "step3Body": "Bekijk de geschatte productiedatum en ouderdom, met afzonderlijke richtlijnen voor houdbaarheid en PAO.",
     "eyebrow": "Drie eenvoudige stappen",
     "step3Title": "Resultaten verkrijgen",
     "step2Title": "Voer batchcode in"
@@ -204,12 +204,12 @@
     "viewAll": "Bekijk alle merken"
   },
   "features": {
-    "privateTitle": "Privé en veilig",
+    "privateTitle": "Uitleg over privacy",
     "fastBody": "Krijg resultaten in slechts een paar seconden - geen aanmelding.",
-    "accurateBody": "Fabrikantspecifieke algoritmen voor nauwkeurige resultaten.",
+    "accurateBody": "Ondersteunde formaten tonen hun precisie, aannames en bekende beperkingen.",
     "fastTitle": "Snel en gemakkelijk",
     "freeTitle": "Altijd gratis",
-    "accurateTitle": "Nauwkeurig en betrouwbaar",
+    "accurateTitle": "Onderbouwde resultaten",
     "privateBody": "Ons Privacybeleid legt uit wat wordt verwerkt, vastgelegd en beschermd.",
     "freeBody": "Elke functie is voor altijd 100% gratis."
   },

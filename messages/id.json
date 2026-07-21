@@ -29,10 +29,10 @@
   "hero": {
     "badge": "Dipercaya oleh pecinta kecantikan di seluruh dunia",
     "title": "Periksa Kode Batch Kosmetik & Parfum",
-    "subtitle": "Temukan tanggal produksi, usia, dan tanggal kedaluwarsa kosmetik Anda dalam hitungan detik — gratis, instan, dan pribadi.",
+    "subtitle": "Perkirakan tanggal pembuatan dan usia produk kosmetik yang didukung, lalu tinjau panduan masa simpan sebelum dibuka dan PAO.",
     "trustFree": "100% Gratis",
     "trustNoSignup": "Tanpa perlu mendaftar",
-    "trustPrivate": "Pribadi & Aman"
+    "trustPrivate": "Batasan yang jelas"
   },
   "home": {
     "faqSubtitle": "Semua yang perlu Anda ketahui tentang mendekode kode batch kosmetik dan parfum."
@@ -201,11 +201,11 @@
     "title": "Cara kerja",
     "subtitle": "Tanpa akun, tanpa menunggu. Dekode kode batch yang didukung dalam waktu kurang dari sepuluh detik.",
     "step1Title": "Pilih Merek",
-    "step1Body": "Pilih merek Anda dari {n}+ produsen kosmetik dan parfum yang didukung.",
+    "step1Body": "Pilih dari {n} merek kosmetik dan parfum yang didukung.",
     "step2Title": "Masukkan Kode Batch",
     "step2Body": "Ketik kode batch yang dicap atau timbul pada produk Anda.",
     "step3Title": "Dapatkan Hasil",
-    "step3Body": "Lihat tanggal produksi, usia, kesegaran, dan kedaluwarsa secara instan."
+    "step3Body": "Lihat perkiraan tanggal pembuatan dan usia produk, beserta panduan terpisah untuk masa simpan dan PAO."
   },
   "popularBrands": {
     "title": "Merek Populer",
@@ -213,11 +213,11 @@
     "viewAll": "Lihat semua merek"
   },
   "features": {
-    "accurateTitle": "Akurat & Andal",
-    "accurateBody": "Algoritma khusus produsen untuk hasil yang tepat.",
+    "accurateTitle": "Hasil berbasis bukti",
+    "accurateBody": "Format yang didukung menampilkan tingkat akurasi, asumsi, serta batasan yang diketahui.",
     "fastTitle": "Cepat & Mudah",
     "fastBody": "Dapatkan hasil hanya dalam beberapa detik — tanpa mendaftar.",
-    "privateTitle": "Pribadi & Aman",
+    "privateTitle": "Penjelasan privasi",
     "privateBody": "Kebijakan Privasi kami menjelaskan apa yang diproses, dicatat, dan dilindungi.",
     "freeTitle": "Selalu Gratis",
     "freeBody": "Setiap fitur 100% gratis, selamanya."

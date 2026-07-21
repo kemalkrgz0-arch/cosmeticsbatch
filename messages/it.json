@@ -28,10 +28,10 @@
   },
   "hero": {
     "badge": "Scelto dagli amanti della bellezza in tutto il mondo",
-    "subtitle": "Trova la data di produzione, l'età e la data di scadenza dei tuoi cosmetici in pochi secondi: gratuitamente, istantaneamente e privatamente.",
+    "subtitle": "Stima la data di produzione e l’età dei cosmetici supportati, quindi consulta le indicazioni sulla durata di conservazione a prodotto sigillato e sul PAO.",
     "title": "Controlla i codici lotto di cosmetici e profumi",
     "trustFree": "100% gratuito",
-    "trustPrivate": "Privato e sicuro",
+    "trustPrivate": "Limiti chiari",
     "trustNoSignup": "Non è richiesta la registrazione"
   },
   "form": {
@@ -200,8 +200,8 @@
     "eyebrow": "Tre semplici passaggi",
     "title": "Come funziona",
     "step1Title": "Seleziona Marca",
-    "step3Body": "Visualizza immediatamente la data di produzione, l'età, la freschezza e la scadenza.",
-    "step1Body": "Scegli il tuo marchio tra oltre {n} produttori di cosmetici e profumi supportati.",
+    "step3Body": "Visualizza la data di produzione e l’età stimate, con indicazioni separate per durata di conservazione e PAO.",
+    "step1Body": "Scegli tra {n} marchi supportati di cosmetici e profumi.",
     "step2Body": "Digita il codice lotto stampato o in rilievo sul tuo prodotto.",
     "step3Title": "Ottieni risultati",
     "subtitle": "Nessun account, nessuna attesa. Decodifica qualsiasi codice batch supportato in meno di dieci secondi.",
@@ -213,9 +213,9 @@
     "viewAll": "Visualizza tutti i marchi"
   },
   "features": {
-    "accurateTitle": "Preciso e affidabile",
-    "privateTitle": "Privato e sicuro",
-    "accurateBody": "Algoritmi specifici del produttore per risultati precisi.",
+    "accurateTitle": "Risultati basati su evidenze",
+    "privateTitle": "Informativa sulla privacy",
+    "accurateBody": "I formati supportati mostrano la loro precisione, le ipotesi e i limiti noti.",
     "fastBody": "Ottieni risultati in pochi secondi, senza registrazione.",
     "freeBody": "Ogni funzionalità è gratuita al 100%, per sempre.",
     "privateBody": "La nostra Informativa sulla privacy spiega cosa viene elaborato, registrato e protetto.",

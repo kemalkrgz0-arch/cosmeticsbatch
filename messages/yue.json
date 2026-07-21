@@ -29,10 +29,10 @@
   "hero": {
     "badge": "深受全球美妝愛好者信賴",
     "title": "查化妝品同香水批次代碼",
-    "subtitle": "幾秒鐘就搵到你化妝品嘅生產日期、使用時間同到期日——免費、即時、保障私隱。",
+    "subtitle": "估算支援化妝品嘅生產日期與出廠時間，並參考常見未開封保質期同埋開封後使用期限（PAO）指引。",
     "trustFree": "100% 免費",
     "trustNoSignup": "毋須註冊",
-    "trustPrivate": "私密又安全"
+    "trustPrivate": "明確限制"
   },
   "home": {
     "faqSubtitle": "解讀化妝品同香水批次代碼你需要知道嘅一切。"
@@ -192,11 +192,11 @@
     "title": "運作方式",
     "subtitle": "毋須開戶口、毋須等。十秒之內就解讀到任何支援嘅批次代碼。",
     "step1Title": "揀品牌",
-    "step1Body": "喺{n}多個支援嘅化妝品同香水製造商入面揀你嘅品牌。",
+    "step1Body": "喺 {n} 個支援嘅化妝品同香水品牌之中選擇。",
     "step2Title": "輸入批次代碼",
     "step2Body": "輸入你產品上打印或者壓印嘅批次代碼。",
     "step3Title": "取得結果",
-    "step3Body": "即刻睇到生產日期、使用時間、新鮮程度同到期日。"
+    "step3Body": "查看估算嘅生產日期同埋出廠時間，以及獨立嘅保質期與 PAO 指引。"
   },
   "popularBrands": {
     "title": "熱門品牌",
@@ -204,11 +204,11 @@
     "viewAll": "查看所有品牌"
   },
   "features": {
-    "accurateTitle": "準確又可靠",
-    "accurateBody": "製造商專屬演算法，令結果更精準。",
+    "accurateTitle": "基於事實嘅結果",
+    "accurateBody": "支援嘅格式會顯示其準確度、假設以及已知嘅局限。",
     "fastTitle": "快捷又簡單",
     "fastBody": "幾秒鐘就有結果——毋須註冊。",
-    "privateTitle": "私密又安全",
+    "privateTitle": "隱私說明",
     "privateBody": "我哋嘅私隱政策會說明邊啲資料會被處理、記錄同保護。",
     "freeTitle": "永遠免費",
     "freeBody": "每項功能都100%免費，永遠免費。"
