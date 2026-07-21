@@ -614,15 +614,14 @@ const PRINTS_DATE_SLUGS = new Set<string>([
 
 /** Real product photos of where the batch code is, keyed by slug. */
 const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
+  // Owner photographs, marked by the owner in the site's colours — orange on the
+  // batch code, red on the barcode and any printed reference. They replace the
+  // earlier three-image sets, which had unrecorded provenance and no marking.
   "acqua-di-parma": [
-    { src: "/brands/examples/acqua-di-parma-1.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/acqua-di-parma-2.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/acqua-di-parma-3.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/acqua-di-parma-1.jpg", width: 830, height: 953, annotated: true },
   ],
   aesop: [
-    { src: "/brands/examples/aesop-1.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/aesop-2.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/aesop-3.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/aesop-1.jpg", width: 572, height: 1237, annotated: true },
   ],
   nivea: [
     // Owner photograph, marked by the owner: orange on the batch code and the
@@ -656,24 +655,28 @@ const CODE_IMAGES: Record<string, Brand["codeImages"]> = {
     { src: "/brands/examples/dior-2.jpg", width: 1102, height: 702 },
   ],
   escada: [
-    { src: "/brands/examples/escada-1.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/escada-2.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/escada-3.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/escada-1.jpg", width: 1170, height: 540, annotated: true },
   ],
   "estee-lauder": [
     { src: "/brands/examples/estee-lauder-1.jpg", width: 900, height: 416 },
     { src: "/brands/examples/estee-lauder-2.jpg", width: 900, height: 416 },
     { src: "/brands/examples/estee-lauder-3.jpg", width: 900, height: 416 },
   ],
+  // The marked code here is `FAK08 X`, a pre-Puig Jean Paul Gaultier code — the
+  // shape the decoder recognises and declines to date. Same honesty as Jimmy
+  // Choo: show the reader exactly which number the refusal is about.
   "jean-paul-gaultier": [
-    { src: "/brands/examples/jean-paul-gaultier-1.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/jean-paul-gaultier-2.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/jean-paul-gaultier-3.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/jean-paul-gaultier-1.jpg", width: 1019, height: 1019, annotated: true },
+  ],
+  "jimmy-choo": [
+    // Owner photograph, marked by the owner: orange on the batch code, red on
+    // the barcode and the printed reference beside it. This is the carton the
+    // long-form Inter Parfums code AFR42R261 was read from — the one our
+    // decoder recognises and deliberately refuses to date. See finding 51.
+    { src: "/brands/examples/jimmy-choo-1.jpg", width: 1068, height: 1086, annotated: true },
   ],
   lancome: [
-    { src: "/brands/examples/lancome-1.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/lancome-2.jpg", width: 900, height: 416 },
-    { src: "/brands/examples/lancome-3.jpg", width: 900, height: 416 },
+    { src: "/brands/examples/lancome-1.jpg", width: 826, height: 1169, annotated: true },
   ],
   "loreal-paris": [
     { src: "/brands/examples/loreal-paris-1.jpg", width: 956, height: 1118 },
