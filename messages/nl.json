@@ -60,7 +60,7 @@
   "brandPage": {
     "metaTitle": "{name} batchcode checken — Hoe oud is je product?",
     "metaTitleShort": "{name} batchcode checken",
-    "blurb": "Decodeer {name} -batchcodes om de fabricagedatum, leeftijd en vervaldatum van uw {category} -producten te vinden. Gratis, direct en privé.",
+    "blurb": "Lees een {name}-batchcode om de productiedatum en ouderdom te schatten. De richtlijn voor de houdbaarheid is een schatting, en een batchcode alleen bewijst geen echtheid.",
     "metaDescription": "Voer de batchcode van je {name}-product in en lees direct de productiedatum af. Zie hoe oud het is en hoeveel van de houdbaarheid nog over is.",
     "checkerTitle": "{name} Batchcodecontrole",
     "by": "door {group}",
@@ -158,7 +158,7 @@
     "statusExpired": "Verleden houdbaarheid",
     "age": "Leeftijd",
     "shelfLife": "Houdbaarheid",
-    "expirationDate": "Vervaldatum",
+    "expirationDate": "Geschatte houdbaarheidsdatum ongeopend",
     "freshness": "Versheid",
     "confidence": "Vertrouwen",
     "pao": "Na opening (PAO)",
@@ -297,7 +297,7 @@
       "faq1a": "Begin met de codes: die op de doos en die op de fles moeten overeenkomen, omdat beide minuten na elkaar op dezelfde afvullijn worden aangebracht. Decodeer vervolgens: een onmogelijk dagnummer, of een datum vóór de lancering van de geur, is een echte waarschuwing. Maar begrijp de limiet: een vervalser die een echte code kopieert, produceert een code die perfect decodeert. De batchcode kan een vervalsing blootleggen; het kan een echte niet certificeren.",
       "faq4q": "Kan ik Dior Sauvage, Dior Homme en Miss Dior hier controleren?",
       "faq4a": "Ja. Kies Dior en voer de batchcode in van Sauvage, Dior Homme, Homme Intense of Miss Dior. De checker schat de productiedatum op basis van de Dior-code. Vergelijk ook de codes op de doos en de fles, maar onthoud dat een geldige datum niet kan bewijzen dat het parfum authentiek is.",
-      "faq2a": "Een korte code — een klein aantal tekens van letters en cijfers — gedrukt of gegraveerd op de bodem van de fles en op de doos. Het bevat de productiedatum. Een beperking om te weten: de code registreert het decennium niet, dus een veel oudere fles kan dezelfde lezing geven als een recente. De stijl van de fles en de lanceringsdatum van het parfum geven uitsluitsel."
+      "faq2a": "Een korte code — een klein aantal tekens van letters en cijfers — gedrukt of gegraveerd op de bodem van de fles en op de doos. Het bevat de productiedatum. Een beperking om te weten: de code registreert het decennium niet, dus een veel oudere fles kan dezelfde lezing geven als een recente. De stijl van de fles en de lanceringsdatum van het parfum geven uitsluitsel. Sommige vintage Diors dragen in plaats daarvan een eenvoudige cijferreeks."
     },
     "dunhill": {
       "where1": "Op de bodem van de doos en de onderkant van de fles, in zwart gedrukt op de witte basissticker.",

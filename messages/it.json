@@ -171,7 +171,7 @@
     "statusUnknown": "Non decodificato",
     "statusUseSoon": "Utilizzare presto",
     "age": "Età",
-    "expirationDate": "Data di scadenza",
+    "expirationDate": "Data stimata di durata a prodotto sigillato",
     "shelfLife": "Durata di conservazione",
     "freshness": "Freschezza",
     "confidence": "Fiducia",
@@ -275,7 +275,7 @@
       "faq2q": "Non riesco a trovare alcun codice sulla mia bottiglia Chanel.",
       "faq3q": "Come posso verificare la durata di conservazione del fondotinta Chanel?",
       "faq2a": "Quasi certamente è inciso al laser nella base di vetro anziché stampato. L'incisione è invisibile sotto la luce diretta e appare quando la luce la attraversa: gira lentamente la bottiglia sotto una lampada o fotografa la base con il flash e ingrandisci l'immagine.",
-      "faq3a": "Decodifica il codice sulla base per la data di produzione, quindi applica il simbolo del barattolo aperto, in genere 12M per un fondotinta liquido. Qualunque cosa scada per prima, la durata di conservazione non aperta o i mesi trascorsi dall'apertura, è la vera scadenza."
+      "faq3a": "Decodifica il codice sulla base per la data di produzione, quindi applica il simbolo del barattolo aperto, in genere 12M per un fondotinta liquido. Qualunque cosa scada per prima, la durata di conservazione non aperta (shelf life) o i mesi trascorsi dall'apertura, è la vera scadenza."
     },
     "clinique": {
       "where2": "Trucco: il retro della custodia o la base della custodia.",
@@ -306,7 +306,7 @@
       "faq1a": "Cominciamo dai codici: quello sulla scatola e quello sulla bottiglia devono corrispondere, perché entrambi vengono applicati sulla stessa linea di riempimento a distanza di pochi minuti. Quindi decodifica: un mese o un anno antecedente al lancio della fragranza è un vero avvertimento. Ma comprendi il limite: un contraffattore che copia un codice autentico produce un codice che lo decodifica perfettamente. Il codice batch può smascherare un falso; non può certificarne uno reale.",
       "faq4q": "Posso verificare Dior Sauvage, Dior Homme e Miss Dior qui?",
       "faq4a": "Sì. Seleziona Dior e inserisci il codice di lotto di Sauvage, Dior Homme, Homme Intense o Miss Dior. Il verificatore stima la data di produzione dal codice Dior. Confronta anche i codici di scatola e flacone, ma ricorda che una data valida non può provare l'autenticità del profumo.",
-      "faq2a": "Un codice breve — pochi caratteri tra lettere e cifre — stampato o inciso sulla base del flacone e sulla scatola. Contiene la data di produzione, ma non scritta per esteso: inseriscilo nel verificatore in alto in questa pagina e lo leggeremo per te. C'è un limite da conoscere: il codice non registra il decennio, quindi un flaconcino molto vecchio può produrre la stessa lettura di uno recente. Lo stile del flacone e la data di lancio della fragranza chiariscono il dubbio."
+      "faq2a": "Un codice breve — pochi caratteri tra lettere e cifre — stampato o inciso sulla base del flacone e sulla scatola. Contiene la data di produzione, ma non scritta per esteso: inseriscilo nel verificatore in alto in questa pagina e lo leggeremo per te. C'è un limite da conoscere: il codice non registra il decennio, quindi un flaconcino molto vecchio può produrre la stessa lettura di uno recente. Lo stile del flacone e la data di lancio della fragranza chiariscono il dubbio. Alcuni flaconi vintage Dior riportano invece una semplice sequenza di cifre."
     },
     "dunhill": {
       "where1": "Sulla base della scatola e sul lato inferiore della bottiglia, stampato in nero sull'adesivo della base bianca.",
@@ -321,7 +321,7 @@
       "faq1q": "Come faccio a leggere un codice batch Estée Lauder?",
       "faq3q": "Clinique, MAC e La Mer utilizzano lo stesso codice?",
       "faq3a": "Sì, le stesse piante e lo stesso formato pianta/mese/anno. È diversa solo la lettera della pianta e non contiene informazioni sulla data.",
-      "faq2a": "Il codice si trova sul prodotto stesso, non solo sul cartone, ma sulla base del barattolo o della bottiglia, solitamente in rilievo. Decodificalo per la data di produzione, quindi applica il simbolo del barattolo aperto dal giorno in cui lo hai aperto. Qualunque sia la scadenza che arriva per prima, è quella vera.",
+      "faq2a": "Il codice si trova sul prodotto stesso, non solo sul cartone, ma sulla base del barattolo o della bottiglia, solitamente in rilievo. Decodificalo per la data di produzione, quindi applica il simbolo del barattolo aperto dal giorno in cui lo hai aperto. Qualunque sia la scadenza che arriva per prima (shelf life o apertura), è quella vera.",
       "faq2q": "Come posso verificare la durata di conservazione se ho buttato via la scatola?",
       "faq1a": "Cosmetics Batch legge per te la data di produzione dal tuo codice Estée Lauder: inseriscilo nello strumento di controllo nella parte superiore di questa pagina, senza decodifica manuale. Il codice contiene la data di produzione, non una scadenza: aggiungi la data di scadenza tipica del barattolo chiuso per giudicare la freschezza, e una volta aperto segui il simbolo del barattolo aperto (PAO)."
     },
@@ -330,7 +330,7 @@
       "where2": "Compatti, polveri e lucidi: sul retro della custodia o sulla base del tubo.",
       "faq1q": "Come posso verificare se Fenty Beauty è autentico?",
       "faq3q": "Quanto dura il fondotinta Fenty?",
-      "faq3a": "Circa 12 mesi dopo l'apertura e circa 36 mesi non aperti dalla data di produzione. Qualunque cosa venga prima è la scadenza.",
+      "faq3a": "Circa 12 mesi dopo l'apertura e circa 36 mesi a prodotto sigillato (durata di conservazione / shelf life) dalla data di produzione. Qualunque cosa venga prima è la scadenza.",
       "faq2q": "Il codice a barre sul mio prodotto Fenty non viene scansionato. È falso?",
       "faq1a": "Decodifica il codice batch: Fenty è un marchio LVMH e stampa una data di produzione nel codice. Un codice che produce una data impossibile, o nessuna data, è un avvertimento. Ma un codice copiato viene decodificato in modo pulito, quindi usalo insieme ai soliti controlli: qualità di stampa sulla confezione, sensazione dell'applicatore e acquisto diretto da Sephora o Fenty.",
       "faq2a": "Non necessariamente: un codice a barre che non viene scansionato è solitamente un problema di stampa o di illuminazione e in ogni caso il codice a barre non riporta né data né informazioni di autenticità. È il codice lotto, il breve timbro irregolare, che ti dice quando è stato realizzato il prodotto."

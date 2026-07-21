@@ -60,7 +60,7 @@
   "brandPage": {
     "checkerTitle": "{name}Batch Code Checker",
     "metaDescription": "Indtast batchkoden på dit {name} og aflæs fremstillingsdatoen på sekunder. Se hvor gammelt det er, og hvor meget holdbarhed der er tilbage.",
-    "blurb": "Afkode {name} batchkoder for at finde fremstillingsdatoen, alderen og udløbsdatoen for dine {category} -produkter. Gratis, øjeblikkelig og privat.",
+    "blurb": "Aflæs en {name} batchkode for at estimere produktionsdato og alder. Vejledningen om holdbarhed er et skøn, og en batchkode alene kan ikke bevise ægthed.",
     "metaTitle": "{name} batchkode — hvor gammelt er dit produkt?",
     "metaTitleShort": "{name} batchkode",
     "by": "af {group}",
@@ -169,7 +169,7 @@
     "confMedium": "Middel selvtillid",
     "confLow": "Lav selvtillid",
     "percentLeft": "{n}% tilbage",
-    "expirationDate": "Udløbsdato",
+    "expirationDate": "Forventet holdbarhedsdate for uåbnet produkt",
     "confHigh": "Høj selvtillid",
     "freshness": "Friskhed",
     "confNone": "Kunne ikke afkode",
@@ -297,7 +297,7 @@
       "faq3a": "På den flade bund af sagen. Drej kuglen helt ned først - koden er stemplet i bunden og er let at gå glip af mod den metalliske finish.",
       "faq4q": "Kan jeg tjekke Dior Sauvage, Dior Homme og Miss Dior her?",
       "faq4a": "Ja. Vælg Dior og indtast batchkoden fra Sauvage, Dior Homme, Homme Intense eller Miss Dior. Tjekkeren estimerer produktionsdatoen ud fra Dior-koden. Sammenlign også koderne på æske og flaske, men husk at en gyldig dato ikke kan bevise at parfumen er ægte.",
-      "faq2a": "En kort kode — et par tegn der blander bogstaver og tal — trykt eller indgraveret på bunden af flasken og på æsken. Den indeholder produktionsdatoen, men ikke skrevet som dato: indtast den i tjekkeren øverst på siden, så aflæser vi den. En begrænsning er værd at kende: koden registrerer ikke årtiet, så en meget ældre flaske kan give samme aflæsning som en nyere. Flaskedesign og lanceringsdato afgør sagen."
+      "faq2a": "En kort kode — et par tegn der blander bogstaver og tal — trykt eller indgraveret på bunden af flasken og på æsken. Den indeholder produktionsdatoen, men ikke skrevet som dato: indtast den i tjekkeren øverst på siden, så aflæser vi den. En begrænsning er værd at kende: koden registrerer ikke årtiet, så en meget ældre flaske kan give samme aflæsning som en nyere. Flaskedesign og lanceringsdato afgør sagen. Nogle vintage Diors bærer i stedet en ren talrække."
     },
     "dunhill": {
       "faq2q": "Hvordan kontrollerer jeg, at en Dunhill-duft er autentisk?",

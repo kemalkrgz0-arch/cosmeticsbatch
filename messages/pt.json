@@ -76,7 +76,7 @@
     "metaTitle": "Código de lote {name} — Qual a idade do seu produto?",
     "metaTitleShort": "Código de lote {name}",
     "metaDescription": "Digite o código de lote do seu {name} e leia a data de fabricação em segundos. Veja quantos anos ele tem e quanto resta da validade típica.",
-    "blurb": "Decodifique os códigos de lote {name} para encontrar a data de fabricação, idade e data de validade de seus produtos {category} . Gratuito, instantâneo e privado.",
+    "blurb": "Leia um código de lote da {name} para estimar a data de fabricação e a idade. A orientação de validade é uma estimativa, e o código de lote por si só não prova a autenticidade.",
     "printsDateNote": "{name} imprime a data de fabricação ou validade diretamente na embalagem, então geralmente você não precisa de um código de lote.",
     "exampleHeading": "Um código {name} real, decodificado",
     "whereHeading": "Onde encontrar o código na embalagem {name}",
@@ -159,7 +159,7 @@
     "statusUseSoon": "Use em breve",
     "statusGood": "Ainda bem",
     "age": "Idade",
-    "expirationDate": "Data de validade",
+    "expirationDate": "Data estimada de validade do produto fechado",
     "confidence": "Confiança",
     "pao": "Após a abertura (PAO)",
     "statusUnknown": "Não decodificado",
@@ -297,7 +297,7 @@
       "faq3a": "Na base plana da caixa. Primeiro gire a bala totalmente para baixo - o código está estampado na base e é fácil de perder no acabamento metálico.",
       "faq4q": "Posso verificar o Dior Sauvage, Dior Homme e Miss Dior aqui?",
       "faq4a": "Sim. Escolha Dior e introduza o código de lote do Sauvage, Dior Homme, Homme Intense ou Miss Dior. O verificador estima a data de fabrico a partir do código Dior. Compare também os códigos da caixa e do frasco, mas lembre-se de que uma data válida não prova que o perfume seja autêntico.",
-      "faq2a": "Um código curto — alguns caracteres combinando letras e números — impresso ou gravado na base do frasco e na caixa. Contém a data de fabrico, mas não escrita por extenso: introduza-o no verificador no topo desta página e leremos por si. Há uma limitação importante: o código não regista a década, pelo que um frasco antigo pode gerar a mesma leitura de um recente. O estilo do frasco e a data de lançamento do perfume esclarecem a dúvida."
+      "faq2a": "Um código curto — alguns caracteres combinando letras e números — impresso ou gravado na base do frasco e na caixa. Contém a data de fabrico, mas não escrita por extenso: introduza-o no verificador no topo desta página e leremos por si. Há uma limitação importante: o código não regista a década, pelo que um frasco antigo pode gerar a mesma leitura de um recente. O estilo do frasco e a data de lançamento do perfume esclarecem a dúvida. Alguns frascos vintage da Dior trazem em vez disso uma simples sequência de dígitos."
     },
     "dunhill": {
       "faq1q": "Como leio um código de lote Dunhill?",

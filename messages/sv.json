@@ -178,7 +178,7 @@
     "confLow": "Lågt självförtroende",
     "shelfLife": "Hållbarhet",
     "confMedium": "Medellång självförtroende",
-    "expirationDate": "Utgångsdatum",
+    "expirationDate": "Uppskattat hållbarhetsdatum för oöppnad produkt",
     "confHigh": "Högt självförtroende",
     "percentLeft": "{n}% kvar",
     "confNone": "Kunde inte avkoda",
@@ -306,7 +306,7 @@
       "faq3a": "På den platta basen av fodralet. Vrid kulan helt ned först - koden är stämplad i basen och är lätt att missa mot den metalliska finishen.",
       "faq4q": "Kan jag kontrollera Dior Sauvage, Dior Homme och Miss Dior här?",
       "faq4a": "Ja. Välj Dior och ange batchkoden från Sauvage, Dior Homme, Homme Intense eller Miss Dior. Kontrollen uppskattar tillverkningsdatumet utifrån Dior-koden. Jämför även koderna på kartong och flaska, men kom ihåg att ett giltigt datum inte kan bevisa att parfymen är äkta.",
-      "faq2a": "En kort kod — ett fåtal tecken som blandar bokstäver och siffror — tryckt eller ingraverad på flaskans botten och på kartongen. Den innehåller tillverkningsdatumet, men inte skrivet som datum: ange den i kontrollen längst upp på sidan så avläser vi den. En begränsning är värd att känna till: koden registrerar inte årtiondet, så en mycket äldre flaska kan ge samma resultat som en nyare. Flaskmodell och lanseringsdatum avgör saken."
+      "faq2a": "En kort kod — ett fåtal tecken som blandar bokstäver och siffror — tryckt eller ingraverad på flaskans botten och på kartongen. Den innehåller tillverkningsdatumet, men inte skrivet som datum: ange den i kontrollen längst upp på sidan så avläser vi den. En begränsning är värd att känna till: koden registrerar inte årtiondet, så en mycket äldre flaska kan ge samma resultat som en nyare. Flaskmodell och lanseringsdatum avgör saken. Vissa vintage Dior bär istället en enkel siffersekvens."
     },
     "dunhill": {
       "where1": "På botten av lådan och undersidan av flaskan, tryckt i svart på den vita bottenetiketten.",

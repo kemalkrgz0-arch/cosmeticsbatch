@@ -58,7 +58,7 @@
     "eanRightSub": "Wpisz ten — krótki datownik"
   },
   "brandPage": {
-    "blurb": "Odkoduj kody serii {name} , aby znaleźć datę produkcji, wiek i datę ważności produktów {category} . Bezpłatne, natychmiastowe i prywatne.",
+    "blurb": "Odczytaj kod partii {name}, aby oszacować datę produkcji i wiek. Wytyczne dotyczące trwałości są szacunkowe, a sam kod partii nie stanowi dowodu oryginalności.",
     "metaTitle": "{name} — sprawdź kod partii i datę produkcji",
     "metaTitleShort": "{name} — sprawdź kod partii",
     "intro": "Wpisz poniżej kod partii {name} , aby natychmiast odszyfrować datę produkcji, wiek produktu i szacowaną datę ważności — bezpłatnie i prywatnie.",
@@ -165,7 +165,7 @@
     "confidence": "Zaufanie",
     "freshness": "Świeżość",
     "shelfLife": "Okres przydatności do spożycia",
-    "expirationDate": "Data ważności",
+    "expirationDate": "Szacowana дата trwałości nieotwartego produktu",
     "pao": "Po otwarciu (PAO)",
     "months": "{n} miesięcy",
     "percentLeft": "Pozostało {n}%.",
@@ -297,7 +297,7 @@
       "faq1a": "Zacznij od kodów: ten na pudełku i ten na butelce powinny pasować, ponieważ oba są nakładane na tę samą linię rozlewniczą w odstępie kilku minut. Następnie rozszyfruj — miesiąc lub rok poprzedzający premierę zapachu jest prawdziwym ostrzeżeniem. Ale zrozum granicę: fałszerz, który kopiuje prawdziwy kod, tworzy kod, który doskonale dekoduje. Kod partii może ujawnić podróbkę; nie może poświadczyć prawdziwego.",
       "faq4q": "Czy mogę sprawdzić tutaj Dior Sauvage, Dior Homme i Miss Dior?",
       "faq4a": "Tak. Wybierz Dior i wpisz kod partii z Sauvage, Dior Homme, Homme Intense lub Miss Dior. Narzędzie oszacuje datę produkcji na podstawie kodu Dior. Porównaj także kody na pudełku i flakonie, pamiętając jednak, że poprawna дата nie dowodzi oryginalności perfum.",
-      "faq2a": "Krótki kod — kilka znaków łączących litery i cyfry — nadrukowany lub wygrawerowany na spodzie flakonu i pudełku. Zawiera datę produkcji: wpisz go w wyszukiwarce na górze strony, a odczytamy ją. Warto znać ograniczenie: kod nie zapisuje dekady, więc znacznie starszy flakon może dać taki sam wynik jak nowy. O wieku decyduje wygląd flakonu i дата premiery zapachu."
+      "faq2a": "Krótki kod — kilka znaków łączących litery i cyfry — nadrukowany lub wygrawerowany na spodzie flakonu i pudełku. Zawiera datę produkcji: wpisz go w wyszukiwarce na górze strony, a odczytamy ją. Warto znać ograniczenie: kod nie zapisuje dekady, więc znacznie starszy flakon może dać taki sam wynik jak nowy. O wieku decyduje wygląd flakonu i дата premiery zapachu. Niektóre flakony vintage Dior posiadają zamiast tego zwykły ciąg cyfr."
     },
     "dunhill": {
       "where1": "Na podstawie pudełka i na spodzie butelki nadruk w kolorze czarnym na białej naklejce na podstawie.",

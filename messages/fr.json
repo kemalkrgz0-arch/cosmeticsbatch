@@ -75,7 +75,7 @@
     "faqTitle": "{name}— FAQ",
     "metaTitle": "Code de lot {name} — Quel âge a votre produit ?",
     "metaTitleShort": "Code de lot {name}",
-    "blurb": "Décodez les codes de lot {name} pour connaître la date de fabrication, l'âge et la date de péremption de vos produits {category} . Gratuit, instantané et privé.",
+    "blurb": "Lisez un code de lot {name} pour estimer sa date de fabrication et son âge. Les conseils de durée de conservation sont une estimation, et un code de lot seul ne peut prouver l’authenticité.",
     "metaDescription": "Saisissez le code de lot de votre {name} et lisez sa date de fabrication en quelques secondes. Voyez son âge et la durée de vie type restante.",
     "printsDateNote": "{name} imprime la date de fabrication ou de péremption directement sur l'emballage, vous n'avez donc généralement pas besoin d'un code de lot.",
     "exampleHeading": "Un vrai code {name} , décodé",
@@ -297,7 +297,7 @@
       "faq1a": "Commencez par les codes : celui de la boîte et celui de la bouteille doivent correspondre, car les deux sont appliqués sur la même ligne de remplissage à quelques minutes d’intervalle. Ensuite, décoder – un numéro de jour impossible, ou une date avant le lancement du parfum, est un véritable avertissement. Mais comprenez la limite : un contrefacteur qui copie un code authentique produit un code qui décode parfaitement. Le code de lot peut révéler un faux ; il ne peut pas en certifier un réel.",
       "faq4q": "Puis-je vérifier Dior Sauvage, Dior Homme et Miss Dior ici ?",
       "faq4a": "Oui. Choisissez Dior et saisissez le code de lot de Sauvage, Dior Homme, Homme Intense ou Miss Dior. Le vérificateur estime la date de fabrication à partir du code Dior. Comparez aussi les codes de la boîte et du flacon, mais gardez à l'esprit qu'une date valide ne peut prouver l’authenticité du parfum.",
-      "faq2a": "Un code court — quelques caractères mélangeant lettres et chiffres — imprimé ou gravé sous le flacon et sur la boîte. Il contient la date de fabrication, mais pas écrite en clair : saisissez-le dans le vérificateur en haut de cette page et nous le lirons pour vous. Une limite est à connaître : le code n'enregistre pas la décennie, un flacon plus ancien peut donc donner la même lecture qu'un récent. Le style du flacon et la date de lancement de la fragrance permettent de trancher."
+      "faq2a": "Un code court — quelques caractères mélangeant lettres et chiffres — imprimé ou gravé sous le flacon et sur la boîte. Il contient la date de fabrication, mais pas écrite en clair : saisissez-le dans le vérificateur en haut de cette page et nous le lirons pour vous. Une limite est à connaître : le code n'enregistre pas la décennie, un flacon plus ancien peut donc donner la même lecture qu'un récent. Le style du flacon et la date de lancement de la fragrance permettent de trancher. Certains flacons anciens de Dior portent simplement une suite de chiffres à la place."
     },
     "dunhill": {
       "where1": "Sur la base de la boîte et le dessous de la bouteille, imprimé en noir sur l'autocollant blanc de la base.",

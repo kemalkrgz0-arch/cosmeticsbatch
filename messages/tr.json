@@ -172,7 +172,7 @@
     "age": "Yaş",
     "shelfLife": "Raf ömrü",
     "freshness": "Tazelik",
-    "expirationDate": "Son kullanma tarihi",
+    "expirationDate": "Tahmini açılmamış raf ömrü tarihi",
     "confidence": "Kendinden emin",
     "pao": "Açıldıktan sonra (PAO)",
     "confHigh": "Yüksek güven",
@@ -304,7 +304,7 @@
       "faq3q": "Dior rujunun batch kodu nerede?",
       "faq3a": "Kasanın düz tabanında. İlk önce mermiyi tamamen aşağı çevirin; kod tabana damgalanmıştır ve metalik kaplama nedeniyle gözden kaçırılması kolaydır.",
       "faq1a": "Kodlarla başlayın: Kutunun üzerindeki kod ile şişenin üzerindeki kod eşleşmelidir çünkü her ikisi de aynı dolum hattında birkaç dakika arayla uygulanır. Sonra şifreyi çözün; kokunun piyasaya sürülmesinden önceki bir ay veya yıl gerçek bir uyarıdır. Ancak sınırı anlayın: Orijinal bir kodu kopyalayan bir sahteci, kodu mükemmel şekilde çözen bir kod üretir. Toplu iş kodu bir sahtekarlığı ortaya çıkarabilir; gerçek olanı onaylayamaz.",
-      "faq2a": "Şişenin tabanına ve kutuya basılmış veya kazınmış, harf ve rakamlardan oluşan kısa bir kod. Üretim tarihini taşır ancak tarih olarak yazılmaz: sayfanın üstündeki denetleyiciye girin, sizin için okuyalım. Bilinmesi gereken bir sınır şudur: kod on yılı kaydetmez, bu nedenle çok eski bir şişe yeni bir şişeyle aynı okumayı verebilir. Şişe stili ve parfümün çıkış tarihi durumu netleştirir.",
+      "faq2a": "Şişenin tabanına ve kutuya basılmış veya kazınmış, harf ve rakamlardan oluşan kısa bir kod. Üretim tarihini taşır ancak tarih olarak yazılmaz: sayfanın üstündeki denetleyiciye girin, sizin için okuyalım. Bilinmesi gereken bir sınır şudur: kod on yılı kaydetmez, bu nedenle çok eski bir şişe yeni bir şişeyle aynı okumayı verebilir. Şişe stili ve parfümün çıkış tarihi durumu netleştirir. Bazı eski (vintage) Dior şişelerinde bunun yerine yalnızca rakamlardan oluşan bir dizi bulunur.",
       "faq4a": "Evet. Dior'u seçin ve Sauvage, Dior Homme, Homme Intense veya Miss Dior parti kodunu girin. Denetleyici, Dior kodundan üretim tarihini tahmin eder. Kutu ve şişe kodlarını da karşılaştırın, ancak geçerli bir tarihin parfümün orijinal olduğunu kanıtlayamayacağını unutmayın.",
       "faq4q": "Dior Sauvage, Dior Homme ve Miss Dior'u buradan kontrol edebilir miyim?"
     },
@@ -313,7 +313,7 @@
       "faq1q": "Dunhill batch kodunu nasıl okurum?",
       "faq2q": "Bir Dunhill kokusunun orijinal olup olmadığını nasıl kontrol edebilirim?",
       "faq1a": "Cosmetics Batch sizin için Dunhill kodunuzdaki üretim tarihini okur; kodu manuel kod çözme işlemi olmadan bu sayfanın üst kısmındaki denetleyiciye girin. Kod, son kullanma tarihini değil üretim tarihini içerir: tazeliği değerlendirmek için tipik açılmamış raf ömrünü ekleyin ve açıldıktan sonra açık kavanoz (PAO) sembolünü takip edin.",
-      "faq2a": "Kutu ve şişe kodlarını karşılaştırın, ardından sorgulayın. Formata hiç uymayan bir kod veya kutu ile şişe arasında uyuşmayan kodlar gerçek uyarı işaretleridir. Kodun okunması orijinallik kanıtı değildir — kopyalanmış kodlar da okunur."
+      "faq2a": "Kutu ve şişe kodlarını karşılaştırın, ardından sorgulayın. Formata hiç uymayan bir kod veya kutu ile şişe arasında uyuşmayan kodlar gerçek uyarı işaretleridir. Kodun okunması bir kanıt değildir — kopyalanmış kodlar da okunur."
     },
     "estee-lauder": {
       "where1": "Cilt bakımı: Kavanozun veya şişenin tabanına kabartma yapılır; malzemeye bastırılır, bu nedenle doğrudan ışık yerine yan yatan bir ışığa ihtiyaç duyar.",

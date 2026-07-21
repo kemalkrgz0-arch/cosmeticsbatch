@@ -170,7 +170,7 @@
     "manufactureDate": "Tanggal produksi",
     "age": "Usia",
     "shelfLife": "Masa simpan",
-    "expirationDate": "Tanggal kedaluwarsa",
+    "expirationDate": "Perkiraan tanggal masa simpan sebelum dibuka",
     "freshness": "Kesegaran",
     "confidence": "Keyakinan",
     "pao": "Setelah dibuka (PAO)",

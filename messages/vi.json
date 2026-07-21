@@ -166,12 +166,12 @@
     "statusFresh": "Fresh",
     "statusGood": "Vẫn tốt",
     "statusUseSoon": "Dùng sớm",
-    "statusExpired": "Quá hạn sử dụng",
+    "statusExpired": "Đã quá hạn sử dụng ước tính",
     "statusUnknown": "Chưa giải mã",
     "lifeLeft": "thời gian còn lại",
     "manufactureDate": "Ngày sản xuất",
     "age": "Tuổi",
-    "shelfLife": "Hạn sử dụng",
+    "shelfLife": "Hạn sử dụng / Masa simpan",
     "expirationDate": "Ngày hết hạn",
     "freshness": "Độ tươi mới",
     "confidence": "Độ tin cậy",
@@ -196,7 +196,7 @@
     "shareMade": "đã tạo {date}",
     "meaningUseSoon": "Sản phẩm này sắp hết hạn sử dụng - hãy sớm sử dụng nhé.",
     "meaningUnknown": "Chúng tôi không thể ước tính độ mới của mã này.",
-    "meaningExpired": "Sản phẩm này đã hết hạn sử dụng và có thể không còn ở chất lượng tốt nhất nữa."
+    "meaningExpired": "Sản phẩm này đã vượt quá thời hạn masa simpan / raf ömrü ước tính và có thể không còn ở chất lượng tốt nhất."
   },
   "howItWorks": {
     "eyebrow": "Ba bước đơn giản",
@@ -306,7 +306,7 @@
       "faq3a": "Trên đế phẳng của vỏ. Trước tiên hãy vặn viên đạn xuống hoàn toàn — mã được đóng vào đế và rất dễ bị trượt so với lớp hoàn thiện bằng kim loại.",
       "faq4q": "Tôi có thể kiểm tra Dior Sauvage, Dior Homme và Miss Dior tại đây không?",
       "faq4a": "Có. Chọn Dior và nhập mã lô từ Sauvage, Dior Homme, Homme Intense hoặc Miss Dior. Công cụ sẽ ước tính ngày sản xuất từ mã Dior. Bạn cũng nên so sánh mã trên hộp và chai, nhưng lưu ý rằng ngày hợp lệ không thể chứng minh nước hoa là hàng thật.",
-      "faq2a": "Mã ngắn gồm vài ký tự pha trộn chữ và số, được in hoặc khắc ở đáy chai và trên hộp. Mã chứa ngày sản xuất nhưng không viết dưới dạng ngày tháng: nhập vào công cụ kiểm tra ở đầu trang để đọc. Một hạn chế cần biết: mã không ghi lại thập kỷ, nên chai cũ có thể cho kết quả giống hệt chai mới. Kiểu dáng chai và ngày ra mắt nước hoa sẽ giúp xác định."
+      "faq2a": "Mã ngắn gồm vài ký tự pha trộn chữ và số, được in hoặc khắc ở đáy chai và trên hộp. Mã chứa ngày sản xuất nhưng không viết dưới dạng ngày tháng: nhập vào công cụ kiểm tra ở đầu trang để đọc. Một hạn chế cần biết: mã không ghi lại thập kỷ, nên chai cũ có thể cho kết quả giống hệt chai mới. Kiểu dáng chai và ngày ra mắt nước hoa sẽ giúp xác định. Một số chai Dior cổ (vintage) thay vào đó mang một chuỗi chữ số đơn thuần."
     },
     "dunhill": {
       "faq2q": "Làm cách nào để kiểm tra nước hoa Dunhill có phải hàng thật không?",
@@ -421,7 +421,7 @@
       "faq1q": "Làm cách nào để đọc mã lô Lancôme?",
       "faq2q": "Kem dưỡng da Lancôme chưa mở sử dụng được bao lâu?",
       "where2": "Kem dưỡng da và kem nền: in nổi hoặc in trên đế lọ, phần uốn ống, hoặc trên lọ.",
-      "faq2a": "Khoảng ba năm kể từ khi sản xuất, ít hơn đối với các sản phẩm được tạo ra từ hoạt chất không ổn định. Giải mã trước khi mua từ cửa hàng giảm giá - hàng cũ là hàng chính hãng nhưng có thể còn rất ít thời hạn sử dụng chưa mở.",
+      "faq2a": "Khoảng ba năm kể từ khi sản xuất, ít hơn đối với các sản phẩm có hoạt chất kém ổn định. Hãy giải mã trước khi mua từ cửa hàng giảm giá — hàng cũ là hàng chính hãng nhưng có thể còn rất ít hạn masa simpan (shelf life) khi chưa mở nắp.",
       "faq1a": "Cosmetics Batch đọc ngày sản xuất từ ​​mã Lancôme cho bạn — nhập mã đó vào trình kiểm tra ở đầu trang này mà không cần giải mã thủ công. Mã chứa ngày sản xuất, không phải ngày hết hạn: thêm thời hạn sử dụng điển hình chưa mở để đánh giá độ tươi và sau khi mở, hãy làm theo biểu tượng lọ mở (PAO)."
     },
     "loreal": {
@@ -519,7 +519,7 @@
       "faq1q": "Làm cách nào để kiểm tra mã lô Tom Ford?",
       "faq3q": "Mã lô có phải là bằng chứng xác thực không?",
       "faq3a": "Không. Nó có thể phát hiện ra một mã giả thô thiển — một mã không phù hợp với định dạng hoặc giải mã đến một tháng không thể thực hiện được — nhưng mã được sao chép sẽ giải mã rõ ràng. Nước hoa Tom Ford bị làm giả nhiều; cân chai, kiểm tra bình xịt phun và mua từ nhà bán lẻ được ủy quyền.",
-      "faq2a": "Mã nằm trên cơ sở của nhỏ gọn. Giải mã nó theo ngày sản xuất; bột ép có thời hạn sử dụng khoảng 24 tháng sau khi mở và lâu hơn đáng kể khi chưa mở, vì công thức khô hầu như không có gì để vi khuẩn phát triển.",
+      "faq2a": "Mã nằm ở phần đế của hộp phấn. Giải mã theo ngày sản xuất; phấn nén dùng tốt khoảng 24 tháng sau khi mở nắp và lâu hơn đáng kể khi chưa mở (shelf life), vì công thức khô không tạo môi trường cho vi khuẩn phát triển.",
       "faq1a": "Cosmetics Batch đọc ngày sản xuất từ ​​mã Tom Ford cho bạn — nhập ngày sản xuất vào ô kiểm tra ở đầu trang này mà không cần giải mã thủ công. Mã chứa ngày sản xuất, không phải ngày hết hạn: thêm thời hạn sử dụng điển hình chưa mở để đánh giá độ tươi và sau khi mở, hãy làm theo biểu tượng lọ mở (PAO)."
     },
     "too-faced": {
@@ -557,7 +557,7 @@
       "faq2a": "Puig sản xuất dòng nước hoa của Zara, đó là lý do tại sao các mã tuân theo định dạng của Puig - và một phần lý do tại sao một số mùi hương của Zara được so sánh với các loại nước hoa của nhà thiết kế mà Puig cũng sản xuất.",
       "where2": "Phạm vi làm đẹp in nó ở mặt dưới của vỏ hoặc phần uốn của ống.",
       "faq2q": "Ai thực sự làm ra nước hoa Zara?",
-      "faq1a": "Theo quy định, không phải là bản in - giống như hầu hết các loại nước hoa, thay vào đó, nó mang mã lô. Giải mã nó theo ngày sản xuất và tính thời hạn sử dụng từ 3 đến 5 năm khi chưa mở nắp, điều này là bình thường đối với nước hoa được tránh xa ánh sáng và nhiệt."
+      "faq1a": "Theo quy định không in trực tiếp — giống như hầu hết nước hoa, nó mang mã lô. Giải mã theo ngày sản xuất và tính từ 3 đến 5 năm hạn masa simpan (shelf life) khi chưa mở nắp, điều này là bình thường đối với nước hoa được tránh ánh sáng và nhiệt."
     },
     "escada": {
       "faq1a": "Cosmetics Batch đọc ngày sản xuất từ ​​mã Escada cho bạn — nhập mã đó vào trình kiểm tra ở đầu trang này mà không cần giải mã thủ công. Mã chứa ngày sản xuất, không phải ngày hết hạn: thêm thời hạn sử dụng điển hình chưa mở để đánh giá độ tươi và sau khi mở, hãy làm theo biểu tượng lọ mở (PAO).",

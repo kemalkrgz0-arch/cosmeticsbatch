@@ -129,7 +129,7 @@
     "q_paoSymbol": "Was bedeutet das Open-Jar-Symbol (PAO) auf {name} ?",
     "a_paoSymbol": "Das kleine Symbol des offenen Glases mit einer Zahl und einem „M“ (für Monate) ist der Zeitraum nach dem Öffnen. Bei den meisten {name} {noun} liegt sie bei etwa {pao}M, was ungefähr {pao} Monate sichere Nutzung ab dem Tag des ersten Öffnens bedeutet. Der Chargencode verrät Ihnen, wie frisch das Produkt vor dem Öffnen war; Das PAO sagt Ihnen, wie lange es danach anhält.",
     "q_afterExpiry": "Kann ich {name} nach dem Ablaufdatum noch verwenden?",
-    "a_afterExpiry": "Die Verwendung von {name} {noun} kurz nach dem voraussichtlichen Verfallsdatum ist in der Regel eher ein kosmetisches Qualitätsproblem als ein Sicherheitsproblem – Wirkstoffe verlieren an Wirksamkeit, Texturen lösen sich auf und Duftstoffe verblassen. Hören Sie auf, es zu verwenden, wenn Sie eine Veränderung des Geruchs, der Farbe oder der Konsistenz bemerken, und verwenden Sie niemals alte Augen- oder Lippenprodukte, da das Risiko für Bakterien höher ist.",
+    "a_afterExpiry": "Die Verwendung von {name} {noun} kurz nach dem voraussichtlichen Haltbarkeitsdatum ist in der Regel eher ein kosmetisches Qualitätsproblem als ein Sicherheitsproblem – Wirkstoffe verlieren an Wirksamkeit, Texturen lösen sich auf und Duftstoffe verblassen. Hören Sie auf, es zu verwenden, wenn Sie eine Veränderung des Geruchs, der Farbe oder der Konsistency bemerken, und verwenden Sie niemals alte Augen- oder Lippenprodukte, da das Risiko für Bakterien höher ist.",
     "q_store": "Wie soll ich {name} {noun} aufbewahren, damit es frisch bleibt?",
     "q_fake": "Kann mir ein Batch-Code sagen, ob mein {name} gefälscht ist?",
     "a_fake": "Ein Batch-Code-Decoder liest das Produktionsdatum – allein kann er nicht nachweisen, dass ein Produkt echt ist. Aber ein {name} -Code, der sich nicht dekodieren lässt, oder ein Datum, das nicht mit dem Kaufdatum oder -ort übereinstimmt, können ein Warnsignal sein. Überprüfen Sie auf Echtheit auch die Verpackung, Siegel und Schriftart und kaufen Sie bei autorisierten {group} -Händlern.",
@@ -167,7 +167,7 @@
     "statusGood": "Immer noch gut",
     "age": "Alter",
     "shelfLife": "Haltbarkeit",
-    "expirationDate": "Verfallsdatum",
+    "expirationDate": "Geschätztes Haltbarkeitsdatum (ungeöffnet)",
     "freshness": "Frische",
     "lifeLeft": "Leben übrig",
     "statusUseSoon": "Bald verwenden",
@@ -306,7 +306,7 @@
       "faq1a": "Beginnen Sie mit den Codes: Der Code auf der Schachtel und der auf der Flasche sollten übereinstimmen, da beide im Abstand von Minuten auf derselben Fülllinie angebracht sind. Dann dekodieren Sie: Ein Monat oder ein Jahr vor der Markteinführung des Duftes ist eine echte Warnung. Aber verstehen Sie die Grenze: Ein Fälscher, der einen echten Code kopiert, produziert einen Code, der perfekt entschlüsselt werden kann. Der Batch-Code kann eine Fälschung aufdecken; es kann keinen echten Nachweis erbringen.",
       "faq4q": "Kann ich Dior Sauvage, Dior Homme und Miss Dior hier prüfen?",
       "faq4a": "Ja. Wählen Sie Dior und geben Sie den Chargencode von Sauvage, Dior Homme, Homme Intense oder Miss Dior ein. Der Checker schätzt das Herstellungsdatum anhand des Dior-Codes. Vergleichen Sie auch die Codes auf Schachtel und Flasche, aber denken Sie daran, dass ein gültiges Datum die Echtheit des Duftes nicht beweisen kann.",
-      "faq2a": "Ein kurzer Code — eine Handvoll Zeichen aus Buchstaben und Zahlen —, der auf dem Boden der Flasche und auf der Schachtel aufgedruckt oder eingraviert ist. Er enthält das Produktionsdatum, jedoch nicht als Datum ausgeschrieben: Geben Sie ihn in den Checker oben auf dieser Seite ein und wir lesen ihn für Sie aus. Eine Einschränkung ist wissenswert: Der Code erfasst das Jahrzehnt nicht, sodass eine viel ältere Flasche die gleiche Auslesung wie eine neuere erzeugen kann. Der Flaschenstil und das Erscheinungsdatum des Duftes geben den Ausschlag."
+      "faq2a": "Ein kurzer Code — eine Handvoll Zeichen aus Buchstaben und Zahlen —, der auf dem Boden der Flasche und auf der Schachtel aufgedruckt oder eingraviert ist. Er enthält das Produktionsdatum, jedoch nicht als Datum ausgeschrieben: Geben Sie ihn in den Checker oben auf dieser Seite ein und wir lesen ihn für Sie aus. Eine Einschränkung ist wissenswert: Der Code erfasst das Jahrzehnt nicht, sodass eine viel ältere Flasche die gleiche Auslesung wie eine neuere erzeugen kann. Der Flaschenstil und das Erscheinungsdatum des Duftes geben den Ausschlag. Einige Vintage-Diors tragen stattdessen eine einfache Zahlenfolge."
     },
     "dunhill": {
       "where1": "Auf dem Boden der Schachtel und der Unterseite der Flasche, in Schwarz aufgedruckt, auf dem weißen Bodenaufkleber.",
