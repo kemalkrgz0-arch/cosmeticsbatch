@@ -5326,3 +5326,49 @@ files, reason, verification and known risk. Never include secrets or personal da
 - Verified: lint, typecheck, test, build
 - Risk / needs verification: ...
 -->
+
+## Image search as a traffic source — preparation note, 2026-07-21
+
+The owner wants Google Images to become a source of visitors. This is the
+measurement of where the site stands before any work starts, so a later claim of
+improvement has something to compare against.
+
+Current position, measured not assumed:
+
+- 141 image files ship in `public/`. 39 of them are the marked packaging
+  photographs and brand heroes added on 2026-07-21.
+- Alt text exists but is generic and, on the most valuable images, English-only.
+  `src/components/brand-code-gallery.tsx:61` renders `Where to find the batch
+  code on {brandName} packaging` for every frame in the gallery, so three
+  photographs of different faces of a pack share one description. The homepage
+  hero passes `alt=""`, correctly, because it is decorative.
+- No `ImageObject` structured data anywhere, and the sitemap carries no image
+  extension. Google is given no relationship between a photograph and the page
+  that explains it.
+- `robots.txt` does not block Googlebot-Image, so nothing is being suppressed.
+- Filenames are slug-based (`vichy-1.jpg`, `jimmy-choo-1.jpg`). Readable, but
+  they describe the brand rather than what the picture shows.
+
+Why this is worth doing at all, and the honest case against rushing it: the
+marked photographs are genuinely rare content. A search for where a batch code
+sits on a specific pack has almost no good answer online, and we now own colour-
+marked originals for nineteen brands. That is a real asset. But image traffic
+converts worse than text traffic almost everywhere, and the site's measured
+problem today is that pages which already rank do not earn the click. Image work
+should not jump the queue ahead of the barcode detection or the Eucerin gap.
+
+Ordered by effect per unit of work, when it is picked up:
+
+1. Alt text that describes the individual photograph rather than the brand, and
+   that is translated. The gallery already knows which image is which — index
+   and `annotated` are both available at the call site.
+2. `ImageObject` on brand pages linking each photograph to its page, plus the
+   caption already rendered as the colour legend.
+3. Image entries in the sitemap for the marked photographs only. Hero artwork is
+   decoration and should stay out.
+4. Filenames that say what the photograph shows rather than only the brand.
+   Cheap for new files, a redirect problem for existing ones — do it going
+   forward, not retroactively.
+
+Not recommended: generating alt text mechanically from the brand name, which is
+what produced the current duplicate strings.
