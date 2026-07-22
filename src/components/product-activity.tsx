@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 
 const VISIT_KEY = "cb:visit-counted";
+const AUDIT_USER_AGENT = /(?:Chrome-Lighthouse|Lighthouse|PageSpeed Insights)/i;
 
 export function ProductActivity() {
   const pathname = usePathname();
@@ -12,6 +13,9 @@ export function ProductActivity() {
 
   useEffect(() => {
     if (!pathname || pathname.split("/").includes("review")) return;
+    // The API deliberately rejects audit bots. Avoid issuing a request that is
+    // guaranteed to fail and would otherwise surface as a console error in PSI.
+    if (AUDIT_USER_AGENT.test(navigator.userAgent)) return;
     let visit = false;
     try {
       visit = sessionStorage.getItem(VISIT_KEY) !== "1";

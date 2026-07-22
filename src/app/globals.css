@@ -11,7 +11,7 @@
   --card: #ffffff;
   --border: #ececed;
   --border-strong: #dcdcde;
-  --accent: #0a84ff;
+  --accent: #0067d9;
   --accent-hover: #0060df;
   --accent-fg: #ffffff;
   --cta: #0a0a0a;
@@ -23,7 +23,7 @@
   --warning-bg: #fffbeb;
   --danger: #dc2626;
   --danger-bg: #fef2f2;
-  --ring: #0a84ff;
+  --ring: #0067d9;
   --shadow-soft: 0 1px 2px rgba(16, 16, 20, 0.04), 0 8px 24px rgba(16, 16, 20, 0.06);
   --shadow-card: 0 1px 3px rgba(16, 16, 20, 0.05), 0 12px 40px rgba(16, 16, 20, 0.08);
 }

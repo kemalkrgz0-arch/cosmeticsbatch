@@ -19,12 +19,13 @@ export function SiteHeader({ accessibility }: { accessibility: { primaryNavigati
   return (
     <header className="sticky top-0 z-40 bg-transparent px-2 pt-2 sm:px-4 sm:pt-3">
       <div className="site-frame flex h-[4.5rem] items-center gap-3 rounded-[1.35rem] border border-border/80 bg-bg/88 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:gap-6">
-        <Link href="/" className="flex min-w-0 items-center gap-2 font-semibold">
+        <Link href="/" aria-label={site.name} className="flex min-w-0 items-center gap-2 font-semibold">
           <Image
-            src="/logo.png"
-            alt={site.name}
+            src="/logo-64.webp"
+            alt=""
             width={32}
             height={32}
+            unoptimized
             className="h-8 w-8 shrink-0 rounded-full border border-border"
           />
           {/* Truncates rather than overflowing: with `whitespace-nowrap` alone

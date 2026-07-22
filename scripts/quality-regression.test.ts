@@ -1032,6 +1032,40 @@ test("ad loader and ad units are gated on the certified CMP", () => {
   assert.match(privacy, /reopen it at any time/, "the deployed branch must describe consent revocation");
 });
 
+test("the mobile LCP path stays immediate and PageSpeed activity stays quiet", () => {
+  const hero = readFileSync("src/components/home/hero.tsx", "utf8");
+  const activity = readFileSync("src/components/product-activity.tsx", "utf8");
+  const header = readFileSync("src/components/layout/site-header.tsx", "utf8");
+  const footer = readFileSync("src/components/layout/site-footer.tsx", "utf8");
+  const features = readFileSync("src/components/home/feature-grid.tsx", "utf8");
+  const config = readFileSync("next.config.ts", "utf8");
+
+  assert.match(hero, /priority/);
+  assert.match(hero, /fetchPriority="high"/);
+  assert.match(hero, /src="\/home\/cosmetics-hero\.avif"/);
+  assert.match(hero, /unoptimized/, "the pre-encoded hero must bypass the broken live optimizer path");
+  assert.ok(existsSync("public/home/cosmetics-hero.avif"));
+  assert.ok(
+    readFileSync("public/home/cosmetics-hero.avif").byteLength < 80_000,
+    "the mobile LCP asset must stay below 80 KiB",
+  );
+  assert.doesNotMatch(hero, /animate-fade-up/, "above-fold content must not begin transparent");
+  assert.match(hero, /calc\(100vw - 2rem\)/, "mobile image candidates should match the framed hero");
+  assert.match(activity, /Chrome-Lighthouse/);
+  assert.match(activity, /AUDIT_USER_AGENT\.test\(navigator\.userAgent\)/);
+  assert.match(config, /\/brand-wordmarks\/:path\*/);
+  assert.match(config, /\/brand-logos\/:path\*/);
+  assert.match(features, /<h2 className=/, "home feature headings must follow the page h1");
+  for (const chrome of [header, footer]) {
+    assert.match(chrome, /aria-label=\{site\.name\}/);
+    assert.match(chrome, /alt=""/);
+    assert.match(chrome, /src="\/logo-64\.webp"/);
+    assert.match(chrome, /unoptimized/);
+    assert.doesNotMatch(chrome, /alt=\{site\.name\}/);
+  }
+  assert.ok(readFileSync("public/logo-64.webp").byteLength < 2_000);
+});
+
 test("production build config fails closed when the CMP stack is incomplete", () => {
   const script = "scripts/validate-build-env.sh";
   const valid = {

@@ -18,7 +18,13 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
-      ...["/home/:path*", "/where/:path*", "/brands/heroes/:path*"].map(
+      ...[
+        "/home/:path*",
+        "/where/:path*",
+        "/brands/heroes/:path*",
+        "/brand-wordmarks/:path*",
+        "/brand-logos/:path*",
+      ].map(
         (source) => ({
           source,
           headers: [
@@ -27,7 +33,7 @@ const nextConfig: NextConfig = {
         }),
       ),
       {
-        source: "/logo.png",
+        source: "/logo-64.webp",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],

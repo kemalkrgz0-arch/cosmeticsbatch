@@ -40,12 +40,13 @@ export function SiteFooter() {
       <div className="site-frame grid grid-cols-2 gap-x-6 gap-y-10 py-14 md:grid-cols-[1.5fr_1fr_1fr] md:gap-x-10">
         {/* Brand block — full width on mobile, first column on desktop */}
         <div className="col-span-2 md:col-span-1">
-          <Link href="/" className="inline-flex items-center gap-2 font-semibold">
+          <Link href="/" aria-label={site.name} className="inline-flex items-center gap-2 font-semibold">
             <Image
-              src="/logo.png"
-              alt={site.name}
+              src="/logo-64.webp"
+              alt=""
               width={32}
               height={32}
+              unoptimized
               className="h-8 w-8 rounded-full border border-border"
             />
             <span className="text-[17px] tracking-tight">{site.name}</span>

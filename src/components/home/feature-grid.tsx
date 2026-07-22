@@ -18,7 +18,7 @@ export function FeatureGrid() {
               <Icon className="h-5 w-5" strokeWidth={1.8} />
             </div>
             <div>
-              <h3 className="font-semibold leading-tight">{title}</h3>
+              <h2 className="font-semibold leading-tight">{title}</h2>
               <p className="mt-1 text-sm leading-relaxed text-fg-muted">{body}</p>
             </div>
           </div>

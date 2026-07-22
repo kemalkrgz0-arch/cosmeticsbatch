@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-22
-Current version: **1.4.2**
+Current version: **1.4.3**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -629,7 +629,8 @@ decision is recorded here. Version notes do not override this section silently.
   `POST /api/activity` returned 204. The account-side CMP delivery, AdSense
   Sites refresh and approval are still external blockers and remain open.
   `PAGESPEED-MOBILE-029`; owner: primary Codex agent; severity: `P1`;
-  state: `Next`; discovered from the owner's 2026-07-22 mobile PageSpeed
+  state: `In progress`; claimed 2026-07-22 10:28 +03 at starting commit
+  `7c5a7f5`; discovered from the owner's 2026-07-22 mobile PageSpeed
   screenshots after the 1.4.2 deploy. Evidence: the supplied lab run reports
   performance 79, LCP 4.4s, FCP 1.1s, TBT 280ms, Speed Index 2.4s and CLS 0;
   it attributes approximately 150ms to render-blocking first-party CSS, flags
@@ -643,8 +644,48 @@ decision is recorded here. Version notes do not override this section silently.
   or content, and pass mobile lab plus real-user/Core Web Vitals follow-up.
   Current screenshot is a single lab sample, so performance attribution and
   field impact remain `needs verification`.
+  Root-cause update (`In progress`, 2026-07-22): live requests for the hero via
+  `/_next/image` returned the unchanged 344,805-byte JPEG for both 828px and
+  1080px widths even with an AVIF/WebP `Accept` header; the response varied on
+  `Accept`, bypassed Cloudflare caching (`cf-cache-status: DYNAMIC`) and still
+  reported `image/jpeg`, so this is an origin optimizer failure rather than a
+  stale CDN variant. Direct `sharp@0.35.3` conversion works. The LCP path is
+  being moved to a pre-encoded 1472px AVIF (64,092 bytes), while above-fold
+  opacity animations and oversized responsive hints are removed.
+  Local completion (`In progress pending publication/live recheck`, version
+  `1.4.3`, 2026-07-22): the home LCP now uses a pre-encoded 1472x736 AVIF at
+  64,092 bytes instead of the live optimizer's 344,805-byte JPEG. A pre-encoded
+  64px WebP reduces each chrome logo request from 47,094 bytes to 348 bytes.
+  Both bypass the faulty optimizer and receive immutable one-year cache headers.
+  Above-fold opacity animations were removed and the responsive hero size hint
+  now matches its framed width. Controlled headless Chrome at 390x844, 1.6Mbps
+  and 4x CPU measured FCP 1.184s, final H1 LCP 1.864s and CLS 0 on the production
+  build. A current Lighthouse run measured the image LCP resource itself in
+  42–80ms; remaining run-to-run scores were dominated by 2.27–3.43s TBT and one
+  2.425s unattributable host task, unlike the owner's live PSI TBT of 280ms, so
+  that local score is recorded as environment-variable rather than claimed as
+  production evidence. Deploy plus PSI/WebPageTest and later CrUX are required
+  before closing this finding.
+  Publication authorization (`In progress`, 2026-07-22): the owner explicitly
+  said “deployu yap”, authorizing commit, push to `main` and the manual
+  production workflow for the accumulated `1.4.3` PageSpeed performance,
+  accessibility and audit-noise corrections. The final local release gate
+  passed: repository ESLint and `tsc --noEmit`; 80/80 quality tests plus all
+  four operational validators; `pnpm audit --prod --json` with zero known
+  vulnerabilities; `git diff --check`; and a clean production build generating
+  267/267 pages. The evidence validator still truthfully reports 39 assets
+  requiring provenance review; that existing AdSense/editorial dependency is
+  not closed by this technical release. Acceptance after publication: require
+  candidate/switch workflow smoke, then verify live routes, immutable optimized
+  assets, audit-bot behavior and representative mobile rendering. After the
+  deploy smoke, the owner directed work to resume in this order: rerun
+  `LIVE-REGRESSION-028` from the beginning across the complete live surface,
+  then perform the separate native-naturalness/editorial review of all 17
+  machine-generated failure-copy catalogs. Native approval must not be inferred
+  from structural translation tests.
   `PAGESPEED-A11Y-030`; owner: primary Codex agent; severity: `P2`;
-  state: `Next`; discovered from the owner's 2026-07-22 mobile PageSpeed
+  state: `In progress`; claimed 2026-07-22 10:28 +03 at starting commit
+  `7c5a7f5`; discovered from the owner's 2026-07-22 mobile PageSpeed
   screenshots. Evidence: Lighthouse flags insufficient contrast on accent
   links/step labels, a skipped heading level at “Evidence-aware results”, and
   redundant `alt="Cosmetics Batch"` on linked header/footer logos. Scope:
@@ -652,8 +693,14 @@ decision is recorded here. Version notes do not override this section silently.
   names. Acceptance: meet WCAG AA contrast in light/dark themes, restore a
   sequential heading outline, give linked decorative logos non-duplicative
   accessible treatment, add testable regressions and pass Lighthouse/axe checks.
+  Local completion (`Completed locally`, version `1.4.3`, 2026-07-22): light
+  accent/ring contrast was strengthened, feature headings now follow the page
+  h1 without skipping a level, and linked header/footer logos have decorative
+  image alt text with a single link name. Current Lighthouse reports
+  accessibility 100/100, best practices 100/100 and SEO 100/100.
   `PAGESPEED-ACTIVITY-031`; owner: primary Codex agent; severity: `P2`;
-  state: `Next`; discovered from the owner's 2026-07-22 PageSpeed screenshot
+  state: `In progress`; claimed 2026-07-22 10:28 +03 at starting commit
+  `7c5a7f5`; discovered from the owner's 2026-07-22 PageSpeed screenshot
   and verified after deployment. Evidence: Lighthouse records a console error
   because its client-side `POST /api/activity` receives 403. Direct verification
   showed a normal same-origin browser-form POST returns 204 while the otherwise
@@ -665,6 +712,22 @@ decision is recorded here. Version notes do not override this section silently.
   diagnostics. Acceptance: avoid sending activity for known audit bots or make
   the intentional rejection non-noisy without accepting bot analytics; retain
   normal browser 204, bot non-recording and regression coverage.
+  Local completion (`Completed locally`, version `1.4.3`, 2026-07-22): the
+  client recognizes Chrome-Lighthouse/PageSpeed audit user agents and skips the
+  activity beacon that the server would deliberately reject; normal browser
+  collection and server bot rejection remain unchanged. Regression coverage
+  guards the audit-bot branch.
+  `WEBMCP-EVALUATION-032`; owner: primary Codex agent; severity: `P3`;
+  state: `Next / intentionally deferred`; discovered from the owner's
+  2026-07-22 Lighthouse screenshot. Evidence: Lighthouse lists unscored WebMCP
+  form/tool/schema opportunities; official Chrome documentation labels WebMCP
+  an early preview/origin-trial experiment for exposing forms and page actions
+  to browser agents. It is not a PageSpeed score, Core Web Vitals, SEO or
+  AdSense approval requirement. Acceptance before adoption: the API reaches a
+  stable supported channel, the checker form can expose a privacy-safe tool
+  without leaking proprietary decoder details or bypassing consent, and a
+  measured agent-discovery benefit justifies the added surface. No WebMCP code
+  belongs in the current LCP/accessibility release.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
