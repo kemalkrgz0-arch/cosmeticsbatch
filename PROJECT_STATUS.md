@@ -120,6 +120,17 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
+- `RELEASE-1.4.4-037`; owner: primary Codex agent; severity: `P1`; state:
+  `In progress`; claimed 2026-07-22 Europe/Istanbul at starting commit
+  `3816c43`. The owner explicitly authorized publication with “devam et deploy
+  yapalım”. Scope: publish the verified `1.4.4` RTL header, PageSpeed image and
+  17-catalog editorial corrections already committed locally. Acceptance: push
+  the accumulated commits to `main`, run the manual production workflow,
+  require successful candidate health/switch checks, then verify live core
+  routes, Arabic 390px header/overflow, the three AVIF assets and representative
+  localized failure results. A successful workflow alone is not completion;
+  live checks and remaining external PSI/native-review risks must be recorded.
+
 - `PAGESPEED-FOLLOWUP-035`; owner: primary Codex agent; severity: `P1`; state:
   `Completed locally; publication pending`; claimed 2026-07-22
   Europe/Istanbul at starting commit
