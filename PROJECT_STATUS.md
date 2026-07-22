@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-22
-Current version: **1.4.6**
+Current version: **1.4.7**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -120,6 +120,88 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
+- `NON-BATCH-INTELLIGENCE-043`; owner: primary Codex agent; severity: `P1`
+  decoder analytics/data quality; state: `Completed locally; publication authorized`; claimed 2026-07-22
+  Europe/Istanbul at starting commit `73a21e4`. Owner decision: retail
+  EAN/UPC/GTIN values and recognized product/reference identifiers must remain
+  in the privacy-minimal check dataset, but must not count as decoder errors or
+  no-reads. They are future product-identification evidence, analogous to the
+  Eucerin article/EAN recovery system, while decoder research should prioritize
+  genuine unresolved batch-code shapes and new brands. Evidence: the decoder
+  already classifies checksum-valid retail identifiers as `barcode`, but the
+  review metrics currently need verification for whether they aggregate every
+  non-decoded record into failures/no-reads. Acceptance: retain the records and
+  their explicit reason; exclude `barcode` and safely recognized non-batch
+  product/reference categories from decoder failure/no-read rankings and trends;
+  expose or preserve a separate reviewable non-batch/product-identification
+  candidate bucket; do not hide malformed or genuinely unresolved batch codes;
+  add focused regressions; pass full required checks; document any historical
+  rows that cannot yet be reclassified. Intended scope: review metrics/filtering
+  and dashboard copy/components, focused tests and this status file; no decoder
+  algorithm expansion and no automatic public product mapping in this group.
+  UI evidence added by the owner: the live Turkish result for ambiguous Eucerin
+  EAN `4005800196676` only says that it resembles a barcode, although retained
+  source records connect it to articles `63122` and `63125`, both named pH5
+  Rückfettendes Duschöl (bottle/refill variants). This is not enough to select a
+  single pack but is enough to show a clearly labelled product candidate.
+  Acceptance expands: when one or more sourced product candidates exist, the
+  barcode result names them and states any variant ambiguity; it must not call
+  an ambiguous candidate exact, infer dates/authenticity, or suppress the
+  instruction to find the separate production batch code.
+  Completion (2026-07-22): failed-code rows now carry a backward-compatible
+  `decoder-failure`, `retail-identifier` or `product-reference` kind. Existing
+  barcode rows are reclassified from their stored reason when read, and
+  historical sourced Eucerin article/EAN inputs are classified through the same
+  registry. Decoder health, no-read totals, trends, daily failures and the
+  failed-code queue exclude retained non-batch identifiers; the private review
+  workspace exposes them separately as product-identification candidates.
+  Raw checks and identifiers remain append-only and reviewable. The ambiguous
+  Eucerin EAN `4005800196676` now shows pH5 Rückfettendes Duschöl as a possible
+  product, explains that more than one sourced packaging variant matches, and
+  links articles `63122` and `63125` without selecting either as exact. All 19
+  active locales have structurally complete candidate/ambiguity copy; native
+  editorial approval remains `needs verification`. Focused regressions passed
+  2/2. Scoped TypeScript, ESLint and `git diff --check` passed. The first two
+  full quality runs exposed stale dashboard source assertions; after updating
+  those guards to require both separated queues and the new trend inputs, the
+  third full `npm run test:quality` passed 86/86 plus all four validators.
+  Production build passed and generated 267/267 pages. Local standalone smoke
+  could not run because the server process exited immediately after reporting
+  Ready in this execution environment; live post-deploy smoke is therefore
+  mandatory. The owner explicitly authorized this as the final deployment of
+  the day.
+
+- `CLINIQUE-FORMAT-042`; owner: primary Codex agent; severity: `P2` decoder
+  evidence; state: `Completed — evidence wording corrected`; reviewed 2026-07-22
+  Europe/Istanbul at commit `73a21e4`. The owner explicitly confirms that
+  Clinique uses the three-character plant/month/year family exemplified by
+  `A45` and `A12`. This agrees with the nine previously reviewed Clinique carton
+  photographs (`A24`, `A15`, `A93`, `A54` and others) and with the existing
+  `estee-lauder` decoder/profile already assigned to Clinique. Runtime behavior
+  is therefore already correct: `A45` is plant A / April / year ending 5 and
+  `A12` is plant A / January / year ending 2. The code carries no day, so the
+  rendered day 15 remains an explicitly estimated midpoint and the decoder
+  remains month-precision rather than claiming an exact manufacture date.
+  Our photographed-label misread `7KXC-14` remains useful only as a researcher
+  warning: it is a product/shade reference rather than the less-visible batch
+  stamp, not evidence of a real user's mistake. Acceptance check: inspected the
+  live decoder implementation, profile
+  and regressions; existing tests cover normalized `A54`, canonical `A56`,
+  future-month rejection and Clinique `A25` including Cyrillic lookalikes.
+  Clinique is removed from the unresolved-format research queue; future work is
+  limited to better no-image user guidance or product-reference mapping if
+  authoritative product data is collected.
+  Correction raised by the owner in the same session: `7KXC-14` was an internal
+  research misread entered by us from a photographed label, not a real user's
+  mistaken submission. It may still be a visible product/shade reference on the
+  carton, but it must not be counted or described as user-behavior evidence.
+  Acceptance: preserve it only as a documented researcher identification error,
+  keep the confirmed `Axx` packaging samples as the format evidence, and remove
+  any new wording that implies users submitted `7KXC`.
+  Completion: corrected the decoder profile comment and limitation wording to
+  identify the actor as the researcher, not a user. No runtime decoder behavior,
+  date mapping or user-facing output changed.
+
 - `EUCERIN-EAN-RESEARCH-041`; owner: primary Codex agent; severity: `P1`
   correctness/data quality; state: `In progress`; claimed 2026-07-22
   Europe/Istanbul at starting commit `a6cf49f`. Evidence: the owner supplied
@@ -162,7 +244,7 @@ decision is recorded here. Version notes do not override this section silently.
   other brands to retain the generic failure path, focused regression coverage,
   full required checks and an explicit no-image dependency. Intended repository
   scope expands to `src/lib/eucerin-product-references.ts`, its regression tests
-  and this status file. Clinique, Chanel, Dior/YSL, NIVEA/Labello and the other
+  and this status file. Chanel, Dior/YSL, NIVEA/Labello and the other
   observed lookalike families remain a `Next` evidence queue; no brand-specific
   identification rule will ship for them until representative packaging/user
   evidence identifies a stable reference shape and authoritative product source.

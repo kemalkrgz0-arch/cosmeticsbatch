@@ -154,6 +154,14 @@ const EAN_REFERENCES = new Map(
   ),
 );
 
+/**
+ * Sourced aliases that identify a product family but not one exact pack. Keep
+ * every candidate visible instead of silently selecting the first article.
+ */
+const AMBIGUOUS_EAN_REFERENCES: Record<string, readonly string[]> = {
+  "4005800196676": ["63122", "63125"],
+};
+
 export function getEucerinProductReference(brandSlug: string, value: string) {
   if (brandSlug !== "eucerin") return null;
   const normalized = value.toUpperCase().replace(/[^A-Z0-9]/g, "");
@@ -161,6 +169,13 @@ export function getEucerinProductReference(brandSlug: string, value: string) {
   if (articleMatch) return REFERENCES[articleMatch[1]] ?? null;
   const ean = normalized.length === 14 && normalized.startsWith("0") ? normalized.slice(1) : normalized;
   return EAN_REFERENCES.get(ean) ?? null;
+}
+
+export function getEucerinBarcodeCandidates(brandSlug: string, value: string) {
+  if (brandSlug !== "eucerin") return [];
+  const digits = value.replace(/\D/g, "");
+  const ean = digits.length === 14 && digits.startsWith("0") ? digits.slice(1) : digits;
+  return (AMBIGUOUS_EAN_REFERENCES[ean] ?? []).map((article) => REFERENCES[article]);
 }
 
 export const EUCERIN_PRODUCT_REFERENCES = Object.freeze(Object.values(REFERENCES));

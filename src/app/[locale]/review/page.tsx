@@ -17,6 +17,7 @@ import {
   decoderHealthTrend,
   DEFAULT_REPORT_PERIOD,
   entryPages,
+  isDecoderFailure,
   isReportPeriod,
   localeSplit,
   manufactureYears,
@@ -260,11 +261,13 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const visitsTrend = trend(activity, window7d, window14d, (row) => row.type === "visit", win.end, win.previousEnd);
   const viewsTrend = trend(activity, window7d, window14d, (row) => row.type === "page_view", win.end, win.previousEnd);
   const checksTrend = trend(checks, window7d, window14d, undefined, win.end, win.previousEnd);
-  const failedTrend = trend(failedCodes, window7d, window14d, undefined, win.end, win.previousEnd);
+  const failedTrend = trend(failedCodes, window7d, window14d, isDecoderFailure, win.end, win.previousEnd);
+  const nonBatchTrend = trend(failedCodes, window7d, window14d, (row) => !isDecoderFailure(row), win.end, win.previousEnd);
   const visits7d = visitsTrend.current;
   const views7d = viewsTrend.current;
   const checks7d = checksTrend.current;
   const failed7d = failedTrend.current;
+  const nonBatch7d = nonBatchTrend.current;
 
   // The reports below the tiles read the selected window only. The wider fetch
   // above exists so the comparison has something to compare against; letting it
@@ -274,14 +277,15 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const failedWindow = withinWindow(failedCodes, win);
 
   const decodedInWindow = checksWindow.filter((row) => row.mfg).length;
-  const readRate = checks7d ? Math.round((decodedInWindow / checks7d) * 100) : null;
+  const decoderChecks7d = Math.max(0, checks7d - nonBatch7d);
+  const readRate = decoderChecks7d ? Math.round((decodedInWindow / decoderChecks7d) * 100) : null;
 
   const series = dailySeries(activityWindow, checksWindow, failedWindow, win.seriesDays, now);
   const funnel = brandFunnel(activityWindow, checksWindow);
   const unattributed = unattributedChecks(checksWindow);
   const health = decoderHealth(checksWindow, failedWindow);
   // A rate says where a brand stands; the swing says whether it just broke.
-  const healthTrend = decoderHealthTrend(checks, window7d, window14d);
+  const healthTrend = decoderHealthTrend(checks, failedCodes, window7d, window14d);
   const years = manufactureYears(checksWindow);
 
   // Result filter, composed with the text search rather than replacing it.
@@ -348,7 +352,11 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
     low: "Low confidence",
   };
 
-  const failedFiltered = failedWindow.filter((item) => !search || [item.brand, item.code, item.reason, item.locale, item.country].some((value) => value?.toLowerCase().includes(search)));
+  const matchesFailedSearch = (item: (typeof failedWindow)[number]) =>
+    !search || [item.brand, item.code, item.reason, item.kind, item.locale, item.country]
+      .some((value) => value?.toLowerCase().includes(search));
+  const failedFiltered = failedWindow.filter(isDecoderFailure).filter(matchesFailedSearch);
+  const nonBatchFiltered = failedWindow.filter((item) => !isDecoderFailure(item)).filter(matchesFailedSearch);
   // Group on the code as the decoder reads it, not the raw string or failure
   // classification. "TCR 15" / "TCR15" are one code; "TCR1S" stays distinct.
   const failedGroups = Array.from(failedFiltered.reduce((brands, item) => {
@@ -411,6 +419,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             { label: "Read rate", value: readRate === null ? "—" : `${readRate}%`, icon: Activity },
             // More failed codes is not an improvement, so this tile reads inverted.
             { label: "Failed codes", value: failed7d, icon: AlertTriangle, trend: failedTrend, lowerIsBetter: true },
+            { label: "Product identifiers", value: nonBatch7d, icon: Inbox, trend: nonBatchTrend },
           ].map(({ label, value, icon: Icon, trend: tileTrend, lowerIsBetter }) => (
             <div key={label} className="rounded-xl border bg-card p-3 shadow-sm sm:rounded-2xl sm:p-4">
               <div className="flex items-center justify-between gap-2">
@@ -605,7 +614,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             <Panel title="Decoder health" hint={`Per brand, over ${win.label.toLowerCase()}. A high no-read rate means users are being turned away.`}>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] text-left text-sm">
-                  <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Brand</th><th className="p-3">Decoder</th><th className="p-3">Checks</th><th className="p-3">No read</th><th className="p-3">No-read rate</th><th className="p-3">7d trend</th><th className="p-3">Logged failures</th></tr></thead>
+                  <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Brand</th><th className="p-3">Decoder</th><th className="p-3">Decoder checks</th><th className="p-3">No read</th><th className="p-3">No-read rate</th><th className="p-3">7d trend</th><th className="p-3">Failures</th><th className="p-3">Product IDs</th></tr></thead>
                   <tbody>
                     {health.filter((row) => row.checks > 0).slice(0, 40).map((row) => (
                       <tr key={row.slug} className="border-t">
@@ -630,9 +639,10 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                           return <span className={points > 0 ? "font-semibold text-danger" : "font-semibold text-success"}>{points > 0 ? "+" : ""}{points} pts</span>;
                         })()}</td>
                         <td className="p-3 tabular-nums">{row.failures}</td>
+                        <td className="p-3 tabular-nums">{row.nonBatch}</td>
                       </tr>
                     ))}
-                    {health.length === 0 && <tr><td colSpan={7} className="p-8 text-center text-fg-muted">No checks in this window.</td></tr>}
+                    {health.length === 0 && <tr><td colSpan={8} className="p-8 text-center text-fg-muted">No checks in this window.</td></tr>}
                   </tbody>
                 </table>
               </div>
@@ -643,11 +653,11 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
             </Panel>
 
             <div className="space-y-5">
-              <h2 className="text-xl font-bold">Failed-code queue ({failedWindow.length})</h2>
+              <h2 className="text-xl font-bold">Failed-code queue ({failedFiltered.length})</h2>
               {failedGroups.length === 0 ? (
                 <section className="rounded-2xl border bg-card p-10 text-center shadow-sm">
                   <h3 className="text-lg font-semibold">No failed codes found</h3>
-                  <p className="mt-1 text-sm text-fg-muted">New unresolved codes and retail barcodes will appear here automatically.</p>
+                  <p className="mt-1 text-sm text-fg-muted">New unresolved batch-code shapes will appear here automatically.</p>
                 </section>
               ) : failedGroups.map(([brandSlug, rows]) => (
                 <section key={brandSlug} className="overflow-hidden rounded-2xl border bg-card shadow-sm">
@@ -669,6 +679,25 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                   </div>
                 </section>
               ))}
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <h2 className="text-xl font-bold">Product-identification candidates ({nonBatchFiltered.length})</h2>
+                <p className="mt-1 text-sm text-fg-muted">Retained EAN/UPC/GTIN and sourced product references. These do not count as decoder failures.</p>
+              </div>
+              {nonBatchFiltered.length === 0 ? (
+                <section className="rounded-2xl border bg-card p-10 text-center shadow-sm text-fg-muted">No product identifiers in this window.</section>
+              ) : (
+                <section className="overflow-hidden rounded-2xl border bg-card shadow-sm">
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-[680px] text-left text-sm">
+                      <thead className="bg-bg-subtle text-xs uppercase tracking-wide text-fg-muted"><tr><th className="p-3">Brand</th><th className="p-3">Identifier</th><th className="p-3">Kind</th><th className="p-3">Latest</th><th className="p-3">Country</th></tr></thead>
+                      <tbody>{nonBatchFiltered.slice(0, 500).map((item) => <tr key={`${item.ts}:${item.brand}:${item.code}`} className="border-t"><td className="p-3 font-semibold">{brandName(item.brand)}</td><td className="p-3 font-mono"><Link href={href("checks", { q: item.code })} className="underline decoration-dotted underline-offset-2">{item.code}</Link></td><td className="p-3"><span className="rounded-full bg-bg-subtle px-2.5 py-1 text-xs font-semibold">{item.kind ?? item.reason}</span></td><td className="whitespace-nowrap p-3">{new Date(item.ts).toLocaleString("en-GB", { timeZone: "Europe/Istanbul" })}</td><td className="p-3">{item.country ?? "—"}</td></tr>)}</tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
             </div>
           </div>
         )}

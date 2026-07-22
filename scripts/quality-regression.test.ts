@@ -37,8 +37,10 @@ import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitSnippet, fitTitle, snippetLength }
 import { brandSnippet } from "../src/lib/brand-snippets";
 import { normalizeActivityPath } from "../src/lib/activity-path";
 import { PRODUCT_EVIDENCE_LOCALES, productEvidenceCopy } from "../src/lib/product-evidence-copy";
-import { EUCERIN_PRODUCT_REFERENCES, getEucerinProductReference } from "../src/lib/eucerin-product-references";
+import { EUCERIN_PRODUCT_REFERENCES, getEucerinBarcodeCandidates, getEucerinProductReference } from "../src/lib/eucerin-product-references";
 import { PRODUCT_REFERENCE_LOCALES, productReferenceCopy } from "../src/lib/product-reference-copy";
+import { PRODUCT_CANDIDATE_LOCALES, productCandidateCopy } from "../src/lib/product-candidate-copy";
+import { classifyFailedCode } from "../src/lib/non-batch-intelligence";
 import { MAX_TRACKED_KEYS, checkRateLimit, trackedKeyCount } from "../src/lib/rate-limit";
 import { brandsDirectoryCopy } from "../src/lib/brands-directory-copy";
 import {
@@ -47,6 +49,7 @@ import {
   decoderHealth,
   decoderHealthTrend,
   entryPages,
+  isDecoderFailure,
   localeSplit,
   reportDay,
   stripLocale,
@@ -610,6 +613,27 @@ test("decoder health ranks the brands turning users away", () => {
   assert.equal(health.find((row) => row.slug === "vichy")?.failRate, 0);
 });
 
+test("retail identifiers stay reviewable without becoming decoder failures", () => {
+  const checks = [
+    { ts: "2026-07-18T10:00:00.000Z", brand: "eucerin", confidence: "none", mfg: null },
+    { ts: "2026-07-18T10:01:00.000Z", brand: "eucerin", confidence: "none", mfg: null },
+    { ts: "2026-07-18T10:02:00.000Z", brand: "eucerin", confidence: "high", mfg: "2025-01-15" },
+  ];
+  const failed = [
+    { ts: "2026-07-18T10:00:00.000Z", brand: "eucerin", reason: "barcode", kind: "retail-identifier" as const },
+    { ts: "2026-07-18T10:01:00.000Z", brand: "eucerin", reason: "unresolved", kind: "decoder-failure" as const },
+  ];
+  const health = decoderHealth(checks, failed)[0];
+  assert.equal(health.checks, 2);
+  assert.equal(health.undecoded, 1);
+  assert.equal(health.nonBatch, 1);
+  assert.equal(health.failures, 1);
+  assert.equal(health.failRate, 50);
+  assert.equal(isDecoderFailure(failed[0]), false);
+  assert.equal(isDecoderFailure({ ts: failed[0].ts, brand: "eucerin", reason: "barcode" }), false, "historical barcode rows are reclassified");
+  assert.equal(dailySeries([], checks, failed, 1, Date.parse("2026-07-18T12:00:00.000Z"))[0].failed, 1);
+});
+
 test("failed-code grouping collapses retries without merging distinct codes", () => {
   // Spacing and case are typing noise: one user retrying the same code must
   // land on one row in the review queue.
@@ -906,7 +930,7 @@ test("decoder health trend needs traffic on both sides before it claims a swing"
     row("dior", "2026-07-08T00:00:00.000Z", "2025-01-15"),
     row("dior", "2026-07-15T00:00:00.000Z", null),
   ];
-  const swings = decoderHealthTrend(checks, current, previous);
+  const swings = decoderHealthTrend(checks, [], current, previous);
   assert.equal(swings.get("vichy"), 100, "a decoder that stopped reading must show the full swing");
   assert.equal(swings.get("dior"), null, "two checks cannot support a percentage-point claim");
 });
@@ -1135,6 +1159,13 @@ test("sourced Eucerin article references identify products without inventing dat
   assert.equal(getEucerinProductReference("eucerin", "69767.123.AE.11"), null);
   assert.equal(getEucerinProductReference("eucerin", "99999.000.AE.11"), null);
   assert.equal(getEucerinProductReference("nivea", "66883.000.AE.03"), null);
+  const ambiguous = getEucerinBarcodeCandidates("eucerin", "4005800196676");
+  assert.deepEqual(ambiguous.map((candidate) => candidate.article), ["63122", "63125"]);
+  assert.equal(new Set(ambiguous.map((candidate) => candidate.productName)).size, 1);
+  assert.deepEqual(getEucerinBarcodeCandidates("nivea", "4005800196676"), []);
+  assert.equal(classifyFailedCode({ brand: "eucerin", code: "4005800196676", reason: "barcode" }), "retail-identifier");
+  assert.equal(classifyFailedCode({ brand: "eucerin", code: "66883.000.AE.03", reason: "unresolved" }), "product-reference");
+  assert.equal(classifyFailedCode({ brand: "clinique", code: "ZZ99", reason: "unresolved" }), "decoder-failure");
   const eans = new Set<string>();
   for (const reference of EUCERIN_PRODUCT_REFERENCES) {
     assert.match(reference.article, /^\d{5}$/);
@@ -1155,6 +1186,12 @@ test("sourced Eucerin article references identify products without inventing dat
   }
   assert.equal(eans.size, 95);
   assert.deepEqual([...PRODUCT_REFERENCE_LOCALES].sort(), [...LOCALE_CODES].sort());
+  assert.deepEqual([...PRODUCT_CANDIDATE_LOCALES].sort(), [...LOCALE_CODES].sort());
+  for (const locale of LOCALE_CODES) {
+    const copy = productCandidateCopy(locale);
+    assert.match(copy.possible, /\{product\}/);
+    assert.ok(copy.ambiguous);
+  }
   for (const locale of LOCALE_CODES) {
     const copy = productReferenceCopy(locale);
     assert.match(copy.body, /\{article\}/);
@@ -1374,7 +1411,8 @@ test("review lists read the selected window, not the raw fetch", () => {
   // The wider fetch may only feed the trend comparisons, which need both halves.
   assert.match(page, /const checksMatchingNonResultFilters = checksWindow/);
   assert.match(page, /const failedFiltered = failedWindow\.filter/);
-  assert.match(page, /Failed-code queue \(\{failedWindow\.length\}\)/);
+  assert.match(page, /Failed-code queue \(\{failedFiltered\.length\}\)/);
+  assert.match(page, /Product-identification candidates \(\{nonBatchFiltered\.length\}\)/);
 
   // Filter options have to come from the window too, or a pick returns nothing.
   assert.match(page, /const checkBrands = \[\.\.\.new Set\(checksWindow\.map/);
@@ -1383,7 +1421,7 @@ test("review lists read the selected window, not the raw fetch", () => {
   assert.match(page, /for \(const row of checksWindow\) \{/);
 
   // decoderHealthTrend is the deliberate exception: it compares two periods.
-  assert.match(page, /decoderHealthTrend\(checks, window7d, window14d\)/);
+  assert.match(page, /decoderHealthTrend\(checks, failedCodes, window7d, window14d\)/);
 });
 
 /**

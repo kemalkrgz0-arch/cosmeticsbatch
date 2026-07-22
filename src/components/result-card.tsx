@@ -20,8 +20,9 @@ import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
 import { addressLookalikeKey, printsDateHintKey } from "@/lib/result-failure-copy";
 import { site } from "@/lib/site";
-import { getEucerinProductReference } from "@/lib/eucerin-product-references";
+import { getEucerinBarcodeCandidates, getEucerinProductReference } from "@/lib/eucerin-product-references";
 import { productReferenceCopy } from "@/lib/product-reference-copy";
+import { productCandidateCopy } from "@/lib/product-candidate-copy";
 
 // Some code families (L'Oréal, Estée Lauder) encode only year+month; the day in
 // `manufactureDate` is a mid-month placeholder, so we hide it rather than imply a
@@ -221,6 +222,9 @@ export function ResultCard({
       );
     }
     const reason = result.failureReason ?? "unresolved";
+    const productCandidates = getEucerinBarcodeCandidates(brand.slug, result.code);
+    const candidateCopy = productCandidateCopy(locale);
+    const candidateNames = [...new Set(productCandidates.map((candidate) => candidate.productName))];
     const failure = tf.raw(`reason.${reason}`) as Record<string, string>;
     const addressKey = addressLookalikeKey(result.code);
     const addressHint = addressKey ? tf(`hint.${addressKey}`) : null;
@@ -247,6 +251,23 @@ export function ResultCard({
               )}
               {addressHint && (
                 <p className="mb-3 text-sm font-medium leading-relaxed text-fg">{addressHint}</p>
+              )}
+              {productCandidates.length > 0 && (
+                <div className="mb-3 rounded-xl border border-warning/25 bg-warning-bg/60 p-3 text-sm">
+                  <p className="font-semibold text-fg">
+                    {candidateCopy.possible.replace("{product}", candidateNames.join(" / "))}
+                  </p>
+                  {productCandidates.length > 1 && (
+                    <p className="mt-1 leading-relaxed text-fg-muted">{candidateCopy.ambiguous}</p>
+                  )}
+                  <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                    {productCandidates.map((candidate) => (
+                      <a key={candidate.article} href={candidate.sourceUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent hover:text-accent-hover">
+                        {candidate.article}
+                      </a>
+                    ))}
+                  </div>
+                </div>
               )}
               <p className="text-sm leading-relaxed text-fg-muted">{failure.detail}</p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">

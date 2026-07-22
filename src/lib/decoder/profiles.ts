@@ -15,8 +15,10 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
     // Nine Clinique cartons photographed 2026-07-20, the batch code marked by
     // the owner because it is not the prominent number on the pack: A24, A15,
     // A93, A54 and others, all plant A, all decoding to 2023-2025, which is the
-    // spread a production run should show. The label's 7KXC-nn is a product
-    // reference and is correctly refused. No printed expiry on any carton, so
+    // spread a production run should show. During research we initially mistook
+    // the label's 7KXC-nn product reference for the batch code; it was not a
+    // user-submitted mistake, and the decoder correctly refuses it. No printed
+    // expiry on any carton, so
     // this evidences the shape, not the arithmetic. See finding 45.
     sourceReferences: ["PROJECT_STATUS.md finding 45 — owner packaging photographs, 2026-07-20"],
     verifiedAt: null,
@@ -25,7 +27,7 @@ export const DECODER_PROFILES: Record<string, DecoderProfile> = {
       "Single-digit year repeats every decade",
       "Day is estimated as mid-month",
       "No printed-date verification yet",
-      "The prominent 7KXC-nn on Clinique labels is a product reference, not a batch code",
+      "Researchers can mistake the prominent 7KXC-nn product reference for the less-visible batch stamp",
     ],
   },
   loreal: {

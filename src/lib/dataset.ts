@@ -1,6 +1,7 @@
 import { appendFile, mkdir, readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 import type { CheckResult, DecodeFailureReason } from "@/lib/decoder";
+import { classifyFailedCode, type FailedCodeKind } from "@/lib/non-batch-intelligence";
 
 /**
  * Append-only dataset of the batch codes users check. Every decode writes one
@@ -40,6 +41,7 @@ export interface FailedCodeLog {
   brand: string;
   code: string;
   reason: DecodeFailureReason;
+  kind?: FailedCodeKind;
   decoderId?: string;
   locale?: string;
   country?: string;
@@ -115,7 +117,7 @@ export async function logFailedCode(entry: FailedCodeLog): Promise<void> {
     const brandFile = entry.brand.replace(/[^a-z0-9-]/gi, "-").toLowerCase();
     await appendFile(
       join(/* turbopackIgnore: true */ FAILED_DIR, `${brandFile}.jsonl`),
-      `${JSON.stringify(entry)}\n`,
+      `${JSON.stringify({ ...entry, kind: entry.kind ?? classifyFailedCode(entry) })}\n`,
       { encoding: "utf8", mode: 0o600 },
     );
   } catch (err) {
@@ -212,7 +214,7 @@ async function readFailedCodes(limit?: number, since?: string): Promise<FailedCo
       try {
         const entry = JSON.parse(line) as FailedCodeLog;
         if (entry.ts && entry.brand && entry.code && entry.reason && (!since || entry.ts >= since)) {
-          rows.push(entry);
+          rows.push({ ...entry, kind: entry.kind ?? classifyFailedCode(entry) });
         }
       } catch {
         // Ignore an interrupted final append; other brand files remain readable.

@@ -16,7 +16,18 @@ import { LOCALE_CODES } from "../i18n/locales";
 
 export type ActivityRow = { ts: string; type: "visit" | "page_view"; path: string; locale?: string };
 export type CheckRow = { ts: string; brand: string; country?: string; decoderId?: string; path?: string; confidence: string; mfg: string | null };
-export type FailedRow = { ts: string; brand: string; decoderId?: string };
+export type FailedRow = {
+  ts: string;
+  brand: string;
+  decoderId?: string;
+  reason?: string;
+  kind?: "decoder-failure" | "retail-identifier" | "product-reference";
+};
+
+/** Historical barcode rows predate `kind`, so their reason is the fallback. */
+export function isDecoderFailure(row: FailedRow): boolean {
+  return row.kind ? row.kind === "decoder-failure" : row.reason !== "barcode";
+}
 
 const localeSet = new Set<string>(LOCALE_CODES);
 
@@ -263,7 +274,7 @@ export function dailySeries(
   };
   for (const row of activity) bump(row.ts, row.type === "visit" ? "visits" : "views");
   for (const row of checks) bump(row.ts, "checks");
-  for (const row of failed) bump(row.ts, "failed");
+  for (const row of failed.filter(isDecoderFailure)) bump(row.ts, "failed");
   return [...points.values()];
 }
 
@@ -328,7 +339,9 @@ export type DecoderHealth = {
   checks: number;
   /** Checks that returned no date, from the check log itself. */
   undecoded: number;
-  /** Separately logged failures, including rejected retail barcodes. */
+  /** Retained identifiers that do not measure decoder health. */
+  nonBatch: number;
+  /** Separately logged genuine decoder failures. */
   failures: number;
   failRate: number;
   confidence: Record<string, number>;
@@ -343,8 +356,11 @@ export function decoderHealth(checks: CheckRow[], failed: FailedRow[]): DecoderH
   return [...slugs]
     .map((slug) => {
       const brandChecks = checks.filter((row) => row.brand === slug);
-      const undecoded = brandChecks.filter((row) => !row.mfg).length;
-      const failures = failed.filter((row) => row.brand === slug).length;
+      const brandFailures = failed.filter((row) => row.brand === slug);
+      const nonBatch = brandFailures.filter((row) => !isDecoderFailure(row)).length;
+      const eligibleChecks = Math.max(0, brandChecks.length - nonBatch);
+      const undecoded = Math.max(0, brandChecks.filter((row) => !row.mfg).length - nonBatch);
+      const failures = brandFailures.filter(isDecoderFailure).length;
       const confidence: Record<string, number> = {};
       for (const row of brandChecks) {
         confidence[row.confidence] = (confidence[row.confidence] ?? 0) + 1;
@@ -353,10 +369,11 @@ export function decoderHealth(checks: CheckRow[], failed: FailedRow[]): DecoderH
         slug,
         decoderId: brandChecks.find((row) => row.decoderId)?.decoderId
           ?? failed.find((row) => row.brand === slug && row.decoderId)?.decoderId,
-        checks: brandChecks.length,
+        checks: eligibleChecks,
         undecoded,
+        nonBatch,
         failures,
-        failRate: brandChecks.length ? (undecoded / brandChecks.length) * 100 : 0,
+        failRate: eligibleChecks ? (undecoded / eligibleChecks) * 100 : 0,
         confidence,
       };
     })
@@ -374,11 +391,19 @@ export function decoderHealth(checks: CheckRow[], failed: FailedRow[]): DecoderH
  */
 export function decoderHealthTrend(
   checks: CheckRow[],
+  failed: FailedRow[],
   currentStart: string,
   previousStart: string,
   minimumChecks = 3,
 ): Map<string, number | null> {
   const out = new Map<string, number | null>();
+  const excluded = new Map<string, { current: number; previous: number }>();
+  for (const row of failed.filter((entry) => !isDecoderFailure(entry))) {
+    const count = excluded.get(row.brand) ?? { current: 0, previous: 0 };
+    if (row.ts >= currentStart) count.current += 1;
+    else if (row.ts >= previousStart) count.previous += 1;
+    excluded.set(row.brand, count);
+  }
   const counts = new Map<string, { current: number; currentFailed: number; previous: number; previousFailed: number }>();
   for (const row of checks) {
     const count = counts.get(row.brand) ?? { current: 0, currentFailed: 0, previous: 0, previousFailed: 0 };
@@ -392,6 +417,11 @@ export function decoderHealthTrend(
     counts.set(row.brand, count);
   }
   for (const [slug, count] of counts) {
+    const nonBatch = excluded.get(slug) ?? { current: 0, previous: 0 };
+    count.current = Math.max(0, count.current - nonBatch.current);
+    count.currentFailed = Math.max(0, count.currentFailed - nonBatch.current);
+    count.previous = Math.max(0, count.previous - nonBatch.previous);
+    count.previousFailed = Math.max(0, count.previousFailed - nonBatch.previous);
     out.set(
       slug,
       count.current >= minimumChecks && count.previous >= minimumChecks
