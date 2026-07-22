@@ -81,8 +81,9 @@ decision is recorded here. Version notes do not override this section silently.
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
-- Current production baseline: commit `90cf132`; GitHub Actions deploy run
-  `29902184943` completed successfully on 2026-07-22. Production is `1.4.3`.
+- Current production baseline: commit `ee55ee4`; GitHub Actions deploy run
+  `29917551696` completed successfully in 4m25s on 2026-07-22. Production is
+  `1.4.7`.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 19
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -169,7 +170,53 @@ decision is recorded here. Version notes do not override this section silently.
   could not run because the server process exited immediately after reporting
   Ready in this execution environment; live post-deploy smoke is therefore
   mandatory. The owner explicitly authorized this as the final deployment of
-  the day.
+  the day. Publication completed at commit `ee55ee4` through manual workflow
+  run `29917551696` (success, 4m25s). Post-deploy smoke returned HTTP 200 for
+  `/`, the ambiguous EAN result, the exact EAN result, the Eucerin article-code
+  result, `/sitemap.xml` and `/ads.txt`. Live HTML confirmed that
+  `4005800196676` names pH5 Rückfettendes Duschöl as a possible product, labels
+  the multiple sourced packaging variants and links articles `63122`/`63125`;
+  exact EAN `4005800196485` and article input `63006.000.AE.03` both identify
+  pH5 Beruhigende Lotion 400ml Nachfüllbeutel. The live `ads.txt` contains the
+  expected publisher record. State: `Completed and deployed`.
+
+- `RESEARCH-ROADMAP-044`; owner: product owner + next research agent; severity:
+  `P1` evidence/data quality; state: `Next — research only`; recorded 2026-07-22
+  after the final production deployment. Owner boundary: remain in research
+  mode after release `1.4.7`; no additional code publication or deployment
+  without a new explicit authorization. Workstreams, in dependency order:
+  1. Build a genuine unresolved batch-code/new-brand queue from retained checks;
+     keep EAN/UPC/GTIN and known product/reference identifiers out of decoder
+     failure metrics.
+  2. Build a perfume-manufacturer and licence-era matrix. A brand name alone is
+     not evidence of the factory or decoder; store manufacturer, market/era,
+     photographed code shape, printed date when present, source and confidence.
+  3. Research new decoder formats from physical packaging and primary or
+     independently corroborated evidence. Never publish a date rule inferred
+     from a few examples or copied from a competitor.
+  4. Expand the separate product-identification registry with EAN, product
+     reference, official product name, market/package variant and evidence URL.
+     Show an exact product only for a unique supported match; otherwise show
+     clearly labelled candidates and the ambiguity.
+  5. Design a low-friction, explicit-consent contribution prompt for product
+     name, EAN, PAO and package photos. Collect no unnecessary identity data;
+     submissions stay private until reviewed and must follow the existing
+     retention/deletion policy once approved.
+  6. Maintain a brand asset gap matrix covering header and batch-code example
+     images, source/licence status and missing mobile/desktop variants. Do not
+     scrape and republish official product photography without permission or a
+     documented lawful basis.
+  7. Add a research evidence state model (`suspected`, `conflicting`,
+     `corroborated`, `verified`) so uncertain records cannot silently become
+     public decoder facts.
+  Proposed extensions after sufficient evidence: package-era recognition;
+  country/size variants sharing an EAN family; directing users to printed
+  `EXP`/`SKT` where the date is already explicit instead of inventing a decoder;
+  and an anonymized review queue that groups repeated user-contributed shapes.
+  Acceptance before any future implementation: scoped claim and source ledger,
+  privacy review for contributed data, conflict/ambiguity rules, representative
+  fixtures including negative cases, and explicit owner approval to leave
+  research mode.
 
 - `CLINIQUE-FORMAT-042`; owner: primary Codex agent; severity: `P2` decoder
   evidence; state: `Completed — evidence wording corrected`; reviewed 2026-07-22
