@@ -81,8 +81,8 @@ decision is recorded here. Version notes do not override this section silently.
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
-- Current production baseline: commit `c2d1163`; GitHub Actions deploy run
-  `29899325786` completed successfully on 2026-07-22. Production is `1.4.2`.
+- Current production baseline: commit `90cf132`; GitHub Actions deploy run
+  `29902184943` completed successfully on 2026-07-22. Production is `1.4.3`.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 19
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -683,8 +683,22 @@ decision is recorded here. Version notes do not override this section silently.
   then perform the separate native-naturalness/editorial review of all 17
   machine-generated failure-copy catalogs. Native approval must not be inferred
   from structural translation tests.
+  Deployment completion (`Completed`, 2026-07-22): committed as `90cf132`
+  (`perf(home): accelerate mobile LCP`), pushed `main`, and manual workflow run
+  `29902184943` completed in 4m43s. The VPS build generated 267/267 pages,
+  started a separate release candidate, reported the production container
+  healthy and completed the switch. Live smoke returned 200 for `/`, `/check`,
+  `/de/check`, `/ar/check`, `/sitemap.xml` and `/ads.txt`. Rendered home HTML
+  contains the high-priority AVIF preload, new unoptimized logo and immediate
+  hero markup. `/home/cosmetics-hero.avif` serves as 64,092-byte `image/avif`
+  and `/logo-64.webp` as 348-byte `image/webp`; both return one-year immutable
+  cache headers. A normal Chrome-shaped same-origin `POST /api/activity`
+  returned 204. `PAGESPEED-MOBILE-029` remains `In progress` only for fresh
+  external PSI/WebPageTest and later field-data follow-up; the release itself is
+  live. Work resumes with the complete `LIVE-REGRESSION-028` rerun, followed by
+  the separately unverified native-language editorial review.
   `PAGESPEED-A11Y-030`; owner: primary Codex agent; severity: `P2`;
-  state: `In progress`; claimed 2026-07-22 10:28 +03 at starting commit
+  state: `Completed`; claimed 2026-07-22 10:28 +03 at starting commit
   `7c5a7f5`; discovered from the owner's 2026-07-22 mobile PageSpeed
   screenshots. Evidence: Lighthouse flags insufficient contrast on accent
   links/step labels, a skipped heading level at “Evidence-aware results”, and
@@ -699,7 +713,7 @@ decision is recorded here. Version notes do not override this section silently.
   image alt text with a single link name. Current Lighthouse reports
   accessibility 100/100, best practices 100/100 and SEO 100/100.
   `PAGESPEED-ACTIVITY-031`; owner: primary Codex agent; severity: `P2`;
-  state: `In progress`; claimed 2026-07-22 10:28 +03 at starting commit
+  state: `Completed`; claimed 2026-07-22 10:28 +03 at starting commit
   `7c5a7f5`; discovered from the owner's 2026-07-22 PageSpeed screenshot
   and verified after deployment. Evidence: Lighthouse records a console error
   because its client-side `POST /api/activity` receives 403. Direct verification
