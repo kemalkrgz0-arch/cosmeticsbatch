@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-22
-Current version: **1.4.5**
+Current version: **1.4.6**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -119,6 +119,77 @@ decision is recorded here. Version notes do not override this section silently.
   in a restricted/TTY-less environment.
 
 ## Active findings / next dependency-ordered work
+
+- `EUCERIN-EAN-RESEARCH-041`; owner: primary Codex agent; severity: `P1`
+  correctness/data quality; state: `In progress`; claimed 2026-07-22
+  Europe/Istanbul at starting commit `a6cf49f`. Evidence: the owner supplied
+  owner workbook later moved to
+  `/Users/enes/Desktop/eucerin-official-product-codes-guncel.xlsx` with an
+  EAN value for all 130 German Eucerin product rows, but validation found only
+  13 valid 13-digit EAN-13 values; 7 other 13-digit values fail their check
+  digit and 110 values are 12 digits, predominantly resembling a constructed
+  `4005800 + Article` value rather than a sourced market GTIN. Official Eucerin
+  pages also demonstrate that a product name/article can have different NART
+  suffixes and multiple historical or market-specific EANs, so one unsourced
+  EAN per product would be misleading. Scope: research the German-market
+  product/PZN rows against official Eucerin/Beiersdorf material first and
+  independently corroborated pharmacy/retailer records where necessary;
+  preserve market, package size, NART/version, source URL and confidence rather
+  than collapsing distinct variants; produce a reviewed workbook without
+  silently enabling records in production. Acceptance: every accepted EAN must
+  pass GTIN check-digit validation and have a recorded source that matches the
+  product identity and size; conflicting/current-versus-historical values stay
+  explicit; inferred prefix/article constructions are rejected; unknown rows
+  remain blank/needs verification; exact counts, source limitations and any
+  skipped manual packaging checks are recorded before completion. Intended
+  scope: owner-supplied workbook, a derived research workbook/report outside
+  production data, and this status file; no decoder or public UI changes.
+  Source constraint (2026-07-22): EAN-Search may be used only as a secondary
+  cross-check. Its current terms prohibit bots/scrapers on the public website
+  and permit automation through its registered API/MCP/Excel tools; it also
+  states that most records are third-party supplied and are not independently
+  guaranteed. No public-page scraping or unsourced EAN-Search result will be
+  treated as authoritative. The API requires an owner-created account/token;
+  credentials must remain outside chat, workbooks, repository and logs.
+  Owner scope expansion (2026-07-22): process the verified Eucerin article/NART
+  catalogue in the live product-reference recovery path without product images.
+  The system may identify a product only when its five-digit article and official
+  Eucerin product URL are recorded; it must not expose an unverified EAN, infer a
+  manufacture/expiry date, or call the reference a batch code. Missing EAN/PZN
+  evidence remains a research field rather than blocking safe article-level
+  identification. Acceptance additionally requires all source-linked catalogue
+  articles to take the cautious product-reference path, unknown articles and
+  other brands to retain the generic failure path, focused regression coverage,
+  full required checks and an explicit no-image dependency. Intended repository
+  scope expands to `src/lib/eucerin-product-references.ts`, its regression tests
+  and this status file. Clinique, Chanel, Dior/YSL, NIVEA/Labello and the other
+  observed lookalike families remain a `Next` evidence queue; no brand-specific
+  identification rule will ship for them until representative packaging/user
+  evidence identifies a stable reference shape and authoritative product source.
+  Resimsiz catalogue integration completion (2026-07-22): all 130 official
+  German Eucerin article/NART/product/URL records now participate in the cautious
+  product-reference recovery path. Ninety-five distinct checksum-valid EAN-13
+  aliases covering 92 articles were admitted from structured German pharmacy
+  product/PZN records; source GTIN-14 values with a zero indicator were
+  normalized to EAN-13 while preserving their evidence URL. The alias
+  `4005800196676` was excluded because the source data maps it to both articles
+  `63122` and `63125`; unverified, historical, marketplace-only and PZN-derived
+  candidates were not enabled. Entering an accepted EAN or a sourced five-digit
+  article shows the matched product and links to the official Eucerin page, but
+  still states that the input is not a batch code and contains no manufacture or
+  expiry date. The registry contains no image field or image dependency.
+  Verification: the focused product-reference regression passed 1/1; scoped
+  TypeScript and ESLint passed; the first `git diff --check` found and then
+  removed one trailing blank line; the full `npm run test:quality` passed 85/85
+  tests and all four validators. Production build and post-deploy live smoke are
+  passed and generated 267/267 pages. Local production smoke on port 3104
+  returned HTTP 200 for article `63006.000.AE.03`, accepted EAN
+  `4005800196485` and deliberately ambiguous EAN `4005800196676`; the first two
+  rendered the same identified product and the ambiguous value stayed on the
+  generic retail-barcode path. Post-deploy live smoke is still required before
+  this release group is complete. The broader EAN research
+  workbook remains `In progress`: missing and suspicious rows stay explicitly
+  unverified for owner research rather than being silently activated.
 
 - `RELEASE-1.4.5-040`; owner: primary Codex agent; severity: `P1`; state:
   `In progress`; claimed 2026-07-22 Europe/Istanbul at starting commit

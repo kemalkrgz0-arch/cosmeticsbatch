@@ -1123,17 +1123,37 @@ test("product evidence contributions are anonymous, explicit and package-first",
 });
 
 test("sourced Eucerin article references identify products without inventing dates", () => {
-  assert.equal(EUCERIN_PRODUCT_REFERENCES.length, 2);
+  assert.equal(EUCERIN_PRODUCT_REFERENCES.length, 130);
   assert.equal(getEucerinProductReference("eucerin", "66883.000.AE.03")?.productName, "Eucerin Anti-Pigment Dual Serum, 30 ml");
   assert.equal(getEucerinProductReference("eucerin", "69767.000.AE.11")?.productName, "Eucerin Oil Control Face Sun Gel-Creme SPF 50+, 50 ml");
+  assert.equal(getEucerinProductReference("eucerin", "63006.000.AE.03")?.productName, "pH5 Beruhigende Lotion 400ml Nachfüllbeutel");
   assert.equal(getEucerinProductReference("eucerin", "66883000AE03")?.article, "66883");
   assert.equal(getEucerinProductReference("eucerin", "69767")?.article, "69767");
+  assert.equal(getEucerinProductReference("eucerin", "4005800196485")?.article, "63006");
+  assert.equal(getEucerinProductReference("eucerin", "04005800196485")?.article, "63006");
+  assert.equal(getEucerinProductReference("eucerin", "4005800196676"), null);
   assert.equal(getEucerinProductReference("eucerin", "69767.123.AE.11"), null);
   assert.equal(getEucerinProductReference("eucerin", "99999.000.AE.11"), null);
   assert.equal(getEucerinProductReference("nivea", "66883.000.AE.03"), null);
+  const eans = new Set<string>();
   for (const reference of EUCERIN_PRODUCT_REFERENCES) {
+    assert.match(reference.article, /^\d{5}$/);
+    assert.match(reference.nart, new RegExp(`^${reference.article}-`));
     assert.match(reference.sourceUrl, /^https:\/\/www\.eucerin\.de\/produkte\//);
+    assert.equal("image" in reference, false);
+    for (const { ean, sourceUrl } of reference.eanSources) {
+      assert.match(ean, /^\d{13}$/);
+      const checksum = [...ean.slice(0, -1)].reduce(
+        (sum, digit, index) => sum + Number(digit) * (index % 2 === 0 ? 1 : 3),
+        0,
+      );
+      assert.equal(Number(ean.at(-1)), (10 - (checksum % 10)) % 10);
+      assert.match(sourceUrl, /^https:\/\/www\.disapo\.de\/artikel\//);
+      assert.equal(eans.has(ean), false, `ambiguous Eucerin EAN ${ean}`);
+      eans.add(ean);
+    }
   }
+  assert.equal(eans.size, 95);
   assert.deepEqual([...PRODUCT_REFERENCE_LOCALES].sort(), [...LOCALE_CODES].sort());
   for (const locale of LOCALE_CODES) {
     const copy = productReferenceCopy(locale);
