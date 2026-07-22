@@ -81,9 +81,8 @@ decision is recorded here. Version notes do not override this section silently.
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
-- Current production baseline: commit `6f98217`; GitHub Actions deploy run
-  `29893391221` completed successfully on 2026-07-22. Production remains
-  `1.4.1`; the verified but uncommitted/undeployed working release is `1.4.2`.
+- Current production baseline: commit `c2d1163`; GitHub Actions deploy run
+  `29899325786` completed successfully on 2026-07-22. Production is `1.4.2`.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 19
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -618,6 +617,54 @@ decision is recorded here. Version notes do not override this section silently.
   and perform live route plus ads/CMP checks. CMP delivery, ads.txt account refresh,
   media provenance and native-language review remain explicit blockers and are
   not closed merely by a successful deploy.
+  Deployment completion (`Completed`, 2026-07-22): committed the accumulated
+  release as `c2d1163` (`fix: harden localized failures`), pushed `main`, and
+  manual GitHub Actions run `29899325786` completed in 4m44s. The VPS build
+  generated 267/267 pages, started a release candidate, reported the production
+  container healthy and completed the switch. Post-deploy live checks returned
+  200 for `/`, `/de/check?brand=interparfums&code=08J38J169`, `/privacy`,
+  `/ads.txt` and `/sitemap.xml`; `ads.txt` exactly contains the authorized
+  publisher `pub-6300134697173168`; rendered German output contains the new
+  known-format/no-reliable-date wording. A normal same-origin browser-form
+  `POST /api/activity` returned 204. The account-side CMP delivery, AdSense
+  Sites refresh and approval are still external blockers and remain open.
+  `PAGESPEED-MOBILE-029`; owner: primary Codex agent; severity: `P1`;
+  state: `Next`; discovered from the owner's 2026-07-22 mobile PageSpeed
+  screenshots after the 1.4.2 deploy. Evidence: the supplied lab run reports
+  performance 79, LCP 4.4s, FCP 1.1s, TBT 280ms, Speed Index 2.4s and CLS 0;
+  it attributes approximately 150ms to render-blocking first-party CSS, flags
+  a 477ms critical request path, about 14 KiB legacy JavaScript and short
+  four-second caching on first-party SVG brand assets. Google ad resources are
+  also present and contribute third-party work. Scope: home-page critical
+  rendering path, browser target/polyfill output, public static cache headers,
+  ad-loaded mobile measurement and regression evidence. Acceptance: reproduce
+  with a saved PageSpeed/Lighthouse artifact, identify the LCP element and
+  first-party versus ad contribution, improve without suppressing required ads
+  or content, and pass mobile lab plus real-user/Core Web Vitals follow-up.
+  Current screenshot is a single lab sample, so performance attribution and
+  field impact remain `needs verification`.
+  `PAGESPEED-A11Y-030`; owner: primary Codex agent; severity: `P2`;
+  state: `Next`; discovered from the owner's 2026-07-22 mobile PageSpeed
+  screenshots. Evidence: Lighthouse flags insufficient contrast on accent
+  links/step labels, a skipped heading level at “Evidence-aware results”, and
+  redundant `alt="Cosmetics Batch"` on linked header/footer logos. Scope:
+  home-page theme tokens, semantic heading hierarchy and linked-logo accessible
+  names. Acceptance: meet WCAG AA contrast in light/dark themes, restore a
+  sequential heading outline, give linked decorative logos non-duplicative
+  accessible treatment, add testable regressions and pass Lighthouse/axe checks.
+  `PAGESPEED-ACTIVITY-031`; owner: primary Codex agent; severity: `P2`;
+  state: `Next`; discovered from the owner's 2026-07-22 PageSpeed screenshot
+  and verified after deployment. Evidence: Lighthouse records a console error
+  because its client-side `POST /api/activity` receives 403. Direct verification
+  showed a normal same-origin browser-form POST returns 204 while the otherwise
+  equivalent `Chrome-Lighthouse` user-agent returns 403; GET returning 405 is
+  expected because the route is POST-only. The bot filter therefore protects
+  analytics as designed and normal-user activity is not broken, but the client
+  turns this deliberate rejection into a failed-resource console signal. Scope:
+  `src/components/product-activity.tsx`, bot-filter interaction and PageSpeed
+  diagnostics. Acceptance: avoid sending activity for known audit bots or make
+  the intentional rejection non-noisy without accepting bot analytics; retain
+  normal browser 204, bot non-recording and regression coverage.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting
