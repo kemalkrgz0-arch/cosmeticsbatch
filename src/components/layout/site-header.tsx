@@ -1,13 +1,15 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { site } from "@/lib/site";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { MobileHeaderMenu } from "@/components/layout/mobile-header-menu";
+import { isRtl } from "@/i18n/locales";
 
 export function SiteHeader({ accessibility }: { accessibility: { primaryNavigation: string; openMenu: string; closeMenu: string } }) {
   const t = useTranslations("nav");
+  const direction = isRtl(useLocale()) ? "rtl" : "ltr";
   const nav = [
     { href: "/", label: t("home") },
     { href: "/brands", label: t("brands") },
@@ -18,7 +20,7 @@ export function SiteHeader({ accessibility }: { accessibility: { primaryNavigati
   ];
   return (
     <header className="sticky top-0 z-40 bg-transparent px-2 pt-2 sm:px-4 sm:pt-3">
-      <div className="site-frame flex h-[4.5rem] items-center gap-3 rounded-[1.35rem] border border-border/80 bg-bg/88 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:gap-6">
+      <div dir="ltr" className="site-frame flex h-[4.5rem] items-center gap-3 rounded-[1.35rem] border border-border/80 bg-bg/88 shadow-[var(--shadow-soft)] backdrop-blur-xl sm:gap-6">
         <Link href="/" aria-label={site.name} className="flex min-w-0 items-center gap-2 font-semibold">
           <Image
             src="/logo-64.webp"
@@ -37,7 +39,7 @@ export function SiteHeader({ accessibility }: { accessibility: { primaryNavigati
             row cannot hold the wordmark, six links and the actions at once —
             the links wrapped to three lines and the wordmark overlapped them.
             The hamburger covers that band instead, where there is room. */}
-        <nav aria-label={accessibility.primaryNavigation} className="ms-4 hidden items-center gap-1 lg:flex">
+        <nav dir={direction} aria-label={accessibility.primaryNavigation} className="ms-4 hidden items-center gap-1 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -62,7 +64,7 @@ export function SiteHeader({ accessibility }: { accessibility: { primaryNavigati
           >
             {t("checkNow")}
           </Link>
-          <MobileHeaderMenu items={nav} label={accessibility.primaryNavigation} openLabel={accessibility.openMenu} closeLabel={accessibility.closeMenu} />
+          <MobileHeaderMenu direction={direction} items={nav} label={accessibility.primaryNavigation} openLabel={accessibility.openMenu} closeLabel={accessibility.closeMenu} />
         </div>
       </div>
     </header>

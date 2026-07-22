@@ -89,7 +89,11 @@ const pages = await mapLimit(sitemapUrls, async (publicUrl) => {
     .map((match) => decode(match[1]))
     .filter((href) => href.startsWith("/") && !href.startsWith("//"))
     .map((href) => normalizePath(href.split("#")[0]))
-    .filter((href) => !href.startsWith("/review") && !href.startsWith("/api/"));
+    .filter((href) =>
+      !href.startsWith("/review") &&
+      !href.startsWith("/api/") &&
+      !href.startsWith("/cdn-cgi/"),
+    );
   return { publicPath, alternates, hrefs };
 });
 

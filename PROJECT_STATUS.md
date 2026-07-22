@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-22
-Current version: **1.4.3**
+Current version: **1.4.4**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -628,6 +628,49 @@ decision is recorded here. Version notes do not override this section silently.
   known-format/no-reliable-date wording. A normal same-origin browser-form
   `POST /api/activity` returned 204. The account-side CMP delivery, AdSense
   Sites refresh and approval are still external blockers and remain open.
+  `LIVE-CLOUDFLARE-LINK-033`; owner: primary Codex agent; severity: `P2` audit
+  correctness; state: `In progress`; discovered 2026-07-22 during the complete
+  post-1.4.3 live rerun. Evidence: all 206 sitemap URLs and all 4,865 discovered
+  paths were checked, with the sole failure
+  `/cdn-cgi/l/email-protection: internal link returned 404`. Repository public
+  contact links are `mailto:`; Cloudflare Email Address Obfuscation rewrites
+  them in crawler HTML to its reserved `/cdn-cgi/` infrastructure path, which
+  the audit currently mistakes for an application-owned internal route. Scope:
+  `scripts/audit-seo-surface.mjs`, focused regression coverage and this status
+  file. Acceptance: exclude only Cloudflare-reserved `/cdn-cgi/` paths while
+  preserving checks for all application routes; rerun the entire live audit and
+  pass all sitemap, metadata, canonical/hreflang and internal-link assertions.
+  Completion (`Completed locally`, 2026-07-22): the crawler now excludes only
+  Cloudflare-reserved `/cdn-cgi/` links while continuing to test every
+  application route. The complete production rerun passed 206/206 sitemap URLs
+  and 4,864 unique application-owned internal paths: all checked status codes,
+  canonicals, metadata budgets, indexability, reciprocal hreflang and links
+  passed. A focused regression guards the three narrow infrastructure/private
+  exclusions. Scoped ESLint, `git diff --check` and the full 82/82 quality suite
+  plus all four operational validators passed.
+  `RTL-HEADER-SHIFT-034`; owner: primary Codex agent; severity: `P2`; state:
+  `In progress`; discovered 2026-07-22 during the owner-requested completion of
+  the Arabic 390px live visual pass. Evidence: the page correctly uses
+  `dir="rtl"` and has no document-level horizontal overflow, but the owner
+  observes hamburger/header alignment shifts when the whole flex direction is
+  mirrored. Scope: public site header/mobile menu logical ordering and spacing,
+  Arabic plus LTR mobile regression coverage and this status file. Acceptance:
+  measure the live header element rectangles, keep the brand and action group
+  inside the rounded frame without overlap or unstable displacement, preserve
+  correct RTL reading/navigation order, and pass 390px EN/AR browser checks.
+  Completion (`Completed locally; publication pending`, version `1.4.4`,
+  2026-07-22): the fixed
+  Latin brand/action header chrome now has an explicit stable LTR layout, while
+  localized desktop navigation and the mobile dialog retain the locale's real
+  direction. The close control stays on the hamburger's physical edge. A clean
+  production build generated 267/267 pages. Headless Chrome at 390x844 passed
+  seven production-build routes with zero document overflow: EN/DE/TR/AR home,
+  EN/DE successful Vichy `54X602`, and Arabic failed Montblanc `ZZ99`; language
+  and document direction were correct. The preceding live build also showed
+  zero page-level overflow on the same four homes and EN/DE results, but the
+  owner's visual header-shift observation is resolved only in this local patch.
+  Do not claim the live Arabic header fixed until a separately authorized
+  publication and post-deploy 390px recheck.
   `PAGESPEED-MOBILE-029`; owner: primary Codex agent; severity: `P1`;
   state: `In progress`; claimed 2026-07-22 10:28 +03 at starting commit
   `7c5a7f5`; discovered from the owner's 2026-07-22 mobile PageSpeed

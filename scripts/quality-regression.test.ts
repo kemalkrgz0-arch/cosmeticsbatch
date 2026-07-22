@@ -1066,6 +1066,22 @@ test("the mobile LCP path stays immediate and PageSpeed activity stays quiet", (
   assert.ok(readFileSync("public/logo-64.webp").byteLength < 2_000);
 });
 
+test("the live SEO audit ignores only reserved Cloudflare infrastructure links", () => {
+  const audit = readFileSync("scripts/audit-seo-surface.mjs", "utf8");
+  assert.match(audit, /!href\.startsWith\("\/cdn-cgi\/"\)/);
+  assert.match(audit, /!href\.startsWith\("\/review"\)/);
+  assert.match(audit, /!href\.startsWith\("\/api\/"\)/);
+});
+
+test("RTL locales keep stable header chrome and localized menu direction", () => {
+  const header = readFileSync("src/components/layout/site-header.tsx", "utf8");
+  const menu = readFileSync("src/components/layout/mobile-header-menu.tsx", "utf8");
+  assert.match(header, /<div dir="ltr" className="site-frame flex/);
+  assert.match(header, /direction=\{direction\}/);
+  assert.match(menu, /dir=\{direction\} className="fixed inset-0/);
+  assert.match(menu, /<div dir="ltr" className="flex justify-end">/);
+});
+
 test("production build config fails closed when the CMP stack is incomplete", () => {
   const script = "scripts/validate-build-env.sh";
   const valid = {
