@@ -13,6 +13,7 @@ import { logCheck, toCheckLog } from "@/lib/dataset";
 import { isHumanUA } from "@/lib/bot-filter";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { pageMeta } from "@/lib/seo";
+import { CodePhotoSubmission } from "@/components/code-photo-submission";
 
 // Query permutations consolidate to the locale's base checker URL. This keeps
 // the checker indexable without creating one search document per entered code.
@@ -110,6 +111,7 @@ export default async function CheckPage({
       />
 
       <ResultCard result={publicResult} brand={brand} />
+      {!result.decoded && <CodePhotoSubmission brand={brand} locale={locale} />}
 
       {/* Check another */}
       <div className="mt-10">

@@ -20,6 +20,8 @@ import type { Brand } from "@/lib/brands";
 import { ResultActions } from "@/components/result-actions";
 import { addressLookalikeKey, printsDateHintKey } from "@/lib/result-failure-copy";
 import { site } from "@/lib/site";
+import { getEucerinProductReference } from "@/lib/eucerin-product-references";
+import { productReferenceCopy } from "@/lib/product-reference-copy";
 
 // Some code families (L'Oréal, Estée Lauder) encode only year+month; the day in
 // `manufactureDate` is a mid-month placeholder, so we hide it rather than imply a
@@ -194,6 +196,30 @@ export function ResultCard({
   const months = (n: number) => t("months", { n });
 
   if (!result.decoded) {
+    const productReference = getEucerinProductReference(brand.slug, result.code);
+    if (productReference) {
+      const copy = productReferenceCopy(locale);
+      return (
+        <div className="overflow-hidden rounded-3xl border border-warning/40 bg-warning-bg shadow-card">
+          <div className="flex flex-col items-center gap-3 px-6 py-8 text-center sm:px-8">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-warning/15 text-warning"><PackageOpen className="h-6 w-6" aria-hidden="true" /></span>
+            <div>
+              <h2 className="text-lg font-semibold">{copy.title}</h2>
+              <p className="mx-auto mt-1.5 max-w-xl text-sm text-fg-muted">{copy.body.replace("{article}", productReference.article).replace("{product}", productReference.productName)}</p>
+              <div className="mx-auto mt-5 max-w-xl rounded-2xl border border-warning/25 bg-card/70 p-4 text-left">
+                <p className="text-sm font-medium leading-relaxed text-fg">{copy.expiry}</p>
+                <p className="mt-3 text-sm leading-relaxed text-fg-muted">{copy.batch}</p>
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  <a href="#batch-checker" data-recovery-action="retry-code" data-recovery-reason="product-reference" className="inline-flex min-h-11 items-center justify-center rounded-xl border border-border bg-card px-4 text-sm font-semibold hover:border-border-strong">{tf("reason.unresolved.retry")}</a>
+                  <a href="#code-photo-submission" data-recovery-action="submit-photos" data-recovery-reason="product-reference" className="inline-flex min-h-11 items-center justify-center rounded-xl bg-cta px-4 text-sm font-semibold text-cta-fg">{tf("reason.unresolved.contact")}</a>
+                  <a href={productReference.sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-accent hover:text-accent-hover">{copy.source}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
     const reason = result.failureReason ?? "unresolved";
     const failure = tf.raw(`reason.${reason}`) as Record<string, string>;
     const addressKey = addressLookalikeKey(result.code);

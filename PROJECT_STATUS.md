@@ -120,6 +120,45 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
+- `EUCERIN-PRODUCT-REFERENCE-039`; owner: primary Codex agent; severity: `P1`
+  correctness/UX; state: `Completed locally; publication pending`; claimed 2026-07-22
+  Europe/Istanbul at starting commit `ad45443`. Evidence: users repeatedly enter
+  dotted Eucerin article references such as `66883.000.AE.03` and
+  `69767.000.AE.11` as batch codes. The decoder correctly refuses these shapes,
+  but the generic failure does not explain that the first five digits identify
+  a product. Official Eucerin pages map article/NART `66883` to Anti-Pigment
+  Dual Serum 30 ml and `69767` to Oil Control Face Sun Gel-Creme SPF 50+ 50 ml;
+  neither reference contains a manufacture or expiry date. Scope: a small
+  source-attributed Eucerin product-reference registry, failure-result guidance,
+  active-locale copy, regressions and this status file. Acceptance: match only
+  explicitly sourced five-digit Eucerin article IDs (including dotted regional
+  suffixes); show the identified product without calling the match a batch/date
+  decode or authenticity proof; ask for the separately printed `EXP`/expiry
+  date first and otherwise a distinct production batch code/photo; leave unknown
+  references on the cautious generic failure path; preserve noindex/result
+  privacy; pass focused and repository-wide checks. No scraped reseller-only
+  mapping or inferred product name may enter the registry.
+  Completion (2026-07-22): a strict Eucerin-only reference matcher recognizes
+  `66883`, `66883.000.AE.03` and their normalized form as Anti-Pigment Dual
+  Serum 30 ml, and the corresponding `69767` forms as Oil Control Face Sun
+  Gel-Creme SPF 50+ 50 ml. Both names, article numbers and links come from
+  official Eucerin product pages. The result explicitly says this is a product
+  reference with no manufacture/expiry information, prioritizes a separately
+  printed EXP/SKT and otherwise asks for a distinct short batch code or clear
+  code-area photos. The unresolved result page now renders the existing
+  anonymous photo form so that action has a real target. Unknown articles,
+  malformed suffixes and other Beiersdorf brands remain on the generic cautious
+  path. Nineteen-locale copy is structurally complete; native approval remains
+  `needs verification`. Focused ESLint, `tsc --noEmit`, `git diff --check`, the
+  full 85/85 quality suite plus four validators and the 267/267 production build
+  passed. A separate owner worklist was generated from 129 official Eucerin
+  sitemap product pages plus the official out-of-sitemap `69767` page: 130
+  source-linked NART/product records with PZN where published and deliberately
+  blank EAN/GTIN fields awaiting official document or packaging-photo evidence.
+  It is stored on the owner's Desktop as
+  `eucerin-official-product-codes-2026-07-22.txt`; the bulk candidate list is not
+  silently enabled in production. Commit and deployment remain pending.
+
 - `RELEASE-1.4.4-037`; owner: primary Codex agent; severity: `P1`; state:
   `Completed`; claimed 2026-07-22 Europe/Istanbul at starting commit
   `3816c43`. The owner explicitly authorized publication with “devam et deploy
@@ -4484,15 +4523,21 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   evidence flow for product name, EAN/GTIN, observed PAO, batch code, note and
   one to three sanitized photos. No email or account is requested; consent is
   explicit and unselected.
+- Added a source-bound Eucerin product-reference recovery path for article IDs
+  `66883` and `69767`. It identifies the product without presenting the article
+  as a batch/date decode, requests the printed EXP/SKT or separate production
+  batch code, and makes the anonymous photo form available on unresolved checker
+  results.
 - Kept historic email-based review records compatible while preventing replies
   for new anonymous submissions in the review UI, route and mail helper.
 - Updated the privacy disclosure and bumped `package.json` to `1.4.5`.
 - Affected scope: 19 `messages/*.json` catalogs, `package.json`, result and brand
   page rendering, brand FAQ generation, contribution UI/API/storage/mail,
-  private reviewer UI/API, privacy page, localized evidence copy, quality tests
-  and this status file.
+  private reviewer UI/API, privacy page, localized evidence/reference copy,
+  sourced Eucerin article registry, checker recovery, quality tests and this
+  status file.
 - Verification: `git diff --check`; scoped ESLint; `tsc --noEmit`;
-  `npm run test:quality` (84/84 plus four operational validators); and
+  `npm run test:quality` (85/85 plus four operational validators); and
   `NEXT_TELEMETRY_DISABLED=1 npm run build` (267/267 pages) all passed on
   2026-07-22. Native-language review of the new contribution consent remains
   `needs verification`. Commit and deployment are pending explicit release

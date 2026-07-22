@@ -37,6 +37,8 @@ import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitSnippet, fitTitle, snippetLength }
 import { brandSnippet } from "../src/lib/brand-snippets";
 import { normalizeActivityPath } from "../src/lib/activity-path";
 import { PRODUCT_EVIDENCE_LOCALES, productEvidenceCopy } from "../src/lib/product-evidence-copy";
+import { EUCERIN_PRODUCT_REFERENCES, getEucerinProductReference } from "../src/lib/eucerin-product-references";
+import { PRODUCT_REFERENCE_LOCALES, productReferenceCopy } from "../src/lib/product-reference-copy";
 import { MAX_TRACKED_KEYS, checkRateLimit, trackedKeyCount } from "../src/lib/rate-limit";
 import { brandsDirectoryCopy } from "../src/lib/brands-directory-copy";
 import {
@@ -1118,6 +1120,32 @@ test("product evidence contributions are anonymous, explicit and package-first",
     const copy = productEvidenceCopy(locale);
     assert.ok(copy.productName && copy.ean && copy.pao && copy.consent && copy.received, `${locale} evidence copy is incomplete`);
   }
+});
+
+test("sourced Eucerin article references identify products without inventing dates", () => {
+  assert.equal(EUCERIN_PRODUCT_REFERENCES.length, 2);
+  assert.equal(getEucerinProductReference("eucerin", "66883.000.AE.03")?.productName, "Eucerin Anti-Pigment Dual Serum, 30 ml");
+  assert.equal(getEucerinProductReference("eucerin", "69767.000.AE.11")?.productName, "Eucerin Oil Control Face Sun Gel-Creme SPF 50+, 50 ml");
+  assert.equal(getEucerinProductReference("eucerin", "66883000AE03")?.article, "66883");
+  assert.equal(getEucerinProductReference("eucerin", "69767")?.article, "69767");
+  assert.equal(getEucerinProductReference("eucerin", "69767.123.AE.11"), null);
+  assert.equal(getEucerinProductReference("eucerin", "99999.000.AE.11"), null);
+  assert.equal(getEucerinProductReference("nivea", "66883.000.AE.03"), null);
+  for (const reference of EUCERIN_PRODUCT_REFERENCES) {
+    assert.match(reference.sourceUrl, /^https:\/\/www\.eucerin\.de\/produkte\//);
+  }
+  assert.deepEqual([...PRODUCT_REFERENCE_LOCALES].sort(), [...LOCALE_CODES].sort());
+  for (const locale of LOCALE_CODES) {
+    const copy = productReferenceCopy(locale);
+    assert.match(copy.body, /\{article\}/);
+    assert.match(copy.body, /\{product\}/);
+    assert.ok(copy.title && copy.expiry && copy.batch && copy.source, `${locale} product-reference copy is incomplete`);
+  }
+  const resultCard = readFileSync("src/components/result-card.tsx", "utf8");
+  const checkPage = readFileSync("src/app/[locale]/check/page.tsx", "utf8");
+  assert.match(resultCard, /getEucerinProductReference\(brand\.slug, result\.code\)/);
+  assert.match(resultCard, /data-recovery-reason="product-reference"/);
+  assert.match(checkPage, /!result\.decoded && <CodePhotoSubmission/);
 });
 
 test("the live SEO audit ignores only reserved Cloudflare infrastructure links", () => {
