@@ -190,6 +190,16 @@ decision is recorded here. Version notes do not override this section silently.
   this release group is complete. The broader EAN research
   workbook remains `In progress`: missing and suspicious rows stay explicitly
   unverified for owner research rather than being silently activated.
+  Publication completion (2026-07-22): committed version 1.4.6 as `4772b8f`,
+  pushed `main`, and manual production workflow `29915447484` completed in
+  6m03s with the VPS SSH build/restart job successful. Live `/`, the article
+  query, accepted-EAN query and ambiguous-EAN query all returned HTTP 200. The
+  article and accepted EAN rendered `pH5 Beruhigende Lotion 400ml
+  Nachfüllbeutel` through the product-reference recovery path; the ambiguous
+  EAN rendered no product and retained the retail-barcode guidance. Live
+  `/sitemap.xml` and `/ads.txt` returned HTTP 200 with the expected XML and text
+  content types. The resimsiz runtime integration is therefore `Completed`;
+  only the explicitly separated missing/suspicious EAN research remains open.
 
 - `RELEASE-1.4.5-040`; owner: primary Codex agent; severity: `P1`; state:
   `In progress`; claimed 2026-07-22 Europe/Istanbul at starting commit
