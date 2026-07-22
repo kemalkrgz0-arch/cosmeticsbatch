@@ -59,7 +59,9 @@ async function translate(text, tl, tries = 4) {
       let out = restoreBrands(j[0].map((seg) => seg[0]).join(""));
       let ok = true;
       phs.forEach((p, k) => {
-        const re = new RegExp(`\\s*x\\s*ph\\s*${k}\\s*x\\s*`, "i");
+        // Match only the sentinel itself. Consuming the surrounding whitespace
+        // joins translated words to placeholders (`{code}looks`, `for{brand}`).
+        const re = new RegExp(`x\\s*ph\\s*${k}\\s*x`, "i");
         if (re.test(out)) out = out.replace(re, p);
         else ok = false;
       });

@@ -1145,16 +1145,37 @@ test("failed checks on date-printing brands point at the printed date", () => {
   // The failure card has to render it, above the address hint.
   const card = readFileSync("src/components/result-card.tsx", "utf8");
   assert.match(card, /printsDateHintKey\(brand\.printsDate\)/);
-  // The words themselves moved into the catalogs so every locale gets them.
-  for (const locale of ["en", "tr"]) {
+  // The words themselves moved into the catalogs, so every active locale must
+  // own the complete namespace instead of silently inheriting English.
+  const flattenFailure = (value: Record<string, unknown>, prefix = ""): Record<string, string> =>
+    Object.fromEntries(Object.entries(value).flatMap(([key, child]) => {
+      const path = prefix ? `${prefix}.${key}` : key;
+      return child && typeof child === "object"
+        ? Object.entries(flattenFailure(child as Record<string, unknown>, path))
+        : [[path, String(child)]];
+    }));
+  const placeholders = (value: string) => [...value.matchAll(/\{[^}]+\}/g)].map(([match]) => match).sort();
+  const source = flattenFailure((JSON.parse(readFileSync("messages/en.json", "utf8")) as {
+    resultFailure: Record<string, unknown>;
+  }).resultFailure);
+  for (const locale of LOCALE_CODES) {
     const messages = JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as {
-      resultFailure?: { hint?: Record<string, string>; reason?: Record<string, Record<string, string>> };
+      resultFailure?: Record<string, unknown>;
     };
-    const hint = messages.resultFailure?.hint?.printsDate;
-    assert.ok(hint && hint.length > 40, `${locale} has no printed-date hint in its catalog`);
-    for (const reason of ["barcode", "invalid-format", "unresolved", "recognized"])
-      assert.ok(messages.resultFailure?.reason?.[reason]?.title, `${locale} is missing ${reason} copy`);
+    assert.ok(messages.resultFailure, `${locale} is missing its owned resultFailure namespace`);
+    const localized = flattenFailure(messages.resultFailure);
+    assert.deepEqual(Object.keys(localized).sort(), Object.keys(source).sort(), `${locale} failure-copy keys drifted`);
+    for (const [key, value] of Object.entries(localized)) {
+      assert.deepEqual(placeholders(value), placeholders(source[key]), `${locale}:${key} placeholders drifted`);
+    }
+    assert.doesNotMatch(
+      localized["reason.recognized.body"],
+      /\bgenuine\b|\bauthentic(?:ity)?\b/i,
+      `${locale} recognized-format copy must not claim authenticity`,
+    );
   }
+  const translator = readFileSync("scripts/translate-mt.mjs", "utf8");
+  assert.doesNotMatch(translator, /new RegExp\(`\\\\s\*x/, "placeholder restore must preserve surrounding spaces");
   assert.ok(
     card.indexOf("readableDateHint &&") < card.indexOf("addressHint &&"),
     "the printed-date hint must come before the address hint",

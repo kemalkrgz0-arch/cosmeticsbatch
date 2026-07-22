@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Chargennummer prüfen: Kosmetik & Parfüm",
     "homeDescription": "Kostenloser Chargencode-Checker für Kosmetik, Parfüm und Düfte. Schätzen Sie Herstellungsdatum und Alter eines Produkts und vergleichen Sie typische Haltbarkeiten."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "title": "Das sieht aus wie ein Einzelhandels-Barcode",
+        "detail": "Wir haben es mit einem Barcode-Etikett aufgezeichnet. Suchen Sie an anderer Stelle auf dem Produkt oder der Verpackung nach einem kürzeren gestanzten, geprägten oder tintenstrahlgedruckten Code.",
+        "body": "{code} sieht aus wie eine EAN, UPC oder GTIN für {brand} und nicht wie ein Herstellungschargencode.",
+        "retry": "Überprüfen Sie einen anderen Code",
+        "email": "Kontaktieren Sie uns per E-Mail",
+        "contact": "Senden Sie Verpackungsfotos"
+      },
+      "invalid-format": {
+        "retry": "Korrigieren Sie den Code",
+        "title": "Bitte überprüfen Sie das Codeformat",
+        "detail": "Vergleichen Sie jedes Zeichen mit dem Kurzstempel, bestätigen Sie die ausgewählte Marke und stellen Sie sicher, dass Sie keinen Barcode, keine Adresse oder Marketingreferenz eingegeben haben. Leerzeichen und Satzzeichen werden bereits ignoriert.",
+        "body": "{code} hat kein Format, das wir auf {brand} überprüfen können.",
+        "contact": "Senden Sie Verpackungsfotos",
+        "email": "Kontaktieren Sie uns per E-Mail"
+      },
+      "unresolved": {
+        "contact": "Senden Sie Codefotos",
+        "detail": "Vielen Dank, dass Sie es gemeldet haben. Wir haben den Code zur Markenbewertungswarteschlange hinzugefügt. Ein klares Foto des Codes und der Verpackung hilft uns bei der Untersuchung des Formats.",
+        "title": "Wir konnten diesen Code noch nicht entschlüsseln",
+        "body": "{code} wurde für {brand} nicht erkannt. Dies bedeutet nicht, dass das Produkt oder der Code ungültig ist.",
+        "retry": "Überprüfen Sie die Marke und den Code noch einmal",
+        "email": "Kontaktieren Sie uns per E-Mail"
+      },
+      "recognized": {
+        "title": "Wir kennen diesen Code, können ihn aber noch nicht datieren",
+        "body": "{code} stimmt mit einem bekannten {brand}-Batchcodeformat überein, wir können jedoch noch kein zuverlässiges Datum daraus ableiten.",
+        "contact": "Senden Sie Verpackungsfotos",
+        "email": "Kontaktieren Sie uns per E-Mail",
+        "detail": "Das sagen wir Ihnen lieber, als ein Datum zu erraten. Ein Foto, auf dem dieser Code neben einem aufgedruckten Datum auf der Verpackung zu sehen ist, ist genau das, was wir brauchen, um das Format fertigzustellen.",
+        "retry": "Überprüfen Sie einen anderen Code"
+      }
+    },
+    "hint": {
+      "address": "Diese Nummer ähnelt eher einer Pariser Postleitzahl der Herstelleradresse auf der Packung als einem Chargencode. Der Chargencode ist ein separater, kürzerer Stempel – normalerweise auf dem Boden der Flasche oder auf einer Endklappe der Schachtel.",
+      "emb": "Das sieht aus wie die Verpackungsregistrierung („EMB“, gefolgt von Ziffern) aus dem Adressblock des Herstellers, nicht wie ein Chargencode. Der Chargencode ist ein separater Stempel in der Nähe – oft auf derselben Seite der Schachtel, in einer anderen Schriftart.",
+      "printsDate": "Diese Marke druckt das Datum normalerweise im Klartext aus, anstatt es in einem Code zu verbergen, sodass hier möglicherweise nichts zu entschlüsseln ist. Suchen Sie auf dem Karton oder der Rückseite der Tube nach einem aufgedruckten Herstellungs- oder Verfallsdatum. Auf koreanischen und japanischen Verpackungen sind oft zwei Daten nebeneinander abgebildet, das frühere Herstellungsdatum und das spätere Verfallsdatum, und einige drucken MFD und EXP darauf auf."
+    }
   }
 }

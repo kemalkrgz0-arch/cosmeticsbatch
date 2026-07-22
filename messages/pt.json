@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Código de lote: cosméticos e perfumes",
     "homeDescription": "Verificador gratuito de código de lote para cosméticos e perfumes. Estima a data de fabrico e idade de um produto e compara a validade típica e orientações PAO."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "body": "{code} parece um EAN, UPC ou GTIN para {brand} , não um código de lote de fabricação.",
+        "detail": "Registramos com uma etiqueta de código de barras. Procure um código mais curto, estampado, em relevo ou de jato de tinta em outro lugar do produto ou da caixa.",
+        "contact": "Envie fotos da embalagem",
+        "retry": "Verifique outro código",
+        "title": "Parece um código de barras de varejo",
+        "email": "Contate-nos por e-mail"
+      },
+      "invalid-format": {
+        "body": "{code} não está em um formato que possamos verificar {brand} .",
+        "retry": "Corrija o código",
+        "contact": "Envie fotos da embalagem",
+        "email": "Contate-nos por e-mail",
+        "detail": "Compare cada caractere com o carimbo curto, confirme a marca selecionada e certifique-se de não inserir código de barras, endereço ou referência de marketing. Espaços e pontuação já são ignorados.",
+        "title": "Verifique o formato do código"
+      },
+      "unresolved": {
+        "title": "Não conseguimos decodificar este código ainda",
+        "detail": "Obrigado por relatar isso. Adicionamos o código à fila de revisão da marca. Uma foto nítida do código e da embalagem nos ajudará a investigar o formato.",
+        "body": "{code} não foi reconhecido por {brand} . Isso não significa que o produto ou código seja inválido.",
+        "retry": "Verifique a marca e o código novamente",
+        "contact": "Envie fotos de código",
+        "email": "Contate-nos por e-mail"
+      },
+      "recognized": {
+        "title": "Reconhecemos este código, mas ainda não podemos datá-lo",
+        "detail": "Preferimos dizer isso a você do que adivinhar uma data. Uma foto mostrando esse código ao lado de alguma data impressa na embalagem é exatamente o que precisamos para finalizar o formato.",
+        "body": "{code} corresponde a um formato de código de lote {brand} conhecido, mas ainda não podemos derivar uma data dele com segurança.",
+        "retry": "Verifique outro código",
+        "contact": "Envie fotos da embalagem",
+        "email": "Contate-nos por e-mail"
+      }
+    },
+    "hint": {
+      "address": "Esse número parece um código postal de Paris do endereço do fabricante na embalagem, em vez de um código de lote. O código do lote é um carimbo separado e mais curto – geralmente na base da garrafa ou na aba final da caixa.",
+      "emb": "Parece o registro do empacotador (\"EMB\" seguido de dígitos) do bloco de endereço do fabricante, não um código de lote. O código do lote é um carimbo separado próximo – geralmente na mesma face da caixa, em uma fonte diferente.",
+      "printsDate": "Esta marca geralmente imprime a data em texto simples, em vez de ocultá-la em um código, então pode não haver nada aqui para decodificar. Procure na caixa ou no verso do tubo uma data de fabricação ou validade impressa - as embalagens coreanas e japonesas geralmente mostram duas datas lado a lado, sendo a anterior a fabricação e a última a expiração, e algumas imprimem MFD e EXP contra elas."
+    }
   }
 }

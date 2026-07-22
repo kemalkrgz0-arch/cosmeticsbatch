@@ -576,5 +576,46 @@
     "relatedBrands": "Merek terkait",
     "resultCrumb": "Hasil",
     "learnHow": "Cara kerja kode batch {name}"
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "title": "Ini terlihat seperti kode batang ritel",
+        "body": "{code} terlihat seperti EAN, UPC, atau GTIN untuk {brand} , bukan kode batch produksi.",
+        "detail": "Kami mencatatnya dengan label barcode. Cari kode stempel, emboss, atau ink-jet yang lebih pendek di tempat lain pada produk atau kotak.",
+        "contact": "Kirim foto kemasan",
+        "email": "Hubungi kami melalui email",
+        "retry": "Periksa kode lain"
+      },
+      "invalid-format": {
+        "title": "Silakan periksa format kode",
+        "body": "{code} tidak dalam format yang dapat kami periksa {brand} .",
+        "detail": "Bandingkan setiap karakter dengan stempel pendek, konfirmasi merek yang dipilih, dan pastikan Anda tidak memasukkan barcode, alamat, atau referensi pemasaran. Spasi dan tanda baca sudah diabaikan.",
+        "retry": "Perbaiki kodenya",
+        "contact": "Kirim foto kemasan",
+        "email": "Hubungi kami melalui email"
+      },
+      "unresolved": {
+        "body": "{code} tidak dikenali untuk {brand} . Ini tidak berarti produk atau kode tersebut tidak valid.",
+        "title": "Kami belum dapat memecahkan kode ini",
+        "detail": "Terima kasih telah melaporkannya. Kami menambahkan kode ke antrean peninjauan merek. Foto kode dan kemasan yang jelas akan membantu kami menyelidiki formatnya.",
+        "retry": "Periksa kembali merek dan kodenya",
+        "contact": "Kirim foto kode",
+        "email": "Hubungi kami melalui email"
+      },
+      "recognized": {
+        "body": "{code} cocok dengan format kode batch {brand} yang diketahui, namun kami belum dapat memperoleh tanggal pasti dari format tersebut.",
+        "title": "Kami mengenali kode ini tetapi belum dapat menentukan tanggalnya",
+        "detail": "Kami lebih suka memberi tahu Anda hal ini daripada menebak tanggalnya. Foto yang menunjukkan kode ini di samping tanggal cetak pada kemasan adalah foto yang kita perlukan untuk menyelesaikan formatnya.",
+        "retry": "Periksa kode lain",
+        "contact": "Kirim foto kemasan",
+        "email": "Hubungi kami melalui email"
+      }
+    },
+    "hint": {
+      "address": "Nomor tersebut terlihat seperti kode pos Paris dari alamat produsen pada kemasan, bukan kode batch. Kode batch berupa stempel terpisah dan lebih pendek — biasanya di dasar botol atau di penutup ujung kotak.",
+      "emb": "Itu terlihat seperti registrasi pengemas (\"EMB\" diikuti dengan angka) dari blok alamat pabrikan, bukan kode batch. Kode batch adalah stempel terpisah di dekatnya — sering kali berada di sisi kotak yang sama, dengan jenis huruf yang berbeda.",
+      "printsDate": "Merek ini biasanya mencetak tanggal dalam teks biasa daripada menyembunyikannya dalam kode, jadi mungkin tidak ada apa pun di sini untuk dipecahkan. Lihat pada karton atau bagian belakang tabung untuk mengetahui cetakan pembuatan atau tanggal kadaluwarsanya — kemasan Korea dan Jepang sering kali menunjukkan dua tanggal yang bersebelahan, yang pertama adalah pembuatan dan yang terakhir kadaluarsa, dan ada pula yang mencetak MFD dan EXP di sampingnya."
+    }
   }
 }

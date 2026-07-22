@@ -641,7 +641,7 @@
       },
       "recognized": {
         "title": "We recognize this code but cannot date it yet",
-        "body": "{code} is a genuine {brand} batch code, in a format we can identify but have not finished decoding.",
+        "body": "{code} matches a known {brand} batch-code format, but we cannot reliably derive a date from it yet.",
         "detail": "We would rather tell you this than guess a date. A photo showing this code next to any printed date on the packaging is exactly what we need to finish the format.",
         "retry": "Check another code",
         "contact": "Send packaging photos",

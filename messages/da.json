@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Tjek af batchkode for kosmetik og parfume",
     "homeDescription": "Gratis batchkode-tjekker til kosmetik og parfume. Estimer produktionsdato og alder for et produkt, og sammenlign typisk holdbarhed og PAO-vejledning."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "detail": "Vi optog det med en stregkodelabel. Se efter en kortere stemplet, præget eller inkjet-kode et andet sted på produktet eller æsken.",
+        "title": "Dette ligner en detailstregkode",
+        "body": "{code} ligner en EAN, UPC eller GTIN for {brand}, ikke en produktionsbatchkode.",
+        "retry": "Tjek en anden kode",
+        "contact": "Send emballagebilleder",
+        "email": "Kontakt os på e-mail"
+      },
+      "invalid-format": {
+        "title": "Tjek venligst kodeformatet",
+        "body": "{code} er ikke i et format, vi kan tjekke for {brand}.",
+        "detail": "Sammenlign hvert tegn med det korte stempel, bekræft det valgte mærke, og sørg for, at du ikke har indtastet en stregkode, adresse eller markedsføringsreference. Mellemrum og tegnsætning er allerede ignoreret.",
+        "retry": "Ret koden",
+        "email": "Kontakt os på e-mail",
+        "contact": "Send emballagebilleder"
+      },
+      "unresolved": {
+        "title": "Vi kunne ikke afkode denne kode endnu",
+        "detail": "Tak fordi du rapporterede det. Vi har føjet koden til køen for brandgennemgang. Et tydeligt billede af koden og emballagen vil hjælpe os med at undersøge formatet.",
+        "body": "{code} blev ikke genkendt for {brand}. Dette betyder ikke, at produktet eller koden er ugyldig.",
+        "retry": "Tjek mærket og koden igen",
+        "contact": "Send kodebilleder",
+        "email": "Kontakt os på e-mail"
+      },
+      "recognized": {
+        "title": "Vi genkender denne kode, men kan ikke datere den endnu",
+        "detail": "Vi vil hellere fortælle dig dette end at gætte en dato. Et foto, der viser denne kode ved siden af ​​en hvilken som helst trykt dato på emballagen, er præcis, hvad vi skal bruge for at færdiggøre formatet.",
+        "body": "{code} matcher et kendt {brand} batch-kodeformat, men vi kan ikke pålideligt udlede en dato fra det endnu.",
+        "retry": "Tjek en anden kode",
+        "contact": "Send emballagebilleder",
+        "email": "Kontakt os på e-mail"
+      }
+    },
+    "hint": {
+      "emb": "Det ligner pakkerregistreringen (\"EMB\" efterfulgt af cifre) fra producentens adresseblok, ikke en batchkode. Batchkoden er et separat stempel i nærheden - ofte på samme side af æsken, i en anden skrifttype.",
+      "address": "Det nummer ligner et Paris-postnummer fra producentens adresse på pakken, snarere end en batch-kode. Batchkoden er et separat, kortere stempel - normalt på bunden af ​​flasken eller på en endeklap af æsken.",
+      "printsDate": "Dette mærke udskriver normalt datoen i almindelig tekst i stedet for at skjule den i en kode, så der er muligvis ikke noget at afkode her. Se på kartonen eller bagsiden af ​​røret for en trykt fremstillings- eller udløbsdato - Koreansk og japansk emballage viser ofte to datoer side om side, hvor den tidligere er fremstilling og den senere udløbsdato, og nogle udskriver MFD og EXP mod dem."
+    }
   }
 }

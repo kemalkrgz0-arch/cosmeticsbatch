@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Batchkodskontroll för kosmetika och parfym",
     "homeDescription": "Gratis batchkodskontroll för kosmetika och parfym. Uppskatta tillverkningsdatum och ålder för en produkt och jämför typisk hållbarhet och PAO-vägledning."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "title": "Det här ser ut som en streckkod för detaljhandeln",
+        "body": "{code} ser ut som en EAN, UPC eller GTIN för {brand}, inte en tillverkningssatskod.",
+        "retry": "Kontrollera en annan kod",
+        "detail": "Vi spelade in det med en streckkodsetikett. Leta efter en kortare stämplad, präglad eller bläckstrålekod någon annanstans på produkten eller kartongen.",
+        "contact": "Skicka förpackningsbilder",
+        "email": "Kontakta oss via e-post"
+      },
+      "invalid-format": {
+        "title": "Kontrollera kodformatet",
+        "detail": "Jämför varje tecken med den korta stämpeln, bekräfta det valda varumärket och se till att du inte angav en streckkod, adress eller marknadsföringsreferens. Mellanslag och skiljetecken har redan ignorerats.",
+        "body": "{code} är inte i ett format som vi kan kontrollera för {brand}.",
+        "retry": "Rätta till koden",
+        "email": "Kontakta oss via e-post",
+        "contact": "Skicka förpackningsbilder"
+      },
+      "unresolved": {
+        "title": "Vi kunde inte avkoda den här koden ännu",
+        "body": "{code} kändes inte igen för {brand}. Detta betyder inte att produkten eller koden är ogiltig.",
+        "detail": "Tack för att du rapporterade det. Vi lade till koden i varumärkesrecensionskön. Ett tydligt foto av koden och förpackningen hjälper oss att undersöka formatet.",
+        "retry": "Kontrollera märket och koden igen",
+        "email": "Kontakta oss via e-post",
+        "contact": "Skicka kodbilder"
+      },
+      "recognized": {
+        "title": "Vi känner igen den här koden men kan inte datera den ännu",
+        "body": "{code} matchar ett känt {brand} batch-kodformat, men vi kan inte tillförlitligt härleda ett datum från det ännu.",
+        "detail": "Vi berättar hellre detta än att gissa ett datum. Ett foto som visar denna kod bredvid eventuellt tryckt datum på förpackningen är precis vad vi behöver för att avsluta formatet.",
+        "retry": "Kontrollera en annan kod",
+        "contact": "Skicka förpackningsbilder",
+        "email": "Kontakta oss via e-post"
+      }
+    },
+    "hint": {
+      "address": "Det numret ser ut som ett Paris-postnummer från tillverkarens adress på förpackningen, snarare än en batchkod. Batchkoden är en separat, kortare stämpel - vanligtvis på botten av flaskan eller på en ändflik av lådan.",
+      "printsDate": "Detta märke skriver vanligtvis ut datumet i vanlig text istället för att gömma det i en kod, så det kanske inte finns något här att avkoda. Titta på kartongen eller på baksidan av tuben efter ett tryckt tillverknings- eller utgångsdatum – koreanska och japanska förpackningar visar ofta två datum sida vid sida, det tidigare är tillverkning och det senare utgångsdatumet, och vissa trycker MFD och EXP mot dem.",
+      "emb": "Det ser ut som förpackarens registrering (\"EMB\" följt av siffror) från tillverkarens adressblock, inte en batchkod. Batchkoden är en separat stämpel i närheten - ofta på samma sida av lådan, i ett annat typsnitt."
+    }
   }
 }

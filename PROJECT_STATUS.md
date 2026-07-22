@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-22
-Current version: **1.4.1**
+Current version: **1.4.2**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -82,8 +82,8 @@ decision is recorded here. Version notes do not override this section silently.
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
 - Current production baseline: commit `6f98217`; GitHub Actions deploy run
-  `29893391221` completed successfully on 2026-07-22. Production and repository
-  package/document version is `1.4.1`.
+  `29893391221` completed successfully on 2026-07-22. Production remains
+  `1.4.1`; the verified but uncommitted/undeployed working release is `1.4.2`.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 19
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -429,6 +429,46 @@ decision is recorded here. Version notes do not override this section silently.
   EEA/UK/Swiss browser evidence for the Google-delivered CMP and account-side
   Sites/Policy Center state. `FAILURE-COPY-I18N-023` remains `In progress` and
   is not falsely closed by this deployment.
+  CMP/AdSense recheck (`Blocked before resubmission`, 2026-07-22): current
+  official Google guidance requires a Google-certified TCF CMP for EEA/UK/Swiss
+  ad serving and TCF v2.3 strings from 2026-03-01. Live publisher meta, AdSense
+  loader, crawler access and the exact root ads.txt authorization are present.
+  However, two clean headless-Chrome runs against
+  `/?fc=alwaysshow&fctype=gdpr` produced no Google CMP surface, `__tcfapi`, TC
+  string or GDPR-consent request parameter while the AdSense loader and an ad
+  request did run. This is direct evidence that live certified-message delivery
+  is not yet proven and likely needs account-side site assignment/republishing;
+  do not resubmit until it works and an EEA/UK/Swiss accept/reject/reopen trace
+  is captured. The account must also show Sites `Ready` or `Requires review`,
+  ads.txt `Authorized`, no unresolved Policy Center issue, and every activation
+  task complete. The media inventory is 46 total with 39 provenance reviews
+  still open. Repository code cannot close or fabricate these account states.
+  Owner account evidence (`Partial`, 2026-07-22): four screenshots of Privacy &
+  messaging GDPR settings show Google CMP selected with the three-choice default
+  (consent, do not consent, manage options), Consent Mode enabled for advertising
+  and analytics, legitimate-interest controls enabled, Special Feature 2 off and
+  zero publisher-defined purposes. These are compatible configuration choices,
+  but the selected control explicitly applies to messages created for *future
+  sites*. The screenshots do not show an existing European-regulations message
+  assigned to `cosmeticsbatch.com`, its `Published` state, privacy-policy URL,
+  languages or revocation control. Combined with the failed force-display test,
+  A later owner screenshot resolves part of this uncertainty: the message named
+  `cosmetics batch` is assigned to `cosmeticsbatch.com`, marked `Published`, was
+  modified 2026-07-22 and includes English plus 31 other languages. It reports
+  zero displays and a zero consent rate, matching the clean-browser observation
+  that no message is currently delivered. Creation, assignment and publication
+  are therefore proven; live delivery/configuration/propagation and the detailed
+  privacy URL, choices and revocation setup remain the primary CMP blocker. No
+  approval-readiness claim follows until the forced live message and TCF v2.3
+  signal are observable.
+  Owner Sites evidence (`Partial`, 2026-07-22): the Sites list shows
+  `cosmeticsbatch.com` as `Getting ready`; Google is therefore still running or
+  waiting to run checks, and the domain must not be deleted/re-added. Ads.txt is
+  shown as `Not found`, last updated 2026-07-21 10:39 +03, which predates the
+  restored live HTTP-200 publisher line verified on 2026-07-22. The account
+  status is stale relative to production; use the site's `Check for updates`
+  action and retain the new timestamp/status. Until the account changes to
+  `Authorized`, live file correctness closes only the repository/HTTP portion.
 
 - `RELEASE-REGRESSION-022`; owner: primary Codex agent; severity: `P1`; state:
   `Completed`; discovered/claimed 2026-07-22 08:12 +03; starting commit
@@ -465,7 +505,7 @@ decision is recorded here. Version notes do not override this section silently.
   typing in `scripts/quality-regression.test.ts`, and this status file.
 
 - `FAILURE-COPY-I18N-023`; owner: primary Codex agent; severity: `P1`; state:
-  `In progress`; discovered earlier and adopted 2026-07-22 08:20 +03; starting
+  `Completed`; discovered earlier and adopted 2026-07-22 08:20 +03; starting
   commit `53c3be4`. Evidence: `resultFailure` was moved into message catalogs in
   the latest commit, but only `en` and `tr` define the namespace; all other 17
   active locales therefore inherit English at the most important failure point.
@@ -475,6 +515,109 @@ decision is recorded here. Version notes do not override this section silently.
   no English catalog fallback is needed at runtime; JSON, parity, ESLint,
   TypeScript and full quality checks pass. Translation naturalness remains
   `needs verification` until native review and will not be described otherwise.
+  Owner continuation (`In progress`, 2026-07-22, starting commit `8a5a1bc`):
+  the owner asked to complete the missing catalogs and investigate the live site
+  plus the latest release for further regressions. Expanded review scope:
+  `messages/*.json`, failure-copy parity tests, commits `53c3be4..8a5a1bc`,
+  public production routes and this status file. Additional acceptance: test
+  every active locale rather than only English/Turkish; inspect recent decoder,
+  deployment and i18n changes; run proportionate live checks; record every new
+  actionable finding before correction; keep external CMP/account and native
+  translation evidence explicitly unverified. No commit, push or deployment is
+  authorized by this request.
+  `TRANSLATION-PLACEHOLDER-024`; owner: primary Codex agent; severity: `P1`;
+  state: `Completed`; discovered 2026-07-22 while producing the missing
+  catalogs; starting commit `8a5a1bc`. Evidence: `translate-mt.mjs` restored its
+  masked placeholders with a regex that also consumed whitespace on both sides,
+  producing joined output such as `{code}parece` and `para{brand}`. Scope:
+  `scripts/translate-mt.mjs`, the generated `resultFailure` namespaces,
+  regression coverage and this status file. Acceptance: restoration preserves
+  surrounding spaces; every active catalog has the exact English key and
+  placeholder shape; no failed/English fallback output is imported; focused and
+  repository-wide checks pass. Generated wording remains `needs verification`
+  pending native review.
+  `FAILURE-AUTHENTICITY-025`; owner: primary Codex agent; severity: `P0`;
+  state: `Completed`; discovered 2026-07-22 during the requested recent-work
+  review; starting commit `8a5a1bc`. Evidence: the new recognized-format failure
+  message says a code “is a genuine {brand} batch code”, although the binding
+  truthfulness policy says a decoder cannot prove authenticity and copied codes
+  can match a known format. Affected scope: `messages/*` `resultFailure`
+  recognized body, parity/truthfulness regression and this status file.
+  Acceptance: describe only a match to a known format and inability to derive a
+  reliable date; make no genuine/authenticity claim in any locale; preserve
+  `{code}`/`{brand}`; pass focused and repository-wide checks. This P0 blocks
+  lower-priority review work until corrected.
+  `SHARP-CVE-026`; owner: primary Codex agent; severity: `P1 security`; state:
+  `Completed`; discovered 2026-07-22 by `pnpm audit --prod --json`; starting
+  commit `8a5a1bc`. Evidence: both `next` paths resolve optional production
+  `sharp@0.34.5`; advisory `GHSA-f88m-g3jw-g9cj` reports inherited libvips
+  vulnerabilities CVE-2026-33327, CVE-2026-33328, CVE-2026-35590 and
+  CVE-2026-35591, fixed in `sharp>=0.35.0`, severity high. Scope: dependency
+  manifest/lockfile, image/build behavior, regression verification and this
+  status file. Acceptance: use an upstream-compatible patched resolution rather
+  than suppressing the advisory; audit reports no known production
+  vulnerabilities; install, lint, TypeScript, full quality tests and production
+  build pass. Deployment remains separately unauthorized.
+  `PNPM-BUILD-POLICY-027`; owner: primary Codex agent; severity: `P1`; state:
+  `Completed`; discovered 2026-07-22 while remediating `SHARP-CVE-026`;
+  starting commit `8a5a1bc`. Evidence: `pnpm install` downloaded the requested
+  dependency but exited 1 with `ERR_PNPM_IGNORED_BUILDS`; the committed
+  `allowBuilds` map contains literal scaffold text (`set this to true or false`)
+  instead of booleans for four known native build dependencies. A direct sharp
+  dependency also left Next's optional `0.34.5` resolution present. Scope:
+  `pnpm-workspace.yaml`, manifest/lockfile and this status file. Acceptance:
+  explicitly approve the four existing native builders with booleans, force all
+  sharp paths to the patched version, complete a frozen install without ignored
+  build errors, and pass the security/build gates.
+  Completion (`Completed locally`, version `1.4.2`, 2026-07-22): all 19 active
+  catalogs now own the complete 27-leaf failure namespace; the regression test
+  derives its locale set from `LOCALE_CODES` and checks exact key plus
+  placeholder parity. The translation helper preserves whitespace around masked
+  placeholders. Recognized-format copy in every locale now says only that the
+  code matches a known format and that no reliable date can yet be derived; it
+  no longer claims the product/code is genuine. Machine-generated wording in
+  the 17 new catalogs remains `needs verification` by native reviewers.
+  `sharp@0.35.3` is a direct production dependency and a workspace override, so
+  the lockfile contains no `sharp@0.34.5`; native build permissions are explicit
+  booleans and both normal and frozen pnpm installs complete. Verification:
+  repository ESLint passed; `tsc --noEmit` passed; `npm run test:quality` passed
+  79/79 plus all four operational validators; `pnpm audit --prod --json` reports
+  zero known vulnerabilities; `git diff --check` passed; the final production
+  build compiled and generated 267/267 pages. The first post-dependency build
+  attempt failed only because the sandbox denied Turbopack's helper port; the
+  required unsandboxed rerun passed. `pnpm why sharp` could not open pnpm's
+  external store SQLite database in this environment, but lockfile search,
+  frozen install and the zero-advisory audit independently verify resolution.
+  Read-only live checks returned 200 for `/`, `/check`, `/de/check`, `/ar/check`,
+  `/privacy`, `/ads.txt` and `/sitemap.xml`; this proves current 1.4.1 route
+  health, not deployment of 1.4.2. No commit, push or deployment was performed.
+  `LIVE-REGRESSION-028`; owner: primary Codex agent; severity: `P2`; state:
+  `In progress`; claimed 2026-07-22 after the owner said “devam et”; starting
+  commit `8a5a1bc`. Scope: read-only production crawl and representative
+  desktop/mobile/RTL/checker inspection, recent release surface, focused
+  regression tests for any discovered defect and this status file. Acceptance:
+  all sitemap URLs and discovered internal links retain expected status,
+  canonical/hreflang/indexability and metadata budgets; representative English,
+  German, Turkish and Arabic pages show no browser/runtime failures or obvious
+  viewport overflow; parameterized success/failure checker paths render truthful
+  locale-owned output; every actionable finding is recorded before correction;
+  full repository checks pass after any change. Real hardware, external CMP
+  account state and native-language editorial approval remain out of scope. No
+  commit, push or deployment is authorized.
+  Priority interruption (`In progress`, 2026-07-22): the owner redirected work
+  to AdSense/CMP readiness after the live crawl checked 500/4,865 internal paths
+  without emitting an early failure. The crawl was stopped rather than reported
+  as complete; rerun from the beginning before closing this item.
+  Publication authorization (`In progress`, 2026-07-22): the owner explicitly
+  said “sen deployu yap”, authorizing commit, push to `main` and the manual
+  production workflow for the accumulated verified `1.4.2` release. Release
+  scope is limited to the completed failure-copy/i18n, truthfulness, translation
+  helper, sharp-CVE and pnpm-policy corrections plus readiness/status evidence.
+  Acceptance: recheck the final diff and secrets, commit only this accumulated
+  scope, push, run the owner-controlled workflow, require candidate/switch smoke,
+  and perform live route plus ads/CMP checks. CMP delivery, ads.txt account refresh,
+  media provenance and native-language review remain explicit blockers and are
+  not closed merely by a successful deploy.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting

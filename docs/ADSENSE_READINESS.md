@@ -1,7 +1,8 @@
-# AdSense acceptance readiness — 2026-07-19
+# AdSense acceptance readiness — updated 2026-07-22
 
-State: **Google site review in progress; repository CMP controls ready, live
-certified-message delivery still needs EEA/UK/Swiss evidence**. No person or technical checklist can
+State: **not ready to resubmit: repository CMP controls are ready, but Google's
+live certified message is not currently observable even with the force-display
+URL, and account review evidence is missing**. No person or technical checklist can
 guarantee AdSense acceptance; Google reviews the entire site and the account.
 This document separates repository evidence from account/production evidence.
 
@@ -15,14 +16,14 @@ submitting an unfinished site does not replace fixing the underlying issue.
 
 | Requirement | Current evidence | State | Closure evidence |
 | --- | --- | --- | --- |
-| Certified consent for EEA/UK/Switzerland | Owner evidence dated 2026-07-21 shows the Google Privacy & messaging European-regulations message is published for the domain, but Google had not delivered its bundle while Sites was “getting ready”. | **BLOCKER: live regional evidence** | From an EEA/UK/Swiss clean session, capture `__tcfapi`, a TC string, three choices and accept/reject request differences. |
+| Certified consent for EEA/UK/Switzerland | Two clean headless-Chrome runs on 2026-07-22 used `/?fc=alwaysshow&fctype=gdpr`; the AdSense loader and an ad request ran, but no Google CMP surface, `__tcfapi`, TC string or GDPR consent parameter was observable. Owner evidence now confirms the `cosmetics batch` message is assigned to this exact domain, published, modified 2026-07-22 and configured for 32 languages, but its dashboard still reports zero displays. | **BLOCKER: live delivery/configuration/propagation plus regional proof** | Inspect the published message's privacy URL, site selection, three choices and revocation setup; allow documented propagation if applicable; then require the forced URL and a clean EEA/UK/Swiss session to expose `__tcfapi`, a TCF v2.3 string, accept/reject/manage and request differences. |
 | No competing consent UI | `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true` suppresses the custom banner. A Turkey DOM check found no competing surface. Production validation now rejects a monetized build unless this flag and the full public stack are valid. | **Repository control complete; regional smoke pending** | Confirm exactly one consent UI when Google delivers the message. |
 | Consent revocation | Google’s message should add its required “Privacy and cookie settings” revocation entry. | **BLOCKER / account-side** | Reopen the message from the live footer/privacy control and change a prior decision. |
 | Site/account connection | Publisher meta and AdSense loader support exist; repository cannot read the account. | **BLOCKER / account-side** | AdSense Sites shows the exact domain connected and “Ready”; no connection issue. |
 | `ads.txt` authorization | `/ads.txt` is generated from the configured publisher id and returns 204 when unconfigured. | **BLOCKER / production/account-side** | Live root returns the exact AdSense-provided line and Sites shows ads.txt “Authorized”. |
 | Policy Center | No account access. | **BLOCKER / account-side** | Dated screenshot showing no unresolved policy issue or restriction requiring action. |
 | Identity/payment eligibility | Age, duplicate-account, identity, address, tax and payment tasks are not repository facts. | **BLOCKER / owner account** | Applicant is at least 18, controls the site/source, and all AdSense account tasks are complete. |
-| Original/licensed media | 46 active public packaging/code assets have unknown repository provenance, permission and decoder relevance. | **BLOCKER** | Audit each inventory record; replace, remove or document permission and reviewer/date. |
+| Original/licensed media | The deterministic inventory has 46 active public packaging/code assets; 39 still require provenance review. | **BLOCKER** | Audit each unresolved inventory record; replace, remove or document permission and reviewer/date. |
 | Mixed-language pages | A measured 30 English-only brand-detail keys were missing from every non-English catalog. UI gating now prevents those fragments from appearing inside localized detail blocks; native review is still incomplete. | **BLOCKER until rendered crawl + editorial sample passes** | Crawl all 19 locales for English fallback and review the six investment languages plus high-impression pages. |
 | Production UX/CWV | Local build and accessibility controls pass, but real 390px/iOS/Android and ad-loaded CWV were not measured. | **BLOCKER before ad activation** | Mobile screenshots/device checks and field/lab LCP, CLS and INP by home/brand/guide; checker remains usable. |
 
@@ -60,8 +61,8 @@ template is not enough. Before review:
 2. Manually sample every monetized URL for a working checker, meaningful unique
    explanation, limitations, navigation and no unsupported authenticity,
    safety, manufacturer-expiry or certainty claim.
-3. Resolve the 46-asset provenance inventory. Repository presence is not
-   copyright permission.
+3. Resolve the remaining 39 records in the 46-asset provenance inventory.
+   Repository presence is not copyright permission.
 4. Finish the rendered SEO crawl: 206 sitemap URLs previously had no broken
    canonical/hreflang/link failure, but 64 title/description budget violations
    were found and are being corrected by the shared snippet boundary.
@@ -74,9 +75,11 @@ template is not enough. Before review:
    for `cosmeticsbatch.com`, use three choices (do not consent, consent, manage
    options), confirm the privacy-policy URL, select/disclose ad partners, enable
    Consent Mode integration if appropriate, publish, and retain evidence.
-2. Test `/?fc=alwaysshow&fctype=gdpr` in a clean browser. Verify accept, reject,
-   manage vendors/purposes and later revocation. Confirm TCF v2.3 signals in the
-   browser and that refusal does not break navigation or the checker.
+2. Test `/?fc=alwaysshow&fctype=gdpr` in a clean browser. If it still shows no
+   message, do not request review: reopen the exact domain's published message,
+   confirm the site assignment and republish it. Then verify accept, reject,
+   manage vendors/purposes and later revocation; confirm TCF v2.3 signals and
+   that refusal does not break navigation or the checker.
 3. Only then set `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true`, rebuild and verify the
    custom banner no longer competes with Google’s certified message.
 4. In **Sites**, connect the exact apex domain, verify the publisher code is on

@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Batchcode checker voor cosmetica & parfum",
     "homeDescription": "Gratis batchcode checker voor cosmetica en parfum. Schat de productiedatum en ouderdom van een product en vergelijk de typische houdbaarheid en PAO-richtlijnen."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "body": "{code} ziet eruit als een EAN, UPC of GTIN voor {brand}, geen productiebatchcode.",
+        "title": "Dit lijkt op een streepjescode voor de detailhandel",
+        "detail": "We hebben het opgenomen met een barcodelabel. Zoek elders op het product of de doos naar een kortere gestempelde, reliëf- of inkjetcode.",
+        "contact": "Stuur verpakkingsfoto's",
+        "retry": "Controleer een andere code",
+        "email": "Neem contact met ons op via e-mail"
+      },
+      "invalid-format": {
+        "body": "{code} heeft geen formaat dat we kunnen controleren op {brand} .",
+        "title": "Controleer het codeformaat",
+        "detail": "Vergelijk elk teken met de korte stempel, bevestig het geselecteerde merk en zorg ervoor dat u geen streepjescode, adres of marketingreferentie heeft ingevoerd. Spaties en leestekens worden al genegeerd.",
+        "contact": "Stuur verpakkingsfoto's",
+        "email": "Neem contact met ons op via e-mail",
+        "retry": "Corrigeer de code"
+      },
+      "unresolved": {
+        "title": "We konden deze code nog niet decoderen",
+        "body": "{code} werd niet herkend voor {brand} . Dit betekent niet dat het product of de code ongeldig is.",
+        "detail": "Bedankt voor het melden. We hebben de code toegevoegd aan de wachtrij voor merkbeoordelingen. Een duidelijke foto van de code en verpakking helpt ons het formaat te onderzoeken.",
+        "retry": "Controleer het merk en de code opnieuw",
+        "email": "Neem contact met ons op via e-mail",
+        "contact": "Codefoto's verzenden"
+      },
+      "recognized": {
+        "body": "{code} komt overeen met een bekend {brand}-batchcodeformaat, maar we kunnen er nog niet op betrouwbare wijze een datum uit afleiden.",
+        "title": "Wij herkennen deze code, maar kunnen deze nog niet dateren",
+        "detail": "Wij vertellen u dit liever dan een datum te raden. Een foto met deze code naast een eventuele afgedrukte datum op de verpakking is precies wat we nodig hebben om het formaat af te ronden.",
+        "retry": "Controleer een andere code",
+        "email": "Neem contact met ons op via e-mail",
+        "contact": "Stuur verpakkingsfoto's"
+      }
+    },
+    "hint": {
+      "address": "Dat nummer lijkt op een postcode in Parijs, gezien het adres van de fabrikant op de verpakking, in plaats van op een batchcode. De batchcode is een aparte, kortere stempel, meestal op de bodem van de fles of op een eindflap van de doos.",
+      "emb": "Dat lijkt op de registratie van de verpakker (\"EMB\" gevolgd door cijfers) uit het adresblok van de fabrikant, en niet op een batchcode. De batchcode is een afzonderlijke stempel in de buurt, vaak op dezelfde zijde van de doos, in een ander lettertype.",
+      "printsDate": "Dit merk drukt de datum meestal in platte tekst af in plaats van deze in een code te verbergen, dus het kan zijn dat er niets te decoderen is. Kijk op de doos of de achterkant van de tube voor een gedrukte productie- of vervaldatum. Op Koreaanse en Japanse verpakkingen staan ​​vaak twee datums naast elkaar, waarbij de eerdere productiedatum en de latere houdbaarheidsdatum zijn, en sommige drukken MFD en EXP ernaast."
+    }
   }
 }

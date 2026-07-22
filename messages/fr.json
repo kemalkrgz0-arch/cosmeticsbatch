@@ -612,5 +612,46 @@
   "meta": {
     "homeTitle": "Code de lot cosmétiques et parfums",
     "homeDescription": "Vérificateur gratuit de code de lot pour cosmétiques et parfums. Estimez la date de fabrication et l'âge d'un produit, puis comparez la durée de conservation."
+  },
+  "resultFailure": {
+    "reason": {
+      "barcode": {
+        "title": "Cela ressemble à un code-barres de vente au détail",
+        "body": "{code} ressemble à un EAN, UPC ou GTIN pour {brand} , et non à un code de lot de fabrication.",
+        "contact": "Envoyer des photos d'emballage",
+        "email": "Contactez-nous par email",
+        "retry": "Vérifiez un autre code",
+        "detail": "Nous l'avons enregistré avec une étiquette à code-barres. Recherchez un code plus court estampé, en relief ou imprimé à jet d'encre ailleurs sur le produit ou la boîte."
+      },
+      "invalid-format": {
+        "title": "Veuillez vérifier le format du code",
+        "body": "{code} n'est pas dans un format que nous pouvons vérifier pour {brand} .",
+        "detail": "Comparez chaque caractère avec le tampon court, confirmez la marque sélectionnée et assurez-vous de ne pas avoir saisi de code-barres, d'adresse ou de référence marketing. Les espaces et la ponctuation sont déjà ignorés.",
+        "retry": "Corrigez le code",
+        "email": "Contactez-nous par email",
+        "contact": "Envoyer des photos d'emballage"
+      },
+      "unresolved": {
+        "body": "{code} n'a pas été reconnu pour {brand} . Cela ne signifie pas que le produit ou le code est invalide.",
+        "title": "Nous n'avons pas encore pu décoder ce code",
+        "detail": "Merci de l'avoir signalé. Nous avons ajouté le code à la file d'attente d'évaluation de la marque. Une photo claire du code et de l'emballage nous aidera à étudier le format.",
+        "email": "Contactez-nous par email",
+        "retry": "Vérifiez à nouveau la marque et le code",
+        "contact": "Envoyer des photos de codes"
+      },
+      "recognized": {
+        "title": "Nous reconnaissons ce code mais ne pouvons pas encore le dater",
+        "detail": "Nous préférons vous le dire plutôt que de deviner une date. Une photo montrant ce code à côté de toute date imprimée sur l'emballage est exactement ce dont nous avons besoin pour terminer le format.",
+        "body": "{code} correspond à un format de code batch {brand} connu, mais nous ne pouvons pas encore en déduire de manière fiable une date.",
+        "retry": "Vérifiez un autre code",
+        "contact": "Envoyer des photos d'emballage",
+        "email": "Contactez-nous par email"
+      }
+    },
+    "hint": {
+      "emb": "Cela ressemble à l'enregistrement du conditionneur (\"EMB\" suivi de chiffres) provenant du bloc d'adresse du fabricant, et non à un code de lot. Le code de lot est un tampon distinct à proximité – souvent sur la même face de la boîte, dans une police différente.",
+      "printsDate": "Cette marque imprime généralement la date en texte brut plutôt que de la cacher dans un code, il n'y a donc peut-être rien à décoder ici. Recherchez sur le carton ou au dos du tube une date de fabrication ou de péremption imprimée. Les emballages coréens et japonais affichent souvent deux dates côte à côte, la première étant la fabrication et la plus tardive, et certains impriment MFD et EXP en regard de celles-ci.",
+      "address": "Ce numéro ressemble à un code postal parisien provenant de l'adresse du fabricant figurant sur l'emballage, plutôt qu'à un code de lot. Le code de lot est un tampon distinct et plus court, généralement placé sur la base de la bouteille ou sur un rabat d'extrémité de la boîte."
+    }
   }
 }

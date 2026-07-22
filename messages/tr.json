@@ -641,7 +641,7 @@
       },
       "recognized": {
         "title": "Bu kodu tanıyoruz ama henüz tarihleyemiyoruz",
-        "body": "{code}, gerçek bir {brand} parti kodu — biçimini tanıyoruz, ancak çözümünü henüz tamamlamadık.",
+        "body": "{code}, bilinen bir {brand} batch kodu biçimiyle eşleşiyor; ancak henüz güvenilir bir tarih çıkaramıyoruz.",
         "detail": "Tarih uydurmaktansa bunu söylemeyi tercih ederiz. Bu kodun ambalajdaki herhangi bir basılı tarihle birlikte göründüğü bir fotoğraf, biçimi tamamlamamız için tam olarak ihtiyacımız olan şey.",
         "retry": "Başka bir kod kontrol et",
         "contact": "Ambalaj fotoğraflarını gönder",
