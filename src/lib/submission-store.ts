@@ -18,7 +18,11 @@ export type Submission = {
   brand: string;
   code: string;
   note: string;
-  email: string;
+  email?: string | null;
+  submissionKind?: "anonymous_product_evidence";
+  productName?: string;
+  ean?: string;
+  observedPao?: string;
   file: string;
   files?: string[];
   status: ReviewStatus;

@@ -162,6 +162,7 @@
     "expirationDate": "Data estimada de validade do produto fechado",
     "confidence": "Confiança",
     "pao": "Após a abertura (PAO)",
+    "paoCheck": "Verifique o símbolo do frasco aberto na embalagem deste produto.",
     "statusUnknown": "Não decodificado",
     "freshness": "Frescura",
     "shelfLife": "Prazo de validade",

@@ -167,6 +167,7 @@
     "freshness": "新鮮程度",
     "confidence": "信心程度",
     "pao": "開封後（PAO）",
+    "paoCheck": "請查看產品包裝上嘅開封後使用期限（PAO）標誌。",
     "months": "{n} 個月",
     "percentLeft": "剩 {n}%",
     "confHigh": "高信心",

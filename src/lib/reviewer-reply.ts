@@ -19,6 +19,7 @@ export const REPLY_TEMPLATES = {
 } as const;
 
 export async function sendReviewerReply(submission: Submission, subject: string, message: string) {
+  if (!submission.email) return { status: "failed" as const, reason: "no_reply_address" };
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.SUBMISSION_FROM_EMAIL;
   if (!apiKey || !from) return { status: "failed" as const, reason: "not_configured" };

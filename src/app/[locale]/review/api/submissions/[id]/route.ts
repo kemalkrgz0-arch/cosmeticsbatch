@@ -49,6 +49,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
       if (!subject || !message) throw new Error("Reply is empty");
       const submission = await getSubmission(id);
       if (!submission) throw new Error("Submission not found");
+      if (!submission.email) throw new Error("Anonymous submission has no reply address");
       const result = await sendReviewerReply(submission, subject, message);
       await appendReply(id, result.status, reviewer.email, result.status === "sent" ? result.providerId : undefined, result.status === "failed" ? result.reason : undefined);
       if (result.status !== "sent") return redirect(`status=${submission.status}&error=reply`);

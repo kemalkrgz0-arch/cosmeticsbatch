@@ -300,7 +300,7 @@ export function ResultCard({
             </div>
           </section>
           <section aria-label={t("pao")}>
-            <DataCell icon={PackageOpen} color={color} label={t("pao")} value={`${brand.paoMonths}M · ${months(brand.paoMonths)}`} />
+            <DataCell icon={PackageOpen} color={color} label={t("pao")} value={t("paoCheck")} />
           </section>
           <section aria-label={t("confidence")}>
             <DataCell icon={ShieldCheck} color={color} label={t("confidence")} value={t(CONF_KEY[result.confidence])} />

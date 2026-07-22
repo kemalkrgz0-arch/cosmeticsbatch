@@ -162,6 +162,7 @@
     "freshness": "Versheid",
     "confidence": "Vertrouwen",
     "pao": "Na opening (PAO)",
+    "paoCheck": "Controleer het symbool van de geopende pot op de verpakking van dit product.",
     "months": "{n} maanden",
     "manufactureDate": "Productiedatum",
     "statusGood": "Nog steeds goed",

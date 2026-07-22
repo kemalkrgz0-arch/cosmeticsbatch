@@ -22,13 +22,13 @@ export function buildBrandFaqs(
   brand: Brand,
   t: Translator,
 ): { q: string; a: string }[] {
-  const { name, group, shelfLifeMonths: shelf, paoMonths: pao, category } = brand;
+  const { name, group, shelfLifeMonths: shelf, category } = brand;
   const noun = t(`categoryNoun.${category}`);
   const decoder =
     brand.decoderId && KNOWN_DECODERS.has(brand.decoderId)
       ? t("brandFaq.decoderKnown")
       : t("brandFaq.decoderAuto");
-  const base = { name, group, noun, shelf, pao, decoder };
+  const base = { name, group, noun, shelf, decoder };
   const f = (k: string) => t(`brandFaq.${k}`, base);
 
   // "Where to find" (q_where), "How to store" (q_store) and "Is it fake?"
@@ -37,10 +37,7 @@ export function buildBrandFaqs(
   // duplicating the same text in both the body and the FAQ / FAQPage schema.
   return [
     { q: f("q_barcode"), a: f("a_barcode") },
-    { q: f("q_expired"), a: f("a_expired") },
     { q: f("q_unopened"), a: f("a_unopened") },
-    { q: f("q_pao"), a: f("a_pao") },
-    { q: f("q_paoSymbol"), a: f("a_paoSymbol") },
     { q: f("q_afterExpiry"), a: f("a_afterExpiry") },
     { q: f("q_accuracy"), a: f("a_accuracy") },
     { q: f("q_free"), a: f("a_free") },

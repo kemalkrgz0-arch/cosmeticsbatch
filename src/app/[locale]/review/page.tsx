@@ -240,7 +240,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
   const window7d = win.start;
 
   const all = await listSubmissions();
-  const submissions = all.filter((item) => item.status === selectedStatus && (!search || [item.id, item.brand, item.code, item.email, item.note].some((value) => value?.toLowerCase().includes(search))));
+  const submissions = all.filter((item) => item.status === selectedStatus && (!search || [item.id, item.brand, item.productName, item.ean, item.observedPao, item.code, item.email, item.note].some((value) => value?.toLowerCase().includes(search))));
   const open = all.filter((item) => item.status === "pending" || item.status === "in_review").length;
 
   // Load only what the open tab renders. The summary tiles live on Overview
@@ -450,7 +450,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
               <label className="relative flex-1">
                 <span className="sr-only">Search review data</span>
                 <Search aria-hidden="true" className="absolute left-3 top-3 size-5 text-fg-muted" />
-                <input name="q" defaultValue={query.q} placeholder={view === "submissions" ? "Search ID, brand, code, email or note" : "Search brand, code, type, locale or country"} className="min-h-11 w-full rounded-xl border bg-bg pl-10 pr-3" />
+                <input name="q" defaultValue={query.q} placeholder={view === "submissions" ? "Search ID, brand, product, EAN, PAO, code or note" : "Search brand, code, type, locale or country"} className="min-h-11 w-full rounded-xl border bg-bg pl-10 pr-3" />
               </label>
               <button className="min-h-11 rounded-xl bg-cta px-5 font-semibold text-cta-fg">Search</button>
             </form>
@@ -735,9 +735,12 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                               })()}
                             </div>
                             <div><dt className="font-semibold text-fg-muted">Submitted</dt><dd className="mt-1">{new Date(submission.ts).toLocaleString("en-GB", { timeZone: "Europe/Istanbul" })}</dd></div>
+                            <div><dt className="font-semibold text-fg-muted">Product name</dt><dd className="mt-1">{submission.productName || "Not supplied"}</dd></div>
+                            <div><dt className="font-semibold text-fg-muted">EAN/GTIN</dt><dd className="mt-1">{submission.ean || "Not supplied"}</dd></div>
+                            <div><dt className="font-semibold text-fg-muted">Observed PAO</dt><dd className="mt-1">{submission.observedPao || "Not supplied"}</dd></div>
                             <div className="sm:col-span-2"><dt className="font-semibold text-fg-muted">User note</dt><dd className="mt-1 whitespace-pre-wrap">{submission.note || "Not supplied"}</dd></div>
-                            <div><dt className="font-semibold text-fg-muted">Reply email</dt><dd className="mt-1 break-all"><a className="underline" href={`mailto:${submission.email}`}>{submission.email}</a></dd></div>
-                            <div><dt className="font-semibold text-fg-muted">Reply delivery</dt><dd className="mt-1">{submission.replyStatus === "sent" ? "Accepted by email provider" : submission.replyStatus === "failed" ? "Failed" : "Not sent yet"}</dd></div>
+                            <div><dt className="font-semibold text-fg-muted">Reply email</dt><dd className="mt-1 break-all">{submission.email ? <a className="underline" href={`mailto:${submission.email}`}>{submission.email}</a> : "Anonymous — no email collected"}</dd></div>
+                            <div><dt className="font-semibold text-fg-muted">Reply delivery</dt><dd className="mt-1">{!submission.email ? "Not applicable" : submission.replyStatus === "sent" ? "Accepted by email provider" : submission.replyStatus === "failed" ? "Failed" : "Not sent yet"}</dd></div>
                             <div><dt className="font-semibold text-fg-muted">Reviewer notification</dt><dd className="mt-1">{submission.notificationStatus === "sent" ? "Accepted by email provider" : submission.notificationStatus === "failed" ? `Failed${submission.notificationReason ? ` (${submission.notificationReason})` : ""}` : submission.notificationStatus === "not_configured" ? "Not configured" : "No delivery record"}</dd></div>
                           </dl>
 
@@ -748,7 +751,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                             <button className="min-h-11 rounded-lg bg-cta px-5 font-semibold text-cta-fg">Save status</button>
                           </form>
 
-                          <details className="mt-4 rounded-xl border p-4">
+                          {submission.email && <details className="mt-4 rounded-xl border p-4">
                             <summary className="cursor-pointer font-semibold">Prepare an English reply</summary>
                             <p className="mt-2 text-xs text-fg-muted">The institutional signature is added automatically. Sending records the message and updates the workflow.</p>
                             <div className="mt-4">
@@ -757,7 +760,7 @@ export default async function ReviewPage({ searchParams }: { searchParams: Promi
                                 templates={REPLY_TEMPLATES}
                               />
                             </div>
-                          </details>
+                          </details>}
                         </div>
                       </div>
                     </article>

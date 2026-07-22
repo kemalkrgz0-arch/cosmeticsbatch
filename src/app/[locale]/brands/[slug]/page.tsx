@@ -180,7 +180,7 @@ export default async function BrandPage({
   const facts = [
     { icon: MapPin, label: tb("factManufacturer"), value: brand.group },
     { icon: Timer, label: tb("factShelfLife"), value: months(brand.shelfLifeMonths) },
-    { icon: CalendarClock, label: tb("factPao"), value: months(brand.paoMonths) },
+    { icon: CalendarClock, label: tb("factPao"), value: t("result.paoCheck") },
     {
       icon: Info,
       label: tb("factDecoder"),
@@ -267,12 +267,15 @@ export default async function BrandPage({
           {tb("howHeading", { name: brand.name })}
         </h2>
         <p className="mt-3 leading-relaxed text-fg-muted">
-          {tb("freshnessPara", {
+          {t("brandFaq.a_unopened", {
             name: brand.name,
             shelf: brand.shelfLifeMonths,
-            pao: brand.paoMonths,
-            category,
+            noun: category,
           })}
+        </p>
+
+        <p className="mt-3 leading-relaxed text-fg-muted">
+          {t("result.paoCheck")}
         </p>
 
         <p className="mt-5 leading-relaxed text-fg-muted">

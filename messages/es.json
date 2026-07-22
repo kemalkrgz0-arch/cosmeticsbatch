@@ -180,6 +180,7 @@
     "percentLeft": "{n}% restante",
     "confLow": "Baja confianza",
     "pao": "Después de la apertura (PAO)",
+    "paoCheck": "Revisa el símbolo del tarro abierto en el envase de este producto.",
     "confHigh": "Alta confianza",
     "invalidBody": "\"{code}\" no coincide con el formato de código de lote de {brand}. Verifique que lo haya escrito exactamente como está impreso en el paquete (solo letras y números, sin espacios) y que sea el código de lote, no el código de barras ni una referencia de precio o marketing.",
     "confNone": "No se pudo decodificar",

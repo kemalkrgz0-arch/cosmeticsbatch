@@ -176,6 +176,7 @@
     "freshness": "Freschezza",
     "confidence": "Fiducia",
     "pao": "Dopo l'apertura (PAO)",
+    "paoCheck": "Controlla il simbolo del vasetto aperto sulla confezione di questo prodotto.",
     "months": "{n} mesi",
     "confHigh": "Alta fiducia",
     "confMedium": "Confidenza media",

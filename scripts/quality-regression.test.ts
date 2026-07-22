@@ -36,6 +36,7 @@ import {
 import { DESCRIPTION_BUDGET, TITLE_BUDGET, fitSnippet, fitTitle, snippetLength } from "../src/lib/snippet";
 import { brandSnippet } from "../src/lib/brand-snippets";
 import { normalizeActivityPath } from "../src/lib/activity-path";
+import { PRODUCT_EVIDENCE_LOCALES, productEvidenceCopy } from "../src/lib/product-evidence-copy";
 import { MAX_TRACKED_KEYS, checkRateLimit, trackedKeyCount } from "../src/lib/rate-limit";
 import { brandsDirectoryCopy } from "../src/lib/brands-directory-copy";
 import {
@@ -1073,6 +1074,50 @@ test("the mobile LCP path stays immediate and PageSpeed activity stays quiet", (
   assert.match(whereIsCode, /src=\{`\/where\/\$\{key\}\.avif`\}/);
   assert.match(whereIsCode, /unoptimized/, "pre-encoded card images must bypass live optimization");
   assert.doesNotMatch(whereIsCode, /\/where\/\$\{key\}\.jpg/);
+});
+
+test("PAO guidance comes from the product package, not a brand constant", () => {
+  const resultCard = readFileSync("src/components/result-card.tsx", "utf8");
+  const brandPage = readFileSync("src/app/[locale]/brands/[slug]/page.tsx", "utf8");
+  const brandFaq = readFileSync("src/lib/brand-faq.ts", "utf8");
+
+  assert.doesNotMatch(resultCard, /brand\.paoMonths/);
+  assert.match(resultCard, /value=\{t\("paoCheck"\)\}/);
+  assert.doesNotMatch(brandPage, /brand\.paoMonths/);
+  assert.match(brandPage, /t\("result\.paoCheck"\)/);
+  assert.doesNotMatch(brandFaq, /q_pao|a_pao|paoMonths/);
+  for (const locale of LOCALE_CODES) {
+    const catalog = JSON.parse(readFileSync(`messages/${locale}.json`, "utf8")) as {
+      result?: { paoCheck?: string };
+    };
+    assert.ok(catalog.result?.paoCheck?.trim(), `${locale} must direct users to the package PAO symbol`);
+  }
+});
+
+test("product evidence contributions are anonymous, explicit and package-first", () => {
+  const form = readFileSync("src/components/code-photo-submission.tsx", "utf8");
+  const route = readFileSync("src/app/api/code-photo/route.ts", "utf8");
+  const email = readFileSync("src/lib/submission-email.ts", "utf8");
+  const reviewer = readFileSync("src/app/[locale]/review/page.tsx", "utf8");
+  const reviewerApi = readFileSync("src/app/[locale]/review/api/submissions/[id]/route.ts", "utf8");
+
+  assert.doesNotMatch(form, /type="email"|body\.set\("email"/);
+  assert.match(form, /body\.set\("productName"/);
+  assert.match(form, /body\.set\("ean"/);
+  assert.match(form, /body\.set\("pao"/);
+  assert.match(form, /type="checkbox" required checked=\{consent\}/);
+  assert.doesNotMatch(route, /valid email is required|form\.get\("email"\)/);
+  assert.match(route, /anonymous_product_evidence/);
+  assert.match(route, /EAN_LENGTHS/);
+  assert.match(route, /PAO\.test\(observedPao\)/);
+  assert.doesNotMatch(email, /reply_to:/);
+  assert.match(reviewer, /Anonymous — no email collected/);
+  assert.match(reviewerApi, /Anonymous submission has no reply address/);
+  assert.deepEqual([...PRODUCT_EVIDENCE_LOCALES].sort(), [...LOCALE_CODES].sort());
+  for (const locale of LOCALE_CODES) {
+    const copy = productEvidenceCopy(locale);
+    assert.ok(copy.productName && copy.ean && copy.pao && copy.consent && copy.received, `${locale} evidence copy is incomplete`);
+  }
 });
 
 test("the live SEO audit ignores only reserved Cloudflare infrastructure links", () => {

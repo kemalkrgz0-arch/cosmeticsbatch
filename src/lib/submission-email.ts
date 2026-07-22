@@ -4,7 +4,9 @@ type SubmissionEmail = {
   brandSlug: string;
   code: string;
   note: string;
-  userEmail: string;
+  productName: string;
+  ean: string;
+  observedPao: string;
   images: Array<{ filename: string; imageType: string; imageBytes: Uint8Array }>;
 };
 
@@ -28,12 +30,15 @@ export async function sendSubmissionEmail(data: SubmissionEmail): Promise<Notifi
     "",
     `Submission: ${data.id}`,
     `Brand: ${data.brandName} (${data.brandSlug})`,
-    `Visible code: ${data.code || "Not supplied"}`,
+    `Product: ${data.productName || "Not supplied"}`,
+    `EAN/GTIN: ${data.ean || "Not supplied"}`,
+    `Observed PAO: ${data.observedPao || "Not supplied"}`,
+    `Visible batch code: ${data.code || "Not supplied"}`,
     `User note: ${data.note || "Not supplied"}`,
-    `Reply email: ${data.userEmail}`,
+    "Contributor: Anonymous (no email collected)",
     `Stored files: ${data.images.map((image) => image.filename).join(", ")}`,
     "",
-    "Reply to this email to answer the user directly.",
+    "This contribution is for the private evidence queue; no reply address is available.",
   ].join("\n");
 
   try {
@@ -47,7 +52,6 @@ export async function sendSubmissionEmail(data: SubmissionEmail): Promise<Notifi
       body: JSON.stringify({
         from,
         to: recipients,
-        reply_to: data.userEmail,
         subject: `[Code photo] ${data.brandName} — ${data.id.slice(0, 19)}`,
         text,
         attachments: data.images.map((image) => ({

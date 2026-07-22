@@ -17,7 +17,8 @@ const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 const MAX_IMAGES = 3;
 const LIMIT_WINDOW_MS = 60 * 60 * 1000;
 const LIMIT = 5;
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EAN_LENGTHS = new Set([8, 12, 13, 14]);
+const PAO = /^\d{1,3}M$/;
 const buckets = new Map<string, { count: number; resetAt: number }>();
 
 const TYPES: Record<string, { ext: string; signature: (b: Uint8Array) => boolean }> = {
@@ -69,12 +70,15 @@ export async function POST(req: NextRequest) {
   const slug = String(form.get("slug") ?? "").trim();
   const code = String(form.get("code") ?? "").trim().slice(0, 64);
   const note = String(form.get("note") ?? "").trim().slice(0, 500);
-  const email = String(form.get("email") ?? "").trim().toLowerCase().slice(0, 254);
+  const productName = String(form.get("productName") ?? "").trim().slice(0, 160);
+  const ean = String(form.get("ean") ?? "").replace(/\D/g, "").slice(0, 14);
+  const observedPao = String(form.get("pao") ?? "").trim().toUpperCase().slice(0, 4);
   const consent = form.get("consent") === "true";
   const images = form.getAll("image");
   const brand = getBrand(slug);
   if (!brand) return json("unknown brand", 404);
-  if (!EMAIL.test(email)) return json("valid email is required", 400);
+  if (ean && !EAN_LENGTHS.has(ean.length)) return json("EAN/GTIN must contain 8, 12, 13 or 14 digits", 400);
+  if (observedPao && !PAO.test(observedPao)) return json("PAO must use a value such as 12M", 400);
   if (!consent) return json("consent is required", 400);
   if (images.length === 0 || images.length > MAX_IMAGES || images.some((image) => !(image instanceof File) || image.size === 0)) return json("between 1 and 3 images are required", 400);
 
@@ -108,7 +112,10 @@ export async function POST(req: NextRequest) {
     brand: brand.slug,
     code,
     note,
-    email,
+    submissionKind: "anonymous_product_evidence",
+    productName,
+    ean,
+    observedPao,
     file: relativeFiles[0],
     files: relativeFiles,
     status: "pending",
@@ -120,7 +127,9 @@ export async function POST(req: NextRequest) {
     brandSlug: brand.slug,
     code,
     note,
-    userEmail: email,
+    productName,
+    ean,
+    observedPao,
     images: stored.map((image) => ({ filename: image.relativeFile, imageType: image.imageType, imageBytes: image.bytes })),
   });
   await appendFile(queueFile, JSON.stringify({

@@ -167,6 +167,7 @@
     "shelfLife": "Okres przydatności do spożycia",
     "expirationDate": "Szacowana дата trwałości nieotwartego produktu",
     "pao": "Po otwarciu (PAO)",
+    "paoCheck": "Sprawdź symbol otwartego słoiczka (PAO) na opakowaniu tego produktu.",
     "months": "{n} miesięcy",
     "percentLeft": "Pozostało {n}%.",
     "confMedium": "Średnia pewność",

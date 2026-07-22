@@ -169,6 +169,7 @@
     "manufactureDate": "生产日期",
     "confMedium": "中等置信度",
     "pao": "开封后（PAO）",
+    "paoCheck": "请查看该产品包装上的开封后使用期限（PAO）标志。",
     "confHigh": "高置信度",
     "percentLeft": "{n}剩余%",
     "invalidTitle": "我们无法读取这段代码",

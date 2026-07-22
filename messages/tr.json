@@ -175,6 +175,7 @@
     "expirationDate": "Tahmini açılmamış raf ömrü tarihi",
     "confidence": "Kendinden emin",
     "pao": "Açıldıktan sonra (PAO)",
+    "paoCheck": "Bu ürünün ambalajındaki açık kavanoz simgesini kontrol edin.",
     "confHigh": "Yüksek güven",
     "months": "{n} ay",
     "confLow": "Düşük güven",

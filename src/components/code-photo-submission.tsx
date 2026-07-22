@@ -8,6 +8,7 @@ import { photoSubmissionCopy } from "@/lib/photo-submission-copy";
 import { Link } from "@/i18n/navigation";
 import { photoAssistCopy } from "@/lib/photo-assist-copy";
 import { photoTransformPlan, type PhotoRotation } from "@/lib/photo-transform";
+import { productEvidenceCopy } from "@/lib/product-evidence-copy";
 
 type PhotoSelection = {
   id: string;
@@ -44,6 +45,7 @@ async function sanitizeImage(selection: PhotoSelection): Promise<File> {
 export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: string }) {
   const copy = photoSubmissionCopy(locale);
   const assist = photoAssistCopy(locale);
+  const evidence = productEvidenceCopy(locale);
   const whereCode = useTranslations("whereCode");
   const input = useRef<HTMLInputElement>(null);
   const photoButton = useRef<HTMLButtonElement>(null);
@@ -53,7 +55,9 @@ export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: s
   const [files, setFiles] = useState<PhotoSelection[]>([]);
   const [code, setCode] = useState("");
   const [note, setNote] = useState("");
-  const [email, setEmail] = useState("");
+  const [productName, setProductName] = useState("");
+  const [ean, setEan] = useState("");
+  const [observedPao, setObservedPao] = useState("");
   const [consent, setConsent] = useState(false);
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [validationError, setValidationError] = useState("");
@@ -92,7 +96,7 @@ export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: s
       photoButton.current?.focus();
       return;
     }
-    if (!consent || !email) return;
+    if (!consent) return;
     setValidationError("");
     setState("sending");
     try {
@@ -101,7 +105,9 @@ export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: s
       body.set("slug", brand.slug);
       body.set("code", code);
       body.set("note", note);
-      body.set("email", email);
+      body.set("productName", productName);
+      body.set("ean", ean);
+      body.set("pao", observedPao);
       body.set("consent", "true");
       clean.forEach((image) => body.append("image", image));
       const response = await fetch("/api/code-photo", { method: "POST", body });
@@ -116,7 +122,7 @@ export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: s
     return (
       <div role="status" aria-live="polite" className="mt-8 rounded-2xl border border-success/30 bg-success-bg p-5">
         <p className="flex items-center gap-2 font-semibold"><CheckCircle2 className="h-5 w-5 text-success" aria-hidden="true" /> {copy.received}</p>
-        <p className="mt-1 text-sm text-fg-muted">{copy.reply.replace("EMAILADDRESS", email)}</p>
+        <p className="mt-1 text-sm text-fg-muted">{evidence.received}</p>
       </div>
     );
   }
@@ -167,12 +173,13 @@ export function CodePhotoSubmission({ brand, locale }: { brand: Brand; locale: s
           </li>)}</ul>}
           <p id={`${formId}-photo-status`} className="sr-only" aria-live="polite">{files.length ? `${files.length} ${copy.selected}` : copy.noneSelected}</p>
           <div className="grid gap-3 sm:grid-cols-2">
+            <label className="text-sm font-medium">{evidence.productName}<input value={productName} maxLength={160} autoComplete="off" onChange={(e) => setProductName(e.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
+            <label className="text-sm font-medium">{evidence.ean}<input value={ean} maxLength={14} inputMode="numeric" autoComplete="off" onChange={(e) => setEan(e.target.value.replace(/\D/g, "").slice(0, 14))} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
+            <label className="text-sm font-medium">{evidence.pao}<input value={observedPao} maxLength={4} autoCapitalize="characters" autoComplete="off" placeholder="12M" onChange={(e) => setObservedPao(e.target.value.toUpperCase().replace(/[^0-9M]/g, "").slice(0, 4))} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base uppercase outline-none focus:border-accent sm:text-sm" /></label>
             <label className="text-sm font-medium">{copy.code}<input value={code} maxLength={64} onChange={(e) => setCode(e.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
-            <label className="text-sm font-medium">{copy.problem}<input value={note} maxLength={500} onChange={(e) => setNote(e.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
+            <label className="text-sm font-medium sm:col-span-2">{copy.problem}<input value={note} maxLength={500} onChange={(e) => setNote(e.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
           </div>
-          <label className="block text-sm font-medium">{copy.email} <span className="text-danger" aria-hidden="true">*</span><input type="email" required autoComplete="email" inputMode="email" aria-describedby={`${formId}-email-help`} value={email} maxLength={254} onChange={(e) => setEmail(e.target.value)} className="mt-1.5 h-11 w-full rounded-xl border border-border bg-bg px-3 text-base outline-none focus:border-accent sm:text-sm" /></label>
-          <p id={`${formId}-email-help`} className="-mt-2 text-xs text-fg-muted">{copy.emailHelp}</p>
-          <label className="flex min-h-11 items-start gap-3 rounded-xl p-1 text-sm text-fg-muted"><input type="checkbox" required checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-accent" /><span><strong className="font-semibold text-fg">{copy.permission}</strong> {copy.consent}</span></label>
+          <label className="flex min-h-11 items-start gap-3 rounded-xl p-1 text-sm text-fg-muted"><input type="checkbox" required checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 h-5 w-5 shrink-0 accent-accent" /><span><strong className="font-semibold text-fg">{copy.permission}</strong> {evidence.consent}</span></label>
           {validationError && <p role="alert" className="text-sm text-danger">{validationError}</p>}
           {state === "error" && <p role="alert" className="text-sm text-danger">{copy.sendError}</p>}
           <button disabled={state === "sending"} className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-cta px-5 text-sm font-semibold text-cta-fg disabled:cursor-wait disabled:opacity-70 sm:w-auto">{state === "sending" && <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />} {state === "sending" ? copy.sending : copy.send}</button>

@@ -167,6 +167,7 @@
     "freshness": "신선도",
     "confidence": "신뢰도",
     "pao": "개봉 후(PAO)",
+    "paoCheck": "제품 포장에 있는 개봉 후 사용 기간(PAO) 표시를 확인하세요.",
     "months": "{n} 개월",
     "percentLeft": "{n}% 남음",
     "confHigh": "높은 신뢰도",

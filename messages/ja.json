@@ -176,6 +176,7 @@
     "freshness": "鮮度",
     "confidence": "信頼度",
     "pao": "開封後（PAO）",
+    "paoCheck": "この製品のパッケージにある開封後使用期限（PAO）のマークを確認してください。",
     "months": "{n} か月",
     "percentLeft": "残り {n}%",
     "confHigh": "信頼度：高",

@@ -87,16 +87,17 @@ export default async function PrivacyPage({
         </p>
         <p>
           <strong>Code photos you submit.</strong> If you voluntarily send a
-          packaging photo for review, we retain the image, selected brand,
-          visible code, note, reply email and submission time in a private review
-          queue. We use the email only to contact you about that submission. The
+          packaging photo, we retain the image, selected brand, optional product
+          name, EAN/GTIN, PAO shown on the package, visible batch code, note and
+          submission time in a private research and review queue. This form does
+          not ask for an email address or account. The
           browser resizes and re-encodes supported images before upload to remove
           embedded EXIF data such as GPS location. Please make sure faces,
           addresses, receipts and other personal details are not visible. We may
           crop and publish useful portions as examples only when you grant the
           permission shown in the submission form. These submissions are not
-          linked to an account or stored with an IP address. The review email and
-          private queue are retained only as long as needed for review, support,
+          linked to an account or stored with an IP address. The private queue is
+          retained only as long as needed for review, research, support,
           abuse prevention and maintaining verified examples.
         </p>
         <p>

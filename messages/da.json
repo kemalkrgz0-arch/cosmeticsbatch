@@ -165,6 +165,7 @@
     "shelfLife": "Holdbarhed",
     "confidence": "Tillid",
     "pao": "Efter åbning (PAO)",
+    "paoCheck": "Kontrollér symbolet med den åbne krukke på produktets emballage.",
     "months": "{n} måneder",
     "confMedium": "Middel selvtillid",
     "confLow": "Lav selvtillid",

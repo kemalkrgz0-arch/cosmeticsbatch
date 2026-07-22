@@ -170,6 +170,7 @@
     "confMedium": "Confiance moyenne",
     "confLow": "Faible confiance",
     "pao": "Après ouverture (PAO)",
+    "paoCheck": "Vérifiez le symbole du pot ouvert sur l’emballage de ce produit.",
     "confNone": "Impossible de décoder",
     "months": "{n} mois",
     "percentLeft": "{n}% restant",

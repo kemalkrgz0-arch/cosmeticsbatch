@@ -182,6 +182,7 @@
     "months": "{n} Monate",
     "percentLeft": "{n}% übrig",
     "pao": "Nach dem Öffnen (PAO)",
+    "paoCheck": "Prüfen Sie das Symbol des geöffneten Tiegels auf der Verpackung dieses Produkts.",
     "invalidTitle": "Wir konnten diesen Code nicht lesen",
     "invalidBody": "„{code}“ stimmt nicht mit dem Batch-Code-Format von {brand}überein. Stellen Sie sicher, dass Sie den Code genau so eingegeben haben, wie er auf der Verpackung aufgedruckt ist – nur Buchstaben und Zahlen, keine Leerzeichen – und dass es sich um den Chargencode und nicht um den Barcode oder eine Preis-/Marketingreferenz handelt.",
     "shareCopied": "Kopiert!",

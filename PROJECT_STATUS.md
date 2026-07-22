@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
 Last updated: 2026-07-22
-Current version: **1.4.4**
+Current version: **1.4.5**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -121,7 +121,7 @@ decision is recorded here. Version notes do not override this section silently.
 ## Active findings / next dependency-ordered work
 
 - `RELEASE-1.4.4-037`; owner: primary Codex agent; severity: `P1`; state:
-  `In progress`; claimed 2026-07-22 Europe/Istanbul at starting commit
+  `Completed`; claimed 2026-07-22 Europe/Istanbul at starting commit
   `3816c43`. The owner explicitly authorized publication with “devam et deploy
   yapalım”. Scope: publish the verified `1.4.4` RTL header, PageSpeed image and
   17-catalog editorial corrections already committed locally. Acceptance: push
@@ -130,9 +130,70 @@ decision is recorded here. Version notes do not override this section silently.
   routes, Arabic 390px header/overflow, the three AVIF assets and representative
   localized failure results. A successful workflow alone is not completion;
   live checks and remaining external PSI/native-review risks must be recorded.
+  Completion (2026-07-22): pushed `c405a7c`, `3816c43` and authorization record
+  `9403ce6` to `main`; manual workflow run `29906788090` completed successfully
+  in 7m07s. The VPS build generated 267/267 pages, started the release candidate
+  and completed its health/switch smoke. Live `/`, `/check`, `/ar`, `/ar/check`,
+  `/sitemap.xml` and `/ads.txt` returned 200. The three new AVIF files returned
+  16,085, 7,510 and 4,576 bytes respectively as `image/avif`, each with a
+  one-year immutable cache header. Headless Chrome at 390x844 passed EN, DE, TR
+  and AR home plus EN/DE success and AR failure checker routes with correct
+  document language/direction and zero horizontal overflow. Fresh external PSI,
+  later CrUX and native-speaker approval remain `needs verification`; they are
+  not implied by this successful release.
+- `PAO-GUIDANCE-DATASET-038`; owner: primary Codex agent; severity: `P1`
+  correctness/privacy; state: `Completed locally; publication pending`; claimed 2026-07-22
+  Europe/Istanbul at starting commit `9403ce6`. Evidence: the owner reports that
+  successful decode output presents a fixed 24-month PAO/shelf-life value as
+  definite guidance, although PAO is a product/packaging instruction and cannot
+  be inferred safely from a brand-level batch-code decode. The owner requests a
+  quieter optional contribution path for product name, EAN, visible PAO and
+  packaging photos, without requiring email, to build a private evidence
+  dataset. Scope: result guidance, shelf-life/PAO derivation and copy, optional
+  photo contribution UI/API/storage/privacy disclosure, focused regressions and
+  this status file. Acceptance: remove fixed or inferred PAO claims from decode
+  results; direct users to the open-jar symbol and package instructions; keep
+  manufacture-date estimates separate; make contribution optional and visually
+  secondary; request no email/account; collect only explicit product name, EAN,
+  observed PAO and relevant photos under short affirmative consent; validate and
+  privately store the payload without public indexing or decoder-method leakage;
+  document retention/deletion limits honestly; and pass focused plus full
+  repository checks. Silent collection, preselected consent and claims that a
+  contribution verifies authenticity are prohibited.
+  Correctness group completion (`Completed locally`, 2026-07-22): successful
+  decode cards and brand quick facts no longer render `brand.paoMonths` or a
+  numeric PAO value. All 19 active catalogs now provide a package-first
+  instruction directing the reader to the open-jar/PAO symbol on that exact
+  product. The generic brand FAQ no longer publishes the fixed-brand PAO and
+  “expired” answers that interpolated the same category estimate; the brand
+  explanation retains the explicitly labelled unopened shelf-life estimate and
+  adds the package-first PAO instruction separately. A regression rejects any
+  return of `brand.paoMonths` to result/brand rendering and requires localized
+  `result.paoCheck` copy in every active catalog. Scoped ESLint,
+  `git diff --check` and `npm run test:quality` initially passed 83/83 plus all
+  four operational validators.
+  Anonymous contribution completion (`Completed locally`, 2026-07-22): the
+  secondary photo form now requests optional product name, EAN/GTIN, observed
+  package PAO and one to three relevant photos; it no longer requests an email
+  or account. The unchecked required consent states the private research
+  purpose, contributor ownership and exclusion of faces/personal details. The
+  API validates consent, image count/type/signature/size, EAN/GTIN length and
+  PAO syntax before writing mode-0600 files and the private JSONL queue. Owner
+  notification contains the evidence but no reply address. Existing historic
+  emailed records remain readable; anonymous records show their new fields in
+  review, hide the reply composer and are also rejected defensively by both the
+  reviewer API and mail helper. Privacy copy now describes the exact anonymous
+  fields, EXIF removal, private purpose and purpose-limited retention. The final
+  `git diff --check`, scoped ESLint, standalone `tsc --noEmit` and
+  `npm run test:quality` passed; the suite now reports 84/84 plus all four
+  operational validators. `NEXT_TELEMETRY_DISABLED=1 npm run build` compiled,
+  passed TypeScript and generated 267/267 pages. The 19-locale contribution copy
+  is mechanically complete but native-speaker approval remains `needs
+  verification`. Version `1.4.5` is local only; commit and publication remain
+  pending.
 
 - `PAGESPEED-FOLLOWUP-035`; owner: primary Codex agent; severity: `P1`; state:
-  `Completed locally; publication pending`; claimed 2026-07-22
+  `Completed`; claimed 2026-07-22
   Europe/Istanbul at starting commit
   `c405a7c`. Scope: the newly supplied mobile PageSpeed findings for the three
   homepage “where to find the code” images, first-party critical CSS/JavaScript,
@@ -162,7 +223,9 @@ decision is recorded here. Version notes do not override this section silently.
   the production build passed with 267/267 pages. The first sandboxed build
   attempt was blocked by Turbopack's helper-port restriction; the required
   permitted rerun compiled successfully. Fresh production PSI/WebPageTest and
-  later CrUX remain `needs verification`; no commit, push or deployment yet.
+  later CrUX remain `needs verification`. Published in release `1.4.4`, workflow
+  run `29906788090`; live asset and mobile evidence is recorded under
+  `RELEASE-1.4.4-037`.
 - `I18N-NATURALNESS-036`; owner: language-review subagent under primary Codex;
   severity: `P2`; state: `Completed locally; native approval needs verification`;
   claimed 2026-07-22 Europe/Istanbul at
@@ -722,7 +785,7 @@ decision is recorded here. Version notes do not override this section silently.
   exclusions. Scoped ESLint, `git diff --check` and the full 82/82 quality suite
   plus all four operational validators passed.
   `RTL-HEADER-SHIFT-034`; owner: primary Codex agent; severity: `P2`; state:
-  `In progress`; discovered 2026-07-22 during the owner-requested completion of
+  `Completed`; discovered 2026-07-22 during the owner-requested completion of
   the Arabic 390px live visual pass. Evidence: the page correctly uses
   `dir="rtl"` and has no document-level horizontal overflow, but the owner
   observes hamburger/header alignment shifts when the whole flex direction is
@@ -744,6 +807,11 @@ decision is recorded here. Version notes do not override this section silently.
   owner's visual header-shift observation is resolved only in this local patch.
   Do not claim the live Arabic header fixed until a separately authorized
   publication and post-deploy 390px recheck.
+  Live completion (2026-07-22): published in `1.4.4` by workflow run
+  `29906788090`. A 390x844 post-deploy Chrome audit passed Arabic home and
+  failure-check routes with `dir="rtl"` and zero horizontal overflow; the same
+  audit passed EN/DE/TR homes and EN/DE successful result routes. The stable
+  LTR chrome and locale-directed menu are therefore verified live.
   `PAGESPEED-MOBILE-029`; owner: primary Codex agent; severity: `P1`;
   state: `In progress`; claimed 2026-07-22 10:28 +03 at starting commit
   `7c5a7f5`; discovered from the owner's 2026-07-22 mobile PageSpeed
@@ -4404,6 +4472,31 @@ sequence used by this repository, not permission to skip unresolved audit areas.
   review state still controls schema/ad eligibility where implemented.
 - Brand/catalog/editorial/decoder-guide/review-manifest invariants are enforced
   by the default 16-test regression suite.
+
+## Completed locally — 1.4.5 (product-specific PAO guidance and anonymous evidence)
+
+- Removed the shared brand-level PAO month value from successful decoder cards,
+  brand quick facts and generic PAO/expiry FAQs. Results now direct people to
+  the open-jar/PAO symbol and instructions on their exact product package.
+- Added package-first PAO guidance to all 19 active catalogs while keeping the
+  explicitly labelled unopened shelf-life estimate separate.
+- Reworked the optional packaging-photo contribution into an anonymous private
+  evidence flow for product name, EAN/GTIN, observed PAO, batch code, note and
+  one to three sanitized photos. No email or account is requested; consent is
+  explicit and unselected.
+- Kept historic email-based review records compatible while preventing replies
+  for new anonymous submissions in the review UI, route and mail helper.
+- Updated the privacy disclosure and bumped `package.json` to `1.4.5`.
+- Affected scope: 19 `messages/*.json` catalogs, `package.json`, result and brand
+  page rendering, brand FAQ generation, contribution UI/API/storage/mail,
+  private reviewer UI/API, privacy page, localized evidence copy, quality tests
+  and this status file.
+- Verification: `git diff --check`; scoped ESLint; `tsc --noEmit`;
+  `npm run test:quality` (84/84 plus four operational validators); and
+  `NEXT_TELEMETRY_DISABLED=1 npm run build` (267/267 pages) all passed on
+  2026-07-22. Native-language review of the new contribution consent remains
+  `needs verification`. Commit and deployment are pending explicit release
+  authorization.
 
 ## Completed — 0.18.2 (strict finding and verification discipline)
 

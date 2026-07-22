@@ -167,6 +167,7 @@
     "confidence": "ثقة",
     "statusExpired": "مدة الصلاحية الماضية",
     "pao": "بعد الافتتاح (PAO)",
+    "paoCheck": "تحقّق من رمز العبوة المفتوحة (PAO) على عبوة هذا المنتج.",
     "percentLeft": "{n}% متبقي",
     "confMedium": "ثقة متوسطة",
     "months": "{n} أشهر",

@@ -176,6 +176,7 @@
     "freshness": "Độ tươi mới",
     "confidence": "Độ tin cậy",
     "pao": "Sau khi mở (PAO)",
+    "paoCheck": "Kiểm tra biểu tượng lọ mở nắp (PAO) trên bao bì sản phẩm.",
     "months": "{n} tháng",
     "percentLeft": "còn {n}%",
     "confHigh": "Độ tin cậy cao",

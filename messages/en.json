@@ -176,6 +176,7 @@
     "freshness": "Freshness",
     "confidence": "Confidence",
     "pao": "After opening (PAO)",
+    "paoCheck": "Check the open-jar symbol on this product’s packaging.",
     "months": "{n} months",
     "percentLeft": "{n}% left",
     "confHigh": "High confidence",
