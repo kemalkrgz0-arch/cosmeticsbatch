@@ -20,8 +20,11 @@ const fixtures = [
   ["acquadiparma", "2480Y", "2020-09-04"],
   ["julian", "24045", "2024-02-14"],
   ["creed", "A4221N01", "2021-07-01"],
-  ["interparfums", "08J38J169", "2019-06-18"],
+  ["interparfums", "J169", "2019-06-18"],
   ["embedded", "4135", "2024-05-14"],
+  // Puig-era Jean Paul Gaultier codes use the same embedded numeric date, but
+  // the dedicated decoder also recognises older BPI codes without dating them.
+  ["jean-paul-gaultier", "4135", "2024-05-14"],
   ["beiersdorf", "8153554", "2018-04-09"],
   ["naos", "29682", "2018-10-23"],
   ["deciem", "4A01", "2024-01-01"],
@@ -200,12 +203,14 @@ test("look-alike Cyrillic and Greek letters decode as their Latin twin", () => {
   assert.deepEqual(cyrillic.manufactureDate, latin.manufactureDate);
 });
 
-test("a code without the documented L'Oréal shape is not read confidently", () => {
+test("a code without the documented L'Oréal shape is recognized but not dated", () => {
   // Letter-led: "MNX30W" reads as M=2013/N=Nov at the front and X=2023/3=Mar
-  // further in. The date is still offered; the certainty is not.
+  // further in. There is no defensible way to choose, so no date is offered.
   const result = loreal("MNX30W");
-  assert.equal(result.decoded, true);
-  assert.notEqual(result.confidence, "high");
+  assert.equal(result.decoded, false);
+  assert.equal(result.failureReason, "recognized");
+  assert.equal(result.manufactureDate, null);
+  assert.equal(result.confidence, "none");
 });
 
 test("a year letter resolving decades back is not read confidently", () => {

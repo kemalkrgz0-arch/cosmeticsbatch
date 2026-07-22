@@ -1,6 +1,7 @@
 # AdSense acceptance readiness — 2026-07-19
 
-State: **not ready to request review**. No person or technical checklist can
+State: **Google site review in progress; repository CMP controls ready, live
+certified-message delivery still needs EEA/UK/Swiss evidence**. No person or technical checklist can
 guarantee AdSense acceptance; Google reviews the entire site and the account.
 This document separates repository evidence from account/production evidence.
 
@@ -14,8 +15,8 @@ submitting an unfinished site does not replace fixing the underlying issue.
 
 | Requirement | Current evidence | State | Closure evidence |
 | --- | --- | --- | --- |
-| Certified consent for EEA/UK/Switzerland | The custom Consent Mode banner explicitly is not a certified IAB TCF CMP. | **BLOCKER** | Publish Google Privacy & messaging European regulations message (or another Google-certified web CMP), enable TCF v2.3 and three choices, then verify the live message with `?fc=alwaysshow&fctype=gdpr`. |
-| No competing consent UI | Code now supports `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true`, which disables the custom ad/analytics banner only after the certified CMP is verified. Default remains false. | **BLOCKER until production flag + CMP match** | Screenshots and TC string from accept, reject and manage-options flows; confirm only one ad-consent UI. |
+| Certified consent for EEA/UK/Switzerland | Owner evidence dated 2026-07-21 shows the Google Privacy & messaging European-regulations message is published for the domain, but Google had not delivered its bundle while Sites was “getting ready”. | **BLOCKER: live regional evidence** | From an EEA/UK/Swiss clean session, capture `__tcfapi`, a TC string, three choices and accept/reject request differences. |
+| No competing consent UI | `NEXT_PUBLIC_GOOGLE_CMP_ENABLED=true` suppresses the custom banner. A Turkey DOM check found no competing surface. Production validation now rejects a monetized build unless this flag and the full public stack are valid. | **Repository control complete; regional smoke pending** | Confirm exactly one consent UI when Google delivers the message. |
 | Consent revocation | Google’s message should add its required “Privacy and cookie settings” revocation entry. | **BLOCKER / account-side** | Reopen the message from the live footer/privacy control and change a prior decision. |
 | Site/account connection | Publisher meta and AdSense loader support exist; repository cannot read the account. | **BLOCKER / account-side** | AdSense Sites shows the exact domain connected and “Ready”; no connection issue. |
 | `ads.txt` authorization | `/ads.txt` is generated from the configured publisher id and returns 204 when unconfigured. | **BLOCKER / production/account-side** | Live root returns the exact AdSense-provided line and Sites shows ads.txt “Authorized”. |
@@ -41,6 +42,10 @@ submitting an unfinished site does not replace fixing the underlying issue.
   data explanation. It no longer points at an unverified `privacy@` mailbox.
 - A build-time CMP flag is separate from the publisher id, preventing “AdSense
   configured” from being mistaken for “certified CMP verified”.
+- `scripts/validate-build-env.sh` makes production fail closed when the release
+  requires monetization but the publisher id, CMP flag, GA or Yandex id is blank
+  or malformed. An explicitly ad-free build remains available through
+  `REQUIRE_MONETIZATION_STACK=false`.
 - Search/experiment systems prohibit fabricated production results; current RPM
   and revenue remain unavailable rather than recorded as zero.
 

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
 import { BRAND_DETAILS } from "../src/lib/brand-detail";
@@ -1029,6 +1030,39 @@ test("ad loader and ad units are gated on the certified CMP", () => {
   assert.match(privacy, /googleCmpEnabled \? \(/, "privacy copy must follow the deployed CMP state");
   assert.match(privacy, /Advertising is not currently enabled/, "the pre-CMP branch must say so plainly");
   assert.match(privacy, /reopen it at any time/, "the deployed branch must describe consent revocation");
+});
+
+test("production build config fails closed when the CMP stack is incomplete", () => {
+  const script = "scripts/validate-build-env.sh";
+  const valid = {
+    NEXT_PUBLIC_SITE_URL: "https://cosmeticsbatch.com",
+    REQUIRE_MONETIZATION_STACK: "true",
+    NEXT_PUBLIC_ADSENSE_CLIENT: "ca-pub-1234567890123456",
+    NEXT_PUBLIC_GOOGLE_CMP_ENABLED: "true",
+    NEXT_PUBLIC_GA_ID: "G-ABC123",
+    NEXT_PUBLIC_YM_ID: "123456",
+  };
+  assert.equal(spawnSync("bash", [script], { env: { ...process.env, ...valid } }).status, 0);
+  for (const [key, value] of [
+    ["NEXT_PUBLIC_ADSENSE_CLIENT", ""],
+    ["NEXT_PUBLIC_GOOGLE_CMP_ENABLED", "false"],
+    ["NEXT_PUBLIC_GA_ID", ""],
+    ["NEXT_PUBLIC_YM_ID", "not-a-number"],
+  ] as const) {
+    const result = spawnSync("bash", [script], {
+      env: { ...process.env, ...valid, [key]: value },
+    });
+    assert.notEqual(result.status, 0, `${key} must fail a monetized production build`);
+  }
+  const adFree = spawnSync("bash", [script], {
+    env: {
+      ...process.env,
+      NEXT_PUBLIC_SITE_URL: "https://cosmeticsbatch.com",
+      REQUIRE_MONETIZATION_STACK: "false",
+      NEXT_PUBLIC_GOOGLE_CMP_ENABLED: "false",
+    },
+  });
+  assert.equal(adFree.status, 0, "an explicitly ad-free build remains supported");
 });
 
 /**

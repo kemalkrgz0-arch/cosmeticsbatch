@@ -1,7 +1,7 @@
 # CosmeticsBatch project status
 
-Last updated: 2026-07-19
-Current version: **1.4.0**
+Last updated: 2026-07-22
+Current version: **1.4.1**
 Current phase: **Phase 3 in progress — primary UX, accessibility and SEO correction**
 
 This is the shared handoff document for maintainers and agents. Read it before
@@ -122,8 +122,9 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
-- `ADSENSE-APPROVAL-016`; owner: **Claude from 2026-07-20** (handed over by the
-  owner; previously primary Codex agent); state: `In progress`;
+- `ADSENSE-APPROVAL-016`; owner: **primary Codex agent from 2026-07-22**
+  (explicitly reassigned by the owner with “CMP probleminden başlayarak hepsini
+  çözelim”; handed over from Claude); state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `c681ee5`; starting
   version `1.3.0`. Scope: official-Google-only AdSense acceptance research,
   repository/live readiness matrix, consent/CMP switch controls, privacy
@@ -365,6 +366,103 @@ decision is recorded here. Version notes do not override this section silently.
   visible on the three-option layout, and ad requests differing between accept
   and reject. A check from Turkey cannot show any of this, which is the same
   measurement error corrected further down this file.
+  Handoff/adoption (`In progress`, 2026-07-22 08:03:18 +03): primary Codex
+  adopted the existing claim at starting commit `53c3be4`. Intended first scope:
+  `.github/workflows/deploy.yml`, `scripts/deploy.sh`, `.env.build.example`,
+  `src/lib/ads.ts`, CMP/AdSense regression tests, `docs/ADSENSE_READINESS.md` and
+  this status file. Acceptance: a production build must fail closed when the
+  release declares advertising/CMP enabled but any required public build value
+  is blank or malformed; the same validator must be locally testable without
+  secrets; the runbook must distinguish site-approval delivery from repository
+  behavior; focused and repository-wide checks must pass. Existing external
+  acceptance criteria remain: live EEA/UK/Swiss evidence for `__tcfapi`, TC
+  string, reject/manage/reopen behavior and request differences, plus account
+  evidence for Sites, ads.txt and Policy Center. Those cannot be marked complete
+  from a Turkish/local session. No push, account mutation or deployment is
+  authorized by this implementation request.
+  CMP build-config correction (`Completed locally`, 2026-07-22): added the
+  reusable `scripts/validate-build-env.sh` gate and wired it into `deploy.sh`.
+  A monetized production release now fails before Docker build unless the site
+  origin, 16-digit `ca-pub` id, explicit CMP=true flag, GA4 id and numeric
+  Yandex id are all present and well formed. `REQUIRE_MONETIZATION_STACK=false`
+  preserves a deliberate ad-free release rather than conflating it with a
+  truncated environment file. `.env.build.example` now represents the
+  published account-side CMP state, and the readiness matrix distinguishes
+  repository readiness from Google site-review delivery. Acceptance evidence:
+  `bash -n deploy.sh scripts/validate-build-env.sh` passed; valid-stack and
+  fail-closed validator probes passed; scoped ESLint passed; the two focused
+  CMP/loader regression tests passed. Changed files: `deploy.sh`,
+  `scripts/validate-build-env.sh`, `.env.build.example`,
+  `scripts/quality-regression.test.ts`, `docs/ADSENSE_READINESS.md` and this
+  status file. Remaining external blocker: an EEA/UK/Swiss live session and
+  account review state are still required; no local code can manufacture a TC
+  string that Google has not delivered.
+  Live read-only smoke (`Completed`, 2026-07-22 08:12 +03): production home
+  contains `adsbygoogle.js?client=ca-pub-6300134697173168` and the matching
+  `google-adsense-account` meta; `/ads.txt` returns HTTP 200 with the matching
+  authorized publisher line. This closes the repository/production presence
+  portion only. It does not prove Google Sites approval or regional CMP delivery.
+  Publication authorization (`In progress`, 2026-07-22): the owner explicitly
+  said “şimdilik bunu deploy edelim”, authorizing commit, push and the manual
+  production workflow for the accumulated `1.4.1` CMP/release-regression group.
+  This does not mark `FAILURE-COPY-I18N-023` complete; no translation-catalog
+  edits from that claimed follow-up are present in this release. Release
+  acceptance: full lint, TypeScript, 79/79 quality/operational gate, production
+  build, workflow candidate/switch smoke and post-deploy live checks must pass.
+  Pre-deploy gate (`Completed locally`, 2026-07-22): repository-wide ESLint and
+  `tsc --noEmit` passed; `npm run test:quality` passed 79/79 plus search evidence,
+  experiments, content-freshness and evidence-inventory validators; shell syntax
+  and `git diff --check` passed; `NEXT_TELEMETRY_DISABLED=1
+  ./node_modules/.bin/next build` compiled cleanly and generated 267/267 pages.
+  The evidence validator still truthfully reports 39 assets requiring provenance
+  audit; that pre-existing external/editorial blocker is not hidden by this
+  technical release.
+
+- `RELEASE-REGRESSION-022`; owner: primary Codex agent; severity: `P1`; state:
+  `Completed`; discovered/claimed 2026-07-22 08:12 +03; starting commit
+  `53c3be4`. Evidence: `npm run test:quality` ran 78 tests and failed two: the
+  registered decoder/fixture inventories disagree about `jean-paul-gaultier`,
+  and the L'Oréal malformed-shape assertion expects a recognized result that the
+  current decoder does not return. Scope: decoder registry/fixtures and the two
+  focused regression assertions, plus this status file. Acceptance: determine
+  expected behavior from documented decoder contracts and evidence, correct
+  implementation or stale tests without broadening a decoder, pass focused
+  tests and the repository-wide quality gate. These failures block release
+  completion even if unrelated to the CMP refactor.
+  Newly unmasked evidence before correction: after fixing the inventory mismatch
+  and stale L'Oréal expectation, the same focused suite reached the fixture loop
+  and showed `interparfums` code `08J38J169` no longer returns the historical
+  guessed date. The decoder contract now intentionally recognises long-form
+  codes without dating them, so treating that sample as an exact-date fixture is
+  stale and would pressure the test toward an unsupported decoder broadening.
+  Related P1 copy finding recorded before edit: the Inter Parfums decoder
+  explanation and section header still present long-form `08J38J169` as a
+  verified 2019 date even though the implementation and later evidence now
+  classify that whole long form as recognized-but-undated. A method explanation
+  could therefore contradict the safe result. Acceptance expands to remove that
+  stale claim while retaining the separately supported short `J169` form.
+  Completion evidence: added the missing dated Puig-era Jean Paul Gaultier
+  fixture; updated the stale L'Oréal assertion to require recognized-without-date;
+  replaced the unsafe Inter Parfums long-code fixture with supported short form
+  `J169`; and removed the contradictory long-form dating claim from the decoder
+  explanation. No decoder was broadened. Focused decoder suite passed 25/25,
+  scoped ESLint passed, TypeScript passed after the CMP test environment typing
+  correction, `git diff --check` passed, and `npm run test:quality` passed 79/79
+  plus all four operational validators. Changed files:
+  `scripts/decoder-regression.test.ts`, `src/lib/decoder/decoders.ts`, CMP test
+  typing in `scripts/quality-regression.test.ts`, and this status file.
+
+- `FAILURE-COPY-I18N-023`; owner: primary Codex agent; severity: `P1`; state:
+  `In progress`; discovered earlier and adopted 2026-07-22 08:20 +03; starting
+  commit `53c3be4`. Evidence: `resultFailure` was moved into message catalogs in
+  the latest commit, but only `en` and `tr` define the namespace; all other 17
+  active locales therefore inherit English at the most important failure point.
+  Scope: `messages/{ar,da,de,es,fr,id,it,ja,ko,nl,pl,pt,ru,sv,vi,yue,zh}.json`,
+  translation parity regression and this status file. Acceptance: every active
+  locale owns every `resultFailure` leaf with unchanged interpolation variables;
+  no English catalog fallback is needed at runtime; JSON, parity, ESLint,
+  TypeScript and full quality checks pass. Translation naturalness remains
+  `needs verification` until native review and will not be described otherwise.
 
 - `RELEASE-HARDENING-015`; owner: primary Codex agent; state: `In progress`;
   claimed 2026-07-19 Europe/Istanbul; starting commit `fa054ac`; starting

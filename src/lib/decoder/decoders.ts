@@ -773,8 +773,7 @@ const creed: Decoder = {
 /*  & Arpels, Boucheron, Karl Lagerfeld, Kate Spade, Ferragamo, Moncler,       */
 /*  Guess, Abercrombie, Dunhill. The first letter is the production year (an    */
 /*  annual cycle skipping I and O: J = 2019, K = 2020 … R = 2026); the last     */
-/*  three digits are the day of that year. Verified: 08J38J169 = day 169 of     */
-/*  2019 = 18 June 2019.                                                        */
+/*  three digits are the day of that year. Example: J169 = day 169 of 2019.     */
 /* -------------------------------------------------------------------------- */
 
 // A = 2011 … J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024,
@@ -796,7 +795,7 @@ const interparfums: Decoder = {
   id: "interparfums",
   label: "Inter Parfums year letter + Julian day",
   explanation:
-    "Inter Parfums fragrances (Montblanc, Jimmy Choo, Coach, Van Cleef & Arpels, Boucheron, Karl Lagerfeld and others) use a code whose first letter is the production year — an annual cycle that skips I and O, so J = 2019, K = 2020, L = 2021, M = 2022, N = 2023, P = 2024, Q = 2025 and R = 2026 — and whose last three digits are the day of that year. For example, 08J38J169 is the 169th day of 2019, i.e. 18 June 2019.",
+    "Some Inter Parfums fragrances use a short code whose first letter is the production year — an annual cycle that skips I and O — and whose last three digits are the day of that year. Current bottles also carry a longer format that we can recognize but do not yet date, because the positions in that code have not been established reliably.",
   decode(code, ctx): DecodeAttempt | null {
     const c = clean(code);
 
