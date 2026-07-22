@@ -81,10 +81,9 @@ decision is recorded here. Version notes do not override this section silently.
 
 - Production branch: `main`; deployment is triggered by GitHub Actions and
   rebuilds/restarts the VPS container over SSH.
-- Current production baseline: commit `a64f2b9`; GitHub Actions deploy run
-  `29663601031` completed successfully. Production package/document version is
-  `1.0.1`; repository HEAD contains the undeployed privacy patch and the current
-  accumulated local working version is `1.1.0`.
+- Current production baseline: commit `6f98217`; GitHub Actions deploy run
+  `29893391221` completed successfully on 2026-07-22. Production and repository
+  package/document version is `1.4.1`.
 - Framework: Next.js 16 App Router, React 19, TypeScript and `next-intl` with 19
   active locale routes. English is prefix-free; other locales use `/{locale}`.
 - Public indexing policy: the owner explicitly chose indexability for all public
@@ -417,6 +416,19 @@ decision is recorded here. Version notes do not override this section silently.
   The evidence validator still truthfully reports 39 assets requiring provenance
   audit; that pre-existing external/editorial blocker is not hidden by this
   technical release.
+  Production deployment (`Completed`, run `29893391221`, commit `6f98217`,
+  2026-07-22): `main` push included the previously local `53c3be4` failure-copy
+  refactor and the verified `1.4.1` release commit. The VPS validation reported
+  `build config: valid (true monetization stack)`, Docker generated 267/267
+  pages, the release candidate started, route-level switch smoke passed and the
+  workflow completed in 5m37s. Post-deploy live checks returned 200 for `/`,
+  `/check`, `/privacy` and `/ads.txt`; ads.txt contains the expected publisher
+  authorization, English home contains the matching publisher meta and
+  `adsbygoogle.js`, while Turkish Vichy contains no ad loader. `/review` retains
+  its application redirect boundary. Remaining production dependency:
+  EEA/UK/Swiss browser evidence for the Google-delivered CMP and account-side
+  Sites/Policy Center state. `FAILURE-COPY-I18N-023` remains `In progress` and
+  is not falsely closed by this deployment.
 
 - `RELEASE-REGRESSION-022`; owner: primary Codex agent; severity: `P1`; state:
   `Completed`; discovered/claimed 2026-07-22 08:12 +03; starting commit
