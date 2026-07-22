@@ -120,6 +120,20 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
+- `RELEASE-1.4.5-040`; owner: primary Codex agent; severity: `P1`; state:
+  `In progress`; claimed 2026-07-22 Europe/Istanbul at starting commit
+  `74f525f`. The owner explicitly authorized publication with “sen deployu
+  yap”. Scope: publish the verified `1.4.5` product-specific PAO guidance,
+  anonymous packaging-evidence contribution flow and sourced Eucerin article
+  recovery in commits `ad45443` and `74f525f`. Acceptance: record this release
+  boundary, recheck the clean diff/history, push `main`, run the manual
+  production workflow, require candidate health/switch success, then verify live
+  core routes, successful PAO output, Turkish Eucerin article results for
+  `66883.000.AE.03` and `69767.000.AE.11`, absence of an email field in the
+  anonymous form, unknown-reference fallback, privacy copy and representative
+  mobile/RTL rendering. A successful workflow alone is insufficient; account,
+  native-language and field-performance dependencies remain explicit.
+
 - `EUCERIN-PRODUCT-REFERENCE-039`; owner: primary Codex agent; severity: `P1`
   correctness/UX; state: `Completed locally; publication pending`; claimed 2026-07-22
   Europe/Istanbul at starting commit `ad45443`. Evidence: users repeatedly enter
