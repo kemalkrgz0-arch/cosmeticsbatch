@@ -618,13 +618,13 @@
       "barcode": {
         "title": "To wygląda jak detaliczny kod kreskowy",
         "body": "{code} wygląda jak EAN, UPC lub GTIN dla {brand}, a nie kod partii produkcyjnej.",
-        "detail": "Nagraliśmy to za pomocą etykiety z kodem kreskowym. Poszukaj krótszego kodu wytłoczonego, wytłoczonego lub wykonanego metodą atramentową w innym miejscu produktu lub pudełka.",
+        "detail": "Zarejestrowaliśmy ten kod jako kod kreskowy. Poszukaj na produkcie lub pudełku krótszego kodu naniesionego stemplem, wytłoczonego albo wydrukowanego atramentowo.",
         "retry": "Sprawdź inny kod",
         "contact": "Wyślij zdjęcia opakowań",
         "email": "Skontaktuj się z nami e-mailem"
       },
       "invalid-format": {
-        "detail": "Porównaj każdy znak z krótkim znaczkiem, potwierdź wybraną markę i upewnij się, że nie wpisałeś kodu kreskowego, adresu lub referencji marketingowej. Spacje i znaki interpunkcyjne są już ignorowane.",
+        "detail": "Porównaj każdy znak z krótkim nadrukiem, potwierdź wybraną markę i upewnij się, że nie wpisałeś kodu kreskowego, adresu ani oznaczenia marketingowego. Spacje i znaki interpunkcyjne są automatycznie pomijane.",
         "body": "{code} nie jest w formacie, który moglibyśmy sprawdzić pod kątem {brand}.",
         "title": "Sprawdź format kodu",
         "retry": "Popraw kod",
@@ -633,7 +633,7 @@
       },
       "unresolved": {
         "title": "Nie mogliśmy jeszcze rozszyfrować tego kodu",
-        "body": "{code} nie został rozpoznany dla {brand} . Nie oznacza to, że produkt lub kod jest nieprawidłowy.",
+        "body": "Kod {code} nie został rozpoznany dla marki {brand}. Nie oznacza to, że produkt lub kod jest nieprawidłowy.",
         "detail": "Dziękujemy za zgłoszenie. Dodaliśmy kod do kolejki recenzji marki. Wyraźne zdjęcie kodu i opakowania pomoże nam zbadać format.",
         "retry": "Sprawdź ponownie markę i kod",
         "contact": "Wyślij zdjęcia kodu",
@@ -641,8 +641,8 @@
       },
       "recognized": {
         "title": "Rozpoznajemy ten kod, ale nie możemy jeszcze go datować",
-        "body": "{code} pasuje do znanego formatu kodu wsadowego {brand}, ale nie możemy jeszcze z niego wiarygodnie wyznaczyć daty.",
-        "detail": "Wolelibyśmy powiedzieć Ci to, niż zgadywać datę. Zdjęcie przedstawiające ten kod obok dowolnej daty wydrukowanej na opakowaniu jest dokładnie tym, czego potrzebujemy, aby zakończyć format.",
+        "body": "{code} pasuje do znanego formatu kodu partii {brand}, ale nie możemy jeszcze na jego podstawie wiarygodnie określić daty.",
+        "detail": "Wolimy przekazać tę informację, niż zgadywać datę. Zdjęcie pokazujące ten kod wraz z datą wydrukowaną na opakowaniu pomoże nam dalej badać ten format.",
         "retry": "Sprawdź inny kod",
         "contact": "Wyślij zdjęcia opakowań",
         "email": "Skontaktuj się z nami e-mailem"

@@ -616,7 +616,7 @@
   "resultFailure": {
     "reason": {
       "barcode": {
-        "detail": "Chúng tôi đã ghi lại nó bằng nhãn mã vạch. Hãy tìm mã được đóng dấu, dập nổi hoặc in phun ngắn hơn ở nơi khác trên sản phẩm hoặc hộp.",
+        "detail": "Chúng tôi đã ghi nhận đây là mã vạch. Hãy tìm một mã ngắn hơn được đóng dấu, dập nổi hoặc in phun ở vị trí khác trên sản phẩm hoặc hộp.",
         "retry": "Kiểm tra mã khác",
         "body": "{code} trông giống như EAN, UPC hoặc GTIN cho {brand} chứ không phải mã lô sản xuất.",
         "contact": "Gửi ảnh bao bì",
@@ -624,7 +624,7 @@
         "email": "Liên hệ với chúng tôi qua email"
       },
       "invalid-format": {
-        "body": "{code} không ở định dạng mà chúng tôi có thể kiểm tra {brand}.",
+        "body": "{code} không ở định dạng mà chúng tôi có thể kiểm tra cho {brand}.",
         "detail": "So sánh mọi ký tự với tem ngắn, xác nhận nhãn hiệu đã chọn và đảm bảo bạn không nhập mã vạch, địa chỉ hoặc tài liệu tham khảo tiếp thị. Dấu cách và dấu câu đã bị bỏ qua.",
         "retry": "Sửa mã",
         "contact": "Gửi ảnh bao bì",
@@ -641,7 +641,7 @@
       },
       "recognized": {
         "title": "Chúng tôi nhận ra mã này nhưng chưa thể ghi ngày tháng cho nó",
-        "detail": "Chúng tôi thà nói với bạn điều này hơn là đoán ngày tháng. Một bức ảnh hiển thị mã này bên cạnh bất kỳ ngày in nào trên bao bì chính xác là những gì chúng ta cần để hoàn tất việc định dạng.",
+        "detail": "Chúng tôi muốn nói rõ điều này thay vì đoán ngày. Ảnh chụp rõ mã này cùng với ngày được in trên bao bì sẽ giúp chúng tôi tiếp tục nghiên cứu định dạng.",
         "body": "{code} khớp với định dạng mã lô {brand} đã biết nhưng chúng tôi chưa thể lấy được ngày tháng từ định dạng đó một cách đáng tin cậy.",
         "retry": "Kiểm tra mã khác",
         "contact": "Gửi ảnh bao bì",

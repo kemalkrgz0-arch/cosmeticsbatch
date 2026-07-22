@@ -8,7 +8,8 @@ import { SectionHeading } from "@/components/ui/section-heading";
  * "Where is the batch code?" — example product photos with the code already
  * highlighted, so users learn to spot the stamp on different pack types. Each
  * card links into the "how to find your batch code" guide (SEO + internal
- * linking + traffic). Photos live in /public/where/<key>.jpg.
+ * linking + traffic). The homepage uses pre-sized AVIF derivatives so these
+ * below-fold cards do not ask the live image optimizer for a 640px JPEG.
  */
 const GUIDE = "/guides/how-to-find-your-batch-code";
 const ITEMS = [
@@ -32,10 +33,10 @@ export function WhereIsCode() {
           >
             <div className="relative flex aspect-[4/3] items-center justify-center bg-bg-subtle p-3">
               <Image
-                src={`/where/${key}.jpg`}
+                src={`/where/${key}.avif`}
                 alt={t(`alt.${key}`)}
                 fill
-                sizes="(max-width: 639px) 78vw, 33vw"
+                unoptimized
                 loading="lazy"
                 className="object-contain p-3"
               />

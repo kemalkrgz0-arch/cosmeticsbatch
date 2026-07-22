@@ -174,7 +174,7 @@
     "months": "{n} mois",
     "percentLeft": "{n}% restant",
     "invalidTitle": "Nous n'avons pas pu lire ce code",
-    "invalidBody": "“{code}” doesn’t match {brand}’s batch-code format. Vérifiez que vous l'avez tapé exactement comme imprimé sur l'emballage (lettres et chiffres uniquement, sans espaces) et qu'il s'agit bien du code de lot, et non du code-barres ou d'une référence de prix/marketing.",
+    "invalidBody": "« {code} » ne correspond pas au format de code de lot de {brand}. Vérifiez que vous l'avez saisi exactement comme il est imprimé sur l'emballage — uniquement des lettres et des chiffres, sans espaces — et qu'il s'agit bien du code de lot, et non du code-barres ou d'une référence de prix ou de marketing.",
     "share": "Partager le résultat",
     "shareCopied": "Copié!",
     "shareLifeLeft": "{n}% de vie restante",
@@ -621,18 +621,18 @@
         "contact": "Envoyer des photos d'emballage",
         "email": "Contactez-nous par email",
         "retry": "Vérifiez un autre code",
-        "detail": "Nous l'avons enregistré avec une étiquette à code-barres. Recherchez un code plus court estampé, en relief ou imprimé à jet d'encre ailleurs sur le produit ou la boîte."
+        "detail": "Nous avons enregistré ce code comme un code-barres. Recherchez ailleurs sur le produit ou la boîte un code plus court, estampé, gravé ou imprimé au jet d'encre."
       },
       "invalid-format": {
         "title": "Veuillez vérifier le format du code",
-        "body": "{code} n'est pas dans un format que nous pouvons vérifier pour {brand} .",
+        "body": "Le format de {code} ne fait pas partie de ceux que nous pouvons actuellement vérifier pour {brand}.",
         "detail": "Comparez chaque caractère avec le tampon court, confirmez la marque sélectionnée et assurez-vous de ne pas avoir saisi de code-barres, d'adresse ou de référence marketing. Les espaces et la ponctuation sont déjà ignorés.",
         "retry": "Corrigez le code",
         "email": "Contactez-nous par email",
         "contact": "Envoyer des photos d'emballage"
       },
       "unresolved": {
-        "body": "{code} n'a pas été reconnu pour {brand} . Cela ne signifie pas que le produit ou le code est invalide.",
+        "body": "Nous n'avons pas reconnu {code} pour {brand}. Cela ne signifie pas que le produit ou le code est invalide.",
         "title": "Nous n'avons pas encore pu décoder ce code",
         "detail": "Merci de l'avoir signalé. Nous avons ajouté le code à la file d'attente d'évaluation de la marque. Une photo claire du code et de l'emballage nous aidera à étudier le format.",
         "email": "Contactez-nous par email",
@@ -641,7 +641,7 @@
       },
       "recognized": {
         "title": "Nous reconnaissons ce code mais ne pouvons pas encore le dater",
-        "detail": "Nous préférons vous le dire plutôt que de deviner une date. Une photo montrant ce code à côté de toute date imprimée sur l'emballage est exactement ce dont nous avons besoin pour terminer le format.",
+        "detail": "Nous préférons vous l'indiquer plutôt que de deviner une date. Une photo montrant ce code et toute date imprimée sur l'emballage nous aidera à poursuivre l'étude de ce format.",
         "body": "{code} correspond à un format de code batch {brand} connu, mais nous ne pouvons pas encore en déduire de manière fiable une date.",
         "retry": "Vérifiez un autre code",
         "contact": "Envoyer des photos d'emballage",

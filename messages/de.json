@@ -617,7 +617,7 @@
     "reason": {
       "barcode": {
         "title": "Das sieht aus wie ein Einzelhandels-Barcode",
-        "detail": "Wir haben es mit einem Barcode-Etikett aufgezeichnet. Suchen Sie an anderer Stelle auf dem Produkt oder der Verpackung nach einem kürzeren gestanzten, geprägten oder tintenstrahlgedruckten Code.",
+        "detail": "Wir haben diesen Code als Barcode erfasst. Suchen Sie an anderer Stelle auf dem Produkt oder der Verpackung nach einem kürzeren gestempelten, geprägten oder per Tintenstrahl gedruckten Code.",
         "body": "{code} sieht aus wie eine EAN, UPC oder GTIN für {brand} und nicht wie ein Herstellungschargencode.",
         "retry": "Überprüfen Sie einen anderen Code",
         "email": "Kontaktieren Sie uns per E-Mail",
@@ -644,7 +644,7 @@
         "body": "{code} stimmt mit einem bekannten {brand}-Batchcodeformat überein, wir können jedoch noch kein zuverlässiges Datum daraus ableiten.",
         "contact": "Senden Sie Verpackungsfotos",
         "email": "Kontaktieren Sie uns per E-Mail",
-        "detail": "Das sagen wir Ihnen lieber, als ein Datum zu erraten. Ein Foto, auf dem dieser Code neben einem aufgedruckten Datum auf der Verpackung zu sehen ist, ist genau das, was wir brauchen, um das Format fertigzustellen.",
+        "detail": "Das sagen wir Ihnen lieber, als ein Datum zu erraten. Ein Foto, auf dem dieser Code zusammen mit einem aufgedruckten Datum auf der Verpackung zu sehen ist, hilft uns, das Format weiter zu untersuchen.",
         "retry": "Überprüfen Sie einen anderen Code"
       }
     },

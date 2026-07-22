@@ -616,16 +616,16 @@
   "resultFailure": {
     "reason": {
       "barcode": {
-        "retry": "comprobar otro codigo",
+        "retry": "Comprobar otro código",
         "body": "{code} parece un EAN, UPC o GTIN para {brand}, no un código de lote de fabricación.",
         "contact": "Enviar fotos de embalaje",
         "title": "Esto parece un código de barras de venta minorista.",
-        "detail": "Lo registramos con una etiqueta de código de barras. Busque un código más corto estampado, en relieve o de inyección de tinta en otra parte del producto o de la caja.",
+        "detail": "Lo registramos como código de barras. Busque en otra parte del producto o de la caja un código más corto, estampado, en relieve o impreso por inyección de tinta.",
         "email": "Contáctenos por correo electrónico"
       },
       "invalid-format": {
         "title": "Por favor verifique el formato del código",
-        "body": "{code} no está en un formato que podamos verificar {brand}.",
+        "body": "{code} no tiene un formato que podamos verificar para {brand}.",
         "retry": "Corregir el código",
         "detail": "Compare cada carácter con el sello corto, confirme la marca seleccionada y asegúrese de no ingresar un código de barras, dirección o referencia comercial. Los espacios y la puntuación ya se ignoran.",
         "contact": "Enviar fotos de embalaje",
@@ -640,12 +640,12 @@
         "body": "{code} no fue reconocido por {brand}. Esto no significa que el producto o el código no sean válidos."
       },
       "recognized": {
-        "retry": "comprobar otro codigo",
+        "retry": "Comprobar otro código",
         "body": "{code} coincide con un formato de código por lotes {brand} conocido, pero todavía no podemos derivar una fecha de manera confiable a partir de él.",
         "email": "Contáctenos por correo electrónico",
         "title": "Reconocemos este código pero aún no podemos fecharlo.",
         "contact": "Enviar fotos de embalaje",
-        "detail": "Preferimos contarte esto que adivinar una fecha. Una foto que muestre este código junto a cualquier fecha impresa en el paquete es exactamente lo que necesitamos para finalizar el formato."
+        "detail": "Preferimos decírselo antes que adivinar una fecha. Una foto que muestre este código junto con una fecha impresa en el envase nos ayudará a seguir estudiando el formato."
       }
     },
     "hint": {

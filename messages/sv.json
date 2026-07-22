@@ -619,7 +619,7 @@
         "title": "Det här ser ut som en streckkod för detaljhandeln",
         "body": "{code} ser ut som en EAN, UPC eller GTIN för {brand}, inte en tillverkningssatskod.",
         "retry": "Kontrollera en annan kod",
-        "detail": "Vi spelade in det med en streckkodsetikett. Leta efter en kortare stämplad, präglad eller bläckstrålekod någon annanstans på produkten eller kartongen.",
+        "detail": "Vi registrerade koden som en streckkod. Leta efter en kortare stämplad, präglad eller bläckstråletryckt kod någon annanstans på produkten eller kartongen.",
         "contact": "Skicka förpackningsbilder",
         "email": "Kontakta oss via e-post"
       },
@@ -642,7 +642,7 @@
       "recognized": {
         "title": "Vi känner igen den här koden men kan inte datera den ännu",
         "body": "{code} matchar ett känt {brand} batch-kodformat, men vi kan inte tillförlitligt härleda ett datum från det ännu.",
-        "detail": "Vi berättar hellre detta än att gissa ett datum. Ett foto som visar denna kod bredvid eventuellt tryckt datum på förpackningen är precis vad vi behöver för att avsluta formatet.",
+        "detail": "Vi berättar hellre detta än att gissa ett datum. Ett foto som visar koden tillsammans med ett tryckt datum på förpackningen hjälper oss att fortsätta undersöka formatet.",
         "retry": "Kontrollera en annan kod",
         "contact": "Skicka förpackningsbilder",
         "email": "Kontakta oss via e-post"

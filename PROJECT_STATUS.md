@@ -120,6 +120,68 @@ decision is recorded here. Version notes do not override this section silently.
 
 ## Active findings / next dependency-ordered work
 
+- `PAGESPEED-FOLLOWUP-035`; owner: primary Codex agent; severity: `P1`; state:
+  `Completed locally; publication pending`; claimed 2026-07-22
+  Europe/Istanbul at starting commit
+  `c405a7c`. Scope: the newly supplied mobile PageSpeed findings for the three
+  homepage “where to find the code” images, first-party critical CSS/JavaScript,
+  browser-target output and focused regression coverage; excludes Google Ads
+  and Funding Choices code that cannot safely be removed while CMP/AdSense
+  verification is open. Acceptance: identify measured first-party causes,
+  deliver correctly sized modern images without visual/content loss, reduce
+  avoidable first-party transfer or blocking work where repository-controlled,
+  add testable regressions, and pass scoped checks plus the complete repository
+  gate/build. Fresh external PSI and field CWV remain `needs verification`.
+  Intended scope: `src/components/home/**`, homepage/static image assets,
+  framework/build configuration if evidence requires it, quality tests and this
+  status file. This work runs in parallel with `I18N-NATURALNESS-036`; scopes
+  must remain disjoint.
+  Completion (2026-07-22): the three below-fold homepage examples now use
+  visually checked, pre-sized 480px AVIF derivatives and bypass the failing live
+  image-optimizer path. Their combined source transfer falls from 282,868 bytes
+  of JPEG to 28,171 bytes of AVIF (90.0% reduction); the original JPGs remain
+  available to the detailed guide pages. A regression requires all three assets,
+  enforces a 20 KiB ceiling per derivative and prevents the homepage from
+  returning to the JPG/optimizer path. The supplied 13.1 KiB compressed CSS is
+  the required global stylesheet, the approximately 14 KiB legacy-JS warning is
+  emitted by the Next.js runtime, and most reported unused JavaScript belongs to
+  Google Ads/Funding Choices; none was removed or misrepresented as a safe
+  first-party saving. Scoped ESLint passed; `npm run test:quality` passed 82/82
+  plus all four operational validators; `tsc --noEmit`, `git diff --check` and
+  the production build passed with 267/267 pages. The first sandboxed build
+  attempt was blocked by Turbopack's helper-port restriction; the required
+  permitted rerun compiled successfully. Fresh production PSI/WebPageTest and
+  later CrUX remain `needs verification`; no commit, push or deployment yet.
+- `I18N-NATURALNESS-036`; owner: language-review subagent under primary Codex;
+  severity: `P2`; state: `Completed locally; native approval needs verification`;
+  claimed 2026-07-22 Europe/Istanbul at
+  starting commit `c405a7c`. Scope: editorial/naturalness review of the 17
+  machine-generated failure-copy catalogs (all active locales except the
+  previously authored English and Turkish source variants), with priority on
+  Arabic, Japanese, Korean, Simplified Chinese, Yue and Russian; related i18n
+  regression coverage only. Acceptance: preserve all keys/placeholders and the
+  cautious truthfulness policy, correct objectively awkward or mistranslated
+  wording found by review, pass catalog parity/quality checks, and explicitly
+  distinguish expert linguistic review from native-speaker approval. Native
+  approval remains `needs verification` unless supplied by a qualified human.
+  Intended scope: `messages/*.json`, translation-focused tests/docs and this
+  status file; no homepage/component/build configuration edits. This work runs
+  in parallel with `PAGESPEED-FOLLOWUP-035`; scopes must remain disjoint.
+  Completion (2026-07-22): all 17 machine-generated catalogs were reviewed and
+  80 targeted strings were corrected. Fixes include the remaining English
+  sentence in French; audio-recording mistranslations in Korean, Polish,
+  Swedish and Danish; program-code/Mandarin wording in Yue; Arabic, Japanese,
+  Chinese and Russian grammar/terminology; punctuation/preposition defects; and
+  the repeated misleading claim that one user photo would “complete” a decoder
+  format. The replacement wording says that a clear code/date photo helps the
+  team continue studying the format. Catalog keys and `{code}`/`{brand}`
+  placeholders remain identical. `npm run test:quality` passed 82/82 plus all
+  four operational validators (including key/placeholder parity), JSON parsing
+  and `git diff --check` passed, and the combined production build generated
+  267/267 pages. This is a structured editorial correction, not proof of
+  native-speaker approval; qualified human review of all 17 languages remains
+  `needs verification`. No commit, push or deployment yet.
+
 - `ADSENSE-APPROVAL-016`; owner: **primary Codex agent from 2026-07-22**
   (explicitly reassigned by the owner with “CMP probleminden başlayarak hepsini
   çözelim”; handed over from Claude); state: `In progress`;

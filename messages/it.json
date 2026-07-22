@@ -625,7 +625,7 @@
       },
       "invalid-format": {
         "title": "Si prega di verificare il formato del codice",
-        "body": "{code} non è in un formato che possiamo verificare {brand} .",
+        "body": "{code} non è in un formato che possiamo verificare per {brand}.",
         "detail": "Confronta ogni carattere con il timbro breve, conferma la marca selezionata e assicurati di non aver inserito un codice a barre, un indirizzo o un riferimento di marketing. Gli spazi e la punteggiatura sono già ignorati.",
         "retry": "Correggere il codice",
         "contact": "Invia foto dell'imballaggio",
@@ -633,8 +633,8 @@
       },
       "unresolved": {
         "title": "Non siamo ancora riusciti a decodificare questo codice",
-        "body": "{code} non è stato riconosciuto per {brand} . Ciò non significa che il prodotto o il codice non siano validi.",
-        "detail": "Grazie per averlo segnalato Abbiamo aggiunto il codice alla coda di revisione del marchio. Una foto chiara del codice e della confezione ci aiuterà a indagare sul formato.",
+        "body": "{code} non è stato riconosciuto per {brand}. Ciò non significa che il prodotto o il codice non siano validi.",
+        "detail": "Grazie per averlo segnalato. Abbiamo aggiunto il codice alla coda di revisione del marchio. Una foto chiara del codice e della confezione ci aiuterà a esaminare il formato.",
         "retry": "Controlla di nuovo la marca e il codice",
         "contact": "Invia foto del codice",
         "email": "Contattaci tramite e-mail"
@@ -642,7 +642,7 @@
       "recognized": {
         "title": "Riconosciamo questo codice ma non possiamo ancora datarlo",
         "body": "{code} corrisponde a un formato di codice batch {brand} noto, ma non possiamo ancora derivarne una data in modo affidabile.",
-        "detail": "Preferiamo dirtelo piuttosto che indovinare una data. Una foto che mostri questo codice accanto a qualsiasi data stampata sulla confezione è esattamente ciò di cui abbiamo bisogno per completare il formato.",
+        "detail": "Preferiamo dirtelo piuttosto che indovinare una data. Una foto che mostri questo codice insieme a una data stampata sulla confezione ci aiuterà a studiare ulteriormente il formato.",
         "retry": "Controlla un altro codice",
         "email": "Contattaci tramite e-mail",
         "contact": "Invia foto dell'imballaggio"

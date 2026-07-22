@@ -616,7 +616,7 @@
   "resultFailure": {
     "reason": {
       "barcode": {
-        "detail": "Vi optog det med en stregkodelabel. Se efter en kortere stemplet, præget eller inkjet-kode et andet sted på produktet eller æsken.",
+        "detail": "Vi registrerede koden som en stregkode. Se efter en kortere stemplet, præget eller inkjettrykt kode et andet sted på produktet eller æsken.",
         "title": "Dette ligner en detailstregkode",
         "body": "{code} ligner en EAN, UPC eller GTIN for {brand}, ikke en produktionsbatchkode.",
         "retry": "Tjek en anden kode",
@@ -641,7 +641,7 @@
       },
       "recognized": {
         "title": "Vi genkender denne kode, men kan ikke datere den endnu",
-        "detail": "Vi vil hellere fortælle dig dette end at gætte en dato. Et foto, der viser denne kode ved siden af ​​en hvilken som helst trykt dato på emballagen, er præcis, hvad vi skal bruge for at færdiggøre formatet.",
+        "detail": "Vi vil hellere fortælle dig dette end at gætte en dato. Et foto, der viser koden sammen med en trykt dato på emballagen, hjælper os med at undersøge formatet nærmere.",
         "body": "{code} matcher et kendt {brand} batch-kodeformat, men vi kan ikke pålideligt udlede en dato fra det endnu.",
         "retry": "Tjek en anden kode",
         "contact": "Send emballagebilleder",

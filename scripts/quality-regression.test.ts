@@ -1038,6 +1038,7 @@ test("the mobile LCP path stays immediate and PageSpeed activity stays quiet", (
   const header = readFileSync("src/components/layout/site-header.tsx", "utf8");
   const footer = readFileSync("src/components/layout/site-footer.tsx", "utf8");
   const features = readFileSync("src/components/home/feature-grid.tsx", "utf8");
+  const whereIsCode = readFileSync("src/components/home/where-is-code.tsx", "utf8");
   const config = readFileSync("next.config.ts", "utf8");
 
   assert.match(hero, /priority/);
@@ -1064,6 +1065,14 @@ test("the mobile LCP path stays immediate and PageSpeed activity stays quiet", (
     assert.doesNotMatch(chrome, /alt=\{site\.name\}/);
   }
   assert.ok(readFileSync("public/logo-64.webp").byteLength < 2_000);
+  for (const key of ["perfume", "tube", "lipstick"]) {
+    const asset = `public/where/${key}.avif`;
+    assert.ok(existsSync(asset), `${asset} must exist`);
+    assert.ok(readFileSync(asset).byteLength < 20_000, `${asset} must stay below 20 KiB`);
+  }
+  assert.match(whereIsCode, /src=\{`\/where\/\$\{key\}\.avif`\}/);
+  assert.match(whereIsCode, /unoptimized/, "pre-encoded card images must bypass live optimization");
+  assert.doesNotMatch(whereIsCode, /\/where\/\$\{key\}\.jpg/);
 });
 
 test("the live SEO audit ignores only reserved Cloudflare infrastructure links", () => {

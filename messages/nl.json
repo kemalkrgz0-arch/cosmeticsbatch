@@ -618,13 +618,13 @@
       "barcode": {
         "body": "{code} ziet eruit als een EAN, UPC of GTIN voor {brand}, geen productiebatchcode.",
         "title": "Dit lijkt op een streepjescode voor de detailhandel",
-        "detail": "We hebben het opgenomen met een barcodelabel. Zoek elders op het product of de doos naar een kortere gestempelde, reliëf- of inkjetcode.",
+        "detail": "We hebben deze code als barcode geregistreerd. Zoek elders op het product of de doos naar een kortere gestempelde, ingeperste of met inkjet aangebrachte code.",
         "contact": "Stuur verpakkingsfoto's",
         "retry": "Controleer een andere code",
         "email": "Neem contact met ons op via e-mail"
       },
       "invalid-format": {
-        "body": "{code} heeft geen formaat dat we kunnen controleren op {brand} .",
+        "body": "{code} heeft geen formaat dat we voor {brand} kunnen controleren.",
         "title": "Controleer het codeformaat",
         "detail": "Vergelijk elk teken met de korte stempel, bevestig het geselecteerde merk en zorg ervoor dat u geen streepjescode, adres of marketingreferentie heeft ingevoerd. Spaties en leestekens worden al genegeerd.",
         "contact": "Stuur verpakkingsfoto's",
@@ -642,7 +642,7 @@
       "recognized": {
         "body": "{code} komt overeen met een bekend {brand}-batchcodeformaat, maar we kunnen er nog niet op betrouwbare wijze een datum uit afleiden.",
         "title": "Wij herkennen deze code, maar kunnen deze nog niet dateren",
-        "detail": "Wij vertellen u dit liever dan een datum te raden. Een foto met deze code naast een eventuele afgedrukte datum op de verpakking is precies wat we nodig hebben om het formaat af te ronden.",
+        "detail": "Wij vertellen u dit liever dan een datum te raden. Een foto waarop deze code samen met een afgedrukte datum op de verpakking staat, helpt ons het formaat verder te onderzoeken.",
         "retry": "Controleer een andere code",
         "email": "Neem contact met ons op via e-mail",
         "contact": "Stuur verpakkingsfoto's"
